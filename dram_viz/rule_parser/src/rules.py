@@ -1153,6 +1153,18 @@ def should_include(options: dict, available_columns: set[str]) -> bool:
     return present <= available_columns and absent.isdisjoint(available_columns)
 
 
+def get_val_col(df):
+    if "coverage_percentage" in df.columns:
+        return "coverage_percentage"
+    elif "present" in df.columns:
+        return "present"
+    elif "value" in df.columns:
+        return "value"
+    raise AssertionError(
+        f"Rules parsing problem, can't determine check_col for dataframe rules: {df}. File github issue"
+    )
+
+
 def evaluate_rules(
     compiled: CompiledRules,
     samples: List[str],
@@ -1237,14 +1249,7 @@ def evaluate_cycles(
                 )
             out = out.with_columns(pl.lit(rn).alias(label_col))
             if anno_df is not None:
-                if "coverage_percentage" in out.columns:
-                    check_col = "coverage_percentage"
-                elif "present" in out.columns:
-                    check_col = "present"
-                else:
-                    raise AssertionError(
-                        "Rules parsing problem, can't determine check_col for mapping. File github issue"
-                    )
+                check_col = get_val_col(out)
 
                 out = (
                     out.join(

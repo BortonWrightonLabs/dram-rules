@@ -15,6 +15,7 @@ from pandas.api.types import is_numeric_dtype
 from panel_jstree import Tree
 
 from dram_viz.definitions import NO_TAXONOMY_RANKS, TAXONOMY_RANKS_REGEX
+from dram_viz.rule_parser.src.rules import get_val_col
 
 pn.extension("tabulator", "katex", template="bootstrap")
 
@@ -318,19 +319,9 @@ class Dashboard(pn.viewable.Viewer):
             if i != 0:
                 kw["y_axis_location"] = None
             if "presence/coverage" in c_mode:
-                if "coverage_percentage" in df.columns:
-                    c_col = "coverage_percentage"
-                    if self.min_coverage > 0:
-                        df.loc[
-                            df["coverage_percentage"] < self.min_coverage,
-                            "coverage_percentage",
-                        ] = 0
-                elif "present" in df.columns:
-                    c_col = "present"
-                elif "value" in df.columns:
-                    c_col = "value"
-                else:
-                    raise ValueError(f"No coverage column found in {group} dataframe")
+                c_col = get_val_col(df)
+                if c_col == "coverage_percentage" and self.min_coverage > 0:
+                    df.loc[df[c_col] < self.min_coverage, c_col] = 0
             elif "abundance" in c_mode:
                 c_col = c_mode
                 kw["c_max"] = df[c_col].max()

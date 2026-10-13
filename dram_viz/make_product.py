@@ -39,6 +39,7 @@ from dram_viz.rule_parser.src.rules import (
     build_present_map,
     evaluate_cycles,
     prepare_present_map_df,
+    get_val_col,
 )
 
 logger = logging.getLogger("dram.viz")
@@ -455,13 +456,13 @@ def main(
                 [d for key, d in dfs_dict.items() if key != "Meta"],
                 how="diagonal_relaxed",
             )
-            try:
-                df = df.select(["genome", pl.all().exclude("genome")])
-            except (
-                pl.exceptions.ColumnNotFoundError
-            ):  # not sure genome will always be what the df's "index" is.
-                pass
-            df.write_csv(output_dir / f"df_{df_type}.tsv", separator="\t")
+
+            val_col = get_val_col(df)
+            df.pivot(
+                on=["genome"],
+                values=val_col,
+                index=[col for col in df.columns if col not in [val_col, "genome"]],
+            ).write_csv(output_dir / f"df_{df_type}.tsv", separator="\t")
             logger.info(f"Saved dataframe to {output_dir / f'df_{df_type}.tsv'}")
 
     if save_needed_features:
