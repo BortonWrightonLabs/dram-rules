@@ -7,12 +7,15 @@ from typing import Optional
 import pandas as pd
 import panel as pn
 import param
+from bokeh.embed import file_html
+from bokeh.layouts import row
+from bokeh.models import Div
 from bokeh.palettes import BuGn, Cividis256
 from bokeh.plotting import figure
 from bokeh.resources import INLINE
 from bokeh.transform import factor_cmap, linear_cmap, log_cmap
 from pandas.api.types import is_numeric_dtype
-from panel_jstree import Tree
+from panel_material_ui import Tree
 
 from dram_viz.definitions import NO_TAXONOMY_RANKS, TAXONOMY_RANKS_REGEX
 from dram_viz.rule_parser.src.rules import get_val_col
@@ -175,7 +178,7 @@ class Dashboard(pn.viewable.Viewer):
     def __init__(
         self,
         dfs: dict[str, dict[str, pd.DataFrame]],
-        taxanomy_tree_data: Optional[pd.DataFrame] = None,
+        taxanomy_tree_data: Optional[list[dict]] = None,
         selected_tax_tree: Optional[list[str]] = None,
         output_dir: str | Path = None,
     ):
@@ -185,23 +188,21 @@ class Dashboard(pn.viewable.Viewer):
         self._output_dir = Path(output_dir) if output_dir else Path.cwd()
         self.plot_view = pn.Row()
         self.download_button = pn.widgets.Button(
-            name="Download Heatmap", button_type="primary"
+            label="Download Heatmap", color="primary"
         )
         self.download_button.on_click(self.download_heatmap)
 
-        self.redraw_button = pn.widgets.Button(name="Redraw", button_type="primary")
-        self.reset_button = pn.widgets.Button(
-            name="Reset Filters", button_type="warning"
-        )
+        self.redraw_button = pn.widgets.Button(label="Redraw", color="primary")
+        self.reset_button = pn.widgets.Button(label="Reset Filters", color="warning")
         self.reset_button.on_click(self.reset_filters)
 
         self.redraw_button.on_click(self.update_plot)
 
         self.tax_axis_filter = pn.widgets.Checkbox(
-            name="Show Taxonomy on Y Axis", value=False
+            label="Show Taxonomy on Y Axis", value=False
         )
         self.tax_axis_rank = pn.widgets.Select(
-            name="Taxonomy Label",
+            label="Taxonomy Label",
             options=list(TAXONOMY_RANKS_REGEX),
             visible=False,
             value="genus",
@@ -211,14 +212,33 @@ class Dashboard(pn.viewable.Viewer):
 
         sort_options = {k: [k] for k in self.dfs}
         self.taxonomy_filter = None
+        self._taxonomy_paths = {}
         if self.taxonomy_tree_data is not None:
-            self.taxonomy_filter = Tree(
-                data=self.taxonomy_tree_data, show_icons=False, cascade=True
-            )
 
-            # hack to make sure the taxonomy filter tree.value is set since it isn't set on the first load
-            # TODO: remove maybe when this is put into panel
-            self.taxonomy_filter.value = selected_tax_tree or []
+            def index_items(items, parent_path=()):
+                for index, item in enumerate(items):
+                    path = (*parent_path, index)
+                    self._taxonomy_paths[item["id"]] = path
+                    index_items(item.get("items", []), path)
+
+            index_items(self.taxonomy_tree_data)
+            self.taxonomy_filter = Tree(
+                items=self.taxonomy_tree_data,
+                checkboxes=True,
+                multi_select=True,
+                propagate_to_child=True,
+                propagate_to_parent=True,
+                expanded=[],
+            )
+            self.taxonomy_filter.active = (
+                list(self._taxonomy_paths.values())
+                if selected_tax_tree is None
+                else [
+                    self._taxonomy_paths[node_id]
+                    for node_id in selected_tax_tree
+                    if node_id in self._taxonomy_paths
+                ]
+            )
             sort_options["genome"].extend(list(TAXONOMY_RANKS_REGEX.keys()))
             # sort_options = ["genome", *list(TAXONOMY_RANKS_REGEX.keys())]
 
@@ -237,13 +257,13 @@ class Dashboard(pn.viewable.Viewer):
                     break
 
         self.column_options = pn.widgets.NestedSelect(
-            name="Y and C columns",
+            label="Y and C columns",
             options=column_options,
             levels=["Y Column", "Color Column"],
         )
         # self.c_col = pn.widgets.MultiChoice(name="Color Column", options=sort_options["genome"])
         self.sort_by = pn.widgets.MultiChoice(
-            name="Sort By", options=sort_options[self.y_col]
+            label="Sort By", options=sort_options[self.y_col]
         )
 
         self._init_view()
@@ -258,7 +278,7 @@ class Dashboard(pn.viewable.Viewer):
 
         if self.taxonomy_tree_data is not None:
             additional_sidebar.append(self.show_tax_box)
-            additional_sidebar.append("## Taxonomy Filter")
+            additional_sidebar.append("## Taxonomy Filter (genome heatmaps)")
             additional_sidebar.append(self.taxonomy_filter)
 
         self.view = pn.template.FastListTemplate(
@@ -310,13 +330,21 @@ class Dashboard(pn.viewable.Viewer):
         charts = []
         y_mode = self.y_col
         c_mode = self.color_col
-        for i, (group, df) in enumerate(self.dfs[y_mode].items()):
+        for group, df in self.dfs[y_mode].items():
             df = df.to_pandas()
+            df = self.filter_by_taxonomy(df)
+            if df.empty:
+                continue
             tooltip_cols = df.columns.tolist()
             kw = {"y_col": y_mode}
-            if i == 0 and self.tax_axis_filter.value:
+            if (
+                not charts
+                and y_mode == "genome"
+                and self.tax_axis_filter.value
+                and "taxonomy" in df.columns
+            ):
                 kw["y_col"] = "taxonomy"
-            if i != 0:
+            if charts:
                 kw["y_axis_location"] = None
             if "presence/coverage" in c_mode:
                 c_col = get_val_col(df)
@@ -328,7 +356,6 @@ class Dashboard(pn.viewable.Viewer):
                 if kw["c_max"] == 0:
                     kw["c_max"] = 1
 
-            df = self.filter_by_taxonomy(df)
             df = self.get_sorted_dfs(df, by=self.sort_by.value)
 
             hm = heatmap(
@@ -347,7 +374,9 @@ class Dashboard(pn.viewable.Viewer):
 
         # module_df, etc_df, function_df = self.get_sorted_dfs(module_df, etc_df, function_df, by=self.sort_by.value)
 
-        self.plot_view[:] = charts
+        self.plot_view[:] = charts or [
+            pn.pane.Markdown("No genomes match the selected taxonomy.")
+        ]
 
     def reset_filters(self, event=None):
         """
@@ -360,9 +389,7 @@ class Dashboard(pn.viewable.Viewer):
         self.min_coverage = self.param.min_coverage.default
 
         if self.taxonomy_filter is not None:
-            self.taxonomy_filter.value = [
-                node["id"] for node in self.taxonomy_filter.flat_tree
-            ]
+            self.taxonomy_filter.active = list(self._taxonomy_paths.values())
             self.tax_axis_filter.value = False
             self.tax_axis_rank.visible = False
             self.tax_axis_rank.value = "genus"
@@ -373,15 +400,17 @@ class Dashboard(pn.viewable.Viewer):
         """
         Filter the dataframes by selected taxonomy ranks
         """
-        if self.taxonomy_filter is None:
+        if (
+            self.taxonomy_filter is None
+            or self.y_col != "genome"
+            or "taxonomy" not in df.columns
+        ):
             return df
         selected = self.taxonomy_filter.value
-        # leaves = [node for node in selected if len(node.split(";")) == NO_TAXONOMY_RANKS]
-        # maybe we don't need this replace, but leaving in for now to be sure we match the data
         leaves = [
-            node.replace("; ", ";")
+            node["id"].replace("; ", ";")
             for node in selected
-            if len(node.split(";")) == NO_TAXONOMY_RANKS
+            if len(node["id"].split(";")) == NO_TAXONOMY_RANKS
         ]
         df = df.loc[df["taxonomy"].isin(leaves)]
 
@@ -412,8 +441,20 @@ class Dashboard(pn.viewable.Viewer):
         Save the heatmap to a file
         """
         output_dir = output_dir or self._output_dir
-        self.plot_view.save(
+        plots = [
+            Div(text=pane.object) if isinstance(pane, pn.pane.Markdown) else pane.object
+            for pane in self.plot_view
+        ]
+        output_path = (
             output_dir
-            / f"heatmap_{self.y_col.replace('/', '-')}_{self.color_col.replace('/', '_')}.html",
-            resources=INLINE,
+            / f"heatmap_{self.y_col.replace('/', '-')}_{self.color_col.replace('/', '_')}.html"
+        )
+        output_path.write_text(
+            file_html(
+                row(*plots),
+                INLINE,
+                title="DRAM Product Visualization",
+                _always_new=True,
+            ),
+            encoding="utf-8",
         )

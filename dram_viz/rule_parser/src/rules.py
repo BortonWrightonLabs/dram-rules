@@ -33,11 +33,11 @@ class RuleError(Exception):
 
 
 ID_EXPR_DICT = {
-    "camper_id": pl.col("camper_id").cast(pl.Utf8).cast(pl.List(pl.Utf8)),
-    "fegenie_id": pl.col("fegenie_id").cast(pl.Utf8).cast(pl.List(pl.Utf8)),
-    "sulfur_id": pl.col("sulfur_id").cast(pl.Utf8).cast(pl.List(pl.Utf8)),
-    "kegg_genes_id": pl.col("kegg_genes_id").cast(pl.Utf8).cast(pl.List(pl.Utf8)),
-    "kofam_genes_id": pl.col("kofam_genes_id").cast(pl.Utf8).cast(pl.List(pl.Utf8)),
+    "camper_id": pl.list(pl.col("camper_id").cast(pl.String)),
+    "fegenie_id": pl.list(pl.col("fegenie_id").cast(pl.String)),
+    "sulfur_id": pl.list(pl.col("sulfur_id").cast(pl.String)),
+    "kegg_genes_id": pl.list(pl.col("kegg_genes_id").cast(pl.String)),
+    "kofam_genes_id": pl.list(pl.col("kofam_genes_id").cast(pl.String)),
     "ko_id": pl.col("ko_id").str.split(","),
     "kegg_id": pl.col("kegg_id").str.split("/"),
     "kofam_id": pl.col("kofam_id").str.split("/"),
@@ -80,7 +80,7 @@ ID_EXPR_DICT = {
         .str.split(",")
         .list.eval(pl.element().str.strip_chars().str.split(" ").list.first())
     ),
-    "DEFAULT": lambda col: pl.col(col).cast(pl.Utf8).cast(pl.List(pl.Utf8)),
+    "DEFAULT": lambda col: pl.list(pl.col(col).cast(pl.String)),
 }
 
 COMPUTED_COLUMNS = {
