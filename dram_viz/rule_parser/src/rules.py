@@ -520,6 +520,11 @@ def load_rules(
         )
 
         lf = pl.concat([lf, clf], how="diagonal_relaxed")
+    # We strip white space around labels incase users left spaces at the beg or end of cell
+    # which we don't want to match to
+    lf = lf.with_columns(
+        pl.col(label_col).str.strip_chars(), pl.col(alias_col).str.strip_chars()
+    )
 
     rules = {
         a: b

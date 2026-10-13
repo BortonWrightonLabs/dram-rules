@@ -1,116 +1,111 @@
 name	rule	module	group	notes
-Plant Polymer Mixed	@PlantPolymerMixed	Carbon Processing	polymer
-Cellulose	@Cellulose	Carbon Processing	polymer
-Hemicellulose-Xylan	@Hemicellulose-Xylan	Carbon Processing	polymer
-Hemicellulose-Other	@Hemicellulose-Other	Carbon Processing	polymer	mannan/xyloglucan/galactan
-Pectin	@Pectin	Carbon Processing	polymer
-Arabinogalactan	@Arabinogalactan	Carbon Processing	polymer
-"Cutin "	@Cutin	Carbon Processing	polymer
-Fructan	@Fructan	Carbon Processing	polymer
-Starch Specific	@StarchSpecific	Carbon Processing	polymer
-Starch/Glycogen	@StarchGlycogen	Carbon Processing	polymer
-Chitin	@Chitin	Carbon Processing	polymer
-Microbially-derived	@Microbially-derived	Carbon Processing	polymer
-Cellulose-derived	@Cellulose-derived	Carbon Processing	oligomer
-Hemicellulose-derived xylan	@Hemicellulose-derived-xylan	Carbon Processing	oligomer
-Hemicellulose-derived other	@Hemicellulose-derived-other	Carbon Processing	oligomer
-Pectin-derived	@Pectin-derived	Carbon Processing	oligomer
-"Fructan-derived "	@Fructan-derived	Carbon Processing	oligomer
-Starch/Glycogen-derived	@Starch-Glycogen-derived	Carbon Processing	oligomer
-Chitin-derived	@Chitin-derived	Carbon Processing	oligomer
-Chitin / other-derived	@Chitin-other-derived	Carbon Processing	oligomer
-Other oligosaccharides	@Other-oligosaccharides	Carbon Processing	oligomer
-Cellobiose	@Cellobiose	Carbon Processing	disaccharide
-Maltose	@Maltose	Carbon Processing	disaccharide
-Sucrose	@Sucrose	Carbon Processing	disaccharide
-Trehalose	@Trehalose	Carbon Processing	disaccharide
-Lactose	@Lactose	Carbon Processing	disaccharide
-Xylan/Xylobiose	@XylanXylobiose	Carbon Processing	disaccharide
-Mannose/Mannobiose	@Mannose-Mannobiose	Carbon Processing	disaccharide
-Other disaccharides	@Other-disaccharides	Carbon Processing	disaccharide
-Glucose	@Glucose	Carbon Processing	monosaccharide
-Xylose	@Xylose	Carbon Processing	monosaccharide
-Arabinose	@Arabinose	Carbon Processing	monosaccharide
-Mannose	@Mannose	Carbon Processing	monosaccharide
-Galactose	@Galactose	Carbon Processing	monosaccharide
-Fructose	@Fructose	Carbon Processing	monosaccharide
-Rhamnose	@Rhamnose	Carbon Processing	monosaccharide
-N-Acetylglucosamine (Glc-NAc)	@N-Acetylglucosamine	Carbon Processing	monosaccharide
-Fucose	@Fucose	Carbon Processing	monosaccharide
-Acetate	@Acetate-Final	Carbon Processing	low-molecular-weight-carbon
-Butyrate	@Butyrate-Final	Carbon Processing	low-molecular-weight-carbon
-Propionate	@Propionate-Final	Carbon Processing	low-molecular-weight-carbon
-Ethanol/Alcohol	@Ethanol	Carbon Processing	low-molecular-weight-carbon
-Methanol	@Methanol	Carbon Processing	low-molecular-weight-carbon
-CO2 Fixation	@CO2fixation	C1 Metabolism	C1 Metabolism
-"CH4 Oxidation Aerobic "	@TRUEPmoA	C1 Metabolism	C1 Metabolism
-CH4 Production or Anaerobic Oxidation	@Methanogen	C1 Metabolism	C1 Metabolism
-"CO Metabolism "	"@carboxydotroph "	C1 Metabolism	C1 Metabolism
-N2 Fixation	@nitrogen-fixer	Inorganic Nitrogen Transformation	N2 fixation
+Cellulose	@Cellulose	Carbon Transformations	Polymer	Cellulose-associated hydrolytic and oxidative enzymes; includes endoglucanases, cellobiohydrolases, and LPMOs.
+Hemicellulose	@Hemicellulose	Carbon Transformations	Polymer	Includes xylan, mannan, xyloglucan, and galactan-associated enzymes.
+Pectin	@Pectin	Carbon Transformations	Polymer	Includes polygalacturonases, pectin/pectate lyases, and enzymes targeting pectin side chains.
+Other Plant Structural Polymers	@Cutin | @Arabinogalactan	Carbon Transformations	Polymer	Includes arabinogalactan and cutin; cutin is a polyester
+Storage Polysaccharides	@Fructan | @StarchSpecific | @StarchGlycogen	Carbon Transformations	Polymer	Includes fructan, starch, and glycogen degradation-associated enzymes; glycogen is also found in microbes.
+Chitin	@Chitin	Carbon Transformations	Polymer	Includes chitinases and chitin-active oxidative enzymes; chitin occurs in fungal cell walls and arthropod exoskeletons.
+Bacterial Cell Wall Polymers	@Microbially-derived	Carbon Transformations	Polymer	Primarily peptidoglycan-associated hydrolases and lytic enzymes, including lysozymes.
+Mixed/Unassigned Polymers	@PlantPolymerMixed	Carbon Transformations	Polymer	Genes with mixed or uncertain polymer substrate assignments that do not fit confidently into the other categories.
+Cellulose-Associated	@BetaGlucosides	Carbon Transformations	Oligomer	β-Glucoside processing enzymes; may support utilization of cellulose-derived oligosaccharides but are not cellulose-specific.
+Hemicellulose-Associated	@Xylooligosaccharides | @XyloglucanMannooligosaccharides |@XylanXylobiose	Carbon Transformations	Oligomer	Genes associated with xylooligosaccharides, xyloglucan-derived oligosaccharides, and mannooligosaccharides.
+Pectin-Associated	@PecticOligosaccharides	Carbon Transformations	Oligomer	Genes potentially involved in processing pectin-derived oligosaccharides; substrate specificity requires verification.
+Storage-Associated	@Fructooligosaccharides | @MaltooligosaccharidesAlphaGlucosides	Carbon Transformations	Oligomer	Genes associated with fructooligosaccharides and maltooligosaccharides/α-glucosides, potentially derived from fructan, starch, or glycogen
+Chitin and Related Oligosaccharides	@Chitooligosaccharides | @NAcetylhexosaminides	Carbon Transformations	Oligomer	Genes associated with chitooligosaccharide processing and N-acetylhexosaminide hydrolysis; substrates may also derive from bacterial peptidoglycan and other glycoconjugates.
+Other Oligosaccharides	@OtherGlycosidesOligosaccharides |@OligosaccharideOxidation	Carbon Transformations	Oligomer	Mixed glycoside/oligosaccharide processing and AA7-associated carbohydrate oxidation activities with variable substrate specificity.
+Cellobiose	@Cellobiose	Carbon Transformations	Oligomer	Glucose disaccharide produced during cellulose breakdown; utilization does not imply direct cellulose degradation.
+Maltose	@Maltose	Carbon Transformations	Oligomer	Glucose disaccharide associated with starch and glycogen breakdown.
+Sucrose	@Sucrose	Carbon Transformations	Oligomer	Glucose-fructose disaccharide commonly found in plants; important for carbon transport and storage.
+Trehalose	@Trehalose	Carbon Transformations	Oligomer	Glucose disaccharide used for carbon storage and stress protection in many organisms.
+Lactose	@Lactose	Carbon Transformations	Oligomer	Galactose-glucose disaccharide; utilization indicates potential to process lactose or related β-galactosides.
+Mannose/Mannobiose (mixed size)	@Mannose-Mannobiose	Carbon Transformations	Oligomer	Mannose-containing carbohydrates associated with mannan and other glycans; calls may represent monosaccharide or disaccharide processing.
+Glucose	@Glucose	Carbon Transformations	Monosaccharide	Central hexose used in carbohydrate metabolism.
+Xylose	@Xylose	Carbon Transformations	Monosaccharide	Pentose commonly derived from xylan and other plant polysaccharides.
+Arabinose	@Arabinose	Carbon Transformations	Monosaccharide	Pentose commonly found in plant cell-wall polysaccharides, including hemicellulose (e.g., arabinoxylan), arabinan, and pectin.
+Mannose	@Mannose	Carbon Transformations	Monosaccharide	Hexose commonly found in plant cell-wall polysaccharides, including hemicellulose and pectin, as well as diverse glycoconjugates
+Galactose	@Galactose	Carbon Transformations	Monosaccharide	Hexose found in plant cell-wall polysaccharides, including pectin (galactans) and some hemicelluloses, as well as other glycans.
+Fructose	@Fructose	Carbon Transformations	Monosaccharide	Hexose found in sucrose and fructans (e.g., inulin and levan), as well as other carbohydrates.
+Rhamnose	@Rhamnose	Carbon Transformations	Monosaccharide	Deoxyhexose commonly found in pectin (rhamnogalacturonans) and microbial polysaccharides.
+N-Acetylglucosamine (Glc-NAc)	@N-Acetylglucosamine	Carbon Transformations	Monosaccharide	Amino sugar found in chitin (fungal cell walls), bacterial peptidoglycan, and other glycoconjugates.
+Fucose	@Fucose	Carbon Transformations	Monosaccharide	Deoxyhexose found in plant cell-wall polysaccharides, including xyloglucans and pectins, as well as microbial polysaccharides and diverse glycoconjugates.
+Acetate	@Acetate-Final	Carbon Transformations	Low Molecular Weight Carbon
+Butyrate	@Butyrate-Final	Carbon Transformations	Low Molecular Weight Carbon
+Propionate	@Propionate-Final	Carbon Transformations	Low Molecular Weight Carbon
+Ethanol/Alcohol	@Ethanol	Carbon Transformations	Low Molecular Weight Carbon
+Methanol	@Methanol	Carbon Transformations	Low Molecular Weight Carbon
+CO2 Fixation	@CO2fixation	Carbon Transformations	C1 Metabolism	Genes associated with autotrophic CO₂ fixation pathways; individual gene annotations do not necessarily indicate a complete pathway.
+CH4 Oxidation Aerobic	@TRUEPmoA	Carbon Transformations	C1 Metabolism	Particulate methane monooxygenase marker associated with aerobic methane oxidation; does not establish a complete methanotrophic pathway.
+CH4 Production or Anaerobic Oxidation	@Methanogen	Carbon Transformations	C1 Metabolism	Methanogenesis-associated genes that may also occur in anaerobic methane-oxidizing archaea (ANME); gene presence alone does not distinguish methane production from oxidation.
 Aerobic Ammonium Oxidation	@AerobicAmmoniaOxidizer	Inorganic Nitrogen Transformation	Nitrification
 Aerobic Nitrite Oxidation	@NitriteOxidoreductase	Inorganic Nitrogen Transformation	Nitrification
-Comammox	@Comammox		Nitrification
-Anaerobic Ammonium Oxidation	"@Annamox "	Inorganic Nitrogen Transformation	Nitrification
-NO3 To NO2	@NarNitrateReductase|[@NapNitrateReductase]	Inorganic Nitrogen Transformation	N Reduction
-NO2 To NO	@NitriteReductase	Inorganic Nitrogen Transformation	N Reduction
-NO To N2O	@NitricOxideReductase	Inorganic Nitrogen Transformation	N Reduction
-N2O To N2	@NitrousOxideReductase	Inorganic Nitrogen Transformation	N Reduction
-DNRA full, NO3 To NH4	@DNRA	Inorganic Nitrogen Transformation	N Reduction
-DNRA partial, NO2 To NH4 (NrfA only)	@nrfA	Inorganic Nitrogen Transformation	N Reduction
-NO3 To NH4 with NirBD (no NrfA)	[@NarNitrateReductase|@NapNitrateReductase] & [K00362 & K00363]	Inorganic Nitrogen Transformation	N Reduction
-Extracellular Aspartic Peptidases	A01 | A02 | A05 | A08 | A11 | A22 | A24 | A26 | A28 | A31 | A32 | A37	Organic Nitrogen Transformation	Organic Nitrogen Transformation
-Extracellular Cysteine Peptidases	C01 | C02 | C10 | C11 | C110 | C113 | C13 | C14 | C15 | C19 | C25 | C39 | C45 | C46 | C47 | C51 | C56 | C59 | C60 | C66 | C69 | C82 | C83 | C89 | C93	Organic Nitrogen Transformation	Organic Nitrogen Transformation
-Extracellular Glutamic Peptidases	G01	Organic Nitrogen Transformation	Organic Nitrogen Transformation
-Extracellular Metallo Peptidases	M01 | M02 | M03 | M04 | M05 | M06 | M07 | M08 | M09 | M10 | M11 | M12 | M13 | M14 | M15 | M16 | M18 | M19 | M20 | M23 | M24 | M26 | M28 | M30 | M32 | M34 | M35 | M36 | M42 | M43 | M44 | M48 | M49 | M50 | M54 | M55 | M56 | M57 | M60 | M61 | M64 | M66 | M67 | M72 | M73 | M74 | M75 | M76 | M78 | M81 | M82 | M84 | M85 | M86 | M88 | M93 | M96 | M97 | M98	Organic Nitrogen Transformation	Organic Nitrogen Transformation
-Extracellular Asparagine Peptidases	N04 | N10 | N11	Organic Nitrogen Transformation	Organic Nitrogen Transformation
-Extracellular Serine Peptidases	S01 | S06 | S08 | S09 | S10 | S16 | S26 | S28 | S37 | S41 | S45 | S46 | S49 | S50 | S51 | S53 | S55 | S59 | S60 | S66 | S73	Organic Nitrogen Transformation	Organic Nitrogen Transformation
-Extracellular Threonine Peptidases	T01 | T02 | T05 | T07	Organic Nitrogen Transformation	Organic Nitrogen Transformation
-Unknown Peptidases	U32 | U62 | U69 | U72 | U73 | U74	Organic Nitrogen Transformation	Organic Nitrogen Transformation
-Mixed Peptidases	P01	Organic Nitrogen Transformation	Organic Nitrogen Transformation
-Urease	@Urease	Organic Nitrogen Transformation	Organic Nitrogen Transformation
-Amidase	K01426	Organic Nitrogen Transformation	Organic Nitrogen Transformation
-Formamidase	K01455	Organic Nitrogen Transformation	Organic Nitrogen Transformation
-Urea Transport	K11963	Nitrogen uptake and transport	Nitrogen uptake and transport
-Ammonium Transport	K03320	Nitrogen uptake and transport	Nitrogen uptake and transport
-Nitrate/Nitrite Transporter	K02575	Nitrogen uptake and transport	Nitrogen uptake and transport
-C-P Lyase Complex	@C-P-Lyase-Complex	Phosphorus Acquisition and Metabolism	Phosphorus Acquisition and Metabolism
-Organic P Mineralization	@Organic-P-Mineralization	Phosphorus Acquisition and Metabolism	Phosphorus Acquisition and Metabolism
-Phytase	@Phytase	Phosphorus Acquisition and Metabolism	Phosphorus Acquisition and Metabolism
-Inorganic P Solubilization	@Inorganic-P-Solubilization	Phosphorus Acquisition and Metabolism	Phosphorus Acquisition and Metabolism
-High-affinity Pi uptake	@High-affinity-Pi-uptake	Phosphorus Acquisition and Metabolism	Phosphorus Acquisition and Metabolism
-Organosulfur Mineralization	[K04091 & K04092] | K03119 | K01130	Organic and Inorganic Sulfur	Sulfur Aqusition and Transformation
-Sulfur Reduction	@Sulfatereducer	Organic and Inorganic Sulfur	Sulfur Aqusition and Transformation
-Sulfur Oxidation	@sulfateoxidizer	Organic and Inorganic Sulfur	Sulfur Aqusition and Transformation
-Sulfur Transport	[K02048 & K02049 & K02050 & K02051] | [K15554 & K15555 & K15556] | [K15551 & K15552 & K15553]	Organic and Inorganic Sulfur	Sulfur Aqusition and Transformation
-Alpha-D-Glucosidase	K01188 | K05349 | K05350	Enzyme Assay Analog	Genomic 'Enzyme Assay'
-Alpha-D-Xylosidase	K01198 | K15920 | K22268	Enzyme Assay Analog	Genomic 'Enzyme Assay'
-Arylsulphatase	K01130	Enzyme Assay Analog	Genomic 'Enzyme Assay'
-N-Acetyl-Alpha-D-Glucosaminidase	K01227	Enzyme Assay Analog	Genomic 'Enzyme Assay'
-Phosphatase	K01078|K01093|K03788|K09474|K01077	Enzyme Assay Analog	Genomic 'Enzyme Assay'
-Leucine Aminopeptidase	K01255 | K11142	Enzyme Assay Analog	Genomic 'Enzyme Assay'
-Cellobiohydrolase	K01225 | K19668	Enzyme Assay Analog	Genomic 'Enzyme Assay'
-Alpha-1,4-Glucosidase	K01187 | K12047 | K12316 | K12317	Enzyme Assay Analog	Genomic 'Enzyme Assay'
-Peroxidase	K05910	Enzyme Assay Analog	Genomic 'Enzyme Assay'
-Phenoloxidase	K00421 | K05909	Enzyme Assay Analog	Genomic 'Enzyme Assay'
-Auxin [Iaa] Biosynthesis	K04103 | [K00466 & [K21801 | K01426]] | K01593| [K01501 & K01721]	Plant Growth Regulators	Phytohormones
-Auxin [Iaa] Turnover	K22027  | K23384  | K03397	Plant Growth Regulators	Phytohormones
-Acc Deaminase	[K01505]	Plant Growth Regulators	Phytohormones
-Cytokinin Biosynthesis	"K00791 | K22871 |K10760 "	Plant Growth Regulators	Phytohormones
-Cytokinin Turnover	K00279	Plant Growth Regulators	Phytohormones
-Gibberellins	[K21116 & K21117 & K21118] | [K04122 & K04123 & K05282] | K04124 | K12920 | K12919 | K20657 | K04121	Plant Growth Regulators	Phytohormones
-Sugar Derived	[K00697 & K01087] | [K01236 & K06044] | K05343 | [K00009 & K19270]	Environmental Adaptations	Compatible solute biosynthesis
-"Glycosylated "	[K03692 & K05978] | [K05947 & K07026] | K18818	Environmental Adaptations	Compatible solute biosynthesis
-Amino Acid Derived	[K00931 & K00147 & K00286] | [K06718 & K00836 & K06720]	Environmental Adaptations	Compatible solute biosynthesis
-Glycine betaine related	[[K00108 | K11440] & K00130] | [K18896 & K18897]	Environmental Adaptations	Compatible solute biosynthesis
-Superoxide	@Superoxide	Environmental Adaptations	Other Stress Adaptation
-Peroxide-catalase	@Peroxide-catalase	Environmental Adaptations	Other Stress Adaptation
-Peroxide-peroxiredoxin	@Peroxide-peroxiredoxin	Environmental Adaptations	Other Stress Adaptation
-Cd/Zn/Co Heavy Metal Efflux	[K15726 & K15727 & K15725]	Heavy Metals	Anthropogenic Stressors
-Cd/Zn ATPase Efflux (CadA)	K01534	Heavy Metals	Anthropogenic Stressors
-Copper Detox	@CopperDetox	Heavy Metals	Anthropogenic Stressors
-Arsenic Detox	@ArsenicDetox	Heavy Metals	Anthropogenic Stressors
-Arsenic Redox Metabolism	@ArsenicRedox	Heavy Metals	Anthropogenic Stressors
-High Affinity Zn Uptake	at_least(2,PRESENCE,[K02077, K02078, K02078])	Heavy Metals	Anthropogenic Stressors
-Pesticide-Pyrethroid Degradation	"K20992 "	Potential pesticide degradation	Anthropogenic Stressors
-Pesticide-Atrazine Degradation	K05394 & K03382 & K08710	Potential pesticide degradation	Anthropogenic Stressors
-Pesticide-2,4-D degradation	K06912	Potential pesticide degradation	Anthropogenic Stressors
+Comammox	@Comammox	Inorganic Nitrogen Transformation	Nitrification
+Anaerobic Ammonium Oxidation	@Annamox	Inorganic Nitrogen Transformation	Nitrification
+NO3 To NO2	@NarNitrateReductase|[@NapNitrateReductase]	Inorganic Nitrogen Transformation	Dissimilatory N Reduction
+NO2 To NO	@NitriteReductase	Inorganic Nitrogen Transformation	Dissimilatory N Reduction
+NO To N2O	@NitricOxideReductase	Inorganic Nitrogen Transformation	Dissimilatory N Reduction
+N2O To N2	@NitrousOxideReductase	Inorganic Nitrogen Transformation	Dissimilatory N Reduction
+DNRA full, NO3 To NH4	@DNRA	Inorganic Nitrogen Transformation	Dissimilatory N Reduction
+DNRA NrfA only, NO2 To NH4	@nrfA	Inorganic Nitrogen Transformation	Dissimilatory N Reduction
+Urea Transport	K11963	Nutrient Transporters	Selected Nitrogen Transporters
+Ammonium Transport	K03320	Nutrient Transporters	Selected Nitrogen Transporters
+Nitrate/Nitrite Transporter	K02575	Nutrient Transporters	Selected Nitrogen Transporters
+Oxygen Reduction - Low Affinity	[percent(50,@CytochromeCOxidase)|percent(50,@CytochromeAa3600MenaquinolOxidase)|percent(50,@CytochromeOUbiquinolOxidase)]		Other Respiratory Redox Processes	Respiratory Redox Processes	Oxygen Reduction
+Oxygen Reduction - High Affinity	[@percent50CytochromeBDUbiquinolOxidase|@percent50CytochromeCOxidaseCBB3]		Other Respiratory Redox Processes	Respiratory Redox Processes	Oxygen Reduction
+Iron Oxidation	@IronOxidation		Other Respiratory Redox Processes	Iron Reduction and Oxidation
+Iron Reduction	@IronReduction		Other Respiratory Redox Processes	Iron Reduction and Oxidation
+Sulfur Oxidation	@sulfateoxidizer		Other Respiratory Redox Processes	Sulfur Reduction and Oxidation
+Sulfate Reduction	@Sulfatereducer		Other Respiratory Redox Processes	Sulfur Reduction and Oxidation
+Non-sulfate-sulfur-reduction	@Non-sulfate-sulfur-reduction		Other Respiratory Redox Processes	Sulfur Reduction and Oxidation
+Phototrophy	@phototroph		Other Metabolic Systems
+Obligate Fermenter	@Fermenter		Other Metabolic Systems
+Hydrogenase	@HydrogenUse		Other Metabolic Systems
+ATP synthase	at_least(4, PRESENCE, [K02111,K02112,K02113,K02114,K02115,K02108,K02109,K02110])|at_least(5, PRESENCE, [K02117,K02118,K02119,K02120,K02121,K02122,K02107,K02123,K02124])|at_least(10, PRESENCE, [K02132,K02133,K02136,K02134,K02135,K02137,K02126,K02127,K02128,K02138,K02129,K01549,K02130,K02139,K02140,K02141,K02131,K02142,K02143,K02125])|at_least(7, PRESENCE, [K02145,K02147,K02148,K02149,K02150,K02151,K02152,K02144,K02154,K03661,K02155,K02146,K02153,K03662])		Other Metabolic Systems
+Candidate Extracellular Aspartic Peptidases	A01	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyze peptide bonds in proteins using an aspartic acid catalytic mechanism. Selected MEROPS families include extracellular proteases; confirm cellular localization.
+Candidate Extracellular Cysteine Peptidases	C01 | C10 |  C25	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyze proteins and peptides using a cysteine catalytic mechanism. Selected families include extracellular and intracellular enzymes; confirm cellular localization.
+Candidate Extracellular Glutamic Peptidases	G01	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyze proteins using a glutamic acid catalytic mechanism, including secreted fungal proteases. Confirm cellular localization.
+Candidate Extracellular Metallo Peptidases	M04 | M09 | M10 | M12 | M36	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyze proteins and peptides using metal-dependent catalysis. Selected families include extracellular proteases; confirm cellular localization.
+Candidate Extracellular Serine Peptidases	S01 | S08 | S53	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyze proteins and peptides using a serine catalytic mechanism. Selected families include secreted and intracellular proteases; confirm cellular localization.
+Urease	@Urease	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyzes urea to ammonia and carbon dioxide, contributing directly to N mineralization. Can be intracellular, cell-associated, or extracellular; confirm cellular localization.
+Amidase	K01426	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyzes amides to release ammonia and corresponding organic acids, contributing to N mineralization. Often intracellular; confirm cellular localization.
+Formamidase	K01455	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyzes formamide to formate and ammonia, contributing to N mineralization. Typically intracellular; confirm cellular localization.
+N2 Fixation	@nitrogen-fixer	Nutrient Assimilation and Transport	Other Nutrient Acquisition and Transport
+Organic Sulfur Mineralization	[K04091 & K04092] | K03119 | K01130	Nutrient Assimilation and Transport	Other Nutrient Acquisition and Transport	Enzymatically transforms organic sulfur compounds, including sulfonates and sulfate esters, releasing inorganic sulfur (sulfite or sulfate) that can become available for microbial or plant uptake. Some enzymes may be intracellular or extracellular; confirm cellular localization.
+Organic Phosphorus Mineralization	@Organic-P-Mineralization	Nutrient Assimilation and Transport	Other Nutrient Acquisition and Transport	Enzymatically hydrolyzes organic phosphorus compounds to release inorganic phosphate, contributing to phosphorus availability. Enzymes may be extracellular, cell-associated, or intracellular; confirm cellular localization.
+Phytase	@Phytase	Nutrient Assimilation and Transport	Other Nutrient Acquisition and Transport	Cleaves carbon-phosphorus bonds in phosphonates, releasing phosphate for microbial phosphorus acquisition. Typically functions intracellularly; confirm cellular localization.
+C-P Lyase Complex	@C-P-Lyase-Complex	Nutrient Assimilation and Transport	Other Nutrient Acquisition and Transport
+Inorganic P Solubilization	@Inorganic-P-Solubilization	Nutrient Assimilation and Transport	Other Nutrient Acquisition and Transport
+High-affinity Pi uptake	@High-affinity-Pi-uptake	Nutrient Assimilation and Transport	Other Nutrient Acquisition and Transport
+Sulfur Transporters	[K02048 & K02049 & K02050 & K02051] | [K15554 & K15555 & K15556] | [K15551 & K15552 & K15553]	Nutrient Assimilation and Transport	Other Nutrient Acquisition and Transport
+Beta-Glucosidase (BG)	K01188|K05349|K05350	Enzyme Assay Analog- KO based for specific EC	Genomic 'Enzyme Assay' Analog
+Cellobiohydrolase (CBH)	K01225 | K19668	Enzyme Assay Analog- KO based for specific EC	Genomic 'Enzyme Assay' Analog
+Beta-D-Xylosidase (BX)	K01198 | K15920 | K22268	Enzyme Assay Analog- KO based for specific EC	Genomic 'Enzyme Assay' Analog
+N-Acetyl-Beta-D-Glucosaminidase (NAG)	K01207	Enzyme Assay Analog- KO based for specific EC	Genomic 'Enzyme Assay' Analog
+Leucine Aminopeptidase (LAP)	K01255 | K28939	Enzyme Assay Analog- KO based for specific EC	Genomic 'Enzyme Assay' Analog
+Phosphatase (PHOS)	K01078|K01077	Enzyme Assay Analog- KO based for specific EC	Genomic 'Enzyme Assay' Analog
+Arylsulphatase (AS)	K01130	Enzyme Assay Analog- KO based for specific EC	Genomic 'Enzyme Assay' Analog
+Candidate Polyphenol Oxidase (PPO)	K00421 | K05909 |K00422 | K00505	Enzyme Assay Analog- KO based for specific EC	Genomic 'Enzyme Assay' Analog
+IAA Biosynthesis - IAM	K00466 & [K21801 | K01426]	Plant Growth Regulators	Phytohormones	K00466 is pathway-associated; K21801 is more specific than the broad amidase K01426. IAA production is not confirmed.
+Cytokinin Biosynthesis Machinery	K22871 | K10760	Plant Growth Regulators	Phytohormones	cytokinin biosynthesis-associated adenylate isopentenyltransferases (K22871 or K10760), which catalyze the formation of cytokinin precursors. Indicates potential cytokinin production but does not confirm bioactive cytokinin synthesis or secretion.
+Cytokinin Degradation	K00279	Plant Growth Regulators	Phytohormones	cytokinin dehydrogenase, which degrades cytokinins and can regulate their availability. Indicates potential cytokinin degradation, not confirmed activity.
+Gibberellin Biosynthetic Machinery	K21116 & K21117 & K21118	Plant Growth Regulators	Phytohormones	bacterial gibberellin biosynthesis-associated P450 enzymes (CYP112, CYP114, CYP117). Suggests gibberellin biosynthetic potential but does not confirm a complete pathway or bioactive gibberellin production
+ACC Modification (Deaminase)	K01505	Plant Growth Regulators	Phytohormones	ACC deaminase (acdS), which converts 1-aminocyclopropane-1-carboxylate (ACC), the precursor of plant ethylene, into α-ketobutyrate and ammonia. May reduce plant ethylene production and alleviate stress responses. Indicates potential activity, not confirmed plant growth promotion.
+Possible IAA Biosynthesis - IPyA	K04103 & K00128	Plant Growth Regulators	Phytohormones	IAA-associated decarboxylase (K04103) and nonspecific aldehyde dehydrogenase (K00128). Possible IAA production; interpret cautiously.
+Possible IAA Biosynthesis - Tryptamine	K01593 & K00274 & K00128	Plant Growth Regulators	Phytohormones	three broad-specificity enzymes that may support IAA synthesis through tryptamine. Weaker evidence for IAA production.
+Possible IAA Biosynthesis - IAN	K01501	Plant Growth Regulators	Phytohormones	Nonspecific nitrilase (K01501); single gene provides very weak evidence for IAA biosynthesis.
+Arsenite Oxidation Potential	@ArseniteOxidation	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	As(III) → As(V). Generally produces the less toxic form of inorganic arsenic, although mobility depends on soil conditions (sorption to iron)
+Arsenate Reduction Potential	@ArsenateReductionPotential	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	Converts As(V) to As(III), potentially increasing mobility and plant exposure; ArsC (K00537, K03741) mediates cellular detoxification and may not result in substantial environmental As(III) release.
+Arsenic Methylation	@ArsenicMethylation	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	Produces methylated arsenic species with variable toxicity, mobility, and plant uptake.
+Mercury Reduction	@MercuryReduction	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	MerA reduces Hg(II) to volatile Hg(0), affecting mercury mobility and atmospheric release.
+Mercury Methylation	@MercuryMethylation	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	HgcA indicates potential for methylmercury production, increasing toxicity and bioaccumulation risk.
+Organic Mercury Degradation	@OrganomercuryDegradation	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	MerB cleaves organomercury compounds, including methylmercury, releasing Hg(II).
+Copper Efflux	@CopperEfflux	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	Detects microbial copper export systems associated with resistance to excess copper from fungicides, manure, and other agricultural inputs.
+Atrazine Degradation Pathway	K05394 & K03382 & K08710	Environmental Adaptations	Possible Pesticide Degradation	AtzA, AtzB, and AtzC catalyze sequential atrazine degradation to cyanuric acid. Does not indicate complete mineralization.
+Initial 2,4-D Degradation	K06912	Environmental Adaptations	Possible Pesticide Degradation	TfdA, which initiates 2,4-D herbicide degradation to 2,4-dichlorophenol. Does not indicate complete degradation or mineralization
+Initial Pyrethroid Degradation	K20992	Environmental Adaptations	Possible Pesticide Degradation	Pyrethroid hydrolase (PytH) cleaves ester bonds in pyrethroid insecticides. Indicates potential degradation, not complete mineralization.
+Sugar Derived	[K00697 & K01087] | [K01236 & K06044] | K05343 | [K00009 & K19270]	Environmental Adaptations	Potential Osmoprotection
+Glycosylated	[K03692 & K05978] | [K05947 & K07026] | K18818	Environmental Adaptations	Potential Osmoprotection
+Amino Acid Derived	[K00931 & K00147 & K00286] | [K06718 & K00836 & K06720]	Environmental Adaptations	Potential Osmoprotection
+Glycine betaine related	[[K00108 | K11440] & K00130] | [K18896 & K18897]	Environmental Adaptations	Potential Osmoprotection
+Superoxide	@Superoxide	Environmental Adaptations	Oxidative Defense
+Peroxide-catalase	@Peroxide-catalase	Environmental Adaptations	Oxidative Defense
+Peroxide-peroxiredoxin	@Peroxide-peroxiredoxin	Environmental Adaptations	Oxidative Defense
