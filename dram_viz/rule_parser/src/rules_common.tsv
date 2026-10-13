@@ -147,7 +147,7 @@ name	alias	rule
 	cooS_acsA	K00198
 	AerobicCODH	K03518
 
-	HydrogenUse	"NiFe_group1 | NiFe_group2 | NiFe_group3 | NiFe_group4 | FeFe_groupA | FeFe_groupB | FeFe_groupC | FeFe_groupE | FeFe_groupF "
+	HydrogenUse	NiFe_group1 | NiFe_group2 | NiFe_group3 | NiFe_group4 | FeFe_groupA | FeFe_groupB | FeFe_groupC | FeFe_groupE | FeFe_groupF
 
 	Fermenter	not(@NegativeForFermenter) &  [@Lactate-Final | @Ethanol | @Acetate-Final | @Butyrate-Final | @Propionate-Final] & [K00850 | K00873 | K01690 | K01625 | K00615 | K00616]
 	NegativeForFermenter	@ETC50 | @Methanogen | @Denitrifier | @Sulfatereducer | @AerobicAmmoniaOxidizer | @Aerobe | @Microaerophillic | @phototroph
@@ -160,7 +160,7 @@ name	alias	rule
 	CytochromeCOxidase	K02275 | K02274 | K02276 | K15408 | K02277
 	CytochromeAa3600MenaquinolOxidase	K02827 | K02826 | K02828 | K02829
 	CytochromeOUbiquinolOxidase	K02297 | K02298 | K02299 | K02300
-	ETC60	"@percent60ComplexIA | @percent60ComplexIB "
+	ETC60	@percent60ComplexIA | @percent60ComplexIB
 	ETC50	@percent50ComplexIA | @percent50ComplexIB
 	percent50ComplexIA	percent(50,@ComplexIA)
 	percent50ComplexIB	percent(50,@ComplexIB)
@@ -189,7 +189,7 @@ name	alias	rule
 	1ofttrabc	at_least(1, PRESENCE, @ttrabc)
 	ttrabc	K08359,K08358,K08357
 
-	DNRA	[@nrfA & [@NarNitrateReductase | @NapNitrateReductase]] | @nrfA
+	DNRA	[@nrfA & [@NarNitrateReductase | @NapNitrateReductase]]
 	nrfA	K03385 | EC:1.7.2.2
 
 	AerobicAmmoniaOxidizer	@TRUEAmmoniaMonooxygenase
@@ -218,12 +218,14 @@ name	alias	rule
 	foxEYZ	FoxE & FoxY & FoxZ
 	mtoAB	MtrB_TIGR03509
 
-	Sulfatereducer	@DsrABtyper
-	DsrABtyper	K11180 | dsrA | dsrB | K11181
+	Sulfatereducer	@DsrABtyper & [K00958 | K00394 |K00395]
+	DsrABtyper	dsrAr | dsrBr
+	Non-sulfate-sulfur-reduction	@TetrathionateRed |@ThiosulfateRed |@SulfiteRed
+	SulfiteRed	dsrAr | dsrBr
+	TetrathionateRed	at_least(2, PRESENCE, [K08359, K08358, K08357])
+	ThiosulfateRed	at_least(2, PRESENCE, [K08352, K08353, K08354])
 
-	ThiosulfateOrTetrathionate	K08352|@TetrathionateReduction
-
-	sulfateoxidizer	[@DsrABtypeo | @SoeABC | @SorAB | @Sqr | @FccAB | @SoxXA | @SoxYZ | @SoxB | @SoxCD] & @percent50NADH
+	sulfateoxidizer	[@DsrABtypeo | @SoeABC | @SorAB | @Sqr | @FccAB | @SoxXA | @SoxYZ | @SoxB | @SoxCD] & @ETC50
 	DsrABtypeo	K11180 | dsrA | dsrB | K11181
 	SoeABC	K21307 | K21308 | K21309
 	SorAB	K05301 | K00386
@@ -233,10 +235,7 @@ name	alias	rule
 	SoxYZ	SoxY | K17226 | SoxZ | K17227
 	SoxB	K17224
 	SoxCD	K17225 | K22622
-	percent50NADH	percent(50,@NADH)
-	NADH	K03934,K03935,K03936,K03937,K03938,K03939,K03940,K03941,K03942,K03943,K03944
 
-	SulfurDisproporationation	K00958 & [K00394 | K00395] & [K11180 | K11181]
 
 	Methanogen	@MethylCoenzymeMReductase
 	MethylCoenzymeMReductase	@McrAor3999 | K00400 | K00401 | K00402 | K03421 | K03422
@@ -295,16 +294,17 @@ name	alias	rule
 	StarchGlycogen	GH126;EC:3.2.1.1 | GH13;EC:3.2.1.1 | GH119;EC:3.2.1.1 | GH57;EC:3.2.1.1 | GH14;EC:3.2.1.2 | GH13;EC:3.2.1.68 | GH31;EC:4.2.2.13
 	Chitin	AA15;EC:1.14.99.53 | AA10;EC:1.14.99.53 | AA11;EC:1.14.99.53 | GH18;EC:3.2.1.14 | GH19;EC:3.2.1.14 | GH23;EC:3.2.1.14 | GH48;EC:3.2.1.14 | GH18;EC:3.2.1.200 | GH18;EC:3.2.1.201 | GH19;EC:3.2.1.201
 	Microbially-derived	GH22;EC:3.2.1.17 | GH102;EC:4.2.2.29 | GH103;EC:4.2.2.29 | GH104;EC:4.2.2.29 | GH108;EC:3.2.1.17 | GH171;EC:3.2.1.92 | GH184;EC:3.2.1.17 | GH19;EC:3.2.1.17 | GH23;EC:3.2.1.17 | GH23;EC:4.2.2.29 | GH24;EC:3.2.1.17 | GH25;EC:3.2.1.17 | GH153;EC:3.2.1.- | GH160;EC:3.2.1.- | GH169;EC:3.2.1.- | GH90;EC:3.2.1.-
-	Cellulose-derived	GH180;EC:3.2.1.21 | GH39;EC:3.2.1.74 | GH94;EC:2.4.1.20 | AA7;EC:1.1.99.-
-	Hemicellulose-derived-xylan	GH1;EC:3.2.1.37 | GH2;EC:3.2.1.37
-	Hemicellulose-derived-other	GH74;EC:3.2.1.150 | GH130;EC:2.4.1.-
-	Pectin-derived	GH173;EC:3.2.1.23 | GH4;EC:3.2.1.67
-	Fructan-derived	GH172;EC:4.2.1.179 | GH32;EC:3.2.1.64
-	Starch-Glycogen-derived	GH13;EC:3.2.1.10 | GH13;EC:3.2.1.68 | GH122;EC:3.2.1.20 | GH13;EC:3.2.1.20 | GH31;EC:3.2.1.20 | GH13;EC:3.2.1.33 | GH13;EC:3.2.1.54 | GH176;EC:3.2.1.68 | GH4;EC:3.2.1.20
-	Chitin-derived	GH18;EC:3.2.1.200 | GH18;EC:3.2.1.201 | GH19;EC:3.2.1.201 | GH94;EC:2.4.1.280 | CE4;EC:3.1.1.-
-	Chitin-other-derived	GH3;EC:3.2.1.52 | GH5;EC:3.2.1.52 | GH179;EC:3.2.1.52
-	Other-oligosaccharides	"GH57;EC:3.2.1.22 | GH65;EC:2.4.1.334 | GH94;EC:2.4.1.333 | GH4;EC:3.2.1.22 | GH63;EC:3.2.1.20 | GH63;EC:3.2.1.84 "
-	Cellobiose	K00702
+	BetaGlucosides	GH180;EC:3.2.1.21
+	Xylooligosaccharides	GH1;EC:3.2.1.37 | GH2;EC:3.2.1.37
+	XyloglucanMannooligosaccharides	GH74;EC:3.2.1.150 | GH130;EC:2.4.1.-
+	PecticOligosaccharides	GH173;EC:3.2.1.23 | GH4;EC:3.2.1.67
+	Fructooligosaccharides	GH172;EC:4.2.1.179 | GH32;EC:3.2.1.64
+	MaltooligosaccharidesAlphaGlucosides	GH13;EC:3.2.1.10 | GH13;EC:3.2.1.68 | GH122;EC:3.2.1.20 | GH13;EC:3.2.1.20 | GH31;EC:3.2.1.20 | GH13;EC:3.2.1.33 | GH13;EC:3.2.1.54 | GH176;EC:3.2.1.68 | GH4;EC:3.2.1.20
+	Chitooligosaccharides	GH18;EC:3.2.1.200 | GH18;EC:3.2.1.201 | GH19;EC:3.2.1.201 | GH94;EC:2.4.1.280 | CE4;EC:3.1.1.-
+	NAcetylhexosaminides	GH3;EC:3.2.1.52 | GH5;EC:3.2.1.52 | GH179;EC:3.2.1.52
+	OtherGlycosidesOligosaccharides	GH65;EC:2.4.1.334 | GH94;EC:2.4.1.333 | GH4;EC:3.2.1.22 | GH63;EC:3.2.1.20 | GH63;EC:3.2.1.84 |GH39;EC:3.2.1.74 | GH57;EC:3.2.1.22
+	OligosaccharideOxidation	AA7;EC:1.1.99.-
+	Cellobiose	K00702 | GH94;EC:2.4.1.20
 	Maltose	GH65;EC:2.4.1.8
 	Sucrose	K01203 | K02810 | K00690 | GH13;EC:2.4.1.329 | GH13;EC:2.4.1.7 | GH13;EC:3.2.1.48 | GH31;EC:3.2.1.48
 	Trehalose	K01194 | K22934 | K05342 | K22248 | K01226 | K02819 | GH13;EC:3.2.1.93 | GH15;EC:3.2.1.28 | GH37;EC:3.2.1.28 | GH13;EC:3.2.1.28 | GH65;EC:2.4.1.64 | GH65;EC:3.2.1.28
@@ -315,7 +315,7 @@ name	alias	rule
 
 	Glucose	K00845 | K02779
 	Xylose	K01805 | K17743 | K14273
-	Arabinose	"K01804 | K13873 | K19660 "
+	Arabinose	K01804 | K13873 | K19660
 	Mannose	K01809 | K02793 | K02794 | K02795 | K02796
 	Galactose	K00849 | K00965
 	Fructose	K00847 | K00846 | K27475 | K02770 | K11196
@@ -325,10 +325,6 @@ name	alias	rule
 
 	Ethanol	[[K00001|K00121|K13953]]|[[K00001|K04072]&[K00128|K00149]&K01895]
 	Methanol	K14028|K14029|K23995
-
-	ArsenicDetox	[K03325 & K03892] | K00537
-	ArsenicRedox	[K08355 & K08356] | K03893
-	CopperDetox	[K17686 | [K07787 & K07798 & K07796]]
 
 	Superoxide	K04564 | K04565
 	Peroxide-catalase	K03781 | K03782 | K05910 | K00432
@@ -341,3 +337,28 @@ name	alias	rule
 	High-affinity-Pi-uptake	K02040 & K02037 & K02038 & K02036
 
 	Urease	[K01428&K01429&K01430]
+
+	ArsenicResistanceBroad	K03893 | K03325 | K11811 | K07089
+	ArsenicDetoxification	[K00537 | K03741] & [K03893 | K03325]
+	ArseniteOxidation	K08355 & K08356
+	RespiratoryArsenateReduction	K28466 & K28467
+	ArsenicMethylation	K07755
+	ArsenateReductionPotential	K00537 | K03741 | [K28466 & K28467]
+
+	MercuryReduction	K00520
+	MercuryDetox	K00520 & [K08363 | K19058 | K19059]
+	MercuryMethylation	HgcA
+	OrganomercuryDegradation	K00221
+
+	GeneralHeavyMetalEfflux	@CopperEfflux | @CadmiumZincEfflux | @DivalentMetalEfflux | @NickelCobaltEfflux | @ZincEfflux | @SilverEfflux | @ChromateEfflux
+	CopperEfflux	K17686 | K01533 | [K07787 & K07798 & K07796]
+	CadmiumZincEfflux	K01534
+	DivalentMetalEfflux	K15726 & K15727 & K15725
+	NickelCobaltEfflux	K08970 | [K11326 & K11327 & K11331]
+	ZincEfflux	K16264
+	SilverEfflux	K23254
+	ChromateEfflux	K07240
+
+	PossibleSelenateReduction	@SelenateChlorateReduction | @SelenateReductionSrd
+	SelenateChlorateReduction	K17050 & K17051 & K17052
+	SelenateReductionSrd	K27874 & K27875 & K27876

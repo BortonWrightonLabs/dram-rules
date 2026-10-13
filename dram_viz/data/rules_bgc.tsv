@@ -1,104 +1,100 @@
 name	rule	rule_options	module	group	notes
-Photosynthesis	@phototroph		Energy Conservation	Photosynthesis	Presence of a majority of an KEGG-derived Complex VI variant, indicative of respiration
-Calvin Cycle	@Calvin		Carbon Transformations	Carbon Fixation	For a genome to encode the Calvin Cycle, it must encode at least 50% of the genes encoding the pathway, plus encode the large and small subunits of 2-Oxoglutarate Ferredoxin Oxidoreductase
-Reductive Citric Acid Cycle	@ReductiveCitricAcid		Carbon Transformations	Carbon Fixation	For a genome to encode the Reductive Citric Acid Cycle, it must encode the defining carbon-fixing reaction (ATP citrate lyase or citryl-CoA lyase), the ferredoxin-dependent 2-oxoglutarate oxidoreductase, and coverage of at least 4 of the 6 remaining core cycle steps
-Hydroxypropionate-Hydroxybutyrate Cycle	@HydroxypropionateHydroxybutylate		Carbon Transformations	Carbon Fixation	For a genome to encode the Hydroxypropionate-Hydroxybutyrate,it must encode at least 50% of the genes encoding the pathway
-Dicarboxylate Hydroxybutyrate Cycle	@DicarboxylateHydroxybutyrate		Carbon Transformations	Carbon Fixation	For a genome to encode the Dicarboxylate Hydroxybutyrate,it must encode at least 50% of the genes encoding the pathway
-3-Hydroxypropionate Cycle	@3Hydroxypropionate		Carbon Transformations	Carbon Fixation	For a genome to encode the 3-Hydroxypropionate Cycle,it must encode at least 50% of the genes encoding the pathway
-Wood-Lungdahl Pathway	@ReductiveAcetylCoAWoodLjungdahl		Carbon Transformations	Carbon Fixation	For a genome to encode the Wood-Lungdahl Pathway,this rule requires evidence for a formate or CO2 reduction entry point, a functional glycine cleavage system, formate-tetrahydrofolate ligase and cyclohydrolase, and either a complete corrinoid/methyltransferase-acetyl-CoA synthase branch or an alternative serine hydroxymethyltransferase route
-Reductive Glycine Pathway	@ReductiveGlycinePathway		Carbon Transformations	Carbon Fixation	For a genome to encode the Reductive Glycine Pathway, it must encode a formate dehydrogenase complex, the majority of the glycine cleavage system, it must encode formate-tetrahydrofolate ligase, and methylenetetrahydrofolate dehydrogenase NADP+ / methenyltetrahydrofolate cyclohydrolase, and one of the two pathways of glycine synthesis
-Plant Polymer Mixed	@PlantPolymerMixed		Carbon Processing	polymer
-Cellulose	@Cellulose		Carbon Processing	polymer
-Hemicellulose	@Hemicellulose-Xylan | @Hemicellulose-Other		Carbon Processing	polymer
-Pectin	@Pectin		Carbon Processing	polymer
-Starch/Glycogen	@StarchGlycogen		Carbon Processing	polymer
-Chitin	@Chitin		Carbon Processing	polymer
-Pah-Anaerobic	NmsA		Carbon Transformations	hydrocarbon
-Pah-Aerobic	NdoB|NdoC|non_NdoB_type|K27540		Carbon Transformations	hydrocarbon
-Aromatic-Btex-Anaerobic	AbcA_1|AbcA_2|EbdA|CmdA|BssA		Carbon Transformations	hydrocarbon
-Aromatic-Btex-Aerobic	TmoA_BmoA|TmoB_BmoB|TmoE|TomA1|TomA3|TomA4|DmpO|MAH_alpha|MAH_beta		Carbon Transformations	hydrocarbon
-Alkane-Anaerobic	AssA		Carbon Transformations	hydrocarbon
-Alkane-Aerobic-Short-Chain	pBmoA|pBmoB|pBmoC|sBmoX|sBmoY|sBmoZ|PrmA|PrmC		Carbon Transformations	hydrocarbon
-Alkane-Aerobic-Med/Long-Chain	AlkB|AlmA_GroupI|AlmA_GroupIII|CYP153|LadA_alpha|LadA_beta|LadB		Carbon Transformations	hydrocarbon
-Vanillate	K03862|K03863|K15066		Carbon Transformations	oxygenated-aromatic
-Syringate	K15064		Carbon Transformations	oxygenated-aromatic
-Protocatechuic-Acid	[at_least(1, PRESENCE, [K04100,K04101]) & at_least(2, PRESENCE, [K10219, EC:1.1.1.312, K10221, K10220, K16515,  K10218, K16514 ])] | [at_least(1, PRESENCE, [K00448,EC:1.13.11.3, K00449]) & at_least(2, PRESENCE, [K01607, EC:4.1.1.44, K01857, EC:5.5.1.2, K01055, EC:3.1.1.24, K01031])]		Carbon Transformations	oxygenated-aromatic
-Gallic-Acid	at_least(2, PRESENCE, [K22958, K22959, K22960])		Carbon Transformations	oxygenated-aromatic
-Flavones	at_least(2, PRESENCE, [D00001,K26178,D00003,K26177,EC:5.5.1.6,D00006,K22906,EC:3.7.1.4,D00009,K26176])		Carbon Transformations	oxygenated-aromatic
-Ferulic-Acid	at_least(1, PRESENCE, [D00038,K12508,EC:6.2.1.34,K18383])		Carbon Transformations	oxygenated-aromatic
-Coumarate	D00039		Carbon Transformations	oxygenated-aromatic
-Catechol	[[K03381|EC:1.13.11.1] & at_least(2, PRESENCE, [K01856, EC:5.5.1.1,K03464,EC:5.3.3.4,K01055,EC:3.1.1.24,K01031])] | [at_least(1, PRESENCE, [K00446,K07104]) & [K10216 | at_least(1, PRESENCE, [K10217,K01617,K01821]) ] & at_least(1, PRESENCE, [K02554,K01666,K18364,K18365])]		Carbon Transformations	oxygenated-aromatic
-Caffeic-Acid	at_least(2, PRESENCE, [D00014,K22432,D00015,K22431,D00016,K22430,EC:1.3.1.108,D00017,D00018])		Carbon Transformations	oxygenated-aromatic
-4-Methoxybenzoate	K22553		Carbon Transformations	oxygenated-aromatic
-4-Hydroxybenzoate	[K00481|EC:1.14.13.2|K04105|K20458|EC:6.2.1.27|EC:6.2.1.25|K04107|EC:1.1.7.11|K04108|K04109]		Carbon Transformations	oxygenated-aromatic
-Cellulose-derived	@Cellulose-derived		Carbon Processing	oligomer
-Hemicellulose-derived	@Hemicellulose-derived-xylan | @Hemicellulose-derived-other		Carbon Processing	oligomer
-Pectin-derived	@Pectin-derived		Carbon Processing	oligomer
-Starch/Glycogen-derived	@Starch-Glycogen-derived		Carbon Processing	oligomer
-Chitin-derived	@Chitin-derived		Carbon Processing	oligomer
-Other oligosaccharides	@Other-oligosaccharides		Carbon Processing	oligomer
-Cellobiose	@Cellobiose		Carbon Processing	disaccharide
-Maltose	@Maltose		Carbon Processing	disaccharide
-Sucrose	@Sucrose		Carbon Processing	disaccharide
-Trehalose	@Trehalose		Carbon Processing	disaccharide
-Lactose	@Lactose		Carbon Processing	disaccharide
-Xylan/Xylobiose	@XylanXylobiose		Carbon Processing	disaccharide
-Mannose/Mannobiose	@Mannose-Mannobiose		Carbon Processing	disaccharide
-Glucose	@Glucose		Carbon Processing	monosaccharide
-Xylose	@Xylose		Carbon Processing	monosaccharide
-Arabinose	@Arabinose		Carbon Processing	monosaccharide
-Mannose	@Mannose		Carbon Processing	monosaccharide
-Galactose	@Galactose		Carbon Processing	monosaccharide
-Fructose	@Fructose		Carbon Processing	monosaccharide
-Rhamnose	@Rhamnose		Carbon Processing	monosaccharide
-N-Acetylglucosamine (Glc-NAc)	@N-Acetylglucosamine		Carbon Processing	monosaccharide
-Scfa-Propionate	@Propionate-Final		Carbon Transformations	LMWC
-Scfa-Butyrate	@Butyrate-Final		Carbon Transformations	LMWC
-Scfa-Acetate	@Acetate-Final		Carbon Transformations	LMWC
-Oxalate	K01577 | K07749		Carbon Transformations	LMWC
-Formate	K00656		Carbon Transformations	LMWC
-Methanol	@Methanol		Carbon Transformations	LMWC
-Ethanol/Alcohol	@Ethanol		Carbon Transformations	LMWC
-Oxygen - Low Affinity Use	[percent(50,@CytochromeCOxidase)|percent(50,@CytochromeAa3600MenaquinolOxidase)|percent(50,@CytochromeOUbiquinolOxidase)]&@ETC50		Redox Ladder	Oxygen Reduction	Potential to reduce ferric iron to ferrous iron
-Oxygen - High Affinity Use	[@percent50CytochromeBDUbiquinolOxidase|@percent50CytochromeCOxidaseCBB3]&@ETC50		Redox Ladder	Oxygen Reduction	Low affinity oxygen use indicates an aerobe and requires the presence of a low-affinity oxidase plus a majority of the elctron transport chain
-NO3 To NO2	@NarNitrateReductase|[@NapNitrateReductase]		Redox Ladder	Dissimilatory N Reduction
-NO2 To NO	@NitriteReductase		Redox Ladder	Dissimilatory N Reduction
-NO To N2O	@NitricOxideReductase		Redox Ladder	Dissimilatory N Reduction
-N2O To N2	@NitrousOxideReductase		Redox Ladder	Dissimilatory N Reduction
-DNRA full, NO3 To NH4	@DNRA		Redox Ladder	Dissimilatory N Reduction
-DNRA partial, NO2 To NH4 (NrfA only)	@nrfA		Redox Ladder	Dissimilatory N Reduction
-Iron Oxidation	@IronOxidation		Redox Ladder	Iron Reduction and Oxidation	Iron
-Iron Reduction	@IronReduction		Redox Ladder	Iron Reduction and Oxidation	Iron
-Sulfur Oxidation	@sulfateoxidizer		Redox Ladder	Sulfur Reduction and Oxidation	Sulfur
-Sulfate Reduction	@Sulfatereducer		Redox Ladder	Sulfur Reduction and Oxidation	Sulfur
-Sulfur Reduction	@ThiosulfateOrTetrathionate		Redox Ladder	Sulfur Reduction and Oxidation	Sulfur
-Hydrogenotrophic	@hydrogenotrophic	{"include_when":{"all_columns_present":["taxonomy"]}}	Greenhouse Gases	Methane Production and Oxidation	For a few genome to encode potential to oxidize carbon monoxide, it must encode either the aerobic or anaerobic carbon monoxide dehydrogenase and it anaerobic, NOT be an acetogen/use the Wood Ljungdahl pathway
-Acetoclastic	@acetoclastic	{"include_when":{"all_columns_present":["taxonomy"]}}	Greenhouse Gases	Methane Production and Oxidation	For a genome to have hydrogneotrophic methanogenesis potential, it must encode mcrA, at least 4 genes of the methyl branch of the Wood-lungdahl pathway,  part of the MTR complex, and at least one gene for any known hydrgenotrophic hdyrogenase.
-Methylotrophic	@methylotroph	{"include_when":{"all_columns_present":["taxonomy"]}}	Greenhouse Gases	Methane Production and Oxidation	For a genome to have acetoclastic methanogenesis potential, it must encode mcrA, part of the ACS_CODH complex, and either Acetate Kinase and Phosphotransacetylase OR Acetyl CoA Synthetase. There is a MANDATORY taxonomic requirement for this rule to run, and a MAG or genome must also belong to the genus Methanosarcina or the family Methanotrichaceae
-Aerobic Methanotroph	@AerobicMethanotroph		Greenhouse Gases	Methane Production and Oxidation	"For a genome to have methyltotrophic methanogenesis potential, it must encode mcrA and at least one substrate-demethylating corrinoid-dependent methyltransferase homolog ""MtxB"""
-Methanogen Or ANME	@Methanogen	{"include_when":{"all_columns_absent":["taxonomy"]}}	Greenhouse Gases	Methane Production and Oxidation	A genome that encodes adenylysulfate reductase and dissimilatory sulfite reductase
-Anaerobic Oxidation of Methane	@anaerobic-methanotrophic-Archaea		Greenhouse Gases	Methane Production and Oxidation	For a genome to have CH‚Äö√Ñ√∂‚àö√°‚àö√´ oxidation capability, it must encode at least one methane monooxygenase complex pMMO or sMMO, which catalyzes the conversion of methane to methanol ‚Äö√Ñ√∂‚àö√ë‚àö√Ü the key diagnostic step of methanotrophy in soils. It must also encode any genes for denitrifcation narG, napA, nirK, nirS, norB
-Nitrogen Fixation	@nitrogen-fixer		N Fixation and Oxidation	N Fixation and Oxidation	N Fixation and Oxidation
-Aerobic Ammonium Oxidation	@AerobicAmmoniaOxidizer		N Fixation and Oxidation	N Fixation and Oxidation	N Fixation and Oxidation
-Aerobic Nitrite Oxidation	@NitriteOxidoreductase		N Fixation and Oxidation	N Fixation and Oxidation	N Fixation and Oxidation
-Anaerobic Ammonia Oxidation Anammox	@Annamox		N Fixation and Oxidation	N Fixation and Oxidation	N Fixation and Oxidation
-Complete Ammonia Oxidation Comammox	@Comammox		N Fixation and Oxidation	N Fixation and Oxidation	N Fixation and Oxidation
-Superoxide	@Superoxide		Environmental Adaptation	Environmental Adaptation
-Peroxide-catalase	@Peroxide-catalase		Environmental Adaptation	Environmental Adaptation
-Peroxide-peroxiredoxin	@Peroxide-peroxiredoxin		Environmental Adaptation	Environmental Adaptation
-Temperature Sensing	K07778|K07693|K10255|K10256|K04043|K03686|K04079|K03705|K13640|K03053|K03048|K01419|K04080|K04081|K03695|K03687|K13993|K04077|K04078|K03048|K10257|K03704|K02834|K05592|K04455|K03667|K04762|K05801|K03799|K07721|K19411|K04083|K06335|K05516		Environmental Adaptation	Environmental Adaptation	Presence of oxidative stress response genes indicates microbial potential to detoxify reactive oxygen species through catalase‚Äö√Ñ√∂‚àö√ë‚àö¬®peroxidase, superoxide dismutase, glutathione biosynthesis,  NADH peroxidase, or related genes/proteins, supporting survival under oxidative stress in agricultural soils.
-Arsenic Detox	@ArsenicDetox		Environmental Adaptation	Environmental Adaptation	For a genome to have cold shock capacity, it must encode at least one cold shock protein or associated repressor
-Arsenic Redox	@ArsenicRedox		Environmental Adaptation	Environmental Adaptation	Arsenate reduction coupled with arsenic export or arsenic methylation/transformation pathways associated with detoxification
-Chromium	K07240|K19784		Environmental Adaptation	Environmental Adaptation	Respiratory arsenate reduction or arsenite oxidation linked to arsenic redox meta
-Copper	@CopperDetox		Environmental Adaptation	Environmental Adaptation	Chromate efflux transporter
-Mercury Detox	K08365|K19057|K00520|K08363|K08364		Environmental Adaptation	Environmental Adaptation	copper export and periplasmic detoxification systems associated with copper resistance and homeostasis
-Mercury Methylation	HgcA		Environmental Adaptation	Environmental Adaptation	The mer operon encodes a complete mercury detoxification system that senses, imports, and enzymatically reduces toxic ionic mercury (Hg¬¨¬®‚Äö√¢¬ß‚Äö√Ñ√∂‚àö√ñ‚Äö√†¬¥) to volatile elemental mercury (Hg‚Äö√Ñ√∂‚àö√ñ‚Äö√†√ª) for cellular efflux.
-Beta-Lactams	K18698|K18699|K18796|K18767|K18797|K19097|K19317|K18768|K18970|K19316|K22346|K18795|K19218|K19217|K18790|K18791|K19098|K18792|K19213|K21276|K18793|K18971|K22352|K19209|K18976|K18973|K18794|K18972|K21277|K19210|K19211|K19212|K22335|K19319|K22331|K22351|K19320|K19318|K19321|K19322|K21266|K22334|K22333|K22332|K19095|K19096|K19100|K19101|K19214|K19215|K20319|K20320|K18782|K18781|K18780|K19099|K19216|EC:3.5.2.6		Environmental Adaptation	Environmental Adaptation	For a genome to have capacity for motility, it must encode at least one flagellar motor protein and at least 3 flagellar structure gene
-Macrolides	K00561|K14336|K15632|K18230|K18231|K19349|K19350|K18232|K19541|K08217|K18833|K08160|K06880|K18235|K19545|K18236|K18234|K21251|K06979		Environmental Adaptation	Environmental Adaptation
-Sulfonamides	K18974|K18824|K18825|EC:2.5.1.15		Environmental Adaptation	Environmental Adaptation
-Tetracyclines	K08151|K08168|K18214|K18215|K18218|K18216|K18217|K19542|K18233|K18220|K18221|EC:1.14.13.231		Environmental Adaptation	Environmental Adaptation
-Etc: Complex I Nadh Dehydrogenase	at_least(9, PRESENCE, [K00330,K00331,K00332,K00333,K13378,K13380,K00334,K00335,K00336,K00337,K00338,K00339,K00340,K00341,K00342,K15863,K00343])|at_least(7, PRESENCE, [K05574,K05582,K05581,K05579,K05572,K05580,K05578,K05576,K05577,K05575,K05573,K05583,K05584,K05585])|at_least(4, PRESENCE, [K03878,K03879,K03880,K03881,K03882,K03883,K03884])|at_least(6, PRESENCE, [K03934,K03935,K03936,K03937,K03938,K03939,K03940,K03941,K03942,K03943,K03944])|at_least(7, PRESENCE, [K03945,K03946,K03947,K03948,K03949,K03950,K03951,K03952,K03953,K03954,K03955,K03956,K11352,K11353])|at_least(6, PRESENCE, [K03957,K03958,K03959,K03960,K03961,K03962,K03963,K03964,K03965,K03966,K11351])|at_least(3, PRESENCE, [K00346,K00347,K00348,K00349,K00350,K00351])		Metabolic Electron Transport	ETC
-Etc: Complex Ii Succinate Dehydrogenase	at_least(4, PRESENCE, [K00239,K00240,K00241,K00242,K00244,K00245,K00246,K00247,K18859,K18860])|at_least(2, PRESENCE, [K00234,K00235,K00236,K00237])		Metabolic Electron Transport	ETC	Presence of a majority of an KEGG-derived Complex I variant, indicative of respiration
-Etc: Complex Iii Cytochrome Bc1 Complex	at_least(4, PRESENCE, [K00412,K00413,K00410,K00411,K03891,K03889,K03890])|at_least(4, PRESENCE, [K00414,K00415,K00416,K00417,K00418,K00419,K00420])|at_least(2, PRESENCE, [K03886,K03887,K03888])		Metabolic Electron Transport	ETC	Presence of a majority of an KEGG-derived Complex II variant, indicative of respiration
-Etc: Complex V Atpsynthase	at_least(4, PRESENCE, [K02111,K02112,K02113,K02114,K02115,K02108,K02109,K02110])|at_least(5, PRESENCE, [K02117,K02118,K02119,K02120,K02121,K02122,K02107,K02123,K02124])|at_least(10, PRESENCE, [K02132,K02133,K02136,K02134,K02135,K02137,K02126,K02127,K02128,K02138,K02129,K01549,K02130,K02139,K02140,K02141,K02131,K02142,K02143,K02125])|at_least(7, PRESENCE, [K02145,K02147,K02148,K02149,K02150,K02151,K02152,K02144,K02154,K03661,K02155,K02146,K02153,K03662])		Metabolic Electron Transport	ETC	Presence of a majority of an KEGG-derived Complex III variant, indicative of respiration
-Hydrogenases	@HydrogenUse		Metabolic Electron Transport	Energy Conservation	Hydrogenases
+Calvin Cycle	@Calvin		Carbon Transformations	Carbon Fixation
+Reductive Citric Acid Cycle	@ReductiveCitricAcid		Carbon Transformations	Carbon Fixation
+Hydroxypropionate-Hydroxybutyrate Cycle	@HydroxypropionateHydroxybutylate		Carbon Transformations	Carbon Fixation
+Dicarboxylate Hydroxybutyrate Cycle	@DicarboxylateHydroxybutyrate		Carbon Transformations	Carbon Fixation
+Wood-Ljungdahl Pathway	@ReductiveAcetylCoAWoodLjungdahl		Carbon Transformations	Carbon Fixation
+PAH - Anaerobic	NmsA		Carbon Transformations	Hydrocarbon
+PAH - Aerobic	NdoB|NdoC|non_NdoB_type|K27540		Carbon Transformations	Hydrocarbon
+BTEX - Anaerobic	AbcA_1|AbcA_2|EbdA|CmdA|BssA		Carbon Transformations	Hydrocarbon
+BTEX - Aerobic	TmoA_BmoA|TmoB_BmoB|TmoE|TomA1|TomA3|TomA4|DmpO|MAH_alpha|MAH_beta		Carbon Transformations	Hydrocarbon
+Alkane - Anaerobic	AssA		Carbon Transformations	Hydrocarbon
+Alkane Long-Chain - Aerobic	AlkB|AlmA_GroupI|AlmA_GroupIII|CYP153|LadA_alpha|LadA_beta|LadB		Carbon Transformations	Hydrocarbon
+Alkane Short-Chain - Aerobic	pBmoA|pBmoB|pBmoC|sBmoX|sBmoY|sBmoZ|PrmA|PrmC		Carbon Transformations	Hydrocarbon
+Flavones	at_least(2, PRESENCE, [D00001,K26178,D00003,K26177,EC:5.5.1.6,D00006,K22906,EC:3.7.1.4,D00009,K26176])		Carbon Transformations	Oxygenated Aromatic
+Ferulic-Acid	at_least(1, PRESENCE, [D00038,K12508,EC:6.2.1.34,K18383])		Carbon Transformations	Oxygenated Aromatic
+Caffeic-Acid	at_least(2, PRESENCE, [D00014,K22432,D00015,K22431,D00016,K22430,EC:1.3.1.108,D00017,D00018])		Carbon Transformations	Oxygenated Aromatic
+Syringate	K15064		Carbon Transformations	Oxygenated Aromatic
+Vanillate	K03862|K03863|K15066		Carbon Transformations	Oxygenated Aromatic
+Gallic-Acid	at_least(2, PRESENCE, [K22958, K22959, K22960])		Carbon Transformations	Oxygenated Aromatic
+Coumarate	D00039		Carbon Transformations	Oxygenated Aromatic
+Protocatechuic-Acid	[at_least(1, PRESENCE, [K04100,K04101]) & at_least(2, PRESENCE, [K10219, EC:1.1.1.312, K10221, K10220, K16515,  K10218, K16514 ])] | [at_least(1, PRESENCE, [K00448,EC:1.13.11.3, K00449]) & at_least(2, PRESENCE, [K01607, EC:4.1.1.44, K01857, EC:5.5.1.2, K01055, EC:3.1.1.24, K01031])]		Carbon Transformations	Oxygenated Aromatic
+4-Methoxybenzoate	K22553		Carbon Transformations	Oxygenated Aromatic
+4-Hydroxybenzoate	[K00481|EC:1.14.13.2|K04105|K20458|EC:6.2.1.27|EC:6.2.1.25|K04107|EC:1.1.7.11|K04108|K04109]		Carbon Transformations	Oxygenated Aromatic
+Catechol	[[K03381|EC:1.13.11.1] & at_least(2, PRESENCE, [K01856, EC:5.5.1.1,K03464,EC:5.3.3.4,K01055,EC:3.1.1.24,K01031])] | [at_least(1, PRESENCE, [K00446,K07104]) & [K10216 | at_least(1, PRESENCE, [K10217,K01617,K01821]) ] & at_least(1, PRESENCE, [K02554,K01666,K18364,K18365])]		Carbon Transformations	Oxygenated Aromatic
+Cellulose	@Cellulose		Carbon Transformations	Polysaccharides
+Hemicellulose	@Hemicellulose-Xylan | @Hemicellulose-Other		Carbon Transformations	Polysaccharides
+Xylan or Xylobiose (mixed size)	@XylanXylobiose		Carbon Transformations	Polysaccharides
+Pectin	@Pectin		Carbon Transformations	Polysaccharides
+Multiple Plant Polysaccharides	@PlantPolymerMixed		Carbon Transformations	Polysaccharides	can act on multiple plant polymers of hemicellulose, pectin, and cellulose
+Starch/Glycogen	@StarchGlycogen		Carbon Transformations	Polysaccharides
+Chitin	@Chitin		Carbon Transformations	Polysaccharides
+Cellulose-Associated	@BetaGlucosides		Carbon Transformations	Oligosaccharide	β-Glucoside hydrolysis; may support cellulose-derived oligosaccharide utilization
+Hemicellulose-Associated	@Xylooligosaccharides | @XyloglucanMannooligosaccharides		Carbon Transformations	Oligosaccharide	xylooligosaccharides and xyloglucan- or mannan-related oligosaccharides, potentially supporting hemicellulose-derived carbohydrate utilization.
+Pectin-Associated	@PecticOligosaccharides		Carbon Transformations	Oligosaccharide	pectic oligosaccharides, potentially supporting utilization of pectin breakdown products.
+Starch/Glycogen Associated	@MaltooligosaccharidesAlphaGlucosides		Carbon Transformations	Oligosaccharide	maltooligosaccharides and α-glucosides, potentially supporting utilization of starch- or glycogen-derived carbohydrates.
+Chitin-Associated	@Chitooligosaccharides | @NAcetylhexosaminides		Carbon Transformations	Oligosaccharide	chitooligosaccharides and N-acetylhexosaminides, potentially supporting chitin-derived carbohydrate utilization. N-acetylhexosaminides may also originate from other glycoconjugates.
+Other oligosaccharides	@OtherGlycosidesOligosaccharides | @OligosaccharideOxidation | @Fructooligosaccharides		Carbon Transformations	Oligosaccharide	Diverse glycoside and oligosaccharide transformations, including fructooligosaccharide utilization and oligosaccharide oxidation, that are not assigned to a single major polymer-associated group.
+Cellobiose	@Cellobiose		Carbon Transformations	Oligosaccharide	Glucose disaccharide produced during cellulose breakdown; utilization does not imply direct cellulose degradation.
+Maltose	@Maltose		Carbon Transformations	Oligosaccharide	Glucose disaccharide associated with starch and glycogen breakdown.
+Sucrose	@Sucrose		Carbon Transformations	Oligosaccharide	Glucose-fructose disaccharide commonly found in plants; important for carbon transport and storage.
+Trehalose	@Trehalose		Carbon Transformations	Oligosaccharide	Glucose disaccharide used for carbon storage and stress protection in many organisms.
+Lactose	@Lactose		Carbon Transformations	Oligosaccharide	Galactose-glucose disaccharide; utilization indicates potential to process lactose or related β-galactosides.
+Mannobiose or Mannose (mixed size)	@Mannose-Mannobiose		Carbon Transformations	Oligosaccharide	Mannose-containing carbohydrates associated with mannan and other glycans; calls may represent monosaccharide or disaccharide processing.
+Glucose	@Glucose		Carbon Transformations	Monosaccharide	Central hexose used in carbohydrate metabolism.
+Xylose	@Xylose		Carbon Transformations	Monosaccharide	Pentose commonly derived from xylan and other plant polysaccharides.
+Arabinose	@Arabinose		Carbon Transformations	Monosaccharide	Pentose commonly found in plant cell-wall polysaccharides, including hemicellulose (e.g., arabinoxylan), arabinan, and pectin.
+Mannose	@Mannose		Carbon Transformations	Monosaccharide	Hexose commonly found in plant cell-wall polysaccharides, including hemicellulose and pectin, as well as diverse glycoconjugates
+Galactose	@Galactose		Carbon Transformations	Monosaccharide	Hexose found in plant cell-wall polysaccharides, including pectin (galactans) and some hemicelluloses, as well as other glycans.
+Fructose	@Fructose		Carbon Transformations	Monosaccharide	Hexose found in sucrose and fructans (e.g., inulin and levan), as well as other carbohydrates.
+Rhamnose	@Rhamnose		Carbon Transformations	Monosaccharide	Deoxyhexose commonly found in pectin (rhamnogalacturonans) and microbial polysaccharides.
+N-Acetylglucosamine (Glc-NAc)	@N-Acetylglucosamine		Carbon Transformations	Monosaccharide	Amino sugar found in chitin (fungal cell walls), bacterial peptidoglycan, and other glycoconjugates.
+SCFA-Propionate	@Propionate-Final		Carbon Transformations	Low Molecular Weight Carbon
+Scfa-Butyrate	@Butyrate-Final		Carbon Transformations	Low Molecular Weight Carbon
+Scfa-Acetate	@Acetate-Final		Carbon Transformations	Low Molecular Weight Carbon
+Oxalate	K01577 | K07749		Carbon Transformations	Low Molecular Weight Carbon
+Formate	K00656		Carbon Transformations	Low Molecular Weight Carbon
+Methanol	@Methanol		Carbon Transformations	Low Molecular Weight Carbon
+Ethanol/Alcohol	@Ethanol		Carbon Transformations	Low Molecular Weight Carbon
+Photosynthesis	@phototroph		Energy Conservation	Photosynthesis
+Etc: Complex I Nadh Dehydrogenase	at_least(9, PRESENCE, [K00330,K00331,K00332,K00333,K13378,K13380,K00334,K00335,K00336,K00337,K00338,K00339,K00340,K00341,K00342,K15863,K00343])|at_least(7, PRESENCE, [K05574,K05582,K05581,K05579,K05572,K05580,K05578,K05576,K05577,K05575,K05573,K05583,K05584,K05585])|at_least(4, PRESENCE, [K03878,K03879,K03880,K03881,K03882,K03883,K03884])|at_least(6, PRESENCE, [K03934,K03935,K03936,K03937,K03938,K03939,K03940,K03941,K03942,K03943,K03944])|at_least(7, PRESENCE, [K03945,K03946,K03947,K03948,K03949,K03950,K03951,K03952,K03953,K03954,K03955,K03956,K11352,K11353])|at_least(6, PRESENCE, [K03957,K03958,K03959,K03960,K03961,K03962,K03963,K03964,K03965,K03966,K11351])|at_least(3, PRESENCE, [K00346,K00347,K00348,K00349,K00350,K00351])		Energy Conservation	Respiratory Electron Transport and ATP Synthesis
+Etc: Complex II Succinate Dehydrogenase	at_least(4, PRESENCE, [K00239,K00240,K00241,K00242,K00244,K00245,K00246,K00247,K18859,K18860])|at_least(2, PRESENCE, [K00234,K00235,K00236,K00237])		Energy Conservation	Respiratory Electron Transport and ATP Synthesis	Presence of a majority of an KEGG-derived Complex I variant, indicative of respiration
+Etc: Complex III Cytochrome Bc1 Complex	at_least(4, PRESENCE, [K00412,K00413,K00410,K00411,K03891,K03889,K03890])|at_least(4, PRESENCE, [K00414,K00415,K00416,K00417,K00418,K00419,K00420])|at_least(2, PRESENCE, [K03886,K03887,K03888])		Energy Conservation	Respiratory Electron Transport and ATP Synthesis	Presence of a majority of an KEGG-derived Complex II variant, indicative of respiration
+Etc: Complex V Atpsynthase	at_least(4, PRESENCE, [K02111,K02112,K02113,K02114,K02115,K02108,K02109,K02110])|at_least(5, PRESENCE, [K02117,K02118,K02119,K02120,K02121,K02122,K02107,K02123,K02124])|at_least(10, PRESENCE, [K02132,K02133,K02136,K02134,K02135,K02137,K02126,K02127,K02128,K02138,K02129,K01549,K02130,K02139,K02140,K02141,K02131,K02142,K02143,K02125])|at_least(7, PRESENCE, [K02145,K02147,K02148,K02149,K02150,K02151,K02152,K02144,K02154,K03661,K02155,K02146,K02153,K03662])		Energy Conservation	Respiratory Electron Transport and ATP Synthesis	Presence of a majority of an KEGG-derived Complex III variant, indicative of respiration
+Oxygen - Low Affinity Use	[percent(50,@CytochromeCOxidase)|percent(50,@CytochromeAa3600MenaquinolOxidase)|percent(50,@CytochromeOUbiquinolOxidase)]		Respiratory Redox Processes	Oxygen Reduction
+Oxygen - High Affinity Use	[@percent50CytochromeBDUbiquinolOxidase|@percent50CytochromeCOxidaseCBB3]		Respiratory Redox Processes	Oxygen Reduction
+NO3 To NO2	@NarNitrateReductase|[@NapNitrateReductase]		Respiratory Redox Processes	Nitrogen Reduction
+NO2 To NO	@NitriteReductase		Respiratory Redox Processes	Nitrogen Reduction
+NO To N2O	@NitricOxideReductase		Respiratory Redox Processes	Nitrogen Reduction
+N2O To N2	@NitrousOxideReductase		Respiratory Redox Processes	Nitrogen Reduction
+DNRA, NO3 To NH4	@DNRA		Respiratory Redox Processes	Nitrogen Reduction
+DNRA NrfA only, NO2 To NH4	@nrfA		Respiratory Redox Processes	Nitrogen Reduction
+Aerobic Ammonium Oxidation	@AerobicAmmoniaOxidizer		Respiratory Redox Processes	Nitrogen Oxidation
+Aerobic Nitrite Oxidation	@NitriteOxidoreductase		Respiratory Redox Processes	Nitrogen Oxidation
+Anaerobic Ammonia Oxidation Anammox	@Annamox		Respiratory Redox Processes	Nitrogen Oxidation
+Complete Ammonia Oxidation Comammox	@Comammox		Respiratory Redox Processes	Nitrogen Oxidation
+Iron Oxidation	@IronOxidation		Respiratory Redox Processes	Iron Reduction and Oxidation
+Iron Reduction	@IronReduction		Respiratory Redox Processes	Iron Reduction and Oxidation
+Sulfur Oxidation	@sulfateoxidizer		Respiratory Redox Processes	Sulfur Reduction and Oxidation
+Sulfate Reduction	@Sulfatereducer		Respiratory Redox Processes	Sulfur Reduction and Oxidation
+Non-sulfate-sulfur-reduction	@Non-sulfate-sulfur-reduction		Respiratory Redox Processes	Sulfur Reduction and Oxidation
+Hydrogenotrophic	@hydrogenotrophic	"{""include_when"":{""all_columns_present"":[""taxonomy""]}}"	Respiratory Redox Processes	Methane Production and Oxidation	For a few genome to encode potential to oxidize carbon monoxide, it must encode either the aerobic or anaerobic carbon monoxide dehydrogenase and it anaerobic, NOT be an acetogen/use the Wood Ljungdahl pathway
+Acetoclastic	@acetoclastic	"{""include_when"":{""all_columns_present"":[""taxonomy""]}}"	Respiratory Redox Processes	Methane Production and Oxidation	For a genome to have hydrogneotrophic methanogenesis potential, it must encode mcrA, at least 4 genes of the methyl branch of the Wood-lungdahl pathway,  part of the MTR complex, and at least one gene for any known hydrgenotrophic hdyrogenase.
+Methylotrophic	@methylotroph	"{""include_when"":{""all_columns_present"":[""taxonomy""]}}"	Respiratory Redox Processes	Methane Production and Oxidation	For a genome to have acetoclastic methanogenesis potential, it must encode mcrA, part of the ACS_CODH complex, and either Acetate Kinase and Phosphotransacetylase OR Acetyl CoA Synthetase. There is a MANDATORY taxonomic requirement for this rule to run, and a MAG or genome must also belong to the genus Methanosarcina or the family Methanotrichaceae
+Aerobic Methanotroph	@AerobicMethanotroph		Respiratory Redox Processes	Methane Production and Oxidation	"For a genome to have methyltotrophic methanogenesis potential, it must encode mcrA and at least one substrate-demethylating corrinoid-dependent methyltransferase homolog ""MtxB"""
+Methanogen Or ANME	@Methanogen	"{""include_when"":{""all_columns_absent"":[""taxonomy""]}}"	Respiratory Redox Processes	Methane Production and Oxidation	A genome that encodes adenylysulfate reductase and dissimilatory sulfite reductase
+Anaerobic Oxidation of Methane	@anaerobic-methanotrophic-Archaea		Respiratory Redox Processes	Methane Production and Oxidation	For a genome to have CH‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö¬∞‚Äö√†√∂‚àö¬¥ oxidation capability, it must encode at least one methane monooxygenase complex pMMO or sMMO, which catalyzes the conversion of methane to methanol ‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂‚àö√ú the key diagnostic step of methanotrophy in soils. It must also encode any genes for denitrifcation narG, napA, nirK, nirS, norB
+Possible Obligate Fermenter	@Fermenter		Other Metabolic Traits	Other Metabolic Traits
+Hydrogenases	@HydrogenUse		Other Metabolic Traits	Other Metabolic Traits
+Nitrogen Fixation	@nitrogen-fixer		Other Metabolic Traits	Other Metabolic Traits
+Arsenite Oxidation Potential	@ArseniteOxidation		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	As(III) → As(V). Generally produces the less toxic form of inorganic arsenic, although mobility depends on soil conditions (sorption to iron)
+Arsenate Reduction Potential	@ArsenateReductionPotential		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	Converts As(V) to As(III), potentially increasing mobility and plant exposure; ArsC (K00537, K03741) mediates cellular detoxification and may not result in substantial environmental As(III) release.
+Arsenic Methylation	@ArsenicMethylation		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	Produces methylated arsenic species with variable toxicity, mobility, and plant uptake.
+Mercury Reduction	@MercuryReduction		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	MerA reduces Hg(II) to volatile Hg(0), affecting mercury mobility and atmospheric release.
+Mercury Methylation	@MercuryMethylation		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	HgcA indicates potential for methylmercury production, increasing toxicity and bioaccumulation risk.
+Organic Mercury Degradation	@OrganomercuryDegradation		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	MerB cleaves organomercury compounds, including methylmercury, releasing Hg(II).
+Possible Selenate Reduction	@PossibleSelenateReduction		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	CopA (K17686) or CopB (K01533) copper-exporting ATPases, OR the complete CusABC efflux system consisting of CusA (K07787), CusB (K07798), AND CusC ]K07796). The rule requires only one ATPase or all three CusABC components.
+Candidate Manganese oxidase	K22349		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	MnxG multicopper oxidase associated with Mn(II) oxidation to Mn(III/IV) oxides.
+Superoxide	@Superoxide		Environmental Adaptation	Oxidative defense
+Peroxide-catalase	@Peroxide-catalase		Environmental Adaptation	Oxidative defense
+Peroxide-peroxiredoxin	@Peroxide-peroxiredoxin		Environmental Adaptation	Oxidative defense

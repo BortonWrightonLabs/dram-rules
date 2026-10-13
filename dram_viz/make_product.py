@@ -51,9 +51,9 @@ RULES_SYSTEMS = {
     "default": Path(__file__).parent / "data/rules.tsv",
     "ag": Path(__file__).parent / "data/rules_ag.tsv",
     "bgc": Path(__file__).parent / "data/rules_bgc.tsv",
-    "aquatic": Path(__file__).parent / "data/rules_aquatic.tsv",
-    "eng_sys": Path(__file__).parent / "data/rules_eng_sys.tsv",
-    "gut": Path(__file__).parent / "data/rules_gut.tsv",
+    # "aquatic": Path(__file__).parent / "data/rules_aquatic.tsv",
+    # "eng_sys": Path(__file__).parent / "data/rules_eng_sys.tsv",
+    # "gut": Path(__file__).parent / "data/rules_gut.tsv",
 }
 
 
@@ -172,7 +172,7 @@ def join_present_map_df_to_mapping_df(
     "--common_rules_tsv",
     "-c",
     type=click.Path(exists=True),
-    help="Path to rules sheet with common rules to be added to all rules sheet. Useful for common aliases across multiple rules.",
+    help="Path to rules sheet with common rules to be added to all rules sheet. Useful for common aliases across multiple rules. If none is provided, will use default common rules system defined in Rule Parser.",
 )
 @click.option(
     "--mapping",
@@ -244,6 +244,9 @@ def main(
     import time
 
     s = time.time()
+    if common_rules_tsv is None:
+        common_rules_tsv = Path(__file__).parent / "rule_parser/src/rules_common.tsv"
+
     if rules_system and rules_tsv:
         raise click.BadArgumentUsage(
             "You may only supply either a rules system or a custom rules tsv, not both"
@@ -254,7 +257,7 @@ def main(
         rules_tsv = RULES_SYSTEMS["default"]
 
     rules_lf = pl.scan_csv(
-        rules_tsv, separator="\t", infer_schema_length=None
+        rules_tsv, separator="\t", infer_schema_length=None, truncate_ragged_lines=True
     ).fill_null("")
 
     rules_cols = rules_lf.collect_schema().names()
