@@ -331,7 +331,7 @@ def main(
         # if mapping_df col 0 maps to anno query_id col
         if mapping_df.select(
             pl.col("query_id")
-            .is_in(raw_anno.select(pl.col("query_id")).to_series())
+            .is_in(raw_anno.select(pl.col("query_id")).to_series().implode())
             .all()
         ).item():
             mapping_df = mapping_df.join(
@@ -342,7 +342,7 @@ def main(
         # if mapping_df col 0 maps to anno input_fasta/genome col
         elif mapping_df.select(
             pl.col("query_id")
-            .is_in(raw_anno.select(pl.col("genome")).to_series())
+            .is_in(raw_anno.select(pl.col("genome")).to_series().implode())
             .all()
         ).item():
             mapping_df = mapping_df.rename({"query_id": "genome"}).join(
@@ -443,7 +443,6 @@ def main(
 
         tax_tree_data = build_tree_pl(
             tax_edge_df,
-            state={"opened": False, "selected": True},
             id_cb=lambda source, child, parent_id: f"{parent_id};{child}",
         )
         selected_tax_tree = build_tax_tree_selected_recurse(tax_tree_data)

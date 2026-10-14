@@ -52,7 +52,6 @@ def build_tree_pl(
     edge_df,
     source_col: str = "source",
     target_col: str = "target",
-    state: dict = None,
     id_cb=None,
 ):
     """
@@ -62,7 +61,6 @@ def build_tree_pl(
     - edge_df (DataFrame): The edge DataFrame containing the source and target nodes.
     - source_col (str): The name of the column in edge_df that represents the source nodes. Default is "source".
     - target_col (str): The name of the column in edge_df that represents the target nodes. Default is "target".
-    - state (dict): A dictionary representing the state of the tree nodes. Default is None.
     - id_cb (callable): A callback function that generates unique IDs for the tree nodes. Default is None.
 
     Returns:
@@ -74,8 +72,6 @@ def build_tree_pl(
         # sensible default: deterministic id
         def id_cb(source, target, parent_id):
             return f"{parent_id}->{target}"
-
-    state = state or {}
 
     # --- build adjacency list: source -> list of targets ---
     # This is the key optimization vs filtering inside recursion.
@@ -91,7 +87,9 @@ def build_tree_pl(
     roots = (
         edge_df.select(pl.col(source_col))
         .filter(
-            ~pl.col(source_col).is_in(edge_df.select(pl.col(target_col)).to_series())
+            ~pl.col(source_col).is_in(
+                edge_df.select(pl.col(target_col)).to_series().implode()
+            )
         )
         .unique()
         .to_series()
@@ -104,9 +102,8 @@ def build_tree_pl(
             node_id = id_cb(source, target, parent_id)
             children.append(
                 {
-                    "text": target,
-                    "children": recurse_tree(target, parent_id=node_id),
-                    "state": state,
+                    "label": target,
+                    "items": recurse_tree(target, parent_id=node_id),
                     "id": node_id,
                 }
             )
@@ -115,9 +112,8 @@ def build_tree_pl(
     tree_data = [
         {
             "id": root,
-            "text": root,
-            "children": recurse_tree(root, parent_id=root),
-            "state": state,
+            "label": root,
+            "items": recurse_tree(root, parent_id=root),
         }
         for root in roots
     ]
@@ -130,6 +126,6 @@ def build_tax_tree_selected_recurse(tax_tree, flat_tree=None):
         flat_tree = []
     for node in tax_tree:
         flat_tree.append(node["id"])
-        if "children" in node:
-            build_tax_tree_selected_recurse(node["children"], flat_tree)
+        if "items" in node:
+            build_tax_tree_selected_recurse(node["items"], flat_tree)
     return flat_tree

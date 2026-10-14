@@ -33,21 +33,21 @@ class RuleError(Exception):
 
 
 ID_EXPR_DICT = {
-    "camper_id": pl.col("camper_id").cast(pl.Utf8).cast(pl.List(pl.Utf8)),
-    "fegenie_id": pl.col("fegenie_id").cast(pl.Utf8).cast(pl.List(pl.Utf8)),
-    "sulfur_id": pl.col("sulfur_id").cast(pl.Utf8).cast(pl.List(pl.Utf8)),
-    "kegg_genes_id": pl.col("kegg_genes_id").cast(pl.Utf8).cast(pl.List(pl.Utf8)),
-    "kofam_genes_id": pl.col("kofam_genes_id").cast(pl.Utf8).cast(pl.List(pl.Utf8)),
+    "camper_id": pl.list(pl.col("camper_id").cast(pl.String)),
+    "fegenie_id": pl.list(pl.col("fegenie_id").cast(pl.String)),
+    "sulfur_id": pl.list(pl.col("sulfur_id").cast(pl.String)),
+    "kegg_genes_id": pl.list(pl.col("kegg_genes_id").cast(pl.String)),
+    "kofam_genes_id": pl.list(pl.col("kofam_genes_id").cast(pl.String)),
     "ko_id": pl.col("ko_id").str.split(","),
     "kegg_id": pl.col("kegg_id").str.split("/"),
     "kofam_id": pl.col("kofam_id").str.split("/"),
     "peptidase_family": pl.col("peptidase_family").str.split(";"),
     "merops_family": pl.col("merops_family").str.split(";"),
-    "camper_EC": pl.col("camper_EC").str.extract_all(r"\[EC:(\d+\.\d+\.\d+\.\d+)\]"),
-    "kegg_EC": pl.col("kegg_EC").str.extract_all(r"\[EC:(\d+\.\d+\.\d+\.\d+)\]"),
-    "kofam_EC": pl.col("kofam_EC").str.extract_all(r"\[EC:(\d+\.\d+\.\d+\.\d+)\]"),
-    "pfam_hits": pl.col("pfam_hits").str.extract_all(r"\[(PF\d{5})\.\d+\]"),
-    "pfam_id": pl.col("pfam_id").str.extract_all(r"\[(PF\d{5})\.\d+\]"),
+    "camper_EC": pl.col("camper_EC").str.extract_all(r"EC:(\d+\.\d+\.\d+\.\d+)"),
+    "kegg_EC": pl.col("kegg_EC").str.extract_all(r"EC:(\d+\.\d+\.\d+\.\d+)"),
+    "kofam_EC": pl.col("kofam_EC").str.extract_all(r"EC:(\d+\.\d+\.\d+\.\d+)"),
+    "pfam_hits": pl.col("pfam_hits").str.extract_all(r"(PF\d{5})\.\d+"),
+    "pfam_id": pl.col("pfam_id").str.extract_all(r"(PF\d{5})\.\d+"),
     "cazy_hits": (
         pl.col("cazy_hits")
         .cast(pl.Utf8)
@@ -80,7 +80,7 @@ ID_EXPR_DICT = {
         .str.split(",")
         .list.eval(pl.element().str.strip_chars().str.split(" ").list.first())
     ),
-    "DEFAULT": lambda col: pl.col(col).cast(pl.Utf8).cast(pl.List(pl.Utf8)),
+    "DEFAULT": lambda col: pl.list(pl.col(col).cast(pl.String)),
 }
 
 COMPUTED_COLUMNS = {
@@ -732,7 +732,7 @@ def prepare_present_map_df(
             explode_col = ID_EXPR_DICT[col].alias(col)
         df = (
             df.with_columns(explode_col)
-            .explode(col)
+            .explode(col, empty_as_null=True)
             .with_columns(pl.col(col).str.to_uppercase())
         )
 
