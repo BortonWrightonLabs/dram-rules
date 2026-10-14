@@ -53,7 +53,7 @@ RULES_SYSTEMS = {
     "bgc": Path(__file__).parent / "data/rules_bgc.tsv",
     # "aquatic": Path(__file__).parent / "data/rules_aquatic.tsv",
     # "eng_sys": Path(__file__).parent / "data/rules_eng_sys.tsv",
-    # "gut": Path(__file__).parent / "data/rules_gut.tsv",
+    "gut": Path(__file__).parent / "data/rules_gut.tsv",
 }
 
 
