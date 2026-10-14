@@ -1,6 +1,7 @@
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 import panel as pn
 import polars as pl
@@ -186,7 +187,7 @@ class TaxonomyFilterTests(unittest.TestCase):
         source = dashboard.plot_view[0].object.renderers[0].data_source.data
         self.assertEqual(list(source["sample"]), ["sample1"])
         self.assertEqual(list(source["sample_abundance"]), [10.0])
-        with_taxonomy = self.frame.to_pandas()
+        with_taxonomy = self.frame
         self.assertIs(dashboard.filter_by_taxonomy(with_taxonomy), with_taxonomy)
 
     def test_without_taxonomy(self):
@@ -236,6 +237,53 @@ class TaxonomyFilterTests(unittest.TestCase):
             self.assertTrue(
                 all(model.document is document for model in document.models)
             )
+
+    def test_redraw_and_export_do_not_convert_to_pandas(self):
+        dashboard = self.dashboard()
+        with patch.object(
+            pl.DataFrame, "to_pandas", side_effect=AssertionError("pandas conversion")
+        ):
+            dashboard.taxonomy_filter.active = [
+                dashboard._taxonomy_paths[self.taxonomies[0]]
+            ]
+            dashboard.update_plot()
+            dashboard.download_heatmap()
+            self.assertEqual(self.plotted_genomes(dashboard), [["g1", "g2"]])
+            dashboard.column_options.value = {
+                "Y Column": "sample",
+                "Color Column": "sample_abundance",
+            }
+            dashboard.update_plot()
+            dashboard.download_heatmap()
+            dashboard.column_options.value = {
+                "Y Column": "genome",
+                "Color Column": "mean_sample_abundance",
+            }
+            dashboard.update_plot()
+            dashboard.download_heatmap()
+
+    def test_coverage_threshold_and_stable_sort(self):
+        self.dfs["genome"]["All"] = self.frame.with_columns(
+            pl.Series("coverage_percentage", [0.1, 0.5, None, 1.0])
+        )
+        dashboard = self.dashboard()
+        dashboard.min_coverage = 0.5
+        dashboard.update_plot()
+        values = (
+            dashboard.plot_view[0]
+            .object.renderers[0]
+            .data_source.data["coverage_percentage"]
+        )
+        self.assertEqual(list(values[:2]), [0.0, 0.5])
+        self.assertEqual(values[3], 1.0)
+        self.assertEqual(
+            self.dfs["genome"]["All"]["coverage_percentage"].to_list(),
+            [0.1, 0.5, None, 1.0],
+        )
+        unsorted = pl.DataFrame({"genome": ["b", "a", "a", None], "row": [0, 1, 2, 3]})
+        self.assertEqual(
+            dashboard.get_sorted_dfs(unsorted)["row"].to_list(), [1, 2, 0, 3]
+        )
 
 
 if __name__ == "__main__":

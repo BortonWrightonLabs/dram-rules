@@ -4,9 +4,9 @@ from math import pi
 from pathlib import Path
 from typing import Optional
 
-import pandas as pd
 import panel as pn
 import param
+import polars as pl
 from bokeh.embed import file_html
 from bokeh.layouts import row
 from bokeh.models import Div
@@ -14,7 +14,6 @@ from bokeh.palettes import BuGn, Cividis256
 from bokeh.plotting import figure
 from bokeh.resources import INLINE
 from bokeh.transform import factor_cmap, linear_cmap, log_cmap
-from pandas.api.types import is_numeric_dtype
 from panel_material_ui import Tree
 
 from dram_viz.definitions import NO_TAXONOMY_RANKS, TAXONOMY_RANKS_REGEX
@@ -30,7 +29,7 @@ HEATMAP_CELL_WIDTH = 15
 
 
 def heatmap(
-    df,
+    df: pl.DataFrame,
     y_col,
     tooltip_cols,
     title="",
@@ -48,7 +47,7 @@ def heatmap(
 
     Parameters
     ----------
-    df : pd.DataFrame
+    df : pl.DataFrame
         The dataframe to make the heatmap from
     x_col : str
         The column to use for the x-axis
@@ -74,15 +73,14 @@ def heatmap(
     """
 
     if x_cols:
-        df = pd.melt(
-            df, id_vars=y_col, value_vars=x_cols, var_name="x_col"
-        ).drop_duplicates()
+        df = df.unpivot(
+            index=y_col, on=x_cols, variable_name="x_col", value_name="value"
+        ).unique(maintain_order=True)
         x_col = "x_col"
         c_col = "value"
         tooltip_cols = [y_col, "value"]
 
     rect_kw = rect_kw or {}
-    # df = df.sort_values(by=[y_col], ascending=False)
 
     tooltips = []
     for col in tooltip_cols:
@@ -92,10 +90,10 @@ def heatmap(
             tooltips.append((col.replace("_", " ").title(), f"@{col}"))
 
     p = figure(
-        frame_width=HEATMAP_CELL_WIDTH * len(df[x_col].unique()),
-        frame_height=HEATMAP_CELL_WIDTH * len(df[y_col].unique()),
-        x_range=list(df[x_col].unique()),
-        y_range=list(df[y_col].unique()),
+        frame_width=HEATMAP_CELL_WIDTH * df[x_col].n_unique(),
+        frame_height=HEATMAP_CELL_WIDTH * df[y_col].n_unique(),
+        x_range=df[x_col].unique(maintain_order=True).to_list(),
+        y_range=df[y_col].unique(maintain_order=True).to_list(),
         tools="hover",
         toolbar_location=None,
         tooltips=tooltips,
@@ -105,25 +103,20 @@ def heatmap(
         **fig_kwargs,
     )
 
-    # if x_col:
-    # if df[c_col].dtype == float:
-    if is_numeric_dtype(df[c_col]) and df[c_col].dtype != bool:
+    color_dtype = df.schema[c_col]
+    if color_dtype.is_numeric():
         palette = tuple(reversed(PALETTE_CONTINUOUS))
         if log_colors:
             fill_color = log_cmap(c_col, palette=palette, low=c_min, high=c_max)
         else:
             fill_color = linear_cmap(c_col, palette=palette, low=c_min, high=c_max)
     else:
-        # if the column is boolean, we want to treat it as categorical
-        # but we need to convert it to string first so that the factor_cmap works correctly
-        # And we need to make sure both false and true are included as factors
-        # even if they aren't both present in the data
-        if df[c_col].dtype == bool:
-            df[c_col] = df[c_col].astype(str)
-            factors = [str(False), str(True)]
-        else:
-            df[c_col] = df[c_col].astype(str)
-            factors = sorted(df[c_col].unique())
+        df = df.with_columns(pl.col(c_col).cast(pl.String))
+        factors = (
+            ["false", "true"]
+            if color_dtype == pl.Boolean
+            else df[c_col].drop_nulls().unique().sort().to_list()
+        )
         max_factors = max(PALETTE_CATEGORICAL.keys())
         palette = (
             PALETTE_CATEGORICAL[max(len(factors), 3)]
@@ -161,11 +154,11 @@ class Dashboard(pn.viewable.Viewer):
 
     Parameters:
     -----------
-    module_df : pd.DataFrame
+    module_df : pl.DataFrame
         The module dataframe.
-    etc_df : pd.DataFrame
+    etc_df : pl.DataFrame
         The etc dataframe.
-    function_df : pd.DataFrame
+    function_df : pl.DataFrame
         The function dataframe.
     tax_tree_data : optional
         The taxonomy tree data.
@@ -177,7 +170,7 @@ class Dashboard(pn.viewable.Viewer):
 
     def __init__(
         self,
-        dfs: dict[str, dict[str, pd.DataFrame]],
+        dfs: dict[str, dict[str, pl.DataFrame]],
         taxanomy_tree_data: Optional[list[dict]] = None,
         selected_tax_tree: Optional[list[str]] = None,
         output_dir: str | Path = None,
@@ -331,11 +324,10 @@ class Dashboard(pn.viewable.Viewer):
         y_mode = self.y_col
         c_mode = self.color_col
         for group, df in self.dfs[y_mode].items():
-            df = df.to_pandas()
             df = self.filter_by_taxonomy(df)
-            if df.empty:
+            if df.is_empty():
                 continue
-            tooltip_cols = df.columns.tolist()
+            tooltip_cols = df.columns
             kw = {"y_col": y_mode}
             if (
                 not charts
@@ -349,7 +341,12 @@ class Dashboard(pn.viewable.Viewer):
             if "presence/coverage" in c_mode:
                 c_col = get_val_col(df)
                 if c_col == "coverage_percentage" and self.min_coverage > 0:
-                    df.loc[df[c_col] < self.min_coverage, c_col] = 0
+                    df = df.with_columns(
+                        pl.when(pl.col(c_col) < self.min_coverage)
+                        .then(0)
+                        .otherwise(pl.col(c_col))
+                        .alias(c_col)
+                    )
             elif "abundance" in c_mode:
                 c_col = c_mode
                 kw["c_max"] = df[c_col].max()
@@ -396,7 +393,7 @@ class Dashboard(pn.viewable.Viewer):
 
         self.sort_by.value = []
 
-    def filter_by_taxonomy(self, df):
+    def filter_by_taxonomy(self, df: pl.DataFrame) -> pl.DataFrame:
         """
         Filter the dataframes by selected taxonomy ranks
         """
@@ -412,7 +409,7 @@ class Dashboard(pn.viewable.Viewer):
             for node in selected
             if len(node["id"].split(";")) == NO_TAXONOMY_RANKS
         ]
-        df = df.loc[df["taxonomy"].isin(leaves)]
+        df = df.filter(pl.col("taxonomy").is_in(leaves))
 
         return df
 
@@ -434,7 +431,7 @@ class Dashboard(pn.viewable.Viewer):
         Sort the dataframes by taxonomy
         """
         by = by or self.y_col
-        return df.sort_values(by=by, kind="stable")
+        return df.sort(by=by, maintain_order=True, nulls_last=True)
 
     def download_heatmap(self, event=None, output_dir=None):
         """
