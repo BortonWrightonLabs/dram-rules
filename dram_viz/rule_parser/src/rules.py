@@ -43,11 +43,11 @@ ID_EXPR_DICT = {
     "kofam_id": pl.col("kofam_id").str.split("/"),
     "peptidase_family": pl.col("peptidase_family").str.split(";"),
     "merops_family": pl.col("merops_family").str.split(";"),
-    "camper_EC": pl.col("camper_EC").str.extract_all(r"\[EC:(\d+\.\d+\.\d+\.\d+)\]"),
-    "kegg_EC": pl.col("kegg_EC").str.extract_all(r"\[EC:(\d+\.\d+\.\d+\.\d+)\]"),
-    "kofam_EC": pl.col("kofam_EC").str.extract_all(r"\[EC:(\d+\.\d+\.\d+\.\d+)\]"),
-    "pfam_hits": pl.col("pfam_hits").str.extract_all(r"\[(PF\d{5})\.\d+\]"),
-    "pfam_id": pl.col("pfam_id").str.extract_all(r"\[(PF\d{5})\.\d+\]"),
+    "camper_EC": pl.col("camper_EC").str.extract_all(r"EC:(\d+\.\d+\.\d+\.\d+)"),
+    "kegg_EC": pl.col("kegg_EC").str.extract_all(r"EC:(\d+\.\d+\.\d+\.\d+)"),
+    "kofam_EC": pl.col("kofam_EC").str.extract_all(r"EC:(\d+\.\d+\.\d+\.\d+)"),
+    "pfam_hits": pl.col("pfam_hits").str.extract_all(r"(PF\d{5})\.\d+"),
+    "pfam_id": pl.col("pfam_id").str.extract_all(r"(PF\d{5})\.\d+"),
     "cazy_hits": (
         pl.col("cazy_hits")
         .cast(pl.Utf8)
@@ -732,7 +732,7 @@ def prepare_present_map_df(
             explode_col = ID_EXPR_DICT[col].alias(col)
         df = (
             df.with_columns(explode_col)
-            .explode(col)
+            .explode(col, empty_as_null=True)
             .with_columns(pl.col(col).str.to_uppercase())
         )
 
