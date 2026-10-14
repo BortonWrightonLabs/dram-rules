@@ -38,7 +38,7 @@ jobs:
         run: pre-commit run --all-files
 
       - name: Run tests
-        run: pytest tests --doctest-modules --cov=dram_viz --cov-report=xml --cov-report=html
+        run: python -m pytest tests --doctest-modules --cov=dram_viz --cov-report=xml --cov-report=html
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
