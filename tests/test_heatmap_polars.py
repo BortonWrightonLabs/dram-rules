@@ -17,8 +17,12 @@ class PolarsHeatmapTests(unittest.TestCase):
             pl.DataFrame, "to_pandas", side_effect=AssertionError("pandas conversion")
         ):
             plot = heatmap(
-                frame, y_col="genome", x_col="name", c_col="value",
-                tooltip_cols=frame.columns, **kwargs
+                frame,
+                y_col="genome",
+                x_col="name",
+                c_col="value",
+                tooltip_cols=frame.columns,
+                **kwargs,
             )
         self.assertTrue(frame.equals(original))
         self.assertEqual(plot.x_range.factors, ["z", "a"])

@@ -27,7 +27,7 @@ dependencies = [
     'click <9.0',
     'networkx >=3,<4',
     'param >=2.0,<3.0',
-    'panel-material-ui',
+    'panel-material-ui >=0.16.2,<0.17',
     'pandas >=2,<3.0',
     'polars >=2,<3',
     'pyarrow',
