@@ -81,3 +81,6 @@ __pycache__/
 
 ## File-based project format:
 *.iws
+# pixi environments
+.pixi/*
+!.pixi/config.toml

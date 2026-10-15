@@ -1,4 +1,0 @@
-polars
-lark
-numpy
-networkx

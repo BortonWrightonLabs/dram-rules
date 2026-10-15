@@ -4,7 +4,7 @@ from unittest.mock import patch
 import polars as pl
 from bokeh.models import CategoricalColorMapper, LinearColorMapper, LogColorMapper
 
-from dram_viz.apps.heatmap import heatmap
+from src.apps.heatmap import heatmap
 
 
 class PolarsHeatmapTests(unittest.TestCase):

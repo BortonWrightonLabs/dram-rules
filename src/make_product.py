@@ -16,8 +16,8 @@ import panel as pn
 import polars as pl
 import polars.selectors as cs
 
-from dram_viz.apps.heatmap import Dashboard
-from dram_viz.definitions import (
+from src.apps.heatmap import Dashboard
+from src.definitions import (
     BACKUP_ALIAS_COLUMNS,
     BACKUP_FASTA_COLUMNS,
     BACKUP_GROUPBY_COLUMNS,
@@ -27,13 +27,13 @@ from dram_viz.definitions import (
     DEFAULT_GROUPBY_COLUMN,
     DEFAULT_LABEL_COLUMN,
 )
-from dram_viz.processing.process_annotations import (
+from src.processing.process_annotations import (
     build_tax_edge_df_pl,
     build_tax_tree_selected_recurse,
     build_taxonomy_df_pl,
     build_tree_pl,
 )
-from dram_viz.rule_parser.src.rules import (
+from src.rule_parser.rules import (
     ID_EXPR_DICT,
     CompiledRules,
     build_present_map,
@@ -245,7 +245,7 @@ def main(
 
     s = time.time()
     if common_rules_tsv is None:
-        common_rules_tsv = Path(__file__).parent / "rule_parser/src/rules_common.tsv"
+        common_rules_tsv = Path(__file__).parent / "rule_parser/rules_common.tsv"
 
     if rules_system and rules_tsv:
         raise click.BadArgumentUsage(

@@ -150,7 +150,7 @@ name	alias	rule
 	HydrogenUse	NiFe_group1 | NiFe_group2 | NiFe_group3 | NiFe_group4 | FeFe_groupA | FeFe_groupB | FeFe_groupC | FeFe_groupE | FeFe_groupF
 
 	Fermenter	not(@NegativeForFermenter) &  [@Lactate-Final | @Ethanol | @Acetate-Final | @Butyrate-Final | @Propionate-Final] & [K00850 | K00873 | K01690 | K01625 | K00615 | K00616]
-	NegativeForFermenter	@ETC50 | @Methanogen | @Denitrifier | @Sulfatereducer | @AerobicAmmoniaOxidizer | @Aerobe | @Microaerophillic | @phototroph
+	NegativeForFermenter	@ETC50 | @Methanogen | @Denitrifier | @Sulfatereducer | @AerobicAmmoniaOxidizer | @Aerobe | @Microaerophillic | @phototroph | @Non-sulfate-sulfur-reduction | @IronReduction
 	Denitrifier	@ETC50 & [[@NarNitrateReductase | @NapNitrateReductase] | @NitriteReductase | @NitricOxideReductase | @NitrousOxideReductase]
 	NitrousOxideReductase	K00376 | EC:1.7.2.4
 	NitricOxideReductase	K04561 | K15877 | EC:1.7.2.5
@@ -238,11 +238,11 @@ name	alias	rule
 
 
 	Methanogen	@MethylCoenzymeMReductase
-	MethylCoenzymeMReductase	@McrAor3999 | K00400 | K00401 | K00402 | K03421 | K03422
+	MethylCoenzymeMReductase	@McrAor3999 | K00401 | K00402
 	notOtherMethanogen	not(@OtherAjMethanogen)
 	OtherAjMethanogen	@Sulfatereducer | @Denitrifier | @AerobicAmmoniaOxidizer |@Comammox | @Annamox | @phototroph | @ETC60
 
-	hydrogenotrophic	[[[@McrAor3999] & @ReductiveAcetylCoAWoodLjungdahl_Archaeal_MethylOnly & @TetrahydromethanopterinSMethyltransferase_MTRcomplex & [ @Frh_hydrogenase |@Mvh_hydrogenase |@Eha_hydrogenase |@Ehb_hydrogenase |@Fdo_hydrogenase |@FormateDehydrogenase_1|@FdhF|@FdhAB ]] | [[tax(o__Methanoflorentales)|tax(g__Methanobacterium_A)|tax(g__Methanobacterium_C)|tax(g__Methanobacterium_E)|tax(g__Methanobacterium_F)|tax(g__Methanobacterium)|tax(g__Methanobrevibacter_A)|tax(g__Methanobrevibacter)|tax(g__Methanothermobacter_A)|tax(g__Methanothermobacter)|tax(g__Methanothermus)|tax(f__Methanobacteriaceae)|tax(g__Methanocella_A)|tax(g__Methanocella)|tax(g__Methanooceanicella)|tax(o__Methanococcales)|tax(o__Methanomicrobiales)|tax(g__Methanopyrus)|tax(o__Nezhaarchaeales)|tax(g__Methanolacinia)|tax(g__Methanobacterium_B)|tax(g__Methanobacterium_D)|tax(g__Methanosarcina)] & not(tax(g__Methanosphaera))]] & not([@McrAor3999] & [tax(g__Methanocomedens_A)|tax(g__Methanocomedens_B)|tax(g__Methanogaster_A)|tax(g__Methanogaster_B)|tax(g__Methanoperedens_A)|tax(g__Methanoperedens)|tax(g__ANME-1-THS)|tax(g__ANME1a)|tax(g__G60ANME1)|tax(g__Methanophaga)|tax(g__Methanovorans)|tax(g__Methanomarinus)|tax(g__Methanoxibalbensis)|tax(g__Methanospirare)|tax(g__Kmv04)|tax(g__Methanogaster_C)|tax(g__Methanogaster_D)|tax(g__CAZCRM01)|tax(g__UBA10536)|tax(g__Methanoxibalbensis)])
+	hydrogenotrophic	[[[@Methanogen] & @ReductiveAcetylCoAWoodLjungdahl_Archaeal_MethylOnly & @TetrahydromethanopterinSMethyltransferase_MTRcomplex & [ @Frh_hydrogenase |@Mvh_hydrogenase |@Eha_hydrogenase |@Ehb_hydrogenase |@Fdo_hydrogenase |@FormateDehydrogenase_1|@FdhF|@FdhAB ]] | [[tax(o__Methanoflorentales)|tax(g__Methanobacterium_A)|tax(g__Methanobacterium_C)|tax(g__Methanobacterium_E)|tax(g__Methanobacterium_F)|tax(g__Methanobacterium)|tax(g__Methanobrevibacter_A)|tax(g__Methanobrevibacter)|tax(g__Methanothermobacter_A)|tax(g__Methanothermobacter)|tax(g__Methanothermus)|tax(f__Methanobacteriaceae)|tax(g__Methanocella_A)|tax(g__Methanocella)|tax(g__Methanooceanicella)|tax(o__Methanococcales)|tax(o__Methanomicrobiales)|tax(g__Methanopyrus)|tax(o__Nezhaarchaeales)|tax(g__Methanolacinia)|tax(g__Methanobacterium_B)|tax(g__Methanobacterium_D)|tax(g__Methanosarcina)] & not(tax(g__Methanosphaera))]] & not([@Methanogen] & [tax(g__Methanocomedens_A)|tax(g__Methanocomedens_B)|tax(g__Methanogaster_A)|tax(g__Methanogaster_B)|tax(g__Methanoperedens_A)|tax(g__Methanoperedens)|tax(g__ANME-1-THS)|tax(g__ANME1a)|tax(g__G60ANME1)|tax(g__Methanophaga)|tax(g__Methanovorans)|tax(g__Methanomarinus)|tax(g__Methanoxibalbensis)|tax(g__Methanospirare)|tax(g__Kmv04)|tax(g__Methanogaster_C)|tax(g__Methanogaster_D)|tax(g__CAZCRM01)|tax(g__UBA10536)|tax(g__Methanoxibalbensis)])
 	ReductiveAcetylCoAWoodLjungdahl_Archaeal_MethylOnly	at_least(4, PRESENCE, [ @FormylmethanofuranDehydrogenase, @Formylmethanofuran-Tetrahydromethanopterin-N-formyltransferase, @MethenyltetraydromethanopterinCyclohydrolase, @MethelenetetraydromethanopterinDehydrogenaseand510-MethenyltetrahydromethanopterinHydrogenase , @510-MethylenetetrahydromethanopterinReductase ])
 	TetrahydromethanopterinSMethyltransferase_MTRcomplex	at_least(2,PRESENCE, [K00577,K00578,K00579,K00580,K00581,K00582,K00583,K00584])
 	Frh_hydrogenase	at_least(2,PRESENCE, [K00440,K00441,K00442,K00443])
@@ -254,14 +254,25 @@ name	alias	rule
 	FdhAB	at_least(1,PRESENCE,[K00125,K22516])
 	McrAor3999	[McrA | K00399]
 
-	acetoclastic	@McrAor3999 & at_least(1, PRESENCE, [K00193,K00194,K00197,K00198]) &[[K00925&K00625]|K01895] & [tax(g__Methanosarcina)|tax(f__Methanotrichaceae)] & not(@McrAor3999 & [tax(g__Methanocomedens_A)|tax(g__Methanocomedens_B)|tax(g__Methanogaster_A)|tax(g__Methanogaster_B)|tax(g__Methanoperedens_A)|tax(g__Methanoperedens)|tax(g__ANME-1-THS)|tax(g__ANME1a)|tax(g__G60ANME1)|tax(g__Methanophaga)|tax(g__Methanovorans)|tax(g__Methanomarinus)|tax(g__Methanoxibalbensis)|tax(g__Methanospirare)|tax(g__Kmv04)|tax(g__Methanogaster_C)|tax(g__Methanogaster_D)|tax(g__CAZCRM01)|tax(g__UBA10536)|tax(g__Methanoxibalbensis)])
+	acetoclastic	"@Methanogen
+					& at_least(1, PRESENCE, [K00193,K00194,K00197,K00198])
+					& [
+						[K00925&K00625]
+						|
+						K01895
+					]
+					& [tax(g__Methanosarcina)|tax(f__Methanotrichaceae)]
+					& not(
+						@Methanogen
+						& [tax(g__Methanocomedens_A)|tax(g__Methanocomedens_B)|tax(g__Methanogaster_A)|tax(g__Methanogaster_B)|tax(g__Methanoperedens_A)|tax(g__Methanoperedens)|tax(g__ANME-1-THS)|tax(g__ANME1a)|tax(g__G60ANME1)|tax(g__Methanophaga)|tax(g__Methanovorans)|tax(g__Methanomarinus)|tax(g__Methanoxibalbensis)|tax(g__Methanospirare)|tax(g__Kmv04)|tax(g__Methanogaster_C)|tax(g__Methanogaster_D)|tax(g__CAZCRM01)|tax(g__UBA10536)|tax(g__Methanoxibalbensis)]
+						)"
 	ACS_CODH_complex	at_least(1, PRESENCE, @ACS_CODH)
 	ACS_CODH	K00193,K00194,K00197,K00198
 	AcetateGenes	@Ack_Pta | @AcetylCoASynthetase
 	Ack_Pta	K00925 & K00625
 	AcetylCoASynthetase	K01895
 
-	methylotroph	[[@McrAor3999 & at_least(1, PRESENCE, [K04480,K14083,K16176,K16178,K25220,K16954,K25600,K25916,K26847])] | [tax(g__Methanobacterium_B)|tax(g__Methanobacterium_D)|tax(g__Methanosarcina)|tax(g__Methanodesulfokora)|tax(g__Methanosphaera)|tax(o__Methanomethylicales)|tax(c__Methanonatronarchaeia)|tax(g__Methanolobus)|tax(g__Methanomethylovorans)|tax(g__Methanohalobium)|tax(g__Methanohalophilus)|tax(g__Methanosalsum)|tax(g__Methermicoccus)|tax(g__Methanococcoides)|tax(g__Methanolapillus)|tax(g__MTP4)|tax(g__Methanimicrococcus)|tax(g__Methanofrustulum)|tax(o__Methanofastidiosales)|tax(o__Methanomassiliicoccales)|tax(f__Methanonatronarchaeaceae)]] & not(@McrAor3999 & [tax(g__Methanocomedens_A)|tax(g__Methanocomedens_B)|tax(g__Methanogaster_A)|tax(g__Methanogaster_B)|tax(g__Methanoperedens_A)|tax(g__Methanoperedens)|tax(g__ANME-1-THS)|tax(g__ANME1a)|tax(g__G60ANME1)|tax(g__Methanophaga)|tax(g__Methanovorans)|tax(g__Methanomarinus)|tax(g__Methanoxibalbensis)|tax(g__Methanospirare)|tax(g__Kmv04)|tax(g__Methanogaster_C)|tax(g__Methanogaster_D)|tax(g__CAZCRM01)|tax(g__UBA10536)|tax(g__Methanoxibalbensis)])
+	methylotroph	[[@Methanogen & at_least(1, PRESENCE, [K04480,K14083,K16176,K16178,K25220,K16954,K25600,K25916,K26847])] | [tax(g__Methanobacterium_B)|tax(g__Methanobacterium_D)|tax(g__Methanosarcina)|tax(g__Methanodesulfokora)|tax(g__Methanosphaera)|tax(o__Methanomethylicales)|tax(c__Methanonatronarchaeia)|tax(g__Methanolobus)|tax(g__Methanomethylovorans)|tax(g__Methanohalobium)|tax(g__Methanohalophilus)|tax(g__Methanosalsum)|tax(g__Methermicoccus)|tax(g__Methanococcoides)|tax(g__Methanolapillus)|tax(g__MTP4)|tax(g__Methanimicrococcus)|tax(g__Methanofrustulum)|tax(o__Methanofastidiosales)|tax(o__Methanomassiliicoccales)|tax(f__Methanonatronarchaeaceae)]] & not(@Methanogen & [tax(g__Methanocomedens_A)|tax(g__Methanocomedens_B)|tax(g__Methanogaster_A)|tax(g__Methanogaster_B)|tax(g__Methanoperedens_A)|tax(g__Methanoperedens)|tax(g__ANME-1-THS)|tax(g__ANME1a)|tax(g__G60ANME1)|tax(g__Methanophaga)|tax(g__Methanovorans)|tax(g__Methanomarinus)|tax(g__Methanoxibalbensis)|tax(g__Methanospirare)|tax(g__Kmv04)|tax(g__Methanogaster_C)|tax(g__Methanogaster_D)|tax(g__CAZCRM01)|tax(g__UBA10536)|tax(g__Methanoxibalbensis)])
 	mtxB	K04480| K14083 |K16176 | K16178 |K25220 | K16954
 
 	AerobicMethanotroph	@TRUEPmoA | @mmoX
@@ -269,7 +280,7 @@ name	alias	rule
 	TRUEPmoA	pmoa_alpha_1 | pmoa_alpha_2 | pmoa_crenothrix | pmoa_gamma | pmoa_methyl_eth | pmoa_methylomirabilis | pmoa_verr | pmoa_actinobacteria_chloroflexota
 	mmoX	K16157
 
-	anaerobic-methanotrophic-Archaea	@McrAor3999 & [tax(g__Methanocomedens_A)|tax(g__Methanocomedens_B)|tax(g__Methanogaster_A)|tax(g__Methanogaster_B)|tax(g__Methanoperedens_A)|tax(g__Methanoperedens)|tax(g__ANME-1-THS)|tax(g__ANME1a)|tax(g__G60ANME1)|tax(g__Methanophaga)|tax(g__Methanovorans)|tax(g__Methanomarinus)|tax(g__Methanoxibalbensis)|tax(g__Methanospirare)|tax(g__Kmv04)|tax(g__Methanogaster_C)|tax(g__Methanogaster_D)|tax(g__CAZCRM01)|tax(g__UBA10536)|tax(g__Methanoxibalbensis)]
+	anaerobic-methanotrophic-Archaea	@Methanogen & [tax(g__Methanocomedens_A)|tax(g__Methanocomedens_B)|tax(g__Methanogaster_A)|tax(g__Methanogaster_B)|tax(g__Methanoperedens_A)|tax(g__Methanoperedens)|tax(g__ANME-1-THS)|tax(g__ANME1a)|tax(g__G60ANME1)|tax(g__Methanophaga)|tax(g__Methanovorans)|tax(g__Methanomarinus)|tax(g__Methanoxibalbensis)|tax(g__Methanospirare)|tax(g__Kmv04)|tax(g__Methanogaster_C)|tax(g__Methanogaster_D)|tax(g__CAZCRM01)|tax(g__UBA10536)|tax(g__Methanoxibalbensis)]
 
 	NOxorRed	@ProbableNarNxr & not(@NitriteOxidoreductase) & not(@NarNitrateReductase)
 
