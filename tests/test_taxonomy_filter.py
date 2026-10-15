@@ -9,8 +9,8 @@ from bokeh.document import Document
 from panel.io.state import set_curdoc
 from panel_material_ui import Tree
 
-from src.apps.heatmap import Dashboard
-from src.processing.process_annotations import (
+from dram_rules.apps.heatmap import Dashboard
+from dram_rules.processing.process_annotations import (
     build_tax_edge_df_pl,
     build_tax_tree_selected_recurse,
     build_tree_pl,

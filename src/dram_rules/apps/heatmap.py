@@ -16,8 +16,8 @@ from bokeh.resources import INLINE
 from bokeh.transform import factor_cmap, linear_cmap, log_cmap
 from panel_material_ui import Tree
 
-from src.definitions import NO_TAXONOMY_RANKS, TAXONOMY_RANKS_REGEX
-from src.rule_parser.rules import get_val_col
+from dram_rules.definitions import NO_TAXONOMY_RANKS, TAXONOMY_RANKS_REGEX
+from dram_rules.rule_parser.rules import get_val_col
 
 pn.extension("tabulator", "katex", template="bootstrap")
 

@@ -1,78 +1,29 @@
 name	alias	rule
-	Acetate-Final	@Acetate-1 | @Acetate-2 | @Acetate-3
-	Acetate-1	[[@Acetate-sub1 & [K00163 | K00161 | K00162] & K00627] | [K00174 | K00175] | [K00169 | K00170 | K00172 | K00189 | K00171 | K03737]] & [K01905 | K22224 | K24012]
-	Acetate-2	@Acetate-sub1 & K01568 & [K00138 | K00128 | K14085 | K00149 | K00129]
-	Acetate-3	K001895 | K01913
-	Acetate-sub1	[K00163 | K00161 | K00162 | K01568]
-
-	Propionate-Final	@Propionate-1 | @Propionate-2 | @Propionate-3
-	Propionate-1	"[
-						[K01899 | K01900 | K01902 | K01903 | K01899]
-						& [K01847 | K01849 | K01848]
-						& [K00140 | [K05606 & [K11264 | K03416 | K18426]]]
-						& @Propionate-sub2
-					]
-					| @Propionate-sub1"
-	Propionate-2	[K01026 & [K20626 | K20627] & [K00248 | K00232] & @Propionate-sub2] | @Propionate-sub1
-	Propionate-3	[[K01699 | K13919 | K13920] & K13922 & @Propionate-sub2] | @Propionate-sub1
-	Propionate-sub1	"[
-						[K01206 | K01905 | K22224 | K24012]
-						| [
-							[
-								[K13788 | K00625 | K15024 | K13923]
-								| [K00169 | K00170 | K00172 | K00189 | K00171]
-								| K00656
-							]
-							& [K00925 | K00932 | K19697]
-						]
-					]"
-	Propionate-sub2	[K01895 | K01908]
-
-	Butyrate-Final	@Butyrate-1 | @Butyrate-2 | @Butyrate-3 | @Butyrate-4
-	Butyrate-1	K00626 & [K00074 | K00022 | K07516 | K01825 | K01782 | K07514] & [K01692 | K01825 | K01782 | K07515 | K07514 | K07511 | K01715] & @Butyrate-sub1
-	Butyrate-2	[K00135 | K08324 | K00135 | K00139 | K17761 | K08324] & @Butyrate-sub2 & @Butyrate-sub1
-	Butyrate-3	K01580 & [K13524 | K07250 | K14268 | K00823 | K16871] & @Butyrate-sub2 & @Butyrate-sub1
-	Butyrate-4	"K01843
-				& [K01844 | K18011]
-				& K18012
-				& K18013
-				& [
-					[K01034 | K01035]
-					| [
-						K18014
-						& [K01692 | K01825 | K01782 | K07515 | K07514 | K07511]
-						& [K00022 | K01825 | K01782 | K07514]
-					]
-				]
-				& @Butyrate-1"
-	Butyrate-sub1	[K00209 | K17829] & [K01034 | K01035 | K19709]
-	Butyrate-sub2	[K00043 | K08318 | K18120 | K18121] & K18122 & K14534
-
-	Lactate-Final	@Lactate-1 | @Lactate-2 | @Lactate-3
-	Lactate-1	"@Lactate-sub1
-				& [
-					[
-						[K00134 | K00150]
-						& [K00927 | K01837]
-						& [K01834 | K15633 | K15634 | K15635 | K01837]
-					]
-					| [
-						[K11389 | K00131 | K18978]
-						& [K01834 | K15633 | K15634 | K15635 | K01837]
-					]
-					| [
-						[K00134 | K00150]
-						& K01837 & K03103
-					]
-				]
-				& [K01689 | K27394 | K00873 | K12406]
-				& K00016"
-	Lactate-2	K00016
-	Lactate-3	[K18124 | K18125 | K00115 | K19813 | K00117] & K01053 & K05308 & [K11395 | K18127] & K00016
-	Lactate-sub1	"[K00844 | K00886 | K08074 | K00918 | K12407 | K00845 | K25026]
-					& [K01810 | K06859 | K13810 | K15916]
-					& [K24182 | K00850 | K16370 | K21071 | K00918 | K00895 | K21071]
-					& [K01623 | K01624 | K01622 | K11645 | K16305 | K16306]"
+	Acetate-Final	@Acetate-1 | @Acetate-2 | @Acetate-3 | @Acetate-4 | @Acetate-5	Acetate-associated metabolism
+	Acetate-1	K24012 | [K01905 & K22224]	Acetyl-CoA ↔ acetate; shared activity with propionate
+	Acetate-2	K01568 & [K00138 | K00128 | K14085 | K00149 | K00129]	Pyruvate → acetaldehyde → acetate
+	Acetate-3	[K00625 | K13788 | K15024] & K00925	Acetyl-CoA ↔ acetyl-phosphate ↔ acetate
+	Acetate-4	K01621 & K00925	Xylulose-5-phosphate/fructose-6-phosphate → acetyl-phosphate → acetate
+	Acetate-5	K01895 | K01913	Acetate → acetyl-CoA; not acetate specific 
+			
+	Propionate-Final	@Propionate-1 | @Propionate-2 | @Propionate-3 | @Propionate-4	Propionate-associated metabolism
+	Propionate-1	[K01847 | [K01848 & K01849]] & K05606 & [K11264 | K18426] & @Propionate-terminal	Succinyl-CoA → methylmalonyl-CoA → propionyl-CoA → propionate
+	Propionate-2	K20626 & K20627 & K00248 & @Propionate-terminal	Lactate → lactoyl-CoA → acryloyl-CoA → propionyl-CoA → propionate
+	Propionate-3	K01699 & K13919 & K13920 & K13922 & @Propionate-terminal	1,2-Propanediol → propionaldehyde → propionyl-CoA → propionate
+	Propionate-4	K01908	Propionate → propionyl-CoA
+	Propionate-terminal	K01026 | K24012 | [K01905 & K22224] | [K13923 & [K00932 | K19697]]	Propionyl-CoA ↔ propionate; broad alternatives require pathway context
+			
+	Butyrate-Final	@Butyrate-1 | @Butyrate-2 | @Butyrate-3	Butyrate-associated metabolism
+	Butyrate-1	K00634 & K00929	Butyryl-CoA ↔ butyryl-phosphate ↔ butyrate
+	Butyrate-2	[[K01034 & K01035] | K19709]	Acetyl-CoA ↔ butyryl-CoA ↔ butyrate through CoA transfer; context-supported, not uniquely specific
+	Butyrate-3	K01913	Butyrate → butyryl-CoA; not butyrate specific
+	Acetyl-CoAtoButyryl-CoA 	K00626 & [K00074 | K00022 | K07516 | K01825 | K01782 | K07514] & [K01692 | K01825 | K01782 | K07515 | K07514 | K07511 | K01715] & K00248	Acetyl-CoA ↔ acetoacetyl-CoA ↔ 3-hydroxybutyryl-CoA ↔ crotonyl-CoA ↔ butyryl-CoA
+			
+	Lactate-Final	@Lactate-1 | @Lactate-2 | @Lactate-3 | @Lactate-4	Lactate-associated metabolism
+	Lactate-1	K00016	Pyruvate ↔ L-lactate; NAD-dependent LDH
+	Lactate-2	K03778	Pyruvate ↔ D-lactate; NAD-dependent LDH
+	Lactate-3	K00101 | K29125	L-lactate → pyruvate; cytochrome-/quinone-dependent LDH
+	Lactate-4	K00102	D-lactate → pyruvate; cytochrome-dependent LDH
 
 	phototroph	@Phototroph-Oxygenic | @Phototroph-AnoxygenicType2 | @Phototroph-AnoxygenicType1
 	Phototroph-Oxygenic	[K02703 & K02706] & [K02689 & K02690]

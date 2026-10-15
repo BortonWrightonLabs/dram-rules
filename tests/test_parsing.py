@@ -2,7 +2,7 @@ from pathlib import Path
 
 import polars as pl
 
-from src.rule_parser.rules import (
+from dram_rules.rule_parser.rules import (
     And,
     Call,
     CompiledRules,
