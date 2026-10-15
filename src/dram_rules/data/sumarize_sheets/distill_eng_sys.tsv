@@ -1,0 +1,726 @@
+gene_id	gene_description	module	subheader	topic_ecosystem	notes
+K00370	narG, nitrate reductase, alpha subunit [EC:1.7.99.-] [RN:R00798]	Nitrogen Cycling	Nitrification, Comammox, Denitrification, DNRA	eng_sys	Nitrite Oxidation to Nitrate (Nitrification), Complete Ammonia Oxidation (Comammox), Nitrate Reduction to Nitrite, DNRA (NO3 to NH4)
+K00371	narH, nitrate reductase, beta subunit [EC:1.7.99.-] [RN:R00798]	Nitrogen Cycling	Nitrification, Comammox, Denitrification, DNRA	eng_sys	Nitrite Oxidation to Nitrate (Nitrification), Complete Ammonia Oxidation (Comammox), Nitrate Reduction to Nitrite, DNRA (NO3 to NH4)
+K00149	aldehyde dehydrogenase family 9 member A1	Fermentation End Products	Organic Acids, Alcohols, Other Carbon, Biocide Resistance	eng_sys	Acetate Production, Ethanol Production, Ethylene Glycol Degradation, Aldehyde Resistance
+K01895	acetyl-CoA synthetase [EC:6.2.1.1] [RN:R00235]	Methane Production & Consumption	Methane Production, Organic Acids, Alcohols	eng_sys	Acetoclastic Methanogenesis, Acetate Production, Ethanol Production
+K00128	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Fermentation End Products	Organic Acids, Alcohols, Other Carbon	eng_sys	Acetate Production, Ethanol Production, Ethylene Glycol Degradation
+K14085	aminoadipate-semialdehyde dehydrogenase [EC:1.2.1.31] [RN:R03102 R03103]	Fermentation End Products	Organic Acids, Other Carbon, Biocide Resistance	eng_sys	Acetate Production, Ethylene Glycol Degradation, Aldehyde Resistance
+K00394	aprA; adenylylsulfate reductase subunit alpha	Sulfur Cycling	Sulfide Production, S Transformations	eng_sys	Dissimilatory Sulfate Reduction, Sulfur Disproportionation
+K00395	aprB; adenylylsulfate reductase subunit beta	Sulfur Cycling	Sulfide Production, S Transformations	eng_sys	Dissimilatory Sulfate Reduction, Sulfur Disproportionation
+K11180 | dsrA	sulfite reductase, dissimilatory-type [EC:1.8.99.5] [RN:R00861]	Sulfur Cycling	Sulfide Production, Sulfur Oxidation	eng_sys	Dissimilatory Sulfate Reduction, Sulfur Oxidation - Reverse dsr
+K11181 | dsrB	sulfite reductase, dissimilatory-type [EC:1.8.99.5] [RN:R00861]	Sulfur Cycling	Sulfide Production, Sulfur Oxidation	eng_sys	Dissimilatory Sulfate Reduction, Sulfur Oxidation - Reverse dsr
+K00399	methyl-coenzyme M reductase [EC:2.8.4.1] [RN:R04541]	Methane Production & Consumption	Methane Production, Methane Oxidation	eng_sys	Hydrogenotrophic Methanogenesis, Anaerobic Methane Oxidation (ANME)
+K00401	mcrB; methyl-coenzyme M reductase [EC:2.8.4.1] [RN:R04541]	Methane Production & Consumption	Methane Production, Methane Oxidation	eng_sys	Hydrogenotrophic Methanogenesis, Anaerobic Methane Oxidation (ANME)
+K00402	mcrG; methyl-coenzyme M reductase [EC:2.8.4.1] [RN:R04541]	Methane Production & Consumption	Methane Production, Methane Oxidation	eng_sys	Hydrogenotrophic Methanogenesis, Anaerobic Methane Oxidation (ANME)
+K03421	mcrC; methyl-coenzyme M reductase subunit C	Methane Production & Consumption	Methane Production, Methane Oxidation	eng_sys	Hydrogenotrophic Methanogenesis, Anaerobic Methane Oxidation (ANME)
+K03422	mcrD; methyl-coenzyme M reductase subunit D	Methane Production & Consumption	Methane Production, Methane Oxidation	eng_sys	Hydrogenotrophic Methanogenesis, Anaerobic Methane Oxidation (ANME)
+K00925	acetate kinase [EC:2.7.2.1] [RN:R00315]	Methane Production & Consumption	Methane Production, Organic Acids	eng_sys	Acetoclastic Methanogenesis, Propionate Production
+K00625	phosphate acetyltransferase [EC:2.3.1.8] [RN:R00230]	Methane Production & Consumption	Methane Production, Organic Acids	eng_sys	Acetoclastic Methanogenesis, Propionate Production
+K10945	ammonia monooxygenase [EC:1.14.99.39] [RN:R00148]	Methane Production & Consumption	Methane Oxidation, Nitrification	eng_sys	Aerobic Methane Oxidation, Ammonia Oxidation to Nitrite (Nitrification)
+K10946	ammonia monooxygenase [EC:1.14.99.39] [RN:R00148]	Methane Production & Consumption	Methane Oxidation, Nitrification	eng_sys	Aerobic Methane Oxidation, Ammonia Oxidation to Nitrite (Nitrification)
+K00368	nitrite reductase (NO-forming) [EC:1.7.2.1] [RN:R00783 R00785]	Nitrogen Cycling	Anammox, Denitrification	eng_sys	Anaerobic Ammonia Oxidation (Anammox), Nitrite Reduction to NO
+K15864	nitrite reductase (NO-forming) [EC:1.7.2.1] [RN:R00783 R00785]	Nitrogen Cycling	Anammox, Denitrification	eng_sys	Anaerobic Ammonia Oxidation (Anammox), Nitrite Reduction to NO
+K20935	hydrazine dehydrogenase [EC:1.7.2.8]	Nitrogen Cycling	Anammox, Comammox	eng_sys	Anaerobic Ammonia Oxidation (Anammox), Complete Ammonia Oxidation (Comammox)
+K00374	narI, nitrate reductase, gamma subunit [EC:1.7.99.-] [RN:R00798]	Nitrogen Cycling	Denitrification, DNRA	eng_sys	Nitrate Reduction to Nitrite, DNRA (NO3 to NH4)
+K02567	periplasmic nitrate reductase NapA [EC:1.7.99.-] [RN:R00798]	Nitrogen Cycling	Denitrification, DNRA	eng_sys	Nitrate Reduction to Nitrite, DNRA (NO3 to NH4)
+K02568	cytochrome c-type protein NapB [RN:R00798]	Nitrogen Cycling	Denitrification, DNRA	eng_sys	Nitrate Reduction to Nitrite, DNRA (NO3 to NH4)
+K01568	PDC; pyruvate decarboxylase [EC:4.1.1.1]	Fermentation End Products	Organic Acids, Alcohols	eng_sys	Acetate Production, Ethanol Production
+K00844	hexokinase/glucokinase [EC:2.7.1.1 2.7.1.2] [RN:R01786]	Fermentation End Products	Organic Acids, Simple Sugars	eng_sys	Lactate Production, Glucose Use
+K12407	hexokinase/glucokinase [EC:2.7.1.1 2.7.1.2] [RN:R01786]	Fermentation End Products	Organic Acids, Simple Sugars	eng_sys	Lactate Production, Glucose Use
+K00845	hexokinase/glucokinase [EC:2.7.1.1 2.7.1.2] [RN:R01786]	Fermentation End Products	Organic Acids, Simple Sugars	eng_sys	Lactate Production, Glucose Use
+K25026	phosphoglucose isomerase [EC:5.3.1.9]	Fermentation End Products	Organic Acids, Simple Sugars	eng_sys	Lactate Production, Glucose Use
+K18124	glucose/galactose 1-dehydrogenase (NADP+) [EC:1.1.1.360]	Fermentation End Products	Organic Acids, Simple Sugars	eng_sys	Lactate Production, Glucose Use
+K18125	aldose 1-dehydrogenase [NAD(P)+] [EC:1.1.1.359]	Fermentation End Products	Organic Acids, Simple Sugars	eng_sys	Lactate Production, Glucose Use
+K00115	glucose 1-dehydrogenase (FAD, quinone) [EC:1.1.5.9]	Fermentation End Products	Organic Acids, Simple Sugars	eng_sys	Lactate Production, Glucose Use
+K19813	glucose dehydrogenase [EC:1.1.5.9]	Fermentation End Products	Organic Acids, Simple Sugars	eng_sys	Lactate Production, Glucose Use
+K00117	gcd, Quinoprotein glucose dehydrogenase	Fermentation End Products	Organic Acids, Simple Sugars	eng_sys	Lactate Production, Glucose Use
+K00001	alcohol dehydrogenase [EC:1.1.1.1]	Fermentation End Products	Alcohols, Other Carbon	eng_sys	Ethanol Production, Ethylene Glycol Degradation
+K00121	alcohol dehydrogenase [EC:1.1.1.1]	Fermentation End Products	Alcohols, Other Carbon	eng_sys	Ethanol Production, Ethylene Glycol Degradation
+K00011	L-arabitol dehydrogenase [EC:1.1.1.12]	Carbon Degradation	Simple Sugars, Other Carbon	eng_sys	Xylose Use, Glycerol Use
+K05343	treS (EC:5.4.99.16)	Carbon Degradation	Simple Sugars, Osmoregulation	eng_sys	Maltose Use, Compatible Solutes: Sugars (Synthesis)
+K05342	treP (EC:2.4.1.64)	Carbon Degradation	Simple Sugars, Osmoregulation	eng_sys	Trehalose Use, Compatible Solutes: Sugars (Synthesis)
+K04043	dnaK; molecular chaperone	Environmental Stress Response	Temperature Stress, Biocide Resistance	eng_sys	Heat Shock Response, Oxidative Stress Resistance
+K08352 | thiosulfate_reductase_phsA_alignment	thiosulfate reductase / polysulfide reductase chain A [EC:1.8.5.5]	Sulfur Cycling	Sulfide Production	eng_sys	Thiosulfate Reduction (Respiratory)
+K08353	phsB; thiosulfate reductase electron transport protein	Sulfur Cycling	Sulfide Production	eng_sys	Thiosulfate Reduction (Respiratory)
+K08354	phsC; thiosulfate reductase cytochrome b subunit	Sulfur Cycling	Sulfide Production	eng_sys	Thiosulfate Reduction (Respiratory)
+K01011 | Rhodanese	rhodanase	Sulfur Cycling	Sulfide Production	eng_sys	Thiosulfate Reduction (Rhodanese)
+K17222	soxA; sulfur-oxidizing protein SoxA	Sulfur Cycling	Sulfur Oxidation	eng_sys	Sulfur Oxidation - SOX
+K17223	soxX; sulfur-oxidizing protein SoxX	Sulfur Cycling	Sulfur Oxidation	eng_sys	Sulfur Oxidation - SOX
+K17224	soxB; sulfur-oxidizing protein SoxB	Sulfur Cycling	Sulfur Oxidation	eng_sys	Sulfur Oxidation - SOX
+K17226	soxY; sulfur-oxidizing protein SoxY	Sulfur Cycling	Sulfur Oxidation	eng_sys	Sulfur Oxidation - SOX
+K17227	soxZ; sulfur-oxidizing protein SoxZ	Sulfur Cycling	Sulfur Oxidation	eng_sys	Sulfur Oxidation - SOX
+K17225	soxC; S-disulfanyl-L-cysteine oxidoreductase SoxC [EC:1.8.2.6]	Sulfur Cycling	Sulfur Oxidation	eng_sys	Sulfur Oxidation - SOX
+K22622	soxD; S-disulfanyl-L-cysteine oxidoreductase SoxD [EC:1.8.2.6]	Sulfur Cycling	Sulfur Oxidation	eng_sys	Sulfur Oxidation - SOX
+K27196	dsrL; dissimilatory sulfite reductase auxiliary protein L	Sulfur Cycling	Sulfur Oxidation	eng_sys	Sulfur Oxidation - Reverse dsr
+K08359	ttrC, tetrathionate reductase subunit C	Sulfur Cycling	S Transformations	eng_sys	Tetrathionate Reduction
+K08358	ttrB; tetrathionate reductase subunit B	Sulfur Cycling	S Transformations	eng_sys	Tetrathionate Reduction
+K08357	ttrA; tetrathionate reductase subunit A	Sulfur Cycling	S Transformations	eng_sys	Tetrathionate Reduction
+K00958	sat, met3; sulfate adenylyltransferase [EC:2.7.7.4]	Sulfur Cycling	S Transformations	eng_sys	Sulfur Disproportionation
+K11180	dsrA; dissimilatory sulfite reductase alpha subunit [EC:1.8.1.22]	Sulfur Cycling	S Transformations	eng_sys	Sulfur Disproportionation
+K11181	dsrB; dissimilatory sulfite reductase beta subunit [EC:1.8.1.22]	Sulfur Cycling	S Transformations	eng_sys	Sulfur Disproportionation
+K00200	formylmethanofuran dehydrogenase [EC:1.2.99.5] [RN:R03015]	Methane Production & Consumption	Methane Production	eng_sys	Hydrogenotrophic Methanogenesis
+K00201	formylmethanofuran dehydrogenase [EC:1.2.99.5] [RN:R03015]	Methane Production & Consumption	Methane Production	eng_sys	Hydrogenotrophic Methanogenesis
+K00202	formylmethanofuran dehydrogenase [EC:1.2.99.5] [RN:R03015]	Methane Production & Consumption	Methane Production	eng_sys	Hydrogenotrophic Methanogenesis
+K00203	formylmethanofuran dehydrogenase [EC:1.2.99.5] [RN:R03015]	Methane Production & Consumption	Methane Production	eng_sys	Hydrogenotrophic Methanogenesis
+K00204	4Fe-4S ferredoxin	Methane Production & Consumption	Methane Production	eng_sys	Hydrogenotrophic Methanogenesis
+K00205	4Fe-4S ferredoxin	Methane Production & Consumption	Methane Production	eng_sys	Hydrogenotrophic Methanogenesis
+K00319	methylenetetrahydromethanopterin dehydrogenase [EC:1.5.99.9] [RN:R04456]	Methane Production & Consumption	Methane Production	eng_sys	Hydrogenotrophic Methanogenesis
+K00320	coenzyme F420-dependent N5,N10-methenyltetrahydromethanopterin reductase [EC:1.5.99.11] [RN:R04464]	Methane Production & Consumption	Methane Production	eng_sys	Hydrogenotrophic Methanogenesis
+K14126	F420-non-reducing hydrogenase [EC:1.8.98.5] [RN:R11943]	Methane Production & Consumption	Methane Production	eng_sys	Hydrogenotrophic Methanogenesis
+K14127	F420-non-reducing hydrogenase iron-sulfur subunit [EC:1.8.98.5 1.8.98.6] [RN:R11943 R11944]	Methane Production & Consumption	Methane Production	eng_sys	Hydrogenotrophic Methanogenesis
+K14128	F420-non-reducing hydrogenase [EC:1.8.98.5] [RN:R11943]	Methane Production & Consumption	Methane Production	eng_sys	Hydrogenotrophic Methanogenesis
+K00193	cdhC; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit beta [EC:2.3.1.169] [RN:R09096 R10219]	Methane Production & Consumption	Methane Production	eng_sys	Acetoclastic Methanogenesis
+K00194	acetyl-CoA decarbonylase/synthase complex [EC:2.3.1.-] [RN:R09096]	Methane Production & Consumption	Methane Production	eng_sys	Acetoclastic Methanogenesis
+K00197	acetyl-CoA decarbonylase/synthase complex [EC:2.3.1.-] [RN:R09096]	Methane Production & Consumption	Methane Production	eng_sys	Acetoclastic Methanogenesis
+K00198	carbon-monoxide dehydrogenase [EC:1.2.7.4] [RN:R07157]	Methane Production & Consumption	Methane Production	eng_sys	Acetoclastic Methanogenesis
+K04480	mtaB;methanol---5-hydroxybenzimidazolylcobamide Co-methyltransferase [EC:2.1.1.90] [RN:R09098]	Methane Production & Consumption	Methane Production	eng_sys	Methylotrophic Methanogenesis
+K14083	mttB; trimethylamine---corrinoid protein Co-methyltransferase [EC:2.1.1.250] [RN:R09124]	Methane Production & Consumption	Methane Production	eng_sys	Methylotrophic Methanogenesis
+K16176	mtmB; methylamine---corrinoid protein Co-methyltransferase [EC:2.1.1.248] [RN:R09998]	Methane Production & Consumption	Methane Production	eng_sys	Methylotrophic Methanogenesis
+K16178	mtbB; dimethylamine---corrinoid protein Co-methyltransferase [EC:2.1.1.249] [RN:R09999]	Methane Production & Consumption	Methane Production	eng_sys	Methylotrophic Methanogenesis
+K25220	glycine betaine---corrinoid protein Co-methyltransferase [EC:2.1.1.376]	Methane Production & Consumption	Methane Production	eng_sys	Methylotrophic Methanogenesis
+K16954	mtsA; methylthiol:coenzyme M methyltransferase [EC:2.1.1.251]	Methane Production & Consumption	Methane Production	eng_sys	Methylotrophic Methanogenesis
+K25600	mtcB; L-carnitine---corrinoid protein Co-methyltransferase [EC:2.1.1.383]	Methane Production & Consumption	Methane Production	eng_sys	Methylotrophic Methanogenesis
+K25916	methoxylated aromatic compound---corrinoid protein Co-methyltransferase [EC:2.1.1.382]	Methane Production & Consumption	Methane Production	eng_sys	Methylotrophic Methanogenesis
+K26847	mtpB; proline betaine --- corrinoid protein Co-methyltransferase [EC:2.1.1.388]	Methane Production & Consumption	Methane Production	eng_sys	Methylotrophic Methanogenesis
+K16157	soluble methane monooxygenase hydroxylase alpha subunit (mmoX) [EC:1.14.13.25]	Methane Production & Consumption	Methane Oxidation	eng_sys	Aerobic Methane Oxidation
+K16158	soluble methane monooxygenase hydroxylase beta subunit (mmoY) [EC:1.14.13.25]	Methane Production & Consumption	Methane Oxidation	eng_sys	Aerobic Methane Oxidation
+K16159	soluble methane monooxygenase hydroxylase gamma subunit (mmoZ) [EC:1.14.13.25]	Methane Production & Consumption	Methane Oxidation	eng_sys	Aerobic Methane Oxidation
+K16160	soluble methane monooxygenase component B (mmoB) [EC:1.14.13.25]	Methane Production & Consumption	Methane Oxidation	eng_sys	Aerobic Methane Oxidation
+K16161	soluble methane monooxygenase reductase component (mmoC) [EC:1.14.13.25]	Methane Production & Consumption	Methane Oxidation	eng_sys	Aerobic Methane Oxidation
+K16162	soluble methane monooxygenase regulatory protein (mmoD) [EC:1.14.13.25]	Methane Production & Consumption	Methane Oxidation	eng_sys	Aerobic Methane Oxidation
+K10944	pmoA; methane monooxygenase subunit A [EC:1.14.18.3]	Methane Production & Consumption	Methane Oxidation	eng_sys	Aerobic Methane Oxidation
+FeFe_groupA	FeFe_groupA	Hydrogen Use	FeFe Hydrogenases	eng_sys	Fermentative H2 (FeFe)
+FeFe_groupB	FeFe_groupB	Hydrogen Use	FeFe Hydrogenases	eng_sys	Fermentative H2 (FeFe)
+FeFe_groupC	FeFe_groupC	Hydrogen Use	FeFe Hydrogenases	eng_sys	Fermentative H2 (FeFe)
+FeFe_groupE	FeFe_groupE	Hydrogen Use	FeFe Hydrogenases	eng_sys	Fermentative H2 (FeFe)
+FeFe_groupF	FeFe_groupF	Hydrogen Use	FeFe Hydrogenases	eng_sys	Fermentative H2 (FeFe)
+NiFe_group1	NiFe_group1	Hydrogen Use	NiFe Hydrogenases	eng_sys	H2 Metabolism - NiFe Group 1
+NiFe_group2	NiFe_group2	Hydrogen Use	NiFe Hydrogenases	eng_sys	H2 Metabolism - NiFe Group 2
+NiFe_group3	NiFe_group3	Hydrogen Use	NiFe Hydrogenases	eng_sys	H2 Metabolism - NiFe Group 3
+NiFe_group4	NiFe_group4	Hydrogen Use	NiFe Hydrogenases	eng_sys	H2 Metabolism - NiFe Group 4
+K28504	ammonia monooxygenase subunit C [EC:1.14.99.39] [RN:R00148]	Nitrogen Cycling	Nitrification	eng_sys	Ammonia Oxidation to Nitrite (Nitrification)
+amoa_beta	HMM: ammonia monooxygenase	Nitrogen Cycling	Nitrification	eng_sys	Ammonia Oxidation to Nitrite (Nitrification)
+amoa_gamma	HMM: ammonia monooxygenase	Nitrogen Cycling	Nitrification	eng_sys	Ammonia Oxidation to Nitrite (Nitrification)
+amoa_crenarchaea	HMM: ammonia monooxygenase	Nitrogen Cycling	Nitrification	eng_sys	Ammonia Oxidation to Nitrite (Nitrification)
+K10535	hydroxylamine oxidase [EC:1.7.2.6] [RN:R10164]	Nitrogen Cycling	Nitrification	eng_sys	Ammonia Oxidation to Nitrite (Nitrification)
+K20932	hydrazine synthase subunit [EC:1.7.2.7]	Nitrogen Cycling	Anammox	eng_sys	Anaerobic Ammonia Oxidation (Anammox)
+K20933	hzsB, hydrazine synthase subunit B [EC:1.7.2.7]	Nitrogen Cycling	Anammox	eng_sys	Anaerobic Ammonia Oxidation (Anammox)
+K20934	hzsC, hydrazine synthase subunit C [EC:1.7.2.7]	Nitrogen Cycling	Anammox	eng_sys	Anaerobic Ammonia Oxidation (Anammox)
+amoa_Nitrospira_beta	HMM: ammonia monooxygenase	Nitrogen Cycling	Comammox	eng_sys	Complete Ammonia Oxidation (Comammox)
+K04561	nitric oxide reductase [EC:1.7.2.5] [RN:R00294]	Nitrogen Cycling	Denitrification	eng_sys	NO Reduction to N2O
+K15877	fungal nitric oxide reductase (CYP55) [EC:1.7.1.14]	Nitrogen Cycling	Denitrification	eng_sys	NO Reduction to N2O
+K00376	nitrous-oxide reductase [EC:1.7.2.4] [RN:R02804]	Nitrogen Cycling	Denitrification	eng_sys	N2O Reduction to N2
+K00362	nrfA, cytochrome c nitrite reductase large subunit [EC:1.7.2.2]	Nitrogen Cycling	DNRA	eng_sys	DNRA (NO3 to NH4)
+K00363	nrfH, cytochrome c nitrite reductase small subunit	Nitrogen Cycling	DNRA	eng_sys	DNRA (NO3 to NH4)
+K03385	nirB, nitrite reductase (NADH) large subunit [EC:1.7.1.15]	Nitrogen Cycling	DNRA	eng_sys	DNRA (NO3 to NH4)
+K15876	nirD, nitrite reductase (NADH) small subunit [EC:1.7.1.15]	Nitrogen Cycling	DNRA	eng_sys	DNRA (NO3 to NH4)
+MtrA	fegenie db:Iron reduction; MtrCAB (Shewanella oneidensis MR-1) ; pioABC (Rhodopseudomonas palustris TIE-1)	Metals	Metal Cycling	eng_sys	Iron/Manganese/Selenium Reduction
+MtrB_TIGR03509	fegenie db:Probably Iron oxidation/potenetial iron reduction; MtoAB (Sideroxydans lithotrophicus ES-1) ; MtrCAB (Shewanella oneidensis MR-1) ; pioABC (Rhodopseudomonas palustris TIE-1)	Metals	Metal Cycling	eng_sys	Iron/Manganese/Selenium Reduction
+MtrC_TIGR03507	fegenie db:Iron reduction; MtrCAB (Shewanella oneidensis MR-1)	Metals	Metal Cycling	eng_sys	Iron/Manganese/Selenium Reduction
+omcF	fegenie db:Iron reduction; Geobacter sulfurreducens	Metals	Metal Cycling	eng_sys	Iron/Manganese/Selenium Reduction
+omcS	fegenie db:Iron reduction; Geobacter sulfurreducens	Metals	Metal Cycling	eng_sys	Iron/Manganese/Selenium Reduction
+omcZ	fegenie db:Iron reduction; Geobacter sulfurreducens	Metals	Metal Cycling	eng_sys	Iron/Manganese/Selenium Reduction
+FmnA	fegenie db:Iron reduction; FmnA-dmkA-fmnB-pplA-ndh2-eetAB-dmkB (Listeria monocytogenes)	Metals	Metal Cycling	eng_sys	Iron/Manganese/Selenium Reduction
+ExtA_pcc_cyt	fegenie db:Geobacter-like multiheme-cytochromes	Metals	Metal Cycling	eng_sys	Iron/Manganese/Selenium Reduction
+ExtB_porin	fegenie db:Geobacter-like multiheme-cytochromes	Metals	Metal Cycling	eng_sys	Iron/Manganese/Selenium Reduction
+ExtC_pcc_lp_cyt	fegenie db:Geobacter-like multiheme-cytochromes	Metals	Metal Cycling	eng_sys	Iron/Manganese/Selenium Reduction
+ExtD_pcc_lp_cyt	fegenie db:Geobacter-like multiheme-cytochromes	Metals	Metal Cycling	eng_sys	Iron/Manganese/Selenium Reduction
+Cyc2	fegenie db: cytochrome-porin protein	Metals	Metal Cycling	eng_sys	Iron Oxidation
+PioA	fegenie db: Iron oxidation, decaheme c-type cytochrome	Metals	Metal Cycling	eng_sys	Iron Oxidation
+MtoA	fegenie db:Iron oxidation; MtoAB (Sideroxydans lithotrophicus ES-1)	Metals	Metal Cycling	eng_sys	Iron Oxidation
+MtoB	fegenie db: outer membrane β-barrel porin	Metals	Metal Cycling	eng_sys	Iron Oxidation
+FoxE	fegenie db:Iron oxidation; FoxEYZ (Rhodobacter ferroxidans)	Metals	Metal Cycling	eng_sys	Iron Oxidation
+FoxY	fegenie db:Iron oxidation; FoxEYZ (Rhodobacter ferroxidans)	Metals	Metal Cycling	eng_sys	Iron Oxidation
+FoxZ	fegenie db:Iron oxidation; FoxEYZ (Rhodobacter ferroxidans)	Metals	Metal Cycling	eng_sys	Iron Oxidation
+K08355	aoxA; arsenite oxidase small subunit [EC:1.20.2.1 1.20.9.1]	Metals	Metal Cycling	eng_sys	Arsenate Reduction (Respiratory)
+K08356	aoxB; arsenite oxidase large subunit [EC:1.20.2.1 1.20.9.1]	Metals	Metal Cycling	eng_sys	Arsenate Reduction (Respiratory)
+aioA-aoxB	aioA-aoxB, arsenite oxidase large subunit	Metals	Metal Cycling	eng_sys	Arsenite Oxidation
+aioB-aoxA	aioB-aoxA, arsenite oxidase small subunit	Metals	Metal Cycling	eng_sys	Arsenite Oxidation
+FeoA	fegenie db:Iron acquisition - iron transport; FeoAB; FeoABC (Escherichia coli)	Metals	Iron Acquisition	eng_sys	Iron Acquisition (Ferrous, Feo)
+FeoB_N	fegenie db:	Metals	Iron Acquisition	eng_sys	Iron Acquisition (Ferrous, Feo)
+FeoB_C	fegenie db:	Metals	Iron Acquisition	eng_sys	Iron Acquisition (Ferrous, Feo)
+FeoB_gate	fegenie db:	Metals	Iron Acquisition	eng_sys	Iron Acquisition (Ferrous, Feo)
+FbpA	fbpA, iron(III) transport system substrate-binding protein	Metals	Iron Acquisition	eng_sys	Iron Acquisition (Ferric, Fbp/Fut)
+FbpB	fbpB, iron(III) transport system permease protein	Metals	Iron Acquisition	eng_sys	Iron Acquisition (Ferric, Fbp/Fut)
+FbpC	fbpC, iron(III) transport system ATP-binding protein	Metals	Iron Acquisition	eng_sys	Iron Acquisition (Ferric, Fbp/Fut)
+FutA1-iron_ABC_transporter_iron-binding-rep	fegenie db:FutA1-family-iron-binding-proteins	Metals	Iron Acquisition	eng_sys	Iron Acquisition (Ferric, Fbp/Fut)
+FutA2-iron_ABC_transporter_iron-binding-rep	fegenie db:FutA2-family-iron-binding-proteins	Metals	Iron Acquisition	eng_sys	Iron Acquisition (Ferric, Fbp/Fut)
+FutC-iron_ABC_transporter_ATPase-rep	fegenie db:FutC-family-ATPase	Metals	Iron Acquisition	eng_sys	Iron Acquisition (Ferric, Fbp/Fut)
+K00537	arsC; arsenate reductase (glutaredoxin) [EC:1.20.4.1]	Metals	Metal Detox	eng_sys	Arsenic Resistance
+arsC|K03741	arsC, arsenate reductase (thioredoxin)	Metals	Metal Detox	eng_sys	Arsenic Resistance
+K03893	arsB; arsenical pump membrane protein	Metals	Metal Detox	eng_sys	Arsenic Resistance
+K03325	ACR3, arsB; arsenite transporter	Metals	Metal Detox	eng_sys	Arsenic Resistance
+K01551	arsA, ASNA1, GET3; arsenite/tail-anchored protein-transporting ATPase [EC:7.3.2.7 7.3.-.-]	Metals	Metal Detox	eng_sys	Arsenic Resistance
+K11811	arsH; arsenical resistance protein ArsH	Metals	Metal Detox	eng_sys	Arsenic Resistance
+K07755	AS3MT; arsenite methyltransferase [EC:2.1.1.137]	Metals	Metal Detox	eng_sys	Arsenic Methylation
+copA|K17686	copA, P-type Cu+ transporter	Metals	Metal Detox	eng_sys	Copper Resistance
+copB|K01533	copB, P-type Cu2+ transporter	Metals	Metal Detox	eng_sys	Copper Resistance
+cusA-ybdE|K07787	cusA-ybdE, copper/silver efflux system protein	Metals	Metal Detox	eng_sys	Copper Resistance
+cusB|K07798	cusB, membrane fusion protein, copper/silver efflux system	Metals	Metal Detox	eng_sys	Copper Resistance
+cusC-ylcB|K07796	cusC-ylcB, outer membrane protein, copper/silver efflux system	Metals	Metal Detox	eng_sys	Copper Resistance
+cusF-cusX|K07810	cusF-cusX, Cu(I)/Ag(I) efflux system periplasmic protein CusF	Metals	Metal Detox	eng_sys	Copper Resistance
+cueO|K14588	cueO, cuproxidase	Metals	Metal Detox	eng_sys	Copper Resistance
+copC|K07156	copC, copper resistance protein C	Metals	Metal Detox	eng_sys	Copper Resistance
+copD|K07245	copD, copper resistance protein D	Metals	Metal Detox	eng_sys	Copper Resistance
+mco|K22552	mco, multicopper oxidase	Metals	Metal Detox	eng_sys	Copper Resistance
+merA|K00520	merA, mercuric reductase	Metals	Metal Detox	eng_sys	Mercury Resistance
+merB|K00221	merB, alkylmercury lyase	Metals	Metal Detox	eng_sys	Mercury Resistance
+merT|K08363	merT, mercuric ion transport protein	Metals	Metal Detox	eng_sys	Mercury Resistance
+merP|K08364	merP, periplasmic mercuric ion binding protein	Metals	Metal Detox	eng_sys	Mercury Resistance
+merR|K08365	merR, mercuric resistance operon regulatory protein	Metals	Metal Detox	eng_sys	Mercury Resistance
+merC|K19058	merC, mercuric ion transport protein	Metals	Metal Detox	eng_sys	Mercury Resistance
+merD|K19057	merD, mercuric resistance operon regulatory protein	Metals	Metal Detox	eng_sys	Mercury Resistance
+merE|K19059	merE, mercuric ion transport protein	Metals	Metal Detox	eng_sys	Mercury Resistance
+K07240	chrA; chromate transporter	Metals	Metal Detox	eng_sys	Chromate Resistance
+K19784	chrR, NQR; chromate reductase, NAD(P)H dehydrogenase (quinone)	Metals	Metal Detox	eng_sys	Chromate Resistance
+czcA|K15726	czcA, heavy metal efflux system protein	Metals	Metal Detox	eng_sys	Cadmium/Zinc/Cobalt Resistance
+czcB|K15727	czcB, membrane fusion protein, heavy metal efflux system	Metals	Metal Detox	eng_sys	Cadmium/Zinc/Cobalt Resistance
+czcC|K15725	czcC, outer membrane protein, heavy metal efflux system	Metals	Metal Detox	eng_sys	Cadmium/Zinc/Cobalt Resistance
+zntA-yhhO|K01534	zntA-yhhO, Zn2+/Cd2+-exporting ATPase	Metals	Metal Detox	eng_sys	Cadmium/Zinc/Cobalt Resistance
+zitB-ybgR|K16264	zitB-ybgR, cobalt-zinc-cadmium efflux system protein	Metals	Metal Detox	eng_sys	Cadmium/Zinc/Cobalt Resistance
+cadX|K21903	cadX, lead/cadmium/zinc/bismuth-responsive transcriptional repressor	Metals	Metal Detox	eng_sys	Cadmium/Zinc/Cobalt Resistance
+czrB|K21133	czrB, multidrug efflux pump	Metals	Metal Detox	eng_sys	Cadmium/Zinc/Cobalt Resistance
+nrsA|K11326	nrsA, cation efflux system protein involved in nickel and cobalt tolerance	Metals	Metal Detox	eng_sys	Nickel/Cobalt Resistance
+rcnA-yohM|K08970	rcnA-yohM, nickel/cobalt transporter (NicO) family protein	Metals	Metal Detox	eng_sys	Nickel/Cobalt Resistance
+K24079	nickel and cobalt resistance protein CnrY	Metals	Metal Detox	eng_sys	Nickel/Cobalt Resistance
+K24078	nickel and cobalt resistance protein CnrR	Metals	Metal Detox	eng_sys	Nickel/Cobalt Resistance
+ctpD|K12951	ctpD, cobalt/nickel-transporting P-type ATPase D	Metals	Metal Detox	eng_sys	Nickel/Cobalt Resistance
+silP|K23254	silP, P-type Ag+ transporter	Metals	Metal Detox	eng_sys	Silver Resistance
+silF	silF, Silver cation efflux system; chaperone	Metals	Metal Detox	eng_sys	Silver Resistance
+silE	silE, Silver cation efflux system; binding protein	Metals	Metal Detox	eng_sys	Silver Resistance
+pbrR	pbrR, Transcription factor, regulator	Metals	Metal Detox	eng_sys	Lead Resistance
+pbrT	pbrT, Pb(II) uptake protein; membrane transporter	Metals	Metal Detox	eng_sys	Lead Resistance
+K00163	pyruvate dehydrogenase complex [EC:1.2.4.1 2.3.1.12 1.8.1.4] [RN:R00209]	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K00161	pyruvate dehydrogenase complex [EC:1.2.4.1 2.3.1.12 1.8.1.4] [RN:R00209]	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K00162	pyruvate dehydrogenase complex [EC:1.2.4.1 2.3.1.12 1.8.1.4] [RN:R00209]	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K00627	pyruvate dehydrogenase complex [EC:1.2.4.1 2.3.1.12 1.8.1.4] [RN:R00209]	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K00174	2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase subunit alpha [EC:1.2.7.3 1.2.7.11] [RN:R01197]	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K00175	2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase subunit beta [EC:1.2.7.3 1.2.7.11] [RN:R01197]	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K00169	pyruvate ferredoxin oxidoreductase [EC:1.2.7.1] [RN:R01196]	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K00170	pyruvate ferredoxin oxidoreductase [EC:1.2.7.1] [RN:R01196]	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K00172	pyruvate ferredoxin oxidoreductase [EC:1.2.7.1] [RN:R01196]	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K00189	vorG, porG; 2-oxoisovalerate/pyruvate ferredoxin oxidoreductase gamma subunit [EC:1.2.7.7 1.2.7.1]	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K00171	pyruvate ferredoxin oxidoreductase [EC:1.2.7.1] [RN:R01196]	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K03737	pyruvate:ferredoxin oxidoreductase [EC:1.2.7.1] [RN:R01196]	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K01905	6.2.1.13, acetate---CoA ligase (ADP-forming) subunit alpha	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K22224	acdB; acetate---CoA ligase (ADP-forming) subunit beta [EC:6.2.1.13]	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K24012	acdAB; acetate---CoA ligase (ADP-forming)	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K00138	aldB; aldehyde dehydrogenase [EC:1.2.1.-]	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K00129	aldehyde dehydrogenase	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K01913	AAE7, ACN1; acetate/butyrate---CoA ligase [EC:6.2.1.1 6.2.1.2]	Fermentation End Products	Organic Acids	eng_sys	Acetate Production
+K01899	succinyl-CoA synthetase [EC:6.2.1.4 6.2.1.5] [RN:R00405 R00432 R00727]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K01900	succinyl-CoA synthetase [EC:6.2.1.4 6.2.1.5] [RN:R00405 R00432 R00727]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K01902	succinyl-CoA synthetase [EC:6.2.1.5] [RN:R00405]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K01903	succinyl-CoA synthetase [EC:6.2.1.5] [RN:R00405]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K01847	methylmalonyl-CoA mutase [EC:5.4.99.2] [RN:R00833]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K01849	methylmalonyl-CoA mutase [EC:5.4.99.2] [RN:R00833]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K01848	methylmalonyl-CoA mutase [EC:5.4.99.2] [RN:R00833]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K00140	malonate-semialdehyde dehydrogenase (acetylating) [EC:1.2.1.18] [RN:R00740]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K05606	methylmalonyl-CoA/ethylmalonyl-CoA epimerase [EC:5.1.99.1] [RN:R02765]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K11264	scpB, mmcD; methylmalonyl-CoA decarboxylase [EC:4.1.1.-]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K03416	methylmalonyl-CoA carboxyltransferase 5S subunit [EC:2.1.3.1]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K18426	ethylmalonyl-CoA/methylmalonyl-CoA decarboxylase [EC:4.1.1.94 4.1.1.-]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K01908	propionyl-CoA synthetase [EC:6.2.1.17]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K01026	propionate CoA-transferase [EC:2.8.3.1]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K20626	lcdA; lactoyl-CoA dehydratase subunit alpha [EC:4.2.1.54]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K20627	lcdB; lactoyl-CoA dehydratase subunit beta [EC:4.2.1.54]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K00248	butyryl-CoA dehydrogenase	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K00232	acyl-CoA oxidase [EC:1.3.3.6] [RN:R07934 R07950]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K01699	pduC; propanediol dehydratase large subunit [EC:4.2.1.28]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K13919	pduD; propanediol dehydratase medium subunit [EC:4.2.1.28]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K13920	pduE; propanediol dehydratase small subunit [EC:4.2.1.28]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K13922	pduP; propionaldehyde dehydrogenase [EC:1.2.1.87]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K01206	FUCA; alpha-L-fucosidase [EC:3.2.1.51]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K13788	pta; phosphate acetyltransferase [EC:2.3.1.8] [RN:R00230]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K15024	putative phosphotransacetylase [EC:2.3.1.8]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K13923	pduL; phosphate propanoyltransferase [EC:2.3.1.222]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K00656	formate C-acetyltransferase [EC:2.3.1.54]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K00932	tdcD; propionate kinase [EC:2.7.2.15]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K19697	propionate kinase [EC:2.7.2.15]	Fermentation End Products	Organic Acids	eng_sys	Propionate Production
+K00626	acetyl-CoA C-acetyltransferase [EC:2.3.1.9] [RN:R00238]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K00074	paaH; 3-hydroxyadipyl-CoA dehydrogenase	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K00022	3-hydroxyacyl-CoA dehydrogenase [EC:1.1.1.35] [RN:R01975]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K07516	fadN; 3-hydroxyacyl-CoA dehydrogenase [EC:1.1.1.35]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K01825	enoyl-CoA hydratase / 3-hydroxyacyl-CoA dehydrogenase [EC:4.2.1.17 1.1.1.35] [RN:R03026 R01975]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K01782	enoyl-CoA hydratase / 3-hydroxyacyl-CoA dehydrogenase [EC:4.2.1.17 1.1.1.35] [RN:R03026 R01975]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K07514	enoyl-CoA hydratase [EC:4.2.1.17] [RN:R03045]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K01692	paaF; 2,3-dehydroadipyl-CoA hydratase	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K07515	enoyl-CoA hydratase [EC:4.2.1.17] [RN:R03045]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K07511	enoyl-CoA hydratase [EC:4.2.1.17] [RN:R03045]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K01715	crt; short-chain-enoyl-CoA hydratase [EC:4.2.1.150]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K00209	enoyl-[acyl-carrier protein] reductase / trans-2-enoyl-CoA reductase (NAD+) [EC:1.3.1.9 1.3.1.44]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K17829	ccrA; crotonyl-CoA reductase [EC:1.3.1.86]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K01034	atoD; acetate CoA/acetoacetate CoA-transferase alpha subunit [EC:2.8.3.8 2.8.3.9]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K01035	atoA; acetate CoA/acetoacetate CoA-transferase beta subunit [EC:2.8.3.8 2.8.3.9]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K19709	ydiF; acetate CoA-transferase [EC:2.8.3.8]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K00135	gabD; succinate-semialdehyde dehydrogenase	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K08324	sad; succinate-semialdehyde dehydrogenase [EC:1.2.1.16 1.2.1.24]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K00139	succinate-semialdehyde dehydrogenase [EC:1.2.1.24]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K17761	succinate-semialdehyde dehydrogenase, mitochondrial [EC:1.2.1.24]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K00043	gbd; 4-hydroxybutyrate dehydrogenase [EC:1.1.1.61]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K08318	yihU; 4-hydroxybutyrate dehydrogenase / sulfolactaldehyde 3-reductase [EC:1.1.1.61 1.1.1.373]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K18120	4hbD, abfH; 4-hydroxybutyrate dehydrogenase [EC:1.1.1.61]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K18121	glyoxylate/succinic semialdehyde reductase [EC:1.1.1.79 1.1.1.-]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K18122	cat2, abfT; 4-hydroxybutyrate CoA-transferase [EC:2.8.3.-]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K14534	4-hydroxybutyryl-CoA dehydratase [EC:4.2.1.120] [RN:R10782]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K01580	E4.1.1.15, gadB, gadA, GAD; glutamate decarboxylase [EC:4.1.1.15]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K13524	4-aminobutyrate aminotransferase / (S)-3-amino-2-methylpropionate transaminase [EC:2.6.1.19 2.6.1.22]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K07250	gabT; 4-aminobutyrate aminotransferase / (S)-3-amino-2-methylpropionate transaminase / 5-aminovalerate transaminase [EC:2.6.1.19 2.6.1.22 2.6.1.48]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K14268	davT, gabT; 5-aminovalerate/4-aminobutyrate aminotransferase [EC:2.6.1.48 2.6.1.19]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K00823	puuE; 4-aminobutyrate aminotransferase [EC:2.6.1.19]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K16871	4-aminobutyrate---pyruvate transaminase [EC:2.6.1.96]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K01843	kamA; lysine 2,3-aminomutase [EC:5.4.3.2]	Fermentation End Products	Organic Acids	eng_sys	Butyrate Production
+K00016	L-lactate dehydrogenase	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K00886	polyphosphate glucokinase [EC:2.7.1.63] [RN:R02189]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K08074	K00918 ADP-dependent glucokinase [EC:2.7.1.147] [RN:R09085]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K00918	ADP-dependent phosphofructokinase [EC:2.7.1.146] [RN:R09084]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K01810	glucose-6-phosphate isomerase [EC:5.3.1.9] [RN:R02740 R02739]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K06859	glucose-6-phosphate isomerase [EC:5.3.1.9] [RN:R02740 R02739]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K13810	glucose-6-phosphate isomerase [EC:5.3.1.9] [RN:R02740 R02739]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K15916	glucose-6-phosphate isomerase [EC:5.3.1.9] [RN:R02740 R02739]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K24182	6-phosphofructokinase [EC:2.7.1.11]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K00850	6-phosphofructokinase [EC:2.7.1.11] [RN:R04779]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K16370	6-phosphofructokinase [EC:2.7.1.11] [RN:R04779]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K21071	pfk, pfp; ATP-dependent phosphofructokinase / diphosphate-dependent phosphofructokinase [EC:2.7.1.11 2.7.1.90]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K00895	pfp; diphosphate-dependent phosphofructokinase [EC:2.7.1.90]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K01623	fructose-bisphosphate aldolase [EC:4.1.2.13] [RN:R01070]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K01624	fructose-bisphosphate aldolase [EC:4.1.2.13] [RN:R01070]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K01622	fructose 1,6-bisphosphate aldolase/phosphatase [EC:4.1.2.13 3.1.3.11] [RN:R01070 R04780]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K11645	fructose-bisphosphate aldolase [EC:4.1.2.13] [RN:R01070]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K16305	fructose-bisphosphate aldolase [EC:4.1.2.13] [RN:R01070]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K16306	fructose-bisphosphate aldolase [EC:4.1.2.13] [RN:R01070]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K00134	glyceraldehyde 3-phosphate dehydrogenase [EC:1.2.1.12 1.2.1.59] [RN:R01061 R01063]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K00150	glyceraldehyde 3-phosphate dehydrogenase [EC:1.2.1.12 1.2.1.59] [RN:R01061 R01063]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K00927	phosphoglycerate kinase [EC:2.7.2.3] [RN:R01512]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K01837	BPGM; bisphosphoglycerate/phosphoglycerate mutase [EC:5.4.2.4 5.4.2.11]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K01834	phosphoglycerate mutase [EC:5.4.2.11 5.4.2.12] [RN:R01518]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K15633	phosphoglycerate mutase [EC:5.4.2.11 5.4.2.12] [RN:R01518]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K15634	phosphoglycerate mutase [EC:5.4.2.11 5.4.2.12] [RN:R01518]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K15635	phosphoglycerate mutase [EC:5.4.2.11 5.4.2.12] [RN:R01518]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K01689	enolase [EC:4.2.1.11] [RN:R00658]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K27394	ENO4; enolase 4	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K00873	pyruvate kinase [EC:2.7.1.40] [RN:R00200]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K12406	pyruvate kinase [EC:2.7.1.40] [RN:R00200]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K01053	gluconolactonase	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K05308	gluconate dehydratase [EC:4.2.1.140] [RN:R01538]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K11395	2-dehydro-3-deoxy-phosphogluconate/2-dehydro-3-deoxy-6-phosphogalactonate aldolase [EC:4.1.2.55] [RN:R08570 R10616]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K18127	2-dehydro-3-deoxy-D-gluconate aldolase [EC:4.1.2.51] [RN:R08570 R10616]	Fermentation End Products	Organic Acids	eng_sys	Lactate Production
+K00122	formate dehydrogenase [EC:1.17.1.9]	Fermentation End Products	Organic Acids	eng_sys	Formate Production
+K00123	formate dehydrogenase major subunit [EC:1.17.1.9]	Fermentation End Products	Organic Acids	eng_sys	Formate Production
+K00124	formate dehydrogenase iron-sulfur subunit	Fermentation End Products	Organic Acids	eng_sys	Formate Production
+K00125	formate dehydrogenase (coenzyme F420) [EC:1.8.98.6] [RN:R11944]	Fermentation End Products	Organic Acids	eng_sys	Formate Production
+K00126	formate dehydrogenase subunit delta [EC:1.17.1.9]	Fermentation End Products	Organic Acids	eng_sys	Formate Production
+K00244	succinate dehydrogenase / fumarate reductase [EC:1.3.5.1 1.3.5.4] [RN:R02164]	Fermentation End Products	Organic Acids	eng_sys	Succinate Production
+K00245	succinate dehydrogenase / fumarate reductase [EC:1.3.5.1 1.3.5.4] [RN:R02164]	Fermentation End Products	Organic Acids	eng_sys	Succinate Production
+K00246	succinate dehydrogenase / fumarate reductase [EC:1.3.5.1 1.3.5.4] [RN:R02164]	Fermentation End Products	Organic Acids	eng_sys	Succinate Production
+K00247	succinate dehydrogenase / fumarate reductase [EC:1.3.5.1 1.3.5.4] [RN:R02164]	Fermentation End Products	Organic Acids	eng_sys	Succinate Production
+K13953	alcohol dehydrogenase [EC:1.1.1.1]	Fermentation End Products	Alcohols	eng_sys	Ethanol Production
+K04072	alcohol dehydrogenase [EC:1.1.1.1]	Fermentation End Products	Alcohols	eng_sys	Ethanol Production
+K00100	bdhAB; butanol dehydrogenase [EC:1.1.1.-]	Fermentation End Products	Alcohols	eng_sys	Butanol Production
+K00544	betaine-homocysteine S-methyltransferase [EC:2.1.1.5]	Fermentation End Products	Alcohols	eng_sys	Butanol Production
+K00634	phosphate butyryltransferase [EC:2.3.1.19]	Fermentation End Products	Alcohols	eng_sys	Butanol Production
+K00929	butyrate kinase [EC:2.7.2.7]	Fermentation End Products	Alcohols	eng_sys	Butanol Production
+K01896	medium-chain acyl-CoA synthetase [EC:6.2.1.2]	Fermentation End Products	Alcohols	eng_sys	Butanol Production
+AlkB	HMM; alkB; AlkB-type alkane hydroxylase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Alkane Degradation
+AlmA_GroupI	HMM; almA; Flavin-binding monooxygenase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Alkane Degradation
+AlmA_GroupIII	HMM; almA; Flavin-binding monooxygenase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Alkane Degradation
+pBmoA	HMM; bmoA_butane; butane monooxygenase (particulate)	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Alkane Degradation
+pBmoB	HMM; bmoB; butane monooxygenase (particulate)	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Alkane Degradation
+pBmoC	HMM; bmoC; butane monooxygenase (particulate)	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Alkane Degradation
+sBmoX	HMM; bmoX (alpha subunit); butane monooxygenase (soluble) complex	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Alkane Degradation
+sBmoY	HMM; bmoY; butane monooxygenase (soluble) complex	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Alkane Degradation
+sBmoZ	HMM; bmoZ; butane monooxygenase (soluble) complex	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Alkane Degradation
+CYP153	HMM; Cyp153; Cytochrome P450 alkane hydroxylase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Alkane Degradation
+LadA_alpha	HMM; ladA_alpha; Long-chain alkane monooxygenase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Alkane Degradation
+LadA_beta	HMM; ladA_beta; long-chain alkane hydrolase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Alkane Degradation
+LadB	HMM; ladB; long-chain alkane hydrolase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Alkane Degradation
+PrmA	HMM; prmA; Propane 2-monoxygenase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Alkane Degradation
+PrmC	HMM; prmC; Propane 2-monoxygenase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Alkane Degradation
+MAH_alpha	HMM; broad; Monoaromatic dioxygenase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Aromatic Degradation (General)
+MAH_beta	HMM; tcbAb, todC2, bphAb; Monoaromatic dioxygenase beta subunit	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Aromatic Degradation (General)
+DmpO	HMM; dmpO; Phenol hydroxylase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Aromatic Degradation (General)
+DszC	HMM; dszC (soxC); Dibenzothiophene desulfurization enzyme C	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Aromatic Degradation (General)
+TmoA_BmoA	HMM; tmoA; Toluene/Benzene 4-monooxygenase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Aromatic Degradation (General)
+TmoB_BmoB	HMM; tmoB; Toluene/Benzene 4-monooxygenase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Aromatic Degradation (General)
+TmoE	HMM; tmoE; Toluene 4-monooxygenase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Aromatic Degradation (General)
+TomA1	HMM; tomA1; Toluene 2-monooxygenase/Phenol Hydroxylase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Aromatic Degradation (General)
+TomA3	HMM; tomA3; Toluene 2-monooxygenase/Phenol Hydroxylase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Aromatic Degradation (General)
+TomA4	HMM; tomA4; Toluene 2-monooxygenase/Phenol Hydroxylase	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Aromatic Degradation (General)
+NdoB	HMM; ndoB; Naphthalene 1,2-dioxygenase alpha	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Aromatic Degradation (General)
+NdoC	HMM; ndoC; Polyaromatic/Naphthalene 1,2-dioxygenase beta subunit	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Aromatic Degradation (General)
+non_NdoB_type	HMM; non ndoB; Naphthalene 1,2-dioxygenase alpha	Carbon Degradation	Aerobic Hydrocarbons	eng_sys	Aerobic Aromatic Degradation (General)
+AhyA	HMM; ahyA; Alkane C2 methylene hydroxylase (putative)	Carbon Degradation	Anaerobic Hydrocarbons	eng_sys	Anaerobic Alkane Degradation
+AssA	HMM; masD/assA; 1-methylalkyl (alkyl) succinate synthase	Carbon Degradation	Anaerobic Hydrocarbons	eng_sys	Anaerobic Alkane Degradation
+CmdA	HMM; cmdA; p-cymene dehydrogenase	Carbon Degradation	Anaerobic Hydrocarbons	eng_sys	Anaerobic Aromatic Degradation (General)
+EbdA	HMM; ebdA; Ethylbenzene dehydrogenase	Carbon Degradation	Anaerobic Hydrocarbons	eng_sys	Anaerobic Aromatic Degradation (General)
+BssA	HMM; bssA/ibsA; Benzyl/(4-Isopropylbenzyl) succinate synthase	Carbon Degradation	Anaerobic Hydrocarbons	eng_sys	Anaerobic Aromatic Degradation (General)
+AbcA_1	HMM; abcA1; Benzene carboxylase	Carbon Degradation	Anaerobic Hydrocarbons	eng_sys	Anaerobic Aromatic Degradation (General)
+AbcA_2	HMM; abcA2; Benzene carboxylase	Carbon Degradation	Anaerobic Hydrocarbons	eng_sys	Anaerobic Aromatic Degradation (General)
+NmsA	HMM; nmsA; Naphthyl 2-methylsuccinate synthase	Carbon Degradation	Anaerobic Hydrocarbons	eng_sys	Anaerobic Aromatic Degradation (General)
+K27540	HMM; K27540; Naphthalene carboxylase	Carbon Degradation	Anaerobic Hydrocarbons	eng_sys	Anaerobic Aromatic Degradation (General)
+GH5	GH5 endo-beta-1,4-glucanase / cellulase (EC:3.2.1.4); endo-beta-1,4-xylanase (EC:3.2.1.8); beta-glucosidase (EC:3.2.1.21); beta-mannosidase (EC:3.2.1.25); beta-glucosylceramidase (EC:3.2.1.45); glucan beta-1,3-glucosidase (EC:3.2.1.58); licheninase (EC:3.2.1.73); exo-beta-1,4-glucanase / cellodextrinase (EC:3.2.1.74); glucan endo-1,6-beta-glucosidase (EC:3.2.1.75); mannan endo-beta-1,4-mannosidase (EC:3.2.1.78); cellulose beta-1,4-cellobiosidase (EC:3.2.1.91); steryl beta-glucosidase (EC:3.2.1.104); endoglycoceramidase (EC:3.2.1.123); chitosanase (EC:3.2.1.132); beta-primeverosidase (EC:3.2.1.149); xyloglucan-specific endo-beta-1,4-glucanase (EC:3.2.1.151); endo-beta-1,6-galactanase (EC:3.2.1.164); hesperidin 6-O-alpha-L-rhamnosyl-beta-glucosidase (EC:3.2.1.168); beta-1,3-mannanase (EC:3.2.1.-); arabinoxylan-specific endo-beta-1,4-xylanase (EC:3.2.1.-); mannan transglycosylase (EC:2.4.1.-); lichenase / endo-beta-1,3-1,4-glucanase (EC:3.2.1.73); beta-glycosidase (EC:3.2.1.-); endo-beta-1,3-glucanase / laminarinase (EC:3.2.1.39); beta-N-acetylhexosaminidase (EC:3.2.1.52); chitosanase (EC:3.2.1.132); beta-D-galactofuranosidase (EC:3.2.1.146);	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+GH6	GH6 endoglucanase (EC:3.2.1.4); cellobiohydrolase (EC:3.2.1.91)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+GH7	GH7 endo-beta-1,4-glucanase (EC:3.2.1.4); reducing end-acting cellobiohydrolase (EC:3.2.1.176); chitosanase (EC:3.2.1.132); endo-beta-1,3-1,4-glucanase (EC:3.2.1.73)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+GH8	GH8 chitosanase (EC:3.2.1.132); cellulase (EC:3.2.1.4); licheninase (EC:3.2.1.73); endo-1,4-beta-xylanase (EC:3.2.1.8); reducing-end-xylose releasing exo-oligoxylanase (EC:3.2.1.156)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+GH9	GH9 endoglucanase (EC:3.2.1.4); endo-beta-1,3(4)-glucanase / lichenase-laminarinase (EC:3.2.1.6); beta-glucosidase (EC:3.2.1.21); lichenase / endo-beta-1,3-1,4-glucanase (EC:3.2.1.73); exo-beta-1,4-glucanase / cellodextrinase (EC:3.2.1.74); cellobiohydrolase (EC:3.2.1.91); xyloglucan-specific endo-beta-1,4-glucanase / endo-xyloglucanase (EC:3.2.1.151); exo-beta-glucosaminidase (EC:3.2.1.165)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+GH10	GH10 endo-1,4-beta-xylanase (EC:3.2.1.8); endo-1,3-beta-xylanase (EC:3.2.1.32); tomatinase (EC:3.2.1.-); xylan endotransglycosylase (EC:2.4.2.-); endo-beta-1,4-glucanase (EC:3.2.1.4)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+GH12	GH12 endoglucanase (EC:3.2.1.4); xyloglucan hydrolase (EC:3.2.1.151); beta-1,3-1,4-glucanase (EC:3.2.1.73); xyloglucan endotransglycosylase (EC:2.4.1.207)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+GH44	GH44 endoglucanase (EC:3.2.1.4); xyloglucanase (EC:3.2.1.151)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+GH45	GH45 endoglucanase (EC:3.2.1.4); xyloglucan-specific endo-beta-1,4-glucanase / endo-xyloglucanase (EC:3.2.1.151); endo-beta-1,4-mannanase (EC:3.2.1.78)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+GH48	GH48 reducing end-acting cellobiohydrolase (EC:3.2.1.176); endo-beta-1,4-glucanase (EC:3.2.1.4); chitinase (EC:3.2.1.14)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+GH124	GH124 endoglucanase (EC:3.2.1.4)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+GH1	GH1 beta-glucosidase (EC:3.2.1.21); beta-galactosidase (EC:3.2.1.23); beta-mannosidase (EC:3.2.1.25); beta-glucuronidase (EC:3.2.1.31); beta-xylosidase (EC:3.2.1.37); beta-D-fucosidase (EC:3.2.1.38); phlorizin hydrolase (EC:3.2.1.62); exo-beta-1,4-glucanase (EC:3.2.1.74); 6-phospho-beta-galactosidase (EC:3.2.1.85); 6-phospho-beta-glucosidase (EC:3.2.1.86); strictosidine beta-glucosidase (EC:3.2.1.105); lactase (EC:3.2.1.108); amygdalin beta-glucosidase (EC:3.2.1.117); prunasin beta-glucosidase (EC:3.2.1.118); vicianin hydrolase (EC:3.2.1.119); raucaffricine beta-glucosidase (EC:3.2.1.125); thioglucosidase (EC:3.2.1.147); beta-primeverosidase (EC:3.2.1.149); isoflavonoid 7-O-beta-apiosyl-beta-glucosidase (EC:3.2.1.161); ABA-specific beta-glucosidase (EC:3.2.1.175); DIMBOA beta-glucosidase (EC:3.2.1.182); beta-glycosidase (EC:3.2.1.-); hydroxyisourate hydrolase (EC:3.-.-.-)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+GH3	GH3 beta-glucosidase (EC:3.2.1.21); xylan 1,4-beta-xylosidase (EC:3.2.1.37); beta-glucosylceramidase (EC:3.2.1.45); beta-N-acetylhexosaminidase (EC:3.2.1.52); alpha-L-arabinofuranosidase (EC:3.2.1.55); glucan 1,3-beta-glucosidase (EC:3.2.1.58); glucan 1,4-beta-glucosidase (EC:3.2.1.74); isoprimeverose-producing oligoxyloglucan hydrolase (EC:3.2.1.120); coniferin beta-glucosidase (EC:3.2.1.126); exo-1,3-1,4-glucanase (EC:3.2.1.-); beta-N-acetylglucosaminide phosphorylases (EC:2.4.1.-)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+GH94	GH94 cellobiose phosphorylase (EC:2.4.1.20); laminaribiose phosphorylase (EC:2.4.1.31); cellodextrin phosphorylase (EC:2.4.1.49); chitobiose phosphorylase (EC:2.4.1.-); cyclic beta-1,2-glucan synthase (EC:2.4.1.-); cellobionic acid phosphorylase (EC:2.4.1.321); beta-1,2-oligoglucan phosphorylase (EC:2.4.1.-)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+GH116	GH116 beta-glucosidase (EC:3.2.1.21); beta-xylosidase (EC:3.2.1.37); acid beta-glucosidase/beta-glucosylceramidase (EC:3.2.1.45); beta-N-acetylglucosaminidase (EC:3.2.1.52)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+AA9	AA9 (formerly GH61) proteins are copper-dependent lytic polysaccharide monooxygenases (LPMOs); cleavage of cellulose chains with oxidation of carbons C1 and/or C4 and C-6); lytic cellulose monooxygenase (C1-hydroxylating) (EC:1.14.99.54); lytic cellulose monooxygenase (C4-dehydrogenating) (EC:1.14.99.56)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+AA10	AA10 (formerly CBM33) proteins are copper-dependent lytic polysaccharide monooxygenases (LPMOs); some proteins have been shown to act on chitin, others on cellulose; lytic cellulose monooxygenase (C1-hydroxylating) (EC:1.14.99.54); lytic cellulose monooxygenase (C4-dehydrogenating)(EC:1.14.99.56); lytic chitin monooxygenase (EC:1.14.99.53)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+AA15	AA15 lytic cellulose monooxygenase (C1-hydroxylating) (EC:1.14.99.54); lytic chitin monooxygenase (EC:1.14.99.53)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+AA16	AA16 Lytic cellulose monooxygenase (C1-hydroxylating) (EC:1.14.99.54)	Carbon Degradation	Polymers	eng_sys	Cellulose Degradation
+GH11	GH11 endo-beta-1,4-xylanase (EC:3.2.1.8); endo-beta-1,3-xylanase (EC:3.2.1.32)	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+GH16	GH16 xyloglucan:xyloglucosyltransferase (EC:2.4.1.207); keratan-sulfate endo-1,4-beta-galactosidase (EC:3.2.1.103); endo-1,3-beta-glucanase / laminarinase (EC:3.2.1.39); endo-1,3(4)-beta-glucanase (EC:3.2.1.6); licheninase (EC:3.2.1.73); beta-agarase (EC:3.2.1.81); kappa;-carrageenase (EC:3.2.1.83); xyloglucanase (EC:3.2.1.151); endo-beta-1,3-galactanase (EC:3.2.1.181); [retaining] beta-porphyranase (EC:3.2.1.178); hyaluronidase (EC:3.2.1.35); endo-beta-1,4-galactosidase (EC:3.2.1.-); chitin beta-1,6-glucanosyltransferase (EC:2.4.1.-); beta-transglycosidase (EC:2.4.1.-); beta-glycosidase (EC:3.2.1.-); endo-beta-1,3-galactanase (EC:3.2.1.181)	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+GH26	GH26 beta-mannanase (EC:3.2.1.78); exo-beta-1,4-mannobiohydrolase (EC:3.2.1.100); beta-1,3-xylanase (EC:3.2.1.32); lichenase / endo-beta-1,3-1,4-glucanase (EC:3.2.1.73); mannobiose-producing exo-beta-mannanase (EC:3.2.1.-)	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+GH74	GH74 endoglucanase (EC:3.2.1.4); oligoxyloglucan reducing end-specific cellobiohydrolase (EC:3.2.1.150); xyloglucanase (EC:3.2.1.151)	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+GH113	GH113 beta-mannanase (EC:3.2.1.78)	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+GH134	GH134 endo-beta-1,4-mannanase (EC:3.2.1.78);	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+GH2	GH2 beta-galactosidase (EC:3.2.1.23) ; beta-mannosidase (EC:3.2.1.25); beta-glucuronidase (EC:3.2.1.31); alpha-L-arabinofuranosidase (EC:3.2.1.55); mannosylglycoprotein endo-beta-mannosidase (EC:3.2.1.152); exo-beta-glucosaminidase (EC:3.2.1.165); alpha-L-arabinopyranosidase (EC:3.2.1.-); beta-galacturonidase (EC:3.2.1.-); beta-xylosidase (EC:3.2.1.37); beta-D-galactofuranosidase (EC:3.2.1.146);	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+GH31	GH31 alpha-glucosidase (EC:3.2.1.20); alpha-galactosidase (EC:3.2.1.22); alpha-mannosidase (EC:3.2.1.24); alpha-1,3-glucosidase (EC:3.2.1.84); sucrase-isomaltase (EC:3.2.1.48) (EC:3.2.1.10); alpha-xylosidase (EC:3.2.1.177); alpha-glucan lyase (EC:4.2.2.13); isomaltosyltransferase (EC:2.4.1.-); oligosaccharide alpha-1,4-glucosyltransferase (EC:2.4.1.161); sulfoquinovosidase (EC:3.2.1.-)	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+GH38	GH38 alpha-mannosidase (EC:3.2.1.24); mannosyl-oligosaccharide alpha-1,2-mannosidase (EC:3.2.1.113); mannosyl-oligosaccharide alpha-1,3-1,6-mannosidase (EC:3.2.1.114); alpha-2-O-mannosylglycerate hydrolase (EC:3.2.1.170); mannosyl-oligosaccharide alpha-1,3-mannosidase (EC:3.2.1.-)	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+GH43	GH43 beta-xylosidase (EC:3.2.1.37); alpha-L-arabinofuranosidase (EC:3.2.1.55); xylanase (EC:3.2.1.8); alpha-1,2-L-arabinofuranosidase (EC:3.2.1.-); exo-alpha-1,5-L-arabinofuranosidase (EC:3.2.1.-); [inverting] exo-alpha-1,5-L-arabinanase (EC:3.2.1.-); beta-1,3-xylosidase (EC:3.2.1.-); [inverting] exo-alpha-1,5-L-arabinanase (EC:3.2.1.-); [inverting] endo-alpha-1,5-L-arabinanase (EC:3.2.1.99); exo-beta-1,3-galactanase (EC:3.2.1.145); beta-D-galactofuranosidase (EC:3.2.1.146)	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+GH51	GH51 endoglucanase (EC:3.2.1.4); endo-beta-1,4-xylanase (EC:3.2.1.8); beta-xylosidase (EC:3.2.1.37); alpha-L-arabinofuranosidase (EC:3.2.1.55); lichenase / endo-beta-1,3-1,4-glucanase (EC:3.2.1.73)	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+GH63	GH63 processing alpha-glucosidase (EC:3.2.1.106); alpha-1,3-glucosidase (EC:3.2.1.84); alpha-glucosidase (EC:3.2.1.20); mannosylglycerate alpha-mannosidase / mannosylglycerate hydrolase (EC:3.2.1.170); glucosylglycerate hydrolase (EC:3.2.1.208)	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+GH92	GH92 mannosyl-oligosaccharide alpha-1,2-mannosidase (EC:3.2.1.113); mannosyl-oligosaccharide alpha-1,3-mannosidase (EC:3.2.1.-); mannosyl-oligosaccharide alpha-1,6-mannosidase (EC:3.2.1.-); alpha-mannosidase (EC:3.2.1.24); alpha-1,2-mannosidase (EC:3.2.1.-); alpha-1,3-mannosidase (EC:3.2.1.-); alpha-1,4-mannosidase (EC:3.2.1.-); mannosyl-1-phosphodiester alpha-1,P-mannosidase (EC:3.2.1.-)	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+GH125	GH125 exo-alpha-1,6-mannosidase (EC:3.2.1.-)	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+GH130	GH130 beta-1,4-mannosylglucose phosphorylase (EC:2.4.1.281); beta-1,4-mannooligosaccharide phosphorylase (EC:2.4.1.319); beta-1,4-mannosyl-N-acetyl-glucosamine phosphorylase (EC:2.4.1.320); beta-1,2-mannobiose phosphorylase (EC:2.4.1.-); beta-1,2-oligomannan phosphorylase (EC:2.4.1.-); beta-1,2-mannosidase (EC:3.2.1.-)	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+CE1	CE1 acetyl xylan esterase (EC:3.1.1.72); cinnamoyl esterase (EC:3.1.1.-); feruloyl esterase (EC:3.1.1.73); carboxylesterase (EC:3.1.1.1); S-formylglutathione hydrolase (EC:3.1.2.12); diacylglycerol O-acyltransferase (EC:2.3.1.20); trehalose 6-O-mycolyltransferase (EC:2.3.1.122)	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+CE2	CE2 acetyl xylan esterase (EC:3.1.1.72).	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+CE4	CE4 acetyl xylan esterase (EC:3.1.1.72); chitin deacetylase (EC:3.5.1.41); chitooligosaccharide deacetylase (EC:3.5.1.-); peptidoglycan GlcNAc deacetylase (EC:3.5.1.-); peptidoglycan N-acetylmuramic acid deacetylase (EC:3.5.1.-).	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+CE17	acetyl mannan esterase [EC:3.1.1.-]	Carbon Degradation	Polymers	eng_sys	Hemicellulose Degradation
+GH13	GH13 alpha-amylase (EC:3.2.1.1); pullulanase (EC:3.2.1.41); cyclomaltodextrin glucanotransferase (EC:2.4.1.19); cyclomaltodextrinase (EC:3.2.1.54); trehalose-6-phosphate hydrolase (EC:3.2.1.93); oligo-alpha-glucosidase (EC:3.2.1.10); maltogenic amylase (EC:3.2.1.133); neopullulanase (EC:3.2.1.135); alpha-glucosidase (EC:3.2.1.20); maltotetraose-forming alpha-amylase (EC:3.2.1.60); isoamylase (EC:3.2.1.68); glucodextranase (EC:3.2.1.70); maltohexaose-forming alpha-amylase (EC:3.2.1.98); maltotriose-forming alpha-amylase (EC:3.2.1.116); branching enzyme (EC:2.4.1.18); trehalose synthase (EC:5.4.99.16); 4-alpha-glucanotransferase (EC:2.4.1.25); maltopentaose-forming alpha-amylase (EC:3.2.1.-) ; amylosucrase (EC:2.4.1.4) ; sucrose phosphorylase (EC:2.4.1.7); malto-oligosyltrehalose trehalohydrolase (EC:3.2.1.141); isomaltulose synthase (EC:5.4.99.11); malto-oligosyltrehalose synthase (EC:5.4.99.15); amylo-alpha-1,6-glucosidase (EC:3.2.1.33); alpha-1,4-glucan: phosphate alpha-maltosyltransferase (EC:2.4.99.16); 6'-P-sucrose phosphorylase (EC:2.4.1.-); amino acid transporter	Carbon Degradation	Polymers	eng_sys	Starch Degradation
+GH14	GH14 beta-amylase (EC:3.2.1.2)	Carbon Degradation	Polymers	eng_sys	Starch Degradation
+GH15	GH15 glucoamylase (EC:3.2.1.3); glucodextranase (EC:3.2.1.70); alpha,alpha-trehalase (EC:3.2.1.28); dextran dextrinase (EC:2.4.1.2)	Carbon Degradation	Polymers	eng_sys	Starch Degradation
+GH57	GH57 alpha-amylase (EC:3.2.1.1); alpha-galactosidase (EC:3.2.1.22); amylopullulanase (EC:3.2.1.41); cyclomaltodextrinase (EC:3.2.1.54); branching enzyme (EC:2.4.1.18); 4-alpha-glucanotransferase (EC:2.4.1.25)	Carbon Degradation	Polymers	eng_sys	Starch Degradation
+GH97	GH97 glucoamylase (EC:3.2.1.3); alpha-glucosidase (EC:3.2.1.20); alpha-galactosidase (EC:3.2.1.22)	Carbon Degradation	Polymers	eng_sys	Starch Degradation
+GH119	GH119 alpha-amylase (EC:3.2.1.1)	Carbon Degradation	Polymers	eng_sys	Starch Degradation
+GH126	GH126 alpha-amylase (EC:3.2.1.-)	Carbon Degradation	Polymers	eng_sys	Starch Degradation
+GH133	GH133 amylo-alpha-1,6-glucosidase (EC:3.2.1.33);	Carbon Degradation	Polymers	eng_sys	Starch Degradation
+AA13	AA13 proteins are copper-dependent lytic polysaccharide monooxygenases (LPMOs); cleavage of starch with oxidation of C-1 at the site of cleavage has been demonstrated for the LPMO encoded by gene NCU08746 from Neurospora crassa;	Carbon Degradation	Polymers	eng_sys	Starch Degradation
+GH27	GH27 alpha-galactosidase (EC:3.2.1.22); alpha-N-acetylgalactosaminidase (EC:3.2.1.49); isomalto-dextranase (EC:3.2.1.94); beta-L-arabinopyranosidase (EC:3.2.1.88); galactan:galactan galactosyltransferase (EC:2.4.1.-)	Carbon Degradation	Polymers	eng_sys	Galactomannan (Guar Gum) Degradation
+GH36	GH36 alpha-galactosidase (EC:3.2.1.22); alpha-N-acetylgalactosaminidase (EC:3.2.1.49); stachyose synthase (EC:2.4.1.67); raffinose synthase (EC:2.4.1.82)	Carbon Degradation	Polymers	eng_sys	Galactomannan (Guar Gum) Degradation
+K02777	PTS-Glc-EIIA; PTS system, glucose-specific IIA component	Carbon Degradation	Simple Sugars	eng_sys	Glucose Use
+K02779	PTS-Glc-EIIC; PTS system, glucose-specific IIC component	Carbon Degradation	Simple Sugars	eng_sys	Glucose Use
+K02791	PTS-MalGlc-EIIC; PTS system, maltose/glucose-specific IIC component	Carbon Degradation	Simple Sugars	eng_sys	Glucose Use
+K20118	PTS-Glc1-EIIC; PTS system, glucose-specific IIC component	Carbon Degradation	Simple Sugars	eng_sys	Glucose Use
+K18851	glucose-6-phosphate isomerase [EC:5.3.1.9]	Carbon Degradation	Simple Sugars	eng_sys	Glucose Use
+K01182	sucrase-isomaltase [EC:3.2.1.48]	Carbon Degradation	Simple Sugars	eng_sys	Sucrose Use
+K01203	β-fructofuranosidase [EC:3.2.1.26]	Carbon Degradation	Simple Sugars	eng_sys	Sucrose Use
+K12047	sucrose phosphorylase [EC:2.4.1.7]	Carbon Degradation	Simple Sugars	eng_sys	Sucrose Use
+K01187	sucrase [EC:3.2.1.48]	Carbon Degradation	Simple Sugars	eng_sys	Sucrose Use
+K12316	glucosyltransferase [EC:2.4.1.4]	Carbon Degradation	Simple Sugars	eng_sys	Sucrose Use
+K12317	sucrose-6F-phosphate phosphohydrolase [EC:3.1.3.24]	Carbon Degradation	Simple Sugars	eng_sys	Sucrose Use
+K06617	raffinose synthase [EC:2.4.1.82]	Carbon Degradation	Simple Sugars	eng_sys	Sucrose Use
+K01193	beta-fructofuranosidase [EC:3.2.1.26]	Carbon Degradation	Simple Sugars	eng_sys	Sucrose Use
+K00695	α-glucosidase [EC:3.2.1.20]	Carbon Degradation	Simple Sugars	eng_sys	Sucrose Use
+K02810	PTS-Scr-EIIC; PTS system, sucrose-specific IIC component	Carbon Degradation	Simple Sugars	eng_sys	Sucrose Use
+K00690	maltase-glucoamylase [EC:3.2.1.20]	Carbon Degradation	Simple Sugars	eng_sys	Sucrose Use
+K05341	glucanotransferase [EC:2.4.1.25]	Carbon Degradation	Simple Sugars	eng_sys	Sucrose Use
+K00689	oligo-1,6-glucosidase [EC:3.2.1.10]	Carbon Degradation	Simple Sugars	eng_sys	Sucrose Use
+K00692	isomaltase [EC:3.2.1.10]	Carbon Degradation	Simple Sugars	eng_sys	Sucrose Use
+K01809	mannose-6-phosphate isomerase [EC:5.3.1.8]	Carbon Degradation	Simple Sugars	eng_sys	Mannose Use
+K02793	mannose PTS system IIA component [EC:2.7.1.191]	Carbon Degradation	Simple Sugars	eng_sys	Mannose Use
+K02794	mannose PTS system IIB component [EC:2.7.1.191]	Carbon Degradation	Simple Sugars	eng_sys	Mannose Use
+K02795	mannose PTS system IIC component [EC:2.7.1.191]	Carbon Degradation	Simple Sugars	eng_sys	Mannose Use
+K02796	mannose PTS system EIID component	Carbon Degradation	Simple Sugars	eng_sys	Mannose Use
+K00849	galactokinase [EC:2.7.1.6]	Carbon Degradation	Simple Sugars	eng_sys	Galactose Use
+K00965	galactose-1-phosphate uridylyltransferase [EC:2.7.7.12]	Carbon Degradation	Simple Sugars	eng_sys	Galactose Use
+K01784	UDP-galactose 4-epimerase [EC:5.1.3.2]	Carbon Degradation	Simple Sugars	eng_sys	Galactose Use
+K01785	galactose mutarotase [EC:5.1.3.3]	Carbon Degradation	Simple Sugars	eng_sys	Galactose Use
+K00879	L-fucokinase [EC:2.7.1.52]	Carbon Degradation	Simple Sugars	eng_sys	Fucose Use
+K01628	L-fuculose-phosphate aldolase [EC:4.1.2.17]	Carbon Degradation	Simple Sugars	eng_sys	Fucose Use
+K01818	L-fucose isomerase [EC:5.3.1.25]	Carbon Degradation	Simple Sugars	eng_sys	Fucose Use
+K00854	xylose kinase [EC:2.7.1.17]	Carbon Degradation	Simple Sugars	eng_sys	Xylose Use
+K01805	xylose isomerase [EC:5.3.1.5]	Carbon Degradation	Simple Sugars	eng_sys	Xylose Use
+K00008	xylitol dehydrogenase [EC:1.1.1.9]	Carbon Degradation	Simple Sugars	eng_sys	Xylose Use
+K05351	xylulokinase [EC:2.7.1.17]	Carbon Degradation	Simple Sugars	eng_sys	Xylose Use
+K17743	xylitol oxidase [EC:1.1.3.41]	Carbon Degradation	Simple Sugars	eng_sys	Xylose Use
+K00078	dihydrodiol dehydrogenase / D-xylose 1-dehydrogenase (NADP) [EC:1.3.1.20 1.1.1.179]	Carbon Degradation	Simple Sugars	eng_sys	Xylose Use
+K14273	xylulose reductase [EC:1.1.1.9]	Carbon Degradation	Simple Sugars	eng_sys	Xylose Use
+K14274	D-xylonate dehydratase [EC:4.2.1.82]	Carbon Degradation	Simple Sugars	eng_sys	Xylose Use
+K14275	xylonolactonase [EC:3.1.1.68]	Carbon Degradation	Simple Sugars	eng_sys	Xylose Use
+K00045	mannitol 2-dehydrogenase [EC:1.1.1.67]	Carbon Degradation	Simple Sugars	eng_sys	Fructose Use
+K27924	mannitol 2-dehydrogenase [EC:1.1.1.67]	Carbon Degradation	Simple Sugars	eng_sys	Fructose Use
+K00007	D-arabinitol 4-dehydrogenase [EC:1.1.1.11]	Carbon Degradation	Simple Sugars	eng_sys	Fructose Use
+K00847	fructokinase [EC:2.7.1.4]	Carbon Degradation	Simple Sugars	eng_sys	Fructose Use
+K00846	ketohexokinase [EC:2.7.1.3]	Carbon Degradation	Simple Sugars	eng_sys	Fructose Use
+K27475	ketohexokinase [EC:2.7.1.3]	Carbon Degradation	Simple Sugars	eng_sys	Fructose Use
+K02768	PTS-Fru-EIIA; PTS system, fructose-specific IIA component	Carbon Degradation	Simple Sugars	eng_sys	Fructose Use
+K02769	PTS-Fru-EIIB; PTS system, fructose-specific IIB component	Carbon Degradation	Simple Sugars	eng_sys	Fructose Use
+K02770	PTS-Fru-EIIC; PTS system, fructose-specific IIC component	Carbon Degradation	Simple Sugars	eng_sys	Fructose Use
+K02771	PTS-Fru1-EIID; PTS system, fructose-specific IID component	Carbon Degradation	Simple Sugars	eng_sys	Fructose Use
+K11194	PTS-Fru1-EIIA; PTS system, fructose-specific IIA component	Carbon Degradation	Simple Sugars	eng_sys	Fructose Use
+K11195	PTS-Fru1-EIIB; PTS system, fructose-specific IIB component	Carbon Degradation	Simple Sugars	eng_sys	Fructose Use
+K11196	PTS-Fru1-EIIC; PTS system, fructose-specific IIC component	Carbon Degradation	Simple Sugars	eng_sys	Fructose Use
+K01804	L-arabinose isomerase [EC:5.3.1.4]	Carbon Degradation	Simple Sugars	eng_sys	Arabinose Use
+K26066	arabinose 1-dehydrogenase [EC:1.1.1.46]	Carbon Degradation	Simple Sugars	eng_sys	Arabinose Use
+K13873	arabinolactonase [EC:3.1.1.110]	Carbon Degradation	Simple Sugars	eng_sys	Arabinose Use
+K19660	arabinonate dehydratase [EC:4.2.1.37]	Carbon Degradation	Simple Sugars	eng_sys	Arabinose Use
+K12446	L-arabonate dehydratase [EC:4.2.1.37]	Carbon Degradation	Simple Sugars	eng_sys	Arabinose Use
+K00852	ribokinase [EC:2.7.1.15]	Carbon Degradation	Simple Sugars	eng_sys	Ribose Use
+K01813	L-rhamnose isomerase [EC:5.3.1.14]	Carbon Degradation	Simple Sugars	eng_sys	Rhamnose Use
+K01820	L-rhamnose isomerase / sugar isomerase [EC:5.3.1.14 5.3.1.-]	Carbon Degradation	Simple Sugars	eng_sys	Rhamnose Use
+K18337	L-rhamnose 1-dehydrogenase [EC:1.1.1.378 1.1.1.377 1.1.1.173]	Carbon Degradation	Simple Sugars	eng_sys	Rhamnose Use
+K00691	maltose phosphorylase [EC:2.4.1.8]	Carbon Degradation	Simple Sugars	eng_sys	Maltose Use
+K06896	maltose 6'-phosphate phosphatase [EC:3.1.3.90]	Carbon Degradation	Simple Sugars	eng_sys	Maltose Use
+K16146	maltokinase [EC:2.7.1.175]	Carbon Degradation	Simple Sugars	eng_sys	Maltose Use
+K00705	4-alpha-glucanotransferase [EC:2.4.1.25]	Carbon Degradation	Simple Sugars	eng_sys	Maltose Use
+K22451	4-alpha-glucanotransferase [EC:2.4.1.25]	Carbon Degradation	Simple Sugars	eng_sys	Maltose Use
+K12437	polyketide synthase 13	Carbon Degradation	Simple Sugars	eng_sys	Trehalose Use
+K02819	PTS-Tre-EIIC; PTS system, trehalose-specific IIC component	Carbon Degradation	Simple Sugars	eng_sys	Trehalose Use
+K01194	alpha,alpha-trehalase [EC:3.2.1.28]	Carbon Degradation	Simple Sugars	eng_sys	Trehalose Use
+K22934	alpha,alpha-trehalase [EC:3.2.1.28]	Carbon Degradation	Simple Sugars	eng_sys	Trehalose Use
+K01190	beta-galactosidase	Carbon Degradation	Simple Sugars	eng_sys	Lactose Use
+K12111	evolved beta-galactosidase subunit alpha	Carbon Degradation	Simple Sugars	eng_sys	Lactose Use
+K12112	evolved beta-galactosidase subunit beta	Carbon Degradation	Simple Sugars	eng_sys	Lactose Use
+K12309	beta-galactosidase	Carbon Degradation	Simple Sugars	eng_sys	Lactose Use
+K01189	alpha-galactosidase [EC:3.2.1.22]	Carbon Degradation	Other Carbon	eng_sys	Glycerol Use
+K07406	melA; alpha-galactosidase [EC:3.2.1.22]	Carbon Degradation	Other Carbon	eng_sys	Glycerol Use
+K07407	alpha-galactosidase [EC:3.2.1.22]	Carbon Degradation	Other Carbon	eng_sys	Glycerol Use
+K00005	gldA; glycerol dehydrogenase [EC:1.1.1.6]	Carbon Degradation	Other Carbon	eng_sys	Glycerol Use
+K22251	golD; glycerol dehydrogenase [EC:1.1.1.6]	Carbon Degradation	Other Carbon	eng_sys	Glycerol Use
+K18097	glycerol 2-dehydrogenase (NADP+) [EC:1.1.1.156]	Carbon Degradation	Other Carbon	eng_sys	Glycerol Use
+K00864	glpK; glycerol kinase [EC:2.7.1.30]	Carbon Degradation	Other Carbon	eng_sys	Glycerol Use
+K06120	dhaB; glycerol dehydratase large subunit [EC:4.2.1.30]	Carbon Degradation	Other Carbon	eng_sys	Glycerol Use
+K06121	glycerol dehydratase medium subunit [EC:4.2.1.30]	Carbon Degradation	Other Carbon	eng_sys	Glycerol Use
+K06122	glycerol dehydratase small subunit [EC:4.2.1.30]	Carbon Degradation	Other Carbon	eng_sys	Glycerol Use
+K00002	adh; alcohol dehydrogenase (NADP+) [EC:1.1.1.2]	Carbon Degradation	Other Carbon	eng_sys	Glycerol Use
+K13979	yahK; alcohol dehydrogenase (NADP+) [EC:1.1.1.2]	Carbon Degradation	Other Carbon	eng_sys	Glycerol Use
+K14028	mdh1, mxaF; methanol dehydrogenase (cytochrome c) subunit 1 [EC:1.1.2.7]	Carbon Degradation	Other Carbon	eng_sys	Methanol Use
+K16254	mdh1, mxaF; methanol dehydrogenase (cytochrome c) subunit 1 [EC:1.1.2.7]	Carbon Degradation	Other Carbon	eng_sys	Methanol Use
+K16566	exoY; exopolysaccharide production protein ExoY	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K16557	exoA; succinoglycan biosynthesis protein ExoA [EC:2.4.-.-]	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K16556	exoM; succinoglycan biosynthesis protein ExoM [EC:2.4.-.-]	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K16555	exoO; succinoglycan biosynthesis protein ExoO [EC:2.4.-.-]	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K19290	alg8; mannuronan synthase [EC:2.4.1.33]	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K19291	alg44; mannuronan synthase [EC:2.4.1.33]	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K19293	algX; alginate biosynthesis protein AlgX	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K19294	algI; alginate O-acetyltransferase complex protein AlgI	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K19295	algJ; alginate O-acetyltransferase complex protein AlgJ	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K19296	algF; alginate O-acetyltransferase complex protein AlgF	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K11936	pgaC, icaA; poly-beta-1,6-N-acetyl-D-glucosamine synthase [EC:2.4.1.-]	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K11937	pgaD; biofilm PGA synthesis protein PgaD	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K20997	pslA; polysaccharide biosynthesis protein PslA	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K21001	pslH; polysaccharide biosynthesis protein PslH	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K21154	pssM; exopolysaccharide glucosyl ketal-pyruvate-transferase [EC:2.5.1.98]	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K25902	pssA; acidic exopolysaccharide biosynthesis protein PssA	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K25904	pssE; exopolysaccharide biosynthesis glucuronosyltransferase PssE	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K25906	pssS; exopolysaccharide biosynthesis glucosyltransferase PssS	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K25205	pslC; polysaccharide biosynthesis protein PslC	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K21461	poly-beta-1,6-N-acetyl-D-glucosamine synthesis protein	Biofilms & Attachment	EPS	eng_sys	EPS Production
+K07173	luxS; S-ribosylhomocysteine lyase [EC:4.4.1.21]	Biofilms & Attachment	Quorum Sensing	eng_sys	Quorum Sensing
+K13060	lasI; acyl homoserine lactone synthase [EC:2.3.1.184]	Biofilms & Attachment	Quorum Sensing	eng_sys	Quorum Sensing
+K13061	rhlI/phzI/solI/cepI/tofI; acyl homoserine lactone synthase [EC:2.3.1.184]	Biofilms & Attachment	Quorum Sensing	eng_sys	Quorum Sensing
+K18304	lasR; LuxR family transcriptional regulator, quorum-sensing system regulator LasR	Biofilms & Attachment	Quorum Sensing	eng_sys	Quorum Sensing
+K18099	rhlR/phzR; LuxR family transcriptional regulator, quorum-sensing system regulator RhlR	Biofilms & Attachment	Quorum Sensing	eng_sys	Quorum Sensing
+K10555	lsrB; AI-2 transport system substrate-binding protein	Biofilms & Attachment	Quorum Sensing	eng_sys	Quorum Sensing
+K10556	lsrC; AI-2 transport system permease protein	Biofilms & Attachment	Quorum Sensing	eng_sys	Quorum Sensing
+K10557	lsrD; AI-2 transport system permease protein	Biofilms & Attachment	Quorum Sensing	eng_sys	Quorum Sensing
+K10558	lsrA/ego; AI-2 transport system ATP-binding protein	Biofilms & Attachment	Quorum Sensing	eng_sys	Quorum Sensing
+K02410	fliG; flagellar motor switch protein FliG	Biofilms & Attachment	Motility	eng_sys	Motility
+K02411	fliH; flagellar assembly protein FliH	Biofilms & Attachment	Motility	eng_sys	Motility
+K02406	fliC, hag; flagellin	Biofilms & Attachment	Motility	eng_sys	Motility
+K02407	fliD; flagellar hook-associated protein 2	Biofilms & Attachment	Motility	eng_sys	Motility
+K02400	flhA; flagellar biosynthesis protein FlhA	Biofilms & Attachment	Motility	eng_sys	Motility
+K02408	fliE; flagellar hook-basal body complex protein FliE	Biofilms & Attachment	Motility	eng_sys	Motility
+K02409	fliF; flagellar M-ring protein FliF	Biofilms & Attachment	Motility	eng_sys	Motility
+K02412	fliI; flagellum-specific ATP synthase [EC:7.4.2.8]	Biofilms & Attachment	Motility	eng_sys	Motility
+K02416	fliM; flagellar motor switch protein FliM	Biofilms & Attachment	Motility	eng_sys	Motility
+K02417	fliN; flagellar motor switch protein FliN	Biofilms & Attachment	Motility	eng_sys	Motility
+K02386	flgA; flagellar basal body P-ring formation protein FlgA	Biofilms & Attachment	Motility	eng_sys	Motility
+K02387	flgB; flagellar basal-body rod protein FlgB	Biofilms & Attachment	Motility	eng_sys	Motility
+K02391	flgF; flagellar basal-body rod protein FlgF	Biofilms & Attachment	Motility	eng_sys	Motility
+K02393	flgH; flagellar L-ring protein FlgH	Biofilms & Attachment	Motility	eng_sys	Motility
+K02404	flhF; flagellar biosynthesis protein FlhF	Biofilms & Attachment	Motility	eng_sys	Motility
+K02405	fliC; flagellin FliC (flagellar filament structural protein)	Biofilms & Attachment	Motility	eng_sys	Motility
+K07646	kdpD; 2-component system OmpR family sensor histidine kinase	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K07667	kdpE; 2-component system OmpR family sensor histidine kinase	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K01545	kdpF; K+transporting ATPase ATPase F chain	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K01546	kdpA; K+transporting ATPase ATPase A chain	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K01547	kdpB; K+transporting ATPase ATPase B chain	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K01548	kdpC; K+transporting ATPase ATPase C chain	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K03315	nhaC; Na+:H+ antiporter	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K07084	nhaC; Na+:H+ antiporter	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K05565	multicomponent Na+:H+ antiporter subunit A	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K05566	multicomponent Na+:H+ antiporter subunit B	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K05567	multicomponent Na+:H+ antiporter subunit C	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K05568	multicomponent Na+:H+ antiporter subunit D	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K05569	multicomponent Na+:H+ antiporter subunit E	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K05570	multicomponent Na+:H+ antiporter subunit F	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K05571	multicomponent Na+:H+ antiporter subunit G	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K05559	phaAB; Polyhydroxyalkanoate (PHA) K transporters (multi-subunit)	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K05560	phaC; Polyhydroxyalkanoate (PHA) K transporters (multi-subunit)	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K05561	phaD; Polyhydroxyalkanoate (PHA) K transporters (multi-subunit)	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K05562	phaE; Polyhydroxyalkanoate (PHA) K transporters (multi-subunit)	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K05563	phaF; Polyhydroxyalkanoate (PHA) K transporters (multi-subunit)	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K05564	phaG; Polyhydroxyalkanoate (PHA) K transporters (multi-subunit)	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K03499	trkA, ktrA; trkA type sodium hydrogen exchanger	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K03498	trkH, ktrB; trkH type K uptake	Environmental Stress Response	Osmoregulation	eng_sys	Salt-In Strategy (K+ Accumulation)
+K00108	betA; choline dehydrogenase	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Synthesis)
+K11440	choline dehydrogenase [EC:1.1.1.1]	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Synthesis)
+K00130	betaine-aldehyde dehydrogenase [EC:1.2.1.8]	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Synthesis)
+K18896	glycine/sarcosine N-methyltransferase	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Synthesis)
+K18897	sdmt; sarcosine/dimethylglycine N-methyltransferase [EC:2.1.1.157]	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Synthesis)
+K02168	betP,T,S; choline/glycine/proline betaine transport protein	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Transport)
+K03451	choline/carnitine/betaine/glycine/BCCT transporter	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Transport)
+K05245	L-carnitine/gamma-butyrobetaine antiporter	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Transport)
+K03762	proP; Proline/betaine (ProP) MFS transporter, PPII, proline permease II	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Transport)
+K03607	proQ; proline/betaine (ProP effector)	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Transport)
+K02000	proV; glycine-betaine/proline transport system ATP binding protein	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Transport)
+K02001	proW; glycine-betaine/proline transport system permease protein	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Transport)
+K02002	proX; glycine-betaine/proline transport system substrate binding protein	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Transport)
+K05020	opuD; glycine-betaine transporter	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Transport)
+K10036	glnH; glutamine transport system substrate-binding protein	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Transport)
+K10037	glnP; glutamine transport system permease protein	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Transport)
+K10038	glnQ; glutamine transport system ATP-binding protein	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Transport)
+K05845	opuC; Osmoprotectant transport system substrate binding protein	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Transport)
+K05846	opuBD; Osmoprotectant transport system permease	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Transport)
+K05847	opuA; Osmoprotectant transport system ATP-binding protein	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Methylated (Transport)
+K06718	ectA; diaminobutyrate acetyltransferase	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Ectoine (Synthesis)
+K00836	ectB; diaminobutyrate aminotransferase	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Ectoine (Synthesis)
+K06720	ectC; ectoine synthase	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Ectoine (Synthesis)
+K10674	ectD; ectoine hydroxylase	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Ectoine (Synthesis)
+K02028	ehuA; ectoine/hydroxyectoine transporter (ATP binding)	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Ectoine (Transport)
+K02029	ehuC, D; ectoine/hydroxyectoine transporter (permease)	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Ectoine (Transport)
+K02030	ehuB; ectoine/hydroxyectoine transporter (aa binding)	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Ectoine (Transport)
+K05947	mpgSP; mannosyl-3-phosphoglycerate synthase	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Synthesis)
+K00009	mtlD; mannitol-1-phosphate 5-dehydrogenase	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Synthesis)
+K06044	treY; maltooligosyl trehalose synthase	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Synthesis)
+K01236	treZ; maltooligosyl trehalose trehalohydrolase	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Synthesis)
+K00697	otsA; trehalose 6-phosphate synthase	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Synthesis)
+K01087	otsB; trehalose 6-phosphate synthase	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Synthesis)
+K10227	smoE, mtlE; sorbitol/mannitol transport system	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Transport)
+K10228	smoF; sorbitol/mannitol transport system	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Transport)
+K10229	sorbitol/mannitol transport system	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Transport)
+K10230	sorbitol/mannitol transport system	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Transport)
+K02783	srlA; sorbitol transporter subunit II A, B, C	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Transport)
+K02781	srlB; sorbitol transporter subunit II A, B, C	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Transport)
+K02782	srlE; sorbitol transporter subunit II A, B, C	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Transport)
+K02798	mtlA; Mannitol transporter PTS system, IIB, C	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Transport)
+K10109	malF; maltose/maltodextrin transport system permease protein	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Transport)
+K10110	malG; maltose/maltodextrin transport system permease protein	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Transport)
+K10111	malK; maltose/maltodextrin transport system ATP-binding protein [EC:3.6.3.19]	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Transport)
+K17314	treV; trehalose transport system ATP-binding protein	Environmental Stress Response	Osmoregulation	eng_sys	Compatible Solutes: Sugars (Transport)
+K03686	blq:L21SP5_01031 dnaJ; Heat shock protein J; K03686 DnaJ_C DnaJ DnaJ_CXXCXGXG Anti-TRAP	Environmental Stress Response	Temperature Stress	eng_sys	Heat Shock Response
+K04079	csh:Closa_3215 Heat shock protein Hsp90-like protein; K04079 HSP90 HATPase_c_3 HATPase_c	Environmental Stress Response	Temperature Stress	eng_sys	Heat Shock Response
+K03705	tte:TTE0953 HrcA; Transcriptional regulator of heat shock gene; K03705 HrcA HrcA_DNA-bdg HTH_11 HTH_DeoR	Environmental Stress Response	Temperature Stress	eng_sys	Heat Shock Response
+K13640	cha:CHAB381_0975 putative heat shock protein HspR; K13640 MerR_1 MerR_2 MerR HTH_17 HTH_3 PKcGMP_CC TolA_bind_tri HTH_23	Environmental Stress Response	Temperature Stress	eng_sys	Heat Shock Response
+K03053	rpoH; DNA-directed RNA polymerase subunit H [EC:2.7.7.6]	Environmental Stress Response	Temperature Stress	eng_sys	Heat Shock Response
+K03048	rpoE; DNA-directed RNA polymerase subunit delta	Environmental Stress Response	Temperature Stress	eng_sys	Heat Shock Response
+K01419	hor:Hore_07560 heat shock protein HslVU, ATP dependent protease HslV; K01419 Proteasome	Environmental Stress Response	Temperature Stress	eng_sys	Heat Shock Response
+K04080	salg:BS332_16600 heat-shock protein; K04080 HSP20 ArsA_HSP20	Environmental Stress Response	Temperature Stress	eng_sys	Heat Shock Response
+K04081	ibpB; molecular chaperone IbpB	Environmental Stress Response	Temperature Stress	eng_sys	Heat Shock Response
+K03695	rho:RHOM_03585 heat shock protein ClpB-like protein; K03695 AAA_2 AAA_lid_9 AAA ClpB_D2-small Clp_N AAA_5 AAA_16 Sigma54_activat AAA_22 IstB_IS21 ATPase_2 TniB AAA_7 AAA_18 AAA_14 Mg_chelatase RNA_helicase RuvB_N NACHT DUF815 AAA_3 Zeta_toxin AAA_33 Roc DNA_pol3_delta2 AAA_19 Torsin AAA_23 Spc7 DUF87 Cob_adeno_trans Atg14 ABC_tran	Environmental Stress Response	Temperature Stress	eng_sys	Heat Shock Response
+K03687	tte:TTE0954 GrpE; Molecular chaperone GrpE (heat shock protein); K03687 GrpE Herpes_UL6 GldM_N Complex1_LYR Trans_reg_C DUF573 KxDL Atg14 DUF87	Environmental Stress Response	Temperature Stress	eng_sys	Heat Shock Response
+K10257	FAD3, FAD7, FAD8, desB; acyl-lipid omega-3 desaturase [EC:1.14.19.25 1.14.19.35 1.14.19.36]	Environmental Stress Response	Temperature Stress	eng_sys	Cold Shock Response
+K03704	cspA; cold shock protein	Environmental Stress Response	Temperature Stress	eng_sys	Cold Shock Response
+K02834	rbfA; ribosome-binding factor A	Environmental Stress Response	Temperature Stress	eng_sys	Cold Shock Response
+K05592	deaD, cshA; ATP-dependent RNA helicase DeaD [EC:5.6.2.7]	Environmental Stress Response	Temperature Stress	eng_sys	Cold Shock Response
+K18698	beta-lactamase class A TEM [EC:3.5.2.6]	Environmental Stress Response	Antibiotic Resistance	eng_sys	Beta-Lactam Resistance
+K18699	beta-lactamase class A SHV [EC:3.5.2.6]	Environmental Stress Response	Antibiotic Resistance	eng_sys	Beta-Lactam Resistance
+K18796	beta-lactamase class A LEN [EC:3.5.2.6]	Environmental Stress Response	Antibiotic Resistance	eng_sys	Beta-Lactam Resistance
+K18767	beta-lactamase class A CTX-M	Environmental Stress Response	Antibiotic Resistance	eng_sys	Beta-Lactam Resistance
+K18795	beta-lactamase class A CARB-1	Environmental Stress Response	Antibiotic Resistance	eng_sys	Beta-Lactam Resistance
+K19218	beta-lactamase class A CARB-5	Environmental Stress Response	Antibiotic Resistance	eng_sys	Beta-Lactam Resistance
+K19217	beta-lactamase class A CARB-17	Environmental Stress Response	Antibiotic Resistance	eng_sys	Beta-Lactam Resistance
+K00561	23S rRNA (adenine-N6)-dimethyltransferase	Environmental Stress Response	Antibiotic Resistance	eng_sys	Macrolide Resistance
+K14336	rlmA2; 23S rRNA (guanine748-N1)-methyltransferase [EC:2.1.1.188]	Environmental Stress Response	Antibiotic Resistance	eng_sys	Macrolide Resistance
+K15632	cfr; 23S rRNA (adenine-C8)-methyltransferase [EC:2.1.1.224]	Environmental Stress Response	Antibiotic Resistance	eng_sys	Macrolide Resistance
+K18230	tylC; macrolide transport system ATP-binding/permease protein	Environmental Stress Response	Antibiotic Resistance	eng_sys	Macrolide Resistance
+K18231	macrolide transport system ATP-binding/permease protein	Environmental Stress Response	Antibiotic Resistance	eng_sys	Macrolide Resistance
+K19349	pleuromutilin/lincosamide/streptogramin A transport system ATP-binding/permease protein	Environmental Stress Response	Antibiotic Resistance	eng_sys	Macrolide Resistance
+K19350	lincosamide and streptogramin A transport system ATP-binding/permease protein	Environmental Stress Response	Antibiotic Resistance	eng_sys	Macrolide Resistance
+K18232	oleC4; oleandomycin transport system ATP-binding protein	Environmental Stress Response	Antibiotic Resistance	eng_sys	Macrolide Resistance
+K19541	MFS transporter, DHA2 family, lincomycin resistance protein	Environmental Stress Response	Antibiotic Resistance	eng_sys	Macrolide Resistance
+K08217	MFS transporter, DHA3 family, macrolide efflux protein	Environmental Stress Response	Antibiotic Resistance	eng_sys	Macrolide Resistance
+K08151	tetA; MFS transporter, DHA1 family, tetracycline resistance protein	Environmental Stress Response	Antibiotic Resistance	eng_sys	Tetracycline Resistance
+K08168	MFS transporter, DHA2 family, metal-tetracycline-proton antiporter	Environmental Stress Response	Antibiotic Resistance	eng_sys	Tetracycline Resistance
+K18214	MFS transporter, DHA3 family, tetracycline resistance protein	Environmental Stress Response	Antibiotic Resistance	eng_sys	Tetracycline Resistance
+K18215	MFS transporter, DHA3 family, tetracycline resistance protein	Environmental Stress Response	Antibiotic Resistance	eng_sys	Tetracycline Resistance
+K18218	tetracycline resistance efflux pump	Environmental Stress Response	Antibiotic Resistance	eng_sys	Tetracycline Resistance
+K18216	steA; ATP-binding cassette, subfamily B, tetracycline resistant protein	Environmental Stress Response	Antibiotic Resistance	eng_sys	Tetracycline Resistance
+K18217	steB; ATP-binding cassette, subfamily B, tetracycline resistant protein	Environmental Stress Response	Antibiotic Resistance	eng_sys	Tetracycline Resistance
+K19542	MFS transporter, DHA2 family, tetracycline/oxytetracycline resistance protein	Environmental Stress Response	Antibiotic Resistance	eng_sys	Tetracycline Resistance
+K18233	oleC5; oleandomycin transport system permease protein	Environmental Stress Response	Antibiotic Resistance	eng_sys	Tetracycline Resistance
+K18220	ribosomal protection tetracycline resistance protein	Environmental Stress Response	Antibiotic Resistance	eng_sys	Tetracycline Resistance
+K18221	tetracycline 11a-monooxygenase, tetracycline resistance protein [EC:1.14.13.231]	Environmental Stress Response	Antibiotic Resistance	eng_sys	Tetracycline Resistance
+K18974	dihydropteroate synthase type 1 [EC:2.5.1.15]	Environmental Stress Response	Antibiotic Resistance	eng_sys	Sulfonamide Resistance
+K18824	dihydropteroate synthase type 2 [EC:2.5.1.15]	Environmental Stress Response	Antibiotic Resistance	eng_sys	Sulfonamide Resistance
+K18825	dihydropteroate synthase type 3 [EC:2.5.1.15]	Environmental Stress Response	Antibiotic Resistance	eng_sys	Sulfonamide Resistance
+K03585	mexA; membrane fusion protein, multidrug efflux system (MFS family)	Environmental Stress Response	Biocide Resistance	eng_sys	Biocide Efflux (General)
+K18138	mexB; multidrug efflux pump (RND family)	Environmental Stress Response	Biocide Resistance	eng_sys	Biocide Efflux (General)
+K18324 | 2.A.6.2.7_P24177	acrD; multidrug efflux pump (RND family)	Environmental Stress Response	Biocide Resistance	eng_sys	Biocide Efflux (General)
+K18142 | 2.A.6.2.2_P31224	acrF; multidrug efflux pump (RND family)	Environmental Stress Response	Biocide Resistance	eng_sys	Biocide Efflux (General)
+K03297 | 2.A.7.1	mmr; small multidrug resistance pump (SMR family)	Environmental Stress Response	Biocide Resistance	eng_sys	Biocide Efflux (General)
+K11814 | 2.A.7.1.6	ebrA; multidrug resistance protein EbrA (SMR family)	Environmental Stress Response	Biocide Resistance	eng_sys	Biocide Efflux (General)
+K11815 | 2.A.7.1.6	ebrB; multidrug resistance protein EbrB (SMR family)	Environmental Stress Response	Biocide Resistance	eng_sys	Biocide Efflux (General)
+K18975 | 2.A.7.1.11	ebr; small multidrug resistance pump (SMR family)	Environmental Stress Response	Biocide Resistance	eng_sys	Biocide Efflux (General)
+K08167	qacA; MFS transporter, DHA2 family, multidrug resistance protein	Environmental Stress Response	Biocide Resistance	eng_sys	QAC Resistance
+K11741	sugE; quaternary ammonium compound-resistance protein SugE	Environmental Stress Response	Biocide Resistance	eng_sys	QAC Resistance
+K04564	SOD2; superoxide dismutase, Fe-Mn family [EC:1.15.1.1]	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K04565	SOD1; superoxide dismutase, Cu-Zn family [EC:1.15.1.1]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K04569	CCS; copper chaperone for superoxide dismutase	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K03781	katE/katA; catalase [EC:1.11.1.6]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K03782	katG; catalase-peroxidase [EC:1.11.1.21]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K24119	ahpC; NADH-dependent peroxiredoxin subunit C [EC:1.11.1.26]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K03387	ahpF; NADH-dependent peroxiredoxin subunit F [EC:1.8.1.-]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K04761	oxyR; LysR family transcriptional regulator, hydrogen peroxide-inducible genes activator	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K13639	soxR; MerR family transcriptional regulator, redox-sensitive transcriptional activator SoxR	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K13631	soxS; AraC family transcriptional regulator, mar-sox-rob regulon activator	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K00383	gorA; glutathione reductase (NADPH) [EC:1.8.1.7]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K01919	gshA, egtA; glutamate---cysteine ligase [EC:6.3.2.2]	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K03671	TXN, trxA; thioredoxin	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K00384	trxB, TRR; thioredoxin reductase (NADPH) [EC:1.8.1.9]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K03672	trxC; thioredoxin 2 [EC:1.8.1.8]	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K10563	mutM; formamidopyrimidine-DNA glycosylase [EC:3.2.2.23†4.2.99.18]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K03575	mutY; A/G-specific adenine glycosylase [EC:3.2.2.31]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K03553	recA; DNA repair/recombination protein RecA	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K04047	dps; starvation-inducible DNA-binding protein	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K03594	bfr; bacterioferritin [EC:1.16.3.1]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K02217	ftnA; ferritin [EC:1.16.3.2]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K03674	grxA; glutaredoxin 1	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K03675	grxB; glutaredoxin 2	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K03676	grxC; glutaredoxin 3	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K07304	msrA; peptide-methionine (S)-S-oxide reductase [EC:1.8.4.11]	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K07305	msrB; peptide-methionine (R)-S-oxide reductase [EC:1.8.4.12]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K04063	osmC, ohr; lipoyl-dependent peroxiredoxin [EC:1.11.1.28]	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K11065	tpx; thioredoxin-dependent peroxiredoxin [EC:1.11.1.24]	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K03564	BCP, PRXQ, DOT5; thioredoxin-dependent peroxiredoxin [EC:1.11.1.24]	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K00036	glucose-6-phosphate 1-dehydrogenase [EC:1.1.1.49 1.1.1.363 1.1.1.388] [RN:R02736 R10907]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K00033	6-phosphogluconate dehydrogenase [EC:1.1.1.44 1.1.1.343] [RN:R01528 R10221]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K00324	pntA; pyridine nucleotide transhydrogenase	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K00325	pntB; proton-translocating NAD(P)+ transhydrogenase subunit beta [EC:7.1.1.1]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K19824	fprB; rubrerythrin	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K04487	iscS; cysteine desulfurase [EC:2.8.1.7]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K05997	sufA; Fe-S cluster assembly protein SufA	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K09014	sufB; Fe-S cluster assembly protein SufB	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K09013	sufC; Fe-S cluster assembly ATP-binding protein	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K09015	sufD; Fe-S cluster assembly protein SufD	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K11717	sufS; cysteine desulfurase / selenocysteine lyase [EC:2.8.1.7 4.4.1.16]	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K02426	sufE; cysteine desulfuration protein SufE	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K03087	rpoS; RNA polymerase nonessential primary-like sigma factor	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K03711	fur, zur, furB; Fur family transcriptional regulator, ferric uptake regulator	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K13643	iscR; Rrf2 family transcriptional regulator, iron-sulfur cluster assembly transcription factor	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K01338	lon; ATP dependent protease	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K05919	dfx; superoxide reductase [EC:1.15.1.2]	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K01759	GLO1, gloA; lactoylglutathione lyase [EC:4.4.1.5]	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K00799	GST, gst; glutathione S-transferase [EC:2.5.1.18]	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K01069	gloB, gloC, HAGH; hydroxyacylglutathione hydrolase [EC:3.1.2.6]	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K10773	NTHL1, nth; endonuclease III [EC:3.2.2.- 4.2.99.18]	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K10567	NEIL1; endonuclease VIII-like 1 [EC:3.2.2.- 4.2.99.18]	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K03574	mutT; 8-oxo-dGTP diphosphatase [EC:3.6.1.55]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K01151	nfo; deoxyribonuclease IV v	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K03584	recO; DNA repair protein RecO (recombination protein O)	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K01142	xthA; exodeoxyribonuclease III [EC:3.1.11.2]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K09825	perR; Fur family transcriptional regulator, peroxide stress response regulator	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K23775	ohrR; MarR family transcriptional regulator, organic hydroperoxide resistance regulator	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K04084	dsbD, dipZ; thioredoxin:protein disulfide reductase [EC:1.8.4.16]	#N/A	Biocide Resistance	eng_sys	Oxidative Stress Resistance
+K01920	gshB; glutathione synthase [EC:6.3.2.3]	Environmental Stress Response	Biocide Resistance	eng_sys	Oxidative Stress Resistance

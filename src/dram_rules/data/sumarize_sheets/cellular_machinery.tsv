@@ -1,0 +1,357 @@
+topic_ecosystem	module	gene_id	gene_description
+Motility	Flagellar, Chemotaxis, Pili	K02399	flagella synthesis protein FlgN
+Motility	Flagellar, Chemotaxis, Pili	K02413	flagellar FliJ protein
+Motility	Flagellar, Chemotaxis, Pili	K02422	flagellar protein FliS
+Motility	Flagellar, Chemotaxis, Pili	K02423	flagellar protein FliT
+Motility	Flagellar, Chemotaxis, Pili	K02386	flagella basal body P-ring formation protein FlgA
+Motility	Flagellar, Chemotaxis, Pili	K02406	flagellin
+Motility	Flagellar, Chemotaxis, Pili	K02407	flagellar hook-associated protein 2
+Motility	Flagellar, Chemotaxis, Pili	K02397	flagellar hook-associated protein 3 FlgL
+Motility	Flagellar, Chemotaxis, Pili	K02396	flagellar hook-associated protein 1 FlgK
+Motility	Flagellar, Chemotaxis, Pili	K02414	flagellar hook-length control protein FliK
+Motility	Flagellar, Chemotaxis, Pili	K02389	flagellar basal-body rod modification protein FlgD
+Motility	Flagellar, Chemotaxis, Pili	K02390	flagellar hook protein FlgE
+Motility	Flagellar, Chemotaxis, Pili	K02391	flagellar basal-body rod protein FlgF
+Motility	Flagellar, Chemotaxis, Pili	K02392	flagellar basal-body rod protein FlgG
+Motility	Flagellar, Chemotaxis, Pili	K02393	flagellar L-ring protein precursor FlgH
+Motility	Flagellar, Chemotaxis, Pili	K02394	flagellar P-ring protein precursor FlgI
+Motility	Flagellar, Chemotaxis, Pili	K02387	flagellar basal-body rod protein FlgB
+Motility	Flagellar, Chemotaxis, Pili	K02388	flagellar basal-body rod protein FlgC
+Motility	Flagellar, Chemotaxis, Pili	K02408	flagellar hook-basal body complex protein FliE
+Motility	Flagellar, Chemotaxis, Pili	K02409	flagellar M-ring protein FliF
+Motility	Flagellar, Chemotaxis, Pili	K02410	flagellar motor switch protein FliG
+Motility	Flagellar, Chemotaxis, Pili	K02416	flagellar motor switch protein FliM
+Motility	Flagellar, Chemotaxis, Pili	K02417	flagellar motor switch protein FliN/FliY
+Motility	Flagellar, Chemotaxis, Pili	K02400	flagellar biosynthesis protein FlhA
+Motility	Flagellar, Chemotaxis, Pili	K02401	flagellar biosynthetic protein FlhB
+Motility	Flagellar, Chemotaxis, Pili	K02411	flagellar assembly protein FliH
+Motility	Flagellar, Chemotaxis, Pili	K02412	flagellum-specific ATP synthase [EC:7.4.2.8]
+Motility	Flagellar, Chemotaxis, Pili	K02418	flagellar protein FliO/FliZ
+Motility	Flagellar, Chemotaxis, Pili	K02419	flagellar biosynthetic protein FliP
+Motility	Flagellar, Chemotaxis, Pili	K02420	flagellar biosynthetic protein FliQ
+Motility	Flagellar, Chemotaxis, Pili	K02421	flagellar biosynthetic protein FliR
+Motility	Flagellar, Chemotaxis, Pili	K13820	flagellar biosynthetic protein FliR/FlhB
+Motility	Flagellar, Chemotaxis, Pili	K02556	chemotaxis protein MotA
+Motility	Flagellar, Chemotaxis, Pili	K02557	chemotaxis protein MotB
+Motility	Flagellar, Chemotaxis, Pili	K21217	sodium-type polar flagellar protein MotX
+Motility	Flagellar, Chemotaxis, Pili	K21218	sodium-type flagellar protein MotY
+Motility	Flagellar, Chemotaxis, Pili	K02395	flgJ; flagellar protein FlgJ (rod capping / muramidase)
+Motility	Flagellar, Chemotaxis, Pili	K02404	fliA; RNA polymerase sigma factor FliA (sigma-28; sigma-F)
+Motility	Flagellar, Chemotaxis, Pili	K02415	fliL; flagellar protein FliL (torque generation / stator recruitment)
+Motility	Flagellar, Chemotaxis, Pili	K06553	pomA; flagellar motor protein PomA (Na+-type stator; Vibrio/marine bacteria)
+Motility	Flagellar, Chemotaxis, Pili	K06554	pomB; flagellar motor protein PomB (Na+-type stator)
+Motility	Flagellar, Chemotaxis, Pili	K03407	cheA; chemotaxis protein histidine kinase CheA (autokinase; phosphorylates CheY and CheB)
+Motility	Flagellar, Chemotaxis, Pili	K03408	cheW; chemotaxis protein CheW (adaptor; links MCP receptor to CheA)
+Motility	Flagellar, Chemotaxis, Pili	K03409	cheV; chemotaxis protein CheV (CheW paralog with response regulator domain)
+Motility	Flagellar, Chemotaxis, Pili	K03412	cheZ; chemotaxis protein CheZ (CheY-P phosphatase; not present in all bacteria)
+Motility	Flagellar, Chemotaxis, Pili	K03413	cheY; chemotaxis protein CheY (response regulator; binds FliM when phosphorylated)
+Motility	Flagellar, Chemotaxis, Pili	K03414	cheB; chemotaxis protein CheB (methylesterase; adaptation; phosphorylated by CheA)
+Motility	Flagellar, Chemotaxis, Pili	K03415	cheR; chemotaxis protein CheR (methyltransferase; constitutive; adaptation)
+Motility	Flagellar, Chemotaxis, Pili	K02668	chpA; chemosensory histidine kinase ChpA (PilJ/CheA-like; controls T4P via PilG/PilH)
+Motility	Flagellar, Chemotaxis, Pili	K02669	chpB; response regulator ChpB (CheY-like; phosphatase activity; T4P chemosensory)
+Motility	Flagellar, Chemotaxis, Pili	K02670	pilG; response regulator PilG (CheY-like activator; promotes type IV pili extension)
+Motility	Flagellar, Chemotaxis, Pili	K02671	pilH; response regulator PilH (CheY-like inhibitor; promotes type IV pili retraction)
+Motility	Flagellar, Chemotaxis, Pili	K02667	pilI; Pil chemoreceptor PilI (MCP-like; ligand sensing for T4P chemosensing)
+Motility	Flagellar, Chemotaxis, Pili	K02672	pilJ; MCP-like chemoreceptor PilJ (T4P chemosensory system ligand sensor)
+Motility	Flagellar, Chemotaxis, Pili	K09773	pixJ; phototaxis sensor kinase PixJ (SyPixJ; bilin photoreceptor GAF domain; cyanobacteria)
+Motility	Flagellar, Chemotaxis, Pili	K09774	pixG; response regulator PixG (CheY-like; promotes positive phototaxis via T4P)
+Motility	Flagellar, Chemotaxis, Pili	K09775	pixH; response regulator PixH (CheY-like; phototaxis signaling)
+Motility	Flagellar, Chemotaxis, Pili	K09776	pixL; histidine kinase PixL (phototaxis signaling; cyanobacteria)
+Motility	Flagellar, Chemotaxis, Pili	K02491	flrC; response regulator FlrC (FleR in Pseudomonas; sigma-54 enhancer-binding; activates class III flagellar genes)
+Motility	Flagellar, Chemotaxis, Pili	K02674	pilS; sensor histidine kinase PilS (membrane-bound; controls pilin expression)
+Motility	Flagellar, Chemotaxis, Pili	K02675	pilR; response regulator PilR (sigma-54 enhancer-binding protein; activates pilA transcription)
+Motility	Flagellar, Chemotaxis, Pili	K02662	pilA; type IV pilin PilA (major pilin subunit; prepilin processed by PilD)
+Motility	Flagellar, Chemotaxis, Pili	K02663	pilB; type IV pili extension ATPase PilB (powers pilin polymerization; hexameric AAA+ ATPase)
+Motility	Flagellar, Chemotaxis, Pili	K02664	pilC; type IV pili inner membrane platform protein PilC
+Motility	Flagellar, Chemotaxis, Pili	K02676	pilQ; type IV pili outer membrane secretin PilQ (multimeric OM channel; GspD-family)
+Motility	Flagellar, Chemotaxis, Pili	K02677	pilT; type IV pili retraction ATPase PilT (powers pilus depolymerization; twitching motility)
+Motility	Flagellar, Chemotaxis, Pili	K02678	pilU; type IV pili retraction ATPase PilU (auxiliary retraction ATPase)
+Motility	Flagellar, Chemotaxis, Pili	K02679	pilM; type IV pili alignment subcomplex protein PilM (cytoplasmic actin-like; interacts with PilN)
+Motility	Flagellar, Chemotaxis, Pili	K02680	pilN; type IV pili alignment subcomplex protein PilN (inner membrane; heterodimerizes with PilO)
+Motility	Flagellar, Chemotaxis, Pili	K02681	pilO; type IV pili alignment subcomplex protein PilO (inner membrane; heterodimerizes with PilN)
+Motility	Flagellar, Chemotaxis, Pili	K02682	pilP; type IV pili alignment subcomplex protein PilP (periplasmic lipoprotein; bridges IM complex to PilQ)
+Motility	Flagellar, Chemotaxis, Pili	K02665	pilD; type IV pilin leader peptidase/N-methyltransferase PilD (prepilin peptidase; cleaves signal peptide and methylates N-terminal Phe)
+Motility	Flagellar, Chemotaxis, Pili	K02666	pilE; type IV pili minor pilin PilE
+Motility	Flagellar, Chemotaxis, Pili	K02683	fimT; minor pilin FimT (tip-associated minor pilin; relevant in Pseudomonas and Neisseria)
+Housekeeping	Ribosomes	K02981	small subunit ribosomal protein S2e
+Housekeeping	Ribosomes	K02985	small subunit ribosomal protein S3e
+Housekeeping	Ribosomes	K02984	small subunit ribosomal protein S3Ae
+Housekeeping	Ribosomes	K02987	small subunit ribosomal protein S4e
+Housekeeping	Ribosomes	K02989	small subunit ribosomal protein S5e
+Housekeeping	Ribosomes	K02991	small subunit ribosomal protein S6e
+Housekeeping	Ribosomes	K02993	small subunit ribosomal protein S7e
+Housekeeping	Ribosomes	K02995	small subunit ribosomal protein S8e
+Housekeeping	Ribosomes	K02997	small subunit ribosomal protein S9e
+Housekeeping	Ribosomes	K02947	small subunit ribosomal protein S10e
+Housekeeping	Ribosomes	K02949	small subunit ribosomal protein S11e
+Housekeeping	Ribosomes	K02951	small subunit ribosomal protein S12e
+Housekeeping	Ribosomes	K02953	small subunit ribosomal protein S13e
+Housekeeping	Ribosomes	K02955	small subunit ribosomal protein S14e
+Housekeeping	Ribosomes	K02958	small subunit ribosomal protein S15e
+Housekeeping	Ribosomes	K02957	small subunit ribosomal protein S15Ae
+Housekeeping	Ribosomes	K02960	small subunit ribosomal protein S16e
+Housekeeping	Ribosomes	K02962	small subunit ribosomal protein S17e
+Housekeeping	Ribosomes	K02964	small subunit ribosomal protein S18e
+Housekeeping	Ribosomes	K02966	small subunit ribosomal protein S19e
+Housekeeping	Ribosomes	K02969	small subunit ribosomal protein S20e
+Housekeeping	Ribosomes	K02971	small subunit ribosomal protein S21e
+Housekeeping	Ribosomes	K02973	small subunit ribosomal protein S23e
+Housekeeping	Ribosomes	K02974	small subunit ribosomal protein S24e
+Housekeeping	Ribosomes	K02975	small subunit ribosomal protein S25e
+Housekeeping	Ribosomes	K02976	small subunit ribosomal protein S26e
+Housekeeping	Ribosomes	K02978	small subunit ribosomal protein S27e
+Housekeeping	Ribosomes	K02977	small subunit ribosomal protein S27Ae
+Housekeeping	Ribosomes	K02979	small subunit ribosomal protein S28e
+Housekeeping	Ribosomes	K02980	small subunit ribosomal protein S29e
+Housekeeping	Ribosomes	K02983	small subunit ribosomal protein S30e
+Housekeeping	Ribosomes	K02998	small subunit ribosomal protein SAe
+Housekeeping	Ribosomes	K02925	large subunit ribosomal protein L3e
+Housekeeping	Ribosomes	K02930	large subunit ribosomal protein L4e
+Housekeeping	Ribosomes	K02932	large subunit ribosomal protein L5e
+Housekeeping	Ribosomes	K02934	large subunit ribosomal protein L6e
+Housekeeping	Ribosomes	K02937	large subunit ribosomal protein L7e
+Housekeeping	Ribosomes	K02936	large subunit ribosomal protein L7Ae
+Housekeeping	Ribosomes	K02938	large subunit ribosomal protein L8e
+Housekeeping	Ribosomes	K02940	large subunit ribosomal protein L9e
+Housekeeping	Ribosomes	K02866	large subunit ribosomal protein L10e
+Housekeeping	Ribosomes	K02865	large subunit ribosomal protein L10Ae
+Housekeeping	Ribosomes	K02868	large subunit ribosomal protein L11e
+Housekeeping	Ribosomes	K02870	large subunit ribosomal protein L12e
+Housekeeping	Ribosomes	K02873	large subunit ribosomal protein L13e
+Housekeeping	Ribosomes	K02872	large subunit ribosomal protein L13Ae
+Housekeeping	Ribosomes	K02875	large subunit ribosomal protein L14e
+Housekeeping	Ribosomes	K02877	large subunit ribosomal protein L15e
+Housekeeping	Ribosomes	K02880	large subunit ribosomal protein L17e
+Housekeeping	Ribosomes	K02883	large subunit ribosomal protein L18e
+Housekeeping	Ribosomes	K02882	large subunit ribosomal protein L18Ae
+Housekeeping	Ribosomes	K02885	large subunit ribosomal protein L19e
+Housekeeping	Ribosomes	K02889	large subunit ribosomal protein L21e
+Housekeeping	Ribosomes	K02891	large subunit ribosomal protein L22e
+Housekeeping	Ribosomes	K02894	large subunit ribosomal protein L23e
+Housekeeping	Ribosomes	K02893	large subunit ribosomal protein L23Ae
+Housekeeping	Ribosomes	K02896	large subunit ribosomal protein L24e
+Housekeeping	Ribosomes	K02898	large subunit ribosomal protein L26e
+Housekeeping	Ribosomes	K02901	large subunit ribosomal protein L27e
+Housekeeping	Ribosomes	K02900	large subunit ribosomal protein L27Ae
+Housekeeping	Ribosomes	K02903	large subunit ribosomal protein L28e
+Housekeeping	Ribosomes	K02905	large subunit ribosomal protein L29e
+Housekeeping	Ribosomes	K02908	large subunit ribosomal protein L30e
+Housekeeping	Ribosomes	K02910	large subunit ribosomal protein L31e
+Housekeeping	Ribosomes	K02912	large subunit ribosomal protein L32e
+Housekeeping	Ribosomes	K02915	large subunit ribosomal protein L34e
+Housekeeping	Ribosomes	K02918	large subunit ribosomal protein L35e
+Housekeeping	Ribosomes	K02917	large subunit ribosomal protein L35Ae
+Housekeeping	Ribosomes	K02920	large subunit ribosomal protein L36e
+Housekeeping	Ribosomes	K02922	large subunit ribosomal protein L37e
+Housekeeping	Ribosomes	K02921	large subunit ribosomal protein L37Ae
+Housekeeping	Ribosomes	K02923	large subunit ribosomal protein L38e
+Housekeeping	Ribosomes	K02924	large subunit ribosomal protein L39e
+Housekeeping	Ribosomes	K02927	large subunit ribosomal protein L40e
+Housekeeping	Ribosomes	K02928	large subunit ribosomal protein L41e
+Housekeeping	Ribosomes	K02929	large subunit ribosomal protein L44e
+Housekeeping	Ribosomes	K02941	large subunit ribosomal protein LP0
+Housekeeping	Ribosomes	K02942	large subunit ribosomal protein LP1
+Housekeeping	Ribosomes	K02943	large subunit ribosomal protein LP2
+Housekeeping	Ribosomes	K02946	small subunit ribosomal protein S10
+Housekeeping	Ribosomes	K02906	large subunit ribosomal protein L3
+Housekeeping	Ribosomes	K02926	large subunit ribosomal protein L4
+Housekeeping	Ribosomes	K02892	large subunit ribosomal protein L23
+Housekeeping	Ribosomes	K02886	large subunit ribosomal protein L2
+Housekeeping	Ribosomes	K02965	small subunit ribosomal protein S19
+Housekeeping	Ribosomes	K02890	large subunit ribosomal protein L22
+Housekeeping	Ribosomes	K02982	small subunit ribosomal protein S3
+Housekeeping	Ribosomes	K02878	large subunit ribosomal protein L16
+Housekeeping	Ribosomes	K02904	large subunit ribosomal protein L29
+Housekeeping	Ribosomes	K02961	small subunit ribosomal protein S17
+Housekeeping	Ribosomes	K02874	large subunit ribosomal protein L14
+Housekeeping	Ribosomes	K02895	large subunit ribosomal protein L24
+Housekeeping	Ribosomes	K02931	large subunit ribosomal protein L5
+Housekeeping	Ribosomes	K02954	small subunit ribosomal protein S14
+Housekeeping	Ribosomes	K02994	small subunit ribosomal protein S8
+Housekeeping	Ribosomes	K02933	large subunit ribosomal protein L6
+Housekeeping	Ribosomes	K02881	large subunit ribosomal protein L18
+Housekeeping	Ribosomes	K02988	small subunit ribosomal protein S5
+Housekeeping	Ribosomes	K02907	large subunit ribosomal protein L30
+Housekeeping	Ribosomes	K02876	large subunit ribosomal protein L15
+Housekeeping	Ribosomes	K02919	large subunit ribosomal protein L36
+Housekeeping	Ribosomes	K02952	small subunit ribosomal protein S13
+Housekeeping	Ribosomes	K02948	small subunit ribosomal protein S11
+Housekeeping	Ribosomes	K02986	small subunit ribosomal protein S4
+Housekeeping	Ribosomes	K02879	large subunit ribosomal protein L17
+Housekeeping	Ribosomes	K02871	large subunit ribosomal protein L13
+Housekeeping	Ribosomes	K02996	small subunit ribosomal protein S9
+Housekeeping	Ribosomes	K02992	small subunit ribosomal protein S7
+Housekeeping	Ribosomes	K02950	small subunit ribosomal protein S12
+Housekeeping	Ribosomes	K07590	large subunit ribosomal protein L7A
+Housekeeping	Ribosomes	K02935	large subunit ribosomal protein L7/L12
+Housekeeping	Ribosomes	K02864	large subunit ribosomal protein L10
+Housekeeping	Ribosomes	K02863	large subunit ribosomal protein L1
+Housekeeping	Ribosomes	K02867	large subunit ribosomal protein L11
+Housekeeping	Ribosomes	K02967	small subunit ribosomal protein S2
+Housekeeping	Ribosomes	K02956	small subunit ribosomal protein S15
+Housekeeping	Ribosomes	K02916	large subunit ribosomal protein L35
+Housekeeping	Ribosomes	K02887	large subunit ribosomal protein L20
+Housekeeping	Ribosomes	K02914	large subunit ribosomal protein L34
+Housekeeping	Ribosomes	K02939	large subunit ribosomal protein L9
+Housekeeping	Ribosomes	K02963	small subunit ribosomal protein S18
+Housekeeping	Ribosomes	K02990	small subunit ribosomal protein S6
+Housekeeping	Ribosomes	K02888	large subunit ribosomal protein L21
+Housekeeping	Ribosomes	K02899	large subunit ribosomal protein L27
+Housekeeping	Ribosomes	K02902	large subunit ribosomal protein L28
+Housekeeping	Ribosomes	K02913	large subunit ribosomal protein L33
+Housekeeping	Ribosomes	K02911	large subunit ribosomal protein L32
+Housekeeping	Ribosomes	K02909	large subunit ribosomal protein L31
+Housekeeping	Ribosomes	K02897	large subunit ribosomal protein L25
+Housekeeping	Ribosomes	K02959	small subunit ribosomal protein S16
+Housekeeping	Ribosomes	K02884	large subunit ribosomal protein L19
+Housekeeping	Ribosomes	K02968	small subunit ribosomal protein S20
+Housekeeping	Ribosomes	K02945	small subunit ribosomal protein S1
+Housekeeping	Ribosomes	K02970	small subunit ribosomal protein S21
+Housekeeping	Ribosomes	K02869	large subunit ribosomal protein L12
+Housekeeping	Ribosomes	K02944	large subunit ribosomal protein LX
+Housekeeping	Polymerase (DNA, RNA)	K03006	RPB1; DNA-directed RNA polymerase II subunit RPB1 [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03010	RPB2; DNA-directed RNA polymerase II subunit RPB2 [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03011	RPB3; DNA-directed RNA polymerase II subunit RPB3
+Housekeeping	Polymerase (DNA, RNA)	K03008	RPB11; DNA-directed RNA polymerase II subunit RPB11
+Housekeeping	Polymerase (DNA, RNA)	K03012	RPB4; DNA-directed RNA polymerase II subunit RPB4
+Housekeeping	Polymerase (DNA, RNA)	K03015	RPB7; DNA-directed RNA polymerase II subunit RPB7
+Housekeeping	Polymerase (DNA, RNA)	K03017	RPB9; DNA-directed RNA polymerase II subunit RPB9
+Housekeeping	Polymerase (DNA, RNA)	K03013	RPB5; DNA-directed RNA polymerases I, II, and III subunit RPABC1
+Housekeeping	Polymerase (DNA, RNA)	K03014	RPB6; DNA-directed RNA polymerases I, II, and III subunit RPABC2
+Housekeeping	Polymerase (DNA, RNA)	K03016	RPB8; DNA-directed RNA polymerases I, II, and III subunit RPABC3
+Housekeeping	Polymerase (DNA, RNA)	K03009	RPB12; DNA-directed RNA polymerases I, II, and III subunit RPABC4
+Housekeeping	Polymerase (DNA, RNA)	K03007	RPB10; DNA-directed RNA polymerases I, II, and III subunit RPABC5
+Housekeeping	Polymerase (DNA, RNA)	K03018	RPC1; DNA-directed RNA polymerase III subunit RPC1 [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03021	RPC2; DNA-directed RNA polymerase III subunit RPC2 [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03027	RPC40; DNA-directed RNA polymerases I and III subunit RPAC1
+Housekeeping	Polymerase (DNA, RNA)	K03020	RPC19; DNA-directed RNA polymerases I and III subunit RPAC2
+Housekeeping	Polymerase (DNA, RNA)	K03023	RPC82; DNA-directed RNA polymerase III subunit RPC3
+Housekeeping	Polymerase (DNA, RNA)	K03026	RPC53; DNA-directed RNA polymerase III subunit RPC4
+Housekeeping	Polymerase (DNA, RNA)	K14721	RPC37; DNA-directed RNA polymerase III subunit RPC5
+Housekeeping	Polymerase (DNA, RNA)	K03025	RPC34; DNA-directed RNA polymerase III subunit RPC6
+Housekeeping	Polymerase (DNA, RNA)	K03024	RPC31; DNA-directed RNA polymerase III subunit RPC7
+Housekeeping	Polymerase (DNA, RNA)	K03022	RPC25; DNA-directed RNA polymerase III subunit RPC8
+Housekeeping	Polymerase (DNA, RNA)	K03019	RPC11; DNA-directed RNA polymerase III subunit RPC10
+Housekeeping	Polymerase (DNA, RNA)	K02999	RPA1; DNA-directed RNA polymerase I subunit RPA1 [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03002	RPA2; DNA-directed RNA polymerase I subunit RPA2 [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03000	RPA12; DNA-directed RNA polymerase I subunit RPA12
+Housekeeping	Polymerase (DNA, RNA)	K03001	RPA14; DNA-directed RNA polymerase I subunit RPA14
+Housekeeping	Polymerase (DNA, RNA)	K03003	RPA34; DNA-directed RNA polymerase I subunit RPA34
+Housekeeping	Polymerase (DNA, RNA)	K03004	RPA43; DNA-directed RNA polymerase I subunit RPA43
+Housekeeping	Polymerase (DNA, RNA)	K03005	RPA49; DNA-directed RNA polymerase I subunit RPA49
+Housekeeping	Polymerase (DNA, RNA)	K03040	rpoA; DNA-directed RNA polymerase subunit alpha [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03043	rpoB; DNA-directed RNA polymerase subunit beta [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03046	rpoC; DNA-directed RNA polymerase subunit beta' [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K13797	rpoBC; DNA-directed RNA polymerase subunit beta-beta' [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03060	rpoZ; DNA-directed RNA polymerase subunit omega [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03048	rpoE; DNA-directed RNA polymerase subunit delta
+Housekeeping	Polymerase (DNA, RNA)	K03042	rpoA2; DNA-directed RNA polymerase subunit A [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03041	rpoA1; DNA-directed RNA polymerase subunit A' [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03044	rpoB1; DNA-directed RNA polymerase subunit B' [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03045	rpoB2; DNA-directed RNA polymerase subunit B [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K13798	rpoB; DNA-directed RNA polymerase subunit B [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03053	rpoH; DNA-directed RNA polymerase subunit H [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03055	rpoK; DNA-directed RNA polymerase subunit K [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03058	rpoN; DNA-directed RNA polymerase subunit N [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03047	rpoD; DNA-directed RNA polymerase subunit D [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03049	rpoE1; DNA-directed RNA polymerase subunit E [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03050	rpoE2; DNA-directed RNA polymerase subunit E [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03056	rpoL; DNA-directed RNA polymerase subunit L [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03059	rpoP; DNA-directed RNA polymerase subunit P [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03051	rpoF; DNA-directed RNA polymerase subunit F [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03052	rpoG; DNA-directed RNA polymerase subunit G [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K03054	rpoI; DNA-directed RNA polymerase subunit I [EC:2.7.7.6]
+Housekeeping	Polymerase (DNA, RNA)	K02337	dnaE; DNA polymerase III subunit alpha [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K03763	polC; DNA polymerase III subunit alpha, Gram-positive type [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02342	dnaQ; DNA polymerase III subunit epsilon [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K14159	rnhA-dnaQ; ribonuclease HI / DNA polymerase III subunit epsilon [EC:3.1.26.4 2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02345	holE; DNA polymerase III subunit theta [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02338	dnaN; DNA polymerase III subunit beta [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02340	holA; DNA polymerase III subunit delta [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02341	holB; DNA polymerase III subunit delta' [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02343	dnaX; DNA polymerase III subunit gamma/tau [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02339	holC; DNA polymerase III subunit chi [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02344	holD; DNA polymerase III subunit psi [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02320	POLA1; DNA polymerase alpha, subunit A [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02321	POLA2; DNA polymerase alpha, subunit B [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02685	PRI2; DNA primase large subunit [EC:2.7.7.-]
+Housekeeping	Polymerase (DNA, RNA)	K02684	PRI1; DNA primase small subunit [EC:2.7.7.-]
+Housekeeping	Polymerase (DNA, RNA)	K02327	POLD1; DNA polymerase delta, subunit A [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02328	POLD2; DNA polymerase delta, subunit B [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K03504	POLD3; DNA polymerase delta, subunit C [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K03505	POLD4; DNA polymerase delta, subunit D [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02324	POLE1; DNA polymerase epsilon, subunit A [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02325	POLE2; DNA Polymerase epsilon, subunit B [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02326	POLE3; DNA Polymerase epsilon, subunit C [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K03506	POLE4; DNA polymerase epsilon, subunit D [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02322	DPB1; DNA polymerase II large subunit [EC:2.7.7.7]
+Housekeeping	Polymerase (DNA, RNA)	K02323	DPB2; DNA polymerase II small subunit [EC:2.7.7.7]
+Housekeeping	tRNAs	`Ala (AGC)`	Alanine (AGC)
+Housekeeping	tRNAs	`Ala (CGC)`	Alanine (CGC)
+Housekeeping	tRNAs	`Ala (GGC)`	Alanine (GGC)
+Housekeeping	tRNAs	`Ala (TGC)`	Alanine (TGC)
+Housekeeping	tRNAs	`Arg (ACG)`	Arginine (ACG)
+Housekeeping	tRNAs	`Arg (CCG)`	Arginine (CCG)
+Housekeeping	tRNAs	`Arg (CCT)`	Arginine (CCT)
+Housekeeping	tRNAs	`Arg (GCG)`	Arginine (GCG)
+Housekeeping	tRNAs	`Arg (TCG)`	Arginine (TCG)
+Housekeeping	tRNAs	`Arg (TCT)`	Arginine (TCT)
+Housekeeping	tRNAs	`Asn (ATT)`	Asparagine (ATT)
+Housekeeping	tRNAs	`Asn (GTT)`	Asparagine (GTT)
+Housekeeping	tRNAs	`Asp (ATC)`	Aspartic acid (ATC)
+Housekeeping	tRNAs	`Asp (GTC)`	Aspartic acid (GTC)
+Housekeeping	tRNAs	`Cys (ACA)`	Cysteine (ACA)
+Housekeeping	tRNAs	`Cys (GCA)`	Cysteine (GCA)
+Housekeeping	tRNAs	`Gln (CTG)`	Glutamine (CTG)
+Housekeeping	tRNAs	`Gln (TTG)`	Glutamine (TTG)
+Housekeeping	tRNAs	`Glu (CTC)`	Glutamic acid (CTC)
+Housekeeping	tRNAs	`Glu (TTC)`	Glutamic acid (TTC)
+Housekeeping	tRNAs	`Gly (ACC)`	Glycine (ACC)
+Housekeeping	tRNAs	`Gly (CCC)`	Glycine (CCC)
+Housekeeping	tRNAs	`Gly (GCC)`	Glycine (GCC)
+Housekeeping	tRNAs	`Gly (TCC)`	Glycine (TCC)
+Housekeeping	tRNAs	`His (ATG)`	Histidine (ATG)
+Housekeeping	tRNAs	`His (GTG)`	Histidine (GTG)
+Housekeeping	tRNAs	`Ile (AAT)`	Isoleucine (AAT)
+Housekeeping	tRNAs	`Ile (GAT)`	Isoleucine (GAT)
+Housekeeping	tRNAs	`Ile (TAT)`	Isoleucine (TAT)
+Housekeeping	tRNAs	`Leu (AAG)`	Leucine (AAG)
+Housekeeping	tRNAs	`Leu (CAA)`	Leucine (CAA)
+Housekeeping	tRNAs	`Leu (CAG)`	Leucine (CAG)
+Housekeeping	tRNAs	`Leu (GAG)`	Leucine (GAG)
+Housekeeping	tRNAs	`Leu (TAA)`	Leucine (TAA)
+Housekeeping	tRNAs	`Leu (TAG)`	Leucine (TAG)
+Housekeeping	tRNAs	`Lys (CTT)`	Lysine (CTT)
+Housekeeping	tRNAs	`Lys (TTT)`	Lysine (TTT)
+Housekeeping	tRNAs	`Met (CAT)`	Methionine (CAT)
+Housekeeping	tRNAs	`Phe (AAA)`	Phenylalanine (AAA)
+Housekeeping	tRNAs	`Phe (GAA)`	Phenylalanine (GAA)
+Housekeeping	tRNAs	`Pro (AGG)`	Proline (AGG)
+Housekeeping	tRNAs	`Pro (CGG)`	Proline (CGG)
+Housekeeping	tRNAs	`Pro (GGG)`	Proline (GGG)
+Housekeeping	tRNAs	`Pro (TGG)`	Proline (TGG)
+Housekeeping	tRNAs	`Ser (ACT)`	Serine (ACT)
+Housekeeping	tRNAs	`Ser (AGA)`	Serine (AGA)
+Housekeeping	tRNAs	`Ser (CGA)`	Serine (CGA)
+Housekeeping	tRNAs	`Ser (GCT)`	Serine (GCT)
+Housekeeping	tRNAs	`Ser (GGA)`	Serine (GGA)
+Housekeeping	tRNAs	`Ser (TGA)`	Serine (TGA)
+Housekeeping	tRNAs	`Sup (CTA)`	Ochre Stop (CTA)
+Housekeeping	tRNAs	`Sup (TCA)`	Amber Stop (TCA)
+Housekeeping	tRNAs	`Sup (TTA)`	Opal/Umber Stop (TTA)
+Housekeeping	tRNAs	`Thr (AGT)`	Threonine (AGT)
+Housekeeping	tRNAs	`Thr (CGT)`	Threonine (CGT)
+Housekeeping	tRNAs	`Thr (GGT)`	Threonine (GGT)
+Housekeeping	tRNAs	`Thr (TGT)`	Threonine (TGT)
+Housekeeping	tRNAs	`Trp (CCA)`	Tryptophan (CCA)
+Housekeeping	tRNAs	`Tyr (ATA)`	Tyrosine (ATA)
+Housekeeping	tRNAs	`Tyr (GTA)`	Tyrosine (GTA)
+Housekeeping	tRNAs	`Undet (CNN)`	Undetermined (CNN)
+Housekeeping	tRNAs	`Undet (NNN)`	Undetermined (NNN)
+Housekeeping	tRNAs	`Undet (NNT)`	Undetermined (NNT)
+Housekeeping	tRNAs	`Undet (TAN)`	Undetermined (TAN)
+Housekeeping	tRNAs	`Undet (TCN)`	Undetermined (TCN)
+Housekeeping	tRNAs	`Val (AAC)`	Valine (AAC)
+Housekeeping	tRNAs	`Val (CAC)`	Valine (CAC)
+Housekeeping	tRNAs	`Val (GAC)`	Valine (GAC)
+Housekeeping	tRNAs	`Val (TAC)`	Valine (TAC)
