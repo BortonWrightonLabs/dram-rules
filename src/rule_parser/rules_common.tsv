@@ -254,16 +254,16 @@ name	alias	rule
 	FdhAB	at_least(1,PRESENCE,[K00125,K22516])
 	McrAor3999	[McrA | K00399]
 
-	acetoclastic	"@Methanogen 
-					& at_least(1, PRESENCE, [K00193,K00194,K00197,K00198]) 
+	acetoclastic	"@Methanogen
+					& at_least(1, PRESENCE, [K00193,K00194,K00197,K00198])
 					& [
 						[K00925&K00625]
 						|
 						K01895
-					] 
-					& [tax(g__Methanosarcina)|tax(f__Methanotrichaceae)] 
+					]
+					& [tax(g__Methanosarcina)|tax(f__Methanotrichaceae)]
 					& not(
-						@Methanogen 
+						@Methanogen
 						& [tax(g__Methanocomedens_A)|tax(g__Methanocomedens_B)|tax(g__Methanogaster_A)|tax(g__Methanogaster_B)|tax(g__Methanoperedens_A)|tax(g__Methanoperedens)|tax(g__ANME-1-THS)|tax(g__ANME1a)|tax(g__G60ANME1)|tax(g__Methanophaga)|tax(g__Methanovorans)|tax(g__Methanomarinus)|tax(g__Methanoxibalbensis)|tax(g__Methanospirare)|tax(g__Kmv04)|tax(g__Methanogaster_C)|tax(g__Methanogaster_D)|tax(g__CAZCRM01)|tax(g__UBA10536)|tax(g__Methanoxibalbensis)]
 						)"
 	ACS_CODH_complex	at_least(1, PRESENCE, @ACS_CODH)
