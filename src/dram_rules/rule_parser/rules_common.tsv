@@ -4,21 +4,21 @@ name	alias	rule
 	Acetate-2	K01568 & [K00138 | K00128 | K14085 | K00149 | K00129]	Pyruvate → acetaldehyde → acetate
 	Acetate-3	[K00625 | K13788 | K15024] & K00925	Acetyl-CoA ↔ acetyl-phosphate ↔ acetate
 	Acetate-4	K01621 & K00925	Xylulose-5-phosphate/fructose-6-phosphate → acetyl-phosphate → acetate
-	Acetate-5	K01895 | K01913	Acetate → acetyl-CoA; not acetate specific 
-			
+	Acetate-5	K01895 | K01913	Acetate → acetyl-CoA; not acetate specific
+
 	Propionate-Final	@Propionate-1 | @Propionate-2 | @Propionate-3 | @Propionate-4	Propionate-associated metabolism
 	Propionate-1	[K01847 | [K01848 & K01849]] & K05606 & [K11264 | K18426] & @Propionate-terminal	Succinyl-CoA → methylmalonyl-CoA → propionyl-CoA → propionate
 	Propionate-2	K20626 & K20627 & K00248 & @Propionate-terminal	Lactate → lactoyl-CoA → acryloyl-CoA → propionyl-CoA → propionate
 	Propionate-3	K01699 & K13919 & K13920 & K13922 & @Propionate-terminal	1,2-Propanediol → propionaldehyde → propionyl-CoA → propionate
 	Propionate-4	K01908	Propionate → propionyl-CoA
 	Propionate-terminal	K01026 | K24012 | [K01905 & K22224] | [K13923 & [K00932 | K19697]]	Propionyl-CoA ↔ propionate; broad alternatives require pathway context
-			
+
 	Butyrate-Final	@Butyrate-1 | @Butyrate-2 | @Butyrate-3	Butyrate-associated metabolism
 	Butyrate-1	K00634 & K00929	Butyryl-CoA ↔ butyryl-phosphate ↔ butyrate
 	Butyrate-2	[[K01034 & K01035] | K19709]	Acetyl-CoA ↔ butyryl-CoA ↔ butyrate through CoA transfer; context-supported, not uniquely specific
 	Butyrate-3	K01913	Butyrate → butyryl-CoA; not butyrate specific
 	Acetyl-CoAtoButyryl-CoA 	K00626 & [K00074 | K00022 | K07516 | K01825 | K01782 | K07514] & [K01692 | K01825 | K01782 | K07515 | K07514 | K07511 | K01715] & K00248	Acetyl-CoA ↔ acetoacetyl-CoA ↔ 3-hydroxybutyryl-CoA ↔ crotonyl-CoA ↔ butyryl-CoA
-			
+
 	Lactate-Final	@Lactate-1 | @Lactate-2 | @Lactate-3 | @Lactate-4	Lactate-associated metabolism
 	Lactate-1	K00016	Pyruvate ↔ L-lactate; NAD-dependent LDH
 	Lactate-2	K03778	Pyruvate ↔ D-lactate; NAD-dependent LDH
