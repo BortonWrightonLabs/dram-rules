@@ -1,5 +1,5 @@
 try:
-    from src._version import __version__
+    from dram_rules._version import __version__
 
 except ImportError:
     # package not installed

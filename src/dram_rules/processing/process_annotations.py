@@ -5,7 +5,7 @@ import logging
 import pandas as pd
 import polars as pl
 
-from src.definitions import DEFAULT_FASTA_COLUMN
+from dram_rules.definitions import DEFAULT_FASTA_COLUMN
 
 logger = logging.getLogger("dram.viz")
 

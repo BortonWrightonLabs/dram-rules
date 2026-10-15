@@ -52,17 +52,18 @@ dev = [
 include-package-data = true
 
 [tool.setuptools.packages.find]
-include = ["dram_viz*"]
+where = ["src"]
+include = ["dram_rules*"]
 
 [tool.setuptools.package-data]
 "*" = ["*.tsv", "*.lark"]
 
 [project.scripts]
-"dram_viz" = "dram_viz.__main__:main"
-"dram.viz" = "dram_viz.__main__:main"
+"dram_viz" = "dram_rules.make_product:main"
+"dram.viz" = "dram_rules.make_product:main"
 
 [tool.setuptools_scm]
-write_to = "dram_viz/_version.py"
+write_to = "src/dram_rules/_version.py"
 
 [tool.ruff]
 

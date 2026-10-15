@@ -16,8 +16,8 @@ import panel as pn
 import polars as pl
 import polars.selectors as cs
 
-from src.apps.heatmap import Dashboard
-from src.definitions import (
+from dram_rules.apps.heatmap import Dashboard
+from dram_rules.definitions import (
     BACKUP_ALIAS_COLUMNS,
     BACKUP_FASTA_COLUMNS,
     BACKUP_GROUPBY_COLUMNS,
@@ -27,13 +27,13 @@ from src.definitions import (
     DEFAULT_GROUPBY_COLUMN,
     DEFAULT_LABEL_COLUMN,
 )
-from src.processing.process_annotations import (
+from dram_rules.processing.process_annotations import (
     build_tax_edge_df_pl,
     build_tax_tree_selected_recurse,
     build_taxonomy_df_pl,
     build_tree_pl,
 )
-from src.rule_parser.rules import (
+from dram_rules.rule_parser.rules import (
     ID_EXPR_DICT,
     CompiledRules,
     build_present_map,
