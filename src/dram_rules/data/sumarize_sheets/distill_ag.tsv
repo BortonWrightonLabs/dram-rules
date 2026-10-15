@@ -1,0 +1,796 @@
+gene_id	gene_description	module	subheader	topic_ecosystem	notes
+K02588	NifH; nitrogenase molybdenum-iron  protein; ; [RN:R05185]	Nitrogen Inorganic Transformations	N2 Fixation	ag
+K02586	NifD; nitrogenase molybdenum-iron protein alpha subunit; [EC:1.18.6.1]; [RN:R05185]	Nitrogen Inorganic Transformations	N2 Fixation	ag
+K02591	NifK; nitrogenase molybdenum-iron protein beta subunit; [EC:1.18.6.1]; [RN:R05185]	Nitrogen Inorganic Transformations	N2 Fixation	ag
+K00531	Nif-associated; nitrogenase molybdenum-iron delta subunit; [EC:1.18.6.1]; [RN:R05185]	Nitrogen Inorganic Transformations	N2 Fixation	ag
+K22899	VnfH; vanadium-dependent nitrogenase iron protein; ; [RN:R12084]	Nitrogen Inorganic Transformations	N2 Fixation	ag
+K22896	VnfD; vanadium-dependent nitrogenase alpha subunit; [EC:1.18.6.2]; [RN:R12084]	Nitrogen Inorganic Transformations	N2 Fixation	ag
+K22897	VnfK; vanadium-dependent nitrogenase beta subunit; [EC:1.18.6.2]; [RN:R12084]	Nitrogen Inorganic Transformations	N2 Fixation	ag
+K22898	VnfG; vanadium-dependent nitrogenase delta subunit; [EC:1.18.6.2]; [RN:R12084]	Nitrogen Inorganic Transformations	N2 Fixation	ag
+K22892	AnfH; iron-only nitrogenase iron protein; [EC:1.18.6.3]; 	Nitrogen Inorganic Transformations	N2 Fixation	ag
+K22893	AnfD; iron-only nitrogenase alpha subunit; [EC:1.18.6.3]; 	Nitrogen Inorganic Transformations	N2 Fixation	ag
+K22894	AnfK; iron-only nitrogenase beta subunit; [EC:1.18.6.3]; 	Nitrogen Inorganic Transformations	N2 Fixation	ag
+K22895	AnfG; iron-only nitrogenase delta subunit; [EC:1.18.6.3]; 	Nitrogen Inorganic Transformations	N2 Fixation	ag
+K00367	narB; assimilatory nitrate reductase; [EC:1.7.7.2]; 	Nitrogen Inorganic Transformations	Assimilation	ag	Nitrate → Nitrite
+K10534	nr; assimilatory nitrate reductase; [EC:1.7.7.2]; 	Nitrogen Inorganic Transformations	Assimilation	ag	Nitrate → Nitrite
+K00372	nasA; assimilatory nitrate reductase; [EC:1.7.99.-]; [RN:R00798]	Nitrogen Inorganic Transformations	Assimilation	ag	Nitrate → Nitrite
+K17877	nirA; ferredoxin-nitrite reductase; [EC:1.7.7.1]; 	Nitrogen Inorganic Transformations	Assimilation	ag	Nitrite → Ammonium
+K00366	nirA; assimilatory nitrite reductase; [EC:1.7.7.1]; [RN:R00790]	Nitrogen Inorganic Transformations	Assimilation	ag	Nitrite → Ammonium
+K26139	nasE; nitrite reductase FAD-binding subunit; [EC:1.7.1.-]; 	Nitrogen Inorganic Transformations	Assimilation	ag	Nitrite → Ammonium
+K26138	nasD; nitrite reductase NADH-binding subunit; [EC:1.7.1.-]; 	Nitrogen Inorganic Transformations	Assimilation	ag	Nitrite → Ammonium
+K00361	nirB; NADH-nitrite reductase large subunit; [EC:1.7.1.15]; 	Nitrogen Inorganic Transformations	Assimilation	ag	Nitrite → Ammonium
+NarG	narG; nitrate reductase alpha subunit; [EC:1.7.99.-]; 	Nitrogen Inorganic Transformations	denitrification	ag	nitrate → nitrite
+K00374	narI; nitrate reductase gamma subunit; [EC:1.7.99.-]; 	Nitrogen Inorganic Transformations	denitrification	ag	nitrate → nitrite
+K02567	napA; periplasmic nitrate reductase catalytic subunit; [EC:1.7.99.-]; 	Nitrogen Inorganic Transformations	denitrification	ag	nitrate → nitrite
+K02568	napB; cytochrome c-type subunit of periplasmic nitrate reductase; ; 	Nitrogen Inorganic Transformations	denitrification	ag	nitrate → nitrite
+K00362	nrfA; cytochrome c nitrite reductase large subunit; [EC:1.7.2.2]; 	Nitrogen Inorganic Transformations	DNRA	ag	nitrite → ammonia
+K00363	nrfH; cytochrome c nitrite reductase small subunit; ; 	Nitrogen Inorganic Transformations	DNRA	ag	nitrite → ammonia
+K03385	nirB;  NADH nitrite reductase  large subunit; [EC:1.7.1.15]; 	Nitrogen Inorganic Transformations	DNRA	ag	nitrite → ammonia
+K15876	nirD; NADH nitrite reductase  small subunit; [EC:1.7.1.15]; 	Nitrogen Inorganic Transformations	DNRA	ag	nitrite → ammonia
+K00368	nirK; NO-forming; nitrite reductase; [EC:1.7.2.1]; [RN:R00783 R00785]	Nitrogen Inorganic Transformations	denitrification, Anammox	ag	nitrite → nitric oxide
+K15864	nirS; NO-forming/hydroxylamine reductase; nitrite reductase; [EC:1.7.2.1]; [RN:R00783 R00785]	Nitrogen Inorganic Transformations	denitrification, Anammox	ag	nitrite → nitric oxide
+K15877	CYP55; fungal nitric oxide reductase; [EC:1.7.1.14]; 	Nitrogen Inorganic Transformations	denitrification	ag	nitric oxide → nitrous oxide
+K04561	NorB; nitric oxide reductase; [EC:1.7.2.5]; [RN:R00294]	Nitrogen Inorganic Transformations	denitrification	ag	nitric oxide → nitrous oxide
+K00376	NosZ; nitrous-oxide reductase; [EC:1.7.2.4]; [RN:R02804]	Nitrogen Inorganic Transformations	denitrification	ag	nitrous oxide → nitrogen gas
+K28504	amoA; ammonia monooxygenase subunit A; [EC:1.14.99.39]; [RN:R00148]	Nitrogen Inorganic Transformations	nitrification	ag	ammonia => hydroxylamine
+amoa_beta | amoa_crenarchaea | amoa_gamma | amoa_Nitrospira_beta	amoA; ammonia monooxygenase subunit A; [EC:1.14.99.39]; [RN:R00148]	Nitrogen Inorganic Transformations	nitrification	ag	ammonia => hydroxylamine
+K10945	pmoB-amoB; methane/ammonia monooxygenase; [EC:1.14.99.39]; [RN:R00148]	Nitrogen Inorganic Transformations	nitrification, CH4 oxidation	ag	ammonia => hydroxylamine or methane => methanol
+K10946	pmoC-amoC; methane/ammonia monooxygenase; [EC:1.14.99.39]; [RN:R00148]	Nitrogen Inorganic Transformations	nitrification, CH4 oxidation	ag	ammonia => hydroxylamine or methane => methanol
+K00370	nxrA/narG/narZ; nitrite oxidoreductase/nitrate reductase, alpha subunit; [EC:1.7.99.4]; [RN:R00798]	Nitrogen Inorganic Transformations	nitrification, denitrification	ag	nitrite <-> nitrate
+K00371	nxrB/narH/narY; nitrite oxidoreductase, beta subunit; [EC:1.7.99.4]; [RN:R00798]	Nitrogen Inorganic Transformations	nitrification, denitrification	ag	nitrite <-> nitrate
+NXR	nxrA; nitrite oxidoreductase, alpha subunit; [EC:1.7.99.4]; [RN:R00798]	Nitrogen Inorganic Transformations	nitrification	ag	nitrite → nitrate
+K10535	hao; hydroxylamine oxidase; [EC:1.7.2.6]; [RN:R10164]	Nitrogen Inorganic Transformations	nitrification	ag	hydroxylamine => nitrite
+K20932	hzsA; hydrazine synthase subunit A; [EC:1.7.2.7]; 	Nitrogen Inorganic Transformations	Anammox	ag	Nitric oxide + ammonium → hydrazine
+K20933	hzsB; hydrazine synthase subunit B; [EC:1.7.2.7]; 	Nitrogen Inorganic Transformations	Anammox	ag	Nitric oxide + ammonium → hydrazine
+K20934	hzsC; hydrazine synthase subunit C; [EC:1.7.2.7]; 	Nitrogen Inorganic Transformations	Anammox	ag	Nitric oxide + ammonium → hydrazine
+K20935	hdh; hydrazine dehydrogenase; [EC:1.7.2.8]; 	Nitrogen Inorganic Transformations	Anammox	ag	Hydrazine → dinitrogen gas
+K01428	ureC; urease subunit alpha; [EC:3.5.1.5];	Nitrogen Organic Transformations	Urease	ag	Urea → CO₂ + NH₃
+K01429	ureB; urease subunit beta; [EC:3.5.1.5];	Nitrogen Organic Transformations	Urease	ag	Urea → CO₂ + NH₃
+K01430	ureA; urease subunit gamma;[EC:3.5.1.5];	Nitrogen Organic Transformations	Urease	ag	Urea → CO₂ + NH₃
+K01455	fmdA; Formamidase; [EC:3.5.1.49]; 	Nitrogen Organic Transformations	Formamidase	ag	Formamide → NH₃ + formic acid
+K01207	NAGase; N-acetyl-β-D-glucosaminidase (NAGase); [EC:3.2.1.52]; 	Nitrogen Organic Transformations	Chitinase, Enzyme Assay Analog	ag	Hydrolyzes chitin oligomers into N-acetylglucosamine monomers
+K01183	ChiC; chitinase; [EC:3.2.1.14]; 	Nitrogen Organic Transformations	Chitinase	ag	Hydrolyzes β-1,4 linkages in chitin polymers
+K03791	; Putative chitinase; ; 	Nitrogen Organic Transformations	Chitinase	ag	Hydrolyzes chitin or chitooligosaccharides
+A01	; ; ; 	Nitrogen Organic Transformations	Extracellular Aspartic Peptidase	ag
+A02	; ; ; 	Nitrogen Organic Transformations	Extracellular Aspartic Peptidase	ag
+A05	; Endopeptidase; ; 	Nitrogen Organic Transformations	Extracellular Aspartic Peptidase	ag
+A08	Endopeptidase; the bacterial signal peptidase II; ; 	Nitrogen Organic Transformations	Extracellular Aspartic Peptidase	ag
+A11	; ; ; 	Nitrogen Organic Transformations	Extracellular Aspartic Peptidase	ag
+A22	; ; ; 	Nitrogen Organic Transformations	Extracellular Aspartic Peptidase	ag
+A24	; ; ; 	Nitrogen Organic Transformations	Extracellular Aspartic Peptidase	ag
+A26	; Membrane-inserted endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Aspartic Peptidase	ag
+A28	; ; ; 	Nitrogen Organic Transformations	Extracellular Aspartic Peptidase	ag
+A31	; Endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Aspartic Peptidase	ag
+A32	; PerP peptidase; ; 	Nitrogen Organic Transformations	Extracellular Aspartic Peptidase	ag
+A37	; Pepstatin-insensitive aspartic endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Aspartic Peptidase	ag
+C01	; ; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C02	; ; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C10	; Bacterial cysteine endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C11	; ; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C110	; Cysteine endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C113	; IgdE peptidase; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C13	; Asparaginyl endopeptidases and glycosylphosphatidylinositol:protein transamidase; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C14	; ; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C15	; Omega peptidases that release an N-terminal pyroglutamate residue; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C19	; Ubiquitinyl hydrolases; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C25	##C25001##; Cysteine endopeptidases from bacteria, notably gingipain R  and gingipain K; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C26	; Omega peptidase gamma-glutamyl hydrolase; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C39	; Bacteriocin-processing endopeptidases from bacteria; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C40	; Bacterial cell-wall modifying enzymes; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C44	; Self-processing precursor of amidophosphoribosyltransferase; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C45	; Autolytic endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C46	C-terminal; intein-like domains of the hedgehog proteins, which mediate autolytic cleavage of the proteins; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C47	; Endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C51	; Endopeptidases that hydrolyse bacterial cell-wall crosslinking peptides; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C56	; PfpI endopeptidase of {Pyrococcus furiosus}; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C59	; Cys-dependent Ntn-hydrolases; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C60	; ; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C66	; Bacterial endopeptidase; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C69	; Dipeptidases and aminopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C82	; ; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C83	; Exopeptidases some of which also have transferase activity; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C89	; Self-cleaving precursor protein; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+C93	; LapG peptidase; ; 	Nitrogen Organic Transformations	Extracellular Cysteine Peptidase	ag
+G01	; Endopeptidases from fungi; ; 	Nitrogen Organic Transformations	Extracellular Glutamic Peptidase	ag
+M01	; Aminopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M02	; Metallo-exopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M03	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M04	; Metalloendopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M05	; Metalloendopeptidase; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M06	; Metalloendopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M07	Metalloendopeptidase; snapalysin; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M08	; Metallo-endopeptidase leishmanolysin and its homologues; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M09	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M10	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M11	A metallo-endopeptidase; gametolysin; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M12	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M13	; Metalloendopeptidases restricted to action on substrates smaller than proteins; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M14	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M15	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M16	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M17	; Aminopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M18	; Metalloaminopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M19	; Dipeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M20	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M23	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M24	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M26	; Endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M28	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M30	; Endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M32	; Metallocarboxypeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M34	; Highly-selective bacterial endopeptidase; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M35	; Fungal metalloendopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M36	; Endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M38	; An omega peptidase; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M41	; ATP-dependent metalloendopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M42	; Metalloaminopeptidases some of which also have acylaminoacylpeptidase activity; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M43	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M44	; Metalloendopeptidase from the pox viruses; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M48	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M49	; Dipeptidylpeptidase; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M50	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M54	Aminopeptidases; sometimes termed archaelysins or archaemetzincins; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M55	; Aminopeptidase and a number of uncharacterised putative peptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M56	; Membrane-bound bacterial endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M57	; Endopeptidase; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M60	; Metalloendopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M61	; Aminopeptidase; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M64	; Highly selective metalloendopeptidase; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M66	; A single metallopeptidase; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M67	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M72	; Metallo-endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M73	; Metallo-endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M74	; Murein endopeptidase MepA; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M75	; Metalloendopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M76	; Endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M78	; Metallo-endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M79	; Specialised endopeptidases that typically cleave a C-terminal tripeptide from an isoprenylated protein; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M81	; Metallopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M82	; Endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M84	; Endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M85	; Endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M86	; Poly-gamma-glutamyl hydrolases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M88	; Endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M93	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M96	; signaling peptidase; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M97	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+M98	; ; ; 	Nitrogen Organic Transformations	Extracellular Metallo Peptidase	ag
+N04	; Tsh-associated self-cleaving domain; ; 	Nitrogen Organic Transformations	Extracellular Asparagine Peptidase	ag
+N10	; ; ; 	Nitrogen Organic Transformations	Extracellular Asparagine Peptidase	ag
+N11	; Self-cleaving proteins; ; 	Nitrogen Organic Transformations	Extracellular Asparagine Peptidase	ag
+P01	; Aminopeptidases and self-processing proteins; ; 	Nitrogen Organic Transformations	Extracellular Asparagine Peptidase	ag
+S01	; ; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S06	; Serine endopeptidases of bacteria; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S08	; ; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S09	; ; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S10	; Carboxypeptidases; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S11	; Serine-type D-Ala-D-Ala carboxypeptidases; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S12	; Serine-type D-Ala-D-Ala carboxypeptidases; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S13	Peptidases that cleave D-Ala bonds; acting either as carboxypeptidases or as atypical 'endopeptidases'; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S14	; Endopeptidase Clp and its homologues; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S15	; Xaa-Pro dipeptidyl peptidase and its homologues; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S16	Endopeptidases; mostly ATP-dependent; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S24	Two-domain proteins that undergo autolysis; separating the functional domains; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S26	; ; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S28	Exopeptidases that hydrolyse prolyl bonds; and are known only from eukaryotes; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S33	; Exopeptidases that act at the N-terminus of peptides; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S37	; Tripeptidyl-peptidase from {Streptomyces}; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S41	; ; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S45	; Self-cleaving precursor proteins of N-terminal nucleophile acylases; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S46	; Dipeptidyl-peptidases from bacteria; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S49	; ; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S50	; Polyprotein processing endopeptidases from double-stranded RNA viruses; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S51	; Exopeptidases that hydrolyse alpha-aspartyl bonds; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S53	; Acid-acting endopeptidases and a tripeptidyl-peptidase; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S54	; Membrane-bound serine endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S55	; Endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S59	; Autolytic endopeptidase; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S60	; Endopeptidase; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S66	; Bacterial LD-carboxypeptidases; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+S73	; Serine endopeptidases; ; 	Nitrogen Organic Transformations	Extracellular Serine Peptidase	ag
+T01	; ; ; 	Nitrogen Organic Transformations	Extracellular Threonine Peptidase	ag
+T02	; N-terminal nucleophile hydrolases; ; 	Nitrogen Organic Transformations	Extracellular Threonine Peptidase	ag
+T03	; Self-processing proteins that express aminopeptidase as well as aminotransferase activities in their mature forms; ; 	Nitrogen Organic Transformations	Extracellular Threonine Peptidase	ag
+T05	; Self-processing ornithine acetyltransferase precursor; ; 	Nitrogen Organic Transformations	Extracellular Threonine Peptidase	ag
+T07	Clostridium difficile; CwpV  self-cleaving threonine peptidase; ; 	Nitrogen Organic Transformations	Extracellular Threonine Peptidase	ag
+U32	; Endopeptidases from bacteria; ; 	Nitrogen Organic Transformations	Unknown Peptidase	ag
+U62	; Microcin-processing peptidases; ; 	Nitrogen Organic Transformations	Unknown Peptidase	ag
+U69	; Self-processing peptidases; ; 	Nitrogen Organic Transformations	Unknown Peptidase	ag
+U72	; Isopeptidase and endopeptidases; ; 	Nitrogen Organic Transformations	Unknown Peptidase	ag
+U73	; ; ; 	Nitrogen Organic Transformations	Unknown Peptidase	ag
+U74	; neprosin; ; 	Nitrogen Organic Transformations	Unknown Peptidase	ag
+K00261	glutamate dehydrogenase; gdhA; ; 	Nitrogen Inorganic Transformations	Assimilation	ag	alpha-ketoglutarate + NH3 -> glutamate
+K01915	glutamine synthetase glnA; ; [EC: 6.3.1.2]; 	Nitrogen Inorganic Transformations	Assimilation	ag	NH3 + glutamate -> Glutamine; GS pathway
+K00982	glnE; regulator; ; 	Nitrogen Inorganic Transformations	Assimilation	ag	regulator of GS, up or down based on N abundnace
+K00266	gltD; subunit; ; 	Nitrogen Inorganic Transformations	Assimilation	ag	GOGAT pathway
+K19338	Nac protein; N assimilation regulator; ; 	Nitrogen Inorganic Transformations	Assimilation	ag	gltBDF repressor
+K01914	; asnA Asparagine synthase A; ; 	Nitrogen Inorganic Transformations	Assimilation	ag	ammonium dependent; expression is repressed under N-limiting conditions
+K01953	; asnB Asparagine synthase B; ; 	Nitrogen Inorganic Transformations	Assimilation	ag	glutamine dependent
+K01916	nadE; efg , ammonium-dependent NAD synthetase; ; 	Nitrogen Inorganic Transformations	Assimilation	ag
+K01956	carA; subunit of carbamoyl phosphate synthetase; ; 	Nitrogen Inorganic Transformations	Assimilation	ag	Carbamoyl phosphate syntheized from bicarbonate, ATP, and glutamine
+K01955	carB; subunit of carbamoyl phosphate synthetase; ; 	Nitrogen Inorganic Transformations	Assimilation	ag	Carbamoyl phosphate syntheized from bicarbonate, ATP, and glutamine
+K03320	amtB; ammonia transporter; ; 	Nitrogen Inorganic Transformations	Assimilation	ag	transmembrane transporter and extracellular NH4+ sensor; expressed in low NH4+
+K00117	gcd; Quinoprotein glucose dehydrogenase; ; 	Phosphorus	Inorganic P solubilization	ag	Gluconic acid producing, mineral P solubilization
+K06137	pqqC; Pyrroloquinoline quinone synthase C; ; 	Phosphorus	Inorganic P solubilization	ag	Requiored redox factor for gdc
+K01507	ppa; Inorganic pyrophosphatase; [EC:3.6.1.1]; 	Phosphorus	Inorganic P solubilization	ag	P2O7 4- -> PO4 3-
+K01514	ppx; Exopolyphosphatase; [EC:3.6.1.11]; 	Phosphorus	Inorganic P solubilization	ag	Depolymerizes polyphosphate
+K01083	3-phytase; cleaves phosphate from phytate; [EC:3.1.3.8]; 	Phosphorus	Organic P mineralization	ag	Cleaves phosphate from phytate
+K01093	appA; 4-phytase; Cleaves phosphate from phytate; also Enzyme Assay Analog	Phosphorus	Organic P mineralization	ag	Cleaves phosphate from phytate
+K06166	phnG; C-P lyase complex; phosphonate utilization; potential glyphosate degradation	Phosphorus	Organic P mineralization, Enzyme Assay Analog	ag	phn operon, phosphonate utilization
+K06165	phnH; C-P lyase complex; phosphonate utilization; potential glyphosate degradation;	Phosphorus	Organic P mineralization, Potential Pesticide Degradation 	ag	phn operon, phosphonate utilization
+K06164	phnI; C-P lyase complex; phosphonate utilization; potential glyphosate degradation	Phosphorus	Organic P mineralization, Potential Pesticide Degradation 	ag	phn operon, phosphonate utilization
+K06163	phnJ; C-P lyase complex; phosphonate utilization; potential glyphosate degradation	Phosphorus	Organic P mineralization, Potential Pesticide Degradation 	ag	phn operon, phosphonate utilization
+K05781	phnK; C-P lyase complex; phosphonate utilization; potential glyphosate degradation	Phosphorus	Organic P mineralization, Potential Pesticide Degradation 	ag	phn operon, phosphonate utilization
+K05780	phnL; C-P lyase complex; phosphonate utilization; potential glyphosate degradation	Phosphorus	Organic P mineralization, Potential Pesticide Degradation 	ag	phn operon, phosphonate utilization
+K06162	phnM; C-P lyase complex; phosphonate utilization; potential glyphosate degradation	Phosphorus	Organic P mineralization, Potential Pesticide Degradation 	ag	phn operon, phosphonate utilization
+K07093	phoX; Alkaline phosphatase; ; 	Phosphorus	Organic P mineralization	ag
+K01077	phoA; alkaline phosphatase; [EC:3.1.3.1]; 	Phosphorus	Organic P mineralization, Enzyme Assay Analog	ag	Extracellular organophosphorus to inorganic phosphorus
+K09474	phoN; Acid phosphatase class A; [EC:3.1.3.2]; 	Phosphorus	Organic P mineralization, Enzyme Assay Analog	ag	phosphate monoester -> phosphate
+K01078	olpA; Acid phosphatase class C; ; 	Phosphorus	Organic P mineralization, Enzyme Assay Analog	ag	phosphate monoester -> phosphate
+K03788	aphA; Acid phosphatase class B; [EC:3.1.3.2]; 	Phosphorus	Organic P mineralization, Enzyme Assay Analog	ag	Dephosphorylates several organic phosphate monoesters
+K15554	ssuC; aliphatic sulfonate transport system ATP-binding protein Sulfur transport; sulfonate uptake; ; 	Sulfur Transport	Organic Sulfur	ag	sulfonate uptake
+K15555	ssuB; aliphatic sulfonate transport system permease protein Sulfur transport; sulfonate uptake; ; ; 	Sulfur Transport	Organic Sulfur	ag	sulfonate uptake
+K15553	ssuA; aliphatic sulfonate transport system substrate-binding protein Sulfur transport; sulfonate uptake; ; ; 	Sulfur Transport	Organic Sulfur	ag	sulfonate uptake
+K15551	tauB; taurine transport system ATP-binding protein Sulfur transport; sulfonate uptake; ; ; 	Sulfur Transport	Organic Sulfur	ag	taurine-derived sulfur uptake
+K15552	tauC; taurine transport system permease protein Sulfur transport; sulfonate uptake; ; ; 	Sulfur Transport	Organic Sulfur	ag	taurine-derived sulfur uptake
+K15553	tauA; taurine transport system substrate-binding protein Sulfur transport; taurine-derived sulfur uptake; ; 	Sulfur Transport	Organic Sulfur	ag	taurine-derived sulfur uptake
+K04091	ssuD; alkanesulfonate monooxygenase Organosulfur mineralization; sulfonate desulfurization; ; 	Sulfur Transport	Organic Sulfur	ag	Organosulfur mineralization; sulfonate desulfurization
+K04092	ssuE; FMN reductase component of alkanesulfonate monooxygenase Organosulfur mineralization; supports sulfonate desulfurization; ; 	Sulfur Organic Transformations	Organic Sulfur	ag	Organosulfur mineralization; supports sulfonate desulfurization
+K03119	tauD; taurine dioxygenase Organosulfur mineralization; supports sulfonate desulfurization; ; 	Sulfur Organic Transformations	Organic Sulfur	ag	Organosulfur mineralization; taurine/sulfonate sulfur acquisition
+K01130	atsA; arylsulfatase Organosulfur mineralization; sulfate ester hydrolysis; ; 	Sulfur Organic Transformations	Organic Sulfur, Enzyme Assay Analog	ag	Breaks down ester sulfates (C-O-S bonds)
+K00394	aprA; adenylylsulfate reductase subunit alpha Dissimilatory sulfate reduction; inorganic sulfur respiration; ; 	Sulfur Inorganic Transformation	Dissimilatory sulfate reduction	ag	inorganic sulfur respiration
+K00395	aprB; adenylylsulfate reductase subunit beta Dissimilatory sulfate reduction; inorganic sulfur respiration; ; 	Sulfur Inorganic Transformation	Dissimilatory sulfate reduction	ag	inorganic sulfur respiration
+dsrA	dsrA; dissimilatory sulfite reductase subunit alpha Dissimilatory sulfite reduction; reduced sulfur production; ; 	Sulfur Inorganic Transformation	Dissimilatory sulfite reduction	ag	reduced sulfur production
+dsrB	dsrB; dissimilatory sulfite reductase subunit beta Dissimilatory sulfite reduction; reduced sulfur production; ; 	Sulfur Inorganic Transformation	Dissimilatory sulfite reduction	ag	reduced sulfur production
+K17224	soxA; sulfur oxidation protein SoxA reduced inorganic sulfur compound oxidation; ; 	Sulfur Inorganic Transformation	Sulfur oxidation	ag	reduced inorganic sulfur compound oxidation
+K17226	soxX; sulfur oxidation protein SoxX reduced inorganic sulfur compound oxidation; ; 	Sulfur Inorganic Transformation	Sulfur oxidation	ag	reduced inorganic sulfur compound oxidation
+K17227	soxY; sulfur oxidation protein SoxY reduced inorganic sulfur compound oxidation; ; 	Sulfur Inorganic Transformation	Sulfur oxidation	ag	reduced inorganic sulfur compound oxidation
+K17218	soxB; sulfur oxidation protein SoxB reduced inorganic sulfur compound oxidation; ; 	Sulfur Inorganic Transformation	Sulfur oxidation	ag	thiosulfate/reduced inorganic sulfur oxidation
+K00957	sat; sulfate adenylyltransferase sulfate activation to adenylyl sulfate; ; 	Sulfur Inorganic Transformation	Assimilation	ag	sulfate activation to adenylyl sulfate
+K00956	cysN; sulfate adenylyltransferase subunit 1 sulfate activation to adenylyl sulfate; ; 	Sulfur Inorganic Transformation	Assimilation	ag	sulfate activation to adenylyl sulfate
+K00955	cysD; sulfate adenylyltransferase subunit 2 sulfate activation to adenylyl sulfate; ; 	Sulfur Inorganic Transformation	Assimilation	ag	sulfate activation to adenylyl sulfate
+K00390	cysH; phosphoadenosine phosphosulfate reductase reduction of activated sulfate; ; 	Sulfur Inorganic Transformation	Assimilation	ag	reduction of activated sulfate
+K00381	cysI; sulfite reductase NADPH flavoprotein alpha-component sulfite reduction for biomass incorporation; ; 	Sulfur Inorganic Transformation	Assimilation	ag	sulfite reduction for biomass incorporation
+K00380	cysJ; sulfite reductase NADPH flavoprotein beta-component sulfite reduction for biomass incorporation; ; 	Sulfur Inorganic Transformation	Assimilation	ag	sulfite reduction for biomass incorporation
+K02048	cysA; sulfate/thiosulfate transport system ATP-binding protein; ; 	Sulfur Transport	Inorganic transport	ag	sulfate/thiosulfate uptake
+K02049	cysT; sulfate/thiosulfate transport system permease protein; ; 	Sulfur Transport	Inorganic transport	ag	sulfate/thiosulfate uptake
+K02050	cysW; sulfate/thiosulfate transport system permease protein; ; 	Sulfur Transport	Inorganic transport	ag	sulfate/thiosulfate uptake
+K02051	sbp/cysP; sulfate/thiosulfate transport system substrate-binding protein; ; 	Sulfur Transport	Inorganic transport	ag	sulfate/thiosulfate uptake
+K00466	iaaM; tryptophan 2-monooxygenase; [EC:1.13.12.3];	Phytohormone Transformations	Auxin (IAA)	ag	Sulfur transport; sulfate/thiosulfate uptake
+K21801	iaaH; indole-3-acetamide hydrolase; [EC:3.5.1.4];	Phytohormone Transformations	Auxin (IAA)	ag	Tryptophan → IAM → IAA
+K01426	amiE; amidase; [EC:3.5.1.4];	Phytohormone Transformations	Auxin (IAA), Organic Nitrogen Transformation	ag	Tryptophan → IAM → IAA
+K03397	iaaL; indole-3-acetate---lysine ligase; [EC:6.3.2.20];	Phytohormone Transformations	Auxin (IAA)	ag	Conjugates IAA → IAA-Lys (inactivation)
+K10760	ipt; tRNA dimethylallyltransferase / adenylate isopentenyltransferase; [EC:2.5.1.112];	Phytohormone Transformations	Cytokinins	ag	Isopentenyl-AMP → cytokinins
+K00279	ckx; cytokinin dehydrogenase; [EC:1.5.99.12];	Phytohormone Transformations	Cytokinins	ag	Cytokinin degradation
+K01505	acdS; 1-aminocyclopropane-1-carboxylate deaminase; [EC:3.5.99.7];	Phytohormone Transformations	Ethylene	ag	ACC → α-ketobutyrate + NH3
+K01851	pchA; isochorismate synthase; [EC:5.4.4.2];	Phytohormone Transformations	Phenolics	ag	Chorismate → salicylic acid
+K04781	pchB; isochorismate pyruvate lyase; [EC:4.2.99.21];	Phytohormone Transformations	Phenolics	ag	Chorismate → salicylic acid
+K00480	nahG; salicylate hydroxylase; [EC:1.14.13.1];	Phytohormone Transformations	Phenolics	ag	Salicylic acid → catechol
+K00108	betA; choline dehydrogenase; (EC:1.1.99.1)	Stressors	Methyl-related Compatible Solute Biosynthesis	ag	Glycine betaine biosynthesis from choline
+K00130	betB; betaine-aldehyde dehydrogenase; (EC:1.2.1.8)	Stressors	Methyl-related Compatible Solute Biosynthesis	ag	Glycine betaine biosynthesis from betaine-aldehyde
+K11440	betA; choline dehydrogenase; (alternate)	Stressors	Methyl-related Compatible Solute Biosynthesis	ag	Glycine betaine biosynthesis from choline
+K18896	gsmT; glycine/sarcosine; N-methyltransferase	Stressors	Methyl-related Compatible Solute Biosynthesis	ag	Glycine → sarcosine → dimethylglycine synthesis
+K18897	dmt; sarcosine/dimethylglycine N-methyltransferase	Stressors	Methyl-related Compatible Solute Biosynthesis	ag	Dimethylglycine → betaine synthesis
+K00697	otsA; alpha Trehalose biosynthesis	Stressors	Sugar Compatible Solutes 	ag	Trehalose
+K01087	otsB; trehalose-6-phosphate phosphatase; [EC:3.1.3.12];	Stressors	Sugar Compatible Solutes 	ag	Trehalose
+K01236	treZ; malto-oligosyltrehalose trehalohydrolase; [EC:3.2.1.141];	Stressors	Sugar Compatible Solutes 	ag	Trehalose
+K06044	treY; malto-oligosyltrehalose synthase; [EC:5.4.99.15];	Stressors	Sugar Compatible Solutes 	ag	Trehalose
+K05342	treP; trehalose phosphorylase; [EC:2.4.1.64];	Stressors	Sugar Compatible Solutes 	ag	Trehalose
+K05343	treS; trehalose synthase; [EC:5.4.99.16];	Stressors	Sugar Compatible Solutes 	ag	Trehalose
+K00009	mtlD; mannitol-1-phosphate 5-dehydrogenase; [EC:1.1.1.17];	Stressors	Sugar Compatible Solutes 	ag	Mannitol
+K05947	mpgS; mannosyl-3-phosphoglycerate synthase; [EC:2.4.1.217];	Stressors	Sugar Compatible Solutes 	ag	Mannosyl glycerate
+K03782	katG; catalase-peroxidase; [EC:1.11.1.21];	Stressors	Oxidative Stress Response	ag
+K04564	sodA; superoxide dismutase [Mn]; [EC:1.15.1.1];	Stressors	Oxidative Stress Response	ag
+K04565	sodB; superoxide dismutase [Fe]; [EC:1.15.1.1];	Stressors	Oxidative Stress Response	ag
+K01920	gshA; glutamate--cysteine ligase; [EC:6.3.2.2];	Stressors	Oxidative Stress Response	ag
+K01921	gshB; glutathione synthase; [EC:6.3.2.3];	Stressors	Oxidative Stress Response	ag
+K05910	npr; NADH peroxidase; [EC:1.11.1.1];	Stressors	Oxidative Stress Response, Enzyme Assay Analog 	ag
+K00147	proA; glutamate-5-semialdehyde dehydrogenase; [EC:1.2.1.41];	Stressors	Non-Sugar Compatible Solutes	ag
+K00931	proB; glutamate 5-kinase; [EC:2.7.2.11];	Stressors	Non-Sugar Compatible Solutes	ag
+K00286	proC; pyrroline-5-carboxylate reductase; [EC:1.5.1.2];	Stressors	Non-Sugar Compatible Solutes	ag
+K00006	gpd1; glycerol-3-phosphate dehydrogenase (NAD+); [EC:1.1.1.8];	Stressors	Non-Sugar Compatible Solutes	ag
+K00111	gpd2; glycerol-3-phosphate dehydrogenase (quinone); [EC:1.1.5.3];	Stressors	Non-Sugar Compatible Solutes	ag
+K16566	exoY; exopolysaccharide biosynthesis protein ExoY; ;	Stressors	Exopolysaccharide Production	ag
+K16557	exoA; exopolysaccharide biosynthesis protein ExoA; ;	Stressors	Exopolysaccharide Production	ag	Succinoglycan biosynthesis glycosyltransferase
+K16556	exoM; exopolysaccharide biosynthesis glycosyltransferase ExoM; ;	Stressors	Exopolysaccharide Production	ag	Succinoglycan biosynthesis mannosyltransferase
+K16555	exoO; exopolysaccharide biosynthesis protein ExoO; ;	Stressors	Exopolysaccharide Production	ag	Succinoglycan biosynthesis protein
+K19290	alg8; alginate biosynthesis glycosyltransferase Alg8; ;	Stressors	Exopolysaccharide Production; Biofilm Formation 	ag
+K19291	alg44; alginate biosynthesis protein Alg44; ;	Stressors	Exopolysaccharide Production; Biofilm Formation 	ag
+K19293	algX; alginate biosynthesis periplasmic protein AlgX; ;	Stressors	Exopolysaccharide Production; Biofilm Formation 	ag
+K19295	algJ; alginate O-acetyltransferase AlgJ; ;	Stressors	Exopolysaccharide Production; Biofilm Formation 	ag
+K20997	pslA; polysaccharide biosynthesis protein PslA; ;	Stressors	Exopolysaccharide Production; Biofilm Formation 	ag
+K21001	pslH; polysaccharide biosynthesis protein PslH; ;	Stressors	Exopolysaccharide Production; Biofilm Formation 	ag
+K21154	pssM; exopolysaccharide biosynthesis glycosyltransferase PssM; ;	Stressors	Exopolysaccharide Production	ag
+K25902	pssA; exopolysaccharide biosynthesis protein PssA; ;	Stressors	Exopolysaccharide Production	ag
+K25904	pssE; exopolysaccharide biosynthesis protein PssE; ;	Stressors	Exopolysaccharide Production	ag
+K25906	pssS; exopolysaccharide biosynthesis glycosyltransferase PssS; ;	Stressors	Exopolysaccharide Production	ag
+K19294	algI; alginate O-acetyltransferase AlgI; ;	Stressors	Biofilm Formation	ag
+K11936	pgaC / icaA; poly-beta-1	Stressors	Biofilm Formation	ag
+K11937	pgaD; poly-beta-1	Stressors	Biofilm Formation	ag
+K25205	pslC; Psl polysaccharide biosynthesis protein; 	Stressors	Biofilm Formation	ag
+K21461	icaD; poly-beta-1	Stressors	Biofilm Formation	ag
+K01534	zntA; cadmium/zinc/copper-transporting P-type ATPase; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K15726	czcA; cobalt-zinc-cadmium resistance protein CzcA; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K15727	czcB; cobalt-zinc-cadmium resistance protein CzcB; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K15725	czcC; cobalt-zinc-cadmium resistance protein CzcC; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K21903	cadC/smtB; cadmium-responsive transcriptional regulator; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K17686	copA; copper-exporting P-type ATPase; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K07213	cueO; multicopper oxidase; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K07787	cusA; copper/silver efflux system membrane protein; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K07798	cusB; copper/silver efflux system membrane fusion protein; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K07796	cusC; copper/silver efflux system outer membrane protein; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K07810	cusF; copper/silver efflux system periplasmic copper-binding protein; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K01533	copB; copper-transporting P-type ATPase; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K03325	arsC; arsenate reductase; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K03892	arsB; arsenical pump membrane protein; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K00537	arsM; arsenite methyltransferase; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K08355	arrA; respiratory arsenate reductase subunit A; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K08356	arrB; respiratory arsenate reductase subunit B; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K03893	aioA; arsenite oxidase large subunit; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K02076	znuA; zinc transport system substrate-binding protein; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K02077	znuB; zinc transport system permease protein; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K02078	znuC; zinc transport system ATP-binding protein; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+K03765	zur; zinc uptake regulation protein; ; 	Stressors	Heavy Metal Detox and Transformation	ag
+EC:1.5.3.23	gox; glyphosate oxidoreductase; ; 	Potential Pesticide Degradation	Glyphosate Potential Degradation 	ag
+K00301	; sarcosine oxidase; [EC:1.5.3.1]; 	Potential Pesticide Degradation	Glyphosate Potential Degradation 	ag
+K20992	pytH; pyrethroid hydrolase; [EC:3.1.1.88]; 	Potential Pesticide Degradation	Pyrethroids	ag
+K20993	estP; pyrethroid hydrolase; [EC:3.1.1.88]; 	Potential Pesticide Degradation	Pyrethroids	ag
+K05394	atzA; atrazine chlorohydrolase; [EC:3.8.1.8]; 	Potential Pesticide Degradation	Atrazine Potential Degradation	ag
+K03382	atzB; hydroxydechloroatrazine ethylaminohydrolase; [EC:3.5.4.43]; 	Potential Pesticide Degradation	Atrazine Potential Degradation 	ag
+K08710	atzC; N-isopropylammelide isopropylaminohydrolase; [EC:3.5.4.42]; 	Potential Pesticide Degradation	Atrazine Potential Degradation 	ag
+K03383	atzD; cyanuric acid amidohydrolase; [EC:3.5.2.15]; 	Potential Pesticide Degradation	Atrazine Potential Degradation 	ag
+K19837	atzE; 1-carboxybiuret hydrolase; [EC:3.5.1.131]; 	Potential Pesticide Degradation	Atrazine Potential Degradation 	ag
+K01457	atzF; allophanate hydrolase; [EC:3.5.1.54]; 	Potential Pesticide Degradation	Atrazine Potential Degradation 	ag
+EC:3.1.8.1	;organophosphate hydrolase; ; [EC:3.1.8.1]; 	Potential Pesticide Degradation	Organophosphates	ag
+EC:3.8.2.2	; organophosphorus acid anhydrolase; ; 	Potential Pesticide Degradation	Organophosphates	ag
+K05909	" mco; Multicopper oxidase (laccase; oxidizes phenolics, triazines, and aromatics)
+Laccase (multicopper oxidase; lignin and aromatic oxidation)
+Lignin peroxidase (oxidizes lignin and aromatic compounds via H₂O₂); [EC:1.10.3.2]; "	Carbon Processing	Lignin/Aromatic Oxidation	ag
+K00421	lcc;Laccase (multicopper oxidase; lignin and aromatic oxidation);  [EC:1.10.3.2]; 	Carbon Processing	Lignin/Aromatic Oxidation; Enzyme Assay Analog 	ag
+K00431	lip;Lignin peroxidase (oxidizes lignin and aromatic compounds via H₂O₂); [EC:1.11.1.14]; 	Carbon Processing	Lignin/Aromatic Oxidation; Enzyme Assay Analog 	ag
+K00163	; pyruvate dehydrogenase E1 component; [EC:1.2.4.1]; 	Carbon Processing	SCFA and alcohol conversions	ag	pyruvate → acetyl-CoA v1
+K00174	; 2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase subunit alpha; [EC:1.2.7.3, 1.2.7.11]; 	Carbon Processing	SCFA and alcohol conversions	ag	pyruvate → acetyl-CoA v2
+K00656	; formate C-acetyltransferase; [EC:2.3.1.54]; 	Carbon Processing	SCFA and alcohol conversions	ag	pyruvate → acetyl-CoA + formate v3
+K00625	; phosphate acetyltransferase; [EC:2.3.1.8]; [RN:R00230]	Carbon Processing	SCFA and alcohol conversions	ag	acetate, pt 1
+K00925	; acetate kinase; [EC:2.7.2.1]; [RN:R00315]	Carbon Processing	SCFA and alcohol conversions	ag	acetate, pt 1
+K01905	ADP-forming; acetate-CoA ligase  subunit alpha; ; 	Carbon Processing	SCFA and alcohol conversions	ag	acetate, pt 2
+K01067	; acetyl-CoA hydrolase; [EC:3.1.2.1]; 	Carbon Processing	SCFA and alcohol conversions	ag	acetate, pt 3
+K00016	; L-lactate dehydrogenase; [EC:1.1.1.27]; 	Carbon Processing	SCFA and alcohol conversions	ag	lactate (L)
+K00101	cytochrome; L-lactate dehydrogenase; [EC:1.1.2.3]; 	Carbon Processing	SCFA and alcohol conversions	ag	lactate (L)
+K03778	; D-lactate dehydrogenase; [EC:1.1.1.28]; 	Carbon Processing	SCFA and alcohol conversions	ag	lactate (D)
+K03777	quinone/cytochrome variants; D-lactate dehydrogenase; [EC:1.1.5.12, EC:1.1.2.4]; 	Carbon Processing	SCFA and alcohol conversions	ag	lactate (D)
+K00634	; phosphate butyryltransferase; [EC:2.3.1.19]; 	Carbon Processing	SCFA and alcohol conversions	ag	butyrate, pt 1
+K00929	; butyrate kinase; [EC:2.7.2.7]; 	Carbon Processing	SCFA and alcohol conversions	ag	butyrate, pt 2
+K01896	; medium-chain acyl-CoA synthetase; [EC:6.2.1.2]; 	Carbon Processing	SCFA and alcohol conversions	ag	butyrate, pt 2
+K19697	; propionate kinase; [EC:2.7.2.15]; 	Carbon Processing	SCFA and alcohol conversions	ag	propionate, pt 1
+K01026	; propionate CoA-transferase; [EC:2.8.3.1]; 	Carbon Processing	SCFA and alcohol conversions	ag	propionate, pt 2
+K00001	; alcohol dehydrogenase; [EC:1.1.1.1]; 	Carbon Processing	SCFA and alcohol conversions	ag	alcohol production
+K00121	; alcohol dehydrogenase; [EC:1.1.1.1]; 	Carbon Processing	SCFA and alcohol conversions	ag	alcohol production
+K04072	; alcohol dehydrogenase; [EC:1.1.1.1]; 	Carbon Processing	SCFA and alcohol conversions	ag	alcohol production
+K13951	; alcohol dehydrogenase; [EC:1.1.1.1]; 	Carbon Processing	SCFA and alcohol conversions	ag	alcohol production
+K13952	; alcohol dehydrogenase; [EC:1.1.1.1]; 	Carbon Processing	SCFA and alcohol conversions	ag	alcohol production
+K13953	; alcohol dehydrogenase; [EC:1.1.1.1]; 	Carbon Processing	SCFA and alcohol conversions	ag	alcohol production
+K13954	; alcohol dehydrogenase; [EC:1.1.1.1]; 	Carbon Processing	SCFA and alcohol conversions	ag	alcohol production
+K13980	; alcohol dehydrogenase; [EC:1.1.1.1]; 	Carbon Processing	SCFA and alcohol conversions	ag	alcohol production
+K18857	; alcohol dehydrogenase; [EC:1.1.1.1]; 	Carbon Processing	SCFA and alcohol conversions	ag	alcohol production
+K00192	cdhA; anaerobic carbon-monoxide dehydrogenase, CODH/ACS complex subunit alpha; [EC:1.2.7.4]; [RN:R07157]	Carbon Processing	CO2 Fixation	ag
+K00195	cdhB; anaerobic carbon-monoxide dehydrogenase, CODH/ACS complex subunit epsilon; ; [RN:R07157]	Carbon Processing	CO2 Fixation	ag
+K00193	cdhC; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit beta; [EC:2.3.1.169]; [RN:R09096 R10219]	Carbon Processing	CO2 Fixation	ag
+K00197	cdhE; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit gamma; [EC:2.1.1.245]; [RN:R09096 R10219]	Carbon Processing	CO2 Fixation	ag
+K00194	cdhD; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit delta; [EC:2.1.1.245]; [RN:R09096 R10219]	Carbon Processing	CO2 Fixation	ag
+K10944	pmoA; particulate methane monooxygenase subunit A; [EC:1.14.18.3]; 	Carbon Processing	CH4 oxidation	ag
+pmoa_actinobacteria_chloroflexota | pmoa_alpha_1 | pmoa_alpha_2 | pmoa_crenothrix | pmoa_gamma | pmoa_methyl_eth | pmoa_methylomirabilis | pmoa_verr	pmoA; particulate methane monooxygenase subunit A; [EC:1.14.18.3]; 	Carbon Processing	CH4 oxidation	ag	ag
+K16157	mmoX; soluble methane monooxygenase hydroxylase alpha subunit; [EC:1.14.13.25]; 	Carbon Processing	CH4 oxidation	ag
+K16158	mmoY; soluble methane monooxygenase hydroxylase beta subunit; [EC:1.14.13.25]; 	Carbon Processing	CH4 oxidation	ag
+K16159	mmoZ; soluble methane monooxygenase hydroxylase gamma subunit; [EC:1.14.13.25]; 	Carbon Processing	CH4 oxidation	ag
+K16160	mmoB; soluble methane monooxygenase component B; [EC:1.14.13.25]; 	Carbon Processing	CH4 oxidation	ag
+K16161	mmoC; soluble methane monooxygenase reductase component; [EC:1.14.13.25]; 	Carbon Processing	CH4 oxidation	ag
+K16162	mmoD; soluble methane monooxygenase regulatory protein; [EC:1.14.13.25]; 	Carbon Processing	CH4 oxidation	ag
+GH94	EC:2.4.1.20; GH94 cellobiose phosphorylase ; laminaribiose phosphorylase ; cellodextrin phosphorylase ; chitobiose phosphorylase ; cyclic beta-1,2-glucan synthase ; cellobionic acid phosphorylase ; beta-1,2-oligoglucan phosphorylase; ; 	Carbon Processing	Cellulose degradation	ag
+GH1	EC:3.2.1.21; GH1 beta-glucosidase K01188, K05350; beta-galactosidase ; beta-mannosidase ; beta-glucuronidase ; beta-xylosidase ; beta-D-fucosidase ; phlorizin hydrolase ; exo-beta-1,4-glucanase ; 6-phospho-beta-galactosidase ; 6-phospho-beta-glucosidase ; strictosidine beta-glucosidase ; lactase ; amygdalin beta-glucosidase ; prunasin beta-glucosidase ; vicianin hydrolase ; raucaffricine beta-glucosidase ; thioglucosidase ; beta-primeverosidase ; isoflavonoid 7-O-beta-apiosyl-beta-glucosidase ; ABA-specific beta-glucosidase ; DIMBOA beta-glucosidase ; beta-glycosidase ; hydroxyisourate hydrolase; ; 	Carbon Processing	Cellulose degradation, Enzyme Assay Analog	ag
+GH2	EC:3.2.1.23; GH2 beta-galactosidase  ; beta-mannosidase ; beta-glucuronidase ; alpha-L-arabinofuranosidase ; mannosylglycoprotein endo-beta-mannosidase ; exo-beta-glucosaminidase ; alpha-L-arabinopyranosidase ; beta-galacturonidase ; beta-xylosidase ; beta-D-galactofuranosidase; ; 	Carbon Processing	Cellulose, Pectin, Hemicellulose degradation 	ag
+GH3	EC:3.2.1.21; GH3 beta-glucosidase K01188, K05349 ; xylan 1,4-beta-xylosidase ; beta-glucosylceramidase ; beta-N-acetylhexosaminidase ; alpha-L-arabinofuranosidase ; glucan 1,3-beta-glucosidase ; glucan 1,4-beta-glucosidase ; isoprimeverose-producing oligoxyloglucan hydrolase ; coniferin beta-glucosidase ; exo-1,3-1,4-glucanase ; beta-N-acetylglucosaminide phosphorylases; ; 	Carbon Processing	Cellulose degradation, Enzyme Assay Analog	ag
+GH5	EC:3.2.1.4; GH5 endo-beta-1,4-glucanase / cellulase ; endo-beta-1,4-xylanase ; beta-glucosidase ; beta-mannosidase ; beta-glucosylceramidase ; glucan beta-1,3-glucosidase ; licheninase ; exo-beta-1,4-glucanase / cellodextrinase ; glucan endo-1,6-beta-glucosidase ; mannan endo-beta-1,4-mannosidase ; cellulose beta-1,4-cellobiosidase ; steryl beta-glucosidase ; endoglycoceramidase ; chitosanase ; beta-primeverosidase ; xyloglucan-specific endo-beta-1,4-glucanase ; endo-beta-1,6-galactanase ; hesperidin 6-O-alpha-L-rhamnosyl-beta-glucosidase ; beta-1,3-mannanase ; arabinoxylan-specific endo-beta-1,4-xylanase ; mannan transglycosylase ; lichenase / endo-beta-1,3-1,4-glucanase ; beta-glycosidase ; endo-beta-1,3-glucanase / laminarinase ; beta-N-acetylhexosaminidase ; chitosanase ; beta-D-galactofuranosidase; ; 	Carbon Processing	Cellulose, Hemicellulose degradation, Enzyme Assay Analog 	ag
+GH9	EC:3.2.1.4; GH9 endoglucanase ; endo-beta-1,3-glucanase / lichenase-laminarinase ; beta-glucosidase ; lichenase / endo-beta-1,3-1,4-glucanase ; exo-beta-1,4-glucanase / cellodextrinase ; cellobiohydrolase ; xyloglucan-specific endo-beta-1,4-glucanase / endo-xyloglucanase ; exo-beta-glucosaminidase; ; 	Carbon Processing	Cellulose, Hemicellulose degradation 	ag
+GH16	EC:2.4.1.207; GH16 xyloglucan:xyloglucosyltransferase ; keratan-sulfate endo-1,4-beta-galactosidase ; endo-1,3-beta-glucanase / laminarinase ; endo-1,3-beta-glucanase ; licheninase ; beta-agarase ; kappa;-carrageenase ; xyloglucanase ; endo-beta-1,3-galactanase ; [retaining] beta-porphyranase ; hyaluronidase ; endo-beta-1,4-galactosidase ; chitin beta-1,6-glucanosyltransferase ; beta-transglycosidase ; beta-glycosidase ; endo-beta-1,3-galactanase; ; 	Carbon Processing	Cellulose, Hemicellulose degradation 	ag
+GH116	EC:3.2.1.21; GH116 beta-glucosidase ; beta-xylosidase ; acid beta-glucosidase/beta-glucosylceramidase ; beta-N-acetylglucosaminidase; ; 	Carbon Processing	Cellulose degradation	ag
+GH6	EC:3.2.1.4; GH6 endoglucanase ; cellobiohydrolase; ; 	Carbon Processing	Cellulose degradation	ag
+GH7	EC:3.2.1.4; GH7 endo-beta-1,4-glucanase ; reducing end-acting cellobiohydrolase ; chitosanase ; endo-beta-1,3-1,4-glucanase; ; 	Carbon Processing	Cellulose degradation	ag
+GH8	EC:3.2.1.132; GH8 chitosanase ; cellulase ; licheninase ; endo-1,4-beta-xylanase ; reducing-end-xylose releasing exo-oligoxylanase; ; 	Carbon Processing	Cellulose degradation, sugar utilization	ag
+GH10	EC:3.2.1.8; GH10 endo-1,4-beta-xylanase ; endo-1,3-beta-xylanase ; tomatinase ; xylan endotransglycosylase ; endo-beta-1,4-glucanase; ; 	Carbon Processing	Cellulose, Hemicellulose degradation 	ag
+GH124	EC:3.2.1.4; GH124 endoglucanase; ; 	Carbon Processing	Cellulose degradation	ag
+GH12	EC:3.2.1.4; GH12 endoglucanase ; xyloglucan hydrolase ; beta-1,3-1,4-glucanase ; xyloglucan endotransglycosylase; ; 	Carbon Processing	Cellulose, Hemicellulose degradation 	ag
+GH44	EC:3.2.1.4; GH44 endoglucanase ; xyloglucanase; ; 	Carbon Processing	Cellulose, Hemicellulose degradation 	ag
+GH45	EC:3.2.1.4; GH45 endoglucanase ; xyloglucan-specific endo-beta-1,4-glucanase / endo-xyloglucanase ; endo-beta-1,4-mannanase; ; 	Carbon Processing	Cellulose, Hemicellulose degradation 	ag
+GH48	EC:3.2.1.176; GH48 reducing end-acting cellobiohydrolase ; endo-beta-1,4-glucanase ; chitinase; ; 	Carbon Processing	Cellulose, Hemicellulose degradation 	ag
+AA10	formerly CBM33; AA10  proteins are copper-dependent lytic polysaccharide monooxygenases ; some proteins have been shown to act on chitin, others on cellulose; lytic cellulose monooxygenase  ; lytic cellulose monooxygenase ; lytic chitin monooxygenase; ; 	Carbon Processing	Cellulose degradation	ag	Auxiliary Activities
+AA15	C1-hydroxylating; AA15 lytic cellulose monooxygenase  ; lytic chitin monooxygenase; ; 	Carbon Processing	Cellulose degradation	ag	Auxiliary Activities
+AA16	C1-hydroxylating; AA16 Lytic cellulose monooxygenase; ; 	Carbon Processing	Cellulose degradation	ag	Auxiliary Activities
+AA9	formerly GH61; AA9  proteins are copper-dependent lytic polysaccharide monooxygenases ; cleavage of cellulose chains with oxidation of carbons C1 and/or C4 and C-6); lytic cellulose monooxygenase  ; lytic cellulose monooxygenase; ; 	Carbon Processing	Cellulose, Hemicellulose degradation 	ag	Auxiliary Activities
+AA11	LPMOs; AA11 proteins are copper-dependent lytic polysaccharide monooxygenases ; cleavage of chitin chains with oxidation of C-1 has been demonstrated for a AA11 LPMO from Aspergillus oryzae; ; 	Carbon Processing	Cellulose degradation	ag	Auxiliary Activities
+AA13	LPMOs; AA13 proteins are copper-dependent lytic polysaccharide monooxygenases ; cleavage of starch with oxidation of C-1 at the site of cleavage has been demonstrated for the LPMO encoded by gene NCU08746 from Neurospora crassa; ; 	Carbon Processing	Cellulose, Starch degradation	ag	Auxiliary Activities
+GH13	EC:3.2.1.1; GH13 alpha-amylase ; pullulanase ; cyclomaltodextrin glucanotransferase ; cyclomaltodextrinase ; trehalose-6-phosphate hydrolase ; oligo-alpha-glucosidase ; maltogenic amylase ; neopullulanase ; alpha-glucosidase ; maltotetraose-forming alpha-amylase ; isoamylase ; glucodextranase ; maltohexaose-forming alpha-amylase ; maltotriose-forming alpha-amylase ; branching enzyme ; trehalose synthase ; 4-alpha-glucanotransferase ; maltopentaose-forming alpha-amylase  ; amylosucrase  ; sucrose phosphorylase ; malto-oligosyltrehalose trehalohydrolase ; isomaltulose synthase ; malto-oligosyltrehalose synthase ; amylo-alpha-1,6-glucosidase ; alpha-1,4-glucan: phosphate alpha-maltosyltransferase ; 6'-P-sucrose phosphorylase ; amino acid transporter; ; 	Carbon Processing	Starch degradation	ag	Glycoside Hydrolases
+GH14	EC:3.2.1.2; GH14 beta-amylase; ; 	Carbon Processing	Starch degradation	ag	Glycoside Hydrolases
+GH57	EC:3.2.1.1; GH57 alpha-amylase ; alpha-galactosidase ; amylopullulanase ; cyclomaltodextrinase ; branching enzyme ; 4-alpha-glucanotransferase; ; 	Carbon Processing	Starch degradation	ag	Glycoside Hydrolases
+GH119	EC:3.2.1.1; GH119 alpha-amylase; ; 	Carbon Processing	Starch degradation	ag	Glycoside Hydrolases
+GH126	EC:3.2.1.-; GH126 alpha-amylase; ; 	Carbon Processing	Starch degradation	ag	Glycoside Hydrolases
+GH133	EC:3.2.1.33; GH133 amylo-alpha-1,6-glucosidase; ; 	Carbon Processing	Starch degradation	ag	Glycoside Hydrolases
+GH15	EC:3.2.1.3; GH15 glucoamylase ; glucodextranase ; alpha,alpha-trehalase ; dextran dextrinase; ; 	Carbon Processing	Starch degradation	ag	Glycoside Hydrolases
+GH97	EC:3.2.1.3; GH97 glucoamylase ; alpha-glucosidase ; alpha-galactosidase; ; 	Carbon Processing	Starch degradation	ag	Glycoside Hydrolases
+GH28	EC:3.2.1.15; GH28 polygalacturonase ; alpha-L-rhamnosidase ; exo-polygalacturonase ; exo-polygalacturonosidase ; rhamnogalacturonase ; rhamnogalacturonan alpha-1,2-galacturonohydrolase ; endo-xylogalacturonan hydrolase; ; 	Carbon Processing	Pectin degradation	ag	Glycoside Hydrolases
+PL1	EC:4.2.2.2; PL1 pectate lyase ; exo-pectate lyase ; pectin lyase .; ; 	Carbon Processing	Pectin degradation	ag	Polysaccharide Lyases
+PL2	EC:4.2.2.2; PL2 pectate lyase ; exo-polygalacturonate lyase .; ; 	Carbon Processing	Pectin degradation	ag	Polysaccharide Lyases
+PL9	EC:4.2.2.2; PL9 pectate lyase ; exopolygalacturonate lyase ; thiopeptidoglycan lyase .; ; 	Carbon Processing	Pectin degradation	ag	Polysaccharide Lyases
+PL10	EC:4.2.2.2; PL10 pectate lyase; ; 	Carbon Processing	Pectin degradation	ag	Polysaccharide Lyases
+PL11	EC:4.2.2.23; PL11 rhamnogalacturonan endolyase ; rhamnogalacturonan exolyase; ; 	Carbon Processing	Pectin degradation	ag	Polysaccharide Lyases
+PL22	EC:4.2.2.6; PL22 oligogalacturonate lyase / oligogalacturonide lyase; ; 	Carbon Processing	Pectin degradation	ag	Polysaccharide Lyases
+PL26	EC:4.2.2.24; PL26 rhamnogalacturonan exolyase .; ; 	Carbon Processing	Pectin degradation	ag	Polysaccharide Lyases
+PL3	EC:4.2.2.2; PL3 pectate lyase .; ; 	Carbon Processing	Pectin degradation	ag	Polysaccharide Lyases
+PL4	EC:4.2.2.23; PL4 rhamnogalacturonan endolyase .; ; 	Carbon Processing	Pectin degradation	ag	Polysaccharide Lyases
+GH78	EC:3.2.1.40; GH78 alpha-L-rhamnosidase ; rhamnogalacturonan alpha-L-rhamnohydrolase ; L-Rhap-alpha-1,3-D-Apif -specific alpha-1,3-L-rhamnosidase; ; 	Carbon Processing	Pectin degradation	ag	Glycoside Hydrolases
+GH106	EC:3.2.1.40; GH106 alpha-L-rhamnosidase ; rhamnogalacturonan alpha-L-rhamnohydrolase; ; 	Carbon Processing	Pectin degradation	ag	Glycoside Hydrolases
+GH138	EC:3.2.1.-; GH138 alpha-galacturonidase; ; 	Carbon Processing	Pectin degradation	ag	Glycoside Hydrolases
+GH139	EC:3.2.1.-; GH139 alpha-2-O-Me-L-fucosidase; ; 	Carbon Processing	Pectin degradation	ag	Glycoside Hydrolases
+GH143	EC:3.2.1.-; GH143 2-keto-3-deoxy-D-lyxo-heptulosaric acid hydrolase; ; 	Carbon Processing	Pectin degradation	ag	Glycoside Hydrolases
+CE8	EC:3.1.1.11; CE8 pectin methylesterase .; ; 	Carbon Processing	Pectin degradation	ag	Carbohydrate Esterases
+GH105	EC:3.2.1.172; GH105 unsaturated rhamnogalacturonyl hydrolase ; d-4,5-unsaturated beta-glucuronyl hydrolase ; d-4,5-unsaturated alpha-galacturonidase; ; 	Carbon Processing	Pectin degradation	ag	Glycoside Hydrolases
+GH4	EC:3.2.1.122; GH4 maltose-6-phosphate glucosidase ; alpha-glucosidase ; alpha-galactosidase ; 6-phospho-beta-glucosidase ; alpha-glucuronidase ; alpha-galacturonase ; palatinase; ; 	Carbon Processing	Pectin degradation	ag	Glycoside Hydrolases
+CE12	EC:3.1.1.-; CE12 pectin acetylesterase ; rhamnogalacturonan acetylesterase ; acetyl xylan esterase; ; 	Carbon Processing	Pectin degradation	ag	Carbohydrate Esterases
+GH113	EC:3.2.1.78; GH113 beta-mannanase; ; 	Carbon Processing	Hemicellulose degradation	ag	Glycoside Hydrolases
+GH134	EC:3.2.1.78; GH134 endo-beta-1,4-mannanase; ; 	Carbon Processing	Hemicellulose degradation	ag	Glycoside Hydrolases
+CE2	EC:3.1.1.72; CE2 acetyl xylan esterase .; ; 	Carbon Processing	Hemicellulose degradation	ag	Carbohydrate Esterases
+CE17	; acetyl mannan esterase; [EC:3.1.1.-]; 	Carbon Processing	Hemicellulose degradation	ag	Carbohydrate Esterases
+GH99	EC:3.2.1.130; GH99 glycoprotein endo-alpha-1,2-mannosidase ; mannan endo-1,2-alpha-mannanase; ; 	Carbon Processing	Hemicellulose degradation	ag	Glycoside Hydrolases
+GH76	EC:3.2.1.101; GH76 alpha-1,6-mannanase ; alpha-glucosidase; ; 	Carbon Processing	Hemicellulose degradation	ag	Glycoside Hydrolases
+GH92	EC:3.2.1.113; GH92 mannosyl-oligosaccharide alpha-1,2-mannosidase ; mannosyl-oligosaccharide alpha-1,3-mannosidase ; mannosyl-oligosaccharide alpha-1,6-mannosidase ; alpha-mannosidase ; alpha-1,2-mannosidase ; alpha-1,3-mannosidase ; alpha-1,4-mannosidase ; mannosyl-1-phosphodiester alpha-1,P-mannosidase; ; 	Carbon Processing	Hemicellulose degradation	ag	Glycoside Hydrolases
+GH38	EC:3.2.1.24; GH38 alpha-mannosidase ; mannosyl-oligosaccharide alpha-1,2-mannosidase ; mannosyl-oligosaccharide alpha-1,3-1,6-mannosidase ; alpha-2-O-mannosylglycerate hydrolase ; mannosyl-oligosaccharide alpha-1,3-mannosidase; ; 	Carbon Processing	Hemicellulose degradation	ag	Glycoside Hydrolases
+GH63	EC:3.2.1.106; GH63 processing alpha-glucosidase ; alpha-1,3-glucosidase ; alpha-glucosidase ; mannosylglycerate alpha-mannosidase / mannosylglycerate hydrolase ; glucosylglycerate hydrolase; ; 	Carbon Processing	Hemicellulose degradation	ag	Glycoside Hydrolases
+GH47	EC:3.2.1.113; GH47 alpha-mannosidase; ; 	Carbon Processing	Hemicellulose degradation	ag	Glycoside Hydrolases
+GH125	EC:3.2.1.-; GH125 exo-alpha-1,6-mannosidase; ; 	Carbon Processing	Hemicellulose degradation	ag	Glycoside Hydrolases
+GH74	EC:3.2.1.4; GH74 endoglucanase ; oligoxyloglucan reducing end-specific cellobiohydrolase ; xyloglucanase; ; 	Carbon Processing	Hemicellulose degradation	ag	Glycoside Hydrolases
+GH31	EC:3.2.1.20; GH31 alpha-glucosidase ; alpha-galactosidase ; alpha-mannosidase ; alpha-1,3-glucosidase ; sucrase-isomaltase  ; alpha-xylosidase ; alpha-glucan lyase ; isomaltosyltransferase ; oligosaccharide alpha-1,4-glucosyltransferase ; sulfoquinovosidase; ; 	Carbon Processing	Hemicellulose degradation	ag	Glycoside Hydrolases
+GH11	EC:3.2.1.8; GH11 endo-beta-1,4-xylanase ; endo-beta-1,3-xylanase; ; 	Carbon Processing	Hemicellulose degradation, Sugar utilization	ag	Glycoside Hydrolases
+GH43	EC:3.2.1.37; GH43 beta-xylosidase ; alpha-L-arabinofuranosidase ; xylanase ; alpha-1,2-L-arabinofuranosidase ; exo-alpha-1,5-L-arabinofuranosidase ; [inverting] exo-alpha-1,5-L-arabinanase ; beta-1,3-xylosidase ; [inverting] exo-alpha-1,5-L-arabinanase ; [inverting] endo-alpha-1,5-L-arabinanase ; exo-beta-1,3-galactanase ; beta-D-galactofuranosidase; ; 	Carbon Processing	Hemicellulose degradation, Sugar utilization	ag	Glycoside Hydrolases
+GH51	EC:3.2.1.4; GH51 endoglucanase ; endo-beta-1,4-xylanase ; beta-xylosidase ; alpha-L-arabinofuranosidase ; lichenase / endo-beta-1,3-1,4-glucanase; ; 	Carbon Processing	Hemicellulose degradation	ag	Glycoside Hydrolases
+CE1	EC:3.1.1.72; CE1 acetyl xylan esterase ; cinnamoyl esterase ; feruloyl esterase ; carboxylesterase ; S-formylglutathione hydrolase ; diacylglycerol O-acyltransferase ; trehalose 6-O-mycolyltransferase; ; 	Carbon Processing	Hemicellulose degradation, Sugar utilization	ag	Carbohydrate Esterases
+CE4	EC:3.1.1.72; CE4 acetyl xylan esterase ; chitin deacetylase ; chitooligosaccharide deacetylase ; peptidoglycan GlcNAc deacetylase ; peptidoglycan N-acetylmuramic acid deacetylase .; ; 	Carbon Processing	Hemicellulose degradation	ag	Carbohydrate Esterases
+AA1	; laccase / multicopper oxidase; [EC:1.10.3.2]; 	Carbon Processing	Lignin degradation	ag
+mco	bacterial laccase; multicopper oxidase; [EC:1.10.3.2]; 	Carbon Processing	Lignin degradation	ag
+AA2	lignin/manganese/versatile peroxidases; class II peroxidase; [EC:1.11.1.-]; 	Carbon Processing	Lignin degradation	ag
+dyp	dye-decolorizing peroxidase; DyP-type peroxidase; [EC:1.11.1.-]; 	Carbon Processing	Lignin degradation	ag
+AA3_2	GMC oxidoreductase; aryl-alcohol oxidase; [EC:1.1.3.7]; 	Carbon Processing	Lignin degradation	ag
+AA5_1	; glyoxal oxidase; [EC:1.2.3.15]; 	Carbon Processing	Lignin degradation	ag
+AA8	cellobiose dehydrogenase; cytochrome domain; [EC:1.1.99.-]; 	Carbon Processing	Lignin degradation	ag
+AA3_1	cellobiose dehydrogenase; dehydrogenase domain; [EC:1.1.99.-]; 	Carbon Processing	Lignin degradation	ag
+K18851	; glucose-6-phosphate isomerase; [EC:5.3.1.9]; 	Carbon Processing	Sugar utilization	ag	Glucose
+K12407	; glucokinase; [EC:2.7.1.2]; 	Carbon Processing	Sugar utilization	ag	Glucose
+K00845	; glucose-6-phosphate dehydrogenase; [EC:1.1.1.49]; 	Carbon Processing	Sugar utilization	ag	Glucose
+K25026	; phosphoglucose isomerase; [EC:5.3.1.9]; 	Carbon Processing	Sugar utilization	ag	Sucrose
+K01182	; sucrase-isomaltase; [EC:3.2.1.48]; 	Carbon Processing	Sugar utilization	ag	Sucrose
+K01203	;fructofuranosidase; [EC:3.2.1.26]; 	Carbon Processing	Sugar utilization	ag	Sucrose
+K12047	; sucrose phosphorylase; [EC:2.4.1.7]; 	Carbon Processing	Sugar utilization	ag	Sucrose
+K01187	; sucrase; [EC:3.2.1.48]; 	Carbon Processing	Sugar utilization, Enzyme Assay Analog	ag	Sucrose
+K12316	; glucosyltransferase; [EC:2.4.1.4]; 	Carbon Processing	Sugar utilization, Enzyme Assay Analog	ag	Sucrose
+K12317	; sucrose-6F-phosphate phosphohydrolase; [EC:3.1.3.24]; 	Carbon Processing	Sugar utilization, Enzyme Assay Analog	ag	Sucrose
+K00695	; Œ±-glucosidase; [EC:3.2.1.20]; 	Carbon Processing	Sugar utilization	ag	Sucrose
+K05341	; glucanotransferase; [EC:2.4.1.25]; 	Carbon Processing	Sugar utilization	ag	Sucrose
+K00689	oligo-1; 6-glucosidase; [EC:3.2.1.10]; 	Carbon Processing	Sugar utilization	ag	Sucrose
+K00692	; isomaltase; [EC:3.2.1.10]; 	Carbon Processing	Sugar utilization	ag	Mannose
+K01809	; mannose-6-phosphate isomerase; [EC:5.3.1.8]; 	Carbon Processing	Sugar utilization	ag	Mannose
+K02793	; mannose PTS system IIA component; [EC:2.7.1.191]; 	Carbon Processing	Sugar utilization	ag	Mannose
+K02794	; mannose PTS system IIB component; [EC:2.7.1.191]; 	Carbon Processing	Sugar utilization	ag	Mannose
+K02795	; mannose PTS system IIC component; [EC:2.7.1.191]; 	Carbon Processing	Sugar utilization	ag	Galactose
+K00965	; galactose-1-phosphate uridylyltransferase; [EC:2.7.7.12]; 	Carbon Processing	Sugar utilization	ag	Galactose
+K01784	; UDP-galactose 4-epimerase; [EC:5.1.3.2]; 	Carbon Processing	Sugar utilization	ag	Galactose
+K01785	; galactose mutarotase; [EC:5.1.3.3]; 	Carbon Processing	Sugar utilization	ag	Fucose
+K00879	; L-fucokinase; [EC:2.7.1.52]; 	Carbon Processing	Sugar utilization	ag	Fucose
+K01628	; L-fuculose-phosphate aldolase; [EC:4.1.2.17]; 	Carbon Processing	Sugar utilization	ag	Fucose
+K01818	; L-fucose isomerase; [EC:5.3.1.25]; 	Carbon Processing	Sugar utilization	ag	Xylose
+K00854	; xylose kinase; [EC:2.7.1.17]; 	Carbon Processing	Sugar utilization	ag	Xylose
+K01805	; xylose isomerase; [EC:5.3.1.5]; 	Carbon Processing	Sugar utilization	ag	Xylose
+K00008	; xylitol dehydrogenase; [EC:1.1.1.9]; 	Carbon Processing	Sugar utilization	ag	Xylose
+K05351	; xylulokinase; [EC:2.7.1.17]; 	Carbon Processing	Sugar utilization	ag	Xylose
+K17743	; xylitol oxidase; [EC:1.1.3.41]; 	Carbon Processing	Sugar utilization	ag	Xylose
+K14273	; xylulose reductase; [EC:1.1.1.9]; 	Carbon Processing	Sugar utilization	ag	Xylose
+K14274	; D-xylonate dehydratase; [EC:4.2.1.82]; 	Carbon Processing	Sugar utilization	ag	Xylose
+K14275	; xylonolactonase; [EC:3.1.1.68]; 	Carbon Processing	Sugar utilization	ag	Arabinose
+K01804	; L-arabinose isomerase; [EC:5.3.1.4]; 	Carbon Processing	Sugar utilization	ag	Arabinose
+K00011	; L-arabitol dehydrogenase; [EC:1.1.1.12]; 	Carbon Processing	Sugar utilization	ag	Xylose
+K26066	; arabinose 1-dehydrogenase; [EC:1.1.1.46]; 	Carbon Processing	Sugar utilization	ag	Arabinose
+K13873	; arabinolactonase; [EC:3.1.1.110]; 	Carbon Processing	Sugar utilization	ag	Arabinose
+K19660	; arabinonate dehydratase; [EC:4.2.1.37]; 	Carbon Processing	Sugar utilization	ag	Arabinose
+K12446	; L-arabonate dehydratase; [EC:4.2.1.37]; 	Carbon Processing	Sugar utilization	ag	Glucose
+K19243	; glucose-6-phosphate 1-dehydrogenase; [EC:1.1.1.49 1.1.1.363 1.1.1.388]; [RN:R02736 R10907]	Carbon Processing	Sugar utilization	ag	Ribose
+K01807	; ribose 5-phosphate isomerase; [EC:5.3.1.6]; [RN:R01056]	Carbon Processing	Sugar utilization	ag	Ribose
+K01808	; ribose 5-phosphate isomerase; [EC:5.3.1.6]; [RN:R01056]	Carbon Processing	Sugar utilization	ag	Glucose
+K01810	; glucose-6-phosphate isomerase; [EC:5.3.1.9]; [RN:R02740 R02739]	Carbon Processing	Sugar utilization	ag	Glucose
+K06859	; glucose-6-phosphate isomerase; [EC:5.3.1.9]; [RN:R02740 R02739]	Carbon Processing	Sugar utilization	ag	Glucose
+K13810	; glucose-6-phosphate isomerase; [EC:5.3.1.9]; [RN:R02740 R02739]	Carbon Processing	Sugar utilization	ag	Glucose
+K15916	; glucose-6-phosphate isomerase; [EC:5.3.1.9]; [RN:R02740 R02739]	Carbon Processing	Sugar utilization	ag	Ribose
+K00948	; ribose-phosphate pyrophosphokinase; [EC:2.7.6.1]; [RN:R01049]	Carbon Processing	Sugar utilization	ag	Glucose
+K13937	; hexose-6-phosphate dehydrogenase; [EC:1.1.1.47 3.1.1.31]; [RN:R02736 R02035]	Carbon Processing	Sugar utilization	ag	Glucose
+K01057	; 6-phosphogluconolactonase; [EC:3.1.1.31]; [RN:R02035]	Carbon Processing	Sugar utilization	ag	Glucose
+K07404	; 6-phosphogluconolactonase; [EC:3.1.1.31]; [RN:R02035]	Carbon Processing	Sugar utilization	ag	Glucose
+K00033	; 6-phosphogluconate dehydrogenase; [EC:1.1.1.44 1.1.1.343]; [RN:R01528 R10221]	Carbon Processing	Sugar utilization	ag	Ribose
+K00615	; transketolase; [EC:2.2.1.1]; [RN:R01830 R01641]	Carbon Processing	Sugar utilization	ag	Ribose
+K00616	; transaldolase; [EC:2.2.1.2]; [RN:R01827]	Carbon Processing	Sugar utilization	ag	Ribose
+K01783	; ribulose-phosphate 3-epimerase; [EC:5.1.3.1]; [RN:R01529]	Carbon Processing	Sugar utilization	ag	Ribose
+K08094	; 6-phospho-3-hexuloisomerase; [EC:5.3.1.27]; [RN:R09780]	Carbon Processing	Sugar utilization	ag	Ribose
+K08093	; 3-hexulose-6-phosphate synthase; [EC:4.1.2.43]; [RN:R05338]	Carbon Processing	Sugar utilization	ag	Ribose
+K13812	; 3-hexulose-6-phosphate synthase; [EC:4.1.2.43]; [RN:R05338]	Carbon Processing	Sugar utilization	ag	Ribose
+K13831	; 6-phospho-3-hexuloisomerase; [EC:5.3.1.27]; [RN:R09780]	Carbon Processing	Sugar utilization	ag	Glucose
+K00844	; hexokinase; [EC:2.7.1.1]; [RN:R01786]	Carbon Processing	Sugar utilization	ag	Glucose
+K01835	; phosphoglucomutase; [EC:5.4.2.2]; [RN:R00959]	Carbon Processing	Sugar utilization	ag	Glucose
+K00963	; UTP--glucose-1-phosphate uridylyltransferase; [EC:2.7.7.9]; [RN:R00289]	Carbon Processing	Sugar utilization	ag	Galactose
+K00849	; galactokinase; [EC:2.7.1.6]; [RN:R01092]	Carbon Processing	Sugar utilization	ag	Galactose
+K00918	; ADP-dependent phosphofructokinase; [EC:2.7.1.146]; [RN:R09084]	Carbon Processing	Sugar utilization	ag	Glucose
+K00850	; 6-phosphofructokinase; [EC:2.7.1.11]; [RN:R04779]	Carbon Processing	Sugar utilization	ag	Glucose
+K16370	; 6-phosphofructokinase; [EC:2.7.1.11]; [RN:R04779]	Carbon Processing	Sugar utilization	ag	Fructose
+K01623	; fructose-bisphosphate aldolase; [EC:4.1.2.13]; [RN:R01070]	Carbon Processing	Sugar utilization	ag	Fructose
+K01624	; fructose-bisphosphate aldolase; [EC:4.1.2.13]; [RN:R01070]	Carbon Processing	Sugar utilization	ag	Fructose
+K11645	; fructose-bisphosphate aldolase; [EC:4.1.2.13]; [RN:R01070]	Carbon Processing	Sugar utilization	ag	Fructose
+K16305	; fructose-bisphosphate aldolase; [EC:4.1.2.13]; [RN:R01070]	Carbon Processing	Sugar utilization	ag	Fructose
+K16306	; fructose-bisphosphate aldolase; [EC:4.1.2.13]; [RN:R01070]	Carbon Processing	Sugar utilization	ag	Glucose
+K01803	; triosephosphate isomerase; [EC:5.3.1.1]; [RN:R01015]	Carbon Processing	Sugar utilization	ag	Glucose
+K00134	; glyceraldehyde 3-phosphate dehydrogenase; [EC:1.2.1.12 1.2.1.59]; [RN:R01061 R01063]	Carbon Processing	Sugar utilization	ag	Glucose
+K00150	; glyceraldehyde 3-phosphate dehydrogenase; [EC:1.2.1.12 1.2.1.59]; [RN:R01061 R01063]	Carbon Processing	Sugar utilization	ag	Glucose
+K00927	; phosphoglycerate kinase; [EC:2.7.2.3]; [RN:R01512]	Carbon Processing	Sugar utilization	ag	Glucose
+K11389	ferredoxin; glyceraldehyde-3-phosphate dehydrogenase; [EC:1.2.7.6]; [RN:R07159]	Carbon Processing	Sugar utilization	ag	Glucose
+K01834	; phosphoglycerate mutase; [EC:5.4.2.11 5.4.2.12]; [RN:R01518]	Carbon Processing	Sugar utilization	ag	Glucose
+K15633	; phosphoglycerate mutase; [EC:5.4.2.11 5.4.2.12]; [RN:R01518]	Carbon Processing	Sugar utilization	ag	Glucose
+K15634	; phosphoglycerate mutase; [EC:5.4.2.11 5.4.2.12]; [RN:R01518]	Carbon Processing	Sugar utilization	ag	Glucose
+K15635	; phosphoglycerate mutase; [EC:5.4.2.11 5.4.2.12]; [RN:R01518]	Carbon Processing	Sugar utilization	ag	Glucose
+K01689	; enolase; [EC:4.2.1.11]; [RN:R00658]	Carbon Processing	Sugar utilization	ag	Glucose
+K00873	; pyruvate kinase; [EC:2.7.1.40]; [RN:R00200]	Carbon Processing	Sugar utilization	ag	Glucose
+K12406	; pyruvate kinase; [EC:2.7.1.40]; [RN:R00200]	Carbon Processing	Sugar utilization	ag	Fructose
+K01596	; phosphoenolpyruvate carboxykinase; [EC:4.1.1.32 4.1.1.49]; [RN:R00431 R00726 R00341]	Carbon Processing	Sugar utilization	ag	Fructose
+K01610	; phosphoenolpyruvate carboxykinase; [EC:4.1.1.32 4.1.1.49]; [RN:R00431 R00726 R00341]	Carbon Processing	Sugar utilization	ag	Fructose
+K03841	fructose-1; 6-bisphosphatase; [EC:3.1.3.11]; [RN:R04780]	Carbon Processing	Sugar utilization	ag	Fructose
+K02446	fructose-1; 6-bisphosphatase; [EC:3.1.3.11]; [RN:R04780]	Carbon Processing	Sugar utilization	ag	Fructose
+K11532	fructose-1; 6-bisphosphatase; [EC:3.1.3.11]; [RN:R04780]	Carbon Processing	Sugar utilization	ag	Fructose
+K01086	fructose-1; 6-bisphosphatase; [EC:3.1.3.11]; [RN:R04780]	Carbon Processing	Sugar utilization	ag	Fructose
+K04041	fructose-1; 6-bisphosphatase; [EC:3.1.3.11]; [RN:R04780]	Carbon Processing	Sugar utilization	ag	Fructose
+K01622	fructose 1; 6-bisphosphate aldolase/phosphatase; [EC:4.1.2.13 3.1.3.11]; [RN:R01070 R04780]	Carbon Processing	Sugar utilization	ag	Glucose
+K01690	; phosphogluconate dehydratase; [EC:4.2.1.12]; [RN:R02036]	Carbon Processing	Sugar utilization	ag	Glucose
+K01625	; 2-dehydro-3-deoxyphosphogluconate aldolase; [EC:4.1.2.14]; [RN:R05605]	Carbon Processing	Sugar utilization	ag	Glucose
+K00012	; UDPglucose 6-dehydrogenase; [EC:1.1.1.22]; [RN:R00286]	Carbon Processing	Sugar utilization	ag	Glucose
+AA3	EC:1.1.99.18; AA3 cellobiose dehydrogenase ; glucose 1-oxidase ; aryl alcohol oxidase ; alcohol oxidase ; pyranose oxidase; ; 	Carbon Processing	Sugar utilization	ag	Galactose
+AA5	EC:1.1.3.-; AA5 Oxidase with oxygen as acceptor ; galactose oxidase ; glyoxal oxidase ; alcohol oxidase; ; 	Carbon Processing	Sugar utilization	ag	Xylanase
+CBM13	GenBank U08894; CBM13 Modules of approx. 150 residues which always appear as a threefold internal repeat. The only apparent exception to this, xylanase II of Actinomadura sp. FC7 , is in fact not completely sequenced. These modules were first identified in several plant lectins such as ricin or agglutinin of Ricinus communis which bind galactose residues. The three-dimensional structure of a plant lectin has been determined and displays a pseudo-threefold symmetry in accord with the observed sequence threefold repeat. These modules have since been found in a number of other proteins of various functions including glycoside hydrolases and glycosyltransferases. While in the plant lectins this module binds mannose, binding to xylan has been demonstrated in the Streptomyces lividans xylanase A and arabinofuranosidase B. Binding to GalNAc has been shown for the corresponding module of GalNAc transferase 4. For the other proteins, the binding specificity of these modules has not been established. The pseudo three-fold symmetry of the CBM13 module has now been confirmed in the 3-D structure of the intact, two-domain, xylanase of Streptomyces olivaceoviridis.; ; 	Carbon Processing	Sugar utilization	ag	Xylanase
+CBM31	CBM31 Binding to beta-1; 3-xylan has been demonstrated for the C-terminal module of the beta-1,3-xylanase of Alcaligenes sp. XY234.; ; 	Carbon Processing	Sugar utilization	ag	Galacturonic Acid
+CBM32	PMID: 16239725; CBM32 Binding to galactose and lactose has been demonstrated for the module of Micromonospora viridifaciens sialidase . Binding to polygalacturonic acid has been shown for a Yersinia member . Binding to LacNAc  has been shown for an N-acetylglucosaminidase from Clostridium perfingens .; ; 	Carbon Processing	Sugar utilization	ag	Xylanase
+CBM36	CBM36 Modules of approx. 120-130 residues displaying structural similarities to CBM6 modules. The only CBM36 currently characterised; that from Paenbacillus polymyxa xylanase 43A, shows calcium-dependent binding of xylans and xylooligosaccharides. X-ray crystallography shows that there is a direct interaction between calcium and ligand.; ; 	Carbon Processing	Sugar utilization	ag	Galactose
+CBM51	2008; CBM51 Modules of approx. 150 residues found attached to various enzymes from families GH2, GH27, GH31, GH95, GH98 and GH101 . Binding to galactose and to blood group A/B-antigens demonstrated in the case of C. perfringens GH95CBM51 and GH98CBM51 respectively [Gregg KJ et al.  J. Biol. Chem. 283:12604-13 PMID: 18292090].; ; 	Carbon Processing	Sugar utilization	ag	Xylanase
+CBM59	2009; CBM59 Binding to mannan, xylan, and cellulose demonstrated for the CBM59 of ManF-X10 xylanase from an environmental genomic DNA library (Li et al.  World Journal of Microbiology and Biotechnology 25:2071-2078; doi:10.1007/s11274-009-0111-6); ; 	Carbon Processing	Sugar utilization	ag	Xylanase
+CBM60	circular permutation; CBM60 Modules of approx 120 residues usually found appended to xylanases. The xylan-binding function and the relatedness  to family CBM36 has been demonstrated [PMID: 20659893].; ; 	Carbon Processing	Sugar utilization	ag	Galactose
+CBM62	CBM62 The CBM62 module of Clostridium thermocellum Cthe_2193 protein binds galactose moieties found on xyloglucan; arabinogalactan and galactomannan.; ; 	Carbon Processing	Sugar utilization	ag	Rhamnose
+CBM67	SaRha78A; CBM67 Fujimoto et al. [PMID : 23486481] disclosed the L-rhamnose binding activity and 3-D structure of the CBM67 of Streptomyces avermitilis alpha-L-rhamnosidase; ; 	Carbon Processing	Sugar utilization	ag	Lactose
+CBM71	; CBM71 The two CBM71s of S. pneumoniae BgaA bind lactose and LacNAc.; ; 	Carbon Processing	Sugar utilization	ag	Xylanase
+CBM9	; CBM9 Modules of approx. 170 residues found so far only in xylanases. The cellulose-binding function has been demonstrated in one case.; ; 	Carbon Processing	Sugar utilization	ag	Trehalose
+GH130	EC:2.4.1.281; GH130 beta-1,4-mannosylglucose phosphorylase ; beta-1,4-mannooligosaccharide phosphorylase ; beta-1,4-mannosyl-N-acetyl-glucosamine phosphorylase ; beta-1,2-mannobiose phosphorylase ; beta-1,2-oligomannan phosphorylase ; beta-1,2-mannosidase; ; 	Carbon Processing	Hemicellulose Degradation, Sugar utilization	ag	Beta-mannan Oligo Cleavage (Hemicellulose)
+GH18	EC:3.2.1.14; GH18 chitinase ; lysozyme ; endo-beta-N-acetylglucosaminidase ; peptidoglycan hydrolase with endo-beta-N-acetylglucosaminidase specificity ; Nod factor hydrolase ; xylanase inhibitor; concanavalin B; narbonin; ; 	Carbon Processing	Sugar utilization	ag	Glycoside Hydrolase
+GH26	EC:3.2.1.78; GH26 beta-mannanase ; exo-beta-1,4-mannobiohydrolase ; beta-1,3-xylanase ; lichenase / endo-beta-1,3-1,4-glucanase ; mannobiose-producing exo-beta-mannanase; ; 	Carbon Processing	Sugar utilization	ag	Alpha-mannan Oligo Cleavage (Hemicellulose), Beta-mannan Oligo Cleavage (Hemicellulose)
+GH32	EC:3.2.1.26; GH32 invertase ; endo-inulinase ; beta-2,6-fructan 6-levanbiohydrolase ; endo-levanase ; exo-inulinase ; fructan beta--fructosidase/1-exohydrolase ; fructan beta--fructosidase/6-exohydrolase ; sucrose:sucrose 1-fructosyltransferase ; fructan:fructan 1-fructosyltransferase ; sucrose:fructan 6-fructosyltransferase ; fructan:fructan 6G-fructosyltransferase ; levan fructosyltransferase ; [retaining] sucrose:sucrose 6-fructosyltransferase  ; cycloinulo-oligosaccharide fructanotransferase; ; 	Carbon Processing	Sugar utilization	ag	Glycoside Hydrolase
+GT1	EC:2.4.1.17; GT1 UDP-glucuronosyltransferase ; zeatin O-beta-xylosyltransferase ; 2-hydroxyacylsphingosine 1-beta-galactosyltransferase ; N-acylsphingosine galactosyltransferase ; flavonol 3-O-glucosyltransferase ; anthocyanidin 3-O-glucosyltransferase ; sinapate 1-glucosyltransferase ; indole-3-acetate beta-glucosyltransferase ; flavonol L-rhamnosyltransferase ; sterol glucosyltransferase ; UDP-Glc: 4-hydroxybenzoate 4-O-beta-glucosyltransferase ; zeatin O-beta-glucosyltransferase ; limonoid glucosyltransferase ; UDP-GlcA: baicalein 7-O-beta-glucuronosyltransferase ; UDP-Glc: chalcone 4‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚Äö√Ñ‚Ä†‚Äö√†√∂‚Äö√†√á¬¨¬®¬¨¬Æ¬¨¬®¬¨¬¢‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√†√∂¬¨‚àû¬¨¬®¬¨¬Æ¬¨¬®‚àö√ú¬¨¬®¬¨¬Æ¬¨¬®¬¨√Ü‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂¬¨¬¢¬¨¬®‚àö√º-O-beta-glucosyltransferase ; ecdysteroid UDP-glucosyltransferase ; salicylic acid beta-glucosyltransferase ; anthocyanin 3-O-galactosyltransferase ; anthocyanin 5-O-glucosyltransferase ; dTDP-beta-2-deoxy-L-fucose: alpha-L-2-deoxyfucosyltransferase ; UDP-beta-L-rhamnose: alpha-L-rhamnosyltransferase ; zeaxanthin glucosyltransferase ; flavone 8-C-glycosyltransferase; ; 	Carbon Processing	Sugar utilization	ag	Glycosyl Transferase
+GT20	EC:2.4.1.15; GT20 alpha,alpha-trehalose-phosphate synthase [UDP-forming] ; Glucosylglycerol-phosphate synthase ; trehalose-6-P phosphatase ; [retaining] GDP-valeniol: validamine 7-phosphate valeniolyltransferase; ; 	Carbon Processing	Sugar utilization	ag	Glycosyl Transferase
+GT31	EC:2.4.1.149; GT31 N-acetyllactosaminide beta-1,3-N-acetylglucosaminyltransferase ; Glycoprotein-N-acetylgalactosamine 3-beta-galactosyltransferase ; fucose-specific beta-1,3-N-acetylglucosaminyltransferase ; globotriosylceramide beta-1,3-GalNAc transferase ; chondroitin synthase (beta-1,3-GlcUA and beta-1,4-GalNAc transferase ; chondroitin beta-1,3-glucuronyltransferase ; chondroitin beta-1,4-N-acetylgalactosaminyltransferase ; UDP-Gal: beta-galactosylxylosylprotein beta-1,3-galactosyltransferase ; UDP-GlcNAc: O-fucosylpeptide beta-1,3-N-acetylglucosaminyltransferase; ; 	Carbon Processing	Sugar utilization	ag	Glycosyl Transferase
+GT32	EC:2.4.1.-; GT32 alpha-1,6-mannosyltransferase ; alpha-1,4-N-acetylglucosaminyltransferase ; alpha-1,4-N-acetylgalactosaminyltransferase ; GDP-Man: inositol-phosphorylceramide transferase ; UDP-Gal: beta-galactoside alpha-1,4-galactosyltransferase ; UDP-Gal: lactose/N-acetyl-lactosamine alpha-1,4-galactosyltransferase ; UDP-Glc: protein alpha-glucosyltransferase; ; 	Carbon Processing	Sugar utilization	ag	Glycosyl Transferase
+GT4	EC:2.4.1.13; GT4 sucrose synthase ; sucrose-phosphate synthase ; alpha-glucosyltransferase ; lipopolysaccharide N-acetylglucosaminyltransferase ; phosphatidylinositol alpha-mannosyltransferase ; GDP-Man: Man1GlcNAc2-PP-dolichol alpha-1,3-mannosyltransferase ; GDP-Man: Man3GlcNAc2-PP-dolichol/Man4GlcNAc2-PP-dolichol alpha-1,2-mannosyltransferase ; digalactosyldiacylglycerol synthase ; 1,2-diacylglycerol 3-glucosyltransferase ; diglucosyl diacylglycerol synthase ; trehalose phosphorylase ; NDP-Glc: alpha-glucose alpha-glucosyltransferase / alpha,alpha-trehalose synthase ; GDP-Man: Man2GlcNAc2-PP-dolichol alpha-1,6-mannosyltransferase ; UDP-GlcNAc: 2-deoxystreptamine alpha-N-acetylglucosaminyltransferase ; UDP-GlcNAc: ribostamycin alpha-N-acetylglucosaminyltransferase ; UDP-Gal alpha-galactosyltransferase ; UDP-Xyl alpha-xylosyltransferase ; UDP-GlcA alpha-glucuronyltransferase ; UDP-Glc alpha-glucosyltransferase ; UDP-GalNAc: GalNAc-PP-Und alpha-1,3-N-acetylgalactosaminyltransferase ; UDP-GalNAc: N,N'-diacetylbacillosaminyl-PP-Und alpha-1,3-N-acetylgalactosaminyltransferase ; ADP-dependent alpha-maltose-1-phosphate synthase; ; 	Carbon Processing	Sugar utilization	ag	Glycosyl Transferase
+GT7	EC:2.4.1.22; GT7 lactose synthase ; beta-N-acetylglucosaminyl-glycopeptide beta-1,4-galactosyltransferase ; N-acetyllactosamine synthase ; xylosylprotein beta-4-galactosyltransferase ; UDP-Gal: neolactotriaosylceramide beta-1,4-galactosyltransferase ; beta-1,4-N-acetylglucosaminyltransferase; ; 	Carbon Processing	Sugar utilization	ag	Glycosyl Transferase
+GT83	EC:2.4.2.43; GT83 undecaprenyl phosphate-alpha-L-Ara4N: 4-amino-4-deoxy-beta-L-arabinosyltransferase ; dodecaprenyl phosphate-beta-galacturonic acid: lipopolysaccharide core alpha-galacturonosyl transferase; ; 	Carbon Processing	Sugar utilization	ag	Rhamnose
+PL27	EC:4.2.2.-; PL27 L-rhamnose-alpha-1,4-D-glucuronate lyase; ; 	Carbon Processing	Sugar utilization	ag	Maltose
+K10108	malE; maltose/maltodextrin transport system substrate-binding protein; ; 	Carbon Processing	Sugar utilization	ag	Maltose
+K10109	malF; maltose/maltodextrin transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Maltose
+K10110	malG; maltose/maltodextrin transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Maltose
+K10111	malK; maltose/maltodextrin transport system ATP-binding protein; [EC:3.6.3.19]; 	Carbon Processing	Sugar utilization	ag	Maltose
+K10112	msmX; maltose/maltodextrin transport system ATP-binding protein; ; 	Carbon Processing	Sugar utilization	ag	Lactose
+K10188	lacE; lactose/L-arabinose transport system substrate-binding protein; ; 	Carbon Processing	Sugar utilization	ag	Lactose
+K10189	lacF; lactose/L-arabinose transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Lactose
+K10190	lacG; lactose/L-arabinose transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Lactose
+K10191	lacK; lactose/L-arabinose transport system ATP-binding protein; ; 	Carbon Processing	Sugar utilization	ag	Glucose
+K10196	ABC.GLC.S; glucose/arabinose transport system substrate-binding protein; ; 	Carbon Processing	Sugar utilization	ag	Glucose
+K10197	ABC.GLC.P; glucose/arabinose transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Glucose
+K10198	ABC.GLC.P1; glucose/arabinose transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Glucose
+K10199	ABC.GLC.A; glucose/arabinose transport system ATP-binding protein; ; 	Carbon Processing	Sugar utilization	ag	Trehalose
+K10236	thuE; trehalose/maltose transport system substrate-binding protein; ; 	Carbon Processing	Sugar utilization	ag	Trehalose
+K10237	thuF; trehalose/maltose transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Trehalose
+K10238	thuG; trehalose/maltose transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Ribose
+K10439	rbsB; ribose transport system substrate-binding protein; ; 	Carbon Processing	Sugar utilization	ag	Ribose
+K10440	rbsC; ribose transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Ribose
+K10441	rbsA; ribose transport system ATP-binding protein; [EC:3.6.3.17]; 	Carbon Processing	Sugar utilization	ag	Xylose
+K10543	xylF; D-xylose transport system substrate-binding protein; ; 	Carbon Processing	Sugar utilization	ag	Xylose
+K10544	xylH; D-xylose transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Xylose
+K10545	xylG; D-xylose transport system ATP-binding protein; [EC:3.6.3.17]; 	Carbon Processing	Sugar utilization	ag	Fructose
+K10552	frcB; fructose transport system substrate-binding protein; ; 	Carbon Processing	Sugar utilization	ag	Fructose
+K10553	frcC; fructose transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Fructose
+K10554	frcA; fructose transport system ATP-binding protein; ; 	Carbon Processing	Sugar utilization	ag	Rhamnose
+K10559	rhaS1; rhamnose transport system substrate-binding protein; ; 	Carbon Processing	Sugar utilization	ag	Rhamnose
+K10560	rhaP; rhamnose transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Rhamnose
+K10561	rhaQ; rhamnose transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Rhamnose
+K10562	rhaT; rhamnose transport system ATP-binding protein; [EC:3.6.3.17]; 	Carbon Processing	Sugar utilization	ag	Glucose
+K02777	PTS-Glc-EIIA; PTS system, glucose-specific IIA component; ; 	Carbon Processing	Sugar utilization	ag	Glucose
+K02778	PTS-Glc-EIIB; PTS system, glucose-specific IIB component; ; 	Carbon Processing	Sugar utilization	ag	Glucose
+K02779	PTS-Glc-EIIC; PTS system, glucose-specific IIC component; ; 	Carbon Processing	Sugar utilization	ag	Maltose
+K02790	PTS-MalGlc-EIIB; PTS system, maltose/glucose-specific IIB component; ; 	Carbon Processing	Sugar utilization	ag	Maltose
+K02791	PTS-MalGlc-EIIC; PTS system, maltose/glucose-specific IIC component; ; 	Carbon Processing	Sugar utilization	ag	Sucrose
+K02808	PTS-Scr-EIIA; PTS system, sucrose-specific IIA component; ; 	Carbon Processing	Sugar utilization	ag	Sucrose
+K02809	PTS-Scr-EIIB; PTS system, sucrose-specific IIB component; ; 	Carbon Processing	Sugar utilization	ag	Sucrose
+K02810	PTS-Scr-EIIC; PTS system, sucrose-specific IIC component; ; 	Carbon Processing	Sugar utilization	ag	Trehalose
+K02817	PTS-Tre-EIIA; PTS system, trehalose-specific IIA component; ; 	Carbon Processing	Sugar utilization	ag	Trehalose
+K02818	PTS-Tre-EIIB; PTS system, trehalose-specific IIB component; ; 	Carbon Processing	Sugar utilization	ag	Trehalose
+K02819	PTS-Tre-EIIC; PTS system, trehalose-specific IIC component; ; 	Carbon Processing	Sugar utilization	ag	Fructose
+K02768	PTS-Fru-EIIA; PTS system, fructose-specific IIA component; ; 	Carbon Processing	Sugar utilization	ag	Fructose
+K02769	PTS-Fru-EIIB; PTS system, fructose-specific IIB component; ; 	Carbon Processing	Sugar utilization	ag	Fructose
+K02770	PTS-Fru-EIIC; PTS system, fructose-specific IIC component; ; 	Carbon Processing	Sugar utilization	ag	Mannose
+K02786	PTS-Lac-EIIA; PTS system, lactose-specific IIA component; ; 	Carbon Processing	Sugar utilization	ag	Lactose
+K02787	PTS-Lac-EIIB; PTS system, lactose-specific IIB component; ; 	Carbon Processing	Sugar utilization	ag	Lactose
+K02788	PTS-Lac-EIIC; PTS system, lactose-specific IIC component; ; 	Carbon Processing	Sugar utilization	ag	Fructose
+K11194	PTS-Fru1-EIIA; PTS system, fructose-specific IIA component; ; 	Carbon Processing	Sugar utilization	ag	Fructose
+K11195	PTS-Fru1-EIIB; PTS system, fructose-specific IIB component; ; 	Carbon Processing	Sugar utilization	ag	Fructose
+K11196	PTS-Fru1-EIIC; PTS system, fructose-specific IIC component; ; 	Carbon Processing	Sugar utilization	ag	Fructose
+K02771	PTS-Fru1-EIID; PTS system, fructose-specific IID component; ; 	Carbon Processing	Sugar utilization	ag	Fructose
+K11201	PTS-Fru2-EIIA; PTS system, fructose-specific IIA-like component; ; 	Carbon Processing	Sugar utilization	ag	Fructose
+K11202	PTS-Fru2-EIIB; PTS system, fructose-specific IIB-like component; ; 	Carbon Processing	Sugar utilization	ag	Fructose
+K11203	PTS-Fru2-EIIC; PTS system, fructose-specific IIC-like component; ; 	Carbon Processing	Sugar utilization	ag	Trehalose
+K17311	K17311; trehalose transport system substrate-binding protein; ; 	Carbon Processing	Sugar utilization	ag	Trehalose
+K17312	K17312; trehalose transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Trehalose
+K17313	treU; trehalose transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Trehalose
+K17314	treV; trehalose transport system ATP-binding protein; ; 	Carbon Processing	Sugar utilization	ag	Glucose
+K17315	gtsA; glucose/mannose transport system substrate-binding protein; ; 	Carbon Processing	Sugar utilization	ag	Glucose
+K17316	gtsB; glucose/mannose transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Glucose
+K17317	gtsC; glucose/mannose transport system permease protein; ; 	Carbon Processing	Sugar utilization	ag	Fructose
+K19506	PTS-Gfr-EIIA; PTS system, fructoselysine/glucoselysine-specific IIA component; ; 	Carbon Processing	Sugar utilization	ag	Fructose
+K19507	PTS-Gfr-EIIB; PTS system, fructoselysine/glucoselysine-specific IIB component; ; 	Carbon Processing	Sugar utilization	ag	Fructose
+K19508	PTS-Gfr-EIIC; PTS system, fructoselysine/glucoselysine-specific IIC component; ; 	Carbon Processing	Sugar utilization	ag	Fructose
+K19509	PTS-Gfr-EIID; PTS system, fructoselysine/glucoselysine-specific IID component; ; 	Carbon Processing	Sugar utilization	ag	Maltose
+K20107	PTS-Mal-EIIB; PTS system, maltose-specific IIB component; ; 	Carbon Processing	Sugar utilization	ag	Maltose
+K20108	PTS-Mal-EIIC; PTS system, maltose-specific IIC component; ; 	Carbon Processing	Sugar utilization	ag	Galactose
+K20112	PTS-Gal-EIIA; PTS system, galactose-specific IIA component; ; 	Carbon Processing	Sugar utilization	ag	Galactose
+K20113	PTS-Gal-EIIB; PTS system, galactose-specific IIB component; ; 	Carbon Processing	Sugar utilization	ag	Galactose
+K20114	PTS-Gal-EIIC; PTS system, galactose-specific IIC component; ; 	Carbon Processing	Sugar utilization	ag	Glucose
+K20116	PTS-Glc1-EIIA; PTS system, glucose-specific IIA component; ; 	Carbon Processing	Sugar utilization	ag	Glucose
+K20117	PTS-Glc1-EIIB; PTS system, glucose-specific IIB component; ; 	Carbon Processing	Sugar utilization	ag	Glucose
+K20118	PTS-Glc1-EIIC; PTS system, glucose-specific IIC component; ; 	Carbon Processing	Sugar utilization	ag	Galacturonic Acid
+K01812	; glucuronate isomerase; ; 	Carbon Processing	Sugar utilization	ag	Galacturonic Acid
+K00041	; tagaturonate reductase; ; 	Carbon Processing	Sugar utilization	ag	Galacturonic Acid
+K01685	; altronate hydrolase; ; 	Carbon Processing	Sugar utilization	ag	Galacturonic Acid
+K16849	; altronate dehydratase small subunit; ; 	Carbon Processing	Sugar utilization	ag	Galacturonic Acid
+K16850	; altronate dehydratase large subunit; ; 	Carbon Processing	Sugar utilization	ag	Galacturonic Acid
+K00874	; 2-dehydro-3-deoxygluconokinase; ; 	Carbon Processing	Sugar utilization	ag	Lactose
+K01190	; beta-galactosidase; ; 	Carbon Processing	Sugar utilization	ag	Lactose
+K12111	; evolved beta-galactosidase subunit alpha; ; 	Carbon Processing	Sugar utilization	ag	Lactose
+K12112	; evolved beta-galactosidase subunit beta; ; 	Carbon Processing	Sugar utilization	ag	Lactose
+K12309	; beta-galactosidase; ; 	Carbon Processing	Sugar utilization	ag	Sucrose
+K00690	; sucrose phosphorylase; ; 	Carbon Processing	Sugar utilization	ag	Sucrose
+GH172	old 3.2.1.134; difructose-anhydride-I synthase (EC:4.2.1.179 ); alpha-D-Arabinofuranosidase ; alpha-D-Fructofuranosidase; ; 	Carbon Processing	Sugar utilization	ag	Rhamnose
+PL42	EC:4.2.2.-; L-rhamnose-_-1,4-D-glucuronate lyase ; L-Rh_-_-1,4-GlcA _-L-rhamnohydrolase; ; 	Carbon Processing	Sugar utilization	ag	Galactose
+CBM88	; Binding to terminal galactose in galactoxyloglucan and galactomannan; ; 	Carbon Processing	Sugar utilization	ag
+K01198	xylan 1; 4-beta-xylosidase; [EC:3.2.1.37]; 	Carbon Processing	Enzyme Assay Analogs	ag	Hydrolysis of β-D-xylose residues
+K15920	xylan 1; 4-beta-xylosidase; [EC:3.2.1.37]; 	Carbon Processing	Enzyme Assay Analogs	ag	Hydrolysis of β-D-xylose residues
+K22268	xylan 1; 4-beta-xylosidase; [EC:3.2.1.37]; 	Carbon Processing	Enzyme Assay Analogs	ag	Hydrolysis of β-D-xylose residues
+K01227	; mannosyl-glycoprotein endo-beta-N-acetylglucosaminidase; [EC:3.2.1.96]; 	Nitrogen Organic Transformations	Enzyme Assay Analogs	ag	Hydrolysis of chitin N-acetyl-β-D-glucosaminide
+K13714	; bifunctional autolysin; [EC:3.2.1.96]; 	Nitrogen Organic Transformations	Enzyme Assay Analogs	ag	Hydrolysis of chitin N-acetyl-β-D-glucosaminide
+K23989	; mannosyl-glycoprotein endo-beta-N-acetylglucosaminidase; [EC:3.2.1.96]; 	Nitrogen Organic Transformations	Enzyme Assay Analogs	ag	Hydrolysis of chitin N-acetyl-β-D-glucosaminide
+K23458	; repressible acid phosphatase; [EC:3.1.3.2]; 	Phosphorus	Enzyme Assay Analogs	ag	Hydrolysis of phosphate monoesters
+K01255	; leucyl aminopeptidase; [EC:3.4.11.1]; 	Nitrogen Organic Transformations	Enzyme Assay Analogs	ag	Breakdown of leucine residues at the N-terminus of peptides
+K11142	; cytosol aminopeptidase; [EC:3.4.11.1]; 	Nitrogen Organic Transformations	Enzyme Assay Analogs	ag	Breakdown of leucine residues at the N-terminus of peptides
+K01225	cellulose 1; 4-beta-cellobiosidase; [EC:3.2.1.91]; 	Carbon Processing	Enzyme Assay Analogs	ag	Hydrolysis of β-D-glucosyl linkages (from cellulose)
+K19668	cellulose 1; 4-beta-cellobiosidase; [EC:3.2.1.91]; 	Carbon Processing	Enzyme Assay Analogs	ag	Hydrolysis of β-D-glucosyl linkages (from cellulose)
+3.A.1.9	; phosphonate transport system ATP-binding protein; [EC:3.6.3.28]; 	Phosphorus	Phosphorus transport	ag
+3.A.1.7	; phosphate transport system permease protein; ; 	Phosphorus	Phosphorus transport	ag
+3.A.1.5.5	; cationic peptide transport system substrate-binding protein; ; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.5.39_W0WN20	; dipeptide transport system permease protein; ; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.5.39_W0WMS8	; dipeptide transport system permease protein; ; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.5.39_W0WLZ8	; dipeptide transport system ATP-binding protein; ; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.5.39_W0WJ90	; dipeptide transport system ATP-binding protein; ; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.5.39_W0WJ85|3.A.1.5.39_W0WKZ8|3.A.1.5.39_W0WL02|3.A.1.5.39_W0WLZ1|3.A.1.5.39_W0WQF0	; dipeptide transport system substrate-binding protein; ; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.5.2_P26906	; dipeptide transport system substrate-binding protein; ; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.5.2_P26905	; dipeptide transport system ATP-binding protein; ; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.5.2_P26904	; dipeptide transport system permease protein; ; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.5.2_P26903	; dipeptide transport system permease protein; ; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.5.2_P26902	; D-amino peptidase; [EC:3.4.11.-]; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.5.18_O51310|3.A.1.5.19_Q2FZR6|3.A.1.5.1_P08006|3.A.1.5.25_Q9CIL0|3.A.1.5.37_B1W1M0|3.A.1.5.41_P0AFH6	; oligopeptide transport system permease protein; ; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.5.18_O31315|3.A.1.5.18_O50927|3.A.1.5.18_O51307|3.A.1.5.18_O51308|3.A.1.5.18_O54584|3.A.1.5.19_Q2FZR3|3.A.1.5.1_P06202|3.A.1.5.1_P77348|3.A.1.5.25_Q64K09|3.A.1.5.25_Q9CIL2|3.A.1.5.37_B1W1M2|3.A.1.5.41_P23843|3.A.1.5.41_P77348|3.A.1.5.41_Q46863	; oligopeptide transport system substrate-binding protein; ; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.5.18_O31310|3.A.1.5.19_Q2FZR4|3.A.1.5.1_P08007|3.A.1.5.20_P42065|3.A.1.5.25_Q9CIK8|3.A.1.5.37_B1W1L8|3.A.1.5.41_P77737	; oligopeptide transport system ATP-binding protein; ; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.5.18_O31309|3.A.1.5.19_Q2FZR5|3.A.1.5.1_P04285|3.A.1.5.20_P42064|3.A.1.5.25_Q9CIK9|3.A.1.5.37_B1W1L9|3.A.1.5.41_P76027	; oligopeptide transport system ATP-binding protein; ; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.5.18_O31307|3.A.1.5.19_Q2FZR7|3.A.1.5.1_P08005|3.A.1.5.25_Q9CIL1|3.A.1.5.37_B1W1M1|3.A.1.5.41_P0AFH2	; oligopeptide transport system permease protein; ; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.5.11	; glutathione transport system ATP-binding protein; ; 	Nitrogen Transport	Peptide transport	ag
+3.A.1.4.4|3.A.1.4.5	; urea transport system substrate-binding protein; ; 	Nitrogen Transport	Urea transport	ag
+3.A.1.4.2_Q55387	; neutral amino acid transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.4.2_Q55164	; neutral amino acid transport system ATP-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.4.2_P74455	; neutral amino acid transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.4.2_P74318	; neutral amino acid transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.4.2_P73650	; neutral amino acid transport system ATP-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.4.10_Q8DQI1|3.A.1.4.11_Q6N8W4|3.A.1.4.1_P04816|3.A.1.4.1_P0AD96|3.A.1.4.3_Q9L3M3|3.A.1.4.8_P21175	; branched-chain amino acid transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.4.10_Q8DQI0|3.A.1.4.11_Q6N8W0|3.A.1.4.1_P0AEX7|3.A.1.4.3_Q8VM85|3.A.1.4.8_P21627	; branched-chain amino acid transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.4.10_Q8DQH9|3.A.1.4.11_Q6N8W1|3.A.1.4.1_P22729|3.A.1.4.3_Q8VM84|3.A.1.4.8_P21628	; branched-chain amino acid transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.4.10_Q8DQH7|3.A.1.4.11_Q6N8W2|3.A.1.4.1_P22731|3.A.1.4.8_P21630	; branched-chain amino acid transport system ATP-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.4.10_Q8DQH7|3.A.1.4.10_Q8DQH8|3.A.1.4.1_P0A9S7|3.A.1.4.3_Q8VM83|3.A.1.4.8_P21629	; branched-chain amino acid transport system ATP-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.9_P48245	; glutamate transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.9_P48244	; glutamate transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.9_P48243	; glutamate transport system ATP-binding protein; [EC:3.6.3.-]; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.9_P48242	; glutamate transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.5|3.A.1.3.6	; octopine/nopaline transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.3_P30860	; arginine transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.3_P30859|3.A.1.3.3_P30860	; arginine transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.3_P0AE34	; arginine transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.3_P0AE30	; arginine transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.3_P0AAF6	; arginine transport system ATP-binding protein; [EC:3.6.3.-]; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.28_B8F898	; cystine transport system ATP-binding protein; [EC:3.6.3.-]; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.28_B8F897	; cystine transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.28_B8F896	; cystine transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.23_Q9HU32	; octopine/nopaline transport system ATP-binding protein; [EC:3.6.3.-]; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.23_Q9HU29	; octopine/nopaline transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.23	; lysine/arginine/ornithine/histidine/octopine transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.21	; hydroxyproline transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.20_Q9A1H1	; putative lysine transport system ATP-binding protein; [EC:3.6.3.-]; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.20_Q9A1H0	; putative lysine transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.20	; putative lysine transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.2_P10346	; glutamine transport system ATP-binding protein; [EC:3.6.3.-]; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.2_P0AEQ6	; glutamine transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.2_P0AEQ3	; glutamine transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.19_Q88NY5|3.A.1.3.22_Q9I405|3.A.1.3.4_P0AAG3	; glutamate/aspartate transport system ATP-binding protein; [EC:3.6.3.-]; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.19_Q88NY4|3.A.1.3.22_Q9I404|3.A.1.3.4_P0AER5	; glutamate/aspartate transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.19_Q88NY3|3.A.1.3.22_Q9I403|3.A.1.3.4_P0AER3	; glutamate/aspartate transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.19_Q88NY2|3.A.1.3.22_Q9I402|3.A.1.3.4_P37902	; glutamate/aspartate transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.18_Q8YPM9|3.A.1.3.26_P45766|3.A.1.3.7_Q52663|3.A.1.3.8_Q52812	; general L-amino acid transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.18_Q8YPM8|3.A.1.3.26_P45767|3.A.1.3.7_Q52664|3.A.1.3.8_Q52813	; general L-amino acid transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.18_Q8YPM7|3.A.1.3.26_P45768|3.A.1.3.7_Q52665|3.A.1.3.8_Q52814	; general L-amino acid transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.16_Q0P9X8	; putative glutamine transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.16_A3ZI83|3.A.1.3.26_P45769|3.A.1.3.7_Q52666|3.A.1.3.8_Q52815	; general L-amino acid transport system ATP-binding protein; [EC:3.6.3.-]; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.16_A3ZI83	; putative glutamine transport system ATP-binding protein; [EC:3.6.3.-]; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.16_A1VZQ3	; putative glutamine transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.15|3.A.1.3.27	; arginine/lysine/histidine transporter system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.15_P54537|3.A.1.3.23_Q9HU32|3.A.1.3.24_Q9F3K7|3.A.1.3.25_Q9CES4	; polar amino acid transport system ATP-binding protein; [EC:3.6.3.21]; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.15_P54536|3.A.1.3.23_Q9HU29|3.A.1.3.23_Q9HU30|3.A.1.3.24_Q9F3K6	; polar amino acid transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.13	; L-cystine transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.12_P73721	; arginine/lysine/histidine/glutamine transport system ATP-binding protein; [EC:3.6.3.-]; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.12_P73544|3.A.1.3.17_Q8YSA2	; arginine/lysine/histidine/glutamine transport system substrate-binding and permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.11_O50183|3.A.1.3.1_P0A2I7|3.A.1.3.29_P0AEU3	; histidine transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.11_O50183	; arginine/ornithine transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.11_O50182|3.A.1.3.1_P0A2I9|3.A.1.3.29_P52094	; histidine transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.11_O50182	; arginine/ornithine transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.11_O50181|3.A.1.3.1_P09551|3.A.1.3.29_P09551|3.A.1.3.29_P0AEU0	; lysine/arginine/ornithine transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.11_O50181	; arginine/ornithine transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.11_O30506|3.A.1.3.1_P02915|3.A.1.3.29_P07109	; histidine transport system ATP-binding protein; [EC:3.6.3.21]; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.3.11_O30506|3.A.1.3.1_P02915|3.A.1.3.23_Q9HU32	; arginine/ornithine transport system ATP-binding protein; [EC:3.6.3.-]; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.24.1_P31547|3.A.1.24.2_O32168|3.A.1.24.3_Q8K8K7|3.A.1.24.4_Q8NSN3|3.A.1.24.5_Q9HT69	; D-methionine transport system permease protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.24.1_P30750|3.A.1.24.2_O32169|3.A.1.24.3_Q8K8K8|3.A.1.24.4_Q8NSN2|3.A.1.24.5_Q9HT70	; D-methionine transport system ATP-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.24.1_P28635|3.A.1.24.2_O32167|3.A.1.24.3_Q8K8K9|3.A.1.24.4_Q8NSN1|3.A.1.24.5_Q9HT68	; D-methionine transport system substrate-binding protein; ; 	Nitrogen Transport	Amino acid transport	ag
+3.A.1.16.1|3.A.1.16.2	; nitrate/nitrite transport system substrate-binding protein; ; 	Nitrogen Transport	Inorganic transport	ag
+3.A.1.16.1	; nitrate/nitrite transport system ATP-binding protein; [EC:3.6.3.-]; 	Nitrogen Transport	Inorganic transport	ag
+3.A.1.133.1	; putative peptide transport system ATP-binding protein; ; 	Nitrogen Transport	Peptide transport	ag
+2.A.8.1.5_P08555	; D-serine transporter; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.8.1.12_O32105	; putative amino acid transporter; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.76.1.3_P75693	; amino acid exporter; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.75.1.1_P94633|2.A.75.1.2_P11667|2.A.75.1.3_P64711	; L-lysine exporter family protein LysE/ArgO; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.42.2.2_P0AAD8	; threonine transporter; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.42.2.1_P0AAD6	; serine transporter; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.42.1.4_Q47825	; tyrosine permease; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.42.1.3_P23173	; low affinity tryptophan permease; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.42.1.2_P0AAD2|2.A.42.1.5_Q5NFU3	; tryptophan-specific transport protein; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.42.1.1_P0AAD4|2.A.42.1.5_Q5NFU3	; tyrosine-specific transport protein; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.3.7.1|2.A.3.7.3	; glutamate:GABA antiporter; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.3.3.16_Q9L100|2.A.3.3.22_Q8R706|2.A.3.3.23_s6ex81|2.A.3.8.12_O34739|2.A.3.8.28_K1M2K1	basic amino acid/polyamine antiporter; APA family; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.3.2.5_P60061	; arginine:agmatine antiporter; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.3.2.10_F2HL52|2.A.3.2.11_F2HL56|2.A.3.2.3_P18275|2.A.3.2.4_P35865|2.A.3.2.6_O32204|2.A.3.2.7_Q9Z6M8|2.A.3.2.8_P0AAE5	; arginine:ornithine antiporter / lysine permease; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.3.13.1_P39277	; amino acid efflux transporter; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.3.1.9_O31199	; histidine transporter; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.3.1.3_P15993	; aromatic amino acid transport protein AroP; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.3.1.24_P77610|2.A.3.1.8_P40812	; L-asparagine permease; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.3.1.23_P0AAE2|2.A.3.1.6_P37460	; proline-specific permease ProY; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.3.1.20_F2HQ24|2.A.3.1.21_F2HQ25	amino acid transporter; AAT family; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.3.1.18_K7VV21|2.A.3.1.2_P25737	; lysine-specific permease; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.3.1.17_M1IW84|2.A.3.1.7_P0AAE0	; D-serine/D-alanine/glycine transporter; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.3.1.12_Q46065	; aromatic amino acid permease; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.3.1.11_P39137	; S-methylmethionine transporter; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.3.1.1_P24207	; phenylalanine-specific permease; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.3.1	; histidine permease; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.27.1.1_P0AER8|2.A.27.1.2_P73275|2.A.27.1.3_Q9HZ58|2.A.27.2.1_B1XKD9|2.A.27.2.2_M1QJN9	glutamate:Na+ symporter; ESS family; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.26.1.10_P0AD99|2.A.26.1.1_P19072|2.A.26.1.2_P25185|2.A.26.1.3_P54104|2.A.26.1.4_O84558|2.A.26.1.5_C0CGS2|2.A.26.1.8_B8J0B8|2.A.26.1.9_F2HK99	branched-chain amino acid:cation transporter; LIVCS family; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.25.1.10_P30143|2.A.25.1.1_P30144|2.A.25.1.2_P30145|2.A.25.1.3_Q6LX42|2.A.25.1.4_Q8EII1|2.A.25.1.5_Q45068|2.A.25.1.9_W0WFC6	alanine or glycine:cation symporter; AGCS family; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.23.4.1_P0AGE4	; serine/threonine transporter; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.23.1.1_P21345|2.A.23.1.2_P24943	; proton glutamate symport protein; ; 	Nitrogen Transport	Amino acid transport	ag
+2.A.21.2.1_P07117|2.A.21.2.2_Q7A4Q7|2.A.21.2.3_Q9I5F5|2.A.21.2.4_J7JIE8|2.A.21.2.6_O24896	; sodium/proline symporter; ; 	Nitrogen Transport	Amino acid transport	ag
+1.A.11	ammonium transporter; Amt family; ; 	Nitrogen Transport	Inorganic transport	ag
+K02575	NRT2, narK, nrtP, nasA; MFS transporter, NNP family, nitrate/nitrite transporter; ; 	Nitrogen Transport	Inorganic transport	ag

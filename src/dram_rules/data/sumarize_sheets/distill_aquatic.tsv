@@ -1,0 +1,842 @@
+gene_id	gene_description	pathway	topic_ecosystem	header	subheader	note	reference
+K04114	benzoyl-CoA reductase subunit A [EC:1.3.7.8]	Anaerobic aromatic hydrocarbon degradation	marine	Carbon Processing	Big Carbon
+K07540	benzylsuccinate synthase [EC:4.1.99.11]	Anaerobic aromatic hydrocarbon degradation	marine	Carbon Processing	Big Carbon
+AA10	AA10 (formerly CBM33) proteins are copper-dependent lytic polysaccharide monooxygenases (LPMOs); some proteins have been shown to act on chitin, others on cellulose; lytic cellulose monooxygenase (C1-hydroxylating) (EC 1.14.99.54); lytic cellulose monooxygenase (C4-dehydrogenating)(EC 1.14.99.56); lytic chitin monooxygenase (EC 1.14.99.53)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+AA11	AA11 proteins are copper-dependent lytic polysaccharide monooxygenases (LPMOs); cleavage of chitin chains with oxidation of C-1 has been demonstrated for a AA11 LPMO from Aspergillus oryzae;	Cellulose degradation	marine	Carbon Processing	Big Carbon
+AA13	AA13 proteins are copper-dependent lytic polysaccharide monooxygenases (LPMOs); cleavage of starch with oxidation of C-1 at the site of cleavage has been demonstrated for the LPMO encoded by gene NCU08746 from Neurospora crassa;	Cellulose degradation	marine	Carbon Processing	Big Carbon
+AA15	AA15 lytic cellulose monooxygenase (C1-hydroxylating) (EC 1.14.99.54); lytic chitin monooxygenase (EC 1.14.99.53)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+AA16	AA16 Lytic cellulose monooxygenase (C1-hydroxylating) (EC 1.14.99.54)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+AA9	AA9 (formerly GH61) proteins are copper-dependent lytic polysaccharide monooxygenases (LPMOs); cleavage of cellulose chains with oxidation of carbons C1 and/or C4 and C-6); lytic cellulose monooxygenase (C1-hydroxylating) (EC 1.14.99.54); lytic cellulose monooxygenase (C4-dehydrogenating) (EC 1.14.99.56)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH1	GH1 beta-glucosidase (EC 3.2.1.21); beta-galactosidase (EC 3.2.1.23); beta-mannosidase (EC 3.2.1.25); beta-glucuronidase (EC 3.2.1.31); beta-xylosidase (EC 3.2.1.37); beta-D-fucosidase (EC 3.2.1.38); phlorizin hydrolase (EC 3.2.1.62); exo-beta-1,4-glucanase (EC 3.2.1.74); 6-phospho-beta-galactosidase (EC 3.2.1.85); 6-phospho-beta-glucosidase (EC 3.2.1.86); strictosidine beta-glucosidase (EC 3.2.1.105); lactase (EC 3.2.1.108); amygdalin beta-glucosidase (EC 3.2.1.117); prunasin beta-glucosidase (EC 3.2.1.118); vicianin hydrolase (EC 3.2.1.119); raucaffricine beta-glucosidase (EC 3.2.1.125); thioglucosidase (EC 3.2.1.147); beta-primeverosidase (EC 3.2.1.149); isoflavonoid 7-O-beta-apiosyl-beta-glucosidase (EC 3.2.1.161); ABA-specific beta-glucosidase (EC 3.2.1.175); DIMBOA beta-glucosidase (EC 3.2.1.182); beta-glycosidase (EC 3.2.1.-); hydroxyisourate hydrolase (EC 3.-.-.-)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH10	GH10 endo-1,4-beta-xylanase (EC 3.2.1.8); endo-1,3-beta-xylanase (EC 3.2.1.32); tomatinase (EC 3.2.1.-); xylan endotransglycosylase (EC 2.4.2.-); endo-beta-1,4-glucanase (EC 3.2.1.4)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH116	GH116 beta-glucosidase (EC 3.2.1.21); beta-xylosidase (EC 3.2.1.37); acid beta-glucosidase/beta-glucosylceramidase (EC 3.2.1.45); beta-N-acetylglucosaminidase (EC 3.2.1.52)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH12	GH12 endoglucanase (EC 3.2.1.4); xyloglucan hydrolase (EC 3.2.1.151); beta-1,3-1,4-glucanase (EC 3.2.1.73); xyloglucan endotransglycosylase (EC 2.4.1.207)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH124	GH124 endoglucanase (EC 3.2.1.4)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH16	GH16 xyloglucan:xyloglucosyltransferase (EC 2.4.1.207); keratan-sulfate endo-1,4-beta-galactosidase (EC 3.2.1.103); endo-1,3-beta-glucanase / laminarinase (EC 3.2.1.39); endo-1,3(4)-beta-glucanase (EC 3.2.1.6); licheninase (EC 3.2.1.73); beta-agarase (EC 3.2.1.81); kappa;-carrageenase (EC 3.2.1.83); xyloglucanase (EC 3.2.1.151); endo-beta-1,3-galactanase (EC 3.2.1.181); [retaining] beta-porphyranase (EC 3.2.1.178); hyaluronidase (EC 3.2.1.35); endo-beta-1,4-galactosidase (EC 3.2.1.-); chitin beta-1,6-glucanosyltransferase (EC 2.4.1.-); beta-transglycosidase (EC 2.4.1.-); beta-glycosidase (EC 3.2.1.-); endo-beta-1,3-galactanase (EC 3.2.1.181)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH2	GH2 beta-galactosidase (EC 3.2.1.23) ; beta-mannosidase (EC 3.2.1.25); beta-glucuronidase (EC 3.2.1.31); alpha-L-arabinofuranosidase (EC 3.2.1.55); mannosylglycoprotein endo-beta-mannosidase (EC 3.2.1.152); exo-beta-glucosaminidase (EC 3.2.1.165); alpha-L-arabinopyranosidase (EC 3.2.1.-); beta-galacturonidase (EC 3.2.1.-); beta-xylosidase (EC 3.2.1.37); beta-D-galactofuranosidase (EC 3.2.1.146);	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH3	GH3 beta-glucosidase (EC 3.2.1.21); xylan 1,4-beta-xylosidase (EC 3.2.1.37); beta-glucosylceramidase (EC 3.2.1.45); beta-N-acetylhexosaminidase (EC 3.2.1.52); alpha-L-arabinofuranosidase (EC 3.2.1.55); glucan 1,3-beta-glucosidase (EC 3.2.1.58); glucan 1,4-beta-glucosidase (EC 3.2.1.74); isoprimeverose-producing oligoxyloglucan hydrolase (EC 3.2.1.120); coniferin beta-glucosidase (EC 3.2.1.126); exo-1,3-1,4-glucanase (EC 3.2.1.-); beta-N-acetylglucosaminide phosphorylases (EC 2.4.1.-)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH44	GH44 endoglucanase (EC 3.2.1.4); xyloglucanase (EC 3.2.1.151)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH45	GH45 endoglucanase (EC 3.2.1.4); xyloglucan-specific endo-beta-1,4-glucanase / endo-xyloglucanase (EC 3.2.1.151); endo-beta-1,4-mannanase (EC 3.2.1.78)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH48	GH48 reducing end-acting cellobiohydrolase (EC 3.2.1.176); endo-beta-1,4-glucanase (EC 3.2.1.4); chitinase (EC 3.2.1.14)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH5	GH5 endo-beta-1,4-glucanase / cellulase (EC 3.2.1.4); endo-beta-1,4-xylanase (EC 3.2.1.8); beta-glucosidase (EC 3.2.1.21); beta-mannosidase (EC 3.2.1.25); beta-glucosylceramidase (EC 3.2.1.45); glucan beta-1,3-glucosidase (EC 3.2.1.58); licheninase (EC 3.2.1.73); exo-beta-1,4-glucanase / cellodextrinase (EC 3.2.1.74); glucan endo-1,6-beta-glucosidase (EC 3.2.1.75); mannan endo-beta-1,4-mannosidase (EC 3.2.1.78); cellulose beta-1,4-cellobiosidase (EC 3.2.1.91); steryl beta-glucosidase (EC 3.2.1.104); endoglycoceramidase (EC 3.2.1.123); chitosanase (EC 3.2.1.132); beta-primeverosidase (EC 3.2.1.149); xyloglucan-specific endo-beta-1,4-glucanase (EC 3.2.1.151); endo-beta-1,6-galactanase (EC 3.2.1.164); hesperidin 6-O-alpha-L-rhamnosyl-beta-glucosidase (EC 3.2.1.168); beta-1,3-mannanase (EC 3.2.1.-); arabinoxylan-specific endo-beta-1,4-xylanase (EC 3.2.1.-); mannan transglycosylase (EC 2.4.1.-); lichenase / endo-beta-1,3-1,4-glucanase (EC 3.2.1.73); beta-glycosidase (EC 3.2.1.-); endo-beta-1,3-glucanase / laminarinase (EC 3.2.1.39); beta-N-acetylhexosaminidase (EC 3.2.1.52); chitosanase (EC 3.2.1.132); beta-D-galactofuranosidase (EC 3.2.1.146);	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH6	GH6 endoglucanase (EC 3.2.1.4); cellobiohydrolase (EC 3.2.1.91)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH7	GH7 endo-beta-1,4-glucanase (EC 3.2.1.4); reducing end-acting cellobiohydrolase (EC 3.2.1.176); chitosanase (EC 3.2.1.132); endo-beta-1,3-1,4-glucanase (EC 3.2.1.73)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH8	GH8 chitosanase (EC 3.2.1.132); cellulase (EC 3.2.1.4); licheninase (EC 3.2.1.73); endo-1,4-beta-xylanase (EC 3.2.1.8); reducing-end-xylose releasing exo-oligoxylanase (EC 3.2.1.156)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH9	GH9 endoglucanase (EC 3.2.1.4); endo-beta-1,3(4)-glucanase / lichenase-laminarinase (EC 3.2.1.6); beta-glucosidase (EC 3.2.1.21); lichenase / endo-beta-1,3-1,4-glucanase (EC 3.2.1.73); exo-beta-1,4-glucanase / cellodextrinase (EC 3.2.1.74); cellobiohydrolase (EC 3.2.1.91); xyloglucan-specific endo-beta-1,4-glucanase / endo-xyloglucanase (EC 3.2.1.151); exo-beta-glucosaminidase (EC 3.2.1.165)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+GH94	GH94 cellobiose phosphorylase (EC 2.4.1.20); laminaribiose phosphorylase (EC 2.4.1.31); cellodextrin phosphorylase (EC 2.4.1.49); chitobiose phosphorylase (EC 2.4.1.-); cyclic beta-1,2-glucan synthase (EC 2.4.1.-); cellobionic acid phosphorylase (EC 2.4.1.321); beta-1,2-oligoglucan phosphorylase (EC 2.4.1.-)	Cellulose degradation	marine	Carbon Processing	Big Carbon
+K01183	ChiC, chitinase [EC:3.2.1.14]	Chitin degradation	marine	Carbon Processing	Big Carbon
+K01207	beta-N-acetylhexosaminidase [EC:3.2.1.52]	Chitin degradation	marine	Carbon Processing	Big Carbon
+K03791	Putative chitinase	Chitin degradation	marine	Carbon Processing	Big Carbon
+AA9	AA9 (formerly GH61) proteins are copper-dependent lytic polysaccharide monooxygenases (LPMOs); cleavage of cellulose chains with oxidation of carbons C1 and/or C4 and C-6); lytic cellulose monooxygenase (C1-hydroxylating) (EC 1.14.99.54); lytic cellulose monooxygenase (C4-dehydrogenating) (EC 1.14.99.56)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+CE1	CE1 acetyl xylan esterase (EC 3.1.1.72); cinnamoyl esterase (EC 3.1.1.-); feruloyl esterase (EC 3.1.1.73); carboxylesterase (EC 3.1.1.1); S-formylglutathione hydrolase (EC 3.1.2.12); diacylglycerol O-acyltransferase (EC 2.3.1.20); trehalose 6-O-mycolyltransferase (EC 2.3.1.122)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+CE17	acetyl mannan esterase [EC:3.1.1.-]	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+CE2	CE2 acetyl xylan esterase (EC 3.1.1.72).	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+CE4	CE4 acetyl xylan esterase (EC 3.1.1.72); chitin deacetylase (EC 3.5.1.41); chitooligosaccharide deacetylase (EC 3.5.1.-); peptidoglycan GlcNAc deacetylase (EC 3.5.1.-); peptidoglycan N-acetylmuramic acid deacetylase (EC 3.5.1.-).	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH10	GH10 endo-1,4-beta-xylanase (EC 3.2.1.8); endo-1,3-beta-xylanase (EC 3.2.1.32); tomatinase (EC 3.2.1.-); xylan endotransglycosylase (EC 2.4.2.-); endo-beta-1,4-glucanase (EC 3.2.1.4)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH11	GH11 endo-beta-1,4-xylanase (EC 3.2.1.8); endo-beta-1,3-xylanase (EC 3.2.1.32)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH113	GH113 beta-mannanase (EC 3.2.1.78)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH12	GH12 endoglucanase (EC 3.2.1.4); xyloglucan hydrolase (EC 3.2.1.151); beta-1,3-1,4-glucanase (EC 3.2.1.73); xyloglucan endotransglycosylase (EC 2.4.1.207)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH125	GH125 exo-alpha-1,6-mannosidase (EC 3.2.1.-)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH130	GH130 beta-1,4-mannosylglucose phosphorylase (EC 2.4.1.281); beta-1,4-mannooligosaccharide phosphorylase (EC 2.4.1.319); beta-1,4-mannosyl-N-acetyl-glucosamine phosphorylase (EC 2.4.1.320); beta-1,2-mannobiose phosphorylase (EC 2.4.1.-); beta-1,2-oligomannan phosphorylase (EC 2.4.1.-); beta-1,2-mannosidase (EC 3.2.1.-)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH134	GH134 endo-beta-1,4-mannanase (EC 3.2.1.78);	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH16	GH16 xyloglucan:xyloglucosyltransferase (EC 2.4.1.207); keratan-sulfate endo-1,4-beta-galactosidase (EC 3.2.1.103); endo-1,3-beta-glucanase / laminarinase (EC 3.2.1.39); endo-1,3(4)-beta-glucanase (EC 3.2.1.6); licheninase (EC 3.2.1.73); beta-agarase (EC 3.2.1.81); kappa;-carrageenase (EC 3.2.1.83); xyloglucanase (EC 3.2.1.151); endo-beta-1,3-galactanase (EC 3.2.1.181); [retaining] beta-porphyranase (EC 3.2.1.178); hyaluronidase (EC 3.2.1.35); endo-beta-1,4-galactosidase (EC 3.2.1.-); chitin beta-1,6-glucanosyltransferase (EC 2.4.1.-); beta-transglycosidase (EC 2.4.1.-); beta-glycosidase (EC 3.2.1.-); endo-beta-1,3-galactanase (EC 3.2.1.181)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH2	GH2 beta-galactosidase (EC 3.2.1.23) ; beta-mannosidase (EC 3.2.1.25); beta-glucuronidase (EC 3.2.1.31); alpha-L-arabinofuranosidase (EC 3.2.1.55); mannosylglycoprotein endo-beta-mannosidase (EC 3.2.1.152); exo-beta-glucosaminidase (EC 3.2.1.165); alpha-L-arabinopyranosidase (EC 3.2.1.-); beta-galacturonidase (EC 3.2.1.-); beta-xylosidase (EC 3.2.1.37); beta-D-galactofuranosidase (EC 3.2.1.146);	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH26	GH26 beta-mannanase (EC 3.2.1.78); exo-beta-1,4-mannobiohydrolase (EC 3.2.1.100); beta-1,3-xylanase (EC 3.2.1.32); lichenase / endo-beta-1,3-1,4-glucanase (EC 3.2.1.73); mannobiose-producing exo-beta-mannanase (EC 3.2.1.-)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH31	GH31 alpha-glucosidase (EC 3.2.1.20); alpha-galactosidase (EC 3.2.1.22); alpha-mannosidase (EC 3.2.1.24); alpha-1,3-glucosidase (EC 3.2.1.84); sucrase-isomaltase (EC 3.2.1.48) (EC 3.2.1.10); alpha-xylosidase (EC 3.2.1.177); alpha-glucan lyase (EC 4.2.2.13); isomaltosyltransferase (EC 2.4.1.-); oligosaccharide alpha-1,4-glucosyltransferase (EC 2.4.1.161); sulfoquinovosidase (EC 3.2.1.-)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH38	GH38 alpha-mannosidase (EC 3.2.1.24); mannosyl-oligosaccharide alpha-1,2-mannosidase (EC 3.2.1.113); mannosyl-oligosaccharide alpha-1,3-1,6-mannosidase (EC 3.2.1.114); alpha-2-O-mannosylglycerate hydrolase (EC 3.2.1.170); mannosyl-oligosaccharide alpha-1,3-mannosidase (EC 3.2.1.-)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH43	GH43 beta-xylosidase (EC 3.2.1.37); alpha-L-arabinofuranosidase (EC 3.2.1.55); xylanase (EC 3.2.1.8); alpha-1,2-L-arabinofuranosidase (EC 3.2.1.-); exo-alpha-1,5-L-arabinofuranosidase (EC 3.2.1.-); [inverting] exo-alpha-1,5-L-arabinanase (EC 3.2.1.-); beta-1,3-xylosidase (EC 3.2.1.-); [inverting] exo-alpha-1,5-L-arabinanase (EC 3.2.1.-); [inverting] endo-alpha-1,5-L-arabinanase (EC 3.2.1.99); exo-beta-1,3-galactanase (EC 3.2.1.145); beta-D-galactofuranosidase (EC 3.2.1.146)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH44	GH44 endoglucanase (EC 3.2.1.4); xyloglucanase (EC 3.2.1.151)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH45	GH45 endoglucanase (EC 3.2.1.4); xyloglucan-specific endo-beta-1,4-glucanase / endo-xyloglucanase (EC 3.2.1.151); endo-beta-1,4-mannanase (EC 3.2.1.78)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH47	GH47 alpha-mannosidase (EC 3.2.1.113)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH48	GH48 reducing end-acting cellobiohydrolase (EC 3.2.1.176); endo-beta-1,4-glucanase (EC 3.2.1.4); chitinase (EC 3.2.1.14)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH5	GH5 endo-beta-1,4-glucanase / cellulase (EC 3.2.1.4); endo-beta-1,4-xylanase (EC 3.2.1.8); beta-glucosidase (EC 3.2.1.21); beta-mannosidase (EC 3.2.1.25); beta-glucosylceramidase (EC 3.2.1.45); glucan beta-1,3-glucosidase (EC 3.2.1.58); licheninase (EC 3.2.1.73); exo-beta-1,4-glucanase / cellodextrinase (EC 3.2.1.74); glucan endo-1,6-beta-glucosidase (EC 3.2.1.75); mannan endo-beta-1,4-mannosidase (EC 3.2.1.78); cellulose beta-1,4-cellobiosidase (EC 3.2.1.91); steryl beta-glucosidase (EC 3.2.1.104); endoglycoceramidase (EC 3.2.1.123); chitosanase (EC 3.2.1.132); beta-primeverosidase (EC 3.2.1.149); xyloglucan-specific endo-beta-1,4-glucanase (EC 3.2.1.151); endo-beta-1,6-galactanase (EC 3.2.1.164); hesperidin 6-O-alpha-L-rhamnosyl-beta-glucosidase (EC 3.2.1.168); beta-1,3-mannanase (EC 3.2.1.-); arabinoxylan-specific endo-beta-1,4-xylanase (EC 3.2.1.-); mannan transglycosylase (EC 2.4.1.-); lichenase / endo-beta-1,3-1,4-glucanase (EC 3.2.1.73); beta-glycosidase (EC 3.2.1.-); endo-beta-1,3-glucanase / laminarinase (EC 3.2.1.39); beta-N-acetylhexosaminidase (EC 3.2.1.52); chitosanase (EC 3.2.1.132); beta-D-galactofuranosidase (EC 3.2.1.146);	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH51	GH51 endoglucanase (EC 3.2.1.4); endo-beta-1,4-xylanase (EC 3.2.1.8); beta-xylosidase (EC 3.2.1.37); alpha-L-arabinofuranosidase (EC 3.2.1.55); lichenase / endo-beta-1,3-1,4-glucanase (EC 3.2.1.73)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH63	GH63 processing alpha-glucosidase (EC 3.2.1.106); alpha-1,3-glucosidase (EC 3.2.1.84); alpha-glucosidase (EC 3.2.1.20); mannosylglycerate alpha-mannosidase / mannosylglycerate hydrolase (EC 3.2.1.170); glucosylglycerate hydrolase (EC 3.2.1.208)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH74	GH74 endoglucanase (EC 3.2.1.4); oligoxyloglucan reducing end-specific cellobiohydrolase (EC 3.2.1.150); xyloglucanase (EC 3.2.1.151)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH76	GH76 alpha-1,6-mannanase (EC 3.2.1.101); alpha-glucosidase (EC 3.2.1.20)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH9	GH9 endoglucanase (EC 3.2.1.4); endo-beta-1,3(4)-glucanase / lichenase-laminarinase (EC 3.2.1.6); beta-glucosidase (EC 3.2.1.21); lichenase / endo-beta-1,3-1,4-glucanase (EC 3.2.1.73); exo-beta-1,4-glucanase / cellodextrinase (EC 3.2.1.74); cellobiohydrolase (EC 3.2.1.91); xyloglucan-specific endo-beta-1,4-glucanase / endo-xyloglucanase (EC 3.2.1.151); exo-beta-glucosaminidase (EC 3.2.1.165)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH92	GH92 mannosyl-oligosaccharide alpha-1,2-mannosidase (EC 3.2.1.113); mannosyl-oligosaccharide alpha-1,3-mannosidase (EC 3.2.1.-); mannosyl-oligosaccharide alpha-1,6-mannosidase (EC 3.2.1.-); alpha-mannosidase (EC 3.2.1.24); alpha-1,2-mannosidase (EC 3.2.1.-); alpha-1,3-mannosidase (EC 3.2.1.-); alpha-1,4-mannosidase (EC 3.2.1.-); mannosyl-1-phosphodiester alpha-1,P-mannosidase (EC 3.2.1.-)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+GH99	GH99 glycoprotein endo-alpha-1,2-mannosidase (EC 3.2.1.130); mannan endo-1,2-alpha-mannanase (3.2.1.-)	Hemicellulose degradation	marine	Carbon Processing	Big Carbon
+AA1	laccase / multicopper oxidase [EC:1.10.3.2]	Lignin degradation	marine	Carbon Processing	Big Carbon
+AA2	class II peroxidase (lignin/manganese/versatile peroxidases) [EC:1.11.1.-]	Lignin degradation	marine	Carbon Processing	Big Carbon
+AA3_1	cellobiose dehydrogenase, dehydrogenase domain [EC:1.1.99.-]	Lignin degradation	marine	Carbon Processing	Big Carbon
+AA3_2	aryl-alcohol oxidase (GMC oxidoreductase) [EC:1.1.3.7]	Lignin degradation	marine	Carbon Processing	Big Carbon
+AA5_1	glyoxal oxidase [EC:1.2.3.15]	Lignin degradation	marine	Carbon Processing	Big Carbon
+AA8	cellobiose dehydrogenase, cytochrome domain [EC:1.1.99.-]	Lignin degradation	marine	Carbon Processing	Big Carbon
+dyp	DyP-type peroxidase (dye-decolorizing peroxidase) [EC:1.11.1.-]	Lignin degradation	marine	Carbon Processing	Big Carbon
+mco	multicopper oxidase (bacterial laccase) [EC:1.10.3.2]	Lignin degradation	marine	Carbon Processing	Big Carbon
+CE12	CE12 pectin acetylesterase (EC 3.1.1.-); rhamnogalacturonan acetylesterase (EC 3.1.1.-); acetyl xylan esterase (EC 3.1.1.72)	Pectin degradation	marine	Carbon Processing	Big Carbon
+CE8	CE8 pectin methylesterase (EC 3.1.1.11).	Pectin degradation	marine	Carbon Processing	Big Carbon
+GH105	GH105 unsaturated rhamnogalacturonyl hydrolase (EC 3.2.1.172); d-4,5-unsaturated beta-glucuronyl hydrolase (EC 3.2.1.-); d-4,5-unsaturated alpha-galacturonidase (EC 3.2.1.-)	Pectin degradation	marine	Carbon Processing	Big Carbon
+GH106	GH106 alpha-L-rhamnosidase (EC 3.2.1.40); rhamnogalacturonan alpha-L-rhamnohydrolase (EC 3.2.1.174)	Pectin degradation	marine	Carbon Processing	Big Carbon
+GH138	GH138 alpha-galacturonidase (EC 3.2.1.-)	Pectin degradation	marine	Carbon Processing	Big Carbon
+GH139	GH139 alpha-2-O-Me-L-fucosidase (EC 3.2.1.-)	Pectin degradation	marine	Carbon Processing	Big Carbon
+GH143	GH143 2-keto-3-deoxy-D-lyxo-heptulosaric acid hydrolase (EC 3.2.1.-)	Pectin degradation	marine	Carbon Processing	Big Carbon
+GH2	GH2 beta-galactosidase (EC 3.2.1.23) ; beta-mannosidase (EC 3.2.1.25); beta-glucuronidase (EC 3.2.1.31); alpha-L-arabinofuranosidase (EC 3.2.1.55); mannosylglycoprotein endo-beta-mannosidase (EC 3.2.1.152); exo-beta-glucosaminidase (EC 3.2.1.165); alpha-L-arabinopyranosidase (EC 3.2.1.-); beta-galacturonidase (EC 3.2.1.-); beta-xylosidase (EC 3.2.1.37); beta-D-galactofuranosidase (EC 3.2.1.146);	Pectin degradation	marine	Carbon Processing	Big Carbon
+GH28	GH28 polygalacturonase (EC 3.2.1.15); alpha-L-rhamnosidase (EC 3.2.1.40); exo-polygalacturonase (EC 3.2.1.67); exo-polygalacturonosidase (EC 3.2.1.82); rhamnogalacturonase (EC 3.2.1.171); rhamnogalacturonan alpha-1,2-galacturonohydrolase (EC 3.2.1.173); endo-xylogalacturonan hydrolase (EC 3.2.1.-)	Pectin degradation	marine	Carbon Processing	Big Carbon
+GH4	GH4 maltose-6-phosphate glucosidase (EC 3.2.1.122); alpha-glucosidase (EC 3.2.1.20); alpha-galactosidase (EC 3.2.1.22); 6-phospho-beta-glucosidase (EC 3.2.1.86); alpha-glucuronidase (EC 3.2.1.139); alpha-galacturonase (EC 3.2.1.67); palatinase (EC 3.2.1.-)	Pectin degradation	marine	Carbon Processing	Big Carbon
+GH78	GH78 alpha-L-rhamnosidase (EC 3.2.1.40); rhamnogalacturonan alpha-L-rhamnohydrolase (EC 3.2.1.174); L-Rhap-alpha-1,3-D-Apif -specific alpha-1,3-L-rhamnosidase (EC 3.2.1.-)	Pectin degradation	marine	Carbon Processing	Big Carbon
+PL1	PL1 pectate lyase (EC 4.2.2.2); exo-pectate lyase (EC 4.2.2.9); pectin lyase (EC 4.2.2.10).	Pectin degradation	marine	Carbon Processing	Big Carbon
+PL10	PL10 pectate lyase (EC 4.2.2.2)	Pectin degradation	marine	Carbon Processing	Big Carbon
+PL11	PL11 rhamnogalacturonan endolyase (EC 4.2.2.23); rhamnogalacturonan exolyase (EC 4.2.2.24)	Pectin degradation	marine	Carbon Processing	Big Carbon
+PL2	PL2 pectate lyase (EC 4.2.2.2); exo-polygalacturonate lyase (EC 4.2.2.9).	Pectin degradation	marine	Carbon Processing	Big Carbon
+PL22	PL22 oligogalacturonate lyase / oligogalacturonide lyase (EC 4.2.2.6)	Pectin degradation	marine	Carbon Processing	Big Carbon
+PL26	PL26 rhamnogalacturonan exolyase (EC 4.2.2.24).	Pectin degradation	marine	Carbon Processing	Big Carbon
+PL3	PL3 pectate lyase (EC 4.2.2.2).	Pectin degradation	marine	Carbon Processing	Big Carbon
+PL4	PL4 rhamnogalacturonan endolyase (EC 4.2.2.23).	Pectin degradation	marine	Carbon Processing	Big Carbon
+PL9	PL9 pectate lyase (EC 4.2.2.2); exopolygalacturonate lyase (EC 4.2.2.9); thiopeptidoglycan lyase (EC 4.2.2.-).	Pectin degradation	marine	Carbon Processing	Big Carbon
+AA13	AA13 proteins are copper-dependent lytic polysaccharide monooxygenases (LPMOs); cleavage of starch with oxidation of C-1 at the site of cleavage has been demonstrated for the LPMO encoded by gene NCU08746 from Neurospora crassa;	Starch degradation	marine	Carbon Processing	Big Carbon
+GH119	GH119 alpha-amylase (EC 3.2.1.1)	Starch degradation	marine	Carbon Processing	Big Carbon
+GH126	GH126 alpha-amylase (EC 3.2.1.-)	Starch degradation	marine	Carbon Processing	Big Carbon
+GH13	GH13 alpha-amylase (EC 3.2.1.1); pullulanase (EC 3.2.1.41); cyclomaltodextrin glucanotransferase (EC 2.4.1.19); cyclomaltodextrinase (EC 3.2.1.54); trehalose-6-phosphate hydrolase (EC 3.2.1.93); oligo-alpha-glucosidase (EC 3.2.1.10); maltogenic amylase (EC 3.2.1.133); neopullulanase (EC 3.2.1.135); alpha-glucosidase (EC 3.2.1.20); maltotetraose-forming alpha-amylase (EC 3.2.1.60); isoamylase (EC 3.2.1.68); glucodextranase (EC 3.2.1.70); maltohexaose-forming alpha-amylase (EC 3.2.1.98); maltotriose-forming alpha-amylase (EC 3.2.1.116); branching enzyme (EC 2.4.1.18); trehalose synthase (EC 5.4.99.16); 4-alpha-glucanotransferase (EC 2.4.1.25); maltopentaose-forming alpha-amylase (EC 3.2.1.-) ; amylosucrase (EC 2.4.1.4) ; sucrose phosphorylase (EC 2.4.1.7); malto-oligosyltrehalose trehalohydrolase (EC 3.2.1.141); isomaltulose synthase (EC 5.4.99.11); malto-oligosyltrehalose synthase (EC 5.4.99.15); amylo-alpha-1,6-glucosidase (EC 3.2.1.33); alpha-1,4-glucan: phosphate alpha-maltosyltransferase (EC 2.4.99.16); 6'-P-sucrose phosphorylase (EC 2.4.1.-); amino acid transporter	Starch degradation	marine	Carbon Processing	Big Carbon
+GH133	GH133 amylo-alpha-1,6-glucosidase (EC 3.2.1.33);	Starch degradation	marine	Carbon Processing	Big Carbon
+GH14	GH14 beta-amylase (EC 3.2.1.2)	Starch degradation	marine	Carbon Processing	Big Carbon
+GH15	GH15 glucoamylase (EC 3.2.1.3); glucodextranase (EC 3.2.1.70); alpha,alpha-trehalase (EC 3.2.1.28); dextran dextrinase (EC 2.4.1.2)	Starch degradation	marine	Carbon Processing	Big Carbon
+GH57	GH57 alpha-amylase (EC 3.2.1.1); alpha-galactosidase (EC 3.2.1.22); amylopullulanase (EC 3.2.1.41); cyclomaltodextrinase (EC 3.2.1.54); branching enzyme (EC 2.4.1.18); 4-alpha-glucanotransferase (EC 2.4.1.25)	Starch degradation	marine	Carbon Processing	Big Carbon
+GH97	GH97 glucoamylase (EC 3.2.1.3); alpha-glucosidase (EC 3.2.1.20); alpha-galactosidase (EC 3.2.1.22)	Starch degradation	marine	Carbon Processing	Big Carbon
+K14534	4-hydroxybutyryl-CoA dehydratase / vinylacetyl-CoA-Delta-isomerase [EC:4.2.1.120 5.3.3.3]	3HP/4HB CO2 fixation cycle	marine	Carbon Processing	C Fixation
+K15017	malonyl-CoA/succinyl-CoA reductase (NADPH) [EC:1.2.1.75 1.2.1.76]	3HP/4HB CO2 fixation cycle	marine	Carbon Processing	C Fixation
+K15039	3-hydroxypropionate dehydrogenase (NADP+) [EC:1.1.1.298]	3HP/4HB CO2 fixation cycle	marine	Carbon Processing	C Fixation
+K18602	malonic semialdehyde reductase [EC:1.1.1.-]	3HP/4HB CO2 fixation cycle	marine	Carbon Processing	C Fixation
+K18603	acetyl-CoA/propionyl-CoA carboxylase [EC:6.4.1.2 6.4.1.3]	3HP/4HB CO2 fixation cycle	marine	Carbon Processing	C Fixation
+K18604	acetyl-CoA/propionyl-CoA carboxylase [EC:6.4.1.2 6.4.1.3 2.1.3.15]	3HP/4HB CO2 fixation cycle	marine	Carbon Processing	C Fixation
+K18605	biotin carboxyl carrier protein	3HP/4HB CO2 fixation cycle	marine	Carbon Processing	C Fixation
+K00855	phosphoribulokinase [EC:2.7.1.19]	Calvin-Benson-Bassham cycle CO2 fixation	marine	Carbon Processing	C Fixation
+K01601	ribulose-bisphosphate carboxylase large chain [EC:4.1.1.39]	Calvin-Benson-Bassham cycle CO2 fixation	marine	Carbon Processing	C Fixation
+K01783	ribulose-phosphate 3-epimerase [EC:5.1.3.1] [RN:R01529]	Calvin-Benson-Bassham cycle CO2 fixation	marine	Carbon Processing	C Fixation
+K00282	glycine cleavage system P protein (glycine dehydrogenase) subunit 1 [EC:1.4.4.2]	Reductive glycine pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K00283	glycine cleavage system P protein (glycine dehydrogenase) subunit 2 [EC:1.4.4.2]	Reductive glycine pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K00384	thioredoxin reductase (NADPH) [EC:1.8.1.9]	Reductive glycine pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K00605	glycine cleavage system T protein (aminomethyltransferase) [EC:2.1.2.10]	Reductive glycine pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K02437	glycine cleavage system H protein	Reductive glycine pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K03671	thioredoxin	Reductive glycine pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K10670	glycine/sarcosine/betaine reductase complex component A [EC:1.21.4.2 1.21.4.3 1.21.4.4]	Reductive glycine pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K10671	glycine reductase complex component B subunit alpha and beta [EC:1.21.4.2]	Reductive glycine pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K10672	glycine reductase complex component B subunit gamma [EC:1.21.4.2]	Reductive glycine pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K21576	glycine/sarcosine/betaine reductase complex component C subunit alpha [EC:1.21.4.2 1.21.4.3 1.21.4.4]	Reductive glycine pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K21577	glycine/sarcosine/betaine reductase complex component C subunit beta [EC:1.21.4.2 1.21.4.3 1.21.4.4]	Reductive glycine pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K15232	citryl-CoA synthetase large subunit [EC:6.2.1.18]	Reductive TCA cycle CO2 fixation	marine	Carbon Processing	C Fixation
+K15233	citryl-CoA synthetase small subunit	Reductive TCA cycle CO2 fixation	marine	Carbon Processing	C Fixation
+K15234	citryl-CoA lyase [EC:4.1.3.34]	Reductive TCA cycle CO2 fixation	marine	Carbon Processing	C Fixation
+K08093	3-hexulose-6-phosphate synthase [EC:4.1.2.43] [RN:R05338]	RuMP pathway methylotrophy	marine	Carbon Processing	C Fixation
+K08094	6-phospho-3-hexuloisomerase [EC:5.3.1.27] [RN:R09780]	RuMP pathway methylotrophy	marine	Carbon Processing	C Fixation
+K13812	3-hexulose-6-phosphate synthase [EC:4.1.2.43] [RN:R05338]	RuMP pathway methylotrophy	marine	Carbon Processing	C Fixation
+K13831	6-phospho-3-hexuloisomerase [EC:5.3.1.27] [RN:R09780]	RuMP pathway methylotrophy	marine	Carbon Processing	C Fixation
+K00192	cdhA; anaerobic carbon-monoxide dehydrogenase, CODH/ACS complex subunit alpha [EC:1.2.7.4] [RN:R07157]	Wood-Ljungdahl pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K00193	cdhC; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit beta [EC:2.3.1.169] [RN:R09096 R10219]	Wood-Ljungdahl pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K00194	cdhD; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit delta [EC:2.1.1.245] [RN:R09096 R10219]	Wood-Ljungdahl pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K00195	cdhB; anaerobic carbon-monoxide dehydrogenase, CODH/ACS complex subunit epsilon [RN:R07157]	Wood-Ljungdahl pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K00197	cdhE; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit gamma [EC:2.1.1.245] [RN:R09096 R10219]	Wood-Ljungdahl pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K00198	anaerobic carbon-monoxide dehydrogenase catalytic subunit [EC:1.2.7.4]	Wood-Ljungdahl pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K01938	formate--tetrahydrofolate ligase [EC:6.3.4.3]	Wood-Ljungdahl pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K05299	formate dehydrogenase (NADP+) alpha subunit [EC:1.17.1.10]	Wood-Ljungdahl pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K14138	acetyl-CoA synthase [EC:2.3.1.169]	Wood-Ljungdahl pathway CO2 fixation	marine	Carbon Processing	C Fixation
+K10944	ammonia monooxygenase [EC:1.14.99.39] [RN:R00148]	Aerobic methane oxidation	marine	Carbon Processing	Little Carbon
+K10945	ammonia monooxygenase [EC:1.14.99.39] [RN:R00148]	Aerobic methane oxidation	marine	Carbon Processing	Little Carbon
+K10946	ammonia monooxygenase [EC:1.14.99.39] [RN:R00148]	Aerobic methane oxidation	marine	Carbon Processing	Little Carbon
+K16157	soluble methane monooxygenase hydroxylase alpha subunit (mmoX) [EC:1.14.13.25]	Aerobic methane oxidation	marine	Carbon Processing	Little Carbon
+K16158	soluble methane monooxygenase hydroxylase beta subunit (mmoY) [EC:1.14.13.25]	Aerobic methane oxidation	marine	Carbon Processing	Little Carbon
+K16159	soluble methane monooxygenase hydroxylase gamma subunit (mmoZ) [EC:1.14.13.25]	Aerobic methane oxidation	marine	Carbon Processing	Little Carbon
+K16160	soluble methane monooxygenase component B (mmoB) [EC:1.14.13.25]	Aerobic methane oxidation	marine	Carbon Processing	Little Carbon
+K16161	soluble methane monooxygenase reductase component (mmoC) [EC:1.14.13.25]	Aerobic methane oxidation	marine	Carbon Processing	Little Carbon
+K16162	soluble methane monooxygenase regulatory protein (mmoD) [EC:1.14.13.25]	Aerobic methane oxidation	marine	Carbon Processing	Little Carbon
+K00399	methyl-coenzyme M reductase alpha subunit [EC:2.8.4.1]	Anaerobic alkane transformation (archaeal MCR)	marine	Carbon Processing	Little Carbon
+K00401	methyl-coenzyme M reductase beta subunit [EC:2.8.4.1]	Anaerobic alkane transformation (archaeal MCR)	marine	Carbon Processing	Little Carbon
+K00402	methyl-coenzyme M reductase gamma subunit [EC:2.8.4.1]	Anaerobic alkane transformation (archaeal MCR)	marine	Carbon Processing	Little Carbon
+K00421	lcc [EC:1.10.3.2]	Anaerobic alkane transformation (archaeal MCR)	marine	Carbon Processing	Little Carbon
+K00422	polyphenol oxidase [EC:1.10.3.1]	Anaerobic alkane transformation (archaeal MCR)	marine	Carbon Processing	Little Carbon
+K00192	cdhA; anaerobic carbon-monoxide dehydrogenase, CODH/ACS complex subunit alpha [EC:1.2.7.4] [RN:R07157]	CO2 fixation via acetyl-CoA (CODH/ACS) pathway	marine	Carbon Processing	Little Carbon
+K00193	cdhC; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit beta [EC:2.3.1.169] [RN:R09096 R10219]	CO2 fixation via acetyl-CoA (CODH/ACS) pathway	marine	Carbon Processing	Little Carbon
+K00194	cdhD; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit delta [EC:2.1.1.245] [RN:R09096 R10219]	CO2 fixation via acetyl-CoA (CODH/ACS) pathway	marine	Carbon Processing	Little Carbon
+K00195	cdhB; anaerobic carbon-monoxide dehydrogenase, CODH/ACS complex subunit epsilon [RN:R07157]	CO2 fixation via acetyl-CoA (CODH/ACS) pathway	marine	Carbon Processing	Little Carbon
+K00197	cdhE; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit gamma [EC:2.1.1.245] [RN:R09096 R10219]	CO2 fixation via acetyl-CoA (CODH/ACS) pathway	marine	Carbon Processing	Little Carbon
+K00625	phosphate acetyltransferase [EC:2.3.1.8] [RN:R00230]	Acetate production	marine	Carbon Processing	Medium Carbon
+K00925	acetate kinase [EC:2.7.2.1] [RN:R00315]	Acetate production	marine	Carbon Processing	Medium Carbon
+K01067	acetyl-CoA hydrolase [EC:3.1.2.1]	Acetate production	marine	Carbon Processing	Medium Carbon
+K01905	acetate-CoA ligase (ADP-forming) subunit alpha	Acetate production	marine	Carbon Processing	Medium Carbon
+K00001	alcohol dehydrogenase [EC:1.1.1.1]	Alcohol conversion	marine	Carbon Processing	Medium Carbon
+K00121	alcohol dehydrogenase [EC:1.1.1.1]	Alcohol conversion	marine	Carbon Processing	Medium Carbon
+K04072	alcohol dehydrogenase [EC:1.1.1.1]	Alcohol conversion	marine	Carbon Processing	Medium Carbon
+K13951	alcohol dehydrogenase [EC:1.1.1.1]	Alcohol conversion	marine	Carbon Processing	Medium Carbon
+K13952	alcohol dehydrogenase [EC:1.1.1.1]	Alcohol conversion	marine	Carbon Processing	Medium Carbon
+K13953	alcohol dehydrogenase [EC:1.1.1.1]	Alcohol conversion	marine	Carbon Processing	Medium Carbon
+K13954	alcohol dehydrogenase [EC:1.1.1.1]	Alcohol conversion	marine	Carbon Processing	Medium Carbon
+K13980	alcohol dehydrogenase [EC:1.1.1.1]	Alcohol conversion	marine	Carbon Processing	Medium Carbon
+K18857	alcohol dehydrogenase [EC:1.1.1.1]	Alcohol conversion	marine	Carbon Processing	Medium Carbon
+K00011	L-arabitol dehydrogenase [EC:1.1.1.12]	Arabinose utilization	marine	Carbon Processing	Medium Carbon
+K01804	L-arabinose isomerase [EC:5.3.1.4]	Arabinose utilization	marine	Carbon Processing	Medium Carbon
+K12446	L-arabonate dehydratase [EC:4.2.1.37]	Arabinose utilization	marine	Carbon Processing	Medium Carbon
+K13873	arabinolactonase [EC:3.1.1.110]	Arabinose utilization	marine	Carbon Processing	Medium Carbon
+K19660	arabinonate dehydratase [EC:4.2.1.37]	Arabinose utilization	marine	Carbon Processing	Medium Carbon
+K26066	arabinose 1-dehydrogenase [EC:1.1.1.46]	Arabinose utilization	marine	Carbon Processing	Medium Carbon
+K00634	phosphate butyryltransferase [EC:2.3.1.19]	Butyrate production	marine	Carbon Processing	Medium Carbon
+K00929	butyrate kinase [EC:2.7.2.7]	Butyrate production	marine	Carbon Processing	Medium Carbon
+K01896	medium-chain acyl-CoA synthetase [EC:6.2.1.2]	Butyrate production	marine	Carbon Processing	Medium Carbon
+K00249	acyl-CoA dehydrogenase [EC:1.3.8.7]	Fatty acid degradation via β-oxidation	marine	Carbon Processing	Medium Carbon
+K00255	long-chain-acyl-CoA dehydrogenase [EC:1.3.8.8]	Fatty acid degradation via β-oxidation	marine	Carbon Processing	Medium Carbon
+K00632	acetyl-CoA acyltransferase [EC:2.3.1.16]	Fatty acid degradation via β-oxidation	marine	Carbon Processing	Medium Carbon
+K01825	3-hydroxyacyl-CoA dehydrogenase / enoyl-CoA hydratase / 3-hydroxybutyryl-CoA epimerase / enoyl-CoA isomerase [EC:1.1.1.35 4.2.1.17 5.1.2.3 5.3.3.8]	Fatty acid degradation via β-oxidation	marine	Carbon Processing	Medium Carbon
+K06445	acyl-CoA dehydrogenase [EC:1.3.99.-]	Fatty acid degradation via β-oxidation	marine	Carbon Processing	Medium Carbon
+K09479	very long chain acyl-CoA dehydrogenase [EC:1.3.8.9]	Fatty acid degradation via β-oxidation	marine	Carbon Processing	Medium Carbon
+K13767	enoyl-CoA hydratase [EC:4.2.1.17]	Fatty acid degradation via β-oxidation	marine	Carbon Processing	Medium Carbon
+K00007	D-arabinitol 4-dehydrogenase [EC:1.1.1.11]	Fructose utilization	marine	Carbon Processing	Medium Carbon
+K00008	xylitol dehydrogenase [EC:1.1.1.9]	Fructose utilization	marine	Carbon Processing	Medium Carbon
+K00045	mannitol 2-dehydrogenase [EC:1.1.1.67]	Fructose utilization	marine	Carbon Processing	Medium Carbon
+K00844	hexokinase [EC:2.7.1.1]	Fructose utilization	marine	Carbon Processing	Medium Carbon
+K00846	ketohexokinase [EC:2.7.1.3]	Fructose utilization	marine	Carbon Processing	Medium Carbon
+K00847	fructokinase [EC:2.7.1.4]	Fructose utilization	marine	Carbon Processing	Medium Carbon
+K01805	xylose isomerase [EC:5.3.1.5]	Fructose utilization	marine	Carbon Processing	Medium Carbon
+K02768	PTS-Fru-EIIA; PTS system, fructose-specific IIA component	Fructose utilization	marine	Carbon Processing	Medium Carbon
+K02769	PTS-Fru-EIIB; PTS system, fructose-specific IIB component	Fructose utilization	marine	Carbon Processing	Medium Carbon
+K02770	PTS-Fru-EIIC; PTS system, fructose-specific IIC component	Fructose utilization	marine	Carbon Processing	Medium Carbon
+K02771	PTS-Fru1-EIID; PTS system, fructose-specific IID component	Fructose utilization	marine	Carbon Processing	Medium Carbon
+K11194	PTS-Fru1-EIIA; PTS system, fructose-specific IIA component	Fructose utilization	marine	Carbon Processing	Medium Carbon
+K11195	PTS-Fru1-EIIB; PTS system, fructose-specific IIB component	Fructose utilization	marine	Carbon Processing	Medium Carbon
+K11196	PTS-Fru1-EIIC; PTS system, fructose-specific IIC component	Fructose utilization	marine	Carbon Processing	Medium Carbon
+K27475	ketohexokinase [EC:2.7.1.3]	Fructose utilization	marine	Carbon Processing	Medium Carbon
+K27924	mannitol 2-dehydrogenase [EC:1.1.1.67]	Fructose utilization	marine	Carbon Processing	Medium Carbon
+K00879	L-fucokinase [EC:2.7.1.52]	Fucose utilization	marine	Carbon Processing	Medium Carbon
+K01628	L-fuculose-phosphate aldolase [EC:4.1.2.17]	Fucose utilization	marine	Carbon Processing	Medium Carbon
+K01818	L-fucose isomerase [EC:5.3.1.25]	Fucose utilization	marine	Carbon Processing	Medium Carbon
+K00849	galactokinase [EC:2.7.1.6]	Galactose utilization	marine	Carbon Processing	Medium Carbon
+K00965	galactose-1-phosphate uridylyltransferase [EC:2.7.7.12]	Galactose utilization	marine	Carbon Processing	Medium Carbon
+K01784	UDP-galactose 4-epimerase [EC:5.1.3.2]	Galactose utilization	marine	Carbon Processing	Medium Carbon
+K01785	galactose mutarotase [EC:5.1.3.3]	Galactose utilization	marine	Carbon Processing	Medium Carbon
+K00016	L-lactate dehydrogenase [EC:1.1.1.27]	Lactate production	marine	Carbon Processing	Medium Carbon
+K00101	L-lactate dehydrogenase (cytochrome) [EC:1.1.2.3]	Lactate production	marine	Carbon Processing	Medium Carbon
+K03777	D-lactate dehydrogenase (quinone/cytochrome variants) [EC:1.1.5.12, EC:1.1.2.4]	Lactate production	marine	Carbon Processing	Medium Carbon
+K03778	D-lactate dehydrogenase [EC:1.1.1.28]	Lactate production	marine	Carbon Processing	Medium Carbon
+K01809	mannose-6-phosphate isomerase [EC:5.3.1.8]	Mannose utilization	marine	Carbon Processing	Medium Carbon
+K02793	mannose PTS system IIA component [EC:2.7.1.191]	Mannose utilization	marine	Carbon Processing	Medium Carbon
+K02794	mannose PTS system IIB component [EC:2.7.1.191]	Mannose utilization	marine	Carbon Processing	Medium Carbon
+K02795	mannose PTS system IIC component [EC:2.7.1.191]	Mannose utilization	marine	Carbon Processing	Medium Carbon
+K02796	mannose PTS system EIID component	Mannose utilization	marine	Carbon Processing	Medium Carbon
+K01026	propionate CoA-transferase [EC:2.8.3.1]	Propionate production	marine	Carbon Processing	Medium Carbon
+K19697	propionate kinase [EC:2.7.2.15]	Propionate production	marine	Carbon Processing	Medium Carbon
+K00163	pyruvate dehydrogenase E1 component [EC:1.2.4.1]	Pyruvate conversion to acetyl-CoA	marine	Carbon Processing	Medium Carbon
+K00174	2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase subunit alpha [EC:1.2.7.3, 1.2.7.11]	Pyruvate conversion to acetyl-CoA	marine	Carbon Processing	Medium Carbon
+K00656	formate C-acetyltransferase [EC:2.3.1.54]	Pyruvate conversion to acetyl-CoA	marine	Carbon Processing	Medium Carbon
+K01813	L-rhamnose isomerase [EC:5.3.1.14]	Rhamnose utilization	marine	Carbon Processing	Medium Carbon
+K01820	L-rhamnose isomerase / sugar isomerase [EC:5.3.1.14 5.3.1.-]	Rhamnose utilization	marine	Carbon Processing	Medium Carbon
+K18337	L-rhamnose 1-dehydrogenase [EC:1.1.1.378 1.1.1.377 1.1.1.173]	Rhamnose utilization	marine	Carbon Processing	Medium Carbon
+K00689	oligo-1,6-glucosidase [EC:3.2.1.10]	Sucrose utilization	marine	Carbon Processing	Medium Carbon
+K00690	maltase-glucoamylase [EC:3.2.1.20]	Sucrose utilization	marine	Carbon Processing	Medium Carbon
+K00692	isomaltase [EC:3.2.1.10]	Sucrose utilization	marine	Carbon Processing	Medium Carbon
+K00695	Œ±-glucosidase [EC:3.2.1.20]	Sucrose utilization	marine	Carbon Processing	Medium Carbon
+K01182	sucrase-isomaltase [EC:3.2.1.48]	Sucrose utilization	marine	Carbon Processing	Medium Carbon
+K01187	sucrase [EC:3.2.1.48]	Sucrose utilization	marine	Carbon Processing	Medium Carbon
+K01193	beta-fructofuranosidase [EC:3.2.1.26]	Sucrose utilization	marine	Carbon Processing	Medium Carbon
+K01203	Œ≤-fructofuranosidase [EC:3.2.1.26]	Sucrose utilization	marine	Carbon Processing	Medium Carbon
+K02810	PTS-Scr-EIIC; PTS system, sucrose-specific IIC component	Sucrose utilization	marine	Carbon Processing	Medium Carbon
+K05341	glucanotransferase [EC:2.4.1.25]	Sucrose utilization	marine	Carbon Processing	Medium Carbon
+K06617	raffinose synthase [EC:2.4.1.82]	Sucrose utilization	marine	Carbon Processing	Medium Carbon
+K12047	sucrose phosphorylase [EC:2.4.1.7]	Sucrose utilization	marine	Carbon Processing	Medium Carbon
+K12316	glucosyltransferase [EC:2.4.1.4]	Sucrose utilization	marine	Carbon Processing	Medium Carbon
+K12317	sucrose-6F-phosphate phosphohydrolase [EC:3.1.3.24]	Sucrose utilization	marine	Carbon Processing	Medium Carbon
+K00008	xylitol dehydrogenase [EC:1.1.1.9]	Xylose utilization	marine	Carbon Processing	Medium Carbon
+K00011	L-arabitol dehydrogenase [EC:1.1.1.12]	Xylose utilization	marine	Carbon Processing	Medium Carbon
+K00078	dihydrodiol dehydrogenase / D-xylose 1-dehydrogenase (NADP) [EC:1.3.1.20 1.1.1.179]	Xylose utilization	marine	Carbon Processing	Medium Carbon
+K00854	xylose kinase [EC:2.7.1.17]	Xylose utilization	marine	Carbon Processing	Medium Carbon
+K01805	xylose isomerase [EC:5.3.1.5]	Xylose utilization	marine	Carbon Processing	Medium Carbon
+K05351	xylulokinase [EC:2.7.1.17]	Xylose utilization	marine	Carbon Processing	Medium Carbon
+K14273	xylulose reductase [EC:1.1.1.9]	Xylose utilization	marine	Carbon Processing	Medium Carbon
+K14274	D-xylonate dehydratase [EC:4.2.1.82]	Xylose utilization	marine	Carbon Processing	Medium Carbon
+K14275	xylonolactonase [EC:3.1.1.68]	Xylose utilization	marine	Carbon Processing	Medium Carbon
+K17743	xylitol oxidase [EC:1.1.3.41]	Xylose utilization	marine	Carbon Processing	Medium Carbon
+K00200	formylmethanofuran dehydrogenase subunit A [EC:1.2.7.12]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00201	formylmethanofuran dehydrogenase subunit B [EC:1.2.7.12]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00202	formylmethanofuran dehydrogenase subunit C [EC:1.2.7.12]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00203	formylmethanofuran dehydrogenase subunit D [EC:1.2.7.12]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00204	4Fe-4S ferredoxin	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00205	4Fe-4S ferredoxin	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00319	methylenetetrahydromethanopterin dehydrogenase [EC:1.5.98.1]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00320	5,10-methylenetetrahydromethanopterin reductase [EC:1.5.98.2]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00399	methyl-coenzyme M reductase alpha subunit [EC:2.8.4.1]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00401	methyl-coenzyme M reductase beta subunit [EC:2.8.4.1]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00402	methyl-coenzyme M reductase gamma subunit [EC:2.8.4.1]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00577	tetrahydromethanopterin S-methyltransferase subunit A [EC:7.2.1.4]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00578	tetrahydromethanopterin S-methyltransferase subunit B [EC:7.2.1.4]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00579	tetrahydromethanopterin S-methyltransferase subunit C [EC:7.2.1.4]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00580	tetrahydromethanopterin S-methyltransferase subunit D [EC:7.2.1.4]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00581	tetrahydromethanopterin S-methyltransferase subunit E [EC:7.2.1.4]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00584	tetrahydromethanopterin S-methyltransferase subunit H [EC:7.2.1.4]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00672	formylmethanofuran--tetrahydromethanopterin N-formyltransferase [EC:2.3.1.101]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K01499	methenyltetrahydromethanopterin cyclohydrolase [EC:3.5.4.27]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K13942	5,10-methenyltetrahydromethanopterin hydrogenase [EC:1.12.98.2]	Hydrogenotrophic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00193	cdhC; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit beta [EC:2.3.1.169] [RN:R09096 R10219]	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00194	cdhD; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit delta [EC:2.1.1.245] [RN:R09096 R10219]	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00197	cdhE; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit gamma [EC:2.1.1.245] [RN:R09096 R10219]	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00399	methyl-coenzyme M reductase alpha subunit [EC:2.8.4.1]	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00401	methyl-coenzyme M reductase beta subunit [EC:2.8.4.1]	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00402	methyl-coenzyme M reductase gamma subunit [EC:2.8.4.1]	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00625	phosphate acetyltransferase [EC:2.3.1.8] [RN:R00230]	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00925	acetate kinase [EC:2.7.2.1] [RN:R00315]	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K01895	acetyl-CoA synthetase [EC:6.2.1.1]	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K04480	methanol---5-hydroxybenzimidazolylcobamide Co-methyltransferase [EC:2.1.1.90]	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K14080	[methyl-Co(III) methanol/glycine betaine-specific corrinoid protein]:coenzyme M methyltransferase [EC:2.1.1.246 2.1.1.377]	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K14081	methanol corrinoid protein	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K14082	[methyl-Co(III) methylamine-specific corrinoid protein]:coenzyme M methyltransferase [EC:2.1.1.247]	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K14083	trimethylamine---corrinoid protein Co-methyltransferase [EC:2.1.1.250]	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K14084	trimethylamine corrinoid protein	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K16176	methylamine---corrinoid protein Co-methyltransferase [EC:2.1.1.248]	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K16177	monomethylamine corrinoid protein	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K16178	dimethylamine---corrinoid protein Co-methyltransferase [EC:2.1.1.249]	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K16179	dimethylamine corrinoid protein	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K16954	methylthiol:coenzyme M methyltransferase [EC:2.1.1.251]	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K16955	methylated-thiol--corrinoid protein	Methylotrophic and aceticlastic methanogenesis	marine	Carbon Processing	Methanogenesis
+K00093	methanol dehydrogenase [EC:1.1.1.244]	RuMP pathway methylotrophy	marine	Carbon Processing	Methylotrophy
+K14028	methanol dehydrogenase (cytochrome c) subunit 1 [EC:1.1.2.7]	RuMP pathway methylotrophy	marine	Carbon Processing	Methylotrophy
+K14029	methanol dehydrogenase (cytochrome c) subunit 2 [EC:1.1.2.7]	RuMP pathway methylotrophy	marine	Carbon Processing	Methylotrophy
+K17066	alcohol oxidase [EC:1.1.3.13]	RuMP pathway methylotrophy	marine	Carbon Processing	Methylotrophy
+K23995	lanthanide-dependent methanol dehydrogenase [EC:1.1.2.10]	RuMP pathway methylotrophy	marine	Carbon Processing	Methylotrophy
+K00018	glycerate dehydrogenase [EC:1.1.1.29]	Serine pathway methylotrophy	marine	Carbon Processing	Methylotrophy
+K00600	glycine hydroxymethyltransferase [EC:2.1.2.1]	Serine pathway methylotrophy	marine	Carbon Processing	Methylotrophy
+K00830	alanine-glyoxylate transaminase / serine-glyoxylate transaminase / serine-pyruvate transaminase [EC:2.6.1.44 2.6.1.45 2.6.1.51]	Serine pathway methylotrophy	marine	Carbon Processing	Methylotrophy
+K08691	malyl-CoA/(S)-citramalyl-CoA lyase [EC:4.1.3.24 4.1.3.25]	Serine pathway methylotrophy	marine	Carbon Processing	Methylotrophy
+FeFe_Group_A_Hydrogenase	[FeFe] Group A hydrogenase	[FeFe] Group A hydrogenase	marine	Energy Metabolism	[FeFe] Hydrogenases
+FeFe_Group_B_Hydrogenase	[FeFe] Group B hydrogenase	[FeFe] Group B hydrogenase	marine	Energy Metabolism	[FeFe] Hydrogenases
+FeFe_Group_C_Hydrogenase	[FeFe] Group C hydrogenase	[FeFe] Group C hydrogenase	marine	Energy Metabolism	[FeFe] Hydrogenases
+FeFe_Group_E_Hydrogenase	[FeFe] Group E hydrogenase	[FeFe] Group E hydrogenase	marine	Energy Metabolism	[FeFe] Hydrogenases
+FeFe_Group_F_Hydrogenase	[FeFe] Group F hydrogenase	[FeFe] Group F hydrogenase	marine	Energy Metabolism	[FeFe] Hydrogenases
+NiFe_Group_1_Hydrogenase	[NiFe] Group 1 hydrogenase	[NiFe] Group 1 hydrogenase	marine	Energy Metabolism	[NiFe] Hydrogenases
+NiFe_Group_2_Hydrogenase	[NiFe] Group 2 hydrogenase	[NiFe] Group 2 hydrogenase	marine	Energy Metabolism	[NiFe] Hydrogenases
+NiFe_Group_3_Hydrogenase	[NiFe] Group 3 hydrogenase	[NiFe] Group 3 hydrogenase	marine	Energy Metabolism	[NiFe] Hydrogenases
+NiFe_Group_4_Hydrogenase	[NiFe] Group 4 hydrogenase	[NiFe] Group 4 hydrogenase	marine	Energy Metabolism	[NiFe] Hydrogenases
+aioR-aoxR	aioR/aoxR, arsenite oxidase regulatory sensor histidine kinase	Arsenic resistance and transformation	marine	Heavy Metal Tolerance
+aioS-aoxS	aioS/aoxS, arsenite oxidase regulatory response regulator	Arsenic resistance and transformation	marine	Heavy Metal Tolerance
+arsD	arsD, arsenical resistance operon trans-acting repressor	Arsenic resistance and transformation	marine	Heavy Metal Tolerance
+K00537	arsenate reductase (glutaredoxin) [EC:1.20.4.1]	Arsenic resistance and transformation	marine	Heavy Metal Tolerance
+K01551	arsenite/tail-anchored protein-transporting ATPase [EC:7.3.2.7 7.3.-.-]	Arsenic resistance and transformation	marine	Heavy Metal Tolerance
+K03325	arsenite transporter	Arsenic resistance and transformation	marine	Heavy Metal Tolerance
+K03741	arsenate reductase (thioredoxin) [EC:1.20.4.4]	Arsenic resistance and transformation	marine	Heavy Metal Tolerance
+K03892	ArsR family transcriptional regulator, arsenate/arsenite/antimonite-responsive transcriptional repressor	Arsenic resistance and transformation	marine	Heavy Metal Tolerance
+K03893	arsenical pump membrane protein	Arsenic resistance and transformation	marine	Heavy Metal Tolerance
+K07755	arsenite methyltransferase [EC:2.1.1.137]	Arsenic resistance and transformation	marine	Heavy Metal Tolerance
+K08355	arsenite oxidase small subunit [EC:1.20.2.1 1.20.9.1]	Arsenic resistance and transformation	marine	Heavy Metal Tolerance
+K08356	arsenite oxidase large subunit [EC:1.20.2.1 1.20.9.1]	Arsenic resistance and transformation	marine	Heavy Metal Tolerance
+K11811	arsenical resistance protein ArsH	Arsenic resistance and transformation	marine	Heavy Metal Tolerance
+cadD	cadD, cadmium resistance protein	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+cznB	cznB, cobalt-zinc-nickel resistance protein CznB	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+dmeF	dmeF, divalent metal efflux pump CDF family	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+K01534	Zn2+/Cd2+-exporting ATPase [EC:7.2.2.12 7.2.2.21]	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+K02483	two-component system, OmpR family, response regulator	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+K03088	RNA polymerase sigma-70 factor, ECF subfamily	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+K07644	two-component system, OmpR family, heavy metal sensor histidine kinase CusS [EC:2.7.13.3]	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+K07665	two-component system, OmpR family, copper resistance phosphate regulon response regulator CusR	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+K08970	nickel/cobalt transporter (NicO) family protein	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+K15725	outer membrane protein, heavy metal efflux system	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+K15726	heavy metal efflux system protein	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+K15727	membrane fusion protein, heavy metal efflux system	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+K16264	cobalt-zinc-cadmium efflux system protein	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+K21133	multidrug efflux pump	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+K21885	ArsR family transcriptional regulator, cadmium/lead-responsive transcriptional repressor	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+K21903	ArsR family transcriptional regulator, lead/cadmium/zinc/bismuth-responsive transcriptional repressor	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+K22043	ArsR family transcriptional regulator, zinc-responsive transcriptional repressor	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+K24078	nickel and cobalt resistance protein CnrR	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+K24079	nickel and cobalt resistance protein CnrY	Cadmium resistance and detoxification	marine	Heavy Metal Tolerance
+cnrT	cnrT, cobalt-nickel resistance protein CnrT	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+corB	corB, cobalt/magnesium efflux protein CorB	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+dmeF	dmeF, divalent metal efflux pump CDF family	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+dmeR	dmeR, divalent metal efflux regulator DmeR	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K01534	Zn2+/Cd2+-exporting ATPase [EC:7.2.2.12 7.2.2.21]	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K02483	two-component system, OmpR family, response regulator	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K03088	RNA polymerase sigma-70 factor, ECF subfamily	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K03284	magnesium transporter	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K03585	membrane fusion protein, multidrug efflux system	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K06042	precorrin-8X/cobalt-precorrin-8 methylmutase [EC:5.4.99.61 5.4.99.60]	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K06189	hemolysin (HlyC) family protein	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K07644	two-component system, OmpR family, heavy metal sensor histidine kinase CusS [EC:2.7.13.3]	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K07785	MFS transporter, NRE family, putaive nickel resistance protein	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K08970	nickel/cobalt transporter (NicO) family protein	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K12951	cobalt/nickel-transporting P-type ATPase D [EC:7.2.2.-]	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K15725	outer membrane protein, heavy metal efflux system	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K15726	heavy metal efflux system protein	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K15727	membrane fusion protein, heavy metal efflux system	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K16264	cobalt-zinc-cadmium efflux system protein	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K18138	multidrug efflux pump	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K18139	outer membrane protein, multidrug efflux system	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K23240	FrmR/RcnR family transcriptional regulator, repressor of rcnA expression	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K23243	nickel/cobalt homeostasis protein	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K24073	RNA polymerase sigma factor CnrH	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K24078	nickel and cobalt resistance protein CnrR	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+K24079	nickel and cobalt resistance protein CnrY	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+ncrB	ncrB, nickel-cobalt resistance protein NcrB	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+ncrY	ncrY, nickel-cobalt resistance protein NcrY	Cobalt resistance and transport	marine	Heavy Metal Tolerance
+cinA	cinA, copper-inducible protein CinA	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+copL	copL, copper resistance protein CopL	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+copP	copP, copper chaperone CopP	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+copY-tcrY	copY/tcrY, copper-responsive repressor CopY	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+corR	corR, copper resistance response regulator CorR	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+crdA	crdA, copper-responsive membrane protein CrdA	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+cutO	cutO, multicopper oxidase CutO	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+hpcopA	hpcopA, Helicobacter pylori-type copper-transporting P-type ATPase	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K01533	P-type Cu2+ transporter [EC:7.2.2.9]	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K02483	two-component system, OmpR family, response regulator	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K03585	membrane fusion protein, multidrug efflux system	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K03820	apolipoprotein N-acyltransferase [EC:2.3.1.269]	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K03926	periplasmic divalent cation tolerance protein	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K06079	copper homeostasis protein (lipoprotein)	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K06201	copper homeostasis protein	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K07156	copper resistance protein C	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K07213	copper chaperone	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K07233	copper resistance protein B	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K07245	copper resistance protein D	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K07644	two-component system, OmpR family, heavy metal sensor histidine kinase CusS [EC:2.7.13.3]	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K07665	two-component system, OmpR family, copper resistance phosphate regulon response regulator CusR	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K07787	copper/silver efflux system protein	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K07796	outer membrane protein, copper/silver efflux system	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K07798	membrane fusion protein, copper/silver efflux system	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K07810	Cu(I)/Ag(I) efflux system periplasmic protein CusF	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K08221	MFS transporter, ACDE family, multidrug resistance protein	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K09796	periplasmic copper chaperone A	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K11923	MerR family transcriptional regulator, copper efflux regulator	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K12954	cation-transporting P-type ATPase G [EC:7.2.2.-]	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K12956	copper-transporting P-type ATPase V [EC:7.2.2.8]	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K14166	copper transport protein	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K14588	cuproxidase [EC:1.16.3.4]	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K17686	P-type Cu+ transporter [EC:7.2.2.8]	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K18138	multidrug efflux pump	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K18139	outer membrane protein, multidrug efflux system	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K18324	multidrug efflux pump	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K18992	TetR/AcrR family transcriptional regulator, cmeABC operon repressor	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K19342	copper chaperone NosL	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K19591	MerR family transcriptional regulator, copper efflux regulator	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K21600	CsoR family transcriptional regulator, copper-sensing transcriptional repressor	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K21601	DeoR family transcriptional regulator, copper-sensing transcriptional repressor	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K21609	metallothionein	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K21902	MerR family transcriptional regulator, repressor of the yfmOP operon	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+K22552	multicopper oxidase [EC:1.16.3.1]	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+mctB	mctB, metal cation transporter MctB	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+pcoE	pcoE, copper resistance protein PcoE	Copper resistance, homeostasis, and transport	marine	Heavy Metal Tolerance
+dpr-dps	dpr/dps, DNA-binding protein from starved cells / peroxide resistance protein	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+dpsA	dpsA, DNA-binding protein DpsA	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K01552	energy-coupling factor transport system ATP-binding protein [EC:7.-.-.-]	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K02010	iron(III) transport system ATP-binding protein [EC:7.2.2.7]	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K02011	iron(III) transport system permease protein	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K02012	iron(III) transport system substrate-binding protein	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K02217	ferritin [EC:1.16.3.2]	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K03322	manganese transport protein	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K03594	bacterioferritin [EC:1.16.3.1]	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K03709	DtxR family transcriptional regulator, Mn-dependent transcriptional regulator	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K06147	ATP-binding cassette, subfamily B, bacterial	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K07224	iron uptake system component EfeO	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K07229	ferric-chelate reductase (NADPH) [EC:1.16.1.9]	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K11604	manganese/iron transport system substrate-binding protein	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K11605	manganese/iron transport system permease protein	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K11606	manganese/iron transport system permease protein	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K11607	manganese/iron transport system ATP-binding protein	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K13283	ferrous-iron efflux pump FieF	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+K16088	outer-membrane receptor for ferric coprogen and ferric-rhodotorulic acid	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+pmrA	pmrA, polymyxin resistance response regulator PmrA	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+pmrB	pmrB, polymyxin resistance sensor kinase PmrB	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+pmrC	pmrC, phosphoethanolamine transferase PmrC	Iron storage, uptake, and efflux	marine	Heavy Metal Tolerance
+corB	corB, cobalt/magnesium efflux protein CorB	Magnesium homeostasis and transport	marine	Heavy Metal Tolerance
+K01531	P-type Mg2+ transporter [EC:7.2.2.14]	Magnesium homeostasis and transport	marine	Heavy Metal Tolerance
+K03284	magnesium transporter	Magnesium homeostasis and transport	marine	Heavy Metal Tolerance
+K06042	precorrin-8X/cobalt-precorrin-8 methylmutase [EC:5.4.99.61 5.4.99.60]	Magnesium homeostasis and transport	marine	Heavy Metal Tolerance
+K06189	hemolysin (HlyC) family protein	Magnesium homeostasis and transport	marine	Heavy Metal Tolerance
+K06213	magnesium transporter	Magnesium homeostasis and transport	marine	Heavy Metal Tolerance
+K03322	manganese transport protein	Manganese transport and homeostasis	marine	Heavy Metal Tolerance
+K11604	manganese/iron transport system substrate-binding protein	Manganese transport and homeostasis	marine	Heavy Metal Tolerance
+K11605	manganese/iron transport system permease protein	Manganese transport and homeostasis	marine	Heavy Metal Tolerance
+K11606	manganese/iron transport system permease protein	Manganese transport and homeostasis	marine	Heavy Metal Tolerance
+K11607	manganese/iron transport system ATP-binding protein	Manganese transport and homeostasis	marine	Heavy Metal Tolerance
+K11707	manganese/zinc/iron transport system substrate-binding protein	Manganese transport and homeostasis	marine	Heavy Metal Tolerance
+K11924	DtxR family transcriptional regulator, manganese transport regulator	Manganese transport and homeostasis	marine	Heavy Metal Tolerance
+K12950	manganese-transporting P-type ATPase C [EC:7.2.2.22]	Manganese transport and homeostasis	marine	Heavy Metal Tolerance
+K23242	manganese efflux pump family protein	Manganese transport and homeostasis	marine	Heavy Metal Tolerance
+K00221	alkylmercury lyase [EC:4.99.1.2]	Mercury resistance (mer operon)	marine	Heavy Metal Tolerance
+K00520	mercuric reductase [EC:1.16.1.1]	Mercury resistance (mer operon)	marine	Heavy Metal Tolerance
+K08363	mercuric ion transport protein	Mercury resistance (mer operon)	marine	Heavy Metal Tolerance
+K08364	periplasmic mercuric ion binding protein	Mercury resistance (mer operon)	marine	Heavy Metal Tolerance
+K08365	MerR family transcriptional regulator, mercuric resistance operon regulatory protein	Mercury resistance (mer operon)	marine	Heavy Metal Tolerance
+K19057	MerR family transcriptional regulator, mercuric resistance operon regulatory protein	Mercury resistance (mer operon)	marine	Heavy Metal Tolerance
+K19058	mercuric ion transport protein	Mercury resistance (mer operon)	marine	Heavy Metal Tolerance
+K19059	mercuric ion transport protein	Mercury resistance (mer operon)	marine	Heavy Metal Tolerance
+cnrT	cnrT, cobalt-nickel resistance protein CnrT	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+cznB	cznB, cobalt-zinc-nickel resistance protein CznB	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+dmeF	dmeF, divalent metal efflux pump CDF family	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+dmeR	dmeR, divalent metal efflux regulator DmeR	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+hupE	hupE, nickel transporter HupE	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K01552	energy-coupling factor transport system ATP-binding protein [EC:7.-.-.-]	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K03088	RNA polymerase sigma-70 factor, ECF subfamily	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K07241	nickel/cobalt transporter (NiCoT) family protein	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K07722	CopG family transcriptional regulator, nickel-responsive regulator	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K07785	MFS transporter, NRE family, putaive nickel resistance protein	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K08970	nickel/cobalt transporter (NicO) family protein	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K10824	nickel transport system ATP-binding protein [EC:7.2.2.11]	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K11326	cation efflux system protein involved in nickel and cobalt tolerance	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K11328	two-component system, OmpR family, Ni(II)-sensor and/or redox sensor kinase NrsS [EC:2.7.13.3]	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K11330	two-component system, OmpR family, Ni(II)-responsive and/or redox-responsive regulator NrsR	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K12951	cobalt/nickel-transporting P-type ATPase D [EC:7.2.2.-]	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K15584	nickel transport system substrate-binding protein	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K15585	nickel transport system permease protein	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K15586	nickel transport system permease protein	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K15587	nickel transport system ATP-binding protein [EC:7.2.2.11]	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K15725	outer membrane protein, heavy metal efflux system	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K15726	heavy metal efflux system protein	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K15727	membrane fusion protein, heavy metal efflux system	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K23240	FrmR/RcnR family transcriptional regulator, repressor of rcnA expression	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K23243	nickel/cobalt homeostasis protein	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K24073	RNA polymerase sigma factor CnrH	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K24078	nickel and cobalt resistance protein CnrR	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K24079	nickel and cobalt resistance protein CnrY	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+ncrB	ncrB, nickel-cobalt resistance protein NcrB	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+ncrY	ncrY, nickel-cobalt resistance protein NcrY	Nickel transport, efflux, and regulation	marine	Heavy Metal Tolerance
+K01533	P-type Cu2+ transporter [EC:7.2.2.9]	Silver resistance and efflux	marine	Heavy Metal Tolerance
+K07644	two-component system, OmpR family, heavy metal sensor histidine kinase CusS [EC:2.7.13.3]	Silver resistance and efflux	marine	Heavy Metal Tolerance
+K07665	two-component system, OmpR family, copper resistance phosphate regulon response regulator CusR	Silver resistance and efflux	marine	Heavy Metal Tolerance
+K07787	copper/silver efflux system protein	Silver resistance and efflux	marine	Heavy Metal Tolerance
+K07796	outer membrane protein, copper/silver efflux system	Silver resistance and efflux	marine	Heavy Metal Tolerance
+K07798	membrane fusion protein, copper/silver efflux system	Silver resistance and efflux	marine	Heavy Metal Tolerance
+K07810	Cu(I)/Ag(I) efflux system periplasmic protein CusF	Silver resistance and efflux	marine	Heavy Metal Tolerance
+K17686	P-type Cu+ transporter [EC:7.2.2.8]	Silver resistance and efflux	marine	Heavy Metal Tolerance
+K23254	P-type Ag+ transporter [EC:7.2.2.15]	Silver resistance and efflux	marine	Heavy Metal Tolerance
+silE	silE, silver-binding periplasmic protein SilE	Silver resistance and efflux	marine	Heavy Metal Tolerance
+silF	silF, silver resistance protein SilF	Silver resistance and efflux	marine	Heavy Metal Tolerance
+cadD	cadD, cadmium/zinc resistance protein CadD	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+cznB	cznB, cobalt-zinc-nickel resistance protein CznB	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K01534	Zn2+/Cd2+-exporting ATPase [EC:7.2.2.12 7.2.2.21]	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K02483	two-component system, OmpR family, response regulator	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K03709	DtxR family transcriptional regulator, Mn-dependent transcriptional regulator	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K03765	transcriptional activator of cad operon	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K07238	zinc transporter, ZIP family	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K07644	two-component system, OmpR family, heavy metal sensor histidine kinase CusS [EC:2.7.13.3]	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K07709	two-component system, NtrC family, sensor histidine kinase HydH [EC:2.7.13.3]	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K07713	two-component system, NtrC family, response regulator HydG	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K07788	multidrug efflux pump	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K07789	multidrug efflux pump	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K07799	membrane fusion protein, multidrug efflux system	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K07803	zinc resistance-associated protein	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K08970	nickel/cobalt transporter (NicO) family protein	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K09815	zinc transport system substrate-binding protein	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K09816	zinc transport system permease protein	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K09817	zinc transport system ATP-binding protein [EC:7.2.2.20]	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K09823	Fur family transcriptional regulator, zinc uptake regulator	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K11707	manganese/zinc/iron transport system substrate-binding protein	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K11708	manganese/zinc/iron transport system permease protein	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K11709	manganese/zinc/iron transport system permease protein	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K11710	manganese/zinc/iron transport system ATP- binding protein [EC:7.2.2.5]	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K12950	manganese-transporting P-type ATPase C [EC:7.2.2.22]	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K13638	MerR family transcriptional regulator, Zn(II)-responsive regulator of zntA	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K15725	outer membrane protein, heavy metal efflux system	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K15726	heavy metal efflux system protein	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K15727	membrane fusion protein, heavy metal efflux system	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K16264	cobalt-zinc-cadmium efflux system protein	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K18324	multidrug efflux pump	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K21133	multidrug efflux pump	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K21903	ArsR family transcriptional regulator, lead/cadmium/zinc/bismuth-responsive transcriptional repressor	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K21904	metallothionein	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K22043	ArsR family transcriptional regulator, zinc-responsive transcriptional repressor	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+zevA	zevA, zinc efflux valve protein ZevA	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+zinT-yodA	zinT/yodA, zinc/cadmium-binding periplasmic protein ZinT	Zinc resistance and homeostasis	marine	Heavy Metal Tolerance
+K01426	Amidase, amiE [EC:3.5.1.4]	Amide hydrolysis	marine	Nitrogen Cycling	Mineralization		"Ekenler and Tabatabai, ""Arylamidase and Amidohydrolases in Soils as Affected by Liming and Tillage Systems."""
+K01183	ChiC, chitinase [EC:3.2.1.14]	Chitin degradation	marine	Nitrogen Cycling	Mineralization
+K01207	beta-N-acetylhexosaminidase [EC:3.2.1.52]	Chitin degradation	marine	Nitrogen Cycling	Mineralization
+K03791	Putative chitinase	Chitin degradation	marine	Nitrogen Cycling	Mineralization
+A01	Aspartic Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Aspartic
+A02	Aspartic Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Aspartic
+A05	Endopeptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Aspartic
+A08	Endopeptidase, the bacterial signal peptidase II	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Aspartic
+A11	Aspartic Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Aspartic
+A22	Aspartic Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Aspartic
+A24	Aspartic Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Aspartic
+A26	Membrane-inserted endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Aspartic
+A28	Aspartic Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Aspartic
+A31	Endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Aspartic
+A32	PerP peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Aspartic
+A37	Pepstatin-insensitive aspartic endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Aspartic
+C01	Cysteine Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C02	Cysteine Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C10	Bacterial cysteine endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C11	Cysteine Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C110	Cysteine endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C113	IgdE peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C13	Asparaginyl endopeptidases and glycosylphosphatidylinositol:protein transamidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C14	Cysteine Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C15	Omega peptidases that release an N-terminal pyroglutamate residue	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C19	Ubiquitinyl hydrolases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C25	Cysteine endopeptidases from bacteria, notably gingipain R (##C25001##) and gingipain K (##C25002##)	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C26	Omega peptidase gamma-glutamyl hydrolase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C39	Bacteriocin-processing endopeptidases from bacteria	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C40	Bacterial cell-wall modifying enzymes	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C44	Self-processing precursor of amidophosphoribosyltransferase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C45	Autolytic endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C46	C-terminal, intein-like domains of the hedgehog proteins, which mediate autolytic cleavage of the proteins	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C47	Endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C51	Endopeptidases that hydrolyse bacterial cell-wall crosslinking peptides	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C56	PfpI endopeptidase of {Pyrococcus furiosus}	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C59	Cys-dependent Ntn-hydrolases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C60	Cysteine Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C66	Bacterial endopeptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C69	Dipeptidases and aminopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C82	Cysteine Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C83	Exopeptidases some of which also have transferase activity	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C89	Self-cleaving precursor protein	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+C93	LapG peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Cysteine
+G01	Endopeptidases from fungi	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Glutamic
+M01	Aminopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M02	Metallo-exopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M03	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M04	Metalloendopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M05	Metalloendopeptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M06	Metalloendopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M07	Metalloendopeptidase, snapalysin	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M08	Metallo-endopeptidase leishmanolysin and its homologues	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M09	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M10	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M11	A metallo-endopeptidase, gametolysin	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M12	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M13	Metalloendopeptidases restricted to action on substrates smaller than proteins	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M14	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M15	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M16	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M17	Aminopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M18	Metalloaminopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M19	Dipeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M20	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M23	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M24	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M26	Endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M28	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M30	Endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M32	Metallocarboxypeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M34	Highly-selective bacterial endopeptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M35	Fungal metalloendopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M36	Endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M38	An omega peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M41	ATP-dependent metalloendopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M42	Metalloaminopeptidases some of which also have acylaminoacylpeptidase activity	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M43	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M44	Metalloendopeptidase from the pox viruses	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M48	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M49	Dipeptidylpeptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M50	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M54	Aminopeptidases, sometimes termed archaelysins or archaemetzincins	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M55	Aminopeptidase and a number of uncharacterised putative peptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M56	Membrane-bound bacterial endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M57	Endopeptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M60	Metalloendopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M61	Aminopeptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M64	Highly selective metalloendopeptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M66	A single metallopeptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M67	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M72	Metallo-endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M73	Metallo-endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M74	Murein endopeptidase MepA	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M75	Metalloendopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M76	Endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M78	Metallo-endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M79	Specialised endopeptidases that typically cleave a C-terminal tripeptide from an isoprenylated protein	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M81	Metallopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M82	Endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M84	Endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M85	Endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M86	Poly-gamma-glutamyl hydrolases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M88	Endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M93	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M96	signaling peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M97	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+M98	Metallo Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Metallo
+N04	Tsh-associated self-cleaving domain	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Asparagine
+N10	Asparagine Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Asparagine
+N11	Self-cleaving proteins	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Asparagine
+P01	Aminopeptidases and self-processing proteins	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Mixed
+S01	Serine Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S06	Serine endopeptidases of bacteria	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S08	Serine Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S09	Serine Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S10	Carboxypeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S11	Serine-type D-Ala-D-Ala carboxypeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S12	Serine-type D-Ala-D-Ala carboxypeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S13	Peptidases that cleave D-Ala bonds, acting either as carboxypeptidases or as atypical 'endopeptidases'	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S14	Endopeptidase Clp and its homologues	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S15	Xaa-Pro dipeptidyl peptidase and its homologues	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S16	Endopeptidases, mostly ATP-dependent	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S24	Two-domain proteins that undergo autolysis, separating the functional domains	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S26	Serine Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S28	Exopeptidases that hydrolyse prolyl bonds, and are known only from eukaryotes	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S33	Exopeptidases that act at the N-terminus of peptides	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S37	Tripeptidyl-peptidase from {Streptomyces}	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S41	Serine Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S45	Self-cleaving precursor proteins of N-terminal nucleophile acylases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S46	Dipeptidyl-peptidases from bacteria	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S49	Serine Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S50	Polyprotein processing endopeptidases from double-stranded RNA viruses	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S51	Exopeptidases that hydrolyse alpha-aspartyl bonds	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S53	Acid-acting endopeptidases and a tripeptidyl-peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S54	Membrane-bound serine endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S55	Endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S59	Autolytic endopeptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S60	Endopeptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S66	Bacterial LD-carboxypeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+S73	Serine endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Serine
+T01	Threonine Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Threonine
+T02	N-terminal nucleophile hydrolases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Threonine
+T03	Self-processing proteins that express aminopeptidase as well as aminotransferase activities in their mature forms	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Threonine
+T05	Self-processing ornithine acetyltransferase precursor	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Threonine
+T07	CwpV (Clostridium difficile) self-cleaving threonine peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Threonine
+U32	Endopeptidases from bacteria	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Unknown
+U62	Microcin-processing peptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Unknown
+U69	Self-processing peptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Unknown
+U72	Isopeptidase and endopeptidases	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Unknown
+U73	Unknown Extracellular peptidase	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Unknown
+U74	neprosin	Extracellular peptidases	marine	Nitrogen Cycling	Mineralization	Unknown
+K01455	Formamidase [EC:3.5.1.49]	Formamide hydrolysis	marine	Nitrogen Cycling	Mineralization
+K00360	assimilatory nitrate reductase [EC:1.7.99.-] [RN:R00798]	Assimilatory nitrate reduction	marine	Nitrogen Cycling	N Reduction
+K00361	nirB, NADH-nitrite reductase large subunit [EC:1.7.1.15]	Assimilatory nitrate reduction	marine	Nitrogen Cycling	N Reduction
+K00366	assimilatory nitrite reductase [EC:1.7.7.1] [RN:R00790]	Assimilatory nitrate reduction	marine	Nitrogen Cycling	N Reduction
+K00367	narB, assimilatory nitrate reductase [EC:1.7.7.2]	Assimilatory nitrate reduction	marine	Nitrogen Cycling	N Reduction
+K00372	assimilatory nitrate reductase [EC:1.7.99.-] [RN:R00798]	Assimilatory nitrate reduction	marine	Nitrogen Cycling	N Reduction
+K02575	NRT; MFS transporter= NNP family= nitrate/nitrite transporter	Assimilatory nitrate reduction	marine	Nitrogen Cycling	N Reduction
+K10534	nr, assimilatory nitrate reductase [EC:1.7.7.2]	Assimilatory nitrate reduction	marine	Nitrogen Cycling	N Reduction
+K17877	nirA, ferredoxin-nitrite reductase [EC:1.7.7.1]	Assimilatory nitrate reduction	marine	Nitrogen Cycling	N Reduction
+K26138	nasD, nitrite reductase NADH-binding subunit [EC:1.7.1.-]	Assimilatory nitrate reduction	marine	Nitrogen Cycling	N Reduction
+K26139	nasE, nitrite reductase FAD-binding subunit [EC:1.7.1.-]	Assimilatory nitrate reduction	marine	Nitrogen Cycling	N Reduction
+K00362	nrfA, cytochrome c nitrite reductase large subunit [EC:1.7.2.2]	Dissimilatory nitrate reduction to ammonium (DNRA)	marine	Nitrogen Cycling	N Reduction
+K00363	nrfH, cytochrome c nitrite reductase small subunit	Dissimilatory nitrate reduction to ammonium (DNRA)	marine	Nitrogen Cycling	N Reduction
+K00370	narG, nitrate reductase, alpha subunit [EC:1.7.99.-] [RN:R00798]	Dissimilatory nitrate reduction to ammonium (DNRA)	marine	Nitrogen Cycling	N Reduction
+K00371	narH, nitrate reductase, beta subunit [EC:1.7.99.-] [RN:R00798]	Dissimilatory nitrate reduction to ammonium (DNRA)	marine	Nitrogen Cycling	N Reduction
+K00374	narI, nitrate reductase, gamma subunit [EC:1.7.99.-] [RN:R00798]	Dissimilatory nitrate reduction to ammonium (DNRA)	marine	Nitrogen Cycling	N Reduction
+K02567	periplasmic nitrate reductase NapA [EC:1.7.99.-] [RN:R00798]	Dissimilatory nitrate reduction to ammonium (DNRA)	marine	Nitrogen Cycling	N Reduction
+K02568	cytochrome c-type protein NapB [RN:R00798]	Dissimilatory nitrate reduction to ammonium (DNRA)	marine	Nitrogen Cycling	N Reduction
+K03385	nirB, nitrite reductase (NADH) large subunit [EC:1.7.1.15]	Dissimilatory nitrate reduction to ammonium (DNRA)	marine	Nitrogen Cycling	N Reduction
+K15876	nirD, nitrite reductase (NADH) small subunit [EC:1.7.1.15]	Dissimilatory nitrate reduction to ammonium (DNRA)	marine	Nitrogen Cycling	N Reduction
+K00370	narG, nitrate reductase, alpha subunit [EC:1.7.99.-] [RN:R00798]	Nitrate => nitrite	marine	Nitrogen Cycling	N Reduction
+K00371	narH, nitrate reductase, beta subunit [EC:1.7.99.-] [RN:R00798]	Nitrate => nitrite	marine	Nitrogen Cycling	N Reduction
+K00374	narI, nitrate reductase, gamma subunit [EC:1.7.99.-] [RN:R00798]	Nitrate => nitrite	marine	Nitrogen Cycling	N Reduction
+K02567	periplasmic nitrate reductase NapA [EC:1.7.99.-] [RN:R00798]	Nitrate => nitrite	marine	Nitrogen Cycling	N Reduction
+K02568	cytochrome c-type protein NapB [RN:R00798]	Nitrate => nitrite	marine	Nitrogen Cycling	N Reduction
+K02305	nitric oxide reductase subunit C	Nitric oxide => nitrous oxide	marine	Nitrogen Cycling	N Reduction
+K04561	nitric oxide reductase [EC:1.7.2.5] [RN:R00294]	Nitric oxide => nitrous oxide	marine	Nitrogen Cycling	N Reduction
+K15877	fungal nitric oxide reductase (CYP55) [EC:1.7.1.14]	Nitric oxide => nitrous oxide	marine	Nitrogen Cycling	N Reduction
+K00368	nitrite reductase (NO-forming) [EC:1.7.2.1] [RN:R00783 R00785]	Nitrite => nitric oxide	marine	Nitrogen Cycling	N Reduction
+K15864	nitrite reductase (NO-forming) [EC:1.7.2.1] [RN:R00783 R00785]	Nitrite => nitric oxide	marine	Nitrogen Cycling	N Reduction
+K00376	nitrous-oxide reductase [EC:1.7.2.4] [RN:R02804]	Nitrous oxide => nitrogen gas (denitrification)	marine	Nitrogen Cycling	N Reduction
+K00368	nitrite reductase (NO-forming) [EC:1.7.2.1] [RN:R00783 R00785]	Anaerobic ammonium oxidation (anammox)	marine	Nitrogen Cycling	Nitrification
+K15864	nitrite reductase (NO-forming) [EC:1.7.2.1] [RN:R00783 R00785]	Anaerobic ammonium oxidation (anammox)	marine	Nitrogen Cycling	Nitrification
+K20932	hydrazine synthase subunit [EC:1.7.2.7]	Anaerobic ammonium oxidation (anammox)	marine	Nitrogen Cycling	Nitrification
+K20933	hzsB, hydrazine synthase subunit B [EC:1.7.2.7]	Anaerobic ammonium oxidation (anammox)	marine	Nitrogen Cycling	Nitrification
+K20934	hzsC, hydrazine synthase subunit C [EC:1.7.2.7]	Anaerobic ammonium oxidation (anammox)	marine	Nitrogen Cycling	Nitrification
+K20935	hydrazine dehydrogenase [EC:1.7.2.8]	Anaerobic ammonium oxidation (anammox)	marine	Nitrogen Cycling	Nitrification
+K10535	hydroxylamine oxidase [EC:1.7.2.6] [RN:R10164]	Nitrification, ammonia => hydroxylamine => nitrite	marine	Nitrogen Cycling	Nitrification
+K10945	ammonia monooxygenase [EC:1.14.99.39] [RN:R00148]	Nitrification, ammonia => hydroxylamine => nitrite	marine	Nitrogen Cycling	Nitrification
+K10946	ammonia monooxygenase [EC:1.14.99.39] [RN:R00148]	Nitrification, ammonia => hydroxylamine => nitrite	marine	Nitrogen Cycling	Nitrification
+K28504	ammonia monooxygenase subunit C [EC:1.14.99.39] [RN:R00148]	Nitrification, ammonia => hydroxylamine => nitrite	marine	Nitrogen Cycling	Nitrification
+K00370	narG, nitrate reductase, alpha subunit [EC:1.7.99.-] [RN:R00798]	Nitrite => nitrate (nitrification)	marine	Nitrogen Cycling	Nitrification
+K00371	narH, nitrate reductase, beta subunit [EC:1.7.99.-] [RN:R00798]	Nitrite => nitrate (nitrification)	marine	Nitrogen Cycling	Nitrification
+K00531	nitrogenase delta subunit [EC:1.18.6.1] [RN:R05185]	Nitrogen fixation, nitrogen => ammonia	marine	Nitrogen Cycling	Nitrification
+K02586	nitrogenase molybdenum-iron protein [EC:1.18.6.1] [RN:R05185]	Nitrogen fixation, nitrogen => ammonia	marine	Nitrogen Cycling	Nitrification
+K02588	nitrogenase iron protein [RN:R05185]	Nitrogen fixation, nitrogen => ammonia	marine	Nitrogen Cycling	Nitrification
+K02591	nitrogenase molybdenum-iron protein [EC:1.18.6.1] [RN:R05185]	Nitrogen fixation, nitrogen => ammonia	marine	Nitrogen Cycling	Nitrification
+K22896	vanadium-dependent nitrogenase [EC:1.18.6.2] [RN:R12084]	Nitrogen fixation, nitrogen => ammonia	marine	Nitrogen Cycling	Nitrification
+K22897	vanadium-dependent nitrogenase [EC:1.18.6.2] [RN:R12084]	Nitrogen fixation, nitrogen => ammonia	marine	Nitrogen Cycling	Nitrification
+K22898	vanadium nitrogenase delta subunit [EC:1.18.6.2] [RN:R12084]	Nitrogen fixation, nitrogen => ammonia	marine	Nitrogen Cycling	Nitrification
+K22899	vanadium nitrogenase iron protein [RN:R12084]	Nitrogen fixation, nitrogen => ammonia	marine	Nitrogen Cycling	Nitrification
+K10535	hydroxylamine oxidase [EC:1.7.2.6] [RN:R10164]	Ammonium transformation (NH3 => NO2-)	marine	Nitrogen Cycling	Primary N Transformation
+K10944	ammonia monooxygenase [EC:1.14.99.39] [RN:R00148]	Ammonium transformation (NH3 => NO2-)	marine	Nitrogen Cycling	Primary N Transformation
+K10945	ammonia monooxygenase [EC:1.14.99.39] [RN:R00148]	Ammonium transformation (NH3 => NO2-)	marine	Nitrogen Cycling	Primary N Transformation
+K10946	ammonia monooxygenase [EC:1.14.99.39] [RN:R00148]	Ammonium transformation (NH3 => NO2-)	marine	Nitrogen Cycling	Primary N Transformation
+K28504	ammonia monooxygenase subunit C [EC:1.14.99.39] [RN:R00148]	Ammonium transformation (NH3 => NO2-)	marine	Nitrogen Cycling	Primary N Transformation
+K00368	nitrite reductase (NO-forming) [EC:1.7.2.1] [RN:R00783 R00785]	Nitrate transformation (NO3- => NO2- => NO)	marine	Nitrogen Cycling	Primary N Transformation
+K00370	narG, nitrate reductase, alpha subunit [EC:1.7.99.-] [RN:R00798]	Nitrate transformation (NO3- => NO2- => NO)	marine	Nitrogen Cycling	Primary N Transformation
+K00371	narH, nitrate reductase, beta subunit [EC:1.7.99.-] [RN:R00798]	Nitrate transformation (NO3- => NO2- => NO)	marine	Nitrogen Cycling	Primary N Transformation
+K00374	narI, nitrate reductase, gamma subunit [EC:1.7.99.-] [RN:R00798]	Nitrate transformation (NO3- => NO2- => NO)	marine	Nitrogen Cycling	Primary N Transformation
+K02567	periplasmic nitrate reductase NapA [EC:1.7.99.-] [RN:R00798]	Nitrate transformation (NO3- => NO2- => NO)	marine	Nitrogen Cycling	Primary N Transformation
+K02568	cytochrome c-type protein NapB [RN:R00798]	Nitrate transformation (NO3- => NO2- => NO)	marine	Nitrogen Cycling	Primary N Transformation
+K15864	nitrite reductase (NO-forming) [EC:1.7.2.1] [RN:R00783 R00785]	Nitrate transformation (NO3- => NO2- => NO)	marine	Nitrogen Cycling	Primary N Transformation
+K01428	ureC, urease subunit alpha (largest alpha unit of protein structure)	Urea hydrolysis	marine	Nitrogen Cycling	Primary N Transformation
+K01429	ureB, urease subunit beta	Urea hydrolysis	marine	Nitrogen Cycling	Primary N Transformation
+K01430	ureA, urease subunit gamma	Urea hydrolysis	marine	Nitrogen Cycling	Primary N Transformation
+K00261	glutamate dehydrogenase, gdhA	Ammonium assimilation	marine	Nitrogen Cycling
+K00266	gltD; subunit	Ammonium assimilation	marine	Nitrogen Cycling
+K00982	glnE; regulator	Ammonium assimilation	marine	Nitrogen Cycling
+K01914	asnA Asparagine synthase A	Ammonium assimilation	marine	Nitrogen Cycling
+K01915	glutamine synthetase glnA, [EC: 6.3.1.2]	Ammonium assimilation	marine	Nitrogen Cycling
+K01916	NAD+ synthase [EC:6.3.1.5]	Ammonium assimilation	marine	Nitrogen Cycling
+K01953	asnB Asparagine synthase B	Ammonium assimilation	marine	Nitrogen Cycling
+K01955	carB, subunit of carbamoyl phosphate synthetase	Ammonium assimilation	marine	Nitrogen Cycling
+K01956	carbamoyl-phosphate synthase small subunit [EC:6.3.5.5]	Ammonium assimilation	marine	Nitrogen Cycling
+K03320	amtB, ammonia transporter	Ammonium assimilation	marine	Nitrogen Cycling
+K19338	Nac protein; N assimilation regulator	Ammonium assimilation	marine	Nitrogen Cycling
+K02386	flagellar basal body P-ring formation protein FlgA	Bacterial flagella motility	marine	Stress Adaptations
+K02390	flagellar hook protein FlgE	Bacterial flagella motility	marine	Stress Adaptations
+K02393	flagellar L-ring protein FlgH	Bacterial flagella motility	marine	Stress Adaptations
+K02394	flagellar P-ring protein FlgI	Bacterial flagella motility	marine	Stress Adaptations
+K02406	flagellin	Bacterial flagella motility	marine	Stress Adaptations
+K02409	flagellar M-ring protein FliF	Bacterial flagella motility	marine	Stress Adaptations
+K02410	flagellar motor switch protein FliG	Bacterial flagella motility	marine	Stress Adaptations
+K02416	flagellar motor switch protein FliM	Bacterial flagella motility	marine	Stress Adaptations
+K02556	chemotaxis protein MotA	Bacterial flagella motility	marine	Stress Adaptations
+K02557	chemotaxis protein MotB	Bacterial flagella motility	marine	Stress Adaptations
+K10564	chemotaxis protein MotC	Bacterial flagella motility	marine	Stress Adaptations
+K21217	sodium-type polar flagellar protein MotX	Bacterial flagella motility	marine	Stress Adaptations
+K21218	sodium-type flagellar protein MotY	Bacterial flagella motility	marine	Stress Adaptations
+K11936	pgaC / icaA	Biofilm formation	marine	Stress Adaptations
+K11937	pgaD	Biofilm formation	marine	Stress Adaptations
+K19290	alg8	Biofilm formation	marine	Stress Adaptations
+K19291	alg44	Biofilm formation	marine	Stress Adaptations
+K19293	algX	Biofilm formation	marine	Stress Adaptations
+K19294	algI	Biofilm formation	marine	Stress Adaptations
+K19295	algJ	Biofilm formation	marine	Stress Adaptations
+K19296	algF	Biofilm formation	marine	Stress Adaptations
+K20997	pslA	Biofilm formation	marine	Stress Adaptations
+K21001	pslH	Biofilm formation	marine	Stress Adaptations
+K21461	icaD	Biofilm formation	marine	Stress Adaptations
+K25205	pslC	Biofilm formation	marine	Stress Adaptations
+K00421	lcc [EC:1.10.3.2]	Oxidative stress defense	marine	Stress Adaptations
+K00431	lip [EC:1.11.1.14]	Oxidative stress defense	marine	Stress Adaptations
+K00799	gst [EC:2.5.1.18]	Oxidative stress defense	marine	Stress Adaptations
+K01920	gshA [EC:6.3.2.2]	Oxidative stress defense	marine	Stress Adaptations
+K01921	gshB [EC:6.3.2.3]	Oxidative stress defense	marine	Stress Adaptations
+K03782	katG [EC:1.11.1.21]	Oxidative stress defense	marine	Stress Adaptations
+K04564	sodA [EC:1.15.1.1]	Oxidative stress defense	marine	Stress Adaptations
+K04565	sodB [EC:1.15.1.1]	Oxidative stress defense	marine	Stress Adaptations
+K05909	mco [EC:1.10.3.2]	Oxidative stress defense	marine	Stress Adaptations
+K05910	npr [EC:1.11.1.1]	Oxidative stress defense	marine	Stress Adaptations
+K21566	3-chloro-4-hydroxyphenylacetate reductive dehalogenase [EC:3.8.1.-]	Reductive dehalogenation	marine	Stress Adaptations		kofam has limited Rdase gene family resolution
+K21647	tetrachloroethene reductive dehalogenase [EC:1.21.99.5]	Reductive dehalogenation	marine	Stress Adaptations		kofam has limited Rdase gene family resolution
+K00380	sulfite reductase (NADPH) flavoprotein alpha-component [EC:1.8.1.2]	Assimilatory sulfate reduction to sulfide	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K00381	sulfite reductase (NADPH) hemoprotein beta-component [EC:1.8.1.2]	Assimilatory sulfate reduction to sulfide	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K00390	phosphoadenosine phosphosulfate reductase [EC:1.8.4.8 1.8.4.10]	Assimilatory sulfate reduction to sulfide	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K00392	sulfite reductase (ferredoxin) [EC:1.8.7.1]	Assimilatory sulfate reduction to sulfide	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K00860	adenylylsulfate kinase [EC:2.7.1.25]	Assimilatory sulfate reduction to sulfide	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K00955	bifunctional enzyme CysN/CysC [EC:2.7.7.4 2.7.1.25]	Assimilatory sulfate reduction to sulfide	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K00956	sulfate adenylyltransferase subunit 1 [EC:2.7.7.4]	Assimilatory sulfate reduction to sulfide	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K00957	sulfate adenylyltransferase subunit 2 [EC:2.7.7.4]	Assimilatory sulfate reduction to sulfide	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K00958	sulfate adenylyltransferase [EC:2.7.7.4]	Assimilatory sulfate reduction to sulfide	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K05907	adenylyl-sulfate reductase (glutathione) [EC:1.8.4.9]	Assimilatory sulfate reduction to sulfide	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K00394	adenylylsulfate reductase, subunit A [EC:1.8.99.2]	Dissimilatory sulfate/sulfite redox	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K00395	adenylylsulfate reductase, subunit B [EC:1.8.99.2]	Dissimilatory sulfate/sulfite redox	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K00958	sulfate adenylyltransferase [EC:2.7.7.4]	Dissimilatory sulfate/sulfite redox	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K00385	anaerobic sulfite reductase subunit C	Dissimilatory sulfite/sulfide redox	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K11180	dissimilatory sulfite reductase alpha subunit [EC:1.8.1.22]	Dissimilatory sulfite/sulfide redox	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K11181	dissimilatory sulfite reductase beta subunit [EC:1.8.1.22]	Dissimilatory sulfite/sulfide redox	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K17219	sulfur reductase molybdopterin subunit	Elemental sulfur reduction	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K17220	sulfur reductase FeS subunit	Elemental sulfur reduction	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K17221	sulfur reductase membrane anchor	Elemental sulfur reduction	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K00385	anaerobic sulfite reductase subunit C	Thiosulfate reduction	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K08352	thiosulfate reductase / polysulfide reductase chain A [EC:1.8.5.5]	Thiosulfate reduction	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K08353	thiosulfate reductase electron transport protein	Thiosulfate reduction	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K08354	thiosulfate reductase cytochrome b subunit	Thiosulfate reduction	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K11180	dissimilatory sulfite reductase alpha subunit [EC:1.8.1.22]	Thiosulfate reduction	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K11181	dissimilatory sulfite reductase beta subunit [EC:1.8.1.22]	Thiosulfate reduction	marine	Sulfur Cycling	Inorganic Sulfur Transformation
+K00184	dimethyl sulfoxide reductase iron-sulfur subunit	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K00185	dimethyl sulfoxide reductase membrane subunit	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K07306	anaerobic dimethyl sulfoxide reductase subunit A [EC:1.8.5.3]	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K07307	anaerobic dimethyl sulfoxide reductase subunit B	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K07308	anaerobic dimethyl sulfoxide reductase subunit C	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K07811	trimethylamine-N-oxide reductase (cytochrome c) [EC:1.7.2.3]	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K16953	dimethylpropiothetin dethiomethylase [EC:4.4.1.3]	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K16964	dimethylsulfide dehydrogenase subunit alpha [EC:1.8.2.4]	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K16967	dimethyl-sulfide monooxygenase [EC:1.14.13.131]	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K17486	dimethylsulfoniopropionate demethylase [EC:2.1.1.269]	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K18277	trimethylamine monooxygenase [EC:1.14.13.148]	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K20034	3-(methylthio)propionyl---CoA ligase [EC:6.2.1.44]	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K20035	3-(methylsulfanyl)propanoyl-CoA dehydrogenase [EC:1.3.99.41]	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K20036	(methylthio)acryloyl-CoA hydratase [EC:4.2.1.155]	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K28067	dimethylpropiothetin dethiomethylase [EC:4.4.1.3]	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K28068	dimethylpropiothetin dethiomethylase [EC:4.4.1.3]	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K28069	dimethylpropiothetin dethiomethylase [EC:4.4.1.3]	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K28072	DMSP lyase	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation
+K28073	DMSP lyase	DMS/DMSP organosulfur cycling	marine	Sulfur Cycling	Organic Sulfur Transformation

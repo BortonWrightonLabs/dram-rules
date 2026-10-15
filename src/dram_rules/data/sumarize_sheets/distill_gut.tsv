@@ -1,0 +1,755 @@
+gene_id	gene_description	pathway	module	subheader	topic_ecosystem
+K01182	sucrase-isomaltase [EC:3.2.1.48]	Sucrose and starch metabolism (sucrase–isomaltase complex)	Carbon Processing	Sugars	gut
+K01203	β-fructofuranosidase [EC:3.2.1.26]	Fructose and mannose metabolism (β-fructofuranosidase)	Carbon Processing	Sugars	gut
+K12047	sucrose phosphorylase [EC:2.4.1.7]	Sucrose metabolism (sucrose phosphorylase)	Carbon Processing	Sugars	gut
+K01187	sucrase [EC:3.2.1.48]	Sucrose metabolism (sucrase)	Carbon Processing	Sugars	gut
+K12316	glucosyltransferase [EC:2.4.1.4]	Sucrose and starch metabolism (α-glucosyltransferase)	Carbon Processing	Sugars	gut
+K12317	sucrose-6F-phosphate phosphohydrolase [EC:3.1.3.24]	Sucrose-6F-phosphate metabolism (phosphohydrolase)	Carbon Processing	Sugars	gut
+K06617	raffinose synthase [EC:2.4.1.82]		Carbon Processing	Sugars	gut
+K01193	beta-fructofuranosidase [EC:3.2.1.26]		Carbon Processing	Sugars	gut
+K00695	α-glucosidase [EC:3.2.1.20]	Carbohydrate metabolism (α-glucosidase)	Carbon Processing	Sugars	gut
+K02810	PTS-Scr-EIIC; PTS system, sucrose-specific IIC component		Carbon Processing	Sugars	gut
+K00690	maltase-glucoamylase [EC:3.2.1.20]	Starch and sucrose metabolism (maltase–glucoamylase)	Carbon Processing	Sugars	gut
+K05341	glucanotransferase [EC:2.4.1.25]	Glycosyltransferase (oligosaccharide interconversion)	Carbon Processing	Sugars	gut
+K00689	oligo-1,6-glucosidase [EC:3.2.1.10]	Carbohydrate metabolism (oligo-1,6-glucosidase)	Carbon Processing	Sugars	gut
+K00692	isomaltase [EC:3.2.1.10]	Starch and sucrose metabolism (isomaltase)	Carbon Processing	Sugars	gut
+K01809	mannose-6-phosphate isomerase [EC:5.3.1.8]	Mannose metabolism (mannose-6-phosphate isomerase)	Carbon Processing	Sugars	gut
+K02793	mannose PTS system IIA component [EC:2.7.1.191]	PTS system, mannose-specific II component	Carbon Processing	Sugars	gut
+K02794	mannose PTS system IIB component [EC:2.7.1.191]	PTS system, mannose-specific II component	Carbon Processing	Sugars	gut
+K02795	mannose PTS system IIC component [EC:2.7.1.191]	PTS system, mannose-specific II component	Carbon Processing	Sugars	gut
+K02796	mannose PTS system EIID component		Carbon Processing	Sugars	gut
+K00849	galactokinase [EC:2.7.1.6]	Galactose metabolism (galactokinase; Leloir pathway)	Carbon Processing	Sugars	gut
+K00965	galactose-1-phosphate uridylyltransferase [EC:2.7.7.12]	Galactose metabolism (galactose-1-phosphate uridylyltransferase; Leloir pathway)	Carbon Processing	Sugars	gut
+K01784	UDP-galactose 4-epimerase [EC:5.1.3.2]	Galactose metabolism (UDP-galactose 4-epimerase; Leloir pathway)	Carbon Processing	Sugars	gut
+K01785	galactose mutarotase [EC:5.1.3.3]	Galactose metabolism (galactose mutarotase; Leloir pathway)	Carbon Processing	Sugars	gut
+K00879	L-fucokinase [EC:2.7.1.52]	Fucose metabolism (L-fucokinase)	Carbon Processing	Sugars	gut
+K01628	L-fuculose-phosphate aldolase [EC:4.1.2.17]	Fucose metabolism (L-fuculose-phosphate aldolase)	Carbon Processing	Sugars	gut
+K01818	L-fucose isomerase [EC:5.3.1.25]	Fucose metabolism (L-fucose isomerase)	Carbon Processing	Sugars	gut
+K00854	xylose kinase [EC:2.7.1.17]	Xylose metabolism (xylose kinase)	Carbon Processing	Sugars	gut
+K01805	xylose isomerase [EC:5.3.1.5]	Xylose metabolism (xylose isomerase)	Carbon Processing	Sugars	gut
+K00008	xylitol dehydrogenase [EC:1.1.1.9]	Xylose metabolism (xylitol dehydrogenase)	Carbon Processing	Sugars	gut
+K00011	L-arabitol dehydrogenase [EC:1.1.1.12]	Xylose / arabinose metabolism (arabitol dehydrogenase)	Carbon Processing	Sugars	gut
+K05351	xylulokinase [EC:2.7.1.17]	Xylose metabolism (xylulokinase)	Carbon Processing	Sugars	gut
+K17743	xylitol oxidase [EC:1.1.3.41]	Xylose metabolism (xylitol oxidase)	Carbon Processing	Sugars	gut
+K00078	dihydrodiol dehydrogenase / D-xylose 1-dehydrogenase (NADP) [EC:1.3.1.20 1.1.1.179]		Carbon Processing	Sugars	gut
+K14273	xylulose reductase [EC:1.1.1.9]	Xylose metabolism (xylulose reductase)	Carbon Processing	Sugars	gut
+K14274	D-xylonate dehydratase [EC:4.2.1.82]	Xylose metabolism (xylonate dehydratase)	Carbon Processing	Sugars	gut
+K14275	xylonolactonase [EC:3.1.1.68]	Xylose metabolism (xylonolactonase)	Carbon Processing	Sugars	gut
+K00045	mannitol 2-dehydrogenase [EC:1.1.1.67]		Carbon Processing	Sugars	gut
+K27924	mannitol 2-dehydrogenase [EC:1.1.1.67]		Carbon Processing	Sugars	gut
+K00007	D-arabinitol 4-dehydrogenase [EC:1.1.1.11]		Carbon Processing	Sugars	gut
+K00844	hexokinase [EC:2.7.1.1]	Glycolysis (hexokinase reaction)	Carbon Processing	Sugars	gut
+K00847	fructokinase [EC:2.7.1.4]		Carbon Processing	Sugars	gut
+K00846	ketohexokinase [EC:2.7.1.3]		Carbon Processing	Sugars	gut
+K27475	ketohexokinase [EC:2.7.1.3]		Carbon Processing	Sugars	gut
+K02768	PTS-Fru-EIIA; PTS system, fructose-specific IIA component		Carbon Processing	Sugars	gut
+K02769	PTS-Fru-EIIB; PTS system, fructose-specific IIB component		Carbon Processing	Sugars	gut
+K02770	PTS-Fru-EIIC; PTS system, fructose-specific IIC component		Carbon Processing	Sugars	gut
+K02771	PTS-Fru1-EIID; PTS system, fructose-specific IID component		Carbon Processing	Sugars	gut
+K11194	PTS-Fru1-EIIA; PTS system, fructose-specific IIA component		Carbon Processing	Sugars	gut
+K11195	PTS-Fru1-EIIB; PTS system, fructose-specific IIB component		Carbon Processing	Sugars	gut
+K11196	PTS-Fru1-EIIC; PTS system, fructose-specific IIC component		Carbon Processing	Sugars	gut
+K01804	L-arabinose isomerase [EC:5.3.1.4]	Arabinose metabolism (L-arabinose isomerase)	Carbon Processing	Sugars	gut
+K26066	arabinose 1-dehydrogenase [EC:1.1.1.46]	Arabinose metabolism (arabinose 1-dehydrogenase)	Carbon Processing	Sugars	gut
+K13873	arabinolactonase [EC:3.1.1.110]	Arabinose metabolism (arabinolactonase)	Carbon Processing	Sugars	gut
+K19660	arabinonate dehydratase [EC:4.2.1.37]	Arabinose metabolism (arabinonate dehydratase)	Carbon Processing	Sugars	gut
+K12446	L-arabonate dehydratase [EC:4.2.1.37]	Arabinose metabolism (L-arabonate dehydratase)	Carbon Processing	Sugars	gut
+K01813	L-rhamnose isomerase [EC:5.3.1.14]		Carbon Processing	Sugars	gut
+K01820	L-rhamnose isomerase / sugar isomerase [EC:5.3.1.14 5.3.1.-]		Carbon Processing	Sugars	gut
+K18337	L-rhamnose 1-dehydrogenase [EC:1.1.1.378 1.1.1.377 1.1.1.173]		Carbon Processing	Sugars	gut
+GH94	GH94 cellobiose phosphorylase (EC:2.4.1.20); laminaribiose phosphorylase (EC:2.4.1.31); cellodextrin phosphorylase (EC:2.4.1.49); chitobiose phosphorylase (EC:2.4.1.-); cyclic beta-1,2-glucan synthase (EC:2.4.1.-); cellobionic acid phosphorylase (EC:2.4.1.321); beta-1,2-oligoglucan phosphorylase (EC:2.4.1.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH1	GH1 beta-glucosidase (EC:3.2.1.21); beta-galactosidase (EC:3.2.1.23); beta-mannosidase (EC:3.2.1.25); beta-glucuronidase (EC:3.2.1.31); beta-xylosidase (EC:3.2.1.37); beta-D-fucosidase (EC:3.2.1.38); phlorizin hydrolase (EC:3.2.1.62); exo-beta-1,4-glucanase (EC:3.2.1.74); 6-phospho-beta-galactosidase (EC:3.2.1.85); 6-phospho-beta-glucosidase (EC:3.2.1.86); strictosidine beta-glucosidase (EC:3.2.1.105); lactase (EC:3.2.1.108); amygdalin beta-glucosidase (EC:3.2.1.117); prunasin beta-glucosidase (EC:3.2.1.118); vicianin hydrolase (EC:3.2.1.119); raucaffricine beta-glucosidase (EC:3.2.1.125); thioglucosidase (EC:3.2.1.147); beta-primeverosidase (EC:3.2.1.149); isoflavonoid 7-O-beta-apiosyl-beta-glucosidase (EC:3.2.1.161); ABA-specific beta-glucosidase (EC:3.2.1.175); DIMBOA beta-glucosidase (EC:3.2.1.182); beta-glycosidase (EC:3.2.1.-); hydroxyisourate hydrolase (EC:3.-.-.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH2	GH2 beta-galactosidase (EC:3.2.1.23) ; beta-mannosidase (EC:3.2.1.25); beta-glucuronidase (EC:3.2.1.31); alpha-L-arabinofuranosidase (EC:3.2.1.55); mannosylglycoprotein endo-beta-mannosidase (EC:3.2.1.152); exo-beta-glucosaminidase (EC:3.2.1.165); alpha-L-arabinopyranosidase (EC:3.2.1.-); beta-galacturonidase (EC:3.2.1.-); beta-xylosidase (EC:3.2.1.37); beta-D-galactofuranosidase (EC:3.2.1.146);	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH3	GH3 beta-glucosidase (EC:3.2.1.21); xylan 1,4-beta-xylosidase (EC:3.2.1.37); beta-glucosylceramidase (EC:3.2.1.45); beta-N-acetylhexosaminidase (EC:3.2.1.52); alpha-L-arabinofuranosidase (EC:3.2.1.55); glucan 1,3-beta-glucosidase (EC:3.2.1.58); glucan 1,4-beta-glucosidase (EC:3.2.1.74); isoprimeverose-producing oligoxyloglucan hydrolase (EC:3.2.1.120); coniferin beta-glucosidase (EC:3.2.1.126); exo-1,3-1,4-glucanase (EC:3.2.1.-); beta-N-acetylglucosaminide phosphorylases (EC:2.4.1.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH5	GH5 endo-beta-1,4-glucanase / cellulase (EC:3.2.1.4); endo-beta-1,4-xylanase (EC:3.2.1.8); beta-glucosidase (EC:3.2.1.21); beta-mannosidase (EC:3.2.1.25); beta-glucosylceramidase (EC:3.2.1.45); glucan beta-1,3-glucosidase (EC:3.2.1.58); licheninase (EC:3.2.1.73); exo-beta-1,4-glucanase / cellodextrinase (EC:3.2.1.74); glucan endo-1,6-beta-glucosidase (EC:3.2.1.75); mannan endo-beta-1,4-mannosidase (EC:3.2.1.78); cellulose beta-1,4-cellobiosidase (EC:3.2.1.91); steryl beta-glucosidase (EC:3.2.1.104); endoglycoceramidase (EC:3.2.1.123); chitosanase (EC:3.2.1.132); beta-primeverosidase (EC:3.2.1.149); xyloglucan-specific endo-beta-1,4-glucanase (EC:3.2.1.151); endo-beta-1,6-galactanase (EC:3.2.1.164); hesperidin 6-O-alpha-L-rhamnosyl-beta-glucosidase (EC:3.2.1.168); beta-1,3-mannanase (EC:3.2.1.-); arabinoxylan-specific endo-beta-1,4-xylanase (EC:3.2.1.-); mannan transglycosylase (EC:2.4.1.-); lichenase / endo-beta-1,3-1,4-glucanase (EC:3.2.1.73); beta-glycosidase (EC:3.2.1.-); endo-beta-1,3-glucanase / laminarinase (EC:3.2.1.39); beta-N-acetylhexosaminidase (EC:3.2.1.52); chitosanase (EC:3.2.1.132); beta-D-galactofuranosidase (EC:3.2.1.146);	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH9	GH9 endoglucanase (EC:3.2.1.4); endo-beta-1,3(4)-glucanase / lichenase-laminarinase (EC:3.2.1.6); beta-glucosidase (EC:3.2.1.21); lichenase / endo-beta-1,3-1,4-glucanase (EC:3.2.1.73); exo-beta-1,4-glucanase / cellodextrinase (EC:3.2.1.74); cellobiohydrolase (EC:3.2.1.91); xyloglucan-specific endo-beta-1,4-glucanase / endo-xyloglucanase (EC:3.2.1.151); exo-beta-glucosaminidase (EC:3.2.1.165)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH16	GH16 xyloglucan:xyloglucosyltransferase (EC:2.4.1.207); keratan-sulfate endo-1,4-beta-galactosidase (EC:3.2.1.103); endo-1,3-beta-glucanase / laminarinase (EC:3.2.1.39); endo-1,3(4)-beta-glucanase (EC:3.2.1.6); licheninase (EC:3.2.1.73); beta-agarase (EC:3.2.1.81); kappa;-carrageenase (EC:3.2.1.83); xyloglucanase (EC:3.2.1.151); endo-beta-1,3-galactanase (EC:3.2.1.181); [retaining] beta-porphyranase (EC:3.2.1.178); hyaluronidase (EC:3.2.1.35); endo-beta-1,4-galactosidase (EC:3.2.1.-); chitin beta-1,6-glucanosyltransferase (EC:2.4.1.-); beta-transglycosidase (EC:2.4.1.-); beta-glycosidase (EC:3.2.1.-); endo-beta-1,3-galactanase (EC:3.2.1.181)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH116	GH116 beta-glucosidase (EC:3.2.1.21); beta-xylosidase (EC:3.2.1.37); acid beta-glucosidase/beta-glucosylceramidase (EC:3.2.1.45); beta-N-acetylglucosaminidase (EC:3.2.1.52)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH6	GH6 endoglucanase (EC:3.2.1.4); cellobiohydrolase (EC:3.2.1.91)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH8	GH8 chitosanase (EC:3.2.1.132); cellulase (EC:3.2.1.4); licheninase (EC:3.2.1.73); endo-1,4-beta-xylanase (EC:3.2.1.8); reducing-end-xylose releasing exo-oligoxylanase (EC:3.2.1.156)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH10	GH10 endo-1,4-beta-xylanase (EC:3.2.1.8); endo-1,3-beta-xylanase (EC:3.2.1.32); tomatinase (EC:3.2.1.-); xylan endotransglycosylase (EC:2.4.2.-); endo-beta-1,4-glucanase (EC:3.2.1.4)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH124	GH124 endoglucanase (EC:3.2.1.4)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH12	GH12 endoglucanase (EC:3.2.1.4); xyloglucan hydrolase (EC:3.2.1.151); beta-1,3-1,4-glucanase (EC:3.2.1.73); xyloglucan endotransglycosylase (EC:2.4.1.207)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH44	GH44 endoglucanase (EC:3.2.1.4); xyloglucanase (EC:3.2.1.151)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH45	GH45 endoglucanase (EC:3.2.1.4); xyloglucan-specific endo-beta-1,4-glucanase / endo-xyloglucanase (EC:3.2.1.151); endo-beta-1,4-mannanase (EC:3.2.1.78)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH7	GH7 endo-beta-1,4-glucanase (EC:3.2.1.4); reducing end-acting cellobiohydrolase (EC:3.2.1.176); chitosanase (EC:3.2.1.132); endo-beta-1,3-1,4-glucanase (EC:3.2.1.73)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH48	GH48 reducing end-acting cellobiohydrolase (EC:3.2.1.176); endo-beta-1,4-glucanase (EC:3.2.1.4); chitinase (EC:3.2.1.14)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+AA10	AA10 (formerly CBM33) proteins are copper-dependent lytic polysaccharide monooxygenases (LPMOs); some proteins have been shown to act on chitin, others on cellulose; lytic cellulose monooxygenase (C1-hydroxylating) (EC:1.14.99.54); lytic cellulose monooxygenase (C4-dehydrogenating)(EC:1.14.99.56); lytic chitin monooxygenase (EC:1.14.99.53)	Auxiliary Activities	Carbon Processing	Fiber Degradation	gut
+AA15	AA15 lytic cellulose monooxygenase (C1-hydroxylating) (EC:1.14.99.54); lytic chitin monooxygenase (EC:1.14.99.53)	Auxiliary Activities	Carbon Processing	Fiber Degradation	gut
+AA16	AA16 Lytic cellulose monooxygenase (C1-hydroxylating) (EC:1.14.99.54)	Auxiliary Activities	Carbon Processing	Fiber Degradation	gut
+AA9	AA9 (formerly GH61) proteins are copper-dependent lytic polysaccharide monooxygenases (LPMOs); cleavage of cellulose chains with oxidation of carbons C1 and/or C4 and C-6); lytic cellulose monooxygenase (C1-hydroxylating) (EC:1.14.99.54); lytic cellulose monooxygenase (C4-dehydrogenating) (EC:1.14.99.56)	Auxiliary Activities	Carbon Processing	Fiber Degradation	gut
+AA11	AA11 proteins are copper-dependent lytic polysaccharide monooxygenases (LPMOs); cleavage of chitin chains with oxidation of C-1 has been demonstrated for a AA11 LPMO from Aspergillus oryzae;	Auxiliary Activities	Carbon Processing	Fiber Degradation	gut
+AA13	AA13 proteins are copper-dependent lytic polysaccharide monooxygenases (LPMOs); cleavage of starch with oxidation of C-1 at the site of cleavage has been demonstrated for the LPMO encoded by gene NCU08746 from Neurospora crassa;	Auxiliary Activities	Carbon Processing	Fiber Degradation	gut
+GH113	GH113 beta-mannanase (EC:3.2.1.78)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH134	GH134 endo-beta-1,4-mannanase (EC:3.2.1.78);	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH26	GH26 beta-mannanase (EC:3.2.1.78); exo-beta-1,4-mannobiohydrolase (EC:3.2.1.100); beta-1,3-xylanase (EC:3.2.1.32); lichenase / endo-beta-1,3-1,4-glucanase (EC:3.2.1.73); mannobiose-producing exo-beta-mannanase (EC:3.2.1.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH130	GH130 beta-1,4-mannosylglucose phosphorylase (EC:2.4.1.281); beta-1,4-mannooligosaccharide phosphorylase (EC:2.4.1.319); beta-1,4-mannosyl-N-acetyl-glucosamine phosphorylase (EC:2.4.1.320); beta-1,2-mannobiose phosphorylase (EC:2.4.1.-); beta-1,2-oligomannan phosphorylase (EC:2.4.1.-); beta-1,2-mannosidase (EC:3.2.1.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+CE2	CE2 acetyl xylan esterase (EC:3.1.1.72).	Carbohydrate Esterases	Carbon Processing	Fiber Degradation	gut
+CE17	acetyl mannan esterase [EC:3.1.1.-]	Carbohydrate Esterases	Carbon Processing	Fiber Degradation	gut
+GH99	GH99 glycoprotein endo-alpha-1,2-mannosidase (EC:3.2.1.130); mannan endo-1,2-alpha-mannanase (3.2.1.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH76	GH76 alpha-1,6-mannanase (EC:3.2.1.101); alpha-glucosidase (EC:3.2.1.20)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH92	GH92 mannosyl-oligosaccharide alpha-1,2-mannosidase (EC:3.2.1.113); mannosyl-oligosaccharide alpha-1,3-mannosidase (EC:3.2.1.-); mannosyl-oligosaccharide alpha-1,6-mannosidase (EC:3.2.1.-); alpha-mannosidase (EC:3.2.1.24); alpha-1,2-mannosidase (EC:3.2.1.-); alpha-1,3-mannosidase (EC:3.2.1.-); alpha-1,4-mannosidase (EC:3.2.1.-); mannosyl-1-phosphodiester alpha-1,P-mannosidase (EC:3.2.1.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH38	GH38 alpha-mannosidase (EC:3.2.1.24); mannosyl-oligosaccharide alpha-1,2-mannosidase (EC:3.2.1.113); mannosyl-oligosaccharide alpha-1,3-1,6-mannosidase (EC:3.2.1.114); alpha-2-O-mannosylglycerate hydrolase (EC:3.2.1.170); mannosyl-oligosaccharide alpha-1,3-mannosidase (EC:3.2.1.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH63	GH63 processing alpha-glucosidase (EC:3.2.1.106); alpha-1,3-glucosidase (EC:3.2.1.84); alpha-glucosidase (EC:3.2.1.20); mannosylglycerate alpha-mannosidase / mannosylglycerate hydrolase (EC:3.2.1.170); glucosylglycerate hydrolase (EC:3.2.1.208)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH47	GH47 alpha-mannosidase (EC:3.2.1.113)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH125	GH125 exo-alpha-1,6-mannosidase (EC:3.2.1.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH74	GH74 endoglucanase (EC:3.2.1.4); oligoxyloglucan reducing end-specific cellobiohydrolase (EC:3.2.1.150); xyloglucanase (EC:3.2.1.151)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH31	GH31 alpha-glucosidase (EC:3.2.1.20); alpha-galactosidase (EC:3.2.1.22); alpha-mannosidase (EC:3.2.1.24); alpha-1,3-glucosidase (EC:3.2.1.84); sucrase-isomaltase (EC:3.2.1.48) (EC:3.2.1.10); alpha-xylosidase (EC:3.2.1.177); alpha-glucan lyase (EC:4.2.2.13); isomaltosyltransferase (EC:2.4.1.-); oligosaccharide alpha-1,4-glucosyltransferase (EC:2.4.1.161); sulfoquinovosidase (EC:3.2.1.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH43	GH43 beta-xylosidase (EC:3.2.1.37); alpha-L-arabinofuranosidase (EC:3.2.1.55); xylanase (EC:3.2.1.8); alpha-1,2-L-arabinofuranosidase (EC:3.2.1.-); exo-alpha-1,5-L-arabinofuranosidase (EC:3.2.1.-); [inverting] exo-alpha-1,5-L-arabinanase (EC:3.2.1.-); beta-1,3-xylosidase (EC:3.2.1.-); [inverting] exo-alpha-1,5-L-arabinanase (EC:3.2.1.-); [inverting] endo-alpha-1,5-L-arabinanase (EC:3.2.1.99); exo-beta-1,3-galactanase (EC:3.2.1.145); beta-D-galactofuranosidase (EC:3.2.1.146)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH11	GH11 endo-beta-1,4-xylanase (EC:3.2.1.8); endo-beta-1,3-xylanase (EC:3.2.1.32)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH51	GH51 endoglucanase (EC:3.2.1.4); endo-beta-1,4-xylanase (EC:3.2.1.8); beta-xylosidase (EC:3.2.1.37); alpha-L-arabinofuranosidase (EC:3.2.1.55); lichenase / endo-beta-1,3-1,4-glucanase (EC:3.2.1.73)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+CE1	CE1 acetyl xylan esterase (EC:3.1.1.72); cinnamoyl esterase (EC:3.1.1.-); feruloyl esterase (EC:3.1.1.73); carboxylesterase (EC:3.1.1.1); S-formylglutathione hydrolase (EC:3.1.2.12); diacylglycerol O-acyltransferase (EC:2.3.1.20); trehalose 6-O-mycolyltransferase (EC:2.3.1.122)	Carbohydrate Esterases	Carbon Processing	Fiber Degradation	gut
+CE4	CE4 acetyl xylan esterase (EC:3.1.1.72); chitin deacetylase (EC:3.5.1.41); chitooligosaccharide deacetylase (EC:3.5.1.-); peptidoglycan GlcNAc deacetylase (EC:3.5.1.-); peptidoglycan N-acetylmuramic acid deacetylase (EC:3.5.1.-).	Carbohydrate Esterases	Carbon Processing	Fiber Degradation	gut
+GH28	GH28 polygalacturonase (EC:3.2.1.15); alpha-L-rhamnosidase (EC:3.2.1.40); exo-polygalacturonase (EC:3.2.1.67); exo-polygalacturonosidase (EC:3.2.1.82); rhamnogalacturonase (EC:3.2.1.171); rhamnogalacturonan alpha-1,2-galacturonohydrolase (EC:3.2.1.173); endo-xylogalacturonan hydrolase (EC:3.2.1.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+PL1	PL1 pectate lyase (EC:4.2.2.2); exo-pectate lyase (EC:4.2.2.9); pectin lyase (EC:4.2.2.10).	Polysaccharide Lyases	Carbon Processing	Fiber Degradation	gut
+PL2	PL2 pectate lyase (EC:4.2.2.2); exo-polygalacturonate lyase (EC:4.2.2.9).	Polysaccharide Lyases	Carbon Processing	Fiber Degradation	gut
+PL3	PL3 pectate lyase (EC:4.2.2.2).	Polysaccharide Lyases	Carbon Processing	Fiber Degradation	gut
+PL4	PL4 rhamnogalacturonan endolyase (EC:4.2.2.23).	Polysaccharide Lyases	Carbon Processing	Fiber Degradation	gut
+PL9	PL9 pectate lyase (EC:4.2.2.2); exopolygalacturonate lyase (EC:4.2.2.9); thiopeptidoglycan lyase (EC:4.2.2.-).	Polysaccharide Lyases	Carbon Processing	Fiber Degradation	gut
+PL10	PL10 pectate lyase (EC:4.2.2.2)	Polysaccharide Lyases	Carbon Processing	Fiber Degradation	gut
+PL11	PL11 rhamnogalacturonan endolyase (EC:4.2.2.23); rhamnogalacturonan exolyase (EC:4.2.2.24)	Polysaccharide Lyases	Carbon Processing	Fiber Degradation	gut
+PL22	PL22 oligogalacturonate lyase / oligogalacturonide lyase (EC:4.2.2.6)	Polysaccharide Lyases	Carbon Processing	Fiber Degradation	gut
+PL26	PL26 rhamnogalacturonan exolyase (EC:4.2.2.24).	Polysaccharide Lyases	Carbon Processing	Fiber Degradation	gut
+GH78	GH78 alpha-L-rhamnosidase (EC:3.2.1.40); rhamnogalacturonan alpha-L-rhamnohydrolase (EC:3.2.1.174); L-Rhap-alpha-1,3-D-Apif -specific alpha-1,3-L-rhamnosidase (EC:3.2.1.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH106	GH106 alpha-L-rhamnosidase (EC:3.2.1.40); rhamnogalacturonan alpha-L-rhamnohydrolase (EC:3.2.1.174)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH138	GH138 alpha-galacturonidase (EC:3.2.1.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH139	GH139 alpha-2-O-Me-L-fucosidase (EC:3.2.1.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH143	GH143 2-keto-3-deoxy-D-lyxo-heptulosaric acid hydrolase (EC:3.2.1.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+CE8	CE8 pectin methylesterase (EC:3.1.1.11).	Carbohydrate Esterases	Carbon Processing	Fiber Degradation	gut
+GH105	GH105 unsaturated rhamnogalacturonyl hydrolase (EC:3.2.1.172); d-4,5-unsaturated beta-glucuronyl hydrolase (EC:3.2.1.-); d-4,5-unsaturated alpha-galacturonidase (EC:3.2.1.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+GH4	GH4 maltose-6-phosphate glucosidase (EC:3.2.1.122); alpha-glucosidase (EC:3.2.1.20); alpha-galactosidase (EC:3.2.1.22); 6-phospho-beta-glucosidase (EC:3.2.1.86); alpha-glucuronidase (EC:3.2.1.139); alpha-galacturonase (EC:3.2.1.67); palatinase (EC:3.2.1.-)	Glycoside Hydrolases	Carbon Processing	Fiber Degradation	gut
+CE12	CE12 pectin acetylesterase (EC:3.1.1.-); rhamnogalacturonan acetylesterase (EC:3.1.1.-); acetyl xylan esterase (EC:3.1.1.72)	Carbohydrate Esterases	Carbon Processing	Fiber Degradation	gut
+GH33			Carbon Processing	Mucin glycan degradation	gut
+GH29			Carbon Processing	Mucin glycan degradation	gut
+GH95			Carbon Processing	Mucin glycan degradation	gut
+GH20			Carbon Processing	Mucin glycan degradation	gut
+GH35			Carbon Processing	Mucin glycan degradation	gut
+GH84			Carbon Processing	Mucin glycan degradation	gut
+GH85			Carbon Processing	Mucin glycan degradation	gut
+GH89			Carbon Processing	Mucin glycan degradation	gut
+GH101			Carbon Processing	Mucin glycan degradation	gut
+GH129			Carbon Processing	Mucin glycan degradation	gut
+GH42			Carbon Processing	Mucin glycan degradation	gut
+GH98			Carbon Processing	Mucin glycan degradation	gut
+GH13	GH13 alpha-amylase (EC:3.2.1.1); pullulanase (EC:3.2.1.41); cyclomaltodextrin glucanotransferase (EC:2.4.1.19); cyclomaltodextrinase (EC:3.2.1.54); trehalose-6-phosphate hydrolase (EC:3.2.1.93); oligo-alpha-glucosidase (EC:3.2.1.10); maltogenic amylase (EC:3.2.1.133); neopullulanase (EC:3.2.1.135); alpha-glucosidase (EC:3.2.1.20); maltotetraose-forming alpha-amylase (EC:3.2.1.60); isoamylase (EC:3.2.1.68); glucodextranase (EC:3.2.1.70); maltohexaose-forming alpha-amylase (EC:3.2.1.98); maltotriose-forming alpha-amylase (EC:3.2.1.116); branching enzyme (EC:2.4.1.18); trehalose synthase (EC:5.4.99.16); 4-alpha-glucanotransferase (EC:2.4.1.25); maltopentaose-forming alpha-amylase (EC:3.2.1.-) ; amylosucrase (EC:2.4.1.4) ; sucrose phosphorylase (EC:2.4.1.7); malto-oligosyltrehalose trehalohydrolase (EC:3.2.1.141); isomaltulose synthase (EC:5.4.99.11); malto-oligosyltrehalose synthase (EC:5.4.99.15); amylo-alpha-1,6-glucosidase (EC:3.2.1.33); alpha-1,4-glucan: phosphate alpha-maltosyltransferase (EC:2.4.99.16); 6'-P-sucrose phosphorylase (EC:2.4.1.-); amino acid transporter	Glycoside Hydrolases	Carbon Processing	Resistant starch degradation	gut
+CBM20			Carbon Processing	Resistant starch degradation	gut
+CBM26			Carbon Processing	Resistant starch degradation	gut
+GH57	GH57 alpha-amylase (EC:3.2.1.1); alpha-galactosidase (EC:3.2.1.22); amylopullulanase (EC:3.2.1.41); cyclomaltodextrinase (EC:3.2.1.54); branching enzyme (EC:2.4.1.18); 4-alpha-glucanotransferase (EC:2.4.1.25)	Glycoside Hydrolases	Carbon Processing	Resistant starch degradation	gut
+GH77			Carbon Processing	Resistant starch degradation	gut
+K00163	pyruvate dehydrogenase E1 component [EC:1.2.4.1]		Fermentation	SCFA production	gut
+K00161	pyruvate dehydrogenase E1 component subunit alpha [EC:1.2.4.1]		Fermentation	SCFA production	gut
+K00162	pyruvate dehydrogenase E1 component subunit beta [EC:1.2.4.1]		Fermentation	SCFA production	gut
+K01568	pyruvate decarboxylase [EC:4.1.1.1]		Fermentation	SCFA production	gut
+K00627	pyruvate dehydrogenase E2 component (dihydrolipoyllysine-residue acetyltransferase) [EC:2.3.1.12]		Fermentation	SCFA production	gut
+K00174	2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase subunit alpha [EC:1.2.7.3 1.2.7.11]		Fermentation	SCFA production	gut
+K00175	2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase subunit beta [EC:1.2.7.3 1.2.7.11]		Fermentation	SCFA production	gut
+K00169	pyruvate ferredoxin oxidoreductase alpha subunit [EC:1.2.7.1]		Fermentation	SCFA production	gut
+K00170	pyruvate ferredoxin oxidoreductase beta subunit [EC:1.2.7.1]		Fermentation	SCFA production	gut
+K00172	pyruvate ferredoxin oxidoreductase gamma subunit [EC:1.2.7.1]		Fermentation	SCFA production	gut
+K00189	2-oxoisovalerate/pyruvate ferredoxin oxidoreductase gamma subunit [EC:1.2.7.7 1.2.7.1]		Fermentation	SCFA production	gut
+K00171	pyruvate ferredoxin oxidoreductase delta subunit [EC:1.2.7.1]		Fermentation	SCFA production	gut
+K03737	pyruvate-ferredoxin/flavodoxin oxidoreductase [EC:1.2.7.1 1.2.8.1]		Fermentation	SCFA production	gut
+K01905	acetate---CoA ligase (ADP-forming) subunit alpha [EC:6.2.1.13]		Fermentation	SCFA production	gut
+K22224	acetate---CoA ligase (ADP-forming) subunit beta [EC:6.2.1.13]		Fermentation	SCFA production	gut
+K24012	acetate---CoA ligase (ADP-forming) [EC:6.2.1.13]		Fermentation	SCFA production	gut
+K00138	aldehyde dehydrogenase [EC:1.2.1.-]		Fermentation	SCFA production	gut
+K00128	aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]		Fermentation	SCFA production	gut
+K14085	aldehyde dehydrogenase family 7 member A1 [EC:1.2.1.31 1.2.1.8 1.2.1.3]		Fermentation	SCFA production	gut
+K00149	aldehyde dehydrogenase family 9 member A1 [EC:1.2.1.47 1.2.1.3]		Fermentation	SCFA production	gut
+K00129	aldehyde dehydrogenase (NAD(P)+) [EC:1.2.1.5]		Fermentation	SCFA production	gut
+K01895	acetyl-CoA synthetase [EC:6.2.1.1]		Fermentation	SCFA production	gut
+K01913	acetate/butyrate---CoA ligase [EC:6.2.1.1 6.2.1.2]		Fermentation	SCFA production	gut
+K01899	succinyl-CoA synthetase alpha subunit [EC:6.2.1.4 6.2.1.5]		Fermentation	SCFA production	gut
+K01900	succinyl-CoA synthetase beta subunit [EC:6.2.1.4 6.2.1.5]		Fermentation	SCFA production	gut
+K01902	succinyl-CoA synthetase alpha subunit [EC:6.2.1.5]		Fermentation	SCFA production	gut
+K01903	succinyl-CoA synthetase beta subunit [EC:6.2.1.5]		Fermentation	SCFA production	gut
+K01847	methylmalonyl-CoA mutase [EC:5.4.99.2]		Fermentation	SCFA production	gut
+K01849	methylmalonyl-CoA mutase, C-terminal domain [EC:5.4.99.2]		Fermentation	SCFA production	gut
+K01848	methylmalonyl-CoA mutase, N-terminal domain [EC:5.4.99.2]		Fermentation	SCFA production	gut
+K00140	malonate-semialdehyde dehydrogenase (acetylating) / methylmalonate-semialdehyde dehydrogenase [EC:1.2.1.18 1.2.1.27]		Fermentation	SCFA production	gut
+K05606	methylmalonyl-CoA/ethylmalonyl-CoA epimerase [EC:5.1.99.1]		Fermentation	SCFA production	gut
+K11264	methylmalonyl-CoA decarboxylase [EC:4.1.1.-]		Fermentation	SCFA production	gut
+K03416	methylmalonyl-CoA carboxyltransferase 5S subunit [EC:2.1.3.1]		Fermentation	SCFA production	gut
+K18426	ethylmalonyl-CoA/methylmalonyl-CoA decarboxylase [EC:4.1.1.94 4.1.1.-]		Fermentation	SCFA production	gut
+K01908	propionyl-CoA synthetase [EC:6.2.1.17]		Fermentation	SCFA production	gut
+K01026	propionate CoA-transferase [EC:2.8.3.1]		Fermentation	SCFA production	gut
+K20626	lactoyl-CoA dehydratase subunit alpha [EC:4.2.1.54]		Fermentation	SCFA production	gut
+K20627	lactoyl-CoA dehydratase subunit beta [EC:4.2.1.54]		Fermentation	SCFA production	gut
+K00248	butyryl-CoA dehydrogenase [EC:1.3.8.1]		Fermentation	SCFA production	gut
+K00232	acyl-CoA oxidase [EC:1.3.3.6]		Fermentation	SCFA production	gut
+K01699	propanediol dehydratase large subunit [EC:4.2.1.28]		Fermentation	SCFA production	gut
+K13919	propanediol dehydratase medium subunit [EC:4.2.1.28]		Fermentation	SCFA production	gut
+K13920	propanediol dehydratase small subunit [EC:4.2.1.28]		Fermentation	SCFA production	gut
+K13922	propionaldehyde dehydrogenase [EC:1.2.1.87]		Fermentation	SCFA production	gut
+K01206	alpha-L-fucosidase [EC:3.2.1.51]		Fermentation	SCFA production	gut
+K13788	phosphate acetyltransferase [EC:2.3.1.8]		Fermentation	SCFA production	gut
+K00625	phosphate acetyltransferase [EC:2.3.1.8]		Fermentation	SCFA production	gut
+K15024	putative phosphotransacetylase [EC:2.3.1.8]		Fermentation	SCFA production	gut
+K13923	phosphate propanoyltransferase [EC:2.3.1.222]		Fermentation	SCFA production	gut
+K00656	formate C-acetyltransferase [EC:2.3.1.54]		Fermentation	SCFA production	gut
+K00925	acetate kinase [EC:2.7.2.1]		Fermentation	SCFA production	gut
+K00932	propionate kinase [EC:2.7.2.15]		Fermentation	SCFA production	gut
+K19697	propionate kinase [EC:2.7.2.15]		Fermentation	SCFA production	gut
+K00626	acetyl-CoA C-acetyltransferase [EC:2.3.1.9]		Fermentation	SCFA production	gut
+K00074	3-hydroxybutyryl-CoA dehydrogenase [EC:1.1.1.157]		Fermentation	SCFA production	gut
+K00022	3-hydroxyacyl-CoA dehydrogenase [EC:1.1.1.35]		Fermentation	SCFA production	gut
+K07516	3-hydroxyacyl-CoA dehydrogenase [EC:1.1.1.35]		Fermentation	SCFA production	gut
+K01825	3-hydroxyacyl-CoA dehydrogenase / enoyl-CoA hydratase / 3-hydroxybutyryl-CoA epimerase / enoyl-CoA isomerase [EC:1.1.1.35 4.2.1.17 5.1.2.3 5.3.3.8]		Fermentation	SCFA production	gut
+K01782	3-hydroxyacyl-CoA dehydrogenase / enoyl-CoA hydratase / 3-hydroxybutyryl-CoA epimerase [EC:1.1.1.35 4.2.1.17 5.1.2.3]		Fermentation	SCFA production	gut
+K07514	enoyl-CoA hydratase / 3-hydroxyacyl-CoA dehydrogenase / 3,2-trans-enoyl-CoA isomerase [EC:4.2.1.17 1.1.1.35 5.3.3.8]		Fermentation	SCFA production	gut
+K01692	enoyl-CoA hydratase [EC:4.2.1.17]		Fermentation	SCFA production	gut
+K07515	enoyl-CoA hydratase / long-chain 3-hydroxyacyl-CoA dehydrogenase [EC:4.2.1.17 1.1.1.211]		Fermentation	SCFA production	gut
+K07511	enoyl-CoA hydratase [EC:4.2.1.17]		Fermentation	SCFA production	gut
+K01715	short-chain-enoyl-CoA hydratase [EC:4.2.1.150]		Fermentation	SCFA production	gut
+K00209	enoyl-[acyl-carrier protein] reductase / trans-2-enoyl-CoA reductase (NAD+) [EC:1.3.1.9 1.3.1.44]		Fermentation	SCFA production	gut
+K17829	crotonyl-CoA reductase [EC:1.3.1.86]		Fermentation	SCFA production	gut
+K01034	acetate CoA/acetoacetate CoA-transferase alpha subunit [EC:2.8.3.8 2.8.3.9]		Fermentation	SCFA production	gut
+K01035	acetate CoA/acetoacetate CoA-transferase beta subunit [EC:2.8.3.8 2.8.3.9]		Fermentation	SCFA production	gut
+K19709	acetate CoA-transferase [EC:2.8.3.8]		Fermentation	SCFA production	gut
+K00135	succinate-semialdehyde dehydrogenase / glutarate-semialdehyde dehydrogenase [EC:1.2.1.16 1.2.1.79 1.2.1.20]		Fermentation	SCFA production	gut
+K08324	succinate-semialdehyde dehydrogenase [EC:1.2.1.16 1.2.1.24]		Fermentation	SCFA production	gut
+K00139	succinate-semialdehyde dehydrogenase [EC:1.2.1.24]		Fermentation	SCFA production	gut
+K17761	succinate-semialdehyde dehydrogenase, mitochondrial [EC:1.2.1.24]		Fermentation	SCFA production	gut
+K00043	4-hydroxybutyrate dehydrogenase [EC:1.1.1.61]		Fermentation	SCFA production	gut
+K08318	4-hydroxybutyrate dehydrogenase / sulfolactaldehyde 3-reductase [EC:1.1.1.61 1.1.1.373]		Fermentation	SCFA production	gut
+K18120	4-hydroxybutyrate dehydrogenase [EC:1.1.1.61]		Fermentation	SCFA production	gut
+K18121	glyoxylate/succinic semialdehyde reductase [EC:1.1.1.79 1.1.1.-]		Fermentation	SCFA production	gut
+K18122	4-hydroxybutyrate CoA-transferase [EC:2.8.3.-]		Fermentation	SCFA production	gut
+K14534	4-hydroxybutyryl-CoA dehydratase / vinylacetyl-CoA-Delta-isomerase [EC:4.2.1.120 5.3.3.3]		Fermentation	SCFA production	gut
+K01580	glutamate decarboxylase [EC:4.1.1.15]		Fermentation	SCFA production	gut
+K13524	4-aminobutyrate aminotransferase / (S)-3-amino-2-methylpropionate transaminase [EC:2.6.1.19 2.6.1.22]		Fermentation	SCFA production	gut
+K07250	4-aminobutyrate aminotransferase / (S)-3-amino-2-methylpropionate transaminase / 5-aminovalerate transaminase [EC:2.6.1.19 2.6.1.22 2.6.1.48]		Fermentation	SCFA production	gut
+K14268	5-aminovalerate/4-aminobutyrate aminotransferase [EC:2.6.1.48 2.6.1.19]		Fermentation	SCFA production	gut
+K00823	4-aminobutyrate aminotransferase [EC:2.6.1.19]		Fermentation	SCFA production	gut
+K16871	4-aminobutyrate---pyruvate transaminase [EC:2.6.1.96]		Fermentation	SCFA production	gut
+K01843	lysine 2,3-aminomutase [EC:5.4.3.2]		Fermentation	SCFA production	gut
+K01844	beta-lysine 5,6-aminomutase alpha subunit [EC:5.4.3.3]		Fermentation	SCFA production	gut
+K18011	beta-lysine 5,6-aminomutase beta subunit [EC:5.4.3.3]		Fermentation	SCFA production	gut
+K18012	L-erythro-3,5-diaminohexanoate dehydrogenase [EC:1.4.1.11]	5-diaminohexanoate dehydrogenase [EC:1.4.1.11]	Fermentation	SCFA production	gut
+K18013	3-keto-5-aminohexanoate cleavage enzyme [EC:2.3.1.247]		Fermentation	SCFA production	gut
+K18014	3-aminobutyryl-CoA ammonia-lyase [EC:4.3.1.14]		Fermentation	SCFA production	gut
+K00886	polyphosphate glucokinase [EC:2.7.1.63]		Fermentation	Lactate	gut
+K08074	ADP-dependent glucokinase [EC:2.7.1.147]		Fermentation	Lactate	gut
+K00918	ADP-dependent phosphofructokinase/glucokinase [EC:2.7.1.146 2.7.1.147]		Fermentation	Lactate	gut
+K12407	glucokinase [EC:2.7.1.2]		Fermentation	Lactate	gut
+K00845	glucokinase [EC:2.7.1.2]		Fermentation	Lactate	gut
+K25026	glucokinase [EC:2.7.1.2]		Fermentation	Lactate	gut
+K01810	glucose-6-phosphate isomerase [EC:5.3.1.9]		Fermentation	Lactate	gut
+K06859	glucose-6-phosphate isomerase, archaeal [EC:5.3.1.9]		Fermentation	Lactate	gut
+K13810	transaldolase / glucose-6-phosphate isomerase [EC:2.2.1.2 5.3.1.9]		Fermentation	Lactate	gut
+K15916	glucose/mannose-6-phosphate isomerase [EC:5.3.1.9 5.3.1.8]		Fermentation	Lactate	gut
+K24182	6-phosphofructokinase [EC:2.7.1.11]		Fermentation	Lactate	gut
+K00850	6-phosphofructokinase 1 [EC:2.7.1.11]		Fermentation	Lactate	gut
+K16370	6-phosphofructokinase 2 [EC:2.7.1.11]		Fermentation	Lactate	gut
+K21071	ATP-dependent phosphofructokinase / diphosphate-dependent phosphofructokinase [EC:2.7.1.11 2.7.1.90]		Fermentation	Lactate	gut
+K00895	diphosphate-dependent phosphofructokinase [EC:2.7.1.90]		Fermentation	Lactate	gut
+K01623	fructose-bisphosphate aldolase, class I [EC:4.1.2.13]		Fermentation	Lactate	gut
+K01624	fructose-bisphosphate aldolase, class II [EC:4.1.2.13]		Fermentation	Lactate	gut
+K01622	fructose 1,6-bisphosphate aldolase/phosphatase [EC:4.1.2.13 3.1.3.11]		Fermentation	Lactate	gut
+K11645	fructose-bisphosphate aldolase, class I [EC:4.1.2.13]		Fermentation	Lactate	gut
+K16305	fructose-bisphosphate aldolase / 6-deoxy-5-ketofructose 1-phosphate synthase [EC:4.1.2.13 2.2.1.11]		Fermentation	Lactate	gut
+K16306	fructose-bisphosphate aldolase / 2-amino-3,7-dideoxy-D-threo-hept-6-ulosonate synthase [EC:4.1.2.13 2.2.1.10]		Fermentation	Lactate	gut
+K00134	glyceraldehyde 3-phosphate dehydrogenase (phosphorylating) [EC:1.2.1.12]		Fermentation	Lactate	gut
+K00150	glyceraldehyde-3-phosphate dehydrogenase (NAD(P)+) (phosphorylating) [EC:1.2.1.59]		Fermentation	Lactate	gut
+K00927	phosphoglycerate kinase [EC:2.7.2.3]		Fermentation	Lactate	gut
+K01837	bisphosphoglycerate/phosphoglycerate mutase [EC:5.4.2.4 5.4.2.11]		Fermentation	Lactate	gut
+K01834	2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]		Fermentation	Lactate	gut
+K15633	2,3-bisphosphoglycerate-independent phosphoglycerate mutase [EC:5.4.2.12]		Fermentation	Lactate	gut
+K15634	2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]		Fermentation	Lactate	gut
+K15635	2,3-bisphosphoglycerate-independent phosphoglycerate mutase [EC:5.4.2.12]		Fermentation	Lactate	gut
+K03103	multiple inositol-polyphosphate phosphatase / 2,3-bisphosphoglycerate 3-phosphatase [EC:3.1.3.62 3.1.3.80]		Fermentation	Lactate	gut
+K11389	glyceraldehyde-3-phosphate dehydrogenase (ferredoxin) [EC:1.2.7.6]		Fermentation	Lactate	gut
+K00131	glyceraldehyde-3-phosphate dehydrogenase (NADP+) [EC:1.2.1.9]		Fermentation	Lactate	gut
+K18978	glyceraldehyde-3-phosphate dehydrogenase [NAD(P)+] [EC:1.2.1.90]		Fermentation	Lactate	gut
+K01689	enolase 1/2/3 [EC:4.2.1.11]		Fermentation	Lactate	gut
+K27394	enolase 4 [EC:4.2.1.11]		Fermentation	Lactate	gut
+K00873	pyruvate kinase [EC:2.7.1.40]		Fermentation	Lactate	gut
+K12406	pyruvate kinase isozymes R/L [EC:2.7.1.40]		Fermentation	Lactate	gut
+K00016	L-lactate dehydrogenase [EC:1.1.1.27]		Fermentation	Lactate	gut
+K18124	glucose/galactose 1-dehydrogenase (NADP+) [EC:1.1.1.360]		Fermentation	Lactate	gut
+K18125	aldose 1-dehydrogenase [NAD(P)+] [EC:1.1.1.359]		Fermentation	Lactate	gut
+K00115	glucose 1-dehydrogenase (FAD, quinone) [EC:1.1.5.9]		Fermentation	Lactate	gut
+K19813	glucose dehydrogenase [EC:1.1.5.9]		Fermentation	Lactate	gut
+K00117	quinoprotein glucose dehydrogenase [EC:1.1.5.2]		Fermentation	Lactate	gut
+K01053	gluconolactonase [EC:3.1.1.17]		Fermentation	Lactate	gut
+K05308	gluconate/galactonate dehydratase [EC:4.2.1.140]		Fermentation	Lactate	gut
+K11395	2-dehydro-3-deoxy-phosphogluconate/2-dehydro-3-deoxy-6-phosphogalactonate aldolase [EC:4.1.2.55]		Fermentation	Lactate	gut
+K18127	2-dehydro-3-deoxy-D-gluconate aldolase [EC:4.1.2.51]		Fermentation	Lactate	gut
+K00001	alcohol dehydrogenase [EC:1.1.1.1]		Fermentation	Ethanol	gut
+K00121	S-(hydroxymethyl)glutathione dehydrogenase / alcohol dehydrogenase [EC:1.1.1.284 1.1.1.1]		Fermentation	Ethanol	gut
+K13953	alcohol dehydrogenase, propanol-preferring [EC:1.1.1.1]		Fermentation	Ethanol	gut
+K04072	acetaldehyde dehydrogenase / alcohol dehydrogenase [EC:1.2.1.10 1.1.1.1]		Fermentation	Ethanol	gut
+K01051	pectinesterase [EC:3.1.1.11]		Fermentation	Methanol	gut
+K01491	methylenetetrahydrofolate dehydrogenase (NADP+) / methenyltetrahydrofolate cyclohydrolase [EC:1.5.1.5 3.5.4.9]		Fermentation	Acetogenesis	gut
+K01938	formate--tetrahydrofolate ligase [EC:6.3.4.3]		Fermentation	Acetogenesis	gut
+K05299	formate dehydrogenase (NADP+) alpha subunit [EC:1.17.1.10]		Fermentation	Acetogenesis	gut
+K15022	formate dehydrogenase (NADP+) beta subunit [EC:1.17.1.10]		Fermentation	Acetogenesis	gut
+K22015	formate dehydrogenase (hydrogenase) / hydrogen-dependent carbon dioxide reductase [EC:1.17.98.4 1.17.98.5]		Fermentation	Acetogenesis	gut
+K00198	anaerobic carbon-monoxide dehydrogenase catalytic subunit [EC:1.2.7.4]		Fermentation	Acetogenesis	gut
+K07321	CO dehydrogenase maturation factor		Fermentation	Acetogenesis	gut
+K14138	acetyl-CoA synthase [EC:2.3.1.169]		Fermentation	Acetogenesis	gut
+K00197	acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit gamma [EC:2.1.1.245]		Fermentation	Acetogenesis	gut
+K00194	acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit delta [EC:2.1.1.245]		Fermentation	Acetogenesis	gut
+K15023	5-methyltetrahydrofolate corrinoid/iron sulfur protein methyltransferase [EC:2.1.1.258]		Fermentation	Acetogenesis	gut
+McrA			Fermentation	Methanogenesis 	gut
+K00399	methyl-coenzyme M reductase alpha subunit [EC:2.8.4.1]		Fermentation	Methanogenesis 	gut
+K00400	methyl coenzyme M reductase system, component A2		Fermentation	Methanogenesis 	gut
+K00401	methyl-coenzyme M reductase beta subunit [EC:2.8.4.1]		Fermentation	Methanogenesis 	gut
+K00402	methyl-coenzyme M reductase gamma subunit [EC:2.8.4.1]		Fermentation	Methanogenesis 	gut
+K03421	methyl-coenzyme M reductase subunit C		Fermentation	Methanogenesis 	gut
+K03422	methyl-coenzyme M reductase subunit D		Fermentation	Methanogenesis 	gut
+NiFe_group1			Fermentation	Hydrogen metabolism 	gut
+NiFe_group2			Fermentation	Hydrogen metabolism 	gut
+NiFe_group3			Fermentation	Hydrogen metabolism 	gut
+NiFe_group4			Fermentation	Hydrogen metabolism 	gut
+FeFe_GroupA			Fermentation	Hydrogen metabolism 	gut
+FeFe_GroupB			Fermentation	Hydrogen metabolism 	gut
+FeFe_GroupC			Fermentation	Hydrogen metabolism 	gut
+FeFe_GroupE			Fermentation	Hydrogen metabolism 	gut
+FeFe_GroupF			Fermentation	Hydrogen metabolism 	gut
+K01610	phosphoenolpyruvate carboxykinase (ATP) [EC:4.1.1.49]		Fermentation	Succinate	gut
+K01958	pyruvate carboxylase [EC:6.4.1.1]		Fermentation	Succinate	gut
+K01959	pyruvate carboxylase subunit A [EC:6.4.1.1]		Fermentation	Succinate	gut
+K00024	malate dehydrogenase [EC:1.1.1.37]		Fermentation	Succinate	gut
+K01676	fumarate hydratase, class I [EC:4.2.1.2]		Fermentation	Succinate	gut
+K01677	fumarate hydratase subunit alpha [EC:4.2.1.2]		Fermentation	Succinate	gut
+K01678	fumarate hydratase subunit beta [EC:4.2.1.2]		Fermentation	Succinate	gut
+K00244	succinate dehydrogenase flavoprotein subunit [EC:1.3.5.1]		Fermentation	Succinate	gut
+K00245	succinate dehydrogenase iron-sulfur subunit [EC:1.3.5.1]		Fermentation	Succinate	gut
+K00246	succinate dehydrogenase subunit C		Fermentation	Succinate	gut
+K00247	succinate dehydrogenase subunit D		Fermentation	Succinate	gut
+K02275	cytochrome c oxidase subunit II [EC:7.1.1.9]		Redox	Oxygen	gut
+K02274	cytochrome c oxidase subunit I [EC:7.1.1.9]		Redox	Oxygen	gut
+K02276	cytochrome c oxidase subunit III [EC:7.1.1.9]		Redox	Oxygen	gut
+K15408	cytochrome c oxidase subunit I+III [EC:7.1.1.9]		Redox	Oxygen	gut
+K02277	cytochrome c oxidase subunit IV [EC:7.1.1.9]		Redox	Oxygen	gut
+K02827	cytochrome aa3-600 menaquinol oxidase subunit I [EC:7.1.1.5]		Redox	Oxygen	gut
+K02826	cytochrome aa3-600 menaquinol oxidase subunit II [EC:7.1.1.5]		Redox	Oxygen	gut
+K02828	cytochrome aa3-600 menaquinol oxidase subunit III [EC:7.1.1.5]		Redox	Oxygen	gut
+K02829	cytochrome aa3-600 menaquinol oxidase subunit IV [EC:7.1.1.5]		Redox	Oxygen	gut
+K02297	cytochrome o ubiquinol oxidase subunit II [EC:7.1.1.3]		Redox	Oxygen	gut
+K02298	cytochrome o ubiquinol oxidase subunit I [EC:7.1.1.3]		Redox	Oxygen	gut
+K02299	cytochrome o ubiquinol oxidase subunit III		Redox	Oxygen	gut
+K02300	cytochrome o ubiquinol oxidase subunit IV		Redox	Oxygen	gut
+K00330	NADH-quinone oxidoreductase subunit A [EC:7.1.1.2]		Redox	Oxygen	gut
+K00331	NADH-quinone oxidoreductase subunit B [EC:7.1.1.2]		Redox	Oxygen	gut
+K00332	NADH-quinone oxidoreductase subunit C [EC:7.1.1.2]		Redox	Oxygen	gut
+K00333	NADH-quinone oxidoreductase subunit D [EC:7.1.1.2]		Redox	Oxygen	gut
+K13378	NADH-quinone oxidoreductase subunit C/D [EC:7.1.1.2]		Redox	Oxygen	gut
+K13380	NADH-quinone oxidoreductase subunit B/C/D [EC:7.1.1.2]		Redox	Oxygen	gut
+K00334	NADH-quinone oxidoreductase subunit E [EC:7.1.1.2]		Redox	Oxygen	gut
+K00335	NADH-quinone oxidoreductase subunit F [EC:7.1.1.2]		Redox	Oxygen	gut
+K00336	NADH-quinone oxidoreductase subunit G [EC:7.1.1.2]		Redox	Oxygen	gut
+K00337	NADH-quinone oxidoreductase subunit H [EC:7.1.1.2]		Redox	Oxygen	gut
+K00338	NADH-quinone oxidoreductase subunit I [EC:7.1.1.2]		Redox	Oxygen	gut
+K00339	NADH-quinone oxidoreductase subunit J [EC:7.1.1.2]		Redox	Oxygen	gut
+K00340	NADH-quinone oxidoreductase subunit K [EC:7.1.1.2]		Redox	Oxygen	gut
+K00341	NADH-quinone oxidoreductase subunit L [EC:7.1.1.2]		Redox	Oxygen	gut
+K00342	NADH-quinone oxidoreductase subunit M [EC:7.1.1.2]		Redox	Oxygen	gut
+K15863	NADH-quinone oxidoreductase subunit L/M [EC:7.1.1.2]		Redox	Oxygen	gut
+K00343	NADH-quinone oxidoreductase subunit N [EC:7.1.1.2]		Redox	Oxygen	gut
+K05574	NAD(P)H-quinone oxidoreductase subunit 3 [EC:7.1.1.2]		Redox	Oxygen	gut
+K05582	NAD(P)H-quinone oxidoreductase subunit K [EC:7.1.1.2]		Redox	Oxygen	gut
+K05581	NAD(P)H-quinone oxidoreductase subunit J [EC:7.1.1.2]		Redox	Oxygen	gut
+K05579	NAD(P)H-quinone oxidoreductase subunit H [EC:7.1.1.2]		Redox	Oxygen	gut
+K05572	NAD(P)H-quinone oxidoreductase subunit 1 [EC:7.1.1.2]		Redox	Oxygen	gut
+K05580	NAD(P)H-quinone oxidoreductase subunit I [EC:7.1.1.2]		Redox	Oxygen	gut
+K05578	NAD(P)H-quinone oxidoreductase subunit 6 [EC:7.1.1.2]		Redox	Oxygen	gut
+K05576	NAD(P)H-quinone oxidoreductase subunit 4L [EC:7.1.1.2]		Redox	Oxygen	gut
+K05577	NAD(P)H-quinone oxidoreductase subunit 5 [EC:7.1.1.2]		Redox	Oxygen	gut
+K05575	NAD(P)H-quinone oxidoreductase subunit 4 [EC:7.1.1.2]		Redox	Oxygen	gut
+K05573	NAD(P)H-quinone oxidoreductase subunit 2 [EC:7.1.1.2]		Redox	Oxygen	gut
+K05583	NAD(P)H-quinone oxidoreductase subunit L [EC:7.1.1.2]		Redox	Oxygen	gut
+K05584	NAD(P)H-quinone oxidoreductase subunit M [EC:7.1.1.2]		Redox	Oxygen	gut
+K05585	NAD(P)H-quinone oxidoreductase subunit N [EC:7.1.1.2]		Redox	Oxygen	gut
+K03945	NADH dehydrogenase (ubiquinone) 1 alpha subcomplex subunit 1		Redox	Oxygen	gut
+K03946	NADH dehydrogenase (ubiquinone) 1 alpha subcomplex subunit 2		Redox	Oxygen	gut
+K03947	NADH dehydrogenase (ubiquinone) 1 alpha subcomplex subunit 3		Redox	Oxygen	gut
+K03948	NADH dehydrogenase (ubiquinone) 1 alpha subcomplex subunit 4		Redox	Oxygen	gut
+K03949	NADH dehydrogenase (ubiquinone) 1 alpha subcomplex subunit 5		Redox	Oxygen	gut
+K03950	NADH dehydrogenase (ubiquinone) 1 alpha subcomplex subunit 6		Redox	Oxygen	gut
+K03951	NADH dehydrogenase (ubiquinone) 1 alpha subcomplex subunit 7		Redox	Oxygen	gut
+K03952	NADH dehydrogenase (ubiquinone) 1 alpha subcomplex subunit 8		Redox	Oxygen	gut
+K03953	NADH dehydrogenase (ubiquinone) 1 alpha subcomplex subunit 9		Redox	Oxygen	gut
+K03954	NADH dehydrogenase (ubiquinone) 1 alpha subcomplex subunit 10		Redox	Oxygen	gut
+K03955	NADH dehydrogenase (ubiquinone) 1 alpha/beta subcomplex 1, acyl-carrier protein		Redox	Oxygen	gut
+K03956	NADH dehydrogenase (ubiquinone) 1 alpha subcomplex subunit 11		Redox	Oxygen	gut
+K11352	NADH dehydrogenase (ubiquinone) 1 alpha subcomplex subunit 12		Redox	Oxygen	gut
+K11353	NADH dehydrogenase (ubiquinone) 1 alpha subcomplex subunit 13		Redox	Oxygen	gut
+K00425	cytochrome bd ubiquinol oxidase subunit I [EC:7.1.1.7]		Redox	Oxygen	gut
+K00426	cytochrome bd ubiquinol oxidase subunit II [EC:7.1.1.7]		Redox	Oxygen	gut
+K00424	cytochrome bd-I ubiquinol oxidase subunit X [EC:7.1.1.7]		Redox	Oxygen	gut
+K22501	cytochrome bd-II ubiquinol oxidase subunit AppX [EC:7.1.1.7]		Redox	Oxygen	gut
+K00404	cytochrome c oxidase cbb3-type subunit I [EC:7.1.1.9]		Redox	Oxygen	gut
+K00405	cytochrome c oxidase cbb3-type subunit II		Redox	Oxygen	gut
+K15862	cytochrome c oxidase cbb3-type subunit I/II [EC:7.1.1.9]		Redox	Oxygen	gut
+K00407	cytochrome c oxidase cbb3-type subunit IV		Redox	Oxygen	gut
+K00406	cytochrome c oxidase cbb3-type subunit III		Redox	Oxygen	gut
+K00374	narI, nitrate reductase, gamma subunit [EC:1.7.99.-] [RN:R00798]	nitrate → nitrite	Redox	Oxygen	gut
+K02567	periplasmic nitrate reductase NapA [EC:1.7.99.-] [RN:R00798]	nitrate → nitrite	Redox	Oxygen	gut
+K02568	cytochrome c-type protein NapB [RN:R00798]	nitrate → nitrite	Redox	Oxygen	gut
+EC:1.9.6.1	nitrite reductase (cytochrome; ammonia-forming) [EC:1.9.6.1]		Redox	Oxygen	gut
+NarG			Redox	Oxygen	gut
+K00370	narG, nitrate reductase, alpha subunit [EC:1.7.99.-] [RN:R00798]	nitrate → nitrite	Redox	Nitrogen reduction	gut
+K00371	narH, nitrate reductase, beta subunit [EC:1.7.99.-] [RN:R00798]	nitrate → nitrite	Redox	Nitrogen reduction	gut
+K00362	nrfA, cytochrome c nitrite reductase large subunit [EC:1.7.2.2]	Dissimilatory nitrate reduction = nitrite → ammonia (via Nrf complex)	Redox	Nitrogen reduction	gut
+K00363	nrfH, cytochrome c nitrite reductase small subunit	Dissimilatory nitrate reduction = nitrite → ammonia (via Nrf complex)	Redox	Nitrogen reduction	gut
+K03385	nirB, nitrite reductase (NADH) large subunit [EC:1.7.1.15]	Dissimilatory nitrate reduction = nitrite → ammonia (via NirBD complex)	Redox	Nitrogen reduction	gut
+K15876	nirD, nitrite reductase (NADH) small subunit [EC:1.7.1.15]	Dissimilatory nitrate reduction = nitrite → ammonia (via NirBD complex)	Redox	Nitrogen reduction	gut
+HMM@NarG			Redox	Nitrogen reduction	gut
+K00368	nitrite reductase (NO-forming) [EC:1.7.2.1] [RN:R00783 R00785]	nitrite → nitric oxide	Redox	Nitrogen reduction	gut
+K15864	nitrite reductase (NO-forming) [EC:1.7.2.1] [RN:R00783 R00785]	nitrite → nitric oxide	Redox	Nitrogen reduction	gut
+K04561	nitric oxide reductase subunit B [EC:1.7.2.5]		Redox	Nitrogen reduction	gut
+K15877	fungal nitric oxide reductase [EC:1.7.1.14]		Redox	Nitrogen reduction	gut
+K00376	nitrous-oxide reductase [EC:1.7.2.4]		Redox	Nitrogen reduction	gut
+K00394	aprA; adenylylsulfate reductase subunit alpha	Dissimilatory sulfate reduction; inorganic sulfur respiration	Redox	Sulfate reduction	gut
+K00395	aprB; adenylylsulfate reductase subunit beta	Dissimilatory sulfate reduction; inorganic sulfur respiration	Redox	Sulfate reduction	gut
+HMM@dsrA			Redox	Sulfate reduction	gut
+HMM@dsrB			Redox	Sulfate reduction	gut
+K08359	tetrathionate reductase subunit C		Redox	Tetrathionate	gut
+K08358	tetrathionate reductase subunit B		Redox	Tetrathionate	gut
+K08357	tetrathionate reductase subunit A		Redox	Tetrathionate	gut
+K00239	succinate dehydrogenase flavoprotein subunit [EC:1.3.5.1]		Redox	Fumarate respiration	gut
+K00240	succinate dehydrogenase iron-sulfur subunit [EC:1.3.5.1]		Redox	Fumarate respiration	gut
+K00241	succinate dehydrogenase cytochrome b subunit		Redox	Fumarate respiration	gut
+K00242	succinate dehydrogenase membrane anchor subunit		Redox	Fumarate respiration	gut
+K03532	trimethylamine-N-oxide reductase (cytochrome c), cytochrome c-type subunit TorC		Redox	TMAO Reduction	gut
+K07811	trimethylamine-N-oxide reductase (cytochrome c) [EC:1.7.2.3]		Redox	TMAO Reduction	gut
+K03533	TorA specific chaperone		Redox	TMAO Reduction	gut
+K07821	trimethylamine-N-oxide reductase (cytochrome c), cytochrome c-type subunit TorY		Redox	TMAO Reduction	gut
+K03782	catalase-peroxidase [EC:1.11.1.21]		Colonization & Persistence	Stress tolerance	gut
+K04564	superoxide dismutase, Fe-Mn family [EC:1.15.1.1]		Colonization & Persistence	Stress tolerance	gut
+K04565	superoxide dismutase, Cu-Zn family [EC:1.15.1.1]		Colonization & Persistence	Stress tolerance	gut
+K01920	glutathione synthase [EC:6.3.2.3]		Colonization & Persistence	Stress tolerance	gut
+K01921	D-alanine-D-alanine ligase [EC:6.3.2.4]		Colonization & Persistence	Stress tolerance	gut
+K05910	NADH peroxidase [EC:1.11.1.1]		Colonization & Persistence	Stress tolerance	gut
+K00697	trehalose 6-phosphate synthase [EC:2.4.1.15 2.4.1.347]		Colonization & Persistence	Stress tolerance	gut
+K01087	trehalose 6-phosphate phosphatase [EC:3.1.3.12]		Colonization & Persistence	Stress tolerance	gut
+K01236	maltooligosyltrehalose trehalohydrolase [EC:3.2.1.141]		Colonization & Persistence	Stress tolerance	gut
+K06044	(1->4)-alpha-D-glucan 1-alpha-D-glucosylmutase [EC:5.4.99.15]		Colonization & Persistence	Stress tolerance	gut
+K05342	alpha,alpha-trehalose phosphorylase [EC:2.4.1.64]		Colonization & Persistence	Stress tolerance	gut
+K05343	maltose alpha-D-glucosyltransferase / alpha-amylase [EC:5.4.99.16 3.2.1.1]		Colonization & Persistence	Stress tolerance	gut
+K00009	mannitol-1-phosphate 5-dehydrogenase [EC:1.1.1.17]		Colonization & Persistence	Stress tolerance	gut
+K05947	mannosyl-3-phosphoglycerate synthase [EC:2.4.1.217]		Colonization & Persistence	Stress tolerance	gut
+K00147	glutamate-5-semialdehyde dehydrogenase [EC:1.2.1.41]		Colonization & Persistence	Stress tolerance	gut
+K00931	glutamate 5-kinase [EC:2.7.2.11]		Colonization & Persistence	Stress tolerance	gut
+K00286	pyrroline-5-carboxylate reductase [EC:1.5.1.2]		Colonization & Persistence	Stress tolerance	gut
+K00006	glycerol-3-phosphate dehydrogenase (NAD+) [EC:1.1.1.8]		Colonization & Persistence	Stress tolerance	gut
+K00111	glycerol-3-phosphate dehydrogenase [EC:1.1.5.3]		Colonization & Persistence	Stress tolerance	gut
+K04043	molecular chaperone DnaK		Colonization & Persistence	Stress tolerance	gut
+K03686	molecular chaperone DnaJ		Colonization & Persistence	Stress tolerance	gut
+K04079	molecular chaperone HtpG		Colonization & Persistence	Stress tolerance	gut
+K03705	heat-inducible transcriptional repressor		Colonization & Persistence	Stress tolerance	gut
+K13640	MerR family transcriptional regulator, heat shock protein HspR		Colonization & Persistence	Stress tolerance	gut
+K03053	DNA-directed RNA polymerase subunit H [EC:2.7.7.6]		Colonization & Persistence	Stress tolerance	gut
+K03048	DNA-directed RNA polymerase subunit delta		Colonization & Persistence	Stress tolerance	gut
+K01419	ATP-dependent HslUV protease, peptidase subunit HslV [EC:3.4.25.2]		Colonization & Persistence	Stress tolerance	gut
+K04080	molecular chaperone IbpA		Colonization & Persistence	Stress tolerance	gut
+K04081	molecular chaperone IbpB		Colonization & Persistence	Stress tolerance	gut
+K03695	ATP-dependent Clp protease ATP-binding subunit ClpB		Colonization & Persistence	Stress tolerance	gut
+K03687	molecular chaperone GrpE		Colonization & Persistence	Stress tolerance	gut
+K10257	acyl-lipid omega-3 desaturase [EC:1.14.19.25 1.14.19.35 1.14.19.36]		Colonization & Persistence	Stress tolerance	gut
+K03704	cold shock protein		Colonization & Persistence	Stress tolerance	gut
+K02834	ribosome-binding factor A		Colonization & Persistence	Stress tolerance	gut
+K05592	ATP-dependent RNA helicase DeaD [EC:5.6.2.7]		Colonization & Persistence	Stress tolerance	gut
+K00108	choline dehydrogenase [EC:1.1.99.1]		Colonization & Persistence	Stress tolerance	gut
+K00130	betaine-aldehyde dehydrogenase [EC:1.2.1.8]		Colonization & Persistence	Stress tolerance	gut
+K11440	choline dehydrogenase [EC:1.1.1.1]		Colonization & Persistence	Stress tolerance	gut
+K18896	glycine/sarcosine N-methyltransferase [EC:2.1.1.156]		Colonization & Persistence	Stress tolerance	gut
+K18897	sarcosine/dimethylglycine N-methyltransferase [EC:2.1.1.157]		Colonization & Persistence	Stress tolerance	gut
+K02851	wecA tagO rfe; UDP-GlcNAc:undecaprenyl-phosphate/decaprenyl-phosphate GlcNAc-1-phosphate transferase [EC:2.7.8.33 2.7.8.35]	EPS production	Colonization & Persistence	EPS Production	gut
+K02852	wecG rffM; UDP-N-acetyl-D-mannosaminouronate:lipid I N-acetyl-D-mannosaminouronosyltransferase [EC:2.4.1.180]	EPS production	Colonization & Persistence	EPS Production	gut
+K03208	wcaI; putative colanic acid biosynthesis glycosyltransferase WcaI	EPS production	Colonization & Persistence	EPS Production	gut
+K03606	wcaJ; undecaprenyl-phosphate glucose phosphotransferase [EC:2.7.8.31]	EPS production	Colonization & Persistence	EPS Production	gut
+K03818	wcaF; putative colanic acid biosynthesis acetyltransferase WcaF [EC:2.3.1.-]	EPS production	Colonization & Persistence	EPS Production	gut
+K03819	wcaB; putative colanic acid biosynthesis acetyltransferase WcaB [EC:2.3.1.-]	EPS production	Colonization & Persistence	EPS Production	gut
+K11936	pgaC icaA; poly-beta-16-N-acetyl-D-glucosamine synthase [EC:2.4.1.-]	EPS production	Colonization & Persistence	EPS Production	gut
+K11937	pgaD; biofilm PGA synthesis protein PgaD	EPS production	Colonization & Persistence	EPS Production	gut
+K12582	wecF rffT; dTDP-N-acetylfucosamine:lipid II N-acetylfucosaminyltransferase [EC:2.4.1.325]	EPS production	Colonization & Persistence	EPS Production	gut
+K13683	wcaE; putative colanic acid biosynthesis glycosyltransferase WcaE [EC:2.4.-.-]	EPS production	Colonization & Persistence	EPS Production	gut
+K13684	wcaC; putative colanic acid biosynthesis glycosyltransferase WcaC [EC:2.4.-.-]	EPS production	Colonization & Persistence	EPS Production	gut
+K16555	exoO; succinoglycan biosynthesis protein ExoO [EC:2.4.-.-]	EPS production	Colonization & Persistence	EPS Production	gut
+K16556	exoM; succinoglycan biosynthesis protein ExoM [EC:2.4.-.-]	EPS production	Colonization & Persistence	EPS Production	gut
+K16557	exoA; succinoglycan biosynthesis protein ExoA [EC:2.4.-.-]	EPS production	Colonization & Persistence	EPS Production	gut
+K16558	exoL; succinoglycan biosynthesis protein ExoL [EC:2.-.-.-]	EPS production	Colonization & Persistence	EPS Production	gut
+K16560	exoH; succinoglycan biosynthesis protein ExoH	EPS production	Colonization & Persistence	EPS Production	gut
+K16562	exoW; succinoglycan biosynthesis protein ExoW [EC:2.4.-.-]	EPS production	Colonization & Persistence	EPS Production	gut
+K16563	exoV; succinoglycan biosynthesis protein ExoV	EPS production	Colonization & Persistence	EPS Production	gut
+K16564	exoU; succinoglycan biosynthesis protein ExoU [EC:2.4.-.-]	EPS production	Colonization & Persistence	EPS Production	gut
+K16566	exoY; exopolysaccharide production protein ExoY	EPS production	Colonization & Persistence	EPS Production	gut
+K16568	exoZ; exopolysaccharide production protein ExoZ	EPS production	Colonization & Persistence	EPS Production	gut
+K16703	wcaL amsK cpsK; colanic acid/amylovoran/stewartan biosynthesis glycosyltransferase WcaL/AmsK/CpsK [EC:2.4.-.-]	EPS production	Colonization & Persistence	EPS Production	gut
+K16707	amsG cpsA; UDP-galactose-lipid carrier transferase	EPS production	Colonization & Persistence	EPS Production	gut
+K16710	wcaK amsJ; colanic acid/amylovoran biosynthesis protein WcaK/AmsJ	EPS production	Colonization & Persistence	EPS Production	gut
+K19290	alg8; mannuronan synthase [EC:2.4.1.33]	EPS production	Colonization & Persistence	EPS Production	gut
+K19291	alg44; mannuronan synthase [EC:2.4.1.33]	EPS production	Colonization & Persistence	EPS Production	gut
+K19293	algX; alginate biosynthesis protein AlgX	EPS production	Colonization & Persistence	EPS Production	gut
+K19294	algI; alginate O-acetyltransferase complex protein AlgI	EPS production	Colonization & Persistence	EPS Production	gut
+K19295	algJ; alginate O-acetyltransferase complex protein AlgJ	EPS production	Colonization & Persistence	EPS Production	gut
+K19296	algF; alginate O-acetyltransferase complex protein AlgF	EPS production	Colonization & Persistence	EPS Production	gut
+K20921	vpsD epsF; polysaccharide biosynthesis protein VpsD	EPS production	Colonization & Persistence	EPS Production	gut
+K20922	vpsI; polysaccharide biosynthesis protein VpsI	EPS production	Colonization & Persistence	EPS Production	gut
+K20997	pslA; polysaccharide biosynthesis protein PslA	EPS production	Colonization & Persistence	EPS Production	gut
+K20999	pslF; polysaccharide biosynthesis protein PslF	EPS production	Colonization & Persistence	EPS Production	gut
+K21001	pslH; polysaccharide biosynthesis protein PslH	EPS production	Colonization & Persistence	EPS Production	gut
+K21002	pslI; polysaccharide biosynthesis protein PslI	EPS production	Colonization & Persistence	EPS Production	gut
+K21154	pssM; exopolysaccharide glucosyl ketal-pyruvate-transferase [EC:2.5.1.98]	EPS production	Colonization & Persistence	EPS Production	gut
+K21461	icaD; poly-beta-16-N-acetyl-D-glucosamine synthesis protein	EPS production	Colonization & Persistence	EPS Production	gut
+K25205	pslC; polysaccharide biosynthesis protein PslC	EPS production	Colonization & Persistence	EPS Production	gut
+K25875	wcaA; putative colanic acid biosynthesis glycosyltransferase WcaA	EPS production	Colonization & Persistence	EPS Production	gut
+K25886	vpsK; polysaccharide biosynthesis protein VpsK	EPS production	Colonization & Persistence	EPS Production	gut
+K25902	pssA; acidic exopolysaccharide biosynthesis protein PssA	EPS production	Colonization & Persistence	EPS Production	gut
+K25903	pssD; exopolysaccharide biosynthesis glucuronosyltransferase PssD	EPS production	Colonization & Persistence	EPS Production	gut
+K25904	pssE; exopolysaccharide biosynthesis glucuronosyltransferase PssE	EPS production	Colonization & Persistence	EPS Production	gut
+K25905	pssC; exopolysaccharide biosynthesis glycosyltransferase PssC	EPS production	Colonization & Persistence	EPS Production	gut
+K25906	pssS; exopolysaccharide biosynthesis glucosyltransferase PssS	EPS production	Colonization & Persistence	EPS Production	gut
+K25907	pssF; exopolysaccharide biosynthesis glycosyltransferase PssF	EPS production	Colonization & Persistence	EPS Production	gut
+K25908	pssI; exopolysaccharide biosynthesis glycosyltransferase PssI	EPS production	Colonization & Persistence	EPS Production	gut
+K25909	pssG; exopolysaccharide biosynthesis glycosyltransferase PssG	EPS production	Colonization & Persistence	EPS Production	gut
+K25910	pssH; exopolysaccharide biosynthesis glycosyltransferase PssH	EPS production	Colonization & Persistence	EPS Production	gut
+K25911	pssJ; exopolysaccharide biosynthesis galactosyltransferase PssJ	EPS production	Colonization & Persistence	EPS Production	gut
+K25912	pssR; exopolysaccharide acyltransferase PssR	EPS production	Colonization & Persistence	EPS Production	gut
+K25913	pssK; exopolysaccharide biosynthesis protein PssK	EPS production	Colonization & Persistence	EPS Production	gut
+K13060	lasI; acyl homoserine lactone synthase [EC:2.3.1.184]	quorum sensing	Colonization & Persistence	Quorum Sensing	gut
+K13061	rhlI; acyl homoserine lactone synthase [EC:2.3.1.184]	quorum sensing	Colonization & Persistence	Quorum Sensing	gut
+K18304	lasR; LuxR family transcriptional regulator LasR	quorum sensing	Colonization & Persistence	Quorum Sensing	gut
+K18099	rhlR; LuxR family transcriptional regulator RhlR	quorum sensing	Colonization & Persistence	Quorum Sensing	gut
+K07173	luxS; S-ribosylhomocysteine lyase [EC:4.4.1.21]	quorum sensing	Colonization & Persistence	Quorum Sensing	gut
+K10555	lsrB; AI-2 transport system substrate-binding protein	quorum sensing	Colonization & Persistence	Quorum Sensing	gut
+K10556	lsrC; AI-2 transport system permease protein	quorum sensing	Colonization & Persistence	Quorum Sensing	gut
+K10557	lsrD; AI-2 transport system permease protein	quorum sensing	Colonization & Persistence	Quorum Sensing	gut
+K10558	lsrA; AI-2 transport system ATP-binding protein	quorum sensing	Colonization & Persistence	Quorum Sensing	gut
+K02410	flagellar motor switch protein FliG		Colonization & Persistence	Motility	gut
+K02411	flagellar assembly protein FliH		Colonization & Persistence	Motility	gut
+K02406	flagellin		Colonization & Persistence	Motility	gut
+K02407	flagellar hook-associated protein 2		Colonization & Persistence	Motility	gut
+K02400	flagellar biosynthesis protein FlhA		Colonization & Persistence	Motility	gut
+K02408	flagellar hook-basal body complex protein FliE		Colonization & Persistence	Motility	gut
+K02409	flagellar M-ring protein FliF		Colonization & Persistence	Motility	gut
+K02412	flagellum-specific ATP synthase [EC:7.4.2.8]		Colonization & Persistence	Motility	gut
+K02416	flagellar motor switch protein FliM		Colonization & Persistence	Motility	gut
+K02417	flagellar motor switch protein FliN		Colonization & Persistence	Motility	gut
+K02386	flagellar basal body P-ring formation protein FlgA		Colonization & Persistence	Motility	gut
+K02387	flagellar basal-body rod protein FlgB		Colonization & Persistence	Motility	gut
+K02391	flagellar basal-body rod protein FlgF		Colonization & Persistence	Motility	gut
+K02393	flagellar L-ring protein FlgH		Colonization & Persistence	Motility	gut
+K02404	flagellar biosynthesis protein FlhF		Colonization & Persistence	Motility	gut
+K02405	RNA polymerase sigma factor FliA		Colonization & Persistence	Motility	gut
+K01442	choloylglycine hydrolase [EC:3.5.1.24]		Host Interaction	Bile acid metabolism	gut
+K15868	bile acid-coenzyme A ligase [EC:6.2.1.7]		Host Interaction	Bile acid metabolism	gut
+K15869	3alpha-hydroxy bile acid-CoA-ester 3-dehydrogenase [EC:1.1.1.395]		Host Interaction	Bile acid metabolism	gut
+K15872	bile-acid 7alpha-dehydratase [EC:4.2.1.106]		Host Interaction	Bile acid metabolism	gut
+K00076	7-alpha-hydroxysteroid dehydrogenase [EC:1.1.1.159]		Host Interaction	Bile acid metabolism	gut
+K22604	3alpha-hydroxycholanate dehydrogenase (NAD+) [EC:1.1.1.52]		Host Interaction	Bile acid metabolism	gut
+K22605	3alpha-hydroxycholanate dehydrogenase (NADP+) [EC:1.1.1.392]		Host Interaction	Bile acid metabolism	gut
+K22606	3beta-hydroxycholanate 3-dehydrogenase (NAD+) [EC:1.1.1.391]		Host Interaction	Bile acid metabolism	gut
+K22607	3beta-hydroxycholanate 3-dehydrogenase (NADP+) [EC:1.1.1.393]		Host Interaction	Bile acid metabolism	gut
+K23231	7beta-hydroxysteroid dehydrogenase (NADP+) [EC:1.1.1.201]		Host Interaction	Bile acid metabolism	gut
+K02552	menaquinone-specific isochorismate synthase [EC:5.4.4.2]		Host Interaction	Vitamin biosynthesis	gut
+K02551	2-succinyl-5-enolpyruvyl-6-hydroxy-3-cyclohexene-1-carboxylate synthase [EC:2.2.1.9]		Host Interaction	Vitamin biosynthesis	gut
+K02549	o-succinylbenzoate synthase [EC:4.2.1.113]		Host Interaction	Vitamin biosynthesis	gut
+K01661	naphthoate synthase [EC:4.1.3.36]		Host Interaction	Vitamin biosynthesis	gut
+K01911	o-succinylbenzoate---CoA ligase [EC:6.2.1.26]		Host Interaction	Vitamin biosynthesis	gut
+K02548	1,4-dihydroxy-2-naphthoate polyprenyltransferase [EC:2.5.1.74]		Host Interaction	Vitamin biosynthesis	gut
+K00796	dihydropteroate synthase [EC:2.5.1.15]		Host Interaction	Vitamin biosynthesis	gut
+K00287	dihydrofolate reductase [EC:1.5.1.3]		Host Interaction	Vitamin biosynthesis	gut
+K03147	phosphomethylpyrimidine synthase [EC:4.1.99.17]		Host Interaction	Vitamin biosynthesis	gut
+K00788	thiamine-phosphate pyrophosphorylase [EC:2.5.1.3]		Host Interaction	Vitamin biosynthesis	gut
+K01012	biotin synthase [EC:2.8.1.6]		Host Interaction	Vitamin biosynthesis	gut
+K03517	quinolinate synthase [EC:2.5.1.72]		Host Interaction	Vitamin biosynthesis	gut
+K00278	L-aspartate oxidase [EC:1.4.3.16]		Host Interaction	Vitamin biosynthesis	gut
+K00767	nicotinate-nucleotide pyrophosphorylase (carboxylating) [EC:2.4.2.19]		Host Interaction	Vitamin biosynthesis	gut
+K00798	cob(I)alamin adenosyltransferase [EC:2.5.1.17]		Host Interaction	Vitamin biosynthesis	gut
+K19221	cob(I)alamin adenosyltransferase [EC:2.5.1.17]		Host Interaction	Vitamin biosynthesis	gut
+K02232	adenosylcobyric acid synthase [EC:6.3.5.10]		Host Interaction	Vitamin biosynthesis	gut
+K02225	cobalamin biosynthesis protein CobC		Host Interaction	Vitamin biosynthesis	gut
+K02227	adenosylcobinamide-phosphate synthase [EC:6.3.1.10]		Host Interaction	Vitamin biosynthesis	gut
+K02231	adenosylcobinamide kinase / adenosylcobinamide-phosphate guanylyltransferase [EC:2.7.1.156 2.7.7.62]		Host Interaction	Vitamin biosynthesis	gut
+K00768	nicotinate-nucleotide--dimethylbenzimidazole phosphoribosyltransferase [EC:2.4.2.21]		Host Interaction	Vitamin biosynthesis	gut
+K02226	alpha-ribazole phosphatase [EC:3.1.3.73]		Host Interaction	Vitamin biosynthesis	gut
+K22316	ribonuclease H / adenosylcobalamin/alpha-ribazole phosphatase [EC:3.1.26.4 3.1.3.73]		Host Interaction	Vitamin biosynthesis	gut
+K02233	adenosylcobinamide-GDP ribazoletransferase [EC:2.7.8.26]		Host Interaction	Vitamin biosynthesis	gut
+K00826	branched-chain amino acid aminotransferase [EC:2.6.1.42]		Host Interaction	Vitamin biosynthesis	gut
+K00606	3-methyl-2-oxobutanoate hydroxymethyltransferase [EC:2.1.2.11]		Host Interaction	Vitamin biosynthesis	gut
+K00077	2-dehydropantoate 2-reductase [EC:1.1.1.169]		Host Interaction	Vitamin biosynthesis	gut
+K01579	aspartate 1-decarboxylase [EC:4.1.1.11]		Host Interaction	Vitamin biosynthesis	gut
+K01918	pantoate--beta-alanine ligase [EC:6.3.2.1]		Host Interaction	Vitamin biosynthesis	gut
+K13799	pantoate ligase / CMP/dCMP kinase [EC:6.3.2.1 2.7.4.25]		Host Interaction	Vitamin biosynthesis	gut
+K13367	polyamine oxidase [EC:1.5.3.17]		Host Interaction	Vitamin biosynthesis	gut
+K03472	D-erythrose 4-phosphate dehydrogenase [EC:1.2.1.72]		Host Interaction	Vitamin biosynthesis	gut
+K03473	erythronate-4-phosphate dehydrogenase [EC:1.1.1.290]		Host Interaction	Vitamin biosynthesis	gut
+K00831	phosphoserine aminotransferase [EC:2.6.1.52]		Host Interaction	Vitamin biosynthesis	gut
+K00097	4-hydroxythreonine-4-phosphate dehydrogenase [EC:1.1.1.262]		Host Interaction	Vitamin biosynthesis	gut
+K03474	pyridoxine 5-phosphate synthase [EC:2.6.99.2]		Host Interaction	Vitamin biosynthesis	gut
+K00275	pyridoxamine 5'-phosphate oxidase [EC:1.4.3.5]		Host Interaction	Vitamin biosynthesis	gut
+K01497	GTP cyclohydrolase II [EC:3.5.4.25]		Host Interaction	Vitamin biosynthesis	gut
+K14652	3,4-dihydroxy 2-butanone 4-phosphate synthase / GTP cyclohydrolase II [EC:4.1.99.12 3.5.4.25]		Host Interaction	Vitamin biosynthesis	gut
+K01498	diaminohydroxyphosphoribosylaminopyrimidine deaminase [EC:3.5.4.26]		Host Interaction	Vitamin biosynthesis	gut
+K00082	5-amino-6-(5-phosphoribosylamino)uracil reductase [EC:1.1.1.193]		Host Interaction	Vitamin biosynthesis	gut
+K11752	diaminohydroxyphosphoribosylaminopyrimidine deaminase / 5-amino-6-(5-phosphoribosylamino)uracil reductase [EC:3.5.4.26 1.1.1.193]		Host Interaction	Vitamin biosynthesis	gut
+K22912	5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase [EC:3.1.3.104]		Host Interaction	Vitamin biosynthesis	gut
+K20860	FMN hydrolase / 5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase [EC:3.1.3.102 3.1.3.104]		Host Interaction	Vitamin biosynthesis	gut
+K20861	FMN hydrolase / 5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase [EC:3.1.3.102 3.1.3.104]		Host Interaction	Vitamin biosynthesis	gut
+K20862	FMN hydrolase / 5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase [EC:3.1.3.102 3.1.3.104]		Host Interaction	Vitamin biosynthesis	gut
+K21063	5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase [EC:3.1.3.104]		Host Interaction	Vitamin biosynthesis	gut
+K21064	5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase [EC:3.1.3.104]		Host Interaction	Vitamin biosynthesis	gut
+K02858	3,4-dihydroxy 2-butanone 4-phosphate synthase [EC:4.1.99.12]		Host Interaction	Vitamin biosynthesis	gut
+K00794	6,7-dimethyl-8-ribityllumazine synthase [EC:2.5.1.78]		Host Interaction	Vitamin biosynthesis	gut
+K00793	riboflavin synthase [EC:2.5.1.9]		Host Interaction	Vitamin biosynthesis	gut
+K20884	riboflavin kinase / FMN hydrolase [EC:2.7.1.26 3.1.3.102]		Host Interaction	Vitamin biosynthesis	gut
+K22949	FAD synthetase [EC:2.7.7.2]		Host Interaction	Vitamin biosynthesis	gut
+K11753	riboflavin kinase / FMN adenylyltransferase [EC:2.7.1.26 2.7.7.2]		Host Interaction	Vitamin biosynthesis	gut
+K20038	choline trimethylamine-lyase [EC:4.3.99.4]		Host Interaction	TMA production	gut
+K20037	choline trimethylamine-lyase activating enzyme [EC:1.97.1.-]		Host Interaction	TMA production	gut
+K22443	carnitine monooxygenase subunit [EC:1.14.13.239]		Host Interaction	TMA production	gut
+K21579	betaine reductase complex component B subunit beta [EC:1.21.4.4]		Host Interaction	TMA production	gut
+K14083	trimethylamine---corrinoid protein Co-methyltransferase [EC:2.1.1.250]		Host Interaction	TMA demethylation	gut
+K25600	L-carnitine---corrinoid protein Co-methyltransferase [EC:2.1.1.383]		Host Interaction	TMA demethylation	gut
+EC:2.1.1.389	trimethylamine methyltransferase [EC:2.1.1.389]		Host Interaction	TMA demethylation	gut
+K18698	beta-lactamase class A TEM [EC:3.5.2.6]		Host Interaction	Antibiotic Resistance	gut
+K18699	beta-lactamase class A SHV [EC:3.5.2.6]		Host Interaction	Antibiotic Resistance	gut
+K18796	beta-lactamase class A LEN [EC:3.5.2.6]		Host Interaction	Antibiotic Resistance	gut
+K18767	beta-lactamase class A CTX-M [EC:3.5.2.6]		Host Interaction	Antibiotic Resistance	gut
+K18795	beta-lactamase class A CARB-1, PSE family [EC:3.5.2.6]		Host Interaction	Antibiotic Resistance	gut
+K19218	beta-lactamase class A CARB-5, RTG family [EC:3.5.2.6]		Host Interaction	Antibiotic Resistance	gut
+K19217	beta-lactamase class A CARB-17 [EC:3.5.2.6]		Host Interaction	Antibiotic Resistance	gut
+K00561	23S rRNA (adenine-N6)-dimethyltransferase [EC:2.1.1.184]		Host Interaction	Antibiotic Resistance	gut
+K14336	23S rRNA (guanine748-N1)-methyltransferase [EC:2.1.1.188]		Host Interaction	Antibiotic Resistance	gut
+K15632	23S rRNA (adenine-C8)-methyltransferase [EC:2.1.1.224]		Host Interaction	Antibiotic Resistance	gut
+K18230	macrolide transport system ATP-binding/permease protein		Host Interaction	Antibiotic Resistance	gut
+K18231	macrolide transport system ATP-binding/permease protein		Host Interaction	Antibiotic Resistance	gut
+K19349	pleuromutilin/lincosamide/streptogramin A transport system ATP-binding/permease protein		Host Interaction	Antibiotic Resistance	gut
+K19350	lincosamide and streptogramin A transport system ATP-binding/permease protein		Host Interaction	Antibiotic Resistance	gut
+K18232	oleandomycin transport system ATP-binding protein		Host Interaction	Antibiotic Resistance	gut
+K19541	MFS transporter, DHA2 family, lincomycin resistance protein		Host Interaction	Antibiotic Resistance	gut
+K08217	MFS transporter, DHA3 family, macrolide efflux protein		Host Interaction	Antibiotic Resistance	gut
+K08151	MFS transporter, DHA1 family, tetracycline resistance protein		Host Interaction	Antibiotic Resistance	gut
+K08168	MFS transporter, DHA2 family, metal-tetracycline-proton antiporter		Host Interaction	Antibiotic Resistance	gut
+K18214	MFS transporter, DHA3 family, tetracycline resistance protein		Host Interaction	Antibiotic Resistance	gut
+K18215	MFS transporter, DHA3 family, tetracycline resistance protein		Host Interaction	Antibiotic Resistance	gut
+K18218	tetracycline resistance efflux pump		Host Interaction	Antibiotic Resistance	gut
+K18216	ATP-binding cassette, subfamily B, tetracycline resistant protein		Host Interaction	Antibiotic Resistance	gut
+K18217	ATP-binding cassette, subfamily B, tetracycline resistant protein		Host Interaction	Antibiotic Resistance	gut
+K19542	MFS transporter, DHA2 family, tetracycline/oxytetracycline resistance protein		Host Interaction	Antibiotic Resistance	gut
+K18233	oleandomycin transport system permease protein		Host Interaction	Antibiotic Resistance	gut
+K18220	ribosomal protection tetracycline resistance protein		Host Interaction	Antibiotic Resistance	gut
+K18221	tetracycline 11a-monooxygenase, tetracycline resistance protein [EC:1.14.13.231]		Host Interaction	Antibiotic Resistance	gut
+K18974	dihydropteroate synthase type 1 [EC:2.5.1.15]		Host Interaction	Antibiotic Resistance	gut
+K18824	dihydropteroate synthase type 2 [EC:2.5.1.15]		Host Interaction	Antibiotic Resistance	gut
+K18825	dihydropteroate synthase type 3 [EC:2.5.1.15]		Host Interaction	Antibiotic Resistance	gut
+K03395	aminoglycoside 3-N-acetyltransferase I [EC:2.3.1.60]		Host Interaction	Antibiotic Resistance	gut
+K18815	aminoglycoside 6'-N-acetyltransferase I [EC:2.3.1.82]		Host Interaction	Antibiotic Resistance	gut
+K18816	aminoglycoside 6'-N-acetyltransferase I [EC:2.3.1.82]		Host Interaction	Antibiotic Resistance	gut
+K00984	[^E		Host Interaction	Antibiotic Resistance	gut
+K19272	aminoglycoside 3'-phosphotransferase I [EC:2.7.1.95]		Host Interaction	Antibiotic Resistance	gut
+K10673	"streptomycin 3""-kinase [EC:2.7.1.87]"		Host Interaction	Antibiotic Resistance	gut
+K18345	two-component system, OmpR family, sensor histidine kinase VanS [EC:2.7.13.3]		Host Interaction	Antibiotic Resistance	gut
+K18344	two-component system, OmpR family, response regulator VanR		Host Interaction	Antibiotic Resistance	gut
+K07260	zinc D-Ala-D-Ala carboxypeptidase [EC:3.4.17.14]		Host Interaction	Antibiotic Resistance	gut
+K18346	vancomycin resistance protein VanW		Host Interaction	Antibiotic Resistance	gut
+K18351	two-component system, OmpR family, sensor histidine kinase VanS [EC:2.7.13.3]		Host Interaction	Antibiotic Resistance	gut
+K18352	two-component system, OmpR family, response regulator VanR		Host Interaction	Antibiotic Resistance	gut
+K18354	vancomycin resistance protein VanK		Host Interaction	Antibiotic Resistance	gut
+K18353	vancomycin resistance protein VanJ		Host Interaction	Antibiotic Resistance	gut
+K18347	D-specific alpha-keto acid dehydrogenase [EC:1.1.1.-]		Host Interaction	Antibiotic Resistance	gut
+K15739	D-alanine---(R)-lactate ligase [EC:6.1.2.1]		Host Interaction	Antibiotic Resistance	gut
+K08641	zinc D-Ala-D-Ala dipeptidase [EC:3.4.13.22]		Host Interaction	Antibiotic Resistance	gut
+K01118	FMN-dependent NADH-azoreductase [EC:1.7.1.17]		Host Interaction	Drug metabolism	gut
+K17722	dihydropyrimidine dehydrogenase (NAD+) subunit PreT [EC:1.3.1.1]		Host Interaction	Drug metabolism	gut
+K17723	dihydropyrimidine dehydrogenase (NAD+) subunit PreA [EC:1.3.1.1]		Host Interaction	Drug metabolism	gut
+K10678	nitroreductase [EC:1.-.-.-]		Host Interaction	Drug metabolism	gut
+K10679	nitroreductase / dihydropteridine reductase [EC:1.-.-.- 1.5.1.34]		Host Interaction	Drug metabolism	gut
+K22330	tyrosine decarboxylase [EC:4.1.1.25]		Host Interaction	Drug metabolism	gut
+K26069	daidzein reductase [EC:1.3.1.-]		Host Interaction	Polyphenol metabolism	gut
+K26070	dihydrodaidzein reductase [EC:1.1.1.-]		Host Interaction	Polyphenol metabolism	gut
+K26071	tetrahydrodaidzein reductase		Host Interaction	Polyphenol metabolism	gut
+K26175	dihydrodaizein racemase [EC:5.1.-.-]		Host Interaction	Polyphenol metabolism	gut
+K26176	flavone/flavonol reductase		Host Interaction	Polyphenol metabolism	gut
+K26177	chalcone isomerase		Host Interaction	Polyphenol metabolism	gut
+K26178	flavanone/flavanol-cleaving reductase		Host Interaction	Polyphenol metabolism	gut
+K22906	phloretin hydrolase [EC:3.7.1.4]		Host Interaction	Polyphenol metabolism	gut
+K07155	quercetin 2,3-dioxygenase [EC:1.13.11.24]		Host Interaction	Polyphenol metabolism	gut
+K06911	quercetin 2,3-dioxygenase [EC:1.13.11.24]		Host Interaction	Polyphenol metabolism	gut
+K26179	naringenin degradation protein FdeD		Host Interaction	Polyphenol metabolism	gut
+K26180	naringenin degradation protein FdeE		Host Interaction	Polyphenol metabolism	gut
+K26181	naringenin degradation protein FdeC		Host Interaction	Polyphenol metabolism	gut
+K26182	naringenin degradation protein FdeH		Host Interaction	Polyphenol metabolism	gut
+K26183	naringenin degradation protein FdeJ		Host Interaction	Polyphenol metabolism	gut
+K26184	naringenin degradation protein FdeB		Host Interaction	Polyphenol metabolism	gut
+K26185	naringenin degradation protein FdeI		Host Interaction	Polyphenol metabolism	gut
+K10759	tannase [EC:3.1.1.20]		Host Interaction	Polyphenol metabolism	gut
+K22958	gallate decarboxylase subunit C [EC:4.1.1.59]		Host Interaction	Polyphenol metabolism	gut
+K22959	gallate decarboxylase subunit B		Host Interaction	Polyphenol metabolism	gut
+K22960	gallate decarboxylase subunit D		Host Interaction	Polyphenol metabolism	gut
+K04099	gallate dioxygenase [EC:1.13.11.57]		Host Interaction	Polyphenol metabolism	gut
+K12508	trans-feruloyl-CoA synthase [EC:6.2.1.34]		Host Interaction	Polyphenol metabolism	gut
+K18383	feruloyl-CoA hydratase/lyase [EC:4.1.2.61]		Host Interaction	Polyphenol metabolism	gut
+K22430	caffeyl-CoA reductase-Etf complex subunit CarC [EC:1.3.1.108]		Host Interaction	Polyphenol metabolism	gut
+K22431	caffeyl-CoA reductase-Etf complex subunit CarD [EC:1.3.1.108]		Host Interaction	Polyphenol metabolism	gut
+K22432	caffeyl-CoA reductase-Etf complex subunit CarE [EC:1.3.1.108]		Host Interaction	Polyphenol metabolism	gut
+K01428	urease subunit alpha [EC:3.5.1.5]		Host Interaction	Urea	gut
+K01429	urease subunit beta [EC:3.5.1.5]		Host Interaction	Urea	gut
+K01430	urease subunit gamma [EC:3.5.1.5]		Host Interaction	Urea	gut
+K19611	ferric enterobactin receptor		Pathogenesis & Virulence	Iron acquisition	gut
+K16090	catecholate siderophore receptor		Pathogenesis & Virulence	Iron acquisition	gut
+K16091	Fe(3+) dicitrate transport protein		Pathogenesis & Virulence	Iron acquisition	gut
+K12545	heme acquisition protein HasA		Pathogenesis & Virulence	Iron acquisition	gut
+K16152	heme acquisition protein HasR		Pathogenesis & Virulence	Iron acquisition	gut
+K15721	pesticin/yersiniabactin receptor		Pathogenesis & Virulence	Iron acquisition	gut
+K16088	outer-membrane receptor for ferric coprogen and ferric-rhodotorulic acid		Pathogenesis & Virulence	Iron acquisition	gut
+K16089	outer membrane receptor for ferrienterochelin and colicins		Pathogenesis & Virulence	Iron acquisition	gut
+K16087	hemoglobin/transferrin/lactoferrin receptor protein		Pathogenesis & Virulence	Iron acquisition	gut
+K02014	iron complex outermembrane recepter protein		Pathogenesis & Virulence	Iron acquisition	gut
+K11005	hlyA; hemolysin A	Hemolysin	Pathogenesis & Virulence	Hemolysins	gut
+K11032	hlyII; hemolysin II	Hemolysin	Pathogenesis & Virulence	Hemolysins	gut
+K11038	hlg, luk; leukocidin/hemolysin toxin family protein	Hemolysin/leukotoxin	Pathogenesis & Virulence	Hemolysins	gut
+K06189	corC, tlyC; hemolysin (HlyC) family protein	Hemolysin	Pathogenesis & Virulence	Hemolysins	gut
+K07345	major type 1 subunit fimbrin (pilin)		Pathogenesis & Virulence	Adhesion/invasion	gut
+K07349	minor fimbrial subunit		Pathogenesis & Virulence	Adhesion/invasion	gut
+K07350	minor fimbrial subunit		Pathogenesis & Virulence	Adhesion/invasion	gut
+K07352	type 1 fimbrial protein		Pathogenesis & Virulence	Adhesion/invasion	gut
+K02650	type IV pilus assembly protein PilA		Pathogenesis & Virulence	Adhesion/invasion	gut
+K12790	intimin		Pathogenesis & Virulence	Adhesion/invasion	gut
+K12689	campylobacter adhesion protein		Pathogenesis & Virulence	Adhesion/invasion	gut
+K13285	invasin B		Pathogenesis & Virulence	Adhesion/invasion	gut
+K13287	invasin D		Pathogenesis & Virulence	Adhesion/invasion	gut
+K12679	outer membrane protein IcsA		Pathogenesis & Virulence	Adhesion/invasion	gut
+K01387	microbial collagenase [EC:3.4.24.3]		Pathogenesis & Virulence	Adhesion/invasion	gut
+K21449	trimeric autotransporter adhesin		Pathogenesis & Virulence	Adhesion/invasion	gut
+K19231	fibronectin-binding autotransporter adhesin		Pathogenesis & Virulence	Adhesion/invasion	gut
+K19232	hyaluronate-binding autotransporter adhesin		Pathogenesis & Virulence	Adhesion/invasion	gut
+K19233	ECM component-binding autotransporter adhesin		Pathogenesis & Virulence	Adhesion/invasion	gut
+K07279	autotransporter family porin		Pathogenesis & Virulence	Adhesion/invasion	gut
+K12678	autotransporter family porin		Pathogenesis & Virulence	Adhesion/invasion	gut
+K03219	type III secretion protein C		Pathogenesis & Virulence	Secretion systems	gut
+K03222	type III secretion protein J		Pathogenesis & Virulence	Secretion systems	gut
+K03224	ATP synthase in type III secretion protein N [EC:7.4.2.8]		Pathogenesis & Virulence	Secretion systems	gut
+K03225	type III secretion protein Q		Pathogenesis & Virulence	Secretion systems	gut
+K03230	type III secretion protein V		Pathogenesis & Virulence	Secretion systems	gut
+K04057	type III secretion protein P		Pathogenesis & Virulence	Secretion systems	gut
+K15344	secreted effector protein SseB		Pathogenesis & Virulence	Secretion systems	gut
+K15345	secreted effector protein SseC		Pathogenesis & Virulence	Secretion systems	gut
+K15346	secreted effector protein SseD		Pathogenesis & Virulence	Secretion systems	gut
+K23648	T3SS secreted effector ADP-ribosyltransferase EspJ		Pathogenesis & Virulence	Secretion systems	gut
+K23651	T3SS secreted effector EspT		Pathogenesis & Virulence	Secretion systems	gut
+K23652	T3SS secreted effector EspW		Pathogenesis & Virulence	Secretion systems	gut
+K23653	T3SS effector EspM		Pathogenesis & Virulence	Secretion systems	gut
+K23654	T3SS secreted effector NleE		Pathogenesis & Virulence	Secretion systems	gut
+K23655	T3SS secreted effector NleC		Pathogenesis & Virulence	Secretion systems	gut
+K23656	T3SS secreted effector NleD		Pathogenesis & Virulence	Secretion systems	gut
+K23657	T3SS secreted effector NleB		Pathogenesis & Virulence	Secretion systems	gut
+K23658	T3SS secreted effector NleF		Pathogenesis & Virulence	Secretion systems	gut
+K11903	type VI secretion system secreted protein Hcp		Pathogenesis & Virulence	Secretion systems	gut
+K11904	type VI secretion system secreted protein VgrG		Pathogenesis & Virulence	Secretion systems	gut
+K01347	IgA-specific serine endopeptidase [EC:3.4.21.72]		Pathogenesis & Virulence	Immune Evasion	gut
+K11014	cytolethal distending toxin subunit B		Pathogenesis & Virulence	Toxins	gut
+K26579	colibactin biosynthesis peptidase		Pathogenesis & Virulence	Toxins	gut
+K19297	subA; subtilase cytotoxin, subunit A	Subtilase cytotoxin	Pathogenesis & Virulence	Toxins	gut
+K19298	subB, artB, pltB; subtilase cytotoxin, subunit B	Subtilase cytotoxin	Pathogenesis & Virulence	Toxins	gut
+K11028	vacuolating cytotoxin		Pathogenesis & Virulence	Toxins	gut
+K10928	cholera enterotoxin subunit A [EC:2.4.2.36]		Pathogenesis & Virulence	Toxins	gut
+K10929	cholera enterotoxin subunit B		Pathogenesis & Virulence	Toxins	gut
+K16883	heat-stable enterotoxin STa/STI		Pathogenesis & Virulence	Toxins	gut
+K16884	heat-stable enterotoxin STb/STII		Pathogenesis & Virulence	Toxins	gut
+K11006	shiga toxin subunit A		Pathogenesis & Virulence	Toxins	gut
+K11007	shiga toxin subunit B		Pathogenesis & Virulence	Toxins	gut

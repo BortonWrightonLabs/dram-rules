@@ -1,0 +1,809 @@
+topic_ecosystem	module	gene_id	gene_description
+Defense System-Viral	Crispr/phage resistance	K07016	csm1, cas10; CRISPR-associated protein Csm1
+Defense System-Viral	Crispr/phage resistance	K19138	csm2; CRISPR-associated protein Csm2
+Defense System-Viral	Crispr/phage resistance	K09002	csm3; CRISPR-associated protein Csm3
+Defense System-Viral	Crispr/phage resistance	K19139	csm4; CRISPR-associated protein Csm4
+Defense System-Viral	Crispr/phage resistance	K19140	csm5; CRISPR-associated protein Csm5
+Defense System-Viral	Crispr/phage resistance	K07061	cmr1; CRISPR-associated protein Cmr1
+Defense System-Viral	Crispr/phage resistance	K19076	cmr2, cas10; CRISPR-associated protein Cmr2
+Defense System-Viral	Crispr/phage resistance	K09127	cmr3; CRISPR-associated protein Cmr3
+Defense System-Viral	Crispr/phage resistance	K09000	cmr4; CRISPR-associated protein Cmr4
+Defense System-Viral	Crispr/phage resistance	K19141	cmr5; CRISPR-associated protein Cmr5
+Defense System-Viral	Crispr/phage resistance	K19142	cmr6; CRISPR-associated protein Cmr6
+Defense System-Viral	Crispr/phage resistance	K19143	csx1; CRISPR-associated protein Csx1
+Defense System-Viral	Crispr/phage resistance	K19144	csx3; CRISPR-associated protein Csx3
+Defense System-Viral	Crispr/phage resistance	K19145	csx16; CRISPR-associated protein Csx16
+Defense System-Viral	Crispr/phage resistance	K19146	csaX; CRISPR-associated protein CsaX
+Defense System-Viral	Crispr/phage resistance	K09952	csn1, cas9; CRISPR-associated endonuclease Csn1 [EC:3.1.-.-]
+Defense System-Viral	Crispr/phage resistance	K19137	csn2; CRISPR-associated protein Csn2
+Defense System-Viral	Crispr/phage resistance	K07464	cas4; CRISPR-associated exonuclease Cas4 [EC:3.1.12.1]
+Defense System-Viral	Crispr/phage resistance	K07012	cas3; CRISPR-associated endonuclease/helicase Cas3 [EC:3.1.-.- 3.6.4.-]
+Defense System-Viral	Crispr/phage resistance	K07475	cas3; CRISPR-associated endonuclease Cas3-HD [EC:3.1.-.-]
+Defense System-Viral	Crispr/phage resistance	K19085	csa1; CRISPR-associated protein Csa1
+Defense System-Viral	Crispr/phage resistance	K19074	csa2; CRISPR-associated protein Csa2
+Defense System-Viral	Crispr/phage resistance	K07725	csa3; CRISPR-associated protein Csa3
+Defense System-Viral	Crispr/phage resistance	K19086	csa4, cas8a2; CRISPR-associated protein Csa4
+Defense System-Viral	Crispr/phage resistance	K19087	csa5; CRISPR-associated protein Csa5
+Defense System-Viral	Crispr/phage resistance	K19088	cst1, cas8a; CRISPR-associated protein Cst1
+Defense System-Viral	Crispr/phage resistance	K19075	cst2, cas7; CRISPR-associated protein Cst2
+Defense System-Viral	Crispr/phage resistance	K19089	cas5a_b_c; CRISPR-associated protein Cas5a/b/c
+Defense System-Viral	Crispr/phage resistance	K19090	cas5t; CRISPR-associated protein Cas5t
+Defense System-Viral	Crispr/phage resistance	K19091	cas6; CRISPR-associated endoribonuclease Cas6 [EC:3.1.-.-]
+Defense System-Viral	Crispr/phage resistance	K19114	csh1; CRISPR-associated protein Csh1
+Defense System-Viral	Crispr/phage resistance	K19115	csh2; CRISPR-associated protein Csh2
+Defense System-Viral	Crispr/phage resistance	K19116	cas5h; CRISPR-associated protein Cas5h
+Defense System-Viral	Crispr/phage resistance	K19117	csd1, cas8c; CRISPR-associated protein Csd1
+Defense System-Viral	Crispr/phage resistance	K19118	csd2, cas7; CRISPR-associated protein Csd2
+Defense System-Viral	Crispr/phage resistance	K19119	cas5d; CRISPR-associated protein Cas5d
+Defense System-Viral	Crispr/phage resistance	K19120	csc1; CRISPR-associated protein Csc1
+Defense System-Viral	Crispr/phage resistance	K19121	csc2; CRISPR-associated protein Csc2
+Defense System-Viral	Crispr/phage resistance	K19122	csc3; CRISPR-associated protein Csc3
+Defense System-Viral	Crispr/phage resistance	K19123	casA, cse1; CRISPR system Cascade subunit CasA
+Defense System-Viral	Crispr/phage resistance	K19046	casB, cse2; CRISPR system Cascade subunit CasB
+Defense System-Viral	Crispr/phage resistance	K19124	casC, cse4; CRISPR system Cascade subunit CasC
+Defense System-Viral	Crispr/phage resistance	K19125	casD, cse5; CRISPR system Cascade subunit CasD
+Defense System-Viral	Crispr/phage resistance	K19126	casE, cse3; CRISPR system Cascade subunit CasE
+Defense System-Viral	Crispr/phage resistance	K19127	csy1; CRISPR-associated protein Csy1
+Defense System-Viral	Crispr/phage resistance	K19128	csy2; CRISPR-associated protein Csy2
+Defense System-Viral	Crispr/phage resistance	K19129	csy3; CRISPR-associated protein Csy3
+Defense System-Viral	Crispr/phage resistance	K19130	csy4, cas6f; CRISPR-associated endonuclease Csy4 [EC:3.1.-.-]
+Defense System-Viral	Crispr/phage resistance	K19131	csb1; CRISPR-associated protein Csb1
+Defense System-Viral	Crispr/phage resistance	K19132	csb2; CRISPR-associated protein Csb2
+Defense System-Viral	Crispr/phage resistance	K19133	csb3; CRISPR-associated protein Csb3
+Defense System-Viral	Crispr/phage resistance	K19134	csx10; CRISPR-associated protein Csx10
+Defense System-Viral	Crispr/phage resistance	K19135	csx14; CRISPR-associated protein Csx14
+Defense System-Viral	Crispr/phage resistance	K19136	csx17; CRISPR-associated protein Csx17
+Defense System-Viral	Crispr/phage resistance	K15342	cas1; CRISP-associated protein Cas1
+Defense System-Viral	Crispr/phage resistance	K09951	cas2; CRISPR-associated protein Cas2
+Stress tolerance- general	Heat Shock	K04455	HSPB1; heat shock protein family B (small) member 1
+Stress tolerance- general	Heat Shock	K03667	ttm:Tthe_1460 heat shock protein HslVU, ATPase subunit HslU; K03667 AAA_2 AAA ClpB_D2-small AAA_5 AAA_22 AAA_16 Mg_chelatase Sigma54_activat MCM AAA_18 RuvB_N ABC_tran NTPase_1 TniB AAA_28 AAA_33 Zeta_toxin AAA_7 IstB_IS21 TIP49 TsaE FAS_meander AAA_19 DEAD
+Stress tolerance- general	Heat Shock	K13993	ttm:Tthe_0173 heat shock protein Hsp20; K13993 HSP20 ArsA_HSP20 CS
+Stress tolerance- general	Heat Shock	K03686	blq:L21SP5_01031 dnaJ; Heat shock protein J; K03686 DnaJ_C DnaJ DnaJ_CXXCXGXG Anti-TRAP
+Stress tolerance- general	Heat Shock	K04762	pet:PEIBARAKI_4309 heat shock protein 15; K04762 S4
+Stress tolerance- general	Heat Shock	K05801	tli:Tlie_1612 heat shock protein DnaJ domain protein; K05801 DnaJ 3HBOH
+Stress tolerance- general	Heat Shock	K03799	mem:Memar_2252 Heat shock protein, Metallo peptidase, MEROPS family M48B; K03799 Peptidase_M48 Peptidase_M56 Peptidase_U49 SprT-like DUF2268 Pex24p
+Stress tolerance- general	Heat Shock	K03705	tte:TTE0953 HrcA; Transcriptional regulator of heat shock gene; K03705 HrcA HrcA_DNA-bdg HTH_11 HTH_DeoR
+Stress tolerance- general	Heat Shock	K03687	tte:TTE0954 GrpE; Molecular chaperone GrpE (heat shock protein); K03687 GrpE Herpes_UL6 GldM_N Complex1_LYR Trans_reg_C DUF573 KxDL Atg14 DUF87
+Stress tolerance- general	Heat Shock	K13640	cha:CHAB381_0975 putative heat shock protein HspR; K13640 MerR_1 MerR_2 MerR HTH_17 HTH_3 PKcGMP_CC TolA_bind_tri HTH_23
+Stress tolerance- general	Heat Shock	K01419	hor:Hore_07560 heat shock protein HslVU, ATP dependent protease HslV; K01419 Proteasome
+Stress tolerance- general	Heat Shock	K07721	tko:TK2291 archaeal heat shock regulator, ArsR family; K07721 HTH_5 HTH_20 ArsR HTH_24 PadR TrmB MarR_2 HTH_CodY HTH_11 PSY3 MscS_porin GntR DprA_WH HTH_10 LexA_DNA_bind HxlR IF2_N DUF4795 DUF2205
+Stress tolerance- general	Heat Shock	K19411	min:Minf_0201 mcsA; Modulator of heat shock repressor CtsR, McsA; K19411 UVR TackOD1 XFP A2L_zn_ribbon HypA
+Stress tolerance- general	Heat Shock	K22447	thv:ADU37_CDS16120 Heat shock protein 60 family chaperone GroEL / Thermosome subunit; K22447 Cpn60_TCP1 AAA_5
+Stress tolerance- general	Heat Shock	K04079	csh:Closa_3215 Heat shock protein Hsp90-like protein; K04079 HSP90 HATPase_c_3 HATPase_c
+Stress tolerance- general	Heat Shock	K04083	cst:CLOST_0638 hslO; disulfide bond chaperone (heat shock protein HSP33); K04083 HSP33
+Stress tolerance- general	Heat Shock	K06335	sbu:SpiBuddy_2148 heat shock protein Hsp20; K06335 HSP20 ArsA_HSP20 Frataxin_Cyay
+Stress tolerance- general	Heat Shock	K05516	aeh:Mlg_2130 heat shock protein DnaJ domain protein; K05516 DnaJ_C DnaJ Metal_resist
+Stress tolerance- general	Heat Shock	K04080	salg:BS332_16600 heat-shock protein; K04080 HSP20 ArsA_HSP20
+Stress tolerance- general	Heat Shock	K03695	rho:RHOM_03585 heat shock protein ClpB-like protein; K03695 AAA_2 AAA_lid_9 AAA ClpB_D2-small Clp_N AAA_5 AAA_16 Sigma54_activat AAA_22 IstB_IS21 ATPase_2 TniB AAA_7 AAA_18 AAA_14 Mg_chelatase RNA_helicase RuvB_N NACHT DUF815 AAA_3 Zeta_toxin AAA_33 Roc DNA_pol3_delta2 AAA_19 Torsin AAA_23 Spc7 DUF87 Cob_adeno_trans Atg14 ABC_tran
+Stress tolerance- general	Heat Shock	K04078	mthr:MSTHT_2204 Heat shock protein 60 family co-chaperone GroES; K04078 Cpn10 NTPase_1
+Stress tolerance- general	Heat Shock	K04077	smul:SMUL_0986 groL; heat shock protein 60 family chaperone GroEL; K04077 Cpn60_TCP1 Cas_APE2256
+Stress tolerance- general	Osmoprotection	K07646	kdpD; 2-component system OmpR family sensor histidine kinase
+Stress tolerance- general	Osmoprotection	K01545	kdpF; K+transporting ATPase ATPase F chain
+Stress tolerance- general	Osmoprotection	K01546	kdpA; K+transporting ATPase ATPase A chain
+Stress tolerance- general	Osmoprotection	K01547	kdpB; K+transporting ATPase ATPase B chain
+Stress tolerance- general	Osmoprotection	K01548	kdpC; K+transporting ATPase ATPase C chain
+Stress tolerance- general	Osmoprotection	K03315	nhaC; Na+:H+ antiporter
+Stress tolerance- general	Osmoprotection	K07084	nhaC; Na+:H+ antiporter
+Stress tolerance- general	Osmoprotection	K05565	mnhA, mrp ; multicomponent Na+:H+ antiporter
+Stress tolerance- general	Osmoprotection	K05566	mnhB; multicomponent Na+:H+ antiporter
+Stress tolerance- general	Osmoprotection	K05567	mnhC; multicomponent Na+:H+ antiporter
+Stress tolerance- general	Osmoprotection	K05568	mnhD; multicomponent Na+:H+ antiporter
+Stress tolerance- general	Osmoprotection	K05569	mnhE; multicomponent Na+:H+ antiporter
+Stress tolerance- general	Osmoprotection	K05570	mnhF; multicomponent Na+:H+ antiporter
+Stress tolerance- general	Osmoprotection	K05571	mnhG; multicomponent Na+:H+ antiporter
+Stress tolerance- general	Osmoprotection	K05559	phaAB; Polyhydroxyalkanoate (PHA) K transporters (multi-subunit)
+Stress tolerance- general	Osmoprotection	K05560	phaC; Polyhydroxyalkanoate (PHA) K transporters (multi-subunit)
+Stress tolerance- general	Osmoprotection	K05561	phaD; Polyhydroxyalkanoate (PHA) K transporters (multi-subunit)
+Stress tolerance- general	Osmoprotection	K05562	phaE; Polyhydroxyalkanoate (PHA) K transporters (multi-subunit)
+Stress tolerance- general	Osmoprotection	K05563	phaF; Polyhydroxyalkanoate (PHA) K transporters (multi-subunit)
+Stress tolerance- general	Osmoprotection	K05564	phaG; Polyhydroxyalkanoate (PHA) K transporters (multi-subunit)
+Stress tolerance- general	Osmoprotection	K03499	trkA, ktrA; trkA type sodium hydrogen exchanger
+Stress tolerance- general	Osmoprotection	K03498	trkH, ktrB; trkH type K uptake
+Stress tolerance- general	Osmoprotection	K02168	betP,T,S; choline/glycine/proline betaine transport protein
+Stress tolerance- general	Osmoprotection	K03451	choline/carnitine/betaine/glycine/BCCT transporter
+Stress tolerance- general	Osmoprotection	K05245	L-carnitine/gamma-butyrobetaine antiporter
+Stress tolerance- general	Osmoprotection	K11440 	betA; choline dehydrogenase
+Stress tolerance- general	Osmoprotection	K00130	betB; betaine-aldehyde dehydrogenase
+Stress tolerance- general	Osmoprotection	K03762	proP; Proline/betaine (ProP) MFS transporter, PPII, proline permease II
+Stress tolerance- general	Osmoprotection	K03607	proQ; proline/betaine (ProP effector)
+Stress tolerance- general	Osmoprotection	K05020	opuD; glycine-betaine transporter
+Stress tolerance- general	Osmoprotection	K18896	glycine/sarcosine N-methyltransferase
+Stress tolerance- general	Osmoprotection	K18897	sarcosine/dimethylglycine N-methyltransferase
+Stress tolerance- general	Osmoprotection	K06720	ectC; ectoine synthase
+Stress tolerance- general	Osmoprotection	K10674	ectD; ectoine hydroxylase
+Stress tolerance- general	Osmoprotection	K00836	ectB; diaminobutyrate aminotransferase
+Stress tolerance- general	Osmoprotection	K06718	ectA; diaminobutyrate acetyltransferase
+Stress tolerance- general	Osmoprotection	K10230	sorbitol/mannitol transport system
+Stress tolerance- general	Osmoprotection	K05947	mpgSP; mannosyl-3-phosphoglycerate synthase
+Stress tolerance- general	Osmoprotection	K00009	mtlD; mannitol-1-phosphate 5-dehydrogenase
+Stress tolerance- general	Osmoprotection	K06044	treY; maltooligosyl trehalose synthase
+Stress tolerance- general	Osmoprotection	K01236	treZ; maltooligosyl trehalose trehalohydrolase
+Stress tolerance- general	Osmoprotection	K05342	treP; trehalose phosphorylase
+Stress tolerance- general	Osmoprotection	K05343	treS; trehalose synthase
+Stress tolerance- general	Osmoprotection	K00697	otsA; trehalose 6-phosphate synthase
+Stress tolerance- general	Osmoprotection	K01087	otsB; trehalose 6-phosphate synthase
+Stress tolerance- general	Osmoprotection	K07667	kdpE; 2-component system OmpR family sensor histidine kinase
+Stress tolerance- general	Osmoprotection	K00108	betA; choline dehydrogenase
+Stress tolerance- general	Osmoprotection	K02000	proV; glycine-betaine/proline transport system ATP binding protein
+Stress tolerance- general	Osmoprotection	K02001	proW; glycine-betaine/proline transport system permease protein
+Stress tolerance- general	Osmoprotection	K02002	proX; glycine-betaine/proline transport system substrate binding protein
+Stress tolerance- general	Osmoprotection	K10036	glnH; glutamine transport system substrate-binding protein
+Stress tolerance- general	Osmoprotection	K10037	glnP; glutamine transport system permease protein
+Stress tolerance- general	Osmoprotection	K10038	glnQ; glutamine transport system ATP-binding protein
+Stress tolerance- general	Osmoprotection	K05845	opuC; Osmoprotectant transport system substrate binding protein
+Stress tolerance- general	Osmoprotection	K05846	opuBD; Osmoprotectant transport system permease
+Stress tolerance- general	Osmoprotection	K05847	opuA; Osmoprotectant transport system ATP-binding protein
+Stress tolerance- general	Osmoprotection	K02028	ehuA; ectoine/hydroxyectoine transporter (ATP binding)
+Stress tolerance- general	Osmoprotection	K02029	ehuC, D; ectoine/hydroxyectoine transporter (permease)
+Stress tolerance- general	Osmoprotection	K02030	ehuB; ectoine/hydroxyectoine transporter (aa binding)
+Stress tolerance- general	Osmoprotection	K10227	smoE, mtlE; sorbitol/mannitol transport system
+Stress tolerance- general	Osmoprotection	K10228	smoF; sorbitol/mannitol transport system
+Stress tolerance- general	Osmoprotection	K10229	sorbitol/mannitol transport system
+Stress tolerance- general	Osmoprotection	K02783	srlA; sorbitol transporter subunit II A, B, C
+Stress tolerance- general	Osmoprotection	K02781	srlB; sorbitol transporter subunit II A, B, C
+Stress tolerance- general	Osmoprotection	K02782	srlE; sorbitol transporter subunit II A, B, C
+Stress tolerance- general	Osmoprotection	K02798	mtlA; Mannitol transporter PTS system, IIB, C
+Stress tolerance- general	Osmoprotection	K10109	malF; maltose transport
+Stress tolerance- general	Osmoprotection	K10110	malG; maltose transport
+Stress tolerance- general	Osmoprotection	K10111	malK, mltK; multiple sugar transport system ATP-binding protein
+Stress tolerance- general	Osmoprotection	K17314	treV; trehalose transport system ATP-binding protein
+Stress tolerance- general	Oxidative Stress	K04564	"SOD2; superoxide dismutase, Fe-Mn family"
+Stress tolerance- general	Oxidative Stress	K04565	SOD1; superoxide dismutase, Cu-Zn family [EC:1.15.1.1]
+Stress tolerance- general	Oxidative Stress	K04569	"
+CCS; copper chaperone for superoxide dismutase"
+Stress tolerance- general	Oxidative Stress	K03781	katE/katA; catalase [EC:1.11.1.6]
+Stress tolerance- general	Oxidative Stress	K03782	katG; catalase-peroxidase [EC:1.11.1.21]
+Stress tolerance- general	Oxidative Stress	K24119	ahpC; NADH-dependent peroxiredoxin subunit C [EC:1.11.1.26]
+Stress tolerance- general	Oxidative Stress	K03387	ahpF; NADH-dependent peroxiredoxin subunit F [EC:1.8.1.-]
+Stress tolerance- general	Oxidative Stress	K04761	oxyR; LysR family transcriptional regulator, hydrogen peroxide-inducible genes activator
+Stress tolerance- general	Oxidative Stress	K13639 	soxR; MerR family transcriptional regulator, redox-sensitive transcriptional activator SoxR
+Stress tolerance- general	Oxidative Stress	K13631	soxS; AraC family transcriptional regulator, mar-sox-rob regulon activator
+Stress tolerance- general	Oxidative Stress	K00383	"gorA; glutathione reductase (NADPH) [EC:1.8.1.7]"
+Stress tolerance- general	Oxidative Stress	K01919	"gshA; glutamate--cysteine ligase [EC:6.3.2.2]"
+Stress tolerance- general	Oxidative Stress	K03671	trxA; thioredoxin
+Stress tolerance- general	Oxidative Stress	K00384	trxB; thioredoxin reductase (NADPH) [EC:1.8.1.9]
+Stress tolerance- general	Oxidative Stress	K03672	trxC; thioredoxin 2 [EC:1.8.1.8]
+Stress tolerance- general	Oxidative Stress	K10563	mutM; formamidopyrimidine-DNA glycosylase [EC:3.2.2.23 4.2.99.18]
+Stress tolerance- general	Oxidative Stress	K03575	"mutY; A/G-specific adenine glycosylase [EC:3.2.2.31]"
+Stress tolerance- general	Oxidative Stress	K03553	recA; DNA repair/recombination protein RecA
+Stress tolerance- general	Oxidative Stress	K04047	dps; starvation-inducible DNA-binding protein
+Stress tolerance- general	Oxidative Stress	K03594	bfr; bacterioferritin [EC:1.16.3.1]
+Stress tolerance- general	Oxidative Stress	K02217	"ftnA; ferritin [EC:1.16.3.2]"
+Stress tolerance- general	Oxidative Stress	K03674	grxA; glutaredoxin 1
+Stress tolerance- general	Oxidative Stress	K03675	grxB; glutaredoxin 2
+Stress tolerance- general	Oxidative Stress	K03676	grxC; glutaredoxin 3
+Stress tolerance- general	Oxidative Stress	K07304 	"msrA; peptide-methionine (S)-S-oxide reductase [EC:1.8.4.11]"
+Stress tolerance- general	Oxidative Stress	K07305	msrB; peptide-methionine (R)-S-oxide reductase [EC:1.8.4.12]
+Stress tolerance- general	Oxidative Stress	K04063	"ohr/osmC; lipoyl-dependent peroxiredoxin [EC:1.11.1.28]"
+Stress tolerance- general	Oxidative Stress	K11065	"tpx; thioredoxin-dependent peroxiredoxin [EC:1.11.1.24]"
+Stress tolerance- general	Oxidative Stress	K03564  	bcp/PRXQ; thioredoxin-dependent peroxiredoxin [EC:1.11.1.24]
+Stress tolerance- general	Oxidative Stress	K00036	zwf; glucose-6-phosphate 1-dehydrogenase [EC:1.1.1.49 1.1.1.363]
+Stress tolerance- general	Oxidative Stress	K00033	gnd; 6-phosphogluconate dehydrogenase [EC:1.1.1.44 1.1.1.343]
+Stress tolerance- general	Oxidative Stress	K00324	pntA; pyridine nucleotide transhydrogenase
+Stress tolerance- general	Oxidative Stress	K00325	"pntB; proton-translocating NAD(P)+ transhydrogenase subunit beta [EC:7.1.1.1]"
+Stress tolerance- general	Oxidative Stress	K19824 	fprB; rubrerythrin
+Stress tolerance- general	Oxidative Stress	K04487	iscS; cysteine desulfurase [EC:2.8.1.7]
+Stress tolerance- general	Oxidative Stress	K05997	sufA; Fe-S cluster assembly protein SufA
+Stress tolerance- general	Oxidative Stress	K09014 	sufB; Fe-S cluster assembly protein SufB
+Stress tolerance- general	Oxidative Stress	K09013	sufC; Fe-S cluster assembly ATP-binding protein
+Stress tolerance- general	Oxidative Stress	K09015	sufD; Fe-S cluster assembly protein SufD
+Stress tolerance- general	Oxidative Stress	K11717     	sufS; cysteine desulfurase / selenocysteine lyase [EC:2.8.1.7 4.4.1.16]
+Stress tolerance- general	Oxidative Stress	K02426	sufE; cysteine desulfuration protein SufE
+Stress tolerance- general	Oxidative Stress	K03087	rpoS; RNA polymerase nonessential primary-like sigma factor
+Stress tolerance- general	Oxidative Stress	K03711 	fur; ferric uptake regulator
+Stress tolerance- general	Oxidative Stress	K13643	iscR; Rrf2 family transcriptional regulator, iron-sulfur cluster assembly transcription factor
+Stress tolerance- general	Oxidative Stress	K01338	lon; ATP dependent protease
+Stress tolerance- general	Oxidative Stress	K04043	dnaK; molecular chaperone
+Stress tolerance- general	Oxidative Stress	K05919	dfx; superoxide reductase [EC:1.15.1.2]
+Stress tolerance- general	Oxidative Stress	K01759	"
+GLO1, gloA;	lactoylglutathione lyase [EC:4.4.1.5]"
+Stress tolerance- general	Oxidative Stress	K00799	"gst; glutathione S-transferase [EC:2.5.1.18]"
+Stress tolerance- general	Oxidative Stress	K01069 	"gloB; hydroxyacylglutathione hydrolase [EC:3.1.2.6]"
+Stress tolerance- general	Oxidative Stress	K10773	nth; endonuclease III [EC:3.2.2.- 4.2.99.18]
+Stress tolerance- general	Oxidative Stress	K10567 	NEI; endonuclease VIII-like 1 [EC:3.2.2.- 4.2.99.18]
+Stress tolerance- general	Oxidative Stress	K03574	"mutT; 8-oxo-dGTP diphosphatase [EC:3.6.1.55]"
+Stress tolerance- general	Oxidative Stress	K01151	nfo; deoxyribonuclease IV [EC:3.1.21.2]
+Stress tolerance- general	Oxidative Stress	K03584	recO; DNA repair protein RecO (recombination protein O)
+Stress tolerance- general	Oxidative Stress	K01142	xthA; exodeoxyribonuclease III [EC:3.1.11.2]
+Stress tolerance- general	Oxidative Stress	K09825	perR; Fur family transcriptional regulator, peroxide stress response regulator
+Stress tolerance- general	Oxidative Stress	K23775	ohrR; MarR family transcriptional regulator, organic hydroperoxide resistance regulator
+Stress tolerance- general	Oxidative Stress	K04084	"
+dsbD; thioredoxin:protein disulfide reductase [EC:1.8.4.16]"
+Stress tolerance- general	Oxidative Stress	K01920	gshB; glutathione synthase [EC:6.3.2.3]
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	arsD	arsD, Arsenic metallochaperone for efflux pump
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	arsM	arsM, arsenite methyltransferase
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	aioA-aoxB	aioA-aoxB, arsenite oxidase large subunit
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	aioB-aoxA	aioB-aoxA, arsenite oxidase small subunit
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	arsC|K00537	arsC, arsenate reductase (glutaredoxin)
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	arsC|K03741	arsC, arsenate reductase (thioredoxin)
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	arsH	arsH, arsenical resistance protein ArsH
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	aioR-aoxR	aioR-aoxR, Transcriptional activator protein; two-component system
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	aioS-aoxS	aioS-aoxS, Sensor protein; two-component system
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	arsR	arsR, arsenate/arsenite/antimonite-responsive transcriptional repressor
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	acr3	acr3, arsenite transporter
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	arsA	arsA, arsenite/tail-anchored protein-transporting ATPase
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	arsB	arsB, arsenical pump membrane protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cadC	cadC, transcriptional activator of cad operon
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cadR	cadR, Transcriptional regulator for cadmium resistance
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cadX	cadX, lead/cadmium/zinc/bismuth-responsive transcriptional repressor
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cmtR	cmtR, cadmium/lead-responsive transcriptional repressor
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cusR-ylcA	cusR-ylcA, opper resistance phosphate regulon response regulator CusR
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cusS	cusS, heavy metal sensor histidine kinase CusS
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	czcR	czcR, two-component system, OmpR family, response regulator
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	czrA	czrA, zinc-responsive transcriptional repressor
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K03088	RNA polymerase sigma-70 factor, ECF subfamily
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K24079	nickel and cobalt resistance protein CnrY
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K24078	nickel and cobalt resistance protein CnrR
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cadD	cadD, Cadmium resistance permease
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	czcA	czcA, heavy metal efflux system protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	czcB	czcB, membrane fusion protein, heavy metal efflux system
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	czcC	czcC, outer membrane protein, heavy metal efflux system
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cznB	cznB, Cadmium-zinc-nickel efflux; transporter
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	czrB	czrB, multidrug efflux pump
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	dmeF	dmeF, Broad range metal ion transporter
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	rcnA-yohM	rcnA-yohM, nickel/cobalt transporter (NicO) family protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	zitB-ybgR	zitB-ybgR, cobalt-zinc-cadmium efflux system protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	zntA-yhhO	zntA-yhhO, Zn2+/Cd2+-exporting ATPase
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	ncrB	ncrB, Ni-Co efflux; regulator
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	ncrY	ncrY, Ni-Co efflux; regulator
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	rcnR-yohL	rcnR-yohL, FrmR/RcnR family transcriptional regulator, repressor of rcnA expression
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K24073	RNA polymerase sigma factor CnrH
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cmeA	cmeA, membrane fusion protein, multidrug efflux system
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cmeB	cmeB, multidrug efflux pump
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cmeC	cmeC, outer membrane protein, multidrug efflux system
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cnrT	cnrT, Ni-Co efflux system; cation diffusion facilitator
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	corA	corA, magnesium transporter
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	corB	corB, Magnesium-transporting ATPase
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	corC	corC, hemolysin (HlyC) family protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	ctpD	ctpD, cobalt/nickel-transporting P-type ATPase D
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	dmeR	dmeR, Co-Ni dmeRF efflux system
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	nrsD-nreB	nrsD-nreB, MFS transporter, NRE family, putaive nickel resistance protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	rcnB-yohN	rcnB-yohN, nickel/cobalt homeostasis protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	copC	copC, copper resistance protein C
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cutA	cutA, periplasmic divalent cation tolerance protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cutC	cutC, copper homeostasis protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	mymT	mymT, Cu-binding metallothionein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	pcoB	pcoB, copper resistance protein B
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	pcoE	pcoE, Copper binding protein; downstream from regulatory genes
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	copZ	copZ, copper chaperone
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K09796	periplasmic copper chaperone A
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K19342	copper chaperone NosL
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cinA	cinA, Copper-binding azurin-like protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cueO	cueO, cuproxidase
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cutO	cutO, Multicopper oxidase
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	mco	mco, multicopper oxidase
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	copL	copL, Copper binding protein; higher affinity for Cu(I)
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	copY-tcrY	copY-tcrY, Upstream repressor of CopA/CopB
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	corR	corR, Transcriptional regulator protein; two component system; cuoABC and copAB
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	crdR	crdR, two-component system, OmpR family, response regulator
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	csoR	csoR, CsoR family transcriptional regulator, copper-sensing transcriptional repressor
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cueR-ybbI	cueR-ybbI, copper efflux regulator
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	hmrR	hmrR, copper efflux regulator
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	ycnK	ycnK, copper-sensing transcriptional repressor
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	yfmP	yfmP, MerR family transcriptional regulator, repressor of the yfmOP operon
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K18992	TetR/AcrR family transcriptional regulator, cmeABC operon repressor
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	acrD	acrD, multidrug efflux pump
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	copA	copA, P-type Cu+ transporter
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	copB	copB, P-type Cu2+ transporter
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	copD	copD, copper resistance protein D
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	copP	copP, Copper binding protein; part of cation transport system
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	crdA	crdA, Copper resistance determinant
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	ctpG	ctpG, cation-transporting P-type ATPase G
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	ctpV	ctpV, copper-transporting P-type ATPase V
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cusA-ybdE	cusA-ybdE, copper/silver efflux system protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cusB	cusB, membrane fusion protein, copper/silver efflux system
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cusC-ylcB	cusC-ylcB, outer membrane protein, copper/silver efflux system
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cusF-cusX	cusF-cusX, Cu(I)/Ag(I) efflux system periplasmic protein CusF
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cutE-lnt	cutE-lnt, apolipoprotein N-acyltransferase
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	cutF-nlpE	cutF-nlpE, copper homeostasis protein (lipoprotein)
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	hpcopA	hpcopA, Copper transport ATPase
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	mctB	mctB, Pore-forming protein; copper efflux
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	ycnJ	ycnJ, copper transport protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	yfmO	yfmO, MFS transporter, ACDE family, multidrug resistance protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	bfrA	bfrA, bacterioferritin
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	dpr-dps	dpr-dps, Sequesters Fe(II), binds and oxidizes to Fe(III)
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	dpsA	dpsA, Stress response, iron-binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	pfr	pfr, ferritin
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	yqjH	yqjH, ferric-chelate reductase (NADPH)
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	ideR	ideR, Mn-dependent transcriptional regulator
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	pmrA	pmrA, Transcriptional regulator protein; two component system
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	pmrB	pmrB, Sensor protein; two component system
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	fbpA	fbpA, iron(III) transport system substrate-binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	fbpB	fbpB, iron(III) transport system permease protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	fbpC	fbpC, iron(III) transport system ATP-binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	fieF-yiip	fieF-yiip, ferrous-iron efflux pump FieF
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	fptA	fptA, outer-membrane receptor for ferric coprogen and ferric-rhodotorulic acid
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	mntH-yfeB	mntH-yfeB, manganese transport protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	nia	nia, energy-coupling factor transport system ATP-binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	pmrC	pmrC, Membrane protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	ybtP	ybtP, ATP-binding cassette, subfamily B, bacterial
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	ybtQ	ybtQ, ATP-binding cassette, subfamily B, bacterial
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	yfeA	yfeA, manganese/iron transport system substrate-binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	yfeB	yfeB, manganese/iron transport system ATP-binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	yfeC	yfeC, manganese/iron transport system permease protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	yfeD	yfeD, manganese/iron transport system permease protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K07224	iron uptake system component EfeO
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	pbrR	pbrR, Transcription factor, regulator
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	pbrT	pbrT, Pb(II) uptake protein; membrane transporter
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K03101	signal peptidase II
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	mgtA	mgtA, P-type Mg2+ transporter
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K06213	magnesium transporter
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	mntR	mntR, manganese transport regulator
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	ctpC	ctpC, manganese-transporting P-type ATPase C
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	mntA-ytgA	mntA-ytgA, manganese/zinc/iron transport system substrate-binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	mntP-yebN	mntP-yebN, manganese efflux pump family protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	merB	merB, alkylmercury lyase
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	merA	merA, mercuric reductase
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	merD	merD, mercuric resistance operon regulatory protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	merR	merR, mercuric resistance operon regulatory protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	merC	merC, mercuric ion transport protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	merE	merE, mercuric ion transport protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	merF	merF, mercuric ion transport protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	merP	merP, periplasmic mercuric ion binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	merT	merT, mercuric ion transport protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	nikR	nikR, CopG family transcriptional regulator, nickel-responsive regulator
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	nrsS	nrsS, Ni(II)-sensor and/or redox sensor kinase NrsS
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K11330	Ni(II)-responsive and/or redox-responsive regulator NrsR
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	hupE	hupE, Nickel transporter; metal permease
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	nikA	nikA, nickel transport system substrate-binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	nikB	nikB, nickel transport system permease protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	nikC	nikC, nickel transport system permease protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	nikD	nikD, nickel transport system ATP-binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	nikE	nikE, nickel transport system ATP-binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	nixA	nixA, nickel/cobalt transporter (NiCoT) family protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	nrsA	nrsA, cation efflux system protein involved in nickel and cobalt tolerance
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	silF	silF, Silver cation efflux system; chaperone
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	silE	silE, Silver cation efflux system; binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	silP	silP, P-type Ag+ transporter
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	smtA	smtA, Zinc binding metallothionein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	zevA	zevA, Zinc binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	zraP	zraP, zinc resistance-associated protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	zinT-yodA	zinT-yodA, Periplasmic zinc (and cadmium) binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	zntR-yhdM	zntR-yhdM, Zn(II)-responsive regulator of zntA
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	zraR-hydH	zraR-hydH, two-component system, NtrC family, response regulator HydG
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	zraS-hydG	zraS-hydG, two-component system, NtrC family, sensor histidine kinase HydH
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	zur-yjbK	zur-yjbK, Fur family transcriptional regulator, zinc uptake regulator
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K03709	Mn-dependent transcriptional regulator
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	mdtA	mdtA, membrane fusion protein, multidrug efflux system
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	mdtB	mdtB, multidrug efflux pump
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	mdtC	mdtC, multidrug efflux pump
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	troB	troB, manganese/zinc/iron transport system ATP- binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	zipB	zipB, zinc transporter, ZIP family
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	znuA-yebL	znuA-yebL, zinc transport system substrate-binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	znuB-yebI	znuB-yebI, zinc transport system permease protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	znuC-yebM	znuC-yebM, zinc transport system ATP-binding protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K06042	precorrin-8X/cobalt-precorrin-8 methylmutase
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K11708	manganese/zinc/iron transport system permease protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K11709	manganese/zinc/iron transport system permease protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	EC:2.3.1.184	LasI; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	EC:2.3.1.230	PqsBC; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	EC:3.1.2.32	PqsE; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	EC:4.4.1.21	LuxS; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K08321	LsrF; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K10912	LuxO; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K10914	Vfr; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K10915	CqsA; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11063	TcdB; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11216	LsrK; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11530	LsrG; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07678	GacS; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07706	AgrC; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07707	AgrA; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07782	SdiA; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K10909	LuxQ; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K10910	LuxP; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K10913	HapR; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K10941	FleQ; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11531	LsrR; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K16168	BpsB; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18000	PqsA; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18003	CdpR; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18304	LasR; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K19732	TraR; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K19733	SinR; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K19735	EsaI; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20272	TraM; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20334	CviR; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20918	VpsT; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	EC:2.4.1.125	GtfC; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K04333	CsgD; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K04336	CsgC; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06214	CsgG; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07668	VicR; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11931	PgaB; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K13654	McbR/YncC; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K13732	FnbpA; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K14192	ClfB; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K14201	ClfA; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K16440	GtfA; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20259	LecB/PA-IIL; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20541	BcsG; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20542	BcsG; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20951	Bap1; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20952	RbmC; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20953	RbmA; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21006	PelA; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21007	PelA; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21009	PelD; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21010	PelD; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21011	PelD; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21012	PelD; EPS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K00494	luxA; alkanal monooxygenase alpha chain [EC:1.14.14.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01114	plc; phospholipase C [EC:3.1.4.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01218	gmuG; mannan endo-1,4-beta-mannosidase [EC:3.2.1.78]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01318	sspA; glutamyl endopeptidase [EC:3.4.21.19]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01364	speB; streptopain [EC:3.4.22.10]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01399	lasB; pseudolysin [EC:3.4.24.26]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01580	E4.1.1.15, gadB, gadA, GAD; glutamate decarboxylase [EC:4.1.1.15]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01635	lacD; tagatose 1,6-diphosphate aldolase [EC:4.1.2.40]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01728	pel; pectate lyase [EC:4.2.2.2]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01897	ACSL, fadD; long-chain-fatty-acid---CoA ligase [EC:6.2.1.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K02250	comK; competence protein ComK
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K02251	comQ; competence protein ComQ
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K02252	comS; competence protein ComS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K02253	comX; competence protein ComX
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K03070	secA; preprotein translocase subunit SecA [EC:7.4.2.8]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K03071	secB; preprotein translocase subunit SecB
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K03073	secE; preprotein translocase subunit SecE
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K03075	secG; preprotein translocase subunit SecG
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K03076	secY; preprotein translocase subunit SecY
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K03106	SRP54, ffh; signal recognition particle subunit SRP54 [EC:3.6.5.4]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K03110	ftsY; fused signal recognition particle receptor
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K03210	yajC; preprotein translocase subunit YajC
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K03217	yidC, spoIIIJ, OXA1, ccfA; YidC/Oxa1 family membrane protein insertase
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K03400	luxC; long-chain-fatty-acyl-CoA reductase [EC:1.2.1.50]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K03666	hfq; host factor-I protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06046	luxE; long-chain-fatty-acid---luciferin-component ligase [EC:6.2.1.19]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06352	phrA; phosphatase RapA inhibitor
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06353	phrC; phosphatase RapC regulator
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06354	phrE; phosphatase RapE regulator
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06355	phrF; phosphatase RapF regulator
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06356	phrG; phosphatase RapG regulator
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06358	phrK; phosphatase RapK regulator
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06359	rapA, spo0L; response regulator aspartate phosphatase A (stage 0 sporulation protein L) [EC:3.1.-.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06360	rapB; response regulator aspartate phosphatase B [EC:3.1.-.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06361	rapC; response regulator aspartate phosphatase C [EC:3.1.-.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06363	rapE; response regulator aspartate phosphatase E [EC:3.1.-.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06364	rapF; response regulator aspartate phosphatase F [EC:3.1.-.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06365	rapG; response regulator aspartate phosphatase G [EC:3.1.-.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06366	rapH; response regulator aspartate phosphatase H [EC:3.1.-.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06369	rapK; response regulator aspartate phosphatase K [EC:3.1.-.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06375	spo0B; stage 0 sporulation protein B (sporulation initiation phosphotransferase) [EC:2.7.-.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06998	phzF; trans-2,3-dihydro-3-hydroxyanthranilate isomerase [EC:5.3.3.17]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07344	trbL; type IV secretion system protein TrbL
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07645	qseC; two-component system, OmpR family, sensor histidine kinase QseC [EC:2.7.13.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07666	qseB; two-component system, OmpR family, response regulator QseB
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07680	comP; two-component system, NarL family, sensor histidine kinase ComP [EC:2.7.13.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07691	comA; two-component system, NarL family, competent response regulator ComA
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07692	degU; two-component system, NarL family, response regulator DegU
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07699	spo0A; two-component system, response regulator, stage 0 sporulation protein A
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07711	glrK, qseE; two-component system, NtrC family, sensor histidine kinase GlrK [EC:2.7.13.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07715	glrR, qseF; two-component system, NtrC family, response regulator GlrR
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07781	rcsA; LuxR family transcriptional regulator, capsular biosynthesis positive transcription factor
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07800	agrD; AgrD protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07813	agrB; accessory gene regulator B
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K08605	gelE; coccolysin [EC:3.4.24.30]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K08642	lasA; LasA protease [EC:3.4.24.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K08777	nprB; neutral peptidase B [EC:3.4.24.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K09823	zur; Fur family transcriptional regulator, zinc uptake regulator
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K09936	TC.BAT2; bacterial/archaeal transporter family-2 protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K10715	rpfC; two-component system, sensor histidine kinase RpfC [EC:2.7.13.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K10911	luxU; two-component system, phosphorelay protein LuxU
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K10916	cqsS; two-component system, CAI-1 autoinducer sensor kinase/phosphatase CqsS [EC:2.7.13.3 3.1.3.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K10917	aphA; PadR family transcriptional regulator, regulatory protein AphA
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11006	stxA; shiga toxin subunit A
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11007	stxB; shiga toxin subunit B
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11031	slo; thiol-activated cytolysin
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11033	nheA; non-hemolytic enterotoxin A
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11034	nheBC; non-hemolytic enterotoxin B/C
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11035	hblAB; hemolysin BL binding component
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11036	hblC; hemolysin BL lytic component L2
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11037	hblD; hemolysin BL lytic component L1
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11039	hld; delta-hemolysin
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K12257	secDF; SecD/SecF fusion protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K12292	comA; ATP-binding cassette, subfamily C, bacterial, competence factor transporting protein [EC:3.4.22.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K12293	comB; competence factor transport accessory protein ComB
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K12294	comD; two-component system, LytTR family, sensor histidine kinase ComD [EC:2.7.13.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K12295	comE; two-component system, LytTR family, response regulator ComE
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K12296	comX1_2; competence protein ComX
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K12415	comC; competence-stimulating peptide
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K12789	tccP; Tir-cytoskeleton coupling protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K12990	rfbF, rhlC; rhamnosyltransferase [EC:2.4.1.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K13060	lasI; acyl homoserine lactone synthase [EC:2.3.1.184]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K13061	rhlI, phzI, solI, cepI, tofI; acyl homoserine lactone synthase [EC:2.3.1.184]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K13062	ainS, luxM; acyl homoserine lactone synthase [EC:2.3.1.184]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K13063	phzE; 2-amino-4-deoxychorismate synthase [EC:2.6.1.86]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K13075	ahlD, aiiA, attM, blcC; N-acyl homoserine lactone hydrolase [EC:3.1.1.81]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K13815	rpfG; two-component system, response regulator RpfG
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K13816	rpfF; DSF synthase
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K14051	gmr, pdeR; c-di-GMP phosphodiesterase Gmr [EC:3.1.4.52]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K14645	K14645; serine protease [EC:3.4.21.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K14982	ciaH; two-component system, OmpR family, sensor histidine kinase CiaH [EC:2.7.13.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K14983	ciaR; two-component system, OmpR family, response regulator CiaR
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15654	srfAA, licA, lchAA; surfactin/lichenysin synthetase A
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15655	srfAB, licB, lchAB; surfactin/lichenysin synthetase B
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15656	srfAC, licC, lchAC; surfactin/lichenysin synthetase C
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15657	srfATE, srfAD, lchAD; external thioesterase TEII
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15850	luxN; two-component system, autoinducer 1 sensor kinase/phosphatase LuxN [EC:2.7.13.3 3.1.3.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15851	qrr; quorum regulatory RNA Qrr
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15852	luxR, vanR; LuxR family transcriptional regulator, transcriptional activator of the bioluminescence operon
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15853	luxD; acyl transferase [EC:2.3.1.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15854	luxB; alkanal monooxygenase beta chain [EC:1.14.14.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K16619	plc, cpa; phospholipase C / alpha-toxin [EC:3.1.4.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K17940	pqsH; 2-heptyl-3-hydroxy-4(1H)-quinolone synthase [EC:1.14.13.182]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18001	pqsB; 2-heptyl-4(1H)-quinolone synthase subunit PqsB [EC:2.3.1.230]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18002	pqsC; 2-heptyl-4(1H)-quinolone synthase subunit PqsC [EC:2.3.1.230]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18096	bjaI, rpaI, braI, rhiI; acyl-homoserine lactone synthase [EC:2.3.1.228 2.3.1.229 2.3.1.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18098	bjaR1, rpaR, rhiR; LuxR family transcriptional regulator, quorum-sensing system regulator BjaR1
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18099	rhlR, phzR; LuxR family transcriptional regulator, quorum-sensing system regulator RhlR
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18100	rhlA; rhamnosyltransferase subunit A [EC:2.4.1.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18101	rhlB; rhamnosyltransferase subunit B [EC:2.4.1.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18139	oprM, emhC, ttgC, cusC, adeK, smeF, mtrE, cmeC, gesC; outer membrane protein, multidrug efflux system
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18306	mexH; membrane fusion protein, multidrug efflux system
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18307	mexI; multidrug efflux pump
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18315	cpmC, carC; (5R)-carbapenem-3-carboxylate synthase [EC:1.14.20.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18316	cpmA, carA; carbapenam-3-carboxylate synthase [EC:6.3.3.6]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18317	cpmB, carB; carboxymethylproline synthase [EC:2.3.1.226]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18318	cpmD, carD; carbapenem biosynthesis protein, putative proline dehydrogenase [EC:1.5.-.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18319	cpmE, carE; carbapenem biosynthesis protein CpmE
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K19666	solR, cepR, tofR; LuxR family transcriptional regulator, quorum-sensing system regulator SolR
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K19731	cciR; LuxR family transcriptional regulator, quorum-sensing system regulator CciR
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K19734	expR; LuxR family transcriptional regulator, quorum-sensing system regulator ExpR
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20086	vioA; tryptophan oxidase VioA [EC:1.4.3.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20087	vioB; violacein biosynthesis protein VioB
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20088	vioE; violacein biosynthesis protein VioE
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20089	vioD; protodeoxyviolaceinate monooxygenase [EC:1.14.13.217]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20090	vioC; violacein synthase [EC:1.14.13.224]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20248	cinI; acyl homoserine lactone synthase [EC:2.3.1.184]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20249	raiI; acyl homoserine lactone synthase [EC:2.3.1.184]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20250	cciI; acyl homoserine lactone synthase [EC:2.3.1.184]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20252	cinR; LuxR family transcriptional regulator, quorum-sensing system regulator CinR
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20253	bisR; LuxR family transcriptional regulator, quorum-sensing system regulator BisR
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20256	luxG; flavin reductase [EC:1.-.-.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20257	pqsE; 2-aminobenzoylacetyl-CoA thioesterase [EC:3.1.2.32]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20258	lecA; PA-I galactophilic lectin
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20260	phzA_B; phenazine biosynthesis protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20261	phzD; trans-2,3-dihydro-3-hydroxyanthranilic acid synthase [EC:3.3.2.15]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20262	phzG; dihydrophenazinedicarboxylate synthase [EC:1.10.3.16]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20263	fusK; two-component system, NarL family, sensor histidine kinase FusK [EC:2.7.13.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20264	fusR; two-component system, NarL family, response regulator FusR
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20265	gadC; glutamate:GABA antiporter
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20266	trbJ; type IV secretion system protein TrbJ
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20267	trbH; type IV secretion system protein TrbH
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20268	rhiA; rhizosphere induced protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20269	rhiB; rhizosphere induced protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20270	rhiC; rhizosphere induced protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20271	accR; DeoR family transcriptional regulator, repressor of opine catabolism and conjugal transfer
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20273	zmpA; zinc metalloprotease ZmpA
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20274	zmpB; zinc metalloprotease ZmpB
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20275	aidA; nematocidal protein AidA
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20276	bapA; large repetitive protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20277	bcl; mannose-binding lectin
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20321	nlmA; mutacin IV
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20322	nlmB; mutacin IV
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20323	nlmC, cipB; mutacin V
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20324	nlmD; mutacin VI
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20325	fhrR; TetR/AcrR family transcriptional regulator, Clp-modulated transcription factor
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20326	xagA; protein XagA
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20327	xagB; glycosyltransferase XagB
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20328	xagC; membrane protein XagC
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20329	qsmR; IclR family transcriptional regulator, positive regulator for flagellar biogenesis
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20330	toxJ; LuxR family transcriptional regulator, activator of tox operons
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20331	toxA; toxoflavin synthase [EC:2.1.1.349]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20332	toxC; toxoflavin biosynthesis protein ToxC
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20333	toxD; toxoflavin biosynthesis protein ToxD
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20335	psmA1_2; phenol-soluble modulin alpha 1/2
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20336	psmA3; phenol-soluble modulin alpha 3
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20337	psmB; phenol-soluble modulin beta
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20338	rot; MarR family transcriptional regulator, global regulator for virulence
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20339	agrC2; two-component system, LytTR family, sensor histidine kinase AgrC2 [EC:2.7.13.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20340	agrA2; two-component system, LytTR family, response regulator AgrA2
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20341	blpL, cipI; immunity protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20342	comR; HTH-type transcriptional regulator, regulator for ComX
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20343	blpC; peptide pheromone BlpC
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20344	blpA, lagD; ATP-binding cassette, subfamily C, bacteriocin exporter
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20345	blpB; membrane fusion protein, peptide pheromone/bacteriocin exporter
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20373	rgg2; HTH-type transcriptional regulator, SHP2-responsive activator
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20374	rgg3; HTH-type transcriptional regulator, SHP3-responsive repressor
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20375	ropB, rgg1; HTH-type transcriptional regulator, pheromone-responsive regulator
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20376	prgQ; peptide inhibitor iCF10
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20377	prgX; HTH-type transcriptional regulator, major conjugation operon repressor
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20378	iad1; sex pheromone inhibitor iAD1
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20379	cad; sex pheromone cAD1
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20380	traA; HTH-type transcriptional regulator, pheromone-responsive repressor
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20381	traE1; regulatory protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20382	asa1; aggregation substance
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20383	cylLL; CylL-L protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20384	cylLS; CylL-S protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20385	cylM; CylM protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20386	cylB; ATP-binding cassette, subfamily B, bacterial CylB
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20387	cylR1; regulatory protein CylR1
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20388	cylR2; HTH-type transcriptional regulator, cytolysin regulator
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20389	phrH; phosphatase RapH regulator
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20390	papR; regulatory peptide PapR
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20391	plcR; HTH-type transcriptional regulator, pleiotropic regulator of extracellular virulence genes
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20480	nprR, nprA; HTH-type transcriptional regulator, quorum sensing regulator NprR
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20481	nprX, nprRB; regulatory peptide NprX
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20482	nisA, spaS, epiA; lantibiotic bacteriocin
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20483	lanB, nisB, spaB, epiB; class I lanthipeptide synthase [EC:3.13.2.4]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20484	lanC, nisC, spaC, epiC; class I lanthipeptide synthase [EC:3.13.2.4]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20485	nisT, spaT; ATP-binding cassette, subfamily B, bacterial NisT/SpaT
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20486	nisP, epiP; lantibiotic leader peptide-processing serine protease [EC:3.4.21.-]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20487	nisK, spaK; two-component system, OmpR family, lantibiotic biosynthesis sensor histidine kinase NisK/SpaK [EC:2.7.13.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20488	nisR, spaR; two-component system, OmpR family, lantibiotic biosynthesis response regulator NisR/SpaR
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20489	nisI; lantibiotic immunity protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20527	trbB; type IV secretion system protein TrbB [EC:7.4.2.8]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20528	trbC; type IV secretion system protein TrbC
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20529	trbD; type IV secretion system protein TrbD
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20530	trbE; type IV secretion system protein TrbE [EC:7.4.2.8]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20531	trbF; type IV secretion system protein TrbF
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20532	trbG; type IV secretion system protein TrbG
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20533	trbI; type IV secretion system protein TrbI
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20539	blcR; IclR family transcriptional regulator, blcABC operon repressor
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20540	cepR2; LuxR family transcriptional regulator, quorum-sensing system regulator CepR2
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20552	ler; transcriptional regulator of LEE operons
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20554	rnaIII; small regulatory RNA RNAIII
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20555	trbK; type IV secretion system protein TrbK
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K22954	luxI; acyl homoserine lactone synthase
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K22955	traI, avsI; acyl homoserine lactone synthase
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K22956	expI, esaI; acyl homoserine lactone synthase
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K22957	cviI; acyl homoserine lactone synthase
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K22968	sinI, avsI; acyl homoserine lactone synthase
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K23133	comC; competence-stimulating peptide
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K25873	raiR; LuxR family transcriptional regulator, quorum-sensing system regulator RaiR
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01768	E4.6.1.1; adenylate cyclase [EC:4.6.1.1]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K02657	pilG; twitching motility two-component system response regulator PilG
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K02658	pilH; twitching motility two-component system response regulator PilH
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K02659	pilI; twitching motility protein PilI
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K02660	pilJ; twitching motility protein PilJ
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K03563	csrA; carbon storage regulator
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K03651	cpdA; 3',5'-cyclic-AMP phosphodiesterase [EC:3.1.4.53]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06596	chpA; chemosensory pili system protein ChpA (sensor histidine kinase/response regulator)
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06598	chpC; chemosensory pili system protein ChpC
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07689	uvrY, gacA, varA; two-component system, NarL family, invasion response regulator UvrY
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11444	wspR; two-component system, chemotaxis family, response regulator WspR [EC:2.7.7.65]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11890	impM; type VI secretion system protein ImpM
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11891	impL, vasK, icmF; type VI secretion system protein ImpL
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11893	impJ, vasE; type VI secretion system protein ImpJ
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11895	impH, vasB; type VI secretion system protein ImpH
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11900	impC; type VI secretion system protein ImpC
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11901	impB; type VI secretion system protein ImpB
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11902	impA; type VI secretion system protein ImpA
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11903	hcp; type VI secretion system secreted protein Hcp
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11907	vasG, clpV; type VI secretion system protein VasG
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11912	ppkA; serine/threonine-protein kinase PpkA [EC:2.7.11.1]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11913	fha1; type VI secretion system protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11915	stp1, pppA; serine/threonine protein phosphatase Stp1 [EC:3.1.3.16]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K13487	wspA; methyl-accepting chemotaxis protein WspA
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K13488	wspB; chemotaxis-related protein WspB
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K13489	wspD; chemotaxis-related protein WspD
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K13490	wspE; two-component system, chemotaxis family, sensor histidine kinase and response regulator WspE
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K13491	wspF; two-component system, chemotaxis family, response regulator WspF [EC:3.1.1.61]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K16011	algA, xanB, rfbA, wbpW, pslB; mannose-1-phosphate guanylyltransferase / mannose-6-phosphate isomerase [EC:2.7.7.13 5.3.1.8]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K19291	alg44; mannuronan synthase [EC:2.4.1.33]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20968	exsA; AraC family transcriptional regulator, exoenzyme S synthesis regulatory protein ExsA
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20969	rsmY; small regulatory RNA RsmY
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20970	rsmZ; small regulatory RNA RsmZ
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20971	ladS; two-component system, sensor histidine kinase LadS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20972	retS; two-component system, sensor histidine kinase RetS
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20973	sagS; two-component system, sensor histidine kinase SagS [EC:2.7.13.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20974	K20974; two-component system, sensor histidine kinase [EC:2.7.13.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20975	K20975; two-component system, sensor histidine kinase [EC:2.7.13.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20976	hptB; histidine phosphotransfer protein HptB
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20977	hsbR; two-component system, HptB-dependent secretion and biofilm response regulator
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20978	hsbA; HptB-dependent secretion and biofilm anti anti-sigma factor
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20987	pslD; polysaccharide biosynthesis/export protein PslD
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20997	pslA; polysaccharide biosynthesis protein PslA
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20998	pslE; polysaccharide biosynthesis protein PslE
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20999	pslF; polysaccharide biosynthesis protein PslF
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21000	pslG; polysaccharide biosynthesis protein PslG
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21001	pslH; polysaccharide biosynthesis protein PslH
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21002	pslI; polysaccharide biosynthesis protein PslI
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21003	pslJ; polysaccharide biosynthesis protein PslJ
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21004	pslK; polysaccharide biosynthesis protein PslK
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21005	pslL; polysaccharide biosynthesis protein PslL
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21008	pelC; polysaccharide biosynthesis protein PelC
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21019	sadC; diguanylate cyclase [EC:2.7.7.65]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21020	siaD; diguanylate cyclase [EC:2.7.7.65]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21021	tpbB; diguanylate cyclase [EC:2.7.7.65]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21022	roeA; diguanylate cyclase [EC:2.7.7.65]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21023	mucR; diguanylate cyclase [EC:2.7.7.65]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21024	bifA; c-di-GMP phosphodiesterase [EC:3.1.4.52]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21025	fimX; multidomain signaling protein FimX
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K23127	fimW; cyclic-di-GMP-binding protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K25205	pslC; polysaccharide biosynthesis protein PslC
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K00895	pfp; diphosphate-dependent phosphofructokinase [EC:2.7.1.90]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01006	ppdK; pyruvate, orthophosphate dikinase [EC:2.7.9.1]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01007	pps, ppsA; pyruvate, water dikinase [EC:2.7.9.2]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01084	G6PC; glucose-6-phosphatase [EC:3.1.3.9]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01085	agp; glucose-1-phosphatase [EC:3.1.3.10]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01222	E3.2.1.86A, celF; 6-phospho-beta-glucosidase [EC:3.2.1.86]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01223	E3.2.1.86B, bglA; 6-phospho-beta-glucosidase [EC:3.2.1.86]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01568	PDC; pyruvate decarboxylase [EC:4.1.1.1]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01596	E4.1.1.32, pckA, PCK; phosphoenolpyruvate carboxykinase (GTP) [EC:4.1.1.32]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01610	pckA; phosphoenolpyruvate carboxykinase (ATP) [EC:4.1.1.49]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01622	fbp; fructose 1,6-bisphosphate aldolase/phosphatase [EC:4.1.2.13 3.1.3.11]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01689	ENO1_2_3, eno; enolase 1/2/3 [EC:4.2.1.11]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01785	galM; aldose 1-epimerase [EC:5.1.3.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01792	E5.1.3.15; glucose-6-phosphate 1-epimerase [EC:5.1.3.15]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01810	GPI, pgi; glucose-6-phosphate isomerase [EC:5.3.1.9]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01834	PGAM, gpmA; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01837	BPGM; bisphosphoglycerate/phosphoglycerate mutase [EC:5.4.2.4 5.4.2.11]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01895	ACSS1_2, acs; acetyl-CoA synthetase [EC:6.2.1.1]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01905	acdA; acetate---CoA ligase (ADP-forming) subunit alpha [EC:6.2.1.13]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01913	AAE7, ACN1; acetate/butyrate---CoA ligase [EC:6.2.1.1 6.2.1.2]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K03103	MINPP1; multiple inositol-polyphosphate phosphatase / 2,3-bisphosphoglycerate 3-phosphatase [EC:3.1.3.62 3.1.3.80]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K06859	pgi1; glucose-6-phosphate isomerase, archaeal [EC:5.3.1.9]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11645	fbaB; fructose-bisphosphate aldolase, class I [EC:4.1.2.13]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K12957	ahr; alcohol/geraniol dehydrogenase (NADP+) [EC:1.1.1.2 1.1.1.183]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K13810	tal-pgi; transaldolase / glucose-6-phosphate isomerase [EC:2.2.1.2 5.3.1.9]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K14028	mdh1, mxaF; methanol dehydrogenase (cytochrome c) subunit 1 [EC:1.1.2.7]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K14029	mdh2, mxaI; methanol dehydrogenase (cytochrome c) subunit 2 [EC:1.1.2.7]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15633	gpmI; 2,3-bisphosphoglycerate-independent phosphoglycerate mutase [EC:5.4.2.12]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15634	gpmB; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15635	apgM; 2,3-bisphosphoglycerate-independent phosphoglycerate mutase [EC:5.4.2.12]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15778	pmm-pgm; phosphomannomutase / phosphoglucomutase [EC:5.4.2.8 5.4.2.2]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15779	PGM2; phosphoglucomutase / phosphopentomutase [EC:5.4.2.2 5.4.2.7]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15916	pgi-pmi; glucose/mannose-6-phosphate isomerase [EC:5.3.1.9 5.3.1.8]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K16305	K16305; fructose-bisphosphate aldolase / 6-deoxy-5-ketofructose 1-phosphate synthase [EC:4.1.2.13 2.2.1.11]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K16306	K16306; fructose-bisphosphate aldolase / 2-amino-3,7-dideoxy-D-threo-hept-6-ulosonate synthase [EC:4.1.2.13 2.2.1.10]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20866	yihX; glucose-1-phosphatase [EC:3.1.3.10]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K21071	pfk, pfp; ATP-dependent phosphofructokinase / diphosphate-dependent phosphofructokinase [EC:2.7.1.11 2.7.1.90]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K22224	acdB; acetate---CoA ligase (ADP-forming) subunit beta [EC:6.2.1.13]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K24012	acdAB; acetate---CoA ligase (ADP-forming)
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K27394	ENO4; enolase 4
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K28849	gpm2; fructose-bisphosphatase
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K00025	MDH1; malate dehydrogenase [EC:1.1.1.37]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K00026	MDH2; malate dehydrogenase [EC:1.1.1.37]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K00030	IDH3; isocitrate dehydrogenase (NAD+) [EC:1.1.1.41]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K00116	mqo; malate dehydrogenase (quinone) [EC:1.1.5.4]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K00164	OGDH, sucA; 2-oxoglutarate dehydrogenase E1 component [EC:1.2.4.2]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K00233	frdA, fdrA; succinate dehydrogenase flavoprotein subunit
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01616	kgd; multifunctional 2-oxoglutarate metabolism enzyme [EC:2.2.1.5 4.1.1.71 1.2.4.2 2.3.1.61]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01647	CS, gltA; citrate synthase [EC:2.3.3.1]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01648	ACLY; ATP citrate (pro-S)-lyase [EC:2.3.3.8]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01659	prpC; 2-methylcitrate synthase [EC:2.3.3.5]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01675	fumD; fumarate hydratase D
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01774	fumE; fumarate hydratase E
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01899	LSC1; succinyl-CoA synthetase alpha subunit [EC:6.2.1.4 6.2.1.5]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01900	LSC2; succinyl-CoA synthetase beta subunit [EC:6.2.1.4 6.2.1.5]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01958	PC, pyc; pyruvate carboxylase [EC:6.4.1.1]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K05942	E2.3.3.3; citrate (Re)-synthase [EC:2.3.3.3]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15230	aclA; ATP-citrate lyase alpha-subunit [EC:2.3.3.8]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15231	aclB; ATP-citrate lyase beta-subunit [EC:2.3.3.8]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K17753	HICDH; isocitrate--homoisocitrate dehydrogenase [EC:1.1.1.286]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18118	aarC, cat1; succinyl-CoA:acetate CoA-transferase [EC:2.8.3.18]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K18859	sdhD, frdD; succinate dehydrogenase subunit D
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K25801	SDH4; succinate dehydrogenase (ubiquinone) subunit 4
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K25995	frdB, fdrB; succinate dehydrogenase iron-sulfur subunit
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K25996	frdC, fdrC; succinate dehydrogenase subunit C
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K26318	fccA, fcc3; fumarate reductase (cytochrome)
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K27797	MCSA; 2-methylcitrate synthase
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K27802	acnA; aconitate hydratase A / 2-methylisocitrate dehydratase
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K10555	LsrB; QuorumSensing
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01497	ribA, RIB1; GTP cyclohydrolase II [EC:3.5.4.25]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01626	E2.5.1.54, aroF, aroG, aroH; 3-deoxy-7-phosphoheptulonate synthase [EC:2.5.1.54]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01657	trpE; anthranilate synthase component I [EC:4.1.3.27]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01658	trpG; anthranilate synthase component II [EC:4.1.3.27]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01997	livH; branched-chain amino acid transport system permease protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01998	livM; branched-chain amino acid transport system permease protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01999	livK; branched-chain amino acid transport system substrate-binding protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K02033	ABC.PE.P; peptide/nickel transport system permease protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K02034	ABC.PE.P1; peptide/nickel transport system permease protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K02035	ABC.PE.S; peptide/nickel transport system substrate-binding protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K02053	ABC.SP.P; putative spermidine/putrescine transport system permease protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K02054	ABC.SP.P1; putative spermidine/putrescine transport system permease protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K02055	ABC.SP.S; putative spermidine/putrescine transport system substrate-binding protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K07173	luxS; S-ribosylhomocysteine lyase [EC:4.4.1.21]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K10556	lsrC; AI-2 transport system permease protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K10557	lsrD; AI-2 transport system permease protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K10558	lsrA, ego; AI-2 transport system ATP-binding protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K11752	ribD; diaminohydroxyphosphoribosylaminopyrimidine deaminase / 5-amino-6-(5-phosphoribosylamino)uracil reductase [EC:3.5.4.26 1.1.1.193]
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15580	oppA, mppA; oligopeptide transport system substrate-binding protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15581	oppB; oligopeptide transport system permease protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K15582	oppC; oligopeptide transport system permease protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20490	nisF, spaF, cprA, epiF; lantibiotic transport system ATP-binding protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20491	nisE, spaE, cprB, epiE; lantibiotic transport system permease protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20492	nisG, spaG, cprC; lantibiotic transport system permease protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K20494	epiG; lantibiotic transport system permease protein
+Social interactions	Social (quorom sensing, EPS, biofilm formation)	K01835	pgm; phosphoglucomutase [EC:5.4.2.2]
