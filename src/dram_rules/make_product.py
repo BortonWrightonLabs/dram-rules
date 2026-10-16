@@ -463,7 +463,14 @@ def main(
             df.pivot(
                 on=["genome"],
                 values=val_col,
-                index=[col for col in df.columns if col not in [val_col, "genome"]],
+                # drop taxonomy because taxonomy and genome have a relationship, so either we would
+                # need to concatenate columns awkwardly, or drop it, or make a taxonomy column which would
+                # blow up the dataframe
+                index=[
+                    col
+                    for col in df.columns
+                    if col not in [val_col, "genome", "taxonomy"]
+                ],
             ).write_csv(output_dir / f"df_{df_type}.tsv", separator="\t")
             logger.info(f"Saved dataframe to {output_dir / f'df_{df_type}.tsv'}")
 
