@@ -171,10 +171,11 @@ name	alias	rule
 
 	Sulfatereducer	@DsrABtyper & [K00958 | K00394 |K00395]
 	DsrABtyper	dsrAr | dsrBr
-	Non-sulfate-sulfur-reduction	@TetrathionateRed |@ThiosulfateRed |@SulfiteRed
 	SulfiteRed	dsrAr | dsrBr
 	TetrathionateRed	at_least(2, PRESENCE, [K08359, K08358, K08357])
 	ThiosulfateRed	at_least(2, PRESENCE, [K08352, K08353, K08354])
+	ElementalSRed	at_least(2, PRESENCE, [K17219, K17220, K17221])
+	Non-sulfate-sulfur-reduction	@TetrathionateRed |@ThiosulfateRed | @SulfiteRed | @ElementalSRed
 
 	sulfateoxidizer	[@DsrABtypeo | @SoeABC | @SorAB | @Sqr | @FccAB | @SoxXA | @SoxYZ | @SoxB | @SoxCD] & @ETC50
 	DsrABtypeo	K11180 | dsrA | dsrB | K11181

@@ -245,7 +245,7 @@ def main(
 
     s = time.time()
     if common_rules_tsv is None:
-        common_rules_tsv = Path(__file__).parent / "rule_parser/rules_common.tsv"
+        common_rules_tsv = Path(__file__).parent / "data/rules_common.tsv"
 
     if rules_system and rules_tsv:
         raise click.BadArgumentUsage(
