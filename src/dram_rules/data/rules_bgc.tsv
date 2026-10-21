@@ -1,6 +1,5 @@
 name	rule	rule_options	module	group	notes
 Calvin Cycle	@Calvin		Carbon Transformations	Carbon Fixation
-Reductive Citric Acid Cycle	@ReductiveCitricAcid		Carbon Transformations	Carbon Fixation
 Hydroxypropionate-Hydroxybutyrate Cycle	@HydroxypropionateHydroxybutylate		Carbon Transformations	Carbon Fixation
 Dicarboxylate Hydroxybutyrate Cycle	@DicarboxylateHydroxybutyrate		Carbon Transformations	Carbon Fixation
 Wood-Ljungdahl Pathway	@ReductiveAcetylCoAWoodLjungdahl		Carbon Transformations	Carbon Fixation
@@ -29,17 +28,17 @@ Pectin	@Pectin		Carbon Transformations	Polysaccharides
 Multiple Plant Polysaccharides	@PlantPolymerMixed		Carbon Transformations	Polysaccharides	can act on multiple plant polymers of hemicellulose, pectin, and cellulose
 Starch/Glycogen	@StarchGlycogen		Carbon Transformations	Polysaccharides
 Chitin	@Chitin		Carbon Transformations	Polysaccharides
-Cellulose-Associated	@BetaGlucosides		Carbon Transformations	Oligosaccharide	β-Glucoside hydrolysis; may support cellulose-derived oligosaccharide utilization
+Cellulose-Associated	@BetaGlucosides		Carbon Transformations	Oligosaccharide	Œ≤-Glucoside hydrolysis; may support cellulose-derived oligosaccharide utilization
 Hemicellulose-Associated	@Xylooligosaccharides | @XyloglucanMannooligosaccharides		Carbon Transformations	Oligosaccharide	xylooligosaccharides and xyloglucan- or mannan-related oligosaccharides, potentially supporting hemicellulose-derived carbohydrate utilization.
 Pectin-Associated	@PecticOligosaccharides		Carbon Transformations	Oligosaccharide	pectic oligosaccharides, potentially supporting utilization of pectin breakdown products.
-Starch/Glycogen Associated	@MaltooligosaccharidesAlphaGlucosides		Carbon Transformations	Oligosaccharide	maltooligosaccharides and α-glucosides, potentially supporting utilization of starch- or glycogen-derived carbohydrates.
+Starch/Glycogen Associated	@MaltooligosaccharidesAlphaGlucosides		Carbon Transformations	Oligosaccharide	maltooligosaccharides and Œ±-glucosides, potentially supporting utilization of starch- or glycogen-derived carbohydrates.
 Chitin-Associated	@Chitooligosaccharides | @NAcetylhexosaminides		Carbon Transformations	Oligosaccharide	chitooligosaccharides and N-acetylhexosaminides, potentially supporting chitin-derived carbohydrate utilization. N-acetylhexosaminides may also originate from other glycoconjugates.
 Other oligosaccharides	@OtherGlycosidesOligosaccharides | @OligosaccharideOxidation | @Fructooligosaccharides		Carbon Transformations	Oligosaccharide	Diverse glycoside and oligosaccharide transformations, including fructooligosaccharide utilization and oligosaccharide oxidation, that are not assigned to a single major polymer-associated group.
 Cellobiose	@Cellobiose		Carbon Transformations	Oligosaccharide	Glucose disaccharide produced during cellulose breakdown; utilization does not imply direct cellulose degradation.
 Maltose	@Maltose		Carbon Transformations	Oligosaccharide	Glucose disaccharide associated with starch and glycogen breakdown.
 Sucrose	@Sucrose		Carbon Transformations	Oligosaccharide	Glucose-fructose disaccharide commonly found in plants; important for carbon transport and storage.
 Trehalose	@Trehalose		Carbon Transformations	Oligosaccharide	Glucose disaccharide used for carbon storage and stress protection in many organisms.
-Lactose	@Lactose		Carbon Transformations	Oligosaccharide	Galactose-glucose disaccharide; utilization indicates potential to process lactose or related β-galactosides.
+Lactose	@Lactose		Carbon Transformations	Oligosaccharide	Galactose-glucose disaccharide; utilization indicates potential to process lactose or related Œ≤-galactosides.
 Mannobiose or Mannose (mixed size)	@Mannose-Mannobiose		Carbon Transformations	Oligosaccharide	Mannose-containing carbohydrates associated with mannan and other glycans; calls may represent monosaccharide or disaccharide processing.
 Glucose	@Glucose		Carbon Transformations	Monosaccharide	Central hexose used in carbohydrate metabolism.
 Xylose	@Xylose		Carbon Transformations	Monosaccharide	Pentose commonly derived from xylan and other plant polysaccharides.
@@ -56,7 +55,7 @@ Oxalate	K01577 | K07749		Carbon Transformations	Low Molecular Weight Carbon
 Formate	K00656		Carbon Transformations	Low Molecular Weight Carbon
 Methanol	@Methanol		Carbon Transformations	Low Molecular Weight Carbon
 Ethanol/Alcohol	@Ethanol		Carbon Transformations	Low Molecular Weight Carbon
-Photosynthesis	@phototroph		Energy Conservation	Photosynthesis
+Photosynthesis	@PhototrophAllTypes		Energy Conservation	Photosynthesis
 ETC: Complex I Nadh Dehydrogenase	at_least(9, PRESENCE, [K00330,K00331,K00332,K00333,K13378,K13380,K00334,K00335,K00336,K00337,K00338,K00339,K00340,K00341,K00342,K15863,K00343])|at_least(7, PRESENCE, [K05574,K05582,K05581,K05579,K05572,K05580,K05578,K05576,K05577,K05575,K05573,K05583,K05584,K05585])|at_least(4, PRESENCE, [K03878,K03879,K03880,K03881,K03882,K03883,K03884])|at_least(6, PRESENCE, [K03934,K03935,K03936,K03937,K03938,K03939,K03940,K03941,K03942,K03943,K03944])|at_least(7, PRESENCE, [K03945,K03946,K03947,K03948,K03949,K03950,K03951,K03952,K03953,K03954,K03955,K03956,K11352,K11353])|at_least(6, PRESENCE, [K03957,K03958,K03959,K03960,K03961,K03962,K03963,K03964,K03965,K03966,K11351])|at_least(3, PRESENCE, [K00346,K00347,K00348,K00349,K00350,K00351])		Energy Conservation	Respiratory Electron Transport and ATP Synthesis
 ETC: Complex II Succinate Dehydrogenase	at_least(4, PRESENCE, [K00239,K00240,K00241,K00242,K00244,K00245,K00246,K00247,K18859,K18860])|at_least(2, PRESENCE, [K00234,K00235,K00236,K00237])		Energy Conservation	Respiratory Electron Transport and ATP Synthesis	Presence of a majority of an KEGG-derived Complex I variant, indicative of respiration
 ETC: Complex III Cytochrome Bc1 Complex	at_least(4, PRESENCE, [K00412,K00413,K00410,K00411,K03891,K03889,K03890])|at_least(4, PRESENCE, [K00414,K00415,K00416,K00417,K00418,K00419,K00420])|at_least(2, PRESENCE, [K03886,K03887,K03888])		Energy Conservation	Respiratory Electron Transport and ATP Synthesis	Presence of a majority of an KEGG-derived Complex II variant, indicative of respiration
@@ -83,14 +82,15 @@ Acetoclastic	@acetoclastic	"{""include_when"":{""all_columns_present"":[""taxono
 Methylotrophic	@methylotroph	"{""include_when"":{""all_columns_present"":[""taxonomy""]}}"	Respiratory Redox Processes	Methane Production and Oxidation	For a genome to have acetoclastic methanogenesis potential, it must encode mcrA, part of the ACS_CODH complex, and either Acetate Kinase and Phosphotransacetylase OR Acetyl CoA Synthetase. There is a MANDATORY taxonomic requirement for this rule to run, and a MAG or genome must also belong to the genus Methanosarcina or the family Methanotrichaceae
 Aerobic Methanotroph	@AerobicMethanotroph		Respiratory Redox Processes	Methane Production and Oxidation	"For a genome to have methyltotrophic methanogenesis potential, it must encode mcrA and at least one substrate-demethylating corrinoid-dependent methyltransferase homolog ""MtxB"""
 Methanogen Or ANME	@Methanogen	"{""include_when"":{""all_columns_absent"":[""taxonomy""]}}"	Respiratory Redox Processes	Methane Production and Oxidation	A genome that encodes adenylysulfate reductase and dissimilatory sulfite reductase
-Anaerobic Oxidation of Methane	@anaerobic-methanotrophic-Archaea		Respiratory Redox Processes	Methane Production and Oxidation	For a genome to have CH‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö¬∞‚Äö√†√∂‚àö¬¥ oxidation capability, it must encode at least one methane monooxygenase complex pMMO or sMMO, which catalyzes the conversion of methane to methanol ‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂‚àö√ú the key diagnostic step of methanotrophy in soils. It must also encode any genes for denitrifcation narG, napA, nirK, nirS, norB
+Anaerobic Oxidation of Methane	@anaerobic-methanotrophic-Archaea		Respiratory Redox Processes	Methane Production and Oxidation	For a genome to have CH‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√†√∂¬¨‚àû‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√†√∂¬¨¬• oxidation capability, it must encode at least one methane monooxygenase complex pMMO or sMMO, which catalyzes the conversion of methane to methanol ‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂‚Äö√†√á‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√†√∂‚àö¬¥‚Äö√Ñ√∂‚àö‚Ä†‚àö‚àÇ‚Äö√†√∂‚àö√∫ the key diagnostic step of methanotrophy in soils. It must also encode any genes for denitrifcation narG, napA, nirK, nirS, norB
 Possible Obligate Fermenter	@Fermenter		Other Metabolic Traits	Other Metabolic Traits
 Hydrogenases	@HydrogenUse		Other Metabolic Traits	Other Metabolic Traits
 Nitrogen Fixation	@nitrogen-fixer		Other Metabolic Traits	Other Metabolic Traits
-Arsenite Oxidation Potential	@ArseniteOxidation		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	As(III) → As(V). Generally produces the less toxic form of inorganic arsenic, although mobility depends on soil conditions (sorption to iron)
+Arsenite Oxidation Potential	@ArseniteOxidation		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	As(III) ‚Üí As(V). Generally produces the less toxic form of inorganic arsenic, although mobility depends on soil conditions (sorption to iron)
 Arsenate Reduction Potential	@ArsenateReductionPotential		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	Converts As(V) to As(III), potentially increasing mobility and plant exposure; ArsC (K00537, K03741) mediates cellular detoxification and may not result in substantial environmental As(III) release.
 Arsenic Methylation	@ArsenicMethylation		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	Produces methylated arsenic species with variable toxicity, mobility, and plant uptake.
 Mercury Reduction	@MercuryReduction		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	MerA reduces Hg(II) to volatile Hg(0), affecting mercury mobility and atmospheric release.
+Mercury Export	@MercuryExport		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance
 Mercury Methylation	@MercuryMethylation		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	HgcA indicates potential for methylmercury production, increasing toxicity and bioaccumulation risk.
 Organic Mercury Degradation	@OrganomercuryDegradation		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	MerB cleaves organomercury compounds, including methylmercury, releasing Hg(II).
 Possible Selenate Reduction	@PossibleSelenateReduction		Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	CopA (K17686) or CopB (K01533) copper-exporting ATPases, OR the complete CusABC efflux system consisting of CusA (K07787), CusB (K07798), AND CusC ]K07796). The rule requires only one ATPase or all three CusABC components.
