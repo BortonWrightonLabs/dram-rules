@@ -6,6 +6,11 @@ import pandas as pd
 import polars as pl
 
 from dram_rules.definitions import DEFAULT_FASTA_COLUMN
+from dram_rules.rule_parser.rules import (
+    CompiledRules,
+    build_present_map,
+    prepare_present_map_df,
+)
 
 logger = logging.getLogger("dram.viz")
 
@@ -129,3 +134,102 @@ def build_tax_tree_selected_recurse(tax_tree, flat_tree=None):
         if "items" in node:
             build_tax_tree_selected_recurse(node["items"], flat_tree)
     return flat_tree
+
+
+def join_present_map_df_to_mapping_df(
+    df: pl.DataFrame,
+    group_col: str,
+    count_col: str,
+    mapping_df: pl.DataFrame = None,
+):
+
+    sample_names = [
+        col for col in mapping_df.columns if col not in [count_col, group_col]
+    ]
+    hit_col = "hit"
+    df = (  # Here we join mapping_df to df, to get the mean value accross all samples
+        df.join(mapping_df, on=count_col)
+        .with_columns(mean_sample_abundance=pl.mean_horizontal(sample_names))
+        .select([count_col, group_col, hit_col, "mean_sample_abundance"])
+    )
+
+    mapping_df = (
+        # (inner) join anno df to unpivotted mapping df to get `query_id, genome, hit, sample`
+        # to link sample and query_id in mapping file to specific hits in anno file.
+        # anno file should already be filtered to anno needed features, so this should be pretty small
+        df.select([count_col, group_col, hit_col]).join(
+            (
+                # unpivot mapping df to get `count_col, sample, sample_abundance` as a long table of all nonnull nonzero abundances
+                # we consider the sample_abundance the abundance of a specific sample for a specific count_col, which
+                # we will match later by hit from the anno df
+                mapping_df.unpivot(
+                    index=count_col,
+                    on=sample_names,
+                    variable_name="sample",
+                    value_name="sample_abundance",
+                ).filter(
+                    pl.col("sample_abundance").is_not_null()
+                    & (pl.col("sample_abundance") != 0)
+                )
+            ),
+            on=count_col,
+            how="inner",
+            # validate="1:m"
+        )
+    )
+    return df, mapping_df, sample_names
+
+
+def calc_present_map(
+    compiled: CompiledRules,
+    anno_df: pl.DataFrame,
+    sample_names: list[str],
+    mapping_df: pl.DataFrame = None,
+):
+    if mapping_df is not None:
+        anno_df, mapping_df, sample_names_mapping = join_present_map_df_to_mapping_df(
+            df=anno_df,
+            group_col="genome",
+            count_col="query_id",
+            mapping_df=mapping_df,
+        )
+
+        present_map = build_present_map(
+            df=mapping_df,
+            sample_col="sample",
+            needed_features=compiled.needed_features,
+            sample_names=sample_names_mapping,
+        )
+        return present_map, anno_df, sample_names_mapping, mapping_df
+
+    present_map = build_present_map(
+        df=anno_df,
+        sample_col="genome",
+        needed_features=compiled.needed_features,
+        sample_names=sample_names,
+    )
+    return present_map, anno_df, sample_names, None
+
+
+def prepare_then_calc_present_map(
+    compiled: CompiledRules,
+    raw_anno: pl.DataFrame,
+    besthit_cols: list,
+    mapping_df: pl.DataFrame = None,
+):
+    sample_names = (
+        raw_anno.select("genome").unique().sort("genome").to_series().to_list()
+    )
+    anno_df = prepare_present_map_df(
+        df=raw_anno,
+        count_col="query_id",
+        group_col="genome",
+        besthit_cols=besthit_cols,
+        needed_features=compiled.needed_features,
+    )
+    return calc_present_map(
+        compiled=compiled,
+        anno_df=anno_df,
+        sample_names=sample_names,
+        mapping_df=mapping_df,
+    )

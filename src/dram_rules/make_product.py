@@ -32,15 +32,17 @@ from dram_rules.processing.process_annotations import (
     build_tax_tree_selected_recurse,
     build_taxonomy_df_pl,
     build_tree_pl,
+    calc_present_map,
+    prepare_then_calc_present_map,
 )
 from dram_rules.rule_parser.rules import (
     ID_EXPR_DICT,
     CompiledRules,
-    build_present_map,
     evaluate_cycles,
     prepare_present_map_df,
     get_val_col,
 )
+from dram_rules.cli_utils import get_column_name
 
 logger = logging.getLogger("dram.viz")
 
@@ -55,82 +57,6 @@ RULES_SYSTEMS = {
     # "eng_sys": Path(__file__).parent / "data/rules_eng_sys.tsv",
     "gut": Path(__file__).parent / "data/rules_gut.tsv",
 }
-
-
-def get_column_name(
-    name: str,
-    backup_names: list[str],
-    name_of_data: str,
-    df: pl.LazyFrame | pl.DataFrame = None,
-    cols: list[str] = None,
-    raise_error: bool = True,
-) -> str:
-    assert df is not None or cols is not None, (
-        "Must provide either a dataframe or a list of columns to search for the column name"
-    )
-    if cols is None:
-        if isinstance(df, pl.LazyFrame):
-            cols = df.collect_schema().names()
-        else:
-            cols = df.columns
-    if name in cols:
-        return name
-    for backup_name in backup_names:
-        if backup_name in cols:
-            return backup_name
-    if raise_error:
-        raise ValueError(
-            f"None of the following column names were found in the {name_of_data}: {[name] + backup_names}"
-        )
-    else:
-        return name
-
-
-def join_present_map_df_to_mapping_df(
-    df: pl.DataFrame,
-    group_col: str,
-    count_col: str,
-    besthit_cols: list[str],
-    needed_features: set[str],
-    additional_cols: list[str] = None,
-    mapping_df: pl.DataFrame = None,
-):
-
-    sample_names = [
-        col for col in mapping_df.columns if col not in [count_col, group_col]
-    ]
-    hit_col = "hit"
-    df = (  # Here we join mapping_df to df, to get the mean value accross all samples
-        df.join(mapping_df, on=count_col)
-        .with_columns(mean_sample_abundance=pl.mean_horizontal(sample_names))
-        .select([count_col, group_col, hit_col, "mean_sample_abundance"])
-    )
-
-    mapping_df = (
-        # (inner) join anno df to unpivotted mapping df to get `query_id, genome, hit, sample`
-        # to link sample and query_id in mapping file to specific hits in anno file.
-        # anno file should already be filtered to anno needed features, so this should be pretty small
-        df.select([count_col, group_col, hit_col]).join(
-            (
-                # unpivot mapping df to get `count_col, sample, sample_abundance` as a long table of all nonnull nonzero abundances
-                # we consider the sample_abundance the abundance of a specific sample for a specific count_col, which
-                # we will match later by hit from the anno df
-                mapping_df.unpivot(
-                    index=count_col,
-                    on=sample_names,
-                    variable_name="sample",
-                    value_name="sample_abundance",
-                ).filter(
-                    pl.col("sample_abundance").is_not_null()
-                    & (pl.col("sample_abundance") != 0)
-                )
-            ),
-            on=count_col,
-            how="inner",
-            # validate="1:m"
-        )
-    )
-    return df, mapping_df, sample_names
 
 
 @click.command()
@@ -354,29 +280,15 @@ def main(
             raise ValueError(
                 "First Column in Mapping file can't be mapped to raw annotation file either to query_id column (gene level) or input_fasta (fasta file name, stand in for genome)"
             )
-
-        anno_df = prepare_present_map_df(
-            df=raw_anno,
-            count_col="query_id",
-            group_col="genome",
-            besthit_cols=besthit_cols,
-            needed_features=compiled.needed_features,
-        )
-        anno_df, mapping_df, sample_names_mapping = join_present_map_df_to_mapping_df(
-            df=anno_df,
-            group_col="genome",
-            count_col="query_id",
-            besthit_cols=besthit_cols,
-            needed_features=compiled.needed_features,
-            mapping_df=mapping_df,
+        present_map, anno_df, sample_names_mapping, mapping_df = (
+            prepare_then_calc_present_map(
+                compiled=compiled,
+                raw_anno=raw_anno,
+                besthit_cols=besthit_cols,
+                mapping_df=mapping_df,
+            )
         )
 
-        present_map = build_present_map(
-            df=mapping_df,
-            sample_col="sample",
-            needed_features=compiled.needed_features,
-            sample_names=sample_names_mapping,
-        )
         dfs["sample"] = evaluate_cycles(
             compiled=compiled,
             samples=sample_names_mapping,
@@ -399,11 +311,8 @@ def main(
             needed_features=compiled.needed_features,
         )
 
-    present_map = build_present_map(
-        df=anno_df,
-        sample_col="genome",
-        needed_features=compiled.needed_features,
-        sample_names=sample_names,
+    present_map, anno_df, sample_names, _ = calc_present_map(
+        compiled=compiled, anno_df=anno_df, sample_names=sample_names
     )
 
     logger.info(f"Built present map in {time.time() - s} seconds")
@@ -451,6 +360,8 @@ def main(
             dfs["genome"][key] = tax_df.join(df, on="genome", how="left")
 
     del raw_anno
+
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     if save_dataframes:
         for df_type, dfs_dict in dfs.items():

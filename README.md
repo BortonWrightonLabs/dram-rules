@@ -83,6 +83,28 @@ python -m dram_viz --help
 
 to see all options
 
+### Gene count summaries from visualization rules
+
+Generate one TSV per rule system, with one row per required gene ID and one integer count column per genome:
+
+```bash
+python -m dram_rules.make_summarize \
+  --annotations raw-annotations.tsv \
+  --rules-system ag \
+  --all-metadata \
+  --output-dir summaries
+```
+
+This writes `summaries/rules_ag_summary.tsv`. Use `--rules-tsv` instead of `--rules-system` for a custom rule sheet. Aliases are expanded, and each distinct `query_id` is counted once per gene ID per genome across annotation databases. Features absent from a genome have count zero.
+
+By default, metadata includes `topic_ecosystem` when present and the originating rule `name`. `--all-metadata` also includes columns such as `module`, `group`, `notes`, and `rule_options`. Multiple associated values are deduplicated, sorted, and joined with commas within each column. The rule expressions and alias definitions are not output as metadata.
+
+Descriptions come from the three TSVs in `src/dram_rules/data/definitions`: `summarize_genes.tsv`, `fam-substrate-mapping.tsv`, and `dbcan.fam-activities.tsv`. The substrate mapping supplies `Family;EC:EC_Number` IDs with `Name` descriptions; rows missing a family or EC number are skipped. The activities file supplies bare family IDs from its first column and descriptions from its second. All definition IDs are matched case-insensitively. Any duplicate ID, including identical records or duplicates across files, stops the command and lists the duplicate IDs and their sources.
+
+Use `--definitions-dir` to select another directory containing these three files. A custom `--lookup-tsv` with `gene_id` and `gene_description` columns adds or overrides descriptions after the built-in lookup passes duplicate validation. Duplicate IDs in the custom table also raise an error. Empty descriptions, punctuation-only descriptions containing colons or semicolons, and descriptions equal to their gene ID are treated as missing. EC labels are normalized to `EC:1.2.3.4`.
+
+Missing descriptions remain blank unless `--strict` is enabled; strict mode requires a description for every feature, including CAZy features, even when the feature has no annotation hits. No summary is written if validation fails. `--save-converted-sheet` additionally writes the feature sheet without counts, and `--save-lookup` writes `master_definitions.tsv` with the final lookup. Genome names are taken from `input_fasta`, `genome`, `fasta`, or `sample`, or from the column selected with `--fasta-column`.
+
 ### SSH Tunneling
 
 If you are using the DRAM Visualization Library as a standalone Python package, you can run the dashboard on a remote server and use SSH tunneling to view the dashboard on your local machine. This will allow you to avoid downloading large data files to your local machine. To do this, first launch the dashboard on the remote server by ssh'ing into the server, navigating to the DRAM visualization directory, and running the above dashboard command. Then, on your local machine, run the following command:

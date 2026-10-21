@@ -61,6 +61,8 @@ include = ["dram_rules*"]
 [project.scripts]
 "dram_viz" = "dram_rules.make_product:main"
 "dram.viz" = "dram_rules.make_product:main"
+"dram_summarize" = "dram_rules.make_summarize:main"
+"dram.summarize" = "dram_rules.make_summarize:main"
 
 [tool.setuptools_scm]
 write_to = "src/dram_rules/_version.py"
