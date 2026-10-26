@@ -2,7 +2,7 @@
 	Acetate-Final	@Acetate-1 | @Acetate-2 | @Acetate-3 | @Acetate-4 | @Acetate-5 | @Acetate-6	Acetate-associated metabolism
 	Acetate-1	K24012 | [K01905 & K22224]	Acetyl-CoA to acetate; shared activity with propionate
 	Acetate-2	K01568 & [K00138 | K00128 | K14085 | K00149 | K00129]	Pyruvate to acetaldehyde to acetate
-	Acetate-3	[K00625 | K13788 | K15024] & K00925	Acetyl-CoA to acetyl-phosphate ‚Üî acetate
+	Acetate-3	[K00625 | K13788 | K15024] & K00925	Acetyl-CoA to acetyl-phosphate ↔ acetate
 	Acetate-4	K01621 & K00925	Xylulose-5-phosphate/fructose-6-phosphate to acetyl-phosphate to acetate
 	Acetate-5	K01895 | K01913	Acetate to acetyl-CoA; not acetate specific
 	Acetate-6	K00156	Pyruvate to acetate

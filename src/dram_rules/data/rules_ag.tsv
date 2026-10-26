@@ -7,17 +7,17 @@ Storage Polysaccharides	@Fructan | @StarchSpecific | @StarchGlycogen	Carbon Tran
 Chitin	@Chitin	Carbon Transformations	Polymer	Includes chitinases and chitin-active oxidative enzymes; chitin occurs in fungal cell walls and arthropod exoskeletons.
 Bacterial Cell Wall Polymers	@Microbially-derived	Carbon Transformations	Polymer	Primarily peptidoglycan-associated hydrolases and lytic enzymes, including lysozymes.
 Mixed/Unassigned Polymers	@PlantPolymerMixed	Carbon Transformations	Polymer	Genes with mixed or uncertain polymer substrate assignments that do not fit confidently into the other categories.
-Cellulose-Associated	@BetaGlucosides	Carbon Transformations	Oligomer	Œ≤-Glucoside processing enzymes; may support utilization of cellulose-derived oligosaccharides but are not cellulose-specific.
+Cellulose-Associated	@BetaGlucosides	Carbon Transformations	Oligomer	β-Glucoside processing enzymes; may support utilization of cellulose-derived oligosaccharides but are not cellulose-specific.
 Hemicellulose-Associated	@Xylooligosaccharides | @XyloglucanMannooligosaccharides |@XylanXylobiose	Carbon Transformations	Oligomer	Genes associated with xylooligosaccharides, xyloglucan-derived oligosaccharides, and mannooligosaccharides.
 Pectin-Associated	@PecticOligosaccharides	Carbon Transformations	Oligomer	Genes potentially involved in processing pectin-derived oligosaccharides; substrate specificity requires verification.
-Storage-Associated	@Fructooligosaccharides | @MaltooligosaccharidesAlphaGlucosides	Carbon Transformations	Oligomer	Genes associated with fructooligosaccharides and maltooligosaccharides/Œ±-glucosides, potentially derived from fructan, starch, or glycogen
+Storage-Associated	@Fructooligosaccharides | @MaltooligosaccharidesAlphaGlucosides	Carbon Transformations	Oligomer	Genes associated with fructooligosaccharides and maltooligosaccharides/α-glucosides, potentially derived from fructan, starch, or glycogen
 Chitin and Related Oligosaccharides	@Chitooligosaccharides | @NAcetylhexosaminides	Carbon Transformations	Oligomer	Genes associated with chitooligosaccharide processing and N-acetylhexosaminide hydrolysis; substrates may also derive from bacterial peptidoglycan and other glycoconjugates.
 Other Oligosaccharides	@OtherGlycosidesOligosaccharides |@OligosaccharideOxidation	Carbon Transformations	Oligomer	Mixed glycoside/oligosaccharide processing and AA7-associated carbohydrate oxidation activities with variable substrate specificity.
 Cellobiose	@Cellobiose	Carbon Transformations	Oligomer	Glucose disaccharide produced during cellulose breakdown; utilization does not imply direct cellulose degradation.
 Maltose	@Maltose	Carbon Transformations	Oligomer	Glucose disaccharide associated with starch and glycogen breakdown.
 Sucrose	@Sucrose	Carbon Transformations	Oligomer	Glucose-fructose disaccharide commonly found in plants; important for carbon transport and storage.
 Trehalose	@Trehalose	Carbon Transformations	Oligomer	Glucose disaccharide used for carbon storage and stress protection in many organisms.
-Lactose	@Lactose	Carbon Transformations	Oligomer	Galactose-glucose disaccharide; utilization indicates potential to process lactose or related Œ≤-galactosides.
+Lactose	@Lactose	Carbon Transformations	Oligomer	Galactose-glucose disaccharide; utilization indicates potential to process lactose or related β-galactosides.
 Mannose/Mannobiose (mixed size)	@Mannose-Mannobiose	Carbon Transformations	Oligomer	Mannose-containing carbohydrates associated with mannan and other glycans; calls may represent monosaccharide or disaccharide processing.
 Glucose	@Glucose	Carbon Transformations	Monosaccharide	Central hexose used in carbohydrate metabolism.
 Xylose	@Xylose	Carbon Transformations	Monosaccharide	Pentose commonly derived from xylan and other plant polysaccharides.
@@ -33,7 +33,7 @@ Butyrate	@Butyrate-Final	Carbon Transformations	Low Molecular Weight Carbon
 Propionate	@Propionate-Final	Carbon Transformations	Low Molecular Weight Carbon
 Ethanol/Alcohol	@Ethanol	Carbon Transformations	Low Molecular Weight Carbon
 Methanol	@Methanol	Carbon Transformations	Low Molecular Weight Carbon
-CO2 Fixation	@CO2fixation	Carbon Transformations	C1 Metabolism	Genes associated with autotrophic CO‚ÇÇ fixation pathways; individual gene annotations do not necessarily indicate a complete pathway.
+CO2 Fixation	@CO2fixation	Carbon Transformations	C1 Metabolism	Genes associated with autotrophic CO₂ fixation pathways; individual gene annotations do not necessarily indicate a complete pathway.
 CH4 Oxidation Aerobic	@TRUEPmoA	Carbon Transformations	C1 Metabolism	Particulate methane monooxygenase marker associated with aerobic methane oxidation; does not establish a complete methanotrophic pathway.
 CH4 Production or Anaerobic Oxidation	@Methanogen	Carbon Transformations	C1 Metabolism	Methanogenesis-associated genes that may also occur in anaerobic methane-oxidizing archaea (ANME); gene presence alone does not distinguish methane production from oxidation.
 Aerobic Ammonium Oxidation	@AerobicAmmoniaOxidizer	Inorganic Nitrogen Transformation	Nitrification
@@ -88,11 +88,11 @@ IAA Biosynthesis - IAM	K00466 & [K21801 | K01426]	Plant Growth Regulators	Phytoh
 Cytokinin Biosynthesis Machinery	K22871 | K10760	Plant Growth Regulators	Phytohormones	cytokinin biosynthesis-associated adenylate isopentenyltransferases (K22871 or K10760), which catalyze the formation of cytokinin precursors. Indicates potential cytokinin production but does not confirm bioactive cytokinin synthesis or secretion.
 Cytokinin Degradation	K00279	Plant Growth Regulators	Phytohormones	cytokinin dehydrogenase, which degrades cytokinins and can regulate their availability. Indicates potential cytokinin degradation, not confirmed activity.
 Gibberellin Biosynthetic Machinery	K21116 & K21117 & K21118	Plant Growth Regulators	Phytohormones	bacterial gibberellin biosynthesis-associated P450 enzymes (CYP112, CYP114, CYP117). Suggests gibberellin biosynthetic potential but does not confirm a complete pathway or bioactive gibberellin production
-ACC Modification (Deaminase)	K01505	Plant Growth Regulators	Phytohormones	ACC deaminase (acdS), which converts 1-aminocyclopropane-1-carboxylate (ACC), the precursor of plant ethylene, into Œ±-ketobutyrate and ammonia. May reduce plant ethylene production and alleviate stress responses. Indicates potential activity, not confirmed plant growth promotion.
+ACC Modification (Deaminase)	K01505	Plant Growth Regulators	Phytohormones	ACC deaminase (acdS), which converts 1-aminocyclopropane-1-carboxylate (ACC), the precursor of plant ethylene, into α-ketobutyrate and ammonia. May reduce plant ethylene production and alleviate stress responses. Indicates potential activity, not confirmed plant growth promotion.
 Possible IAA Biosynthesis - IPyA	K04103 & K00128	Plant Growth Regulators	Phytohormones	IAA-associated decarboxylase (K04103) and nonspecific aldehyde dehydrogenase (K00128). Possible IAA production; interpret cautiously.
 Possible IAA Biosynthesis - Tryptamine	K01593 & K00274 & K00128	Plant Growth Regulators	Phytohormones	three broad-specificity enzymes that may support IAA synthesis through tryptamine. Weaker evidence for IAA production.
 Possible IAA Biosynthesis - IAN	K01501	Plant Growth Regulators	Phytohormones	Nonspecific nitrilase (K01501); single gene provides very weak evidence for IAA biosynthesis.
-Arsenite Oxidation Potential	@ArseniteOxidation	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	As(III) ‚Üí As(V). Generally produces the less toxic form of inorganic arsenic, although mobility depends on soil conditions (sorption to iron)
+Arsenite Oxidation Potential	@ArseniteOxidation	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	As(III) → As(V). Generally produces the less toxic form of inorganic arsenic, although mobility depends on soil conditions (sorption to iron)
 Arsenate Reduction Potential	@ArsenateReductionPotential	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	Converts As(V) to As(III), potentially increasing mobility and plant exposure; ArsC (K00537, K03741) mediates cellular detoxification and may not result in substantial environmental As(III) release.
 Arsenic Methylation	@ArsenicMethylation	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	Produces methylated arsenic species with variable toxicity, mobility, and plant uptake.
 Mercury Reduction	@MercuryReduction	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	MerA reduces Hg(II) to volatile Hg(0), affecting mercury mobility and atmospheric release.

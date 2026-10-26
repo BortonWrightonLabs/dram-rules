@@ -1,4 +1,4 @@
-﻿name	rule		module	group	gene_ids
+﻿name	rule	rule_options	module	group
 Fucoidan	GH107;3.2.1.212 | GH168;3.2.1.211 | GH174;3.2.1.- | GH187;3.2.1.- | PL43;4.2.2.- | GH107;3.2.1.211 | GH168;3.2.1.-		Carbon Processing	Polysaccharide Marine Algal
 Ulvan	PL24;4.2.2.- | PL25;4.2.2.- | PL28;4.2.2.-		Carbon Processing	Polysaccharide Marine Algal
 Carrageenan	GH150;3.2.1.162 | GH16;3.2.1.83 | GH82;3.2.1.157		Carbon Processing	Polysaccharide Marine Algal
@@ -38,23 +38,23 @@ Butyrate	@Butyrate-Final		Carbon Processing	Low Molecular Weight Carbon
 Propionate	@Propionate-Final		Carbon Processing	Low Molecular Weight Carbon
 Ethanol/Alcohol	@Ethanol		Carbon Processing	Low Molecular Weight Carbon
 Methanol	@Methanol		Carbon Processing	Low Molecular Weight Carbon
-Hydrogenotrophic	@hydrogenotrophic	"{""include_when"":{""all_columns_present"":[""taxonomy""]}}"	Carbon Processing	One Carbon Metabolism	For a few genome to encode potential to oxidize carbon monoxide, it must encode either the aerobic or anaerobic carbon monoxide dehydrogenase and it anaerobic, NOT be an acetogen/use the Wood Ljungdahl pathway
-Acetoclastic	@acetoclastic	"{""include_when"":{""all_columns_present"":[""taxonomy""]}}"	Carbon Processing	One Carbon Metabolism	For a genome to have hydrogneotrophic methanogenesis potential, it must encode mcrA, at least 4 genes of the methyl branch of the Wood-lungdahl pathway,  part of the MTR complex, and at least one gene for any known hydrgenotrophic hdyrogenase.
-Methylotrophic	@methylotroph	"{""include_when"":{""all_columns_present"":[""taxonomy""]}}"	Carbon Processing	One Carbon Metabolism	For a genome to have acetoclastic methanogenesis potential, it must encode mcrA, part of the ACS_CODH complex, and either Acetate Kinase and Phosphotransacetylase OR Acetyl CoA Synthetase. There is a MANDATORY taxonomic requirement for this rule to run, and a MAG or genome must also belong to the genus Methanosarcina or the family Methanotrichaceae
-Aerobic Methanotroph	@AerobicMethanotroph		Carbon Processing	One Carbon Metabolism	"For a genome to have methyltotrophic methanogenesis potential, it must encode mcrA and at least one substrate-demethylating corrinoid-dependent methyltransferase homolog ""MtxB"""
-Methanogen Or ANME	@Methanogen	"{""include_when"":{""all_columns_absent"":[""taxonomy""]}}"	Carbon Processing	One Carbon Metabolism	A genome that encodes adenylysulfate reductase and dissimilatory sulfite reductase
-Anaerobic Oxidation of Methane	@anaerobic-methanotrophic-Archaea		Carbon Processing	One Carbon Metabolism	For a genome to have CH‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö¬∞‚Äö√†√∂‚àö¬¥ oxidation capability, it must encode at least one methane monooxygenase complex pMMO or sMMO, which catalyzes the conversion of methane to methanol ‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂‚àö√ú the key diagnostic step of methanotrophy in soils. It must also encode any genes for denitrifcation narG, napA, nirK, nirS, norB
-Rump Pathway (Non-Methanogenic Methylotrophy Type I)	[k08093 | k13831 | k13812] & k08094 & [k00093 | k23995 | k17066 | k14028 | k14029]		Carbon Processing	One Carbon Metabolism	for a genome to have rump pathway methylotrophy capability it should encode hps (k08093,k13831,k13812) and phi (k08094) a methanol dehydrogenase (mdh, k00093,k23995,k17066,k14028,k14029) and at least one  together these suggest capacity to convert methanol and formaledehyde into usable fructose 6-phosphate. 	k08093, k13831, k13812, k08094, k00093, k23995, k17066, k14028, k14029
-Serine Pathway (Non-Methanogenic Methylotrophy Type Ii)	k00830 & k00018 & k08691		Carbon Processing	One Carbon Metabolism	for a genome to have serine pathway methylotrophy capability it should encode serine-glyoxylate transaminase (sgt, k00830), hydroxypyruvate reductase (hpr, k00018), and malyl-coa lyase (mcl, k08691). additional encoding of serine hydroxymethyltransferase (shmt, k00600) further supports likelihood of having this pathway. 	k00830, k00018, k08691, k00600
+Hydrogenotrophic	@hydrogenotrophic	"{""include_when"":{""all_columns_present"":[""taxonomy""]}}"	Carbon Processing	One Carbon Metabolism
+Acetoclastic	@acetoclastic	"{""include_when"":{""all_columns_present"":[""taxonomy""]}}"	Carbon Processing	One Carbon Metabolism
+Methylotrophic	@methylotroph	"{""include_when"":{""all_columns_present"":[""taxonomy""]}}"	Carbon Processing	One Carbon Metabolism
+Aerobic Methanotroph	@AerobicMethanotroph		Carbon Processing	One Carbon Metabolism
+Methanogen Or ANME	@Methanogen	"{""include_when"":{""all_columns_absent"":[""taxonomy""]}}"	Carbon Processing	One Carbon Metabolism
+Anaerobic Oxidation of Methane	@anaerobic-methanotrophic-Archaea		Carbon Processing	One Carbon Metabolism
+Rump Pathway (Non-Methanogenic Methylotrophy Type I)	[k08093 | k13831 | k13812] & k08094 & [k00093 | k23995 | k17066 | k14028 | k14029]		Carbon Processing	One Carbon Metabolism
+Serine Pathway (Non-Methanogenic Methylotrophy Type Ii)	k00830 & k00018 & k08691		Carbon Processing	One Carbon
 Calvin Cycle	@Calvin		Carbon Processing	Carbon Fixation
 Hydroxypropionate-Hydroxybutyrate Cycle	@HydroxypropionateHydroxybutylate		Carbon Processing	Carbon Fixation
 Dicarboxylate Hydroxybutyrate Cycle	@DicarboxylateHydroxybutyrate		Carbon Processing	Carbon Fixation
 Wood–Ljungdahl Pathway	@ReductiveAcetylCoAWoodLjungdahl		Carbon Processing	Carbon Fixation
-Phototroph All Types	@PhototrophAllTypes		Phototrophy	Light Sensing and Energy	HMM Potential for light-driven energy conservation using photosynthetic reaction centers, including oxygenic and anoxygenic phototrophy. Excludes rhodopsins.
-Phototroph- Oxygenic	@Phototroph-Oxygenic		Phototrophy	Light Sensing and Energy	Potential for oxygen-producing photosynthesis using Photosystems I and II, with water as the electron donor.
-Phototroph- Anoxygenic	@AnoxygenicTypeIISubtype | @AnoxygenicTypeIPscASubtype | @PotentialAnoxygenicDivergentTypeISubtype		Phototrophy	Light Sensing and Energy	Potential for light-driven energy conservation using Type I or Type II reaction centers without oxygen production. Includes divergent Type I candidates requiring confirmation.
-Rhodopsin All Types 	@RhodopsinAllTypes		Phototrophy	Light Sensing and Energy	Potential for retinal-based light utilization, including light-driven ion transport and sensory functions. Not all rhodopsins conserve energy.
-Bacteriorhodopsin Proton Pump Subtype 	@Bacteriorhodopsin		Phototrophy	Light Sensing and Energy	Potential for retinal-based, light-driven proton pumping that generates a proton motive force supporting ATP synthesis.
+Phototroph All Types	@PhototrophAllTypes		Phototrophy	Light Sensing and Energy
+Phototroph- Oxygenic	@Phototroph-Oxygenic		Phototrophy	Light Sensing and Energy
+Phototroph- Anoxygenic	@AnoxygenicTypeIISubtype | @AnoxygenicTypeIPscASubtype | @PotentialAnoxygenicDivergentTypeISubtype		Phototrophy	Light Sensing and Energy
+Rhodopsin All Types 	@RhodopsinAllTypes		Phototrophy	Light Sensing and Energy
+Bacteriorhodopsin Proton Pump Subtype 	@Bacteriorhodopsin		Phototrophy	Light Sensing and Energy
 Oxygen - Low Affinity Use	[percent(50,@CytochromeCOxidase)|percent(50,@CytochromeAa3600MenaquinolOxidase)|percent(50,@CytochromeOUbiquinolOxidase)]		Respiratory Redox Processes	Oxygen Reduction
 Oxygen - High Affinity Use	[@percent50CytochromeBDUbiquinolOxidase|@percent50CytochromeCOxidaseCBB3]		Respiratory Redox Processes	Oxygen Reduction
 NO3 To NO2	@NarNitrateReductase|[@NapNitrateReductase]		Respiratory Redox Processes	Nitrogen Reduction
@@ -65,21 +65,21 @@ DNRA, NO3 To NH4	@DNRA		Respiratory Redox Processes	Nitrogen Reduction
 Aerobic Ammonium Oxidation	@AerobicAmmoniaOxidizer		Respiratory Redox Processes	Nitrogen Oxidation
 Aerobic Nitrite Oxidation	@NitriteOxidoreductase		Respiratory Redox Processes	Nitrogen Oxidation
 Anaerobic Ammonia Oxidation Anammox	@Annamox		Respiratory Redox Processes	Nitrogen Oxidation
-Dissimilatory-Sulfate-Reduction	@Sulfatereducer		Respiratory Redox Processes	Sulfur Cycling	K00394, K00395, K11180 | dsrA, K11181 | dsrB
-Thiosulfate-Reduction-(Respiratory)	@ThiosulfateRed		Respiratory Redox Processes	Sulfur Cycling	K08352 | thiosulfate_reductase_phsA_alignment, K08353, K08354
-Thiosulfate-Reduction-(Rhodanese)	K01011 | Rhodanese		Respiratory Redox Processes	Sulfur Cycling	K01011 | Rhodanese
-Sulfur-Oxidation-Sox	@SoxXA & @SoxYZ & @SoxB		Respiratory Redox Processes	Sulfur Cycling	K17222, K17223, K17224, K17226, K17227, K17225, K22622
-Sulfur-Oxidation-Reverse-Dsr	@DsrABtypeo		Respiratory Redox Processes	Sulfur Cycling	K11180 | dsrA, K11181 | dsrB, K27196
-Tetrathionate-Reduction	@TetrathionateRed		Respiratory Redox Processes	Sulfur Cycling	K08359, K08358, K08357
-[Fefe] Group_A Hydrogenase	hmm@fefe_group_a_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism	presence of [fefe] group_a hydrogenase	fefe_group_a_hydrogenase
-[Fefe] Group_B Hydrogenase	hmm@fefe_group_b_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism	presence of [fefe] group_b hydrogenase	fefe_group_b_hydrogenase
-[Fefe] Group_C Hydrogenase	hmm@fefe_group_c_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism	presence of [fefe] group_c hydrogenase	fefe_group_c_hydrogenase
-[Fefe] Group_E Hydrogenase	hmm@fefe_group_e_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism	presence of [fefe] group_e hydrogenase	fefe_group_e_hydrogenase
-[Fefe] Group_F Hydrogenase	hmm@fefe_group_f_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism	presence of [fefe] group_f hydrogenase	fefe_group_f_hydrogenase
-[Nife] Group_1 Hydrogenase	hmm@nife_group_1_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism	presence of [nife] group_1 hydrogenase	nife_group_1_hydrogenase
-[Nife] Group_2 Hydrogenase	hmm@nife_group_2_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism	presence of [nife] group_2 hydrogenase	nife_group_2_hydrogenase
-[Nife] Group_3 Hydrogenase	hmm@nife_group_3_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism	presence of [nife] group_3 hydrogenase	nife_group_3_hydrogenase
-[Nife] Group_4 Hydrogenase	hmm@nife_group_4_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism	presence of [nife] group_4 hydrogenase	nife_group_4_hydrogenase
+Dissimilatory-Sulfate-Reduction	@Sulfatereducer		Respiratory Redox Processes	Sulfur Cycling
+Thiosulfate-Reduction-(Respiratory)	@ThiosulfateRed		Respiratory Redox Processes	Sulfur Cycling
+Thiosulfate-Reduction-(Rhodanese)	K01011 | Rhodanese		Respiratory Redox Processes	Sulfur Cycling
+Sulfur-Oxidation-Sox	@SoxXA & @SoxYZ & @SoxB		Respiratory Redox Processes	Sulfur Cycling
+Sulfur-Oxidation-Reverse-Dsr	@DsrABtypeo		Respiratory Redox Processes	Sulfur Cycling
+Tetrathionate-Reduction	@TetrathionateRed		Respiratory Redox Processes	Sulfur Cycling
+[Fefe] Group_A Hydrogenase	hmm@fefe_group_a_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Fefe] Group_B Hydrogenase	hmm@fefe_group_b_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Fefe] Group_C Hydrogenase	hmm@fefe_group_c_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Fefe] Group_E Hydrogenase	hmm@fefe_group_e_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Fefe] Group_F Hydrogenase	hmm@fefe_group_f_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Nife] Group_1 Hydrogenase	hmm@nife_group_1_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Nife] Group_2 Hydrogenase	hmm@nife_group_2_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Nife] Group_3 Hydrogenase	hmm@nife_group_3_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Nife] Group_4 Hydrogenase	hmm@nife_group_4_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
 Candidate Extracellular Aspartic Peptidases	@ExtracellularAspartic		Nutrient Acquisition 	Nitrogen Assimilation
 Candidate Extracellular Cysteine Peptidases	@ExtracellularCysteine		Nutrient Acquisition 	Nitrogen Assimilation
 Candidate Extracellular Glutamic Peptidases	@ExtracellularGlutamic		Nutrient Acquisition 	Nitrogen Assimilation
@@ -87,8 +87,8 @@ Candidate Extracellular Metallo Peptidases	@ExtracellularMetallo		Nutrient Acqui
 Candidate Extracellular Serine Peptidases	@ExtracellularSerine		Nutrient Acquisition 	Nitrogen Assimilation
 Urease	@Urease		Nutrient Acquisition 	Nitrogen Assimilation
 Amidase	K01426		Nutrient Acquisition 	Nitrogen Assimilation
-Formamidase	K01455		Nutrient Acquisition 	Nitrogen Assimilation	k01455
-N2 Fixation	@nitrogen-fixer		Nutrient Acquisition 	Nitrogen Assimilation	k00531, k02586, k02588, k02591, k22896, k22897, k22898, k22899
+Formamidase	K01455		Nutrient Acquisition 	Nitrogen Assimilation
+N2 Fixation	@nitrogen-fixer		Nutrient Acquisition 	Nitrogen Assimilation
 Sulfur- DMS/DMSP Cycling	K28073 | K16953 | K28067 | K28068 | K28069 | K28072 | K17486 | [K20034 & K20035 & K20036] | K16967 | K16964 | K18277 | [K07306 & [K07307 | K00184] & [K07308 | K00185]] | K07811		Nutrient Acquisition 	Other Nutrient Assimilations and Transformations
 Phosphorus- C-P Lyase	@C-P-Lyase-Complex		Nutrient Acquisition 	Other Nutrient Assimilations and Transformations
 Phosphorus- Organic Mineralization	@Organic-P-Mineralization		Nutrient Acquisition 	Other Nutrient Assimilations and Transformations
@@ -98,9 +98,9 @@ Cobalt/Cadmium/Zinc/Ni Efflux	@CadmiumZincEfflux | @DivalentMetalEfflux | @Cobal
 Mercury Reduction	@MercuryReduction		Environmental Adaptation	Heavy Metal Transformation and Resistance
 Organomercury Degradation	@OrganomercuryDegradation		Environmental Adaptation	Heavy Metal Transformation and Resistance
 Mercury Methylation	@MercuryMethylation		Environmental Adaptation	Heavy Metal Transformation and Resistance
-EpsProduction	@EpsProduction		Environmental Adaptation	Biofilms & Attachment	Exopolysaccharide biosynthesis and biofilm matrix structural genes including alginate biosynthesis (alg genes; K16566, K16557, K16556, K16555), Psl polysaccharide biosynthesis (K19290-K19296), PGA/ICA poly-GlcNAc synthesis (pgaABCD/icaABCD; K11936, K11937), and additional EPS biosynthesis genes. Any single gene indicates EPS production capacity. Drives pipeline fouling and MIC in engineered systems.
-QuorumSensing	@QuorumSensing		Environmental Adaptation	Biofilms & Attachment	Quorum sensing via three systems: (1) AHL/LuxI-LuxR: LuxI-type AHL synthases lasI (K13060) or rhlI/cepI/tofI homologs (K13061) paired with LuxR-type receptors lasR (K18304) or rhlR homologs (K18099) ‚Äö√Ñ√∂‚àö√ë‚àö√Ü both synthase and receptor required; (2) AI-2/LuxS system: LuxS S-ribosylhomocysteine lyase (K07173) ‚Äö√Ñ√∂‚àö√ë‚àö√Ü widely conserved but interpret alone cautiously as it has metabolic roles beyond QS; (3) AI-2 import via Lsr ABC transporter: LsrB substrate-binding (K10555), LsrC permease (K10556), LsrD permease (K10557), LsrA ATPase (K10558) ‚Äö√Ñ√∂‚àö√ë‚àö√Ü at least 2 subunits required ‚Äö√Ñ√∂‚àö√ë‚àö√Ü indicates active AI-2 uptake and response capacity.
-Motility	@Motility		Environmental Adaptation	Biofilms & Attachment	Flagellar motor (MotA K02410 or MotB K02411; at least one required) plus at least 3 structural/assembly genes from the flagellar complex. Required for surface approach and early biofilm attachment. Also relevant for chemotaxis toward carbon/electron donor sources in engineered systems.
+EpsProduction	@EpsProduction		Environmental Adaptation	Biofilms & Attachment
+QuorumSensing	@QuorumSensing		Environmental Adaptation	Biofilms & Attachment
+Motility	@Motility		Environmental Adaptation	Biofilms & Attachment
 Ion Homeostasis: K+ Uptake and Na+ Exclusion	@IonBalance-saltinpotential		Environmental Adaptation	Osmoregulation
 Compatible-Solutes: Glycine Betaine Synthesis	@GlycineBetaineSynthesis		Environmental Adaptation	Osmoregulation
 Compatible-Solutes: Ectoine Synthesis	@EctoineSynthesis		Environmental Adaptation	Osmoregulation
