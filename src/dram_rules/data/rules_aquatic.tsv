@@ -1,124 +1,109 @@
-name	rule	rule_options	module	group	notes
-Plant Polymer Mixed	@PlantPolymerMixed		Carbon Processing	polymer
-Cellulose	@Cellulose		Carbon Processing	polymer
-Hemicellulose-Xylan	@Hemicellulose-Xylan		Carbon Processing	polymer
-Hemicellulose-Other	@Hemicellulose-Other		Carbon Processing	polymer
-Pectin	@Pectin		Carbon Processing	polymer
-Arabinogalactan	@Arabinogalactan		Carbon Processing	polymer
-Starch Specific	@StarchSpecific		Carbon Processing	polymer
-Starch/Glycogen	@StarchGlycogen		Carbon Processing	polymer
-Chitin	@Chitin		Carbon Processing	polymer
-Microbially-derived	@Microbially-derived		Carbon Processing	polymer
-Laminarin	GH5;EC:3.2.1.39 | GH55;EC:3.2.1.39 | GH5;EC:3.2.1.58 | GH55;EC:3.2.1.58		Carbon Processing	polymer-algae specific
-Alginate	PL14;EC:4.2.2.3 | PL15;EC:4.2.2.3 | PL17;EC:4.2.2.11 | PL17;EC:4.2.2.3 | PL18;EC:4.2.2.11 | PL18;EC:4.2.2.3 | PL31;EC:4.2.2.3 | PL32;EC:4.2.2.3 | PL36;EC:4.2.2.3 | PL38;EC:4.2.2.3 | PL38;EC:4.2.2.11 | PL39;EC:4.2.2.3 | PL39;EC:4.2.2.11 | PL41;EC:4.2.2.3 | PL5;EC:4.2.2.3 | PL6;EC:4.2.2.11 | PL6;EC:4.2.2.3 | PL7;EC:4.2.2.11 | PL7;EC:4.2.2.3 | PL8;EC:4.2.2.3 | PL44;EC:4.2.2.3		Carbon Processing	polymer-algae specific
-Agarose	GH118;EC:3.2.1.81 | GH16;EC:3.2.1.81 | GH50;EC:3.2.1.81 | GH86;EC:3.2.1.81 | GH96;EC:3.2.1.158		Carbon Processing	polymer-algae specific
-Porphyran	GH16;EC:3.2.1.178		Carbon Processing	polymer-algae specific
-Carrageenan	GH150;EC:3.2.1.162 | GH16;EC:3.2.1.83 | GH82;EC:3.2.1.157		Carbon Processing	polymer-algae specific
-Fucoidan	GH107;EC:3.2.1.212 | GH168;EC:3.2.1.211 | GH174;EC:3.2.1.- | GH187;EC:3.2.1.- | PL43;EC:4.2.2.- | GH107;EC:3.2.1.211 | GH168;EC:3.2.1.-		Carbon Processing	polymer-algae specific
-Ulvan	PL24;EC:4.2.2.- | PL25;EC:4.2.2.- | PL28;EC:4.2.2.-		Carbon Processing	polymer-algae specific
-Funoran	GH96;EC:3.2.1.222		Carbon Processing	polymer-algae specific
-Cellulose-derived	@Cellulose-derived		Carbon Processing	oligomer
-Hemicellulose-derived xylan	@Hemicellulose-derived-xylan		Carbon Processing	oligomer
-Hemicellulose-derived other	@Hemicellulose-derived-other		Carbon Processing	oligomer
-Pectin-derived	@Pectin-derived		Carbon Processing	oligomer
-Starch/Glycogen-derived	@Starch-Glycogen-derived		Carbon Processing	oligomer
-Chitin-derived	@Chitin-derived		Carbon Processing	oligomer
-Chitin / other-derived	@Chitin-other-derived		Carbon Processing	oligomer
-Alginate-derived	PL14;EC:4.2.2.26 | PL15;EC:4.2.2.26 | PL17;EC:4.2.2.26 | PL6;EC:4.2.2.26 | PL7;EC:4.2.2.26		Carbon Processing	oligomer
-Agarose-derived	GH117;EC:3.2.1.159		Carbon Processing	oligomer
-Cellobiose	@Cellobiose		Carbon Processing	disaccharide
-Maltose	@Maltose		Carbon Processing	disaccharide
-Sucrose	@Sucrose		Carbon Processing	disaccharide
-Trehalose	@Trehalose		Carbon Processing	disaccharide
-Lactose	@Lactose		Carbon Processing	disaccharide
-Xylan/Xylobiose	@XylanXylobiose		Carbon Processing	disaccharide
-Mannose/Mannobiose	@Mannose-Mannobiose		Carbon Processing	disaccharide
-Other disaccharides	@Other-disaccharides		Carbon Processing	disaccharide
-Glucose	@Glucose		Carbon Processing	monosaccharide
-Xylose	@Xylose		Carbon Processing	monosaccharide
-Arabinose	@Arabinose		Carbon Processing	monosaccharide
-Mannose	@Mannose		Carbon Processing	monosaccharide
-Galactose	@Galactose		Carbon Processing	monosaccharide
-Fructose	@Fructose		Carbon Processing	monosaccharide
-Rhamnose	@Rhamnose		Carbon Processing	monosaccharide
-N-Acetylglucosamine (Glc-NAc)	@N-Acetylglucosamine		Carbon Processing	monosaccharide
-Fucose	@Fucose		Carbon Processing	monosaccharide
-Acetate	@Acetate-Final		Carbon Processing	low-molecular-weight-carbon
-Butyrate	@Butyrate-Final		Carbon Processing	low-molecular-weight-carbon
-Propionate	@Propionate-Final		Carbon Processing	low-molecular-weight-carbon
-Ethanol/Alcohol	@Ethanol		Carbon Processing	low-molecular-weight-carbon
-Methanol	@Methanol		Carbon Processing	low-molecular-weight-carbon
-"Fatty Acid Degradation Beta-Oxidation "	[k06445 | k00249 | k00255 | k09479] & [k13767 | k01825] & k00632		carbon processing	medium carbon	"for a genome to have fatty acid degradation capability via beta-oxidation, it should encode at least one acyl-coa dehydrogenase (fade,k06445,k00249,k00255,k09479), one enoyl-coa hydratase (fadb,k13767,k01825), and thiolase (fada,k00632) completing one full ≈í‚â§-oxidation cycle. "
-Aerobic CH4 Oxidation	@AerobicMethanotroph		carbon processing	little carbon	"for a genome to have ch‚Äö√á√ë oxidation capability, it must encode at least one methane monooxygenase complex (pmmo or smmo), which catalyzes the conversion of methane to methanol. "
-Alkane Tranformation (Archaeal)	k00399 & k00401 & k00402 & k00421 & k00422		carbon processing	little carbon	"for a genome to have anaerobic alkane transformation capability, it should encode for a methyl-com reductase catalytic subunit (mcra, k00399). encoding for other subunits (mcrabcdg, k00399,k00401,k00402,k00421,k00422) is detected. this annotation will identify canonical mcr and divergent mcr or mcr-like sequences mapping to the same ko, performing an mcra phylogeny is recommended. presence of an mcr without phylogenetic placement can suggest multiple different metabolisms falling under anaerobic alkane transformation capability (various forms of methanogenesis, reverse methanogenesis, anaerobic alkane degradation). "
-CO2 Fixation	@CO2fixation		carbon processing	c fixation	for a genome to have co‚Äö√á√á fixation capability via the acetyl-coa pathway, it should encode: the complete codh/acs complex (cdha, cdhb, cdhc, cdhd, and cdhe subunits), which together catalyze co‚Äö√á√á reduction to acetyl-coa. this is distinct from the wood-ljungdahl pathway row which additionally requires (eastern) methyl branch genes.
-Wood-Ljungdahl Pathway	@ReductiveAcetylCoAWoodLjungdahl		carbon processing	c fixation	"for a genome to have wood-ljungdahl co2 fixation capability, it should encode the complete western brnach codh/acs complex for either the bacterial (k00198, k14138) or archaeal (k00192, k00195, k00193, k00194, k00197) and have at least one eastern/methyl branch entry point (fdha k01938 or fhs k05299). presence of both branches indicates full reductive acetyl-coa synthesis from co2 molecules. "
-3-Hydroxypropionate/4-Hydroxybutyrate (3Hp/4Hb) Cycle	@DicarboxylateHydroxybutyrate		carbon processing	c fixation	for a genome to have 3hp/4hb co‚Äö√á√á fixation capability, it should encode all of the 3 following genes - 1) k14534, 2) either malonyl-coa reductase or acetyl-coa carboxylase (k15017, or k18603-5, respectively) 3) either k15039 and k18602) .presence of all three modules indicates complete autotrophic co‚Äö√á√á fixation via the 3hp/4hb cycle, something previously characteristic of crenarchaeota in marine sediments.
-Calvin-Benson-Bassham (Cbb) Cycle	@Calvin		carbon processing	c fixation	"for a genome to have cbb cycle co‚Äö√á√á fixation capability it should encode ribulose-bisphosphate carboxylase large chain (rbcl, k01601), phosphoribulokinase (prk, k00855), and one ribulose-phosphate 3-epimerase (rpe, k01783) to differentiate the cbb cycle from the rhp metabolic pathway. "
-Reductive Glycine Pathway	@ReductiveGlycinePathway		carbon processing	c fixation	"for a genome to have reductive glycine pathway co‚Äö√á√á fixation capabilit, it should encode at least 3 proteins/subunuts of the glycine cleavage system (k00283, k00282, k02437, and k00605) and at least 5 of the glycine reductase  (k10671, k10672, k00384, k21577, k21576, k03671, and k10670). "
-Rtca Cycle	@ReductiveCitricAcid		carbon processing	c fixation	"for a genome to have reductive tca cycle it should encode either 1 atp-citrate lyase (k15233 or k15232) or citryl-coa synthetase+citryl-coa lyase (k15233 or k15232, and k15234). "
-Rump Pathway (Non-Methanogenic Methylotrophy Type I)	[k08093 | k13831 | k13812] & k08094 & [k00093 | k23995 | k17066 | k14028 | k14029]		carbon processing	non-methanogenic methylotrophy	"for a genome to have rump pathway methylotrophy capability it should encode hps (k08093,k13831,k13812) and phi (k08094) a methanol dehydrogenase (mdh, k00093,k23995,k17066,k14028,k14029) and at least one  together these suggest capacity to convert methanol and formaledehyde into usable fructose 6-phosphate. "
-Serine Pathway (Non-Methanogenic Methylotrophy Type Ii)	k00830 & k00018 & k08691		carbon processing	non-methanogenic methylotrophy	"for a genome to have serine pathway methylotrophy capability it should encode serine-glyoxylate transaminase (sgt, k00830), hydroxypyruvate reductase (hpr, k00018), and malyl-coa lyase (mcl, k08691). additional encoding of serine hydroxymethyltransferase (shmt, k00600) further supports likelihood of having this pathway. "
-Hydrogenotrophic Methanogenesis	@hydrogenotrophic	"{""include_when"":{""all_columns_present"":[""taxonomy""]}}"	carbon processing	methanogenesis	"for a genome to have hydrogenotrophic methanogenesis capability it should encode the mcr complex (mcrabg, k00399+k00401+k00402), the mtr complex core subunits (mtra-e+h, k00577-k00581+k00584; mtrf/g omitted due to less consistent annotations), at least 2 of the 4 upper c1 pathway steps (ftr-k00672, mch-k01499, mtd-k00319 or hmd-k13942, mer-k00320), and at least one fwd/fmd subunit (k00200-k00205). this combination distinguishes hydrogenotrophic methanogens from obligate methylotrophic lineages (which lack mtr) and from aceticlastic methanogens (which lack the upper c1 pathway). anme archaea encode the same genes in reverse so performing an mcra phylogeny is highly recommended to confirm methanogenesis direction. methylotrophs that also do hydrogenotrophic methanogenesis e.g. canonical methanosarcinales) will present as matched to this row and ""methylotrophic and aceticlastic methanogenesis"". distinguishing between methanogenesis pathways via gene presence/absence is not recommended for genomes less than 90% complete. "
-Methylotrophic Methanogenesis	@methylotroph	"{""include_when"":{""all_columns_present"":[""taxonomy""]}}"	carbon processing	methanogenesis	"for a genome to have methylotrophic or aceticlastic methanogenesis capability it should encode the mcr complex (mcrabg, k00399+k00401+k00402) plus at least one substrate-specific entry point. i.e. methanol, methylamines, methylated sulfur, or acetate . for methanol potential enzymes are mtab (k04480), mtaa (k14080), or mtac (k14081); for methylamines potential enzymes are mtba (k14082), mtmb/monomethylamine methyltransferase (k16176), mtmc/monomethylamine corrinoid protein (k16177), mtbb/dimethylamine methyltransferase (k16178), mtbc/dimethylamine corrinoid protein (k16179), mttb/trimethylamine methyltransferase (k14083), or mttc/trimethylamine corrinoid protein (k14084); for methylated sulfur potential enzymes are mtsa (k16954) or mtsb (k16955); for acetate, enzymes are acka+pta (k00925+k00625) or acs (k01895), combined with codh/acs core subunits cdhc+cdhe+cdhd (k00193+k00197+k00194). here, aceticlastic methanogenesis overlaps with co2 fixation and wood-ljungdahl rows, but is distinguished with the presence of the mcr complex. performing an mcra phylogeny is recommended to distinguish between methanogenesis and anaerobic methanotrophy. distinguishing between methanogenesis pathways via gene presence/absence is not recommended for genomes less than 90% complete. "
-Acetoclastic Methanogenesis	@acetoclastic	"{""include_when"":{""all_columns_present"":[""taxonomy""]}}"
-N2O To N2	@NitrousOxideReductase		inorganic nitrogen transformation	n reduction	the reduction of nitrous oxide (n‚Äö√á√áo) to dinitrogen gas (n‚Äö√á√á) is catalyzed by nitrous oxide reductase (nosz, k00376). presence of this gene indicates the potential for the final step of denitrification, converting n‚Äö√á√áo into n‚Äö√á√á.
-NO3 To NO2	@NarNitrateReductase | @NapNitrateReductase		inorganic nitrogen transformation	n reduction	nitrate reduction to nitrite can occur through either the membrane-bound nar system (k00370 and k00371, both required) or the periplasmic nap system (k02567 and k02568, both required). either system completes the nitrate transformation step.
-DNRA	@DNRA		inorganic nitrogen transformation	n reduction	dnra reduces nitrate to ammonium through a two-step process: nitrate reduction via nar or nap systems, followed by nitrite reduction via nrf or nir enzymes. presence of one nitrate reductase system and one nitrite reductase system indicates dnra capability.
-NO2 To NO	@NitriteReductase		inorganic nitrogen transformation	n reduction	nitrite reduction to nitric oxide (no) is carried out by either nirs (k00368) or nirk (k15864). presence of either gene indicates capacity for nitrate/nitrite reduction in denitrification.
-NO To N2O	@NitricOxideReductase		inorganic nitrogen transformation	n reduction	the conversion of nitric oxide (no) to nitrous oxide (n‚Äö√á√áo) is catalyzed by nitric oxide reductase, encoded by norb (k04561) in bacteria or cyp55 (k15877) in fungi. presence of either gene indicates the capacity to perform this denitrification step
-Aerobic Nitrite Oxidation	@NitriteOxidoreductase		inorganic nitrogen transformation	nitrification	aerobic nitrate oxidation (nitrite oxidation) is the second step of nitrification, where nitrite is oxidized to nitrate by the nxr complex (nxrab) under oxic conditions, completing the conversion of reduced nitrogen to its most oxidized form.
-Aerobic Ammonium Oxidation	@AerobicAmmoniaOxidizer		inorganic nitrogen transformation	nitrification	aerobic ammonium oxidation converts ammonia to nitrite through sequential reactions catalyzed by ammonia monooxygenase and hydroxylamine oxidoreductase. presence of one ammonia monooxygenase subunit set and hydroxylamine oxidoreductase indicates this capability.
-N2 Fixation	@nitrogen-fixer		inorganic nitrogen transformation	nitrification	nitrogen fixation converts atmospheric n‚Äö√á√á to ammonium through the nitrogenase enzyme complex. functional capacity is indicated by the presence of all subunits for either the mo-nitrogenase (nif) or the v-nitrogenase (vnf) system, as either complete complex can catalyze n‚Äö√á√á reduction.
-Urease	"@Urease "		organic nitrogen transformation	primary n transformation	urea hydrolysis requires the full urease enzyme complex, composed of subunits urea (k01430), ureb (k01429), and urec (k01428). all three genes are needed to complete urea transformation to ammonium and co‚Äö√á√á.
-Amidase	k01426		organic nitrogen transformation	mineralization	presence of amidase enzyme
-Phototroph-Oxygenic	@Phototroph-Oxygenic		light energy	Phototroph
-Phototroph-AnoxygenicType2	@Phototroph-AnoxygenicType2		light energy	Phototroph
-Phototroph-AnoxygenicType1	@Phototroph-AnoxygenicType1		light energy	Phototroph
-Phototroph-Rhodopsin	K04641		light energy	Rhodopsin
-Extracellular Asparagine Peptidases	n04 | n10 | n11		organic nitrogen transformation	mineralization	presence of any extracellular asparagine peptidase
-Extracellular Aspartic Peptidases	a01 | a02 | a05 | a08 | a11 | a22 | a24 | a26 | a28 | a31 | a32 | a37		organic nitrogen transformation	mineralization	presence of any extracellular aspartic peptidase
-Extracellular Cysteine Peptidases	c01 | c02 | c10 | c11 | c110 | c113 | c13 | c14 | c15 | c19 | c25 | c26 | c39 | c40 | c44 | c45 | c46 | c47 | c51 | c56 | c59 | c60 | c66 | c69 | c82 | c83 | c89 | c93		organic nitrogen transformation	mineralization	presence of any extracellular cysteine peptidase
-Extracellular Glutamic Peptidases	g01		organic nitrogen transformation	mineralization	presence of any extracellular glutamic peptidase
-Extracellular Metallo Peptidases	m01 | m02 | m03 | m04 | m05 | m06 | m07 | m08 | m09 | m10 | m11 | m12 | m13 | m14 | m15 | m16 | m17 | m18 | m19 | m20 | m23 | m24 | m26 | m28 | m30 | m32 | m34 | m35 | m36 | m38 | m41 | m42 | m43 | m44 | m48 | m49 | m50 | m54 | m55 | m56 | m57 | m60 | m61 | m64 | m66 | m67 | m72 | m73 | m74 | m75 | m76 | m78 | m79 | m81 | m82 | m84 | m85 | m86 | m88 | m93 | m96 | m97 | m98		organic nitrogen transformation	mineralization	presence of any extracellular metallo peptidase
-Extracellular Serine Peptidases	s01 | s06 | s08 | s09 | s10 | s11 | s12 | s13 | s14 | s15 | s16 | s24 | s26 | s28 | s33 | s37 | s41 | s45 | s46 | s49 | s50 | s51 | s53 | s54 | s55 | s59 | s60 | s66 | s73		organic nitrogen transformation	mineralization	presence of any extracellular serine peptidase
-Extracellular Threonine Peptidases	t01 | t02 | t03 | t05 | t07		organic nitrogen transformation	mineralization	presence of any extracellular threonine peptidase
-Formamidase	k01455		organic nitrogen transformation	mineralization	presence of formamidase enzyme
-Mixed Peptidases	p01		organic nitrogen transformation	mineralization	presence of any extracellular mixed peptidase
-Unknown Peptidases	u32 | u62 | u69 | u72 | u73 | u74		organic nitrogen transformation	mineralization	presence of any extracellular unknown catalytic type peptidase
-Dissimilatory-Sulfate-Reduction	@Sulfatereducer		Sulfur Cycling	Sulfide Production	Dissimilatory sulfate reduction to sulfide (H2S); key souring mechanism in oil & gas systems. Requires adenylysulfate reductase (aprAB; K00394, K00395) and dissimilatory sulfite reductase (dsrAB; dsrA, dsrB).
-Thiosulfate-Reduction-(Respiratory)	at_least(2, PRESENCE, [K08352, K08353, K08354])		Sulfur Cycling	Sulfide Production	Respiratory thiosulfate reduction via the PhsABC thiosulfate reductase complex (phsA K08352, phsB K08353, phsC K08354). Requires at least 2 of 3 subunits to account for incomplete genome recovery in metagenomic data. Uses thiosulfate as terminal electron acceptor under anaerobic conditions. Found in Salmonella, Citrobacter, and diverse anaerobes.
-Thiosulfate-Reduction-(Rhodanese)	K01011 | Rhodanese		Sulfur Cycling	Sulfide Production	Thiosulfate sulfurtransferase (rhodanese; K01011 rdl/glpE-type, K14180 mitochondrial-type) transfers sulfur from thiosulfate to cyanide or other acceptors, producing sulfite and thiocyanate. Also involved in sulfur relay and cyanide detoxification. Distinct from respiratory thiosulfate reduction ‚Äö√Ñ√Æ does not conserve energy via electron transport. Extremely widespread across bacteria and archaea so interpret cautiously; presence alone is not diagnostic of dedicated thiosulfate metabolism.
-Sulfur-Oxidation-Sox	[K17223 | K17222] & [K17226 | K17227] & K17224		Sulfur Cycling	Sulfur Oxidation	Oxidation of reduced sulfur compounds via the SOX multienzyme complex. SoxXA (K17223, K17222) initiate sulfur binding, SoxYZ (K17226, K17227) are the sulfur-carrying proteins, and SoxB (K17224) is the sulfate-releasing thiohydrolase. SoxCD (K17225, K22622) are optional and indicate complete oxidation to sulfate without intermediates.
-Sulfur-Oxidation-Reverse-Dsr	[K11180 | dsrA | K11181 | dsrB] & K27196		Sulfur Cycling	Sulfur Oxidation	Oxidation of stored sulfur globules via reverse-running DsrAB, distinguished from reductive DsrAB by co-occurrence with dsrL (K27196), an NADH-dependent oxidoreductase found exclusively in sulfur-oxidizing organisms. Both dsrA/dsrB (K11180/K11181) and dsrL (K27196) required. Found in Chlorobi, some Gammaproteobacteria, and Chromatiales.
-Tetrathionate-Reduction	at_least(2, PRESENCE, [K08359, K08358, K08357])		Sulfur Cycling	S Transformations	Tetrathionate reduction via the ttrABC system (ttrA K08359, ttrB K08358, ttrC K08357). At least 2 of 3 subunits required. Relevant as an alternative electron acceptor in anaerobic subsurface and industrial systems.
-DMS/DMSP Cycling	k28073 | k16953 | k28067 | k28068 | k28069 | k28072 | k17486 | [k20034 & k20035 & k20036] | k16967 | k16964 | k18277 | [k07306 & [k07307 | k00184] & [k07308 | k00185]] | k07811		sulfur cycling	organic sulfur transformation	"for a genome to have organosulfur cycling capacity it should encode ‚Äö√¢‚Ä¢1 enzyme for transforimg at least one of the following substrates: dmsp,dms,dmso,methanethiol,dmsop,mmpa . key enzymes and their substrates include: dmsp lyases (dddd-k28073, dddl-k16953, dddp-k28067, dddw-k28068, dddy-k28069, dddx-k28072) producing dms from dmsp. dmsp demethylase (dmda-k17486) producing mmpa from dmsp. mmpa demethylation enzymes,dmdbcd (k20034+k20035+k20036), producing methanethiol from mmpa. dms monooxygenase (dmoa-k16967) producing methanethiol from dms. dms dehydrogenase (ddha-k16964) or trimethylamine monooxygenase (tmm-k18277) oxidizing dms to dmso. dmso reductase complex, dmsabc (k07306 +k07307 or k00184 +k07308 or k00185), or trimethylamine n-oxide reductase (tora-k07811) reducing dmso back to dms. "
-[Fefe] Group_A Hydrogenase	FeFe_groupA		energy metabolism	[fefe] hydrogenases	presence of [fefe] group_a hydrogenase
-[Fefe] Group_B Hydrogenase	FeFe_groupB		energy metabolism	[fefe] hydrogenases	presence of [fefe] group_b hydrogenase
-[Fefe] Group_C Hydrogenase	FeFe_groupC		energy metabolism	[fefe] hydrogenases	presence of [fefe] group_c hydrogenase
-[Fefe] Group_E Hydrogenase	FeFe_groupE		energy metabolism	[fefe] hydrogenases	presence of [fefe] group_e hydrogenase
-[Fefe] Group_F Hydrogenase	FeFe_groupF		energy metabolism	[fefe] hydrogenases	presence of [fefe] group_f hydrogenase
-[Nife] Group_1 Hydrogenase	NiFe_group1		energy metabolism	[nife] hydrogenases	presence of [nife] group_1 hydrogenase
-[Nife] Group_2 Hydrogenase	NiFe_group2		energy metabolism	[nife] hydrogenases	presence of [nife] group_2 hydrogenase
-[Nife] Group_3 Hydrogenase	NiFe_group3		energy metabolism	[nife] hydrogenases	presence of [nife] group_3 hydrogenase
-[Nife] Group_4 Hydrogenase	NiFe_group4		energy metabolism	[nife] hydrogenases	presence of [nife] group_4 hydrogenase
-Arsenic	k07755 | k08356 | k08355 | k00537 | k03741 | k11811 | k03892 | k03325 | k01551 | k03893 | arsd | aior-aoxr | aios-aoxs		heavy metal tolerance	box 16	presence of arsenic resistance, oxidation, reduction, methylation, and efflux genes (ars, aio) indicates microbial potential for arsenic detoxification and transformation. includes oxidation (aioa/b), reduction (arsc), methylation (arsm), efflux (arsa/b/d), and regulation (arsr, aior/s).
-Cadmium	k21903 | k21885 | k07665 | k07644 | k02483 | k22043 | k03088 | k24079 | k24078 | cadd | k15726 | k15727 | k15725 | cznb | k21133 | dmef | k08970 | k16264 | k01534		heavy metal tolerance	box 16	presence of cadmium-associated resistance, regulation, and efflux genes indicates microbial potential for detoxification of cd¬¨‚â§‚Äö√Ö‚à´ via efflux pumps (czc, czn, zitb, znta), transcriptional control (cadx, cmtr, czra, cusr/s), and sequestration or transport (cadd, dmef, cnr system), contributing to cadmium tolerance.
-Cobalt	k07644 | k02483 | ncrb | ncry | k23240 | k24073 | k24079 | k06042 | k03088 | k24078 | k03585 | k18138 | k18139 | cnrt | k03284 | corb | k06189 | k12951 | k15726 | k15727 | k15725 | dmef | dmer | k07785 | k08970 | k23243 | k16264 | k01534		heavy metal tolerance	box 16	presence of cobalt resistance and transport genes indicates microbial capacity for co¬¨‚â§‚Äö√Ö‚à´ detoxification, efflux, and regulation. includes transcriptional regulators (ncr, cnr, rcn), efflux systems (czc, dme, zitb, znta), transporters (cora/b/c, ctpd), and multi-component resistance operons (cme, cus, dmerf), enabling microbial adaptation to cobalt-rich or contaminated environments.
-Magnesium	k06042 | k03284 | corb | k06189 | k01531 | k06213		heavy metal tolerance	box 16	presence of magnesium homeostasis and transport genes indicates microbial capacity for mg¬¨‚â§‚Äö√Ö‚à´ uptake, export, and regulation. includes primary transporters (cora, mgta, corb/c), p-type atpases for active transport, and regulatory proteins involved in maintaining cytoplasmic mg¬¨‚â§‚Äö√Ö‚à´ balance under metal or osmotic stress conditions.
-Manganese	k11924 | k12950 | k11707 | k03322 | k23242 | k11604 | k11607 | k11605 | k11606		heavy metal tolerance	box 16	presence of manganese transport and regulatory genes indicates microbial capacity for mn¬¨‚â§‚Äö√Ö‚à´ uptake, efflux, and homeostasis. includes import systems (mnth, mnta, yfeabcd), p-type atpases (ctpc), efflux channels (mntp), and regulatory proteins (mntr) that maintain intracellular mn¬¨‚â§‚Äö√Ö‚à´ balance, protect against oxidative stress, and support metalloenzyme function.
-Mercury	k00221 | k00520 | k19057 | k08365 | k19058 | k19059 | k08364 | k08363		heavy metal tolerance	box 16	presence of mercury resistance (mer) operon genes indicates microbial capacity for detoxification of inorganic and organic mercury compounds. includes transport and binding proteins (merc, mere, merf, merp, mert), regulatory components (merr, merd), and enzymes mediating reduction (mera) and cleavage of organomercurials (merb), collectively conferring hg¬¨‚â§‚Äö√Ö‚à´ and methylmercury resistance.
-Nickel	ncrb | ncry | k07722 | k11328 | k23240 | k24073 | k24079 | k03088 | k11330 | k24078 | cnrt | k12951 | k15726 | k15727 | k15725 | cznb | dmef | dmer | hupe | k01552 | k15584 | k15585 | k15586 | k15587 | k10824 | k07241 | k11326 | k07785 | k08970 | k23243		heavy metal tolerance	box 16	presence of nickel transport, efflux, and regulatory genes indicates microbial capacity for ni¬¨‚â§‚Äö√Ö‚à´ acquisition, homeostasis, and detoxification. includes uptake systems (nikabcde, nixa, hupe), efflux pumps (czc, dme, cnr, nrs, rcn), cation diffusion facilitators (cnrt), and transcriptional regulators (ncr, nrs, nikr, rcnr) that maintain intracellular ni¬¨‚â§‚Äö√Ö‚à´ balance and support ni-dependent metalloenzyme function under metal stress.
-Silver	silf | k07665 | k07644 | k17686 | k01533 | k07787 | k07798 | k07796 | k07810 | sile | k23254		heavy metal tolerance	box 16	presence of silver resistance and efflux genes indicates microbial capacity for ag‚Äö√Ö‚à´ detoxification and homeostasis. includes multi-component efflux systems (sil, cus, cop), periplasmic chaperones (silf, sile, cusf), p-type atpases (silp, copa, copb), and two-component regulatory systems (cusrs) that coordinate ag‚Äö√Ö‚à´ sensing, transport, and reduction to mitigate toxicity in contaminated environments.
-Zinc	k21904 | zeva | k07803 | zint-yoda | k03765 | k21903 | k07644 | k02483 | k22043 | k13638 | k07713 | k07709 | k09823 | k03709 | k18324 | cadd | k12950 | k15726 | k15727 | k15725 | cznb | k21133 | k07799 | k07788 | k07789 | k11707 | k08970 | k11710 | k07238 | k16264 | k01534 | k09815 | k09816 | k09817 | k11708 | k11709		heavy metal tolerance	box 16	presence of zinc resistance and homeostasis genes indicates microbial capacity for zn¬¨‚â§‚Äö√Ö‚à´ uptake, sequestration, and efflux. includes import systems (znuabc, zipb, trob), regulators (zur, zrar/s, zntr, cadc/x), efflux transporters (czcabc, zitb, znta), metallothioneins and chaperones (smta, zint, zeva), and multidrug efflux systems (mdtabc) that together maintain intracellular zn¬¨‚â§‚Äö√Ö‚à´ balance and mitigate metal stress.
-Copper	k07156 | k03926 | k06201 | k21609 | k07233 | pcoe | k07213 | k09796 | k19342 | cina | k14588 | cuto | k22552 | copl | copy-tcry | corr | k02483 | k21600 | k11923 | k07665 | k07644 | k19591 | k21601 | k21902 | k18992 | k18324 | k03585 | k18138 | k18139 | k17686 | k01533 | k07245 | copp | crda | k12954 | k12956 | k07787 | k07798 | k07796 | k07810 | k03820 | k06079 | hpcopa | mctb | k14166 | k08221		heavy metal tolerance	box 16	presence of copper resistance, homeostasis, and transport genes indicates microbial potential for cu‚Äö√Ö‚à´/cu¬¨‚â§‚Äö√Ö‚à´ detoxification, efflux, and redox regulation. this includes p-type atpases (copa, copb, ctpg, ctpv), multicopper oxidases (cueo, mco, cuto), periplasmic binding/chaperone systems (copc/d/z, pcoe, copl, cuer), regulatory systems (cusrs, cuer, corr, copy-tcry), and rnd/multidrug efflux complexes (cuscba, cmeabc, acrd, mctb), together facilitating copper detoxification and maintaining metal homeostasis under oxidative stress.
-Iron	k03594 | dpr-dps | dpsa | k02217 | k07229 | k03709 | pmra | pmrb | k02012 | k02011 | k02010 | k13283 | k16088 | k03322 | k01552 | pmrc | k06147 | k11604 | k11607 | k11605 | k11606 | k07224		heavy metal tolerance	box 16	presence of iron storage, uptake, and efflux genes indicates microbial capacity for fe¬¨‚â§‚Äö√Ö‚à´/fe¬¨‚â•‚Äö√Ö‚à´ homeostasis and oxidative stress mitigation. this includes ferritin-like storage proteins (bfra, pfr, dpr-dps), fe(ii)/fe(iii) transport and reduction systems (fbpabc, yfeabcd, fpta, yqjh, efeo), efflux pumps (fief), and regulatory elements (pmra/b/c, ider). collectively these confer resistance to iron overload, oxidative damage, and contribute to redox balancing.
-Biofilms	k19290 | k19291 | k19293 | k19294 | k19295 | k19296 | k11936 | k11937 | k21001 | k20997 | k25205 | k21461		stress adaptations	box 17	"presence of alginate, psl, or pga/ica matrix biosynthesis genes indicates microbial capacity for biofilm formation, enhancing surface adhesion and persistence in marine environments. biofilm production supports microbial community stability, particle colonization, and resistance to physical disturbance in dynamic marine systems. "
-Oxidative Stress	k03782 | k04564 | k04565 | k01920 | k01921 | k05909 | k00421 | k05910 | k00431 | k00799		stress adaptations	box 17	presence of oxidative stress defense genes (catalases, superoxide dismutases, glutathione biosynthesis enzymes, peroxidases, or laccases) indicates microbial potential to detoxify reactive oxygen species. this is relevant in marine microbes exposed to reactive oxygen species generated by chemical or biological oxidation systems and at oxic-anoxic interfaces.
-Flagella	k02406 & k02390 & k02409 & [k02394 | k02386] & k02393 & [k02556 | k02557 | k10564 | k21217 | k21218] & [k02410 | k02416]		stress adaptations	box 17	"for a genome to have bacterial flagella motility, it should encode flagellin (flic, k02406), hook protein (flge, k02390), m-ring membrane anchor (flif, k02409), one p-ring proteins (flgi, k02394 and flga, k02386), l-ring precursor (flgh, k02393), and at least one motor stator protein (mota-k02556, motb-k02557, motc-k10564, motd-k10564 , motx-k21217, or moty-k21218), at least one switch protein (flig-k02410 or flim-k02416). "
-Reductive Dehalogenation	k21566 | k21647		stress adaptations	box 18	presence of reductive dehalogenases: cpra-k21566 and/or pcea-k21647
-C-P Lyase Complex	@C-P-Lyase-Complex		Phosphorus Acquisition and Metabolism	Phosphorus Acquisition and Metabolism
-Organic P Mineralization	@Organic-P-Mineralization		Phosphorus Acquisition and Metabolism	Phosphorus Acquisition and Metabolism
-Phytase	@Phytase		Phosphorus Acquisition and Metabolism	Phosphorus Acquisition and Metabolism
-Inorganic P Solubilization	@Inorganic-P-Solubilization		Phosphorus Acquisition and Metabolism	Phosphorus Acquisition and Metabolism
-High-affinity Pi uptake	@High-affinity-Pi-uptake		Phosphorus Acquisition and Metabolism	Phosphorus Acquisition and Metabolism
+﻿name	rule	rule_options	module	group
+Fucoidan	GH107;3.2.1.212 | GH168;3.2.1.211 | GH174;3.2.1.- | GH187;3.2.1.- | PL43;4.2.2.- | GH107;3.2.1.211 | GH168;3.2.1.-		Carbon Processing	Polysaccharide Marine Algal
+Ulvan	PL24;4.2.2.- | PL25;4.2.2.- | PL28;4.2.2.-		Carbon Processing	Polysaccharide Marine Algal
+Carrageenan	GH150;3.2.1.162 | GH16;3.2.1.83 | GH82;3.2.1.157		Carbon Processing	Polysaccharide Marine Algal
+Porphyran	GH16;3.2.1.178		Carbon Processing	Polysaccharide Marine Algal
+Funoran	GH96;3.2.1.222		Carbon Processing	Polysaccharide Marine Algal
+Alginate	PL14;4.2.2.3 | PL15;4.2.2.3 | PL17;4.2.2.11 | PL17;4.2.2.3 | PL18;4.2.2.11 | PL18;4.2.2.3 | PL31;4.2.2.3 | PL32;4.2.2.3 | PL36;4.2.2.3 | PL38;4.2.2.3 | PL38;4.2.2.11 | PL39;4.2.2.3 | PL39;4.2.2.11 | PL41;4.2.2.3 | PL5;4.2.2.3 | PL6;4.2.2.11 | PL6;4.2.2.3 | PL7;4.2.2.11 | PL7;4.2.2.3 | PL8;4.2.2.3 | PL44;4.2.2.3		Carbon Processing	Polysaccharide Marine Algal
+Agarose	GH118;3.2.1.81 | GH16;3.2.1.81 | GH50;3.2.1.81 | GH86;3.2.1.81 | GH96;3.2.1.158		Carbon Processing	Polysaccharide Marine Algal
+Laminarin	GH5;3.2.1.39 | GH55;3.2.1.39 | GH5;3.2.1.58 | GH55;3.2.1.58		Carbon Processing	Polysaccharide Marine Algal
+Cellulose	@Cellulose		Carbon Processing	Polysaccharide Other
+Hemicellulose	@Hemicellulose-Xylan | @Hemicellulose-Other		Carbon Processing	Polysaccharide Other
+Arabinogalactan	@Arabinogalactan		Carbon Processing	Polysaccharide Other
+Starch/Glycogen	@StarchGlycogen | @StarchSpecific		Carbon Processing	Polysaccharide Other
+Chitin	@Chitin		Carbon Processing	Polysaccharide Other
+Cellulose-Associated	@BetaGlucosides		Carbon Processing	Oligomer
+Hemicellulose-Associated	@Xylooligosaccharides | @XyloglucanMannooligosaccharides | @XylanXylobiose		Carbon Processing	Oligomer
+Storage-Associated	@Fructooligosaccharides | @MaltooligosaccharidesAlphaGlucosides		Carbon Processing	Oligomer
+Chitin and Related Oligosaccharides	@Chitooligosaccharides | @NAcetylhexosaminides		Carbon Processing	Oligomer
+Alginate-Associated	PL14;4.2.2.26 | PL15;4.2.2.26 | PL17;4.2.2.26 | PL6;4.2.2.26 | PL7;4.2.2.26		Carbon Processing	Oligomer
+Agarose-Associated	GH117;3.2.1.159		Carbon Processing	Oligomer
+Cellobiose	@Cellobiose		Carbon Processing	Oligomer
+Maltose	@Maltose		Carbon Processing	Oligomer
+Sucrose	@Sucrose		Carbon Processing	Oligomer
+Trehalose	@Trehalose		Carbon Processing	Oligomer
+Xylan/Xylobiose	@XylanXylobiose		Carbon Processing	Oligomer
+Mannose/Mannobiose	@Mannose-Mannobiose		Carbon Processing	Oligomer
+Glucose	@Glucose		Carbon Processing	Monosaccharide
+Xylose	@Xylose		Carbon Processing	Monosaccharide
+Arabinose	@Arabinose		Carbon Processing	Monosaccharide
+Mannose	@Mannose		Carbon Processing	Monosaccharide
+Galactose	@Galactose		Carbon Processing	Monosaccharide
+Fructose	@Fructose		Carbon Processing	Monosaccharide
+Rhamnose	@Rhamnose		Carbon Processing	Monosaccharide
+N-Acetylglucosamine (Glc-NAc)	@N-Acetylglucosamine		Carbon Processing	Monosaccharide
+Fucose	@Fucose		Carbon Processing	Monosaccharide
+Acetate	@Acetate-Final		Carbon Processing	Low Molecular Weight Carbon
+Butyrate	@Butyrate-Final		Carbon Processing	Low Molecular Weight Carbon
+Propionate	@Propionate-Final		Carbon Processing	Low Molecular Weight Carbon
+Ethanol/Alcohol	@Ethanol		Carbon Processing	Low Molecular Weight Carbon
+Methanol	@Methanol		Carbon Processing	Low Molecular Weight Carbon
+Hydrogenotrophic	@hydrogenotrophic	"{""include_when"":{""all_columns_present"":[""taxonomy""]}}"	Carbon Processing	One Carbon Metabolism
+Acetoclastic	@acetoclastic	"{""include_when"":{""all_columns_present"":[""taxonomy""]}}"	Carbon Processing	One Carbon Metabolism
+Methylotrophic	@methylotroph	"{""include_when"":{""all_columns_present"":[""taxonomy""]}}"	Carbon Processing	One Carbon Metabolism
+Aerobic Methanotroph	@AerobicMethanotroph		Carbon Processing	One Carbon Metabolism
+Methanogen Or ANME	@Methanogen	"{""include_when"":{""all_columns_absent"":[""taxonomy""]}}"	Carbon Processing	One Carbon Metabolism
+Anaerobic Oxidation of Methane	@anaerobic-methanotrophic-Archaea		Carbon Processing	One Carbon Metabolism
+Rump Pathway (Non-Methanogenic Methylotrophy Type I)	[k08093 | k13831 | k13812] & k08094 & [k00093 | k23995 | k17066 | k14028 | k14029]		Carbon Processing	One Carbon Metabolism
+Serine Pathway (Non-Methanogenic Methylotrophy Type Ii)	k00830 & k00018 & k08691		Carbon Processing	One Carbon
+Calvin Cycle	@Calvin		Carbon Processing	Carbon Fixation
+Hydroxypropionate-Hydroxybutyrate Cycle	@HydroxypropionateHydroxybutylate		Carbon Processing	Carbon Fixation
+Dicarboxylate Hydroxybutyrate Cycle	@DicarboxylateHydroxybutyrate		Carbon Processing	Carbon Fixation
+Wood–Ljungdahl Pathway	@ReductiveAcetylCoAWoodLjungdahl		Carbon Processing	Carbon Fixation
+Phototroph All Types	@PhototrophAllTypes		Phototrophy	Light Sensing and Energy
+Phototroph- Oxygenic	@Phototroph-Oxygenic		Phototrophy	Light Sensing and Energy
+Phototroph- Anoxygenic	@AnoxygenicTypeIISubtype | @AnoxygenicTypeIPscASubtype | @PotentialAnoxygenicDivergentTypeISubtype		Phototrophy	Light Sensing and Energy
+Rhodopsin All Types 	@RhodopsinAllTypes		Phototrophy	Light Sensing and Energy
+Bacteriorhodopsin Proton Pump Subtype 	@Bacteriorhodopsin		Phototrophy	Light Sensing and Energy
+Oxygen - Low Affinity Use	[percent(50,@CytochromeCOxidase)|percent(50,@CytochromeAa3600MenaquinolOxidase)|percent(50,@CytochromeOUbiquinolOxidase)]		Respiratory Redox Processes	Oxygen Reduction
+Oxygen - High Affinity Use	[@percent50CytochromeBDUbiquinolOxidase|@percent50CytochromeCOxidaseCBB3]		Respiratory Redox Processes	Oxygen Reduction
+NO3 To NO2	@NarNitrateReductase|[@NapNitrateReductase]		Respiratory Redox Processes	Nitrogen Reduction
+NO2 To NO	@NitriteReductase		Respiratory Redox Processes	Nitrogen Reduction
+NO To N2O	@NitricOxideReductase		Respiratory Redox Processes	Nitrogen Reduction
+N2O To N2	@NitrousOxideReductase		Respiratory Redox Processes	Nitrogen Reduction
+DNRA, NO3 To NH4	@DNRA		Respiratory Redox Processes	Nitrogen Reduction
+Aerobic Ammonium Oxidation	@AerobicAmmoniaOxidizer		Respiratory Redox Processes	Nitrogen Oxidation
+Aerobic Nitrite Oxidation	@NitriteOxidoreductase		Respiratory Redox Processes	Nitrogen Oxidation
+Anaerobic Ammonia Oxidation Anammox	@Annamox		Respiratory Redox Processes	Nitrogen Oxidation
+Dissimilatory-Sulfate-Reduction	@Sulfatereducer		Respiratory Redox Processes	Sulfur Cycling
+Thiosulfate-Reduction-(Respiratory)	@ThiosulfateRed		Respiratory Redox Processes	Sulfur Cycling
+Thiosulfate-Reduction-(Rhodanese)	K01011 | Rhodanese		Respiratory Redox Processes	Sulfur Cycling
+Sulfur-Oxidation-Sox	@SoxXA & @SoxYZ & @SoxB		Respiratory Redox Processes	Sulfur Cycling
+Sulfur-Oxidation-Reverse-Dsr	@DsrABtypeo		Respiratory Redox Processes	Sulfur Cycling
+Tetrathionate-Reduction	@TetrathionateRed		Respiratory Redox Processes	Sulfur Cycling
+[Fefe] Group_A Hydrogenase	hmm@fefe_group_a_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Fefe] Group_B Hydrogenase	hmm@fefe_group_b_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Fefe] Group_C Hydrogenase	hmm@fefe_group_c_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Fefe] Group_E Hydrogenase	hmm@fefe_group_e_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Fefe] Group_F Hydrogenase	hmm@fefe_group_f_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Nife] Group_1 Hydrogenase	hmm@nife_group_1_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Nife] Group_2 Hydrogenase	hmm@nife_group_2_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Nife] Group_3 Hydrogenase	hmm@nife_group_3_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Nife] Group_4 Hydrogenase	hmm@nife_group_4_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+Candidate Extracellular Aspartic Peptidases	@ExtracellularAspartic		Nutrient Acquisition 	Nitrogen Assimilation
+Candidate Extracellular Cysteine Peptidases	@ExtracellularCysteine		Nutrient Acquisition 	Nitrogen Assimilation
+Candidate Extracellular Glutamic Peptidases	@ExtracellularGlutamic		Nutrient Acquisition 	Nitrogen Assimilation
+Candidate Extracellular Metallo Peptidases	@ExtracellularMetallo		Nutrient Acquisition 	Nitrogen Assimilation
+Candidate Extracellular Serine Peptidases	@ExtracellularSerine		Nutrient Acquisition 	Nitrogen Assimilation
+Urease	@Urease		Nutrient Acquisition 	Nitrogen Assimilation
+Amidase	K01426		Nutrient Acquisition 	Nitrogen Assimilation
+Formamidase	K01455		Nutrient Acquisition 	Nitrogen Assimilation
+N2 Fixation	@nitrogen-fixer		Nutrient Acquisition 	Nitrogen Assimilation
+Sulfur- DMS/DMSP Cycling	K28073 | K16953 | K28067 | K28068 | K28069 | K28072 | K17486 | [K20034 & K20035 & K20036] | K16967 | K16964 | K18277 | [K07306 & [K07307 | K00184] & [K07308 | K00185]] | K07811		Nutrient Acquisition 	Other Nutrient Assimilations and Transformations
+Phosphorus- C-P Lyase	@C-P-Lyase-Complex		Nutrient Acquisition 	Other Nutrient Assimilations and Transformations
+Phosphorus- Organic Mineralization	@Organic-P-Mineralization		Nutrient Acquisition 	Other Nutrient Assimilations and Transformations
+Phosphorus- Pi Uptake	@High-affinity-Pi-uptake		Nutrient Acquisition 	Other Nutrient Assimilations and Transformations
+Copper Efflux	@CopperEfflux		Environmental Adaptation	Heavy Metal Transformation and Resistance
+Cobalt/Cadmium/Zinc/Ni Efflux	@CadmiumZincEfflux | @DivalentMetalEfflux | @CobaltZincCadmiumEfflux | @NickelCobaltEfflux 		Environmental Adaptation	Heavy Metal Transformation and Resistance
+Mercury Reduction	@MercuryReduction		Environmental Adaptation	Heavy Metal Transformation and Resistance
+Organomercury Degradation	@OrganomercuryDegradation		Environmental Adaptation	Heavy Metal Transformation and Resistance
+Mercury Methylation	@MercuryMethylation		Environmental Adaptation	Heavy Metal Transformation and Resistance
+EpsProduction	@EpsProduction		Environmental Adaptation	Biofilms & Attachment
+QuorumSensing	@QuorumSensing		Environmental Adaptation	Biofilms & Attachment
+Motility	@Motility		Environmental Adaptation	Biofilms & Attachment
+Ion Homeostasis: K+ Uptake and Na+ Exclusion	@IonBalance-saltinpotential		Environmental Adaptation	Osmoregulation
+Compatible-Solutes: Glycine Betaine Synthesis	@GlycineBetaineSynthesis		Environmental Adaptation	Osmoregulation
+Compatible-Solutes: Ectoine Synthesis	@EctoineSynthesis		Environmental Adaptation	Osmoregulation
+Compatible-Solutes: Sugar Derived Synthesis 	@SugarDerivedCompatibleSoluteSynthesis		Environmental Adaptation	Osmoregulation
+Compatible-Solutes: Methylated Transport	@MethylatedCompatibleSoluteTransport		Environmental Adaptation	Osmoregulation
+Compatible-Solutes: Ectoine Transport	@EctoineTransport		Environmental Adaptation	Osmoregulation

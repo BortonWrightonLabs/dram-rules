@@ -1,34 +1,38 @@
-name	alias	rule
-	Acetate-Final	@Acetate-1 | @Acetate-2 | @Acetate-3 | @Acetate-4 | @Acetate-5	Acetate-associated metabolism
-	Acetate-1	K24012 | [K01905 & K22224]	Acetyl-CoA ↔ acetate; shared activity with propionate
-	Acetate-2	K01568 & [K00138 | K00128 | K14085 | K00149 | K00129]	Pyruvate → acetaldehyde → acetate
-	Acetate-3	[K00625 | K13788 | K15024] & K00925	Acetyl-CoA ↔ acetyl-phosphate ↔ acetate
-	Acetate-4	K01621 & K00925	Xylulose-5-phosphate/fructose-6-phosphate → acetyl-phosphate → acetate
-	Acetate-5	K01895 | K01913	Acetate → acetyl-CoA; not acetate specific
+﻿name	alias	rule	notes
+	Acetate-Final	@Acetate-1 | @Acetate-2 | @Acetate-3 | @Acetate-4 | @Acetate-5 | @Acetate-6	Acetate-associated metabolism
+	Acetate-1	K24012 | [K01905 & K22224]	Acetyl-CoA to acetate; shared activity with propionate
+	Acetate-2	K01568 & [K00138 | K00128 | K14085 | K00149 | K00129]	Pyruvate to acetaldehyde to acetate
+	Acetate-3	[K00625 | K13788 | K15024] & K00925	Acetyl-CoA to acetyl-phosphate ↔ acetate
+	Acetate-4	K01621 & K00925	Xylulose-5-phosphate/fructose-6-phosphate to acetyl-phosphate to acetate
+	Acetate-5	K01895 | K01913	Acetate to acetyl-CoA; not acetate specific
+	Acetate-6	K00156	Pyruvate to acetate
 
 	Propionate-Final	@Propionate-1 | @Propionate-2 | @Propionate-3 | @Propionate-4	Propionate-associated metabolism
-	Propionate-1	[K01847 | [K01848 & K01849]] & K05606 & [K11264 | K18426] & @Propionate-terminal	Succinyl-CoA → methylmalonyl-CoA → propionyl-CoA → propionate
-	Propionate-2	K20626 & K20627 & K00248 & @Propionate-terminal	Lactate → lactoyl-CoA → acryloyl-CoA → propionyl-CoA → propionate
-	Propionate-3	K01699 & K13919 & K13920 & K13922 & @Propionate-terminal	1,2-Propanediol → propionaldehyde → propionyl-CoA → propionate
-	Propionate-4	K01908	Propionate → propionyl-CoA
-	Propionate-terminal	K01026 | K24012 | [K01905 & K22224] | [K13923 & [K00932 | K19697]]	Propionyl-CoA ↔ propionate; broad alternatives require pathway context
+	Propionate-1	[K01847 | [K01848 & K01849]] & K05606 & [K11264 | K18426 | [K01604 & K23351 & K20509]] & @Propionate-terminal	Succinyl-CoA tomethylmalonyl-CoA to propionyl-CoA to propionate
+	Propionate-2	K20626 & K20627 & [K00248 | K20143] & @Propionate-terminal	Lactate to lactoyl-CoA to acryloyl-CoA to propionyl-CoA to propionate
+	Propionate-3	K01699 & K13919 & K13920 & K13922 & @Propionate-terminal	1,2-Propanediol to propionaldehyde to propionyl-CoA to propionate
+	Propionate-4	K01908	Propionate to propionyl-CoA
+	Propionate-terminal	K22214| K01026 | K24012 | [K01905 & K22224] | [K13923 & [K00932 | K19697]]	Propionyl-CoA to propionate; broad alternatives require pathway context
 
 	Butyrate-Final	@Butyrate-1 | @Butyrate-2 | @Butyrate-3	Butyrate-associated metabolism
-	Butyrate-1	K00634 & K00929	Butyryl-CoA ↔ butyryl-phosphate ↔ butyrate
-	Butyrate-2	[[K01034 & K01035] | K19709]	Acetyl-CoA ↔ butyryl-CoA ↔ butyrate through CoA transfer; context-supported, not uniquely specific
-	Butyrate-3	K01913	Butyrate → butyryl-CoA; not butyrate specific
-	Acetyl-CoAtoButyryl-CoA 	K00626 & [K00074 | K00022 | K07516 | K01825 | K01782 | K07514] & [K01692 | K01825 | K01782 | K07515 | K07514 | K07511 | K01715] & K00248	Acetyl-CoA ↔ acetoacetyl-CoA ↔ 3-hydroxybutyryl-CoA ↔ crotonyl-CoA ↔ butyryl-CoA
+	Butyrate-1	K00634 & K00929 & K00248	Butyryl-CoA to butyryl-phosphate to butyrate
+	Butyrate-2	[[K01034 & K01035] | K19709]	Acetyl-CoA to butyryl-CoA to butyrate through CoA transfer; context-supported, not uniquely specific
+	Butyrate-3	K01913	Butyrate to butyryl-CoA; not butyrate specific
+	Acetyl-CoAtoButyryl-CoA 	K00626 & [K00074 | K00022 | K07516 | K01825 | K01782 | K07514] & [K01692 | K01825 | K01782 | K07515 | K07514 | K07511 | K01715] & K00248	Acetyl-CoA to acetoacetyl-CoA to 3-hydroxybutyryl-CoA to crotonyl-CoA to butyryl-CoA
 
 	Lactate-Final	@Lactate-1 | @Lactate-2 | @Lactate-3 | @Lactate-4	Lactate-associated metabolism
-	Lactate-1	K00016	Pyruvate ↔ L-lactate; NAD-dependent LDH
-	Lactate-2	K03778	Pyruvate ↔ D-lactate; NAD-dependent LDH
-	Lactate-3	K00101 | K29125	L-lactate → pyruvate; cytochrome-/quinone-dependent LDH
-	Lactate-4	K00102	D-lactate → pyruvate; cytochrome-dependent LDH
+	Lactate-1	K00016	Pyruvate to L-lactate; NAD-dependent LDH
+	Lactate-2	K03778	Pyruvate to D-lactate; NAD-dependent LDH
+	Lactate-3	K00101 | K29125	L-lactate to pyruvate; cytochrome-/quinone-dependent LDH
+	Lactate-4	K00102	D-lactate to pyruvate; cytochrome-dependent LDH
 
-	phototroph	@Phototroph-Oxygenic | @Phototroph-AnoxygenicType2 | @Phototroph-AnoxygenicType1
-	Phototroph-Oxygenic	[K02703 & K02706] & [K02689 & K02690]
-	Phototroph-AnoxygenicType2	K08928 & K08929
-	Phototroph-AnoxygenicType1	K08940
+	PhototrophAllTypes	PF00223 | [K08928 & K08929]
+	Phototroph-Oxygenic	K02703 & K02706 & K02689 & K02690
+	AnoxygenicTypeIISubtype	K08928 & K08929
+	AnoxygenicTypeIPscASubtype	K08940
+	PotentialAnoxygenicDivergentTypeISubtype	PF00223 & not(@Phototroph-Oxygenic | @AnoxygenicTypeIISubtype | @AnoxygenicTypeIPscASubtype)
+	RhodopsinAllTypes	PF01036
+	Bacteriorhodopsin	K04641
 
 	CO2fixation	@Calvin | @ReductiveCitricAcid |@HydroxypropionateHydroxybutylate| @HydroxypropionateHydroxybutylate| @DicarboxylateHydroxybutyrate | @ReductiveAcetylCoAWoodLjungdahl | @ReductiveGlycinePathway
 	Calvin	@RibuloseBisphosphateCarboxylase&@CalvinCycle50p
@@ -101,11 +105,18 @@ name	alias	rule
 	HydrogenUse	NiFe_group1 | NiFe_group2 | NiFe_group3 | NiFe_group4 | FeFe_groupA | FeFe_groupB | FeFe_groupC | FeFe_groupE | FeFe_groupF
 
 	Fermenter	not(@NegativeForFermenter) &  [@Lactate-Final | @Ethanol | @Acetate-Final | @Butyrate-Final | @Propionate-Final] & [K00850 | K00873 | K01690 | K01625 | K00615 | K00616]
-	NegativeForFermenter	@ETC50 | @Methanogen | @Denitrifier | @Sulfatereducer | @AerobicAmmoniaOxidizer | @Aerobe | @Microaerophillic | @phototroph | @Non-sulfate-sulfur-reduction | @IronReduction
+	NegativeForFermenter	@ETC50 | @Methanogen | @Denitrifier | @Sulfatereducer | @AerobicAmmoniaOxidizer | @Aerobe | @Microaerophillic | @PhototrophAllTypes | @Non-sulfate-sulfur-reduction | @IronReduction | @SulfiteRed
 	Denitrifier	@ETC50 & [[@NarNitrateReductase | @NapNitrateReductase] | @NitriteReductase | @NitricOxideReductase | @NitrousOxideReductase]
 	NitrousOxideReductase	K00376 | EC:1.7.2.4
 	NitricOxideReductase	K04561 | K15877 | EC:1.7.2.5
 	NitriteReductase	K00368 | K15864 | EC:1.7.2.1
+
+	AcetogenOrAcetateOxidizer	@ReductiveAcetylCoAWoodLjungdahl_Bacterial & @AcetateKinase & @PhosphateAcetyltransferase & @AcetogenEnergyConservation & not(@Sulfatereducer)
+	AcetateKinase	K00925
+	PhosphateAcetyltransferase	K13788|K00625
+	AcetogenEnergyConservation	@RNFcomplex | @ECHcomplex
+	RNFcomplex	at_least(3, PRESENCE, [K03612,K03613,K03614,K03615,K03616,K03617])
+	ECHcomplex	at_least(3, PRESENCE, [K14086,K14087,K14088,K14089,K14090,K14091])
 
 	Aerobe	[@CytochromeCOxidase | @CytochromeAa3600MenaquinolOxidase | @CytochromeOUbiquinolOxidase] & @ETC50
 	CytochromeCOxidase	K02275 | K02274 | K02276 | K15408 | K02277
@@ -164,21 +175,21 @@ name	alias	rule
 	mtrCAB	MtrA & @mtoAB & MtrC_TIGR03507
 	ExtABCD	ExtA_pcc_cyt | ExtB_porin | ExtC_pcc_lp_cyt | ExtD_pcc_lp_cyt
 
-	IronOxidation	[@Cyc2 |  @mtoAB | @foxEYZ ] & [@Microaerophillic | @Aerobe | @Sulfatereducer | @Denitrifier | @phototroph]
+	IronOxidation	[@Cyc2 |  @mtoAB | @foxEYZ ] & [@Microaerophillic | @Aerobe | @Sulfatereducer | @Denitrifier | @PhototrophAllTypes]
 	Cyc2	at_least(2, COUNTS, [Cyc2_repCluster1, Cyc2_repCluster2, Cyc2_repCluster3])
 	foxEYZ	FoxE & FoxY & FoxZ
 	mtoAB	MtrB_TIGR03509
 
 	Sulfatereducer	@DsrABtyper & [K00958 | K00394 |K00395]
-	DsrABtyper	dsrAr | dsrBr
-	SulfiteRed	dsrAr | dsrBr
+	DsrABtyper	dsrAr | dsrBr | dsrAr_arch | dsrBr_arch
+	SulfiteRed	@DsrABtyper
 	TetrathionateRed	at_least(2, PRESENCE, [K08359, K08358, K08357])
 	ThiosulfateRed	at_least(2, PRESENCE, [K08352, K08353, K08354])
 	ElementalSRed	at_least(2, PRESENCE, [K17219, K17220, K17221])
 	Non-sulfate-sulfur-reduction	@TetrathionateRed |@ThiosulfateRed | @SulfiteRed | @ElementalSRed
 
 	sulfateoxidizer	[@DsrABtypeo | @SoeABC | @SorAB | @Sqr | @FccAB | @SoxXA | @SoxYZ | @SoxB | @SoxCD] & @ETC50
-	DsrABtypeo	K11180 | dsrA | dsrB | K11181
+	DsrABtypeo	dsrAo | dsrBo
 	SoeABC	K21307 | K21308 | K21309
 	SorAB	K05301 | K00386
 	Sqr	sqr_alignment | K17218
@@ -192,7 +203,7 @@ name	alias	rule
 	Methanogen	@MethylCoenzymeMReductase
 	MethylCoenzymeMReductase	@McrAor3999 | K00401 | K00402
 	notOtherMethanogen	not(@OtherAjMethanogen)
-	OtherAjMethanogen	@Sulfatereducer | @Denitrifier | @AerobicAmmoniaOxidizer |@Comammox | @Annamox | @phototroph | @ETC60
+	OtherAjMethanogen	@Sulfatereducer | @Denitrifier | @AerobicAmmoniaOxidizer |@Comammox | @Annamox | @PhototrophAllTypes | @ETC60
 
 	hydrogenotrophic	[[[@Methanogen] & @ReductiveAcetylCoAWoodLjungdahl_Archaeal_MethylOnly & @TetrahydromethanopterinSMethyltransferase_MTRcomplex & [ @Frh_hydrogenase |@Mvh_hydrogenase |@Eha_hydrogenase |@Ehb_hydrogenase |@Fdo_hydrogenase |@FormateDehydrogenase_1|@FdhF|@FdhAB ]] | [[tax(o__Methanoflorentales)|tax(g__Methanobacterium_A)|tax(g__Methanobacterium_C)|tax(g__Methanobacterium_E)|tax(g__Methanobacterium_F)|tax(g__Methanobacterium)|tax(g__Methanobrevibacter_A)|tax(g__Methanobrevibacter)|tax(g__Methanothermobacter_A)|tax(g__Methanothermobacter)|tax(g__Methanothermus)|tax(f__Methanobacteriaceae)|tax(g__Methanocella_A)|tax(g__Methanocella)|tax(g__Methanooceanicella)|tax(o__Methanococcales)|tax(o__Methanomicrobiales)|tax(g__Methanopyrus)|tax(o__Nezhaarchaeales)|tax(g__Methanolacinia)|tax(g__Methanobacterium_B)|tax(g__Methanobacterium_D)|tax(g__Methanosarcina)] & not(tax(g__Methanosphaera))]] & not([@Methanogen] & [tax(g__Methanocomedens_A)|tax(g__Methanocomedens_B)|tax(g__Methanogaster_A)|tax(g__Methanogaster_B)|tax(g__Methanoperedens_A)|tax(g__Methanoperedens)|tax(g__ANME-1-THS)|tax(g__ANME1a)|tax(g__G60ANME1)|tax(g__Methanophaga)|tax(g__Methanovorans)|tax(g__Methanomarinus)|tax(g__Methanoxibalbensis)|tax(g__Methanospirare)|tax(g__Kmv04)|tax(g__Methanogaster_C)|tax(g__Methanogaster_D)|tax(g__CAZCRM01)|tax(g__UBA10536)|tax(g__Methanoxibalbensis)])
 	ReductiveAcetylCoAWoodLjungdahl_Archaeal_MethylOnly	at_least(4, PRESENCE, [ @FormylmethanofuranDehydrogenase, @Formylmethanofuran-Tetrahydromethanopterin-N-formyltransferase, @MethenyltetraydromethanopterinCyclohydrolase, @MethelenetetraydromethanopterinDehydrogenaseand510-MethenyltetrahydromethanopterinHydrogenase , @510-MethylenetetrahydromethanopterinReductase ])
@@ -302,26 +313,63 @@ name	alias	rule
 	Urease	[K01428&K01429&K01430]
 
 	ArsenicResistanceBroad	K03893 | K03325 | K11811 | K07089
-	ArsenicDetoxification	[K00537 | K03741] & [K03893 | K03325]
+	ArsenateReductionDetox	K00537 | K03741
+	ArseniteExportDetox	K03893 | K03325
 	ArseniteOxidation	K08355 & K08356
 	RespiratoryArsenateReduction	K28466 & K28467
 	ArsenicMethylation	K07755
 	ArsenateReductionPotential	K00537 | K03741 | [K28466 & K28467]
 
-	MercuryReduction	K00520
-	MercuryDetox	K00520 & [K08363 | K19058 | K19059]
+	MercuryReduction	K00520 | merA
+	MercuryExport 	[K08363 | K19058 | K19059] | [merC | merE | merF]
 	MercuryMethylation	HgcA
 	OrganomercuryDegradation	K00221
 
-	GeneralHeavyMetalEfflux	@CopperEfflux | @CadmiumZincEfflux | @DivalentMetalEfflux | @NickelCobaltEfflux | @ZincEfflux | @SilverEfflux | @ChromateEfflux
-	CopperEfflux	K17686 | K01533 | [K07787 & K07798 & K07796]
-	CadmiumZincEfflux	K01534
-	DivalentMetalEfflux	K15726 & K15727 & K15725
+	GeneralHeavyMetalEfflux 	@CopperEfflux | @CadmiumZincEfflux | @DivalentMetalEfflux | @NickelCobaltEfflux | @CobaltZincCadmiumEfflux | @SilverEfflux | @ChromateEfflux
+	CopperEfflux	K17686 | K01533 | [K07787 & K07798 & K07796] | copA | copB
+	CadmiumZincEfflux	K01534 | zntA-yhhO
+	DivalentMetalEfflux	[K15726 | czcA] & [K15727 | czcB] & [K15725 | czcC]
 	NickelCobaltEfflux	K08970 | [K11326 & K11327 & K11331]
-	ZincEfflux	K16264
-	SilverEfflux	K23254
+	CobaltZincCadmiumEfflux	K16264 | zitB-ybgR
 	ChromateEfflux	K07240
+	SilverResistance	silF | silE
+	SilverEfflux	K23254 | silP
+	ChromateReductase	K19784
 
 	PossibleSelenateReduction	@SelenateChlorateReduction | @SelenateReductionSrd
-	SelenateChlorateReduction	K17050 & K17051 & K17052
+	SelenateChlorateReduction 	K17050 & K17051 & K17052
 	SelenateReductionSrd	K27874 & K27875 & K27876
+
+	ExtracellularAspartic	A01
+	ExtracellularCysteine	C01 | C10 |  C25
+	ExtracellularGlutamic	G01
+	ExtracellularMetallo	M04 | M09 | M10 | M12 | M36
+	ExtracellularSerine	S01 | S08 | S53
+
+	EpsProduction	at_least(2, PRESENCE, [K20997, K21001, K21154, K25902, K25904, K25906, K25205, K21461])
+	QuorumSensing	[[K13060 | K13061] & [K18304 | K18099]] | K07173 | at_least(2, PRESENCE, [K10555, K10556, K10557, K10558])
+	Motility	[K02410 | K02411] & at_least(3, PRESENCE, [K02406, K02407, K02400, K02408, K02409, K02412, K02416, K02417, K02386, K02387, K02391, K02393, K02404, K02405])
+
+	IonBalance-saltinpotential	[K01546 & K01547] | [K05565 & at_least(3, PRESENCE, [K05566, K05567, K05568, K05569, K05570, K05571])] | [K03499 & K03498]
+	GlycineBetaineSynthesis	[[K00108 | K11440] & K00130] | [K18896 & K18897]
+	EctoineSynthesis	K06718 & K00836 & K06720
+	TrehaloseSynthesis	[K00697 & K01087] | [K01236 & K06044] | K05343
+	MannitolSynthesis	[K00009 & K19270]
+	GlycosylatedSynthesis	[K03692 & K05978] | [K05947 & K07026] | K18818
+	SugarDerivedCompatibleSoluteSynthesis	@TrehaloseSynthesis | @MannitolSynthesis |@GlycosylatedSynthesis
+	MethylatedCompatibleSoluteTransport	K02168 | K03451 | K05245 | K03762 | K05020 | [K02000 & K02001 & K02002] | at_least(2, PRESENCE, [K05845, K05846, K05847]) | at_least(2, PRESENCE, [K10036, K10037, K10038])
+	EctoineTransport	at_least(2, PRESENCE, [K02028, K02029, K02030])
+	SugarDerivedTransport	at_least(2, PRESENCE, [K10227, K10228, K10229, K10230]) | at_least(2, PRESENCE, [K02783, K02781, K02782]) | K02798 | at_least(2, PRESENCE, [K10109, K10110, K10111]) | K17314
+
+	Tetracycline-inactivation	3000036
+	Tetracycline-efflux	0010002 | 0010001
+	Tetracycline-protection	0000002
+	Macrolide-efflux	0010002
+	Macrolide-inactivation	3000320 | 3000333
+	Macrolide-alteration	3000560
+	Beta-lactam-inactivation	3000059|3000056|3000069|3000066|3000020|3000057|3000021|3007721|3002998|3004192|3003000|3000068|3000067|3000058|3000043|3000073|3002384|3000014|3004824|3000083|3007696|3007697|3007704|3002994|3000015|3000091|3007723|3007735
+	Sulfoamide-target-replacement	3000410 | 3000412 | 3000413 | 3004361
+	Aminoglycoside-inactivation	3007419 | 3000114 | 3000322 | 3000345 | 3004275 | 3000126 | 3000127 | 3002601
+	Aminoglycoside-alteration	3004271 | 3004272
+	Aminoglycosde-efflux	3000491 | 3003841
+	MultidrugEfflux	3003038 | 3003032 | 3000386 | 3000384 | 3000503 | 3000773 | 3000788 | 3000797 | 3000815

@@ -1,4 +1,4 @@
-gene_id	gene_description	module	subheader	topic_ecosystem	notes
+﻿gene_id	gene_description	module	subheader	topic_ecosystem	notes
 K00370	narG, nitrate reductase, alpha subunit [EC:1.7.99.-] [RN:R00798]	Nitrogen Cycling	Nitrification, Comammox, Denitrification, DNRA	eng_sys	Nitrite Oxidation to Nitrate (Nitrification), Complete Ammonia Oxidation (Comammox), Nitrate Reduction to Nitrite, DNRA (NO3 to NH4)
 K00371	narH, nitrate reductase, beta subunit [EC:1.7.99.-] [RN:R00798]	Nitrogen Cycling	Nitrification, Comammox, Denitrification, DNRA	eng_sys	Nitrite Oxidation to Nitrate (Nitrification), Complete Ammonia Oxidation (Comammox), Nitrate Reduction to Nitrite, DNRA (NO3 to NH4)
 K00149	aldehyde dehydrogenase family 9 member A1	Fermentation End Products	Organic Acids, Alcohols, Other Carbon, Biocide Resistance	eng_sys	Acetate Production, Ethanol Production, Ethylene Glycol Degradation, Aldehyde Resistance

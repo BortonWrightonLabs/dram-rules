@@ -1,4 +1,4 @@
-gene_id	gene_description	module	subheader	topic_ecosystem	note	reference	count	pathway
+﻿gene_id	gene_description	module	subheader	topic_ecosystem	note	reference	count	pathway
 ExtABCD		"Nutrient Cycling , Redox Ladder"	Iron Reduction	bgc
 FmnA	fegenie db: HMM	"Nutrient Cycling , Redox Ladder"	Iron Reduction	bgc
 MtrA	fegenie db: HMM	"Nutrient Cycling , Redox Ladder"	Iron Reduction	bgc

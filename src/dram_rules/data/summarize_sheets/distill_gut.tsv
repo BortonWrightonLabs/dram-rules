@@ -1,4 +1,4 @@
-gene_id	gene_description	pathway	module	subheader	topic_ecosystem
+﻿gene_id	gene_description	pathway	module	subheader	topic_ecosystem
 K01182	sucrase-isomaltase [EC:3.2.1.48]	Sucrose and starch metabolism (sucrase–isomaltase complex)	Carbon Processing	Sugars	gut
 K01203	β-fructofuranosidase [EC:3.2.1.26]	Fructose and mannose metabolism (β-fructofuranosidase)	Carbon Processing	Sugars	gut
 K12047	sucrose phosphorylase [EC:2.4.1.7]	Sucrose metabolism (sucrose phosphorylase)	Carbon Processing	Sugars	gut

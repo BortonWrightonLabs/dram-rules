@@ -1,4 +1,4 @@
-name	rule	module	group	notes
+﻿name	rule	module	group	notes
 Cellulose	@Cellulose	Carbon Transformations	Polymer	Cellulose-associated hydrolytic and oxidative enzymes; includes endoglucanases, cellobiohydrolases, and LPMOs.
 Hemicellulose	@Hemicellulose	Carbon Transformations	Polymer	Includes xylan, mannan, xyloglucan, and galactan-associated enzymes.
 Pectin	@Pectin	Carbon Transformations	Polymer	Includes polygalacturonases, pectin/pectate lyases, and enzymes targeting pectin side chains.
@@ -49,22 +49,22 @@ DNRA NrfA only, NO2 To NH4	@nrfA	Inorganic Nitrogen Transformation	Dissimilatory
 Urea Transport	K11963	Nutrient Transporters	Selected Nitrogen Transporters
 Ammonium Transport	K03320	Nutrient Transporters	Selected Nitrogen Transporters
 Nitrate/Nitrite Transporter	K02575	Nutrient Transporters	Selected Nitrogen Transporters
-Oxygen Reduction - Low Affinity	[percent(50,@CytochromeCOxidase)|percent(50,@CytochromeAa3600MenaquinolOxidase)|percent(50,@CytochromeOUbiquinolOxidase)]		Other Respiratory Redox Processes	Respiratory Redox Processes	Oxygen Reduction
-Oxygen Reduction - High Affinity	[@percent50CytochromeBDUbiquinolOxidase|@percent50CytochromeCOxidaseCBB3]		Other Respiratory Redox Processes	Respiratory Redox Processes	Oxygen Reduction
-Iron Oxidation	@IronOxidation		Other Respiratory Redox Processes	Iron Reduction and Oxidation
-Iron Reduction	@IronReduction		Other Respiratory Redox Processes	Iron Reduction and Oxidation
-Sulfur Oxidation	@sulfateoxidizer		Other Respiratory Redox Processes	Sulfur Reduction and Oxidation
-Sulfate Reduction	@Sulfatereducer		Other Respiratory Redox Processes	Sulfur Reduction and Oxidation
-Non-sulfate-sulfur-reduction	@Non-sulfate-sulfur-reduction		Other Respiratory Redox Processes	Sulfur Reduction and Oxidation
-Phototrophy	@phototroph		Other Metabolic Systems
-Obligate Fermenter	@Fermenter		Other Metabolic Systems
-Hydrogenase	@HydrogenUse		Other Metabolic Systems
-ATP synthase	at_least(4, PRESENCE, [K02111,K02112,K02113,K02114,K02115,K02108,K02109,K02110])|at_least(5, PRESENCE, [K02117,K02118,K02119,K02120,K02121,K02122,K02107,K02123,K02124])|at_least(10, PRESENCE, [K02132,K02133,K02136,K02134,K02135,K02137,K02126,K02127,K02128,K02138,K02129,K01549,K02130,K02139,K02140,K02141,K02131,K02142,K02143,K02125])|at_least(7, PRESENCE, [K02145,K02147,K02148,K02149,K02150,K02151,K02152,K02144,K02154,K03661,K02155,K02146,K02153,K03662])		Other Metabolic Systems
-Candidate Extracellular Aspartic Peptidases	A01	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyze peptide bonds in proteins using an aspartic acid catalytic mechanism. Selected MEROPS families include extracellular proteases; confirm cellular localization.
-Candidate Extracellular Cysteine Peptidases	C01 | C10 |  C25	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyze proteins and peptides using a cysteine catalytic mechanism. Selected families include extracellular and intracellular enzymes; confirm cellular localization.
-Candidate Extracellular Glutamic Peptidases	G01	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyze proteins using a glutamic acid catalytic mechanism, including secreted fungal proteases. Confirm cellular localization.
-Candidate Extracellular Metallo Peptidases	M04 | M09 | M10 | M12 | M36	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyze proteins and peptides using metal-dependent catalysis. Selected families include extracellular proteases; confirm cellular localization.
-Candidate Extracellular Serine Peptidases	S01 | S08 | S53	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyze proteins and peptides using a serine catalytic mechanism. Selected families include secreted and intracellular proteases; confirm cellular localization.
+Oxygen Reduction - Low Affinity	[percent(50,@CytochromeCOxidase)|percent(50,@CytochromeAa3600MenaquinolOxidase)|percent(50,@CytochromeOUbiquinolOxidase)]	Other Respiratory Redox Processes	Respiratory Redox Processes	Oxygen Reduction
+Oxygen Reduction - High Affinity	[@percent50CytochromeBDUbiquinolOxidase|@percent50CytochromeCOxidaseCBB3]	Other Respiratory Redox Processes	Respiratory Redox Processes	Oxygen Reduction
+Iron Oxidation	@IronOxidation	Other Respiratory Redox Processes	Iron Reduction and Oxidation
+Iron Reduction	@IronReduction	Other Respiratory Redox Processes	Iron Reduction and Oxidation
+Sulfur Oxidation	@sulfateoxidizer	Other Respiratory Redox Processes	Sulfur Reduction and Oxidation
+Sulfate Reduction	@Sulfatereducer	Other Respiratory Redox Processes	Sulfur Reduction and Oxidation
+Non-sulfate-sulfur-reduction	@Non-sulfate-sulfur-reduction	Other Respiratory Redox Processes	Sulfur Reduction and Oxidation
+Phototrophy	@PhototrophAllTypes	Other Metabolic Systems
+Obligate Fermenter	@Fermenter	Other Metabolic Systems
+Hydrogenase	@HydrogenUse	Other Metabolic Systems
+ATP synthase	at_least(4, PRESENCE, [K02111,K02112,K02113,K02114,K02115,K02108,K02109,K02110])|at_least(5, PRESENCE, [K02117,K02118,K02119,K02120,K02121,K02122,K02107,K02123,K02124])|at_least(10, PRESENCE, [K02132,K02133,K02136,K02134,K02135,K02137,K02126,K02127,K02128,K02138,K02129,K01549,K02130,K02139,K02140,K02141,K02131,K02142,K02143,K02125])|at_least(7, PRESENCE, [K02145,K02147,K02148,K02149,K02150,K02151,K02152,K02144,K02154,K03661,K02155,K02146,K02153,K03662])	Other Metabolic Systems
+Candidate Extracellular Aspartic Peptidases	@ExtracellularAspartic	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyze peptide bonds in proteins using an aspartic acid catalytic mechanism. Selected MEROPS families include extracellular proteases; confirm cellular localization.
+Candidate Extracellular Cysteine Peptidases	@ExtracellularCysteine	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyze proteins and peptides using a cysteine catalytic mechanism. Selected families include extracellular and intracellular enzymes; confirm cellular localization.
+Candidate Extracellular Glutamic Peptidases	@ExtracellularGlutamic	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyze proteins using a glutamic acid catalytic mechanism, including secreted fungal proteases. Confirm cellular localization.
+Candidate Extracellular Metallo Peptidases	@ExtracellularMetallo	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyze proteins and peptides using metal-dependent catalysis. Selected families include extracellular proteases; confirm cellular localization.
+Candidate Extracellular Serine Peptidases	@ExtracellularSerine	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyze proteins and peptides using a serine catalytic mechanism. Selected families include secreted and intracellular proteases; confirm cellular localization.
 Urease	@Urease	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyzes urea to ammonia and carbon dioxide, contributing directly to N mineralization. Can be intracellular, cell-associated, or extracellular; confirm cellular localization.
 Amidase	K01426	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyzes amides to release ammonia and corresponding organic acids, contributing to N mineralization. Often intracellular; confirm cellular localization.
 Formamidase	K01455	Nutrient Assimilation and Transport	Organic Nitrogen Mineralization	Hydrolyzes formamide to formate and ammonia, contributing to N mineralization. Typically intracellular; confirm cellular localization.
@@ -96,16 +96,19 @@ Arsenite Oxidation Potential	@ArseniteOxidation	Environmental Adaptation	Other M
 Arsenate Reduction Potential	@ArsenateReductionPotential	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	Converts As(V) to As(III), potentially increasing mobility and plant exposure; ArsC (K00537, K03741) mediates cellular detoxification and may not result in substantial environmental As(III) release.
 Arsenic Methylation	@ArsenicMethylation	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	Produces methylated arsenic species with variable toxicity, mobility, and plant uptake.
 Mercury Reduction	@MercuryReduction	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	MerA reduces Hg(II) to volatile Hg(0), affecting mercury mobility and atmospheric release.
+Mercury Export	@MercuryExport	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance
 Mercury Methylation	@MercuryMethylation	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	HgcA indicates potential for methylmercury production, increasing toxicity and bioaccumulation risk.
 Organic Mercury Degradation	@OrganomercuryDegradation	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	MerB cleaves organomercury compounds, including methylmercury, releasing Hg(II).
 Copper Efflux	@CopperEfflux	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance	Detects microbial copper export systems associated with resistance to excess copper from fungicides, manure, and other agricultural inputs.
+Zinc/Cadmium/Cobalt/Nickel Efflux	@CadmiumZincEfflux |@DivalentMetalEfflux | @NickelCobaltEfflux | @CobaltZincCadmiumEfflux 	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance
+Chromium/Silver Efflux	@ChromateEfflux |@SilverEfflux	Environmental Adaptation	Other Metal and Trace Element Transformation and Resistance
 Atrazine Degradation Pathway	K05394 & K03382 & K08710	Environmental Adaptations	Possible Pesticide Degradation	AtzA, AtzB, and AtzC catalyze sequential atrazine degradation to cyanuric acid. Does not indicate complete mineralization.
 Initial 2,4-D Degradation	K06912	Environmental Adaptations	Possible Pesticide Degradation	TfdA, which initiates 2,4-D herbicide degradation to 2,4-dichlorophenol. Does not indicate complete degradation or mineralization
 Initial Pyrethroid Degradation	K20992	Environmental Adaptations	Possible Pesticide Degradation	Pyrethroid hydrolase (PytH) cleaves ester bonds in pyrethroid insecticides. Indicates potential degradation, not complete mineralization.
-Sugar Derived	[K00697 & K01087] | [K01236 & K06044] | K05343 | [K00009 & K19270]	Environmental Adaptations	Potential Osmoprotection
-Glycosylated	[K03692 & K05978] | [K05947 & K07026] | K18818	Environmental Adaptations	Potential Osmoprotection
-Amino Acid Derived	[K00931 & K00147 & K00286] | [K06718 & K00836 & K06720]	Environmental Adaptations	Potential Osmoprotection
-Glycine betaine related	[[K00108 | K11440] & K00130] | [K18896 & K18897]	Environmental Adaptations	Potential Osmoprotection
 Superoxide	@Superoxide	Environmental Adaptations	Oxidative Defense
 Peroxide-catalase	@Peroxide-catalase	Environmental Adaptations	Oxidative Defense
 Peroxide-peroxiredoxin	@Peroxide-peroxiredoxin	Environmental Adaptations	Oxidative Defense
+Compatible-Solutes: Trehalose Synthesis	@TrehaloseSynthesis	Environmental Adaptation	Osmoregulation
+Compatible-Solutes: Other Sugar-Derived Compounds Synthesis	@SugarDerivedCompatibleSoluteSynthesis	Environmental Adaptation	Osmoregulation
+Compatible-Solutes: Ectoine Synthesis	@EctoineSynthesis	Environmental Adaptation	Osmoregulation
+Compatible-Solutes: Glycine Betaine Synthesis	@GlycineBetaineSynthesis	Environmental Adaptation	Osmoregulation

@@ -526,6 +526,18 @@ def load_rules(
         pl.col(label_col).str.strip_chars(), pl.col(alias_col).str.strip_chars()
     )
 
+    labels = (
+        lf.filter(pl.col(label_col).is_not_null() & (pl.col(label_col) != ""))
+        .select(label_col)
+        .collect()
+        .to_series()
+    )
+    duplicate_labels = labels.filter(labels.is_duplicated()).unique().sort().to_list()
+    if duplicate_labels:
+        raise RuleError(
+            f"Rule column '{label_col}' needs to be unique. Duplicate labels: {duplicate_labels}"
+        )
+
     rules = {
         a: b
         for a, b in lf.filter(~pl.col(label_col).is_null())
