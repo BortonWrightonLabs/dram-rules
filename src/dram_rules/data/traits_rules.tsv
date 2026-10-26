@@ -1,5 +1,5 @@
 name	rule	rule_options	topic_ecosystem
-phototroph	@phototroph		traits
+phototroph	@PhototrophAllTypes		traits
 CO2-fixation	@CO2fixation		traits
 hydrogen-metabolism	@HydrogenUse		traits
 obligate-fermenter	@Fermenter		traits

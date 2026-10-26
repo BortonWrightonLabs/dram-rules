@@ -51,8 +51,8 @@ RULES_SYSTEMS = {
     "default": Path(__file__).parent / "data/rules.tsv",
     "ag": Path(__file__).parent / "data/rules_ag.tsv",
     "bgc": Path(__file__).parent / "data/rules_bgc.tsv",
-    # "aquatic": Path(__file__).parent / "data/rules_aquatic.tsv",
-    # "eng_sys": Path(__file__).parent / "data/rules_eng_sys.tsv",
+    "aquatic": Path(__file__).parent / "data/rules_aquatic.tsv",
+    "eng_sys": Path(__file__).parent / "data/rules_eng_sys.tsv",
     "gut": Path(__file__).parent / "data/rules_gut.tsv",
 }
 
@@ -451,6 +451,8 @@ def main(
             dfs["genome"][key] = tax_df.join(df, on="genome", how="left")
 
     del raw_anno
+
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     if save_dataframes:
         for df_type, dfs_dict in dfs.items():

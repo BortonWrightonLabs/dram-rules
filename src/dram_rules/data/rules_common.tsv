@@ -1,31 +1,32 @@
 name	alias	rule	notes
-	Acetate-Final	@Acetate-1 | @Acetate-2 | @Acetate-3 | @Acetate-4 | @Acetate-5	Acetate-associated metabolism
-	Acetate-1	K24012 | [K01905 & K22224]	Acetyl-CoA ‚Üî acetate; shared activity with propionate
-	Acetate-2	K01568 & [K00138 | K00128 | K14085 | K00149 | K00129]	Pyruvate ‚Üí acetaldehyde ‚Üí acetate
-	Acetate-3	[[K00625 | K13788 | K15024] & K00925] | K00156	Acetyl-CoA ‚Üî acetyl-phosphate ‚Üî acetate
-	Acetate-4	K01621 & K00925	Xylulose-5-phosphate/fructose-6-phosphate ‚Üí acetyl-phosphate ‚Üí acetate
-	Acetate-5	K01895 | K01913 | K01907	Acetate ‚Üí acetyl-CoA; not acetate specific
+	Acetate-Final	@Acetate-1 | @Acetate-2 | @Acetate-3 | @Acetate-4 | @Acetate-5 | @Acetate-6	Acetate-associated metabolism
+	Acetate-1	K24012 | [K01905 & K22224]	Acetyl-CoA to acetate; shared activity with propionate
+	Acetate-2	K01568 & [K00138 | K00128 | K14085 | K00149 | K00129]	Pyruvate to acetaldehyde to acetate
+	Acetate-3	[K00625 | K13788 | K15024] & K00925	Acetyl-CoA to acetyl-phosphate ‚Üî acetate
+	Acetate-4	K01621 & K00925	Xylulose-5-phosphate/fructose-6-phosphate to acetyl-phosphate to acetate
+	Acetate-5	K01895 | K01913	Acetate to acetyl-CoA; not acetate specific
+	Acetate-6	K00156	Pyruvate to acetate
 
 	Propionate-Final	@Propionate-1 | @Propionate-2 | @Propionate-3 | @Propionate-4	Propionate-associated metabolism
-	Propionate-1	[K01847 | [K01848 & K01849]] & K05606 & [K11264 | K18426 | [K01604 & K23351 & K20509]] & @Propionate-terminal	Succinyl-CoA ‚Üí methylmalonyl-CoA ‚Üí propionyl-CoA ‚Üí propionate
-	Propionate-2	K20626 & K20627 & [K00248 | K20143] & @Propionate-terminal	Lactate ‚Üí lactoyl-CoA ‚Üí acryloyl-CoA ‚Üí propionyl-CoA ‚Üí propionate
-	Propionate-3	K01699 & K13919 & K13920 & K13922 & @Propionate-terminal	1,2-Propanediol ‚Üí propionaldehyde ‚Üí propionyl-CoA ‚Üí propionate
-	Propionate-4	K01908	Propionate ‚Üí propionyl-CoA
-	Propionate-terminal	K22214| K01026 | K24012 | [K01905 & K22224] | [K13923 & [K00932 | K19697]]	Propionyl-CoA ‚Üî propionate; broad alternatives require pathway context
+	Propionate-1	[K01847 | [K01848 & K01849]] & K05606 & [K11264 | K18426 | [K01604 & K23351 & K20509]] & @Propionate-terminal	Succinyl-CoA tomethylmalonyl-CoA to propionyl-CoA to propionate
+	Propionate-2	K20626 & K20627 & [K00248 | K20143] & @Propionate-terminal	Lactate to lactoyl-CoA to acryloyl-CoA to propionyl-CoA to propionate
+	Propionate-3	K01699 & K13919 & K13920 & K13922 & @Propionate-terminal	1,2-Propanediol to propionaldehyde to propionyl-CoA to propionate
+	Propionate-4	K01908	Propionate to propionyl-CoA
+	Propionate-terminal	K22214| K01026 | K24012 | [K01905 & K22224] | [K13923 & [K00932 | K19697]]	Propionyl-CoA to propionate; broad alternatives require pathway context
 
 	Butyrate-Final	@Butyrate-1 | @Butyrate-2 | @Butyrate-3	Butyrate-associated metabolism
-	Butyrate-1	K00634 & K00929 & K00248	Butyryl-CoA ‚Üî butyryl-phosphate ‚Üî butyrate
-	Butyrate-2	[[K01034 & K01035] | K19709]	Acetyl-CoA ‚Üî butyryl-CoA ‚Üî butyrate through CoA transfer; context-supported, not uniquely specific
-	Butyrate-3	K01913	Butyrate ‚Üí butyryl-CoA; not butyrate specific
-	Acetyl-CoAtoButyryl-CoA 	K00626 & [K00074 | K00022 | K07516 | K01825 | K01782 | K07514] & [K01692 | K01825 | K01782 | K07515 | K07514 | K07511 | K01715] & K00248	Acetyl-CoA ‚Üî acetoacetyl-CoA ‚Üî 3-hydroxybutyryl-CoA ‚Üî crotonyl-CoA ‚Üî butyryl-CoA
+	Butyrate-1	K00634 & K00929 & K00248	Butyryl-CoA to butyryl-phosphate to butyrate
+	Butyrate-2	[[K01034 & K01035] | K19709]	Acetyl-CoA to butyryl-CoA to butyrate through CoA transfer; context-supported, not uniquely specific
+	Butyrate-3	K01913	Butyrate to butyryl-CoA; not butyrate specific
+	Acetyl-CoAtoButyryl-CoA 	K00626 & [K00074 | K00022 | K07516 | K01825 | K01782 | K07514] & [K01692 | K01825 | K01782 | K07515 | K07514 | K07511 | K01715] & K00248	Acetyl-CoA to acetoacetyl-CoA to 3-hydroxybutyryl-CoA to crotonyl-CoA to butyryl-CoA
 
 	Lactate-Final	@Lactate-1 | @Lactate-2 | @Lactate-3 | @Lactate-4	Lactate-associated metabolism
-	Lactate-1	K00016	Pyruvate ‚Üî L-lactate; NAD-dependent LDH
-	Lactate-2	K03778	Pyruvate ‚Üî D-lactate; NAD-dependent LDH
-	Lactate-3	K00101 | K29125	L-lactate ‚Üí pyruvate; cytochrome-/quinone-dependent LDH
-	Lactate-4	K00102	D-lactate ‚Üí pyruvate; cytochrome-dependent LDH
+	Lactate-1	K00016	Pyruvate to L-lactate; NAD-dependent LDH
+	Lactate-2	K03778	Pyruvate to D-lactate; NAD-dependent LDH
+	Lactate-3	K00101 | K29125	L-lactate to pyruvate; cytochrome-/quinone-dependent LDH
+	Lactate-4	K00102	D-lactate to pyruvate; cytochrome-dependent LDH
 
-	PhototrophAllTypes	PF00223 | (K08928 & K08929)
+	PhototrophAllTypes	PF00223 | [K08928 & K08929]
 	Phototroph-Oxygenic	K02703 & K02706 & K02689 & K02690
 	AnoxygenicTypeIISubtype	K08928 & K08929
 	AnoxygenicTypeIPscASubtype	K08940
@@ -104,7 +105,7 @@ name	alias	rule	notes
 	HydrogenUse	NiFe_group1 | NiFe_group2 | NiFe_group3 | NiFe_group4 | FeFe_groupA | FeFe_groupB | FeFe_groupC | FeFe_groupE | FeFe_groupF
 
 	Fermenter	not(@NegativeForFermenter) &  [@Lactate-Final | @Ethanol | @Acetate-Final | @Butyrate-Final | @Propionate-Final] & [K00850 | K00873 | K01690 | K01625 | K00615 | K00616]
-	NegativeForFermenter	@ETC50 | @Methanogen | @Denitrifier | @Sulfatereducer | @AerobicAmmoniaOxidizer | @Aerobe | @Microaerophillic | @phototroph | @Non-sulfate-sulfur-reduction | @IronReduction | @SulfiteRed
+	NegativeForFermenter	@ETC50 | @Methanogen | @Denitrifier | @Sulfatereducer | @AerobicAmmoniaOxidizer | @Aerobe | @Microaerophillic | @PhototrophAllTypes | @Non-sulfate-sulfur-reduction | @IronReduction | @SulfiteRed
 	Denitrifier	@ETC50 & [[@NarNitrateReductase | @NapNitrateReductase] | @NitriteReductase | @NitricOxideReductase | @NitrousOxideReductase]
 	NitrousOxideReductase	K00376 | EC:1.7.2.4
 	NitricOxideReductase	K04561 | K15877 | EC:1.7.2.5
@@ -174,7 +175,7 @@ name	alias	rule	notes
 	mtrCAB	MtrA & @mtoAB & MtrC_TIGR03507
 	ExtABCD	ExtA_pcc_cyt | ExtB_porin | ExtC_pcc_lp_cyt | ExtD_pcc_lp_cyt
 
-	IronOxidation	[@Cyc2 |  @mtoAB | @foxEYZ ] & [@Microaerophillic | @Aerobe | @Sulfatereducer | @Denitrifier | @phototroph]
+	IronOxidation	[@Cyc2 |  @mtoAB | @foxEYZ ] & [@Microaerophillic | @Aerobe | @Sulfatereducer | @Denitrifier | @PhototrophAllTypes]
 	Cyc2	at_least(2, COUNTS, [Cyc2_repCluster1, Cyc2_repCluster2, Cyc2_repCluster3])
 	foxEYZ	FoxE & FoxY & FoxZ
 	mtoAB	MtrB_TIGR03509
@@ -202,7 +203,7 @@ name	alias	rule	notes
 	Methanogen	@MethylCoenzymeMReductase
 	MethylCoenzymeMReductase	@McrAor3999 | K00401 | K00402
 	notOtherMethanogen	not(@OtherAjMethanogen)
-	OtherAjMethanogen	@Sulfatereducer | @Denitrifier | @AerobicAmmoniaOxidizer |@Comammox | @Annamox | @phototroph | @ETC60
+	OtherAjMethanogen	@Sulfatereducer | @Denitrifier | @AerobicAmmoniaOxidizer |@Comammox | @Annamox | @PhototrophAllTypes | @ETC60
 
 	hydrogenotrophic	[[[@Methanogen] & @ReductiveAcetylCoAWoodLjungdahl_Archaeal_MethylOnly & @TetrahydromethanopterinSMethyltransferase_MTRcomplex & [ @Frh_hydrogenase |@Mvh_hydrogenase |@Eha_hydrogenase |@Ehb_hydrogenase |@Fdo_hydrogenase |@FormateDehydrogenase_1|@FdhF|@FdhAB ]] | [[tax(o__Methanoflorentales)|tax(g__Methanobacterium_A)|tax(g__Methanobacterium_C)|tax(g__Methanobacterium_E)|tax(g__Methanobacterium_F)|tax(g__Methanobacterium)|tax(g__Methanobrevibacter_A)|tax(g__Methanobrevibacter)|tax(g__Methanothermobacter_A)|tax(g__Methanothermobacter)|tax(g__Methanothermus)|tax(f__Methanobacteriaceae)|tax(g__Methanocella_A)|tax(g__Methanocella)|tax(g__Methanooceanicella)|tax(o__Methanococcales)|tax(o__Methanomicrobiales)|tax(g__Methanopyrus)|tax(o__Nezhaarchaeales)|tax(g__Methanolacinia)|tax(g__Methanobacterium_B)|tax(g__Methanobacterium_D)|tax(g__Methanosarcina)] & not(tax(g__Methanosphaera))]] & not([@Methanogen] & [tax(g__Methanocomedens_A)|tax(g__Methanocomedens_B)|tax(g__Methanogaster_A)|tax(g__Methanogaster_B)|tax(g__Methanoperedens_A)|tax(g__Methanoperedens)|tax(g__ANME-1-THS)|tax(g__ANME1a)|tax(g__G60ANME1)|tax(g__Methanophaga)|tax(g__Methanovorans)|tax(g__Methanomarinus)|tax(g__Methanoxibalbensis)|tax(g__Methanospirare)|tax(g__Kmv04)|tax(g__Methanogaster_C)|tax(g__Methanogaster_D)|tax(g__CAZCRM01)|tax(g__UBA10536)|tax(g__Methanoxibalbensis)])
 	ReductiveAcetylCoAWoodLjungdahl_Archaeal_MethylOnly	at_least(4, PRESENCE, [ @FormylmethanofuranDehydrogenase, @Formylmethanofuran-Tetrahydromethanopterin-N-formyltransferase, @MethenyltetraydromethanopterinCyclohydrolase, @MethelenetetraydromethanopterinDehydrogenaseand510-MethenyltetrahydromethanopterinHydrogenase , @510-MethylenetetrahydromethanopterinReductase ])
@@ -324,7 +325,7 @@ name	alias	rule	notes
 	MercuryMethylation	HgcA
 	OrganomercuryDegradation	K00221
 
-	GeneralHeavyMetalEfflux 	@CopperEfflux | @CadmiumZincEfflux | @DivalentMetalEfflux | @NickelCobaltEfflux | @ZincEfflux | @SilverEfflux | @ChromateEfflux
+	GeneralHeavyMetalEfflux 	@CopperEfflux | @CadmiumZincEfflux | @DivalentMetalEfflux | @NickelCobaltEfflux | @CobaltZincCadmiumEfflux | @SilverEfflux | @ChromateEfflux
 	CopperEfflux	K17686 | K01533 | [K07787 & K07798 & K07796] | copA | copB
 	CadmiumZincEfflux	K01534 | zntA-yhhO
 	DivalentMetalEfflux	[K15726 | czcA] & [K15727 | czcB] & [K15725 | czcC]

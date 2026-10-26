@@ -12,18 +12,16 @@ Hemicellulose	@Hemicellulose-Xylan | @Hemicellulose-Other		Carbon Processing	Pol
 Arabinogalactan	@Arabinogalactan		Carbon Processing	Polysaccharide Other
 Starch/Glycogen	@StarchGlycogen | @StarchSpecific		Carbon Processing	Polysaccharide Other
 Chitin	@Chitin		Carbon Processing	Polysaccharide Other
-Cellulose-Associated	@Cellulose-derived		Carbon Processing	Oligomer
-Hemicellulose-Associated	@Hemicellulose-derived-xylan | @Hemicellulose-derived-other		Carbon Processing	Oligomer
-Starch/Glycogen-Associated	@Starch-Glycogen-derived		Carbon Processing	Oligomer
-Chitin-Associated	@Chitin-derived | @Chitin-other-derived		Carbon Processing	Oligomer
+Cellulose-Associated	@BetaGlucosides		Carbon Processing	Oligomer
+Hemicellulose-Associated	@Xylooligosaccharides | @XyloglucanMannooligosaccharides | @XylanXylobiose		Carbon Processing	Oligomer
+Storage-Associated	@Fructooligosaccharides | @MaltooligosaccharidesAlphaGlucosides		Carbon Processing	Oligomer
+Chitin and Related Oligosaccharides	@Chitooligosaccharides | @NAcetylhexosaminides		Carbon Processing	Oligomer
 Alginate-Associated	PL14;4.2.2.26 | PL15;4.2.2.26 | PL17;4.2.2.26 | PL6;4.2.2.26 | PL7;4.2.2.26		Carbon Processing	Oligomer
 Agarose-Associated	GH117;3.2.1.159		Carbon Processing	Oligomer
 Cellobiose	@Cellobiose		Carbon Processing	Oligomer
 Maltose	@Maltose		Carbon Processing	Oligomer
 Sucrose	@Sucrose		Carbon Processing	Oligomer
 Trehalose	@Trehalose		Carbon Processing	Oligomer
-Xylan/Xylobiose	@XylanXylobiose		Carbon Processing	Oligomer
-Mannose/Mannobiose	@Mannose-Mannobiose		Carbon Processing	Oligomer
 Xylan/Xylobiose	@XylanXylobiose		Carbon Processing	Oligomer
 Mannose/Mannobiose	@Mannose-Mannobiose		Carbon Processing	Oligomer
 Glucose	@Glucose		Carbon Processing	Monosaccharide
@@ -67,12 +65,12 @@ DNRA, NO3 To NH4	@DNRA		Respiratory Redox Processes	Nitrogen Reduction
 Aerobic Ammonium Oxidation	@AerobicAmmoniaOxidizer		Respiratory Redox Processes	Nitrogen Oxidation
 Aerobic Nitrite Oxidation	@NitriteOxidoreductase		Respiratory Redox Processes	Nitrogen Oxidation
 Anaerobic Ammonia Oxidation Anammox	@Annamox		Respiratory Redox Processes	Nitrogen Oxidation
-Dissimilatory-Sulfate-Reduction	@Sulfatereducer		Respiratory Redox Processes	Sulfur Cycling	Sulfide Production	Dissimilatory sulfate reduction to sulfide (H2S); key souring mechanism in oil & gas systems. Requires adenylysulfate reductase (aprAB; K00394, K00395) and dissimilatory sulfite reductase (dsrAB; HMM@dsrA, HMM@dsrB).	K00394, K00395, K11180 | dsrA, K11181 | dsrB
-Thiosulfate-Reduction-(Respiratory)	@ThiosulfateRed		Respiratory Redox Processes	Sulfur Cycling	Sulfide Production	Respiratory thiosulfate reduction via the PhsABC thiosulfate reductase complex (phsA K08352, phsB K08353, phsC K08354). Requires at least 2 of 3 subunits to account for incomplete genome recovery in metagenomic data. Uses thiosulfate as terminal electron acceptor under anaerobic conditions. Found in Salmonella, Citrobacter, and diverse anaerobes.	K08352 | thiosulfate_reductase_phsA_alignment, K08353, K08354
-Thiosulfate-Reduction-(Rhodanese)	K01011 | Rhodanese		Respiratory Redox Processes	Sulfur Cycling	Sulfide Production	Thiosulfate sulfurtransferase (rhodanese; K01011 rdl/glpE-type, K14180 mitochondrial-type) transfers sulfur from thiosulfate to cyanide or other acceptors, producing sulfite and thiocyanate. Also involved in sulfur relay and cyanide detoxification. Distinct from respiratory thiosulfate reduction ‚Äö√Ñ√Æ does not conserve energy via electron transport. Extremely widespread across bacteria and archaea so interpret cautiously; presence alone is not diagnostic of dedicated thiosulfate metabolism.	K01011 | Rhodanese
-Sulfur-Oxidation-Sox	@SoxXA & @SoxYZ & @SoxB		Respiratory Redox Processes	Sulfur Cycling	Sulfur Oxidation	Oxidation of reduced sulfur compounds via the SOX multienzyme complex. SoxXA (K17223, K17222) initiate sulfur binding, SoxYZ (K17226, K17227) are the sulfur-carrying proteins, and SoxB (K17224) is the sulfate-releasing thiohydrolase. SoxCD (K17225, K22622) are optional and indicate complete oxidation to sulfate without intermediates.	K17222, K17223, K17224, K17226, K17227, K17225, K22622
-Sulfur-Oxidation-Reverse-Dsr	@DsrABtypeo		Respiratory Redox Processes	Sulfur Cycling	Sulfur Oxidation	Oxidation of stored sulfur globules via reverse-running DsrAB, distinguished from reductive DsrAB by co-occurrence with dsrL (K27196), an NADH-dependent oxidoreductase found exclusively in sulfur-oxidizing organisms. Both dsrA/dsrB (K11180/K11181) and dsrL (K27196) required. Found in Chlorobi, some Gammaproteobacteria, and Chromatiales.	K11180 | dsrA, K11181 | dsrB, K27196
-Tetrathionate-Reduction	@TetrathionateRed		Respiratory Redox Processes	Sulfur Cycling	S Transformations	Tetrathionate reduction via the ttrABC system (ttrA K08359, ttrB K08358, ttrC K08357). At least 2 of 3 subunits required. Relevant as an alternative electron acceptor in anaerobic subsurface and industrial systems.	K08359, K08358, K08357
+Dissimilatory-Sulfate-Reduction	@Sulfatereducer		Respiratory Redox Processes	Sulfur Cycling	K00394, K00395, K11180 | dsrA, K11181 | dsrB
+Thiosulfate-Reduction-(Respiratory)	@ThiosulfateRed		Respiratory Redox Processes	Sulfur Cycling	K08352 | thiosulfate_reductase_phsA_alignment, K08353, K08354
+Thiosulfate-Reduction-(Rhodanese)	K01011 | Rhodanese		Respiratory Redox Processes	Sulfur Cycling	K01011 | Rhodanese
+Sulfur-Oxidation-Sox	@SoxXA & @SoxYZ & @SoxB		Respiratory Redox Processes	Sulfur Cycling	K17222, K17223, K17224, K17226, K17227, K17225, K22622
+Sulfur-Oxidation-Reverse-Dsr	@DsrABtypeo		Respiratory Redox Processes	Sulfur Cycling	K11180 | dsrA, K11181 | dsrB, K27196
+Tetrathionate-Reduction	@TetrathionateRed		Respiratory Redox Processes	Sulfur Cycling	K08359, K08358, K08357
 [Fefe] Group_A Hydrogenase	hmm@fefe_group_a_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism	presence of [fefe] group_a hydrogenase	fefe_group_a_hydrogenase
 [Fefe] Group_B Hydrogenase	hmm@fefe_group_b_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism	presence of [fefe] group_b hydrogenase	fefe_group_b_hydrogenase
 [Fefe] Group_C Hydrogenase	hmm@fefe_group_c_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism	presence of [fefe] group_c hydrogenase	fefe_group_c_hydrogenase
