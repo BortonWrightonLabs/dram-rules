@@ -1,4 +1,4 @@
-name	alias	rule	notes
+﻿name	alias	rule	notes
 	Acetate-Final	@Acetate-1 | @Acetate-2 | @Acetate-3 | @Acetate-4 | @Acetate-5 | @Acetate-6	Acetate-associated metabolism
 	Acetate-1	K24012 | [K01905 & K22224]	Acetyl-CoA to acetate; shared activity with propionate
 	Acetate-2	K01568 & [K00138 | K00128 | K14085 | K00149 | K00129]	Pyruvate to acetaldehyde to acetate

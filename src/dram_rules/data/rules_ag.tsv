@@ -1,4 +1,4 @@
-name	rule	module	group	notes
+﻿name	rule	module	group	notes
 Cellulose	@Cellulose	Carbon Transformations	Polymer	Cellulose-associated hydrolytic and oxidative enzymes; includes endoglucanases, cellobiohydrolases, and LPMOs.
 Hemicellulose	@Hemicellulose	Carbon Transformations	Polymer	Includes xylan, mannan, xyloglucan, and galactan-associated enzymes.
 Pectin	@Pectin	Carbon Transformations	Polymer	Includes polygalacturonases, pectin/pectate lyases, and enzymes targeting pectin side chains.

@@ -1,4 +1,4 @@
-name	rule	rule_options	module	group	notes
+﻿name	rule	rule_options	module	group	notes
 Mucin-O-glycan	GH101;EC:3.2.1.97 | GH109;EC:3.2.1.49 | GH129;EC:3.2.1.49 | GH89;EC:3.2.1.50		Carbon Processing	Host-associated glycan
 Host-N-glycan	GH99;EC:3.2.1.198 | GH163;EC:3.2.1.- | GH18;EC:3.2.1.96 | GH85;EC:3.2.1.96 | GH99;EC:3.2.1.130		Carbon Processing	Host-associated glycan
 Host-glycosphingolipid	GH116;EC:3.2.1.45 | GH3;EC:3.2.1.45 | GH30;EC:3.2.1.45		Carbon Processing	Host-associated glycan

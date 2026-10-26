@@ -1,4 +1,4 @@
-name	rule	rule_options	module	group		notes
+﻿name	rule	rule_options	module	group		notes
 Calvin Cycle	@Calvin		Carbon Transformations	Carbon Fixation
 Hydroxypropionate-Hydroxybutyrate Cycle	@HydroxypropionateHydroxybutylate		Carbon Transformations	Carbon Fixation
 Dicarboxylate Hydroxybutyrate Cycle	@DicarboxylateHydroxybutyrate		Carbon Transformations	Carbon Fixation

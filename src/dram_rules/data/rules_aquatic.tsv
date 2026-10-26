@@ -1,4 +1,4 @@
-name	rule		module	group	gene_ids
+﻿name	rule		module	group	gene_ids
 Fucoidan	GH107;3.2.1.212 | GH168;3.2.1.211 | GH174;3.2.1.- | GH187;3.2.1.- | PL43;4.2.2.- | GH107;3.2.1.211 | GH168;3.2.1.-		Carbon Processing	Polysaccharide Marine Algal
 Ulvan	PL24;4.2.2.- | PL25;4.2.2.- | PL28;4.2.2.-		Carbon Processing	Polysaccharide Marine Algal
 Carrageenan	GH150;3.2.1.162 | GH16;3.2.1.83 | GH82;3.2.1.157		Carbon Processing	Polysaccharide Marine Algal

@@ -1,4 +1,4 @@
-name	rule	rule_options	topic_ecosystem
+﻿name	rule	rule_options	topic_ecosystem
 phototroph	@PhototrophAllTypes		traits
 CO2-fixation	@CO2fixation		traits
 hydrogen-metabolism	@HydrogenUse		traits
