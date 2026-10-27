@@ -403,6 +403,7 @@ def load_rules(
     allow_visualize_functions: bool = False,
     common_rules: pl.LazyFrame = None,
     common_rules_path: str | Path = None,
+    check_for_dupes: bool = True
 ) -> Tuple[Dict[str, Expr], Dict[str, Expr]]:
     """
     Assumes TSV has columns at least: name, rule
@@ -533,7 +534,7 @@ def load_rules(
         .to_series()
     )
     duplicate_labels = labels.filter(labels.is_duplicated()).unique().sort().to_list()
-    if duplicate_labels:
+    if duplicate_labels and check_for_dupes:
         raise RuleError(
             f"Rule column '{label_col}' needs to be unique. Duplicate labels: {duplicate_labels}"
         )
@@ -1326,7 +1327,7 @@ def evaluate_rules_on_anno(
     *args,
     **kwargs,
 ):
-    compiled = CompiledRules.from_rules(*args, **kwargs)
+    compiled = CompiledRules.from_rules(*args, check_for_dupes=False, **kwargs)
     print(f"Need {len(compiled.needed_features)} features")
     assert (annotations_path is not None) != (annotations is not None), (
         "Exactly one of annotations_path or annotations DataFrame must be provided."
