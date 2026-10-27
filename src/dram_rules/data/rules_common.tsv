@@ -26,12 +26,12 @@
 	Lactate-3	K00101 | K29125	L-lactate to pyruvate; cytochrome-/quinone-dependent LDH
 	Lactate-4	K00102	D-lactate to pyruvate; cytochrome-dependent LDH
 
-	PhototrophAllTypes	PF00223 | [K08928 & K08929]
+	PhototrophAllTypes	PsaA_PsaB | [K08928 & K08929]
 	Phototroph-Oxygenic	K02703 & K02706 & K02689 & K02690
 	AnoxygenicTypeIISubtype	K08928 & K08929
 	AnoxygenicTypeIPscASubtype	K08940
-	PotentialAnoxygenicDivergentTypeISubtype	PF00223 & not(@Phototroph-Oxygenic | @AnoxygenicTypeIISubtype | @AnoxygenicTypeIPscASubtype)
-	RhodopsinAllTypes	PF01036
+	PotentialAnoxygenicDivergentTypeISubtype	PsaA_PsaB & not(@Phototroph-Oxygenic | @AnoxygenicTypeIISubtype | @AnoxygenicTypeIPscASubtype)
+	RhodopsinAllTypes	Bac_rhodopsin
 	Bacteriorhodopsin	K04641
 
 	CO2fixation	@Calvin | @ReductiveCitricAcid |@HydroxypropionateHydroxybutylate| @HydroxypropionateHydroxybutylate| @DicarboxylateHydroxybutyrate | @ReductiveAcetylCoAWoodLjungdahl | @ReductiveGlycinePathway
@@ -142,7 +142,7 @@
 	NotNarNapNrf	not(@NarNapNrf)
 	NarNapNrf	@NarNitrateReductase | @NapNitrateReductase | NRF
 	NapNitrateReductase	K00374 | K02567 | K02568 |  EC:1.9.6.1
-	NarNitrateReductase	NarG
+	NarNitrateReductase	narG_clade1 | narG_clade2 | narG_clade3 | narG_clade4 | narG_clade5 | narG_clade6 | narG_clade7 | narG_clade8
 
 	Nreducer	@ETC50 & [[@NarNitrateReductase|@NapNitrateReductase] | @NitriteReductase | @NitricOxideReductase | @NitrousOxideReductase]
 	TetrathionateReduction	[@1ofttrrs & @1ofttrabc] | @2ofttrabc
@@ -159,10 +159,10 @@
 	TRUEAmmoniaMonooxygenase	amoa_beta | amoa_crenarchaea | amoa_gamma | amoa_Nitrospira_beta
 	HydroxylamineDehydrogenase	EC:1.7.2.6 | K10535
 
-	NitriteOxidoreductase	NXR
+	NitriteOxidoreductase	NXR_clade1 | NXR_clade2 | NXR_clade3 | NXR_clade4 | NXR_clade5 | NXR_clade6 | NXR_clade7
 	ProbableNarNxr	K00370 | K00371
 
-	Comammox	[amoa_beta | amoa_Nitrospira_beta] & NXR
+	Comammox	[amoa_beta | amoa_Nitrospira_beta] & @NitriteOxidoreductase
 
 	Annamox	@HydrazineDeydrogenase & @HydrazineSynthase
 	HydrazineSynthase	EC:1.7.2.7 | K20932 | K20933 | K20934
