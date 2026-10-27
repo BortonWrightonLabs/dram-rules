@@ -733,15 +733,24 @@ def prepare_present_map_df(
         [
             col
             for col in df.columns
-            if (col.endswith("_id") and col not in besthit_cols and col != "query_id")
+            if (
+                col.endswith(("_id", "_acc"))
+                and col not in besthit_cols
+                and col != "query_id"
+            )
         ]
     )
     df = df.select(index_cols + besthit_cols + additional_cols)
     for col in besthit_cols:
-        if col not in ID_EXPR_DICT:
-            explode_col = ID_EXPR_DICT["DEFAULT"](col).alias(col)
-        else:
+        if col in ID_EXPR_DICT:
             explode_col = ID_EXPR_DICT[col].alias(col)
+        elif col.endswith("_acc"):
+            explode_col = pl.concat_list(
+                # For the accession name, remove the version number (PF00001.VERSION)
+                pl.col(col).cast(pl.String).str.replace(r"\.\d+$", "")
+            ).alias(col)
+        else:
+            explode_col = ID_EXPR_DICT["DEFAULT"](col).alias(col)
         df = (
             df.with_columns(explode_col)
             .explode(col, empty_as_null=True)

@@ -13,6 +13,7 @@ from dram_rules.rule_parser.rules import (
     Steps,
     String,
     evaluate_rules_on_anno,
+    prepare_present_map_df,
 )
 
 DATA_DIR = Path(__file__).parent / "data"
@@ -203,6 +204,38 @@ def test_dbcan_sub_ec_parsing():
         ["EC:2.4.1.25", "EC:3.2.1.68", "EC:3.2.1.-"],
         ["EC:1.2.3.4"],
     ]
+
+
+def test_custom_accession_columns():
+    annotations = pl.DataFrame(
+        {
+            "query_id": ["gene1", "gene2", "gene3", "gene4", "gene5"],
+            "custom_hmm_acc": [
+                "PF00001.23",
+                "PF00002",
+                "custom.domain.12",
+                "custom.domain",
+                None,
+            ],
+            "custom_id": ["ID.2", None, None, None, None],
+        }
+    )
+
+    parsed = prepare_present_map_df(
+        annotations,
+        count_col="query_id",
+        besthit_cols=list(ID_EXPR_DICT),
+        needed_features={"PF00001", "PF00002", "CUSTOM.DOMAIN", "ID.2"},
+    )
+
+    assert set(parsed.iter_rows()) == {
+        ("gene1", "PF00001"),
+        ("gene1", "ID.2"),
+        ("gene2", "PF00002"),
+        ("gene3", "CUSTOM.DOMAIN"),
+        ("gene4", "CUSTOM.DOMAIN"),
+    }
+    assert annotations["custom_hmm_acc"][0] == "PF00001.23"
 
 
 def test_basic_compiled_rules():
