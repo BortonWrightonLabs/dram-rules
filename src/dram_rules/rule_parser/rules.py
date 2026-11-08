@@ -735,9 +735,20 @@ def prepare_present_map_df(
             col
             for col in df.columns
             if (
-                col.endswith(("_id", "_acc"))
+                col
                 and col not in besthit_cols
-                and col != "query_id"
+                and col
+                not in [
+                    "query_id",
+                    "genome",
+                    "scaffold",
+                    "gene_number",
+                    "start_position",
+                    "stop_position",
+                    "strandedness",
+                    "rank",
+                    "heme_regulatory_motif_count",
+                ]
             )
         ]
     )
