@@ -17,7 +17,7 @@ from bokeh.transform import factor_cmap, linear_cmap, log_cmap
 from panel_material_ui import Tree
 
 from dram_rules.definitions import NO_TAXONOMY_RANKS, TAXONOMY_RANKS_REGEX
-from dram_rules.rule_parser.rules import get_val_col
+from dram_rules.rule_parser.rules import get_val_cols
 
 pn.extension("tabulator", "katex", template="bootstrap")
 
@@ -339,7 +339,7 @@ class Dashboard(pn.viewable.Viewer):
             if charts:
                 kw["y_axis_location"] = None
             if "presence/coverage" in c_mode:
-                c_col = get_val_col(df)
+                c_col = get_val_cols(df)
                 if c_col == "coverage_percentage" and self.min_coverage > 0:
                     df = df.with_columns(
                         pl.when(pl.col(c_col) < self.min_coverage)

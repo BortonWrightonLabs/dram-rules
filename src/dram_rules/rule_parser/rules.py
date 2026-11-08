@@ -403,7 +403,7 @@ def load_rules(
     allow_visualize_functions: bool = False,
     common_rules: pl.LazyFrame = None,
     common_rules_path: str | Path = None,
-    check_for_dupes: bool = True
+    check_for_dupes: bool = True,
 ) -> Tuple[Dict[str, Expr], Dict[str, Expr]]:
     """
     Assumes TSV has columns at least: name, rule
@@ -1180,16 +1180,31 @@ def should_include(options: dict, available_columns: set[str]) -> bool:
     return present <= available_columns and absent.isdisjoint(available_columns)
 
 
-def get_val_col(df):
+def get_val_cols(df, allow_multiple=False):
+    cols = []
     if "coverage_percentage" in df.columns:
-        return "coverage_percentage"
-    elif "present" in df.columns:
-        return "present"
-    elif "value" in df.columns:
-        return "value"
-    raise AssertionError(
-        f"Rules parsing problem, can't determine check_col for dataframe rules: {df}. File github issue"
-    )
+        cols.append("coverage_percentage")
+    if "present" in df.columns:
+        cols.append("present")
+    if "value" in df.columns:
+        cols.append("value")
+    if not cols:
+        AssertionError(
+            f"Rules parsing problem, can't determine check_col for dataframe rules: {df}. File github issue"
+        )
+    # it doesn't matter how many in cols if we allow_multiple and len > 0, so we return
+    if allow_multiple:
+        return cols
+    # if we don't allow multiple, and we have multiple, we raise RuleError
+    if len(cols) > 1:
+        raise RuleError(
+            "In rule sheet, all rules inside a single group must use the same evaluation style."
+            "\nThat is, if any in a group uses `path_subunits`, all must use it"
+            "\n same for `path_steps`. Or none can use them."
+            "You can't mix and match inside a single `group`."
+        )
+    # if we expect a single return, we extract it and return
+    return cols[0]
 
 
 def evaluate_rules(
@@ -1275,8 +1290,27 @@ def evaluate_cycles(
                     {"present": out.astype(bool), sample_col: ev.samples}
                 )
             out = out.with_columns(pl.lit(rn).alias(label_col))
+            features = sorted({f.upper() for f in compiled.features_by_rules[rn]})
+            hits = [[] for _ in samples]
+
+            for feature in features:
+                counts = present_map.get(feature)
+                if counts is not None:
+                    for i in np.flatnonzero(counts):
+                        hits[i].append(feature)
+
+            # ensure they are sorted the same way by sample col in case eval_bool returns sample_col in differnt ordering
+            hit_df = pl.DataFrame(
+                {
+                    sample_col: samples,
+                    "gene_ids_present": [", ".join(ids) for ids in hits],
+                }
+            )
+            out = out.join(
+                hit_df, on=sample_col, how="left", validate="1:1", maintain_order="left"
+            )
             if anno_df is not None:
-                check_col = get_val_col(out)
+                check_col = get_val_cols(out)
 
                 out = (
                     out.join(

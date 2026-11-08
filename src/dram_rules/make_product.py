@@ -39,7 +39,7 @@ from dram_rules.rule_parser.rules import (
     build_present_map,
     evaluate_cycles,
     prepare_present_map_df,
-    get_val_col,
+    get_val_cols,
 )
 
 logger = logging.getLogger("dram.viz")
@@ -48,12 +48,13 @@ pn.config.reuse_sessions = True
 pn.config.global_loading_spinner = True
 
 RULES_SYSTEMS = {
-    "default": Path(__file__).parent / "data/rules.tsv",
+    "legacy": Path(__file__).parent / "data/rules.tsv",
     "ag": Path(__file__).parent / "data/rules_ag.tsv",
     "bgc": Path(__file__).parent / "data/rules_bgc.tsv",
     "aquatic": Path(__file__).parent / "data/rules_aquatic.tsv",
     "eng_sys": Path(__file__).parent / "data/rules_eng_sys.tsv",
     "gut": Path(__file__).parent / "data/rules_gut.tsv",
+    "default": Path(__file__).parent / "data/rules_gut.tsv",
 }
 
 
@@ -461,17 +462,30 @@ def main(
                 how="diagonal_relaxed",
             )
 
-            val_col = get_val_col(df)
+            val_cols = get_val_cols(df, allow_multiple=True)
+            df.select(["genome", pl.all().exclude("genome")]).write_csv(
+                output_dir / f"df_vertical_{df_type}.tsv", separator="\t"
+            )
             df.pivot(
                 on=["genome"],
-                values=val_col,
+                values=val_cols,
                 # drop taxonomy because taxonomy and genome have a relationship, so either we would
                 # need to concatenate columns awkwardly, or drop it, or make a taxonomy column which would
                 # blow up the dataframe
                 index=[
                     col
                     for col in df.columns
-                    if col not in [val_col, "genome", "taxonomy"]
+                    if col
+                    not in [
+                        *val_cols,
+                        "genome",
+                        "taxonomy",
+                        "gene_ids_present",
+                        "steps",
+                        "steps_present",
+                        "subunits",
+                        "subunits_present",
+                    ]
                 ],
             ).write_csv(output_dir / f"df_{df_type}.tsv", separator="\t")
             logger.info(f"Saved dataframe to {output_dir / f'df_{df_type}.tsv'}")

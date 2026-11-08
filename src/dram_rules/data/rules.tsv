@@ -116,8 +116,7 @@ M00149	"Succinate dehydrogenase, prokaryotes"	m149	path_subunits(K00241 & K00242
 M00150	"Fumarate reductase, prokaryotes"	m150	path_subunits(K00244 & K00245 & K00246 & K00247)	Complex II
 M00151	Cytochrome bc1 complex respiratory unit	m151	path_subunits([[[K00412 & K00413] | K00410] & K00411] |[ K03886 & K03887 & K03888] | [K03890 & K03891 & K03889])	Complex III
 M00152	Cytochrome bc1 complex	m152	path_subunits([[K00412 & K00413] | K00410] & K00411 & K00414 & K00415 & K00416 & K00417 & K00418 & K00419 & K00420)	Complex III
-M00153	Cytochrome bd ubiquinol oxidase	m153_3	path_subunits(K00425 & K00426 & [K00424 | K22501])	Complex III
-M00153	Cytochrome bd ubiquinol oxidase	m153_4	path_subunits(K00425 & K00426 & [K00424 | K22501])	Complex IV H
+M00153	Cytochrome bd ubiquinol oxidase	m153	path_subunits(K00425 & K00426 & [K00424 | K22501])	Complex IV H
 M00156	"Cytochrome c oxidase, cbb3-type"	m156	path_subunits([[[K00404 & K00405] | K15862] & K00407 & K00406])	Complex IV H
 M00154	Cytochrome c oxidase	m154	path_subunits([K02257 & K02262 & K02256 & K02261 & K02263 & K02264 & K02265 & K02266 & K02267 & K02268 & [K02269 | K02270] & K02272 & K02258 & K02259 & K02260])	Complex IV L
 M00155	"Cytochrome c oxidase, prokaryotes"	m155	path_subunits(K02275 & [[K02274 & K02276] | K15408])	Complex IV L
