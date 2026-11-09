@@ -13,6 +13,10 @@ import networkx as nx
 import numpy as np
 import polars as pl
 from lark import Lark, Transformer, LarkError
+from dram_rules.definitions import (
+    BACKUP_GROUPBY_COLUMNS,
+    DEFAULT_GROUPBY_COLUMN,
+)
 
 logger = logging.getLogger("drams.rules")
 
@@ -362,7 +366,13 @@ class CompiledRules:
     df: pl.DataFrame
 
     @classmethod
-    def from_rules(cls, *args, **kwargs) -> CompiledRules:
+    def from_rules(
+        cls,
+        *args,
+        group_col=DEFAULT_GROUPBY_COLUMN,
+        group_col_backups=BACKUP_GROUPBY_COLUMNS,
+        **kwargs,
+    ) -> CompiledRules:
         definitions, rules, lf = load_rules(*args, **kwargs)
 
         defs_expanded = {
@@ -383,6 +393,13 @@ class CompiledRules:
             for k, v in rules.items()
         }
         needed_features = set().union(*[s for s in features_by_rules.values()])
+
+        if group_col and group_col_backups:
+            group_backups = [
+                col for col in group_col_backups if col in lf.collect_schema()
+            ]
+            for col in group_backups:
+                lf = lf.with_columns(pl.col(group_col).fill_null(pl.col(col)))
 
         return cls(
             rules=rules_expanded,
@@ -416,32 +433,24 @@ def load_rules(
         "Either rules_path or rules DataFrame must be provided, but not both."
     )
     if rules_path:
-        lf = (
-            pl.scan_csv(
-                rules_path,
-                separator="\t",
-                infer_schema_length=None,
-                truncate_ragged_lines=True,
-            )
-            .filter(~pl.all_horizontal(pl.all().is_null()))
-            .fill_null("")
-        )
+        lf = pl.scan_csv(
+            rules_path,
+            separator="\t",
+            infer_schema_length=None,
+            truncate_ragged_lines=True,
+        ).filter(~pl.all_horizontal(pl.all().is_null()))
     else:
-        lf = rules.fill_null("")
+        lf = rules
 
     if common_rules_path:
-        clf = (
-            pl.scan_csv(
-                common_rules_path,
-                separator="\t",
-                infer_schema_length=None,
-                truncate_ragged_lines=True,
-            )
-            .filter(~pl.all_horizontal(pl.all().is_null()))
-            .fill_null("")
-        )
+        clf = pl.scan_csv(
+            common_rules_path,
+            separator="\t",
+            infer_schema_length=None,
+            truncate_ragged_lines=True,
+        ).filter(~pl.all_horizontal(pl.all().is_null()))
     elif common_rules is not None:
-        clf = common_rules.fill_null("")
+        clf = common_rules
     else:
         clf = None
 
@@ -524,7 +533,8 @@ def load_rules(
     # We strip white space around labels incase users left spaces at the beg or end of cell
     # which we don't want to match to
     lf = lf.with_columns(
-        pl.col(label_col).str.strip_chars(), pl.col(alias_col).str.strip_chars()
+        pl.col(label_col).cast(pl.String).str.strip_chars(),
+        pl.col(alias_col).cast(pl.String).str.strip_chars(),
     )
 
     labels = (
@@ -1293,8 +1303,11 @@ def evaluate_cycles(
     # if group_col in set(compiled.lf.collect_schema().names()):
     dfs = {}
     additional_cols = [pl.col(c) for c in additional_cols] if additional_cols else []
-    # We drop nones here to make sure any rules without groups just aren't included
-    for group, frame in compiled.df.drop_nulls(subset=[group_col]).group_by(
+    if compiled.df.drop_nulls(subset=pl.col(label_col))[group_col].null_count() > 0:
+        raise RuleError(
+            "Group column, and backup group columns contain no entries! Make sure each row for the group column contains values."
+        )
+    for group, frame in compiled.df.drop_nulls(subset=[label_col]).group_by(
         group_col, maintain_order=True
     ):
         group = group[0]

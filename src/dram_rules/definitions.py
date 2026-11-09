@@ -7,7 +7,7 @@ BACKUP_ALIAS_COLUMNS = ["aliases", "parent"]
 DEFAULT_FASTA_COLUMN = "input_fasta"
 BACKUP_FASTA_COLUMNS = ["fasta", "sample"]
 DEFAULT_GROUPBY_COLUMN = "group"
-BACKUP_GROUPBY_COLUMNS = ["topic_ecosystem"]
+BACKUP_GROUPBY_COLUMNS = ["topic_ecosystem", "module"]
 
 # regex portion not used right now, but could be useful in the future
 # captures in named pandas columns that remove the prefix string (e.g. "d__")
