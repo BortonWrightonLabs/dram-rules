@@ -196,7 +196,7 @@ def join_present_map_df_to_mapping_df(
     help="Column from rules file to use as alias in rules. This allows you to alias a rule on one line and then use that alias in a different line.",
 )
 @click.option(
-    "--group_colunm",
+    "--group_column",
     "-g",
     type=str,
     help="Column in rules file to group by in visualization (creates separate heatmap for each unique value in this column)",
@@ -234,7 +234,7 @@ def main(
     mapping,
     label_column,
     alias_column,
-    group_colunm,
+    group_column,
     port,
     save_dataframes,
     save_needed_features,
@@ -259,11 +259,11 @@ def main(
 
     rules_lf = pl.scan_csv(
         rules_tsv, separator="\t", infer_schema_length=None, truncate_ragged_lines=True
-    ).fill_null("")
+    )
 
     rules_cols = rules_lf.collect_schema().names()
-    group_colunm = get_column_name(
-        group_colunm, BACKUP_GROUPBY_COLUMNS, name_of_data="rules", cols=rules_cols
+    group_column = get_column_name(
+        group_column, BACKUP_GROUPBY_COLUMNS, name_of_data="rules", cols=rules_cols
     )
     label_column = get_column_name(
         label_column, BACKUP_LABEL_COLUMNS, name_of_data="rules", cols=rules_cols
@@ -385,7 +385,7 @@ def main(
             annotations=raw_anno,
             sample_col="sample",
             # additional_cols=["long_name"],
-            group_col=group_colunm,
+            group_col=group_column,
             anno_df=mapping_df,
             value_col="sample_abundance",
         )
@@ -416,7 +416,7 @@ def main(
         annotations=raw_anno,
         sample_col="genome",
         additional_cols=["long_name"],
-        group_col=group_colunm,
+        group_col=group_column,
         **eval_cycles_kw,
     )
     logger.info("Evaluated all rules in:")
