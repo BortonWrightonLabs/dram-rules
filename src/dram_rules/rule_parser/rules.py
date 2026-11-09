@@ -369,8 +369,8 @@ class CompiledRules:
     def from_rules(
         cls,
         *args,
-        group_col=DEFAULT_GROUPBY_COLUMN,
-        group_col_backups=BACKUP_GROUPBY_COLUMNS,
+        group_col=None,
+        group_col_backups=[DEFAULT_GROUPBY_COLUMN, *BACKUP_GROUPBY_COLUMNS],
         **kwargs,
     ) -> CompiledRules:
         definitions, rules, lf = load_rules(*args, **kwargs)
@@ -394,7 +394,14 @@ class CompiledRules:
         }
         needed_features = set().union(*[s for s in features_by_rules.values()])
 
-        if group_col and group_col_backups:
+        lf_cols = lf.collect_schema()
+        if group_col is None:
+            for col in group_col_backups:
+                if col in lf_cols:
+                    group_col = col
+        if group_col:
+            if group_col in group_col_backups:
+                group_col_backups.remove(group_col)
             group_backups = [
                 col for col in group_col_backups if col in lf.collect_schema()
             ]
