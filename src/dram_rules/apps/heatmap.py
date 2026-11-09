@@ -174,9 +174,11 @@ class Dashboard(pn.viewable.Viewer):
         taxanomy_tree_data: Optional[list[dict]] = None,
         selected_tax_tree: Optional[list[str]] = None,
         output_dir: str | Path = None,
+        title: str = "DRAM Product Visualization",
     ):
         super().__init__()
         self.dfs = dfs
+        self.title = title
         self.taxonomy_tree_data = taxanomy_tree_data
         self._output_dir = Path(output_dir) if output_dir else Path.cwd()
         self.plot_view = pn.Row()
@@ -275,7 +277,7 @@ class Dashboard(pn.viewable.Viewer):
             additional_sidebar.append(self.taxonomy_filter)
 
         self.view = pn.template.FastListTemplate(
-            title="DRAM Product Visualization",
+            title=self.title,
             # main=[self.plot_view],
             main=[
                 pn.Tabs(

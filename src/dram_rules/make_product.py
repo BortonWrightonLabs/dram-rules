@@ -494,12 +494,21 @@ def main(
         (output_dir / "needed_features.txt").write_text(
             "\n".join(compiled.needed_features_raw)
         )
-
+    rule_type = (
+        (Path(rules_tsv).stem)
+        .lower()
+        .removeprefix("rule_")
+        .removeprefix("rules_")
+        .removeprefix("distill_")
+        .removesuffix("_rules")
+        .removesuffix("_rule")
+    ).upper()
     kw = dict(
         dfs=dfs,
         taxanomy_tree_data=tax_tree_data,
         selected_tax_tree=selected_tax_tree,
         output_dir=output_dir,
+        title=f"DRAM {rule_type} VISUALIZATION",
         # mapping=bool(mapping),
     )
     logger.info(
