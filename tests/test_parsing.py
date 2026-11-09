@@ -11,9 +11,11 @@ from dram_rules.rule_parser.rules import (
     Name,
     Or,
     PipeChain,
+    RuleError,
     Steps,
     String,
     evaluate_rules_on_anno,
+    load_rules,
     prepare_present_map_df,
 )
 
@@ -313,6 +315,76 @@ def test_custom_accession_columns():
         ("gene4", "CUSTOM.DOMAIN"),
     }
     assert annotations["custom_hmm_acc"][0] == "PF00001.23"
+
+
+@pytest.mark.parametrize(
+    "square, round_",
+    [
+        ("K12345 & [K54321 | K98765]", "K12345 & (K54321 | K98765)"),
+        ("[K12345, K12346, K12347]", "(K12345, K12346, K12347)"),
+        ("[K12345]", "(K12345)"),
+        ("percent(50, [K12345, K12346])", "percent(50, (K12345, K12346))"),
+        ("not([K12345 | K12346])", "not((K12345 | K12346))"),
+        ("[K12345, [K12346 | K12347]]", "(K12345, [K12346 | K12347])"),
+        ("[K12345, [K12346 | K12347]]", "[K12345, (K12346 | K12347)]"),
+        ("percent(50, [K12345, K12346])", "percent(50, @CalvinCycle)"),
+    ],
+)
+def test_group_delimiters(square, round_):
+    compiled = CompiledRules.from_rules(
+        rules=pl.DataFrame(
+            {
+                "name": ["square", "round", ""],
+                "alias": ["", "", "CalvinCycle"],
+                "rule": [square, round_, "(K12345, K12346)"],
+            }
+        ).lazy()
+    )
+
+    assert compiled.rules["square"] == compiled.rules["round"]
+    assert compiled.features_by_rules["square"] == compiled.features_by_rules["round"]
+    assert set(compiled.trees_by_rules["square"].edges) == set(
+        compiled.trees_by_rules["round"].edges
+    )
+
+
+@pytest.mark.parametrize(
+    "expression",
+    ["(K12345 | K12346]", "[K12345, K12346)", "(K12345", "K12345)"],
+)
+def test_mismatched_group_delimiters(expression):
+    with pytest.raises(RuleError):
+        CompiledRules.from_rules(
+            rules=pl.DataFrame({"name": ["invalid"], "rule": [expression]}).lazy()
+        )
+
+
+def test_alias_only_rules_preserve_nulls():
+    definitions, rules, frame = load_rules(
+        rules=pl.DataFrame(
+            {
+                "name": [None],
+                "alias": ["Example"],
+                "rule": ["K12345"],
+                "description": [None],
+            }
+        ).lazy()
+    )
+
+    assert definitions == {"Example": Name("K12345")}
+    assert rules == {}
+    assert frame.collect().row(0, named=True)["description"] is None
+
+
+def test_rules_with_all_null_aliases():
+    definitions, rules, _ = load_rules(
+        rules=pl.DataFrame(
+            {"name": ["Example"], "alias": [None], "rule": ["K12345"]}
+        ).lazy()
+    )
+
+    assert definitions == {}
+    assert rules == {"Example": Name("K12345")}
 
 
 def test_basic_compiled_rules():

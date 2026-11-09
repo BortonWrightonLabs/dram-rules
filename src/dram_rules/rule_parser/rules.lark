@@ -21,6 +21,8 @@ and_expr: pipe_expr ("&" pipe_expr)+      -> and_
      | literal
      | "[" expr "]"                       -> group
      | "[" step_expr "]"                  -> group
+     | "(" expr ")"                       -> group
+     | "(" step_expr ")"                  -> group
 
 call: IDENT "(" [arg ("," arg)*] ")"    -> call
 
