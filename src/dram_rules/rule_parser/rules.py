@@ -370,7 +370,7 @@ class CompiledRules:
         cls,
         *args,
         group_col=None,
-        group_col_backups=[DEFAULT_GROUPBY_COLUMN, *BACKUP_GROUPBY_COLUMNS],
+        group_col_backups=BACKUP_GROUPBY_COLUMNS,
         **kwargs,
     ) -> CompiledRules:
         definitions, rules, lf = load_rules(*args, **kwargs)
@@ -395,16 +395,21 @@ class CompiledRules:
         needed_features = set().union(*[s for s in features_by_rules.values()])
 
         lf_cols = lf.collect_schema()
-        if group_col is None:
+        # if default group col in cols, use that
+        if group_col is None and DEFAULT_GROUPBY_COLUMN in lf_cols:
+            group_col = DEFAULT_GROUPBY_COLUMN
+        # else, check backup cols
+        elif group_col is None:
             for col in group_col_backups:
                 if col in lf_cols:
                     group_col = col
+                    group_col_backups.remove(group_col)
+                    break
         if group_col:
-            if group_col in group_col_backups:
-                group_col_backups.remove(group_col)
             group_backups = [
                 col for col in group_col_backups if col in lf.collect_schema()
             ]
+            # for each backup, fill any group col null with one of the backups
             for col in group_backups:
                 lf = lf.with_columns(pl.col(group_col).fill_null(pl.col(col)))
 
@@ -1313,6 +1318,7 @@ def evaluate_cycles(
     if compiled.df.drop_nulls(subset=pl.col(label_col))[group_col].null_count() > 0:
         raise RuleError(
             "Group column, and backup group columns contain no entries! Make sure each row for the group column contains values."
+            f"Rule names with null group columns: {', '.join(val for val in compiled.df.drop_nulls(subset=pl.col(label_col)).filter(pl.col(group_col).is_null())[label_col])}"
         )
     for group, frame in compiled.df.drop_nulls(subset=[label_col]).group_by(
         group_col, maintain_order=True
