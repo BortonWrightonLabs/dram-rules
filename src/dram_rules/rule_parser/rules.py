@@ -739,7 +739,8 @@ def prepare_present_map_df(
                 and col not in besthit_cols
                 and col
                 not in [
-                    "query_id",
+                    *index_cols,
+                    *additional_cols,
                     "genome",
                     "scaffold",
                     "gene_number",

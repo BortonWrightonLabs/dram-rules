@@ -263,7 +263,7 @@ class TaxonomyFilterTests(unittest.TestCase):
             dashboard.download_heatmap()
 
     def test_coverage_threshold_and_stable_sort(self):
-        self.dfs["genome"]["All"] = self.frame.with_columns(
+        self.dfs["genome"]["All"] = self.frame.drop("present").with_columns(
             pl.Series("coverage_percentage", [0.1, 0.5, None, 1.0])
         )
         dashboard = self.dashboard()
