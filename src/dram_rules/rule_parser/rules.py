@@ -787,8 +787,27 @@ def prepare_present_map_df(
         )
         .drop("db")
         .drop_nulls()
-        .filter(pl.col(hit_col).is_in(list(needed_features)))
+        # Build a matching key without EC: at the start or after a semicolon.
+        # ${1} preserves the captured separator, so GH107;EC:3.2.1.212
+        # becomes GH107;3.2.1.212 rather than GH1073.2.1.212.
+        .with_columns(
+            pl.col(hit_col).str.replace_all(r"(^|;)EC:", "${1}").alias("_match_id")
+        )
+        # The join restores hit using the rule's spelling, including its EC: prefix.
+        .drop(hit_col)
+        .join(
+            # Normalize rule identifiers the same way as annotation identifiers.
+            pl.DataFrame(
+                {hit_col: sorted(needed_features)}, schema={hit_col: pl.String}
+            ).with_columns(
+                pl.col(hit_col).str.replace_all(r"(^|;)EC:", "${1}").alias("_match_id")
+            ),
+            on="_match_id",
+            # Keep only annotation identifiers requested by the rules.
+            how="inner",
+        )
         .select([*index_cols, hit_col, *additional_cols])
+        # Multiple columns can match the same rule identifier; count each gene once.
         .unique(subset=[*index_cols, hit_col, *additional_cols])
     )
     return df

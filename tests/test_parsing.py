@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import polars as pl
+import pytest
 
 from dram_rules.rule_parser.rules import (
     And,
@@ -204,6 +205,82 @@ def test_dbcan_sub_ec_parsing():
         ["EC:2.4.1.25", "EC:3.2.1.68", "EC:3.2.1.-"],
         ["EC:1.2.3.4"],
     ]
+
+
+@pytest.mark.parametrize(
+    "column, annotation, feature",
+    [
+        ("custom_ec", "3.2.1.212", "EC:3.2.1.212"),
+        ("custom_ec", "EC:3.2.1.212", "3.2.1.212"),
+        ("custom_ec", "ec:3.2.1.-", "EC:3.2.1.-"),
+        ("custom_ec", "GH107;3.2.1.212", "GH107;EC:3.2.1.212"),
+        ("dbcan_sub_ec", "3.2.1.212:4", "EC:3.2.1.212"),
+        ("dbcan_sub_ec", "3.2.1.212:4", "3.2.1.212"),
+    ],
+)
+def test_ec_prefix_fallback(column, annotation, feature):
+    annotations = pl.DataFrame({"query_id": ["gene1"], column: [annotation]})
+
+    parsed = prepare_present_map_df(
+        annotations,
+        count_col="query_id",
+        besthit_cols=list(ID_EXPR_DICT),
+        needed_features={feature},
+    )
+
+    assert parsed.rows() == [("gene1", feature)]
+    assert annotations[column][0] == annotation
+
+
+def test_dbcan_compound_ec_fallback():
+    annotations = pl.DataFrame(
+        {
+            "query_id": ["gene1", "gene2", "gene3", "gene4"],
+            "dbcan_id": ["GH107", "GH168", "GH107", "GH107"],
+            "dbcan_sub_ec": ["3.2.1.212:4", "3.2.1.-:1", "-", None],
+            "custom_ec": ["EC:3.2.1.212", None, None, None],
+        }
+    )
+
+    parsed = prepare_present_map_df(
+        annotations,
+        count_col="query_id",
+        besthit_cols=list(ID_EXPR_DICT),
+        needed_features={
+            "GH107;EC:3.2.1.212",
+            "GH107;3.2.1.212",
+            "GH168;EC:3.2.1.-",
+            "EC:3.2.1.212",
+            "3.2.1.212",
+        },
+    )
+
+    assert set(parsed.iter_rows()) == {
+        ("gene1", "GH107;EC:3.2.1.212"),
+        ("gene1", "GH107;3.2.1.212"),
+        ("gene2", "GH168;EC:3.2.1.-"),
+        ("gene1", "EC:3.2.1.212"),
+        ("gene1", "3.2.1.212"),
+    }
+    assert parsed.height == 5
+
+
+def test_ec_prefix_fallback_preserves_other_identifiers():
+    annotations = pl.DataFrame(
+        {
+            "query_id": ["gene1", "gene2", "gene3"],
+            "custom_id": ["SPEC:123", "K00001", None],
+        }
+    )
+
+    parsed = prepare_present_map_df(
+        annotations,
+        count_col="query_id",
+        besthit_cols=list(ID_EXPR_DICT),
+        needed_features={"SPEC:123", "SP123", "K00001"},
+    )
+
+    assert set(parsed.iter_rows()) == {("gene1", "SPEC:123"), ("gene2", "K00001")}
 
 
 def test_custom_accession_columns():
