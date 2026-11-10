@@ -26,4 +26,4 @@ aerobic-methanotroph	@AerobicMethanotroph		traits
 anaerobic-methanotrophic-Archaea	@anaerobic-methanotrophic-Archaea	{"include_when":{"all_columns_present":["taxonomy"]}}	traits
 nitrite-oxidizer-or-nitrate-reducer	@NOxorRed		traits
 ammonia-or-methane-oxidizer	@AmmoniaMethaneOxidizer		traits
-probable-iron-reduction	@ProbIronReduction		traits
+probable-iron-reduction	@ProbIronReduction	{"include_when":{"all_columns_present":["kegg_description"]}}	traits
