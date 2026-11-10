@@ -34,7 +34,7 @@ from dram_rules.processing.process_annotations import (
     build_tree_pl,
 )
 from dram_rules.rule_parser.rules import (
-    ID_EXPR_DICT,
+    ID_PARSERS,
     CompiledRules,
     build_present_map,
     evaluate_cycles,
@@ -286,7 +286,7 @@ def main(
         annotations,
         separator="\t",
         infer_schema_length=10_000,
-        # columns=list(ID_EXPR_DICT.keys()) + [groupby_column]
+        # columns=list(ID_PARSERS) + [groupby_column]
     )
     fasta_column = get_column_name(
         fasta_column, BACKUP_FASTA_COLUMNS, name_of_data="annotations", df=raw_anno
@@ -311,7 +311,7 @@ def main(
     sample_names = (
         raw_anno.select("genome").unique().sort("genome").to_series().to_list()
     )
-    besthit_cols = list(ID_EXPR_DICT.keys())
+    besthit_cols = list(ID_PARSERS)
     dfs = {}
     eval_cycles_kw = {}
     if mapping:

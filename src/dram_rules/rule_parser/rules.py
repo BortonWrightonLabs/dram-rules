@@ -36,62 +36,133 @@ class RuleError(Exception):
     pass
 
 
-ID_EXPR_DICT = {
-    "camper_id": pl.list(pl.col("camper_id").cast(pl.String)),
-    "fegenie_id": pl.list(pl.col("fegenie_id").cast(pl.String)),
-    "sulfur_id": pl.list(pl.col("sulfur_id").cast(pl.String)),
-    "kegg_genes_id": pl.list(pl.col("kegg_genes_id").cast(pl.String)),
-    "kofam_genes_id": pl.list(pl.col("kofam_genes_id").cast(pl.String)),
-    "ko_id": pl.col("ko_id").str.split(","),
-    "kegg_id": pl.col("kegg_id").str.split("/"),
-    "kofam_id": pl.col("kofam_id").str.split("/"),
-    "peptidase_family": pl.col("peptidase_family").str.split(";"),
-    "merops_family": pl.col("merops_family").str.split(";"),
-    "camper_EC": pl.col("camper_EC").str.extract_all(r"EC:(\d+\.\d+\.\d+\.\d+)"),
-    "kegg_EC": pl.col("kegg_EC").str.extract_all(r"EC:(\d+\.\d+\.\d+\.\d+)"),
-    "kofam_EC": pl.col("kofam_EC").str.extract_all(r"EC:(\d+\.\d+\.\d+\.\d+)"),
-    "pfam_hits": pl.col("pfam_hits").str.extract_all(r"(PF\d{5})\.\d+"),
-    "pfam_id": pl.col("pfam_id").str.extract_all(r"(PF\d{5})\.\d+"),
-    "cazy_hits": (
-        pl.col("cazy_hits")
-        .cast(pl.Utf8)
-        # capture just the EC number part inside "(EC ...)"
-        .str.extract_all(r"\(EC\s+([\d\.\-]+)\)")
-        # prefix each captured number with "EC:"
-        .list.eval(pl.concat_str([pl.lit("EC:"), pl.element()]))
-    ),
-    "cazy_subfam_ec": (
-        pl.col("cazy_subfam_ec")
-        .cast(pl.Utf8)
-        .str.extract_all(r"([\d\.\-]+)")
-        .list.eval(pl.concat_str([pl.lit("EC:"), pl.element()]))
-    ),
-    "dbcan_sub_ec": (
-        pl.col("dbcan_sub_ec")
-        .cast(pl.Utf8)
-        .replace({"-": None})
-        .str.split(";")
-        .list.eval(
-            pl.concat_str([pl.lit("EC:"), pl.element().str.split(":").list.first()])
-        )
-    ),
-    "dbcan_id": pl.col("dbcan_id").cast(pl.Utf8).str.split(";"),
-    "dbcan_sub_id": pl.col("dbcan_sub_id").cast(pl.Utf8).str.split(";"),
-    "dbcan_sub_substrate": pl.col("dbcan_sub_substrate").cast(pl.Utf8).str.split(";"),
-    "methyl_id": (
-        pl.col("methyl_id")
-        .cast(pl.Utf8)
-        .str.split(",")
+# ---------------------------------------------------------------------------
+# Parsing annotation columns into identifiers
+#
+# A parser takes a column name and returns an expression giving the list of
+# identifiers in each cell. Parsers only *find* the ids; case and "EC:" prefixes
+# are normalized once, later, by `_match_key`, so "3.2.1.4", "EC:3.2.1.4" and
+# "ec:3.2.1.4" all match each other.
+# ---------------------------------------------------------------------------
+
+
+def _text(col: str) -> pl.Expr:
+    return pl.col(col).cast(pl.String)
+
+
+def split_on(sep: str):
+    """Parser for cells holding ids separated by `sep`, e.g. "K00001,K00002"."""
+    return lambda col: _text(col).str.split(sep)
+
+
+def find_all(pattern: str):
+    """Parser whose ids are every match of the regex `pattern` in the cell.
+    Note: Polars returns the *whole* match and ignores capture groups."""
+    return lambda col: _text(col).str.extract_all(pattern)
+
+
+def whole_cell(col: str) -> pl.Expr:
+    """Parser for cells that are a single id."""
+    return pl.concat_list(_text(col))
+
+
+def without_version(col: str) -> pl.Expr:
+    """Parser for a single accession, dropping its version: PF00001.23 -> PF00001."""
+    return pl.concat_list(_text(col).str.replace(r"\.\d+$", ""))
+
+
+def first_word_of_each(sep: str):
+    """Parser for "<id> <description>" entries separated by `sep`,
+    e.g. "M1 some desc, M2 other" -> ["M1", "M2"]."""
+    return lambda col: (
+        _text(col)
+        .str.split(sep)
         .list.eval(pl.element().str.strip_chars().str.split(" ").list.first())
-    ),
-    "DEFAULT": lambda col: pl.list(pl.col(col).cast(pl.String)),
+    )
+
+
+def dbcan_ecs(col: str) -> pl.Expr:
+    """dbCAN sub EC numbers with hit counts, "3.2.1.4:4;3.2.1.-:1" -> ["3.2.1.4", "3.2.1.-"].
+    A lone "-" means no EC."""
+    return _text(col).replace("-", None).str.replace_all(r":\d+", "").str.split(";")
+
+
+def cazy_ecs(col: str) -> pl.Expr:
+    """EC numbers inside CAZy hit descriptions, written "(EC 3.2.1.4)" or "EC:3.2.1.4"."""
+    return _text(col).str.replace_all(r"EC\s+", "EC:").str.extract_all(r"EC:[\d.\-]+")
+
+
+EC_NUMBER = r"EC:\d+\.\d+\.\d+\.\d+"
+PFAM = r"PF\d{5}"
+
+# Known annotation columns and how to read them. Any other column is still
+# searched: see `parse_ids` for the fallbacks.
+ID_PARSERS = {
+    "camper_id": whole_cell,
+    "fegenie_id": whole_cell,
+    "sulfur_id": whole_cell,
+    "kegg_genes_id": whole_cell,
+    "kofam_genes_id": whole_cell,
+    "ko_id": split_on(","),
+    "kegg_id": split_on("/"),
+    "kofam_id": split_on("/"),
+    "peptidase_family": split_on(";"),
+    "merops_family": split_on(";"),
+    "dbcan_id": split_on(";"),
+    "dbcan_sub_id": split_on(";"),
+    "dbcan_sub_substrate": split_on(";"),
+    "camper_EC": find_all(EC_NUMBER),
+    "kegg_EC": find_all(EC_NUMBER),
+    "kofam_EC": find_all(EC_NUMBER),
+    "cazy_subfam_ec": find_all(r"[\d.\-]+"),
+    "pfam_hits": find_all(PFAM),
+    "pfam_id": find_all(PFAM),
+    "cazy_hits": cazy_ecs,
+    "dbcan_sub_ec": dbcan_ecs,
+    "methyl_id": first_word_of_each(","),
 }
 
-COMPUTED_COLUMNS = {
-    "dbcan_id_ec": pl.concat_str(
-        [pl.col("dbcan_id"), pl.col("dbcan_sub_ec")], separator=";"
-    )
+# Fallbacks for columns not listed above, by name suffix, then for anything else.
+SUFFIX_PARSERS = {"_acc": without_version}
+DEFAULT_PARSER = whole_cell
+
+
+def parse_ids(col: str) -> pl.Expr:
+    """Expression turning annotation column `col` into a list of identifiers."""
+    if col in ID_PARSERS:
+        return ID_PARSERS[col](col)
+    for suffix, parser in SUFFIX_PARSERS.items():
+        if col.endswith(suffix):
+            return parser(col)
+    return DEFAULT_PARSER(col)
+
+
+# Extra identifiers built by joining ids from several columns with ";".
+# Every id from the first column is paired with every id from the next,
+# e.g. dbcan_id "GH5;GH9" + dbcan_sub_ec "3.2.1.4" -> "GH5;3.2.1.4", "GH9;3.2.1.4".
+COMPUTED_COLUMNS: Dict[str, Tuple[str, ...]] = {
+    "dbcan_id_ec": ("dbcan_id", "dbcan_sub_ec"),
 }
+
+# Annotation columns that never hold rule identifiers, so they are not searched.
+NON_ID_ANNOTATION_COLUMNS = {
+    "genome",
+    "scaffold",
+    "gene_number",
+    "start_position",
+    "stop_position",
+    "strandedness",
+    "rank",
+    "heme_regulatory_motif_count",
+}
+
+
+def _match_key(hit: pl.Expr) -> pl.Expr:
+    """Key for matching annotation ids to rule ids: uppercase, then drop "EC:"
+    at the start or after a ";". ${1} keeps the separator, so GH107;EC:3.2.1.212
+    becomes GH107;3.2.1.212 rather than GH1073.2.1.212."""
+    return hit.str.to_uppercase().str.replace_all(r"(^|;)EC:", "${1}")
+
 
 CALL_FUNCTIONS = {
     "not",
@@ -356,6 +427,54 @@ class ASTTransformer(Transformer):
         return PipeChain(calls)
 
 
+@functools.cache
+def _get_parser(allow_visualize_functions: bool) -> Lark:
+    """Build the LALR parser once per flag value; building the tables isn't free."""
+    grammar = (Path(__file__).parent / "rules.lark").read_text()
+    return Lark(
+        grammar,
+        parser="lalr",
+        transformer=ASTTransformer(allow_visualize_functions=allow_visualize_functions),
+    )
+
+
+def _parse_rule_expr(parser: Lark, expr_str: str) -> Expr:
+    """Parse one rule string, turning Lark errors into friendlier RuleErrors."""
+    try:
+        return parser.parse(expr_str)
+    except LarkError as e:
+        n_left_b = expr_str.count("[")
+        n_right_b = expr_str.count("]")
+        if n_left_b != n_right_b:
+            raise RuleError(
+                f"Possible mismatched brackets in rule expression: {expr_str}"
+            ) from e
+        if expr_str.count("&") > 0 and expr_str.count("|") > 0:
+            # both used; likely missing brackets
+            raise RuleError(
+                f"Possible ambiguous use of '&' or '|' without surrounding brackets `[ ]`. Check that you don't have a situation like `A | B & C` or `A & B | C`. These are generally not allowed because they can be ambiguous. These should be written as `[A | B] & C` or `A | [B & C]`: {expr_str}."
+            ) from e
+        if hasattr(e, "get_context"):
+            logger.error(e.get_context(expr_str))
+            raise RuleError(
+                f"Error parsing rule expression for unknown reason. Possible hints could be found from the lark parsing context: {e.get_context(expr_str)}"
+            ) from e
+        else:
+            raise RuleError(
+                f"Error parsing rule expression for unknown reason. Possible hints could be found in the above exceptions from the parsing library Lark: {expr_str}"
+            ) from e
+
+
+def _scan_rules_tsv(path: str | Path) -> pl.LazyFrame:
+    """Lazily read a rules TSV, dropping rows that are entirely empty."""
+    return pl.scan_csv(
+        path,
+        separator="\t",
+        infer_schema_length=None,
+        truncate_ragged_lines=True,
+    ).filter(~pl.all_horizontal(pl.all().is_null()))
+
+
 @dataclass(frozen=True)
 class CompiledRules:
     rules: Dict[str, Expr]  # top-level rules with macros expanded
@@ -373,7 +492,7 @@ class CompiledRules:
         group_col_backups=BACKUP_GROUPBY_COLUMNS,
         **kwargs,
     ) -> CompiledRules:
-        definitions, rules, lf = load_rules(*args, **kwargs)
+        definitions, rules, df = load_rules(*args, **kwargs)
 
         defs_expanded = {
             k: expand_macros(v, definitions) for k, v in definitions.items()
@@ -394,24 +513,18 @@ class CompiledRules:
         }
         needed_features = set().union(*[s for s in features_by_rules.values()])
 
-        lf_cols = lf.collect_schema()
-        # if default group col in cols, use that
-        if group_col is None and DEFAULT_GROUPBY_COLUMN in lf_cols:
-            group_col = DEFAULT_GROUPBY_COLUMN
-        # else, check backup cols
-        elif group_col is None:
-            for col in group_col_backups:
-                if col in lf_cols:
-                    group_col = col
-                    group_col_backups.remove(group_col)
-                    break
+        # Pick the group column: the default if present, else the first backup present.
+        # (Don't mutate group_col_backups: its default is the shared module-level list.)
+        if group_col is None:
+            group_col = next(
+                (c for c in [DEFAULT_GROUPBY_COLUMN, *group_col_backups] if c in df),
+                None,
+            )
         if group_col:
-            group_backups = [
-                col for col in group_col_backups if col in lf.collect_schema()
-            ]
-            # for each backup, fill any group col null with one of the backups
-            for col in group_backups:
-                lf = lf.with_columns(pl.col(group_col).fill_null(pl.col(col)))
+            # Fill nulls in the group column from the remaining backups, in order.
+            backups = [c for c in group_col_backups if c in df and c != group_col]
+            if backups:
+                df = df.with_columns(pl.coalesce(group_col, *backups).alias(group_col))
 
         return cls(
             rules=rules_expanded,
@@ -419,7 +532,7 @@ class CompiledRules:
             needed_features_raw=needed_features,
             features_by_rules=features_by_rules,
             trees_by_rules=trees_by_rules,
-            df=lf.collect(),
+            df=df,
         )
 
 
@@ -433,151 +546,81 @@ def load_rules(
     common_rules: pl.LazyFrame = None,
     common_rules_path: str | Path = None,
     check_for_dupes: bool = True,
-) -> Tuple[Dict[str, Expr], Dict[str, Expr]]:
+) -> Tuple[Dict[str, Expr], Dict[str, Expr], pl.DataFrame]:
     """
     Assumes TSV has columns at least: name, rule
     Convention used here:
       - if `name` is non-empty: this is an OUTPUT RULE whose expression is in `rule`
       - if `name` is empty and `alias` is non-empty: this is a DEFINITION macro: alias := rule
     If your file uses a slightly different convention, adjust this function only.
+
+    Returns (definitions, rules, df). `df` is the cleaned rules table; its rule
+    column holds the raw rule strings, the parsed expressions are in the dicts.
     """
     assert (rules_path is not None) != (rules is not None), (
         "Either rules_path or rules DataFrame must be provided, but not both."
     )
-    if rules_path:
-        lf = pl.scan_csv(
-            rules_path,
-            separator="\t",
-            infer_schema_length=None,
-            truncate_ragged_lines=True,
-        ).filter(~pl.all_horizontal(pl.all().is_null()))
-    else:
-        lf = rules
+    lf = _scan_rules_tsv(rules_path) if rules_path else rules
 
     if common_rules_path:
-        clf = pl.scan_csv(
-            common_rules_path,
-            separator="\t",
-            infer_schema_length=None,
-            truncate_ragged_lines=True,
-        ).filter(~pl.all_horizontal(pl.all().is_null()))
-    elif common_rules is not None:
-        clf = common_rules
+        clf = _scan_rules_tsv(common_rules_path)
     else:
-        clf = None
+        clf = common_rules
 
-    # Normalize columns
     cols = set(lf.collect_schema().names())
     required = {label_col, rules_col}
     if not required.issubset(cols):
         raise ValueError(
-            f"rules TSV missing required columns {required}. Found: {lf.columns}"
+            f"rules TSV missing required columns {required}. Found: {sorted(cols)}"
         )
 
-    has_alias_col = alias_col and (alias_col in cols)
-
-    with open(Path(__file__).parent.absolute() / "rules.lark") as f:
-        parser = Lark(
-            f,
-            parser="lalr",
-            transformer=ASTTransformer(
-                allow_visualize_functions=allow_visualize_functions
-            ),
-        )
-
-    def parse_rule_expr(expr_str: str) -> Expr:
-        """We use a closure to capture the parser instance since
-        polars map_elements doesn't let us pass extra args."""
-        try:
-            return parser.parse(expr_str)
-        except LarkError as e:
-            n_left_b = expr_str.count("[")
-            n_right_b = expr_str.count("]")
-            if n_left_b != n_right_b:
-                raise RuleError(
-                    f"Possible mismatched brackets in rule expression: {expr_str}"
-                ) from e
-            if expr_str.count("&") > 0 and expr_str.count("|") > 0:
-                # both used; likely missing brackets
-                raise RuleError(
-                    f"Possible ambiguous use of '&' or '|' without surrounding brackets `[ ]`. Check that you don't have a situation like `A | B & C` or `A & B | C`. These are generally not allowed because they can be ambiguous. These should be written as `[A | B] & C` or `A | [B & C]`: {expr_str}."
-                ) from e
-            if hasattr(e, "get_context"):
-                logger.error(e.get_context(expr_str))
-                raise RuleError(
-                    f"Error parsing rule expression for unknown reason. Possible hints could be found from the lark parsing context: {e.get_context(expr_str)}"
-                ) from e
-            else:
-                raise RuleError(
-                    f"Error parsing rule expression for unknown reason. Possible hints could be found in the above exceptions from the parsing library Lark: {expr_str}"
-                ) from e
-
-    lf = lf.with_columns(
-        [
-            pl.col(rules_col)
-            .str.strip_chars()
-            .map_elements(parse_rule_expr, return_dtype=pl.Object)
-        ]
-    )
-
-    lf = lf.with_columns(pl.col(pl.String).replace("", None))
-
-    if not has_alias_col:
-        if not alias_col:
-            alias_col = "alias"
-        lf = lf.with_columns(pl.lit(None).cast(pl.String).alias(alias_col))
+    if not (alias_col and alias_col in cols):
+        alias_col = alias_col or "alias"
+        lf = lf.with_columns(pl.lit(None, dtype=pl.String).alias(alias_col))
 
     if clf is not None:
+        # Common rules always use name/alias/rule; map them onto this sheet's columns.
         clf = clf.with_columns(
-            [
-                (
-                    pl.col("rule")
-                    .str.strip_chars()
-                    .map_elements(parse_rule_expr, return_dtype=pl.Object)
-                    .alias(rules_col)
-                ),
-                pl.col("name").alias(label_col),
-                pl.col("alias").alias(alias_col),
-            ],
+            pl.col("rule").alias(rules_col),
+            pl.col("name").alias(label_col),
+            pl.col("alias").alias(alias_col),
         )
-
         lf = pl.concat([lf, clf], how="diagonal_relaxed")
-    # We strip white space around labels incase users left spaces at the beg or end of cell
-    # which we don't want to match to
-    lf = lf.with_columns(
-        pl.col(label_col).cast(pl.String).str.strip_chars(),
-        pl.col(alias_col).cast(pl.String).str.strip_chars(),
+
+    # Clean up text lazily, then materialize exactly once. Every collect() re-runs the
+    # whole plan (CSV scan, concat, ...), so we build everything below from this one frame.
+    df = (
+        lf.with_columns(pl.col(label_col, alias_col, rules_col).cast(pl.String))
+        # Strip stray whitespace users may have left around labels, aliases and rules,
+        .with_columns(pl.col(label_col, alias_col, rules_col).str.strip_chars())
+        # then treat empty cells (including whitespace-only ones) as missing.
+        .with_columns(pl.col(pl.String).replace("", None))
+        .collect()
     )
 
-    labels = (
-        lf.filter(pl.col(label_col).is_not_null() & (pl.col(label_col) != ""))
-        .select(label_col)
-        .collect()
-        .to_series()
-    )
-    duplicate_labels = labels.filter(labels.is_duplicated()).unique().sort().to_list()
-    if duplicate_labels and check_for_dupes:
-        raise RuleError(
-            f"Rule column '{label_col}' needs to be unique. Duplicate labels: {duplicate_labels}"
-        )
+    if check_for_dupes:
+        labels = df.get_column(label_col).drop_nulls()
+        duplicate_labels = labels.filter(labels.is_duplicated()).unique().sort()
+        if len(duplicate_labels):
+            raise RuleError(
+                f"Rule column '{label_col}' needs to be unique."
+                f" Duplicate labels: {duplicate_labels.to_list()}"
+            )
 
-    rules = {
-        a: b
-        for a, b in lf.filter(~pl.col(label_col).is_null())
-        .select([pl.col(label_col), pl.col(rules_col)])
-        .collect()
-        .iter_rows()
+    # Parse each distinct rule string once (aliases are often reused across sheets).
+    parser = _get_parser(allow_visualize_functions)
+    parsed = {
+        s: _parse_rule_expr(parser, s)
+        for s in df.get_column(rules_col).drop_nulls().unique()
     }
 
-    definitions = {
-        a: b
-        for a, b in lf.filter(~pl.col(alias_col).is_null())
-        .select([pl.col(alias_col), pl.col(rules_col)])
-        .collect()
-        .iter_rows()
-    }
+    def rules_keyed_by(key_col: str) -> Dict[str, Expr]:
+        keyed = df.select(key_col, rules_col).drop_nulls(key_col)
+        return {
+            key: parsed.get(rule) for key, rule in zip(keyed[key_col], keyed[rules_col])
+        }
 
-    return definitions, rules, lf
+    return rules_keyed_by(alias_col), rules_keyed_by(label_col), df
 
 
 def expand_macros(
@@ -749,91 +792,65 @@ def prepare_present_map_df(
     additional_cols: List[str] = None,
     group_col: str = None,
 ):
+    """Long table of (index cols, hit, additional cols): one row per gene and
+    rule identifier it was annotated with, keeping only identifiers in
+    `needed_features`.
+
+    Each annotation column becomes its own lazy branch (split into ids, then
+    exploded), so columns are processed in parallel and never multiply each
+    other's rows. Everything is collected once at the end.
+    """
     additional_cols = additional_cols or []
     index_cols = [count_col, group_col] if group_col else [count_col]
-    besthit_cols = [col for col in besthit_cols if col in df.columns]
-    besthit_cols.extend(
-        [
-            col
-            for col in df.columns
-            if (
-                col
-                and col not in besthit_cols
-                and col
-                not in [
-                    *index_cols,
-                    *additional_cols,
-                    "genome",
-                    "scaffold",
-                    "gene_number",
-                    "start_position",
-                    "stop_position",
-                    "strandedness",
-                    "rank",
-                    "heme_regulatory_motif_count",
-                ]
-            )
-        ]
-    )
-    df = df.select(index_cols + besthit_cols + additional_cols)
-    for col in besthit_cols:
-        if col in ID_EXPR_DICT:
-            explode_col = ID_EXPR_DICT[col].alias(col)
-        elif col.endswith("_acc"):
-            explode_col = pl.concat_list(
-                # For the accession name, remove the version number (PF00001.VERSION)
-                pl.col(col).cast(pl.String).str.replace(r"\.\d+$", "")
-            ).alias(col)
-        else:
-            explode_col = ID_EXPR_DICT["DEFAULT"](col).alias(col)
-        df = (
-            df.with_columns(explode_col)
-            .explode(col, empty_as_null=True)
-            .with_columns(pl.col(col).str.to_uppercase())
-        )
-
-    for col in COMPUTED_COLUMNS:
-        try:
-            df = df.with_columns(COMPUTED_COLUMNS[col].alias(col))
-            besthit_cols.append(col)
-        except pl.exceptions.ColumnNotFoundError:
-            pass
-
-    # unpivot to long (sample, hit)
+    keep_cols = [*index_cols, *additional_cols]
     hit_col = "hit"
-    df = (
-        df.unpivot(
-            index=index_cols + additional_cols,
-            on=besthit_cols,
-            variable_name="db",
-            value_name=hit_col,
-        )
-        .drop("db")
+
+    hit_cols = [col for col in besthit_cols if col in df.columns]
+    hit_cols += [
+        col
+        for col in df.columns
+        if col
+        and col not in hit_cols
+        and col not in keep_cols
+        and col not in NON_ID_ANNOTATION_COLUMNS
+    ]
+
+    lf = df.lazy()
+
+    def hits_from(*cols: str) -> pl.LazyFrame:
+        """Explode each column's ids; with several columns, pair every id of one with every id of the next."""
+        out = lf.select(*keep_cols, *(parse_ids(col).alias(col) for col in cols))
+        for col in cols:
+            out = out.explode(col, empty_as_null=True)
+        if len(cols) == 1:
+            return out.rename({cols[0]: hit_col})
+        return out.select(*keep_cols, pl.concat_str(cols, separator=";").alias(hit_col))
+
+    branches = [hits_from(col) for col in hit_cols]
+    branches += [
+        hits_from(*sources)
+        for sources in COMPUTED_COLUMNS.values()
+        if all(col in hit_cols for col in sources)
+    ]
+
+    # Rule identifiers, keyed the same way as annotation identifiers below.
+    needed = pl.LazyFrame(
+        {hit_col: sorted(needed_features)}, schema={hit_col: pl.String}
+    ).with_columns(_match_id=_match_key(pl.col(hit_col)))
+
+    return (
+        pl.concat(branches, how="vertical_relaxed")
         .drop_nulls()
-        # Build a matching key without EC: at the start or after a semicolon.
-        # ${1} preserves the captured separator, so GH107;EC:3.2.1.212
-        # becomes GH107;3.2.1.212 rather than GH1073.2.1.212.
-        .with_columns(
-            pl.col(hit_col).str.replace_all(r"(^|;)EC:", "${1}").alias("_match_id")
-        )
-        # The join restores hit using the rule's spelling, including its EC: prefix.
+        .with_columns(_match_id=_match_key(pl.col(hit_col)))
         .drop(hit_col)
-        .join(
-            # Normalize rule identifiers the same way as annotation identifiers.
-            pl.DataFrame(
-                {hit_col: sorted(needed_features)}, schema={hit_col: pl.String}
-            ).with_columns(
-                pl.col(hit_col).str.replace_all(r"(^|;)EC:", "${1}").alias("_match_id")
-            ),
-            on="_match_id",
-            # Keep only annotation identifiers requested by the rules.
-            how="inner",
-        )
-        .select([*index_cols, hit_col, *additional_cols])
+        # Keep only identifiers the rules ask for. The join restores `hit` using
+        # the rule's spelling, including any EC: prefix.
+        .join(needed, on="_match_id", how="inner")
+        .select(*index_cols, hit_col, *additional_cols)
         # Multiple columns can match the same rule identifier; count each gene once.
-        .unique(subset=[*index_cols, hit_col, *additional_cols])
+        .unique()
+        .collect()
     )
-    return df
 
 
 def build_present_map(
@@ -1440,7 +1457,7 @@ def evaluate_rules_on_anno(
     df = prepare_present_map_df(
         df=annotations,
         count_col=count_col,
-        besthit_cols=list(ID_EXPR_DICT.keys()),
+        besthit_cols=list(ID_PARSERS),
         needed_features=compiled.needed_features,
         group_col=group_col,
     )
