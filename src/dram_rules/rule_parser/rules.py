@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Dict, Tuple, List, Optional, Set, Iterable
 import operator
 import os
@@ -483,16 +483,19 @@ class CompiledRules:
     features_by_rules: Dict[str, Set[str]]
     trees_by_rules: Dict[str, nx.DiGraph]
     df: pl.DataFrame
+    # Parsed `rule_options` JSON per rule name; rules without options are absent.
+    rule_options: Dict[str, dict] = field(default_factory=dict)
 
     @classmethod
     def from_rules(
         cls,
         *args,
+        label_col: str = "name",
         group_col=None,
         group_col_backups=BACKUP_GROUPBY_COLUMNS,
         **kwargs,
     ) -> CompiledRules:
-        definitions, rules, df = load_rules(*args, **kwargs)
+        definitions, rules, df = load_rules(*args, label_col=label_col, **kwargs)
 
         defs_expanded = {
             k: expand_macros(v, definitions) for k, v in definitions.items()
@@ -533,7 +536,24 @@ class CompiledRules:
             features_by_rules=features_by_rules,
             trees_by_rules=trees_by_rules,
             df=df,
+            rule_options=_parse_rule_options(df, label_col),
         )
+
+
+def _parse_rule_options(df: pl.DataFrame, label_col: str) -> Dict[str, dict]:
+    """Read the optional `rule_options` column (JSON per rule) into a dict by rule name."""
+    if "rule_options" not in df.columns:
+        return {}
+    options = {}
+    rows = df.select(label_col, "rule_options").drop_nulls()
+    for name, raw in zip(rows[label_col], rows["rule_options"]):
+        try:
+            options[name] = json.loads(raw)
+        except json.JSONDecodeError as e:
+            raise RuleError(
+                f"Invalid rule_options JSON for rule '{name}': {raw}"
+            ) from e
+    return options
 
 
 def load_rules(
@@ -909,8 +929,13 @@ class Evaluator:
 
         self._all_false = np.zeros(len(samples), dtype=bool)
 
-    @functools.cache
-    def eval_bool(self, expr: Expr, reduce_outer_and=True) -> np.ndarray:
+        # Per-instance caches. `functools.cache` on the methods themselves would be
+        # one cache shared by the whole class, keeping every Evaluator (and its
+        # annotations DataFrame) alive for the life of the process.
+        self.eval_bool = functools.cache(self._eval_bool)
+        self.eval_cycle = functools.cache(self._eval_cycle)
+
+    def _eval_bool(self, expr: Expr, reduce_outer_and=True) -> np.ndarray:
         out = None
         if isinstance(expr, Alias):
             raise RuleError(
@@ -961,10 +986,15 @@ class Evaluator:
             f" Tried to evaluate truth value of {expr}"
         )
 
-    @functools.cache
-    def eval_cycle(
+    def _eval_cycle(
         self, expr: Steps | list[Expr], simplify=True, **kwargs
     ) -> np.ndarray:
+        """Evaluate each part of `expr` into one column per part.
+
+        Gene names keep their hit counts (not just True/False) so that
+        `at_least(n, COUNTS, ...)` can count; callers that need presence
+        convert with `.astype(bool)`. With `simplify`, reduce to "all parts present".
+        """
         if isinstance(expr, Iterable):
             parts = [self.eval_bool(p, **kwargs) for p in expr]
         elif isinstance(expr, Steps):
@@ -974,9 +1004,7 @@ class Evaluator:
                 f"Expected Steps or Iterable of Expr for cycle evaluation, got {expr}"
             )
         mat = (
-            np.stack(
-                parts, axis=1, dtype=bool, casting="unsafe"
-            )  # unsafe here because we want float -> bool
+            np.stack(parts, axis=1)
             if parts
             else np.zeros((len(self.samples), 0), dtype=bool)
         )
@@ -1000,8 +1028,8 @@ class Evaluator:
 
         match fn:
             case "not":
-                if "masks" in kwargs and kwargs["masks"]:
-                    return self.not_(masks=kwargs["masks"])
+                # Negates its own argument. Inside a pipe, a negated filter is
+                # combined (AND) with any filters before it.
                 return self.not_(self.eval_bool(args[0]))
             case "percent":
                 expr = args[1]
@@ -1056,11 +1084,15 @@ class Evaluator:
             case _:
                 raise RuleError(f"Unable to parse function in rules. Function: {fn}")
 
-    def _sort_df_to_ordered_df(self, df):
+    def _per_sample(self, df: pl.DataFrame, col: str) -> np.ndarray:
+        """Boolean result column `col` of a per-sample `df`, as an array in
+        `self.samples` order. Samples missing from `df` are False."""
         return (
-            df.join(self._order_df, on=self.sample_col, how="left")
+            self._order_df.join(df, on=self.sample_col, how="left")
             .sort("_order")
-            .drop("_order")
+            .get_column(col)
+            .fill_null(False)
+            .to_numpy()
         )
 
     def eval_filter_dec(func):
@@ -1090,16 +1122,10 @@ class Evaluator:
 
     # Call functions
     @staticmethod
-    def not_(x: np.ndarray = None) -> np.ndarray | pl.Expr:
-        if isinstance(x, list) and len(x) > 0 or isinstance(x, pl.Expr):
-            if isinstance(x, pl.Expr):
-                x = [x]
-            masks = x
-            if len(masks) == 1:
-                mask = masks[0]
-            else:
-                mask = masks[0].and_(*[mask for mask in masks[1:]])
-            return ~mask
+    def not_(x: np.ndarray | pl.Expr) -> np.ndarray | pl.Expr:
+        """Negate a per-sample result, or a row filter (from filter_* functions)."""
+        if isinstance(x, pl.Expr):
+            return ~x
         return np.logical_not(x)
 
     @staticmethod
@@ -1113,7 +1139,10 @@ class Evaluator:
 
     @staticmethod
     def at_least(k: int, mode: str, x: np.ndarray) -> np.ndarray:
-        if mode.upper() not in AT_LEAST_MODES:
+        """PRESENCE: at least k of the parts are present.
+        COUNTS: the parts' hit counts add up to at least k."""
+        mode = mode.upper()
+        if mode not in AT_LEAST_MODES:
             raise ValueError(
                 f"Unsupported at_least mode: {mode}. Use one of {AT_LEAST_MODES}"
             )
@@ -1125,15 +1154,11 @@ class Evaluator:
         df = self.annotations if df is None else df
         if "taxonomy" not in df.columns:
             return np.zeros(len(self.samples), dtype=bool)
-        return (
-            self._sort_df_to_ordered_df(
-                df.group_by(self.sample_col).agg(
-                    pl.col("taxonomy").str.contains(tax_label).any()
-                )
-            )
-            .select("taxonomy")
-            .to_series()
-            .to_numpy()
+        return self._per_sample(
+            df.group_by(self.sample_col).agg(
+                pl.col("taxonomy").str.contains(tax_label).any()
+            ),
+            "taxonomy",
         )
 
     @eval_filter_dec
@@ -1173,9 +1198,7 @@ class Evaluator:
                 )
             )
         )
-
-        df = self._sort_df_to_ordered_df(df)
-        return df.select(pl.col(col)).to_series().to_numpy()
+        return self._per_sample(df, col)
 
     @eval_filter_dec
     def column_sum_values(
@@ -1193,23 +1216,29 @@ class Evaluator:
         df = df.group_by(self.sample_col).agg(
             cmp_fn(pl.col(col).cast(float).sum(), thr)
         )
-        df = self._sort_df_to_ordered_df(df)
-        return df.select(pl.col(col)).to_series().to_numpy()
+        return self._per_sample(df, col)
+
+    @staticmethod
+    def _require_column(df: pl.DataFrame, col: str, fn: str) -> None:
+        if col not in df.columns:
+            raise RuleError(
+                f"Missing column '{col}' for {fn}(): the annotations don't have it."
+                " If the rule should be skipped when the column is missing, give it"
+                f' rule_options {{"include_when":{{"all_columns_present":["{col}"]}}}}'
+            )
 
     def filter_contains(
         self, col: str, val: str, df: pl.DataFrame = None, **kwargs
-    ) -> pl.DataFrame:
+    ) -> pl.Expr:
         df = self.annotations if df is None else df
-        if col not in df:
-            return np.zeros(len(self.samples), dtype=bool)
+        self._require_column(df, col, "filter_contains")
         return pl.col(col).str.contains(val)
 
     def filter_compare(
         self, col: str, op: str, thr: float, df: pl.DataFrame = None, **kwargs
-    ) -> pl.DataFrame:
+    ) -> pl.Expr:
         df = self.annotations if df is None else df
-        if col not in df:
-            raise RuleError(f"Missing column '{col}' for filter_compare()")
+        self._require_column(df, col, "filter_compare")
         try:
             cmp_fn = OP_TO_EXPR[op]
         except KeyError:
@@ -1217,7 +1246,8 @@ class Evaluator:
         return cmp_fn(pl.col(col).cast(float), thr)
 
     def path_steps(self, expr: Steps | list[Expr], **kwargs) -> pl.DataFrame:
-        cycle = self.eval_cycle(expr, simplify=False, **kwargs)
+        # Count steps present, not gene hits within them.
+        cycle = self.eval_cycle(expr, simplify=False, **kwargs).astype(bool)
 
         df = pl.DataFrame(
             {
@@ -1259,7 +1289,7 @@ def get_val_cols(df, allow_multiple=False):
     if "value" in df.columns:
         cols.append("value")
     if not cols:
-        AssertionError(
+        raise RuleError(
             f"Rules parsing problem, can't determine check_col for dataframe rules: {df}. File github issue"
         )
     # it doesn't matter how many in cols if we allow_multiple and len > 0, so we return
@@ -1292,7 +1322,13 @@ def evaluate_rules(
         annotations=annotations,
     )
 
-    rule_names = sorted(compiled.rules.keys())
+    # Skip rules whose rule_options say they don't apply to these annotations.
+    available_columns = set(annotations.columns) if annotations is not None else set()
+    rule_names = sorted(
+        rn
+        for rn in compiled.rules
+        if should_include(compiled.rule_options.get(rn, {}), available_columns)
+    )
     data = {}
     for rn in rule_names:
         out = ev.eval_bool(compiled.rules[rn])
