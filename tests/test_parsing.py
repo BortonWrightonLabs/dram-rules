@@ -7,7 +7,7 @@ from dram_rules.rule_parser.rules import (
     And,
     Call,
     CompiledRules,
-    ID_EXPR_DICT,
+    ID_PARSERS,
     Name,
     Or,
     PipeChain,
@@ -16,6 +16,7 @@ from dram_rules.rule_parser.rules import (
     String,
     evaluate_rules_on_anno,
     load_rules,
+    parse_ids,
     prepare_present_map_df,
 )
 
@@ -201,12 +202,61 @@ def test_dbcan_sub_ec_parsing():
         }
     )
 
-    parsed = annotations.select(ID_EXPR_DICT["dbcan_sub_ec"]).to_series().to_list()
+    parsed = annotations.select(parse_ids("dbcan_sub_ec")).to_series().to_list()
 
+    # Parsers only find the ids; the "EC:" prefix is normalized at match time.
     assert parsed == [
-        ["EC:2.4.1.25", "EC:3.2.1.68", "EC:3.2.1.-"],
-        ["EC:1.2.3.4"],
+        ["2.4.1.25", "3.2.1.68", "3.2.1.-"],
+        ["1.2.3.4"],
     ]
+
+
+@pytest.mark.parametrize(
+    "column, annotation, expected",
+    [
+        # Versioned Pfam ids lose their version; several hits per cell.
+        (
+            "pfam_hits",
+            "Pkinase [PF00069.28]; PK_Tyr [PF07714.20]",
+            ["PF00069", "PF07714"],
+        ),
+        ("pfam_id", "PF00001.23", ["PF00001"]),
+        # CAZy ECs written either "(EC x)" or "EC:x".
+        (
+            "cazy_hits",
+            "GH5 (EC 3.2.1.4); GH9 (EC 3.2.1.-)",
+            ["EC:3.2.1.4", "EC:3.2.1.-"],
+        ),
+        ("cazy_hits", "GH5 [EC:3.2.1.4]", ["EC:3.2.1.4"]),
+        ("methyl_id", "M1 some desc, M2 other", ["M1", "M2"]),
+        ("unknown_db_id", "abc123", ["abc123"]),
+        ("unknown_db_acc", "XYZ0001.4", ["XYZ0001"]),
+    ],
+)
+def test_parse_ids(column, annotation, expected):
+    annotations = pl.DataFrame({column: [annotation]})
+    assert annotations.select(parse_ids(column)).item().to_list() == expected
+
+
+@pytest.mark.parametrize(
+    "column, annotation, feature",
+    [
+        ("pfam_hits", "Pkinase [PF00069.28]", "PF00069"),
+        ("cazy_hits", "GH5 (EC 3.2.1.4)", "EC:3.2.1.4"),
+        ("cazy_hits", "GH5 (EC 3.2.1.4)", "3.2.1.4"),
+    ],
+)
+def test_known_formats_match_rule_ids(column, annotation, feature):
+    annotations = pl.DataFrame({"query_id": ["gene1"], column: [annotation]})
+
+    parsed = prepare_present_map_df(
+        annotations,
+        count_col="query_id",
+        besthit_cols=list(ID_PARSERS),
+        needed_features={feature},
+    )
+
+    assert parsed.rows() == [("gene1", feature)]
 
 
 @pytest.mark.parametrize(
@@ -226,7 +276,7 @@ def test_ec_prefix_fallback(column, annotation, feature):
     parsed = prepare_present_map_df(
         annotations,
         count_col="query_id",
-        besthit_cols=list(ID_EXPR_DICT),
+        besthit_cols=list(ID_PARSERS),
         needed_features={feature},
     )
 
@@ -247,7 +297,7 @@ def test_dbcan_compound_ec_fallback():
     parsed = prepare_present_map_df(
         annotations,
         count_col="query_id",
-        besthit_cols=list(ID_EXPR_DICT),
+        besthit_cols=list(ID_PARSERS),
         needed_features={
             "GH107;EC:3.2.1.212",
             "GH107;3.2.1.212",
@@ -278,7 +328,7 @@ def test_ec_prefix_fallback_preserves_other_identifiers():
     parsed = prepare_present_map_df(
         annotations,
         count_col="query_id",
-        besthit_cols=list(ID_EXPR_DICT),
+        besthit_cols=list(ID_PARSERS),
         needed_features={"SPEC:123", "SP123", "K00001"},
     )
 
@@ -303,7 +353,7 @@ def test_custom_accession_columns():
     parsed = prepare_present_map_df(
         annotations,
         count_col="query_id",
-        besthit_cols=list(ID_EXPR_DICT),
+        besthit_cols=list(ID_PARSERS),
         needed_features={"PF00001", "PF00002", "CUSTOM.DOMAIN", "ID.2"},
     )
 
@@ -373,7 +423,7 @@ def test_alias_only_rules_preserve_nulls():
 
     assert definitions == {"Example": Name("K12345")}
     assert rules == {}
-    assert frame.collect().row(0, named=True)["description"] is None
+    assert frame.row(0, named=True)["description"] is None
 
 
 def test_rules_with_all_null_aliases():
@@ -385,6 +435,26 @@ def test_rules_with_all_null_aliases():
 
     assert definitions == {}
     assert rules == {"Example": Name("K12345")}
+
+
+def test_backup_group_col_fills_nulls_without_mutating_defaults():
+    from dram_rules.definitions import BACKUP_GROUPBY_COLUMNS
+
+    before = list(BACKUP_GROUPBY_COLUMNS)
+    rules = pl.DataFrame(
+        {
+            "name": ["A", "B"],
+            "rule": ["K1", "K2"],
+            "topic_ecosystem": ["eco", None],
+            "module": ["mod_a", "mod_b"],
+        }
+    ).lazy()
+
+    for _ in range(2):
+        compiled = CompiledRules.from_rules(rules=rules)
+        # topic_ecosystem is the group col; its null is filled from module.
+        assert compiled.df["topic_ecosystem"].to_list() == ["eco", "mod_b"]
+    assert BACKUP_GROUPBY_COLUMNS == before
 
 
 def test_basic_compiled_rules():
