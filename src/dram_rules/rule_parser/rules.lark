@@ -1,4 +1,3 @@
-// Rule language. See docs/rule-functions-spec.md.
 
 ?start: step_expr
       | expr

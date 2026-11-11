@@ -366,7 +366,9 @@ class BoundCall(Expr):
 
     function: RuleFunction
     args: tuple[Any, ...]
-    kind: ValueKind  # what the call returns: ValueKind.PER_SAMPLE or ValueKind.ROW_FILTER
+    kind: (
+        ValueKind  # what the call returns: ValueKind.PER_SAMPLE or ValueKind.ROW_FILTER
+    )
 
     def children(self):
         found = []
@@ -526,6 +528,18 @@ _TRUE_WORDS = {"true", "yes", "t", "1"}
 _FALSE_WORDS = {"false", "no", "f", "0"}
 _OLD_OPERATORS = {"ge": ">=", "gt": ">", "le": "<=", "lt": "<", "eq": "==", "ne": "!="}
 
+# Functions removed from the rule language, and what to write instead.
+_REMOVED_FUNCTIONS = {
+    "path_steps": "write the steps as the rule itself (A, B, C) and give it"
+    ' rule_options {"coverage":"steps"}',
+    "path_subunits": "write the subunits as the rule itself (A & B & C) and give it"
+    ' rule_options {"coverage":"subunits"}',
+    "column_count_values": "use filter_compare(col, >=, value) -> count_rows(>=, count),"
+    " e.g. column_count_values(col,ge,4,ge,3) becomes"
+    " filter_compare(col, >=, 4) -> count_rows(>=, 3)",
+    "column_sum_values": "use sum_column(col, op, value), e.g. sum_column(col, >=, 10)",
+}
+
 
 def _word(expr: Expr) -> str | None:
     """A bare word or quoted string argument, as text."""
@@ -634,6 +648,11 @@ class RuleCompiler:
         return PipeChain((*compiled, summary))
 
     def bind(self, call: Call) -> tuple[BoundCall, ValueKind]:
+        if call.value in _REMOVED_FUNCTIONS and call.value not in self.functions:
+            raise RuleError(
+                f"{call.value}() is no longer part of the rule language;"
+                f" {_REMOVED_FUNCTIONS[call.value]}"
+            )
         function = self.functions.get(call.value)
         try:
             values = self._bind_arguments(function, call)
@@ -642,6 +661,7 @@ class RuleCompiler:
         return BoundCall(function, tuple(values), function.returns), function.returns
 
     def _bind_arguments(self, function: RuleFunction, call: Call):
+        self._check_choices_given_by_keyword(function, call)
         positional = list(call.args)
         keywords: dict[str, Expr] = {}
         for name, value in call.kwargs:
@@ -653,16 +673,22 @@ class RuleCompiler:
         for param in function.params:
             if param.variadic:
                 raws, positional = positional, []
-                values.append(tuple(self._convert(function, param, raw) for raw in raws))
+                values.append(
+                    tuple(self._convert(function, param, raw) for raw in raws)
+                )
                 continue
             if positional and not param.keyword_only:
                 raw = positional.pop(0)
                 if param.name in keywords:
-                    raise _ArgumentError(f"{function.name}() got two values for '{param.name}'")
+                    raise _ArgumentError(
+                        f"{function.name}() got two values for '{param.name}'"
+                    )
             elif param.name in keywords:
                 raw = keywords.pop(param.name)
             elif param.required:
-                raise _ArgumentError(f"{function.name}() is missing argument '{param.name}'")
+                raise _ArgumentError(
+                    f"{function.name}() is missing argument '{param.name}'"
+                )
             else:
                 values.append(param.default)
                 continue
@@ -678,6 +704,29 @@ class RuleCompiler:
                 f"{function.name}() got unknown keyword(s) {', '.join(keywords)}; valid: {valid}"
             )
         return values
+
+    def _check_choices_given_by_keyword(
+        self, function: RuleFunction, call: Call
+    ) -> None:
+        """Catch a choice word passed positionally to an optional choice
+        parameter that comes later, e.g. the earlier form
+        at_least(2, PRESENCE, [...]). Otherwise the word would be read as the
+        argument in that position (here a gene named PRESENCE)."""
+        for position, raw in enumerate(call.args):
+            word = _word(raw)
+            if word is None:
+                continue
+            for param in function.params[position + 1 :]:
+                if (
+                    param.kind is ArgKind.CHOICE
+                    and not param.required
+                    and any(word.upper() == choice.upper() for choice in param.choices)
+                ):
+                    raise _ArgumentError(
+                        f"{function.name}(): {word} is a value for '{param.name}', which is"
+                        f" optional and comes later; write it as {param.name}={word}"
+                        " after the other arguments"
+                    )
 
     def _convert(self, function: RuleFunction, param: Param, raw: Expr) -> Any:
         """Convert one argument for `param`: a Python value, or a compiled sub-rule."""
@@ -721,7 +770,10 @@ class RuleCompiler:
                 if isinstance(raw, OpLit):
                     return Op(raw.symbol)
                 old = _OLD_OPERATORS.get((_word(raw) or "").lower())
-                raise wrong("a comparison operator (>=, >, <=, <, ==, !=)", f"use {old}" if old else "")
+                raise wrong(
+                    "a comparison operator (>=, >, <=, <, ==, !=)",
+                    f"use {old}" if old else "",
+                )
             case ArgKind.PER_SAMPLE | ArgKind.GROUP:
                 return self.expect(raw, ValueKind.PER_SAMPLE)
             case ArgKind.ROW_FILTER:
@@ -789,7 +841,9 @@ class CompiledRules:
         rules_compiled, features_by_rules = {}, {}
         for name, expr in rules.items():
             try:
-                rules_compiled[name] = compiler.compile_rule(expand_macros(expr, definitions))
+                rules_compiled[name] = compiler.compile_rule(
+                    expand_macros(expr, definitions)
+                )
                 features_by_rules[name] = gene_ids(rules_compiled[name])
                 _check_not_alias_names(features_by_rules[name], definitions)
             except RuleError as e:
@@ -839,7 +893,10 @@ def coverage_mode(rule_options: dict) -> str | None:
 
 
 def _check_coverage_options(
-    rule_options: dict[str, dict], df: pl.DataFrame, label_col: str, group_col: str | None
+    rule_options: dict[str, dict],
+    df: pl.DataFrame,
+    label_col: str,
+    group_col: str | None,
 ) -> None:
     for name, options in rule_options.items():
         mode = coverage_mode(options)
@@ -858,7 +915,9 @@ def _check_coverage_options(
             mode = coverage_mode(rule_options.get(label, {})) or "present/absent"
             by_mode.setdefault(mode, []).append(label)
         if len(by_mode) > 1:
-            details = "; ".join(f"{m}: {', '.join(ls[:5])}" for m, ls in by_mode.items())
+            details = "; ".join(
+                f"{m}: {', '.join(ls[:5])}" for m, ls in by_mode.items()
+            )
             raise RuleError(
                 f"Rules in group '{group}' must all use the same rule_options coverage."
                 f" Found {details}"
@@ -1131,7 +1190,11 @@ class Evaluator:
                 return np.logical_not(self.evaluate(part))
             case Combination(parts=parts):
                 stacked = np.stack([self.evaluate(p) for p in parts], axis=1)
-                return np.all(stacked, axis=1) if expr.needs_all else np.any(stacked, axis=1)
+                return (
+                    np.all(stacked, axis=1)
+                    if expr.needs_all
+                    else np.any(stacked, axis=1)
+                )
             case BoundCall():
                 rows = self._rows(expr) if expr.function.rows_param else None
                 return self._call(expr, rows)
@@ -1145,7 +1208,9 @@ class Evaluator:
     def _rows(self, expr: Expr) -> Rows:
         """All annotation rows, for `expr` that reads them."""
         if self._all_rows is None:
-            raise RuleError(f"{expr} reads annotation rows, but no annotations were given")
+            raise RuleError(
+                f"{expr} reads annotation rows, but no annotations were given"
+            )
         return self._all_rows
 
     def row_filter(self, expr: Expr) -> pl.Expr:
@@ -1163,7 +1228,9 @@ class Evaluator:
     def group(self, expr: Expr) -> Group:
         """The parts of a gene group: `[a, b]`, `[a | b]`, or a single part."""
         parts = expr.parts if isinstance(expr, (Steps, Or)) else (expr,)
-        counts = np.stack([np.asarray(self.evaluate(p), dtype=float) for p in parts], axis=1)
+        counts = np.stack(
+            [np.asarray(self.evaluate(p), dtype=float) for p in parts], axis=1
+        )
         return Group(_read_only(counts), tuple(str(p) for p in parts))
 
     def coverage(self, expr: Expr, mode: str) -> pl.DataFrame:
@@ -1412,7 +1479,10 @@ def evaluate_cycles(
                     out = ev.coverage(expr, mode)
                 else:
                     out = pl.DataFrame(
-                        {"present": ev.evaluate(expr).astype(bool), sample_col: ev.samples}
+                        {
+                            "present": ev.evaluate(expr).astype(bool),
+                            sample_col: ev.samples,
+                        }
                     )
             out = out.with_columns(pl.lit(rn).alias(label_col))
             features = sorted({f.upper() for f in compiled.features_by_rules[rn]})

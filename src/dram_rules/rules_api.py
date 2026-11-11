@@ -4,11 +4,12 @@ Built-in rule functions and user functions (loaded with ``--functions FILE``)
 are written the same way: a Python function decorated with ``@rule_function``,
 with a type hint on every parameter and on the return value. The hints decide
 how each rule argument is read and what the function may be used for. See
-docs/rule-functions-spec.md for the rule language.
+docs/custom_rule_functions.md for a guide, and docs/rules_parser.md for the rule language.
 
 Example::
 
     from dram_rules.rules_api import Group, PerSample, rule_function
+
 
     @rule_function
     def majority(group: Group) -> PerSample:
@@ -249,7 +250,9 @@ class RuleFunction:
 
     name: str
     fn: Callable[..., Any]
-    params: tuple[Param, ...]  # rule arguments, in order (the `Rows` parameter excluded)
+    params: tuple[
+        Param, ...
+    ]  # rule arguments, in order (the `Rows` parameter excluded)
     rows_param: str | None  # name of the `Rows` parameter, if any
     returns: ValueKind  # from the return hint
     source: str  # "file:line", for messages
@@ -303,7 +306,9 @@ def _source(func: Callable) -> str:
 def _build_rule_function(func: Callable, name: str) -> RuleFunction:
     where = f"{_source(func)}: rule function '{name}'"
     if name in RESERVED_NAMES:
-        raise RuleFunctionError(f"{where}: '{name}' is part of the rule language, not a function")
+        raise RuleFunctionError(
+            f"{where}: '{name}' is part of the rule language, not a function"
+        )
     try:
         hints = typing.get_type_hints(func)
     except Exception as e:
@@ -328,14 +333,18 @@ def _build_rule_function(func: Callable, name: str) -> RuleFunction:
             positional.append(p.name)
         if hints[p.name] is Rows:
             if rows_param or p.kind is inspect.Parameter.VAR_POSITIONAL:
-                raise RuleFunctionError(f"{where}: only one plain 'Rows' parameter is allowed")
+                raise RuleFunctionError(
+                    f"{where}: only one plain 'Rows' parameter is allowed"
+                )
             rows_param = p.name
             continue
         params.append(_param(p, hints[p.name], where))
 
     returns = _RETURN_KINDS.get(hints.get("return"))
     if returns is None:
-        raise RuleFunctionError(f"{where}: return type hint must be PerSample or RowFilter")
+        raise RuleFunctionError(
+            f"{where}: return type hint must be PerSample or RowFilter"
+        )
     # The `filter_` prefix lets readers of a rule sheet see which calls are row
     # filters, so it must agree with the return hint.
     is_filter = returns is ValueKind.ROW_FILTER
@@ -346,8 +355,14 @@ def _build_rule_function(func: Callable, name: str) -> RuleFunction:
             + (f" (rename it to 'filter_{name}')" if is_filter else "")
         )
     return RuleFunction(
-        name, func, tuple(params), rows_param, returns, _source(func),
-        tuple(positional), varargs,
+        name,
+        func,
+        tuple(params),
+        rows_param,
+        returns,
+        _source(func),
+        tuple(positional),
+        varargs,
     )
 
 
@@ -358,17 +373,25 @@ def _param(p: inspect.Parameter, hint: Any, where: str) -> Param:
     if typing.get_origin(hint) is Literal:
         choices = typing.get_args(hint)
         if not all(isinstance(c, str) for c in choices):
-            raise RuleFunctionError(f"{where}: Literal choices for '{p.name}' must be strings")
-        return Param(p.name, ArgKind.CHOICE, tuple(choices), default, variadic, keyword_only)
+            raise RuleFunctionError(
+                f"{where}: Literal choices for '{p.name}' must be strings"
+            )
+        return Param(
+            p.name, ArgKind.CHOICE, tuple(choices), default, variadic, keyword_only
+        )
     if hint in _HINT_KINDS:
         kind = _HINT_KINDS[hint]
     else:
-        supported = ", ".join(sorted(h.__name__ for h in _HINT_KINDS)) + ", Literal[...], Rows"
+        supported = (
+            ", ".join(sorted(h.__name__ for h in _HINT_KINDS)) + ", Literal[...], Rows"
+        )
         raise RuleFunctionError(
             f"{where}: unsupported type hint for '{p.name}': {hint!r}. Use one of: {supported}"
         )
     if kind.is_expression and default is not REQUIRED:
-        raise RuleFunctionError(f"{where}: '{p.name}' is a sub-rule and can't have a default")
+        raise RuleFunctionError(
+            f"{where}: '{p.name}' is a sub-rule and can't have a default"
+        )
     return Param(p.name, kind, (), default, variadic, keyword_only)
 
 

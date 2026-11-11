@@ -86,7 +86,7 @@ dram_viz --annotations <path/to/annotations.tsv> --output_dir <path/to/output/di
 ```
 This should open your default web browser and display the dashboard. If the dashboard does not open automatically, you can navigate to http://localhost:5006 to view the dashboard.
 
-There are a number of other options available such as alternative rules to generate other dashbaords (`--rules_system ag` for example), your own rule functions (`--functions my_functions.py`, see `docs/rule-functions-spec.md`), ability to add abundance data through a mapping file and others. Use:
+There are a number of other options available such as alternative rules to generate other dashbaords (`--rules_system ag` for example), your own rule functions (`--functions my_functions.py`, see [docs/custom_rule_functions.md](docs/custom_rule_functions.md)), ability to add abundance data through a mapping file and others. Use:
 
 ```bash
 dram_viz --help
@@ -129,7 +129,7 @@ tetrathionate => thiosulfate			K08357		Sulfur
 
 By default, rules evaluate as True/False (presence or absence). With `rule_options` `{"coverage":"steps"}`, a rule is instead shown as the percentage of its steps that are present: use it for pathways whose steps are separated by commas. `{"coverage":"subunits"}` does the same for subunits separated by ANDs (`&`). All rules in one group must use the same coverage setting. `{"include_when":{"all_columns_present":[...]}}` (or `all_columns_absent`) leaves a rule out entirely when the annotations don't have (or do have) the given columns.
 
-The functions available in rules (`percent`, `at_least`, `tax`, `filter_contains`, `count_rows`, ...), and how to write your own and load them with `--functions`, are described in [docs/rule-functions-spec.md](docs/rule-functions-spec.md).
+The full rule language is described in [docs/rules_parser.md](docs/rules_parser.md), the functions available in rules (`percent`, `at_least`, `tax`, `filter_contains`, `count_rows`, ...) in [docs/rule_functions.md](docs/rule_functions.md), and how to write your own and load them with `--functions` in [docs/custom_rule_functions.md](docs/custom_rule_functions.md).
 
 Rules can be defined across multiple lines if they are enclosed in double quotes (`"`), they do not have to be enclosed in quotes if contained on a single line. White space can be used for formatting.
 
