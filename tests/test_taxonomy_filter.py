@@ -88,6 +88,48 @@ class TaxonomyFilterTests(unittest.TestCase):
         self.assertEqual(len(ids), len(set(ids)))
         self.assertTrue(set(self.taxonomies).issubset(ids))
 
+    def tree_ids(self, taxonomies):
+        frame = pl.DataFrame(
+            {
+                "genome": [f"g{i}" for i in range(len(taxonomies))],
+                "taxonomy": taxonomies,
+            },
+            schema={"genome": pl.String, "taxonomy": pl.String},
+        )
+        edges, _ = build_tax_edge_df_pl(frame)
+        tree = build_tree_pl(
+            edges, id_cb=lambda source, child, parent_id: f"{parent_id};{child}"
+        )
+
+        def ids(nodes):
+            for node in nodes:
+                yield node["id"]
+                yield from ids(node["items"])
+
+        return set(ids(tree))
+
+    def test_partial_and_missing_lineages_build_a_tree(self):
+        ids = self.tree_ids(["d__Bacteria;p__A;c__A", "Unclassified Bacteria", None])
+        self.assertEqual(
+            ids,
+            {
+                "d__Bacteria",
+                "d__Bacteria;p__A",
+                "d__Bacteria;p__A;c__A",
+                "Unclassified Bacteria",
+            },
+        )
+
+    def test_shared_empty_rank_keeps_children_under_their_own_lineage(self):
+        ids = self.tree_ids(
+            [
+                "d__B;p__A;c__A;o__A;f__;g__;s__",
+                "d__B;p__B;c__B;o__B;f__;g__X;s__",
+            ]
+        )
+        self.assertIn("d__B;p__B;c__B;o__B;f__;g__X;s__", ids)
+        self.assertNotIn("d__B;p__A;c__A;o__A;f__;g__X", ids)
+
     def test_initial_selection(self):
         dashboard = self.dashboard()
         self.assertIsInstance(dashboard.taxonomy_filter, Tree)
