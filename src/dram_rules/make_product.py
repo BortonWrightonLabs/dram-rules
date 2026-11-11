@@ -466,17 +466,18 @@ def main(
 
     if save_dataframes:
         for df_type, dfs_dict in dfs.items():
+            sample_col = df_type  # "genome" or "sample"
             df = pl.concat(
                 [d for key, d in dfs_dict.items() if key != "Meta"],
                 how="diagonal_relaxed",
             )
 
             val_cols = get_val_cols(df, allow_multiple=True)
-            df.select(["genome", pl.all().exclude("genome")]).write_csv(
+            df.select([sample_col, pl.all().exclude(sample_col)]).write_csv(
                 output_dir / f"df_vertical_{df_type}.tsv", separator="\t"
             )
             df.pivot(
-                on=["genome"],
+                on=[sample_col],
                 values=val_cols,
                 # drop taxonomy because taxonomy and genome have a relationship, so either we would
                 # need to concatenate columns awkwardly, or drop it, or make a taxonomy column which would
@@ -487,7 +488,7 @@ def main(
                     if col
                     not in [
                         *val_cols,
-                        "genome",
+                        sample_col,
                         "taxonomy",
                         "gene_ids_present",
                         "steps",
