@@ -419,9 +419,7 @@ class TaxonomyFilterTests(unittest.TestCase):
             [0.1, 0.5, None, 1.0],
         )
         unsorted = pl.DataFrame({"genome": ["b", "a", "a", None], "row": [0, 1, 2, 3]})
-        self.assertEqual(
-            dashboard.get_sorted_dfs(unsorted)["row"].to_list(), [1, 2, 0, 3]
-        )
+        self.assertEqual(dashboard.sort_rows(unsorted)["row"].to_list(), [1, 2, 0, 3])
 
 
 if __name__ == "__main__":

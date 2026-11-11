@@ -114,3 +114,4 @@ def test_rules_named_by_label_column_option(tmp_path):
     rules = RULES.replace("name\t", "trait\t", 1)
     out = run(tmp_path, "--label_column", "trait", rules=rules, mapping=None)
     assert set(read(out, "genome")["name"]) == {"Mcr", "Cyc2"}
+    assert (out / "heatmap_genome_presence_coverage.html").exists()

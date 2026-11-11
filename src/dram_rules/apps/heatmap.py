@@ -333,7 +333,7 @@ class Dashboard(pn.viewable.Viewer):
                 if kw["c_max"] == 0:
                     kw["c_max"] = 1
 
-            df = self.get_sorted_dfs(df)
+            df = self.sort_rows(df)
 
             hm = heatmap(
                 df,
@@ -416,7 +416,7 @@ class Dashboard(pn.viewable.Viewer):
             return
         self.tax_axis_rank.visible = False
 
-    def get_sorted_dfs(self, df):
+    def sort_rows(self, df):
         """Sort rows by the y column (genome or sample), keeping ties in order."""
         return df.sort(by=self.y_col, maintain_order=True, nulls_last=True)
 

@@ -86,6 +86,21 @@ def get_column_name(
         return name
 
 
+def sample_abundances(
+    mapping_df: pl.DataFrame, count_col: str, sample_names: list[str]
+) -> pl.DataFrame:
+    """Long table `count_col, sample, sample_abundance` of every non-null,
+    non-zero abundance in the wide mapping table."""
+    return mapping_df.unpivot(
+        index=count_col,
+        on=sample_names,
+        variable_name="sample",
+        value_name="sample_abundance",
+    ).filter(
+        pl.col("sample_abundance").is_not_null() & (pl.col("sample_abundance") != 0)
+    )
+
+
 def join_present_map_df_to_mapping_df(
     df: pl.DataFrame,
     group_col: str,
@@ -103,31 +118,15 @@ def join_present_map_df_to_mapping_df(
         .select([count_col, group_col, hit_col, "mean_sample_abundance"])
     )
 
-    mapping_df = (
-        # (inner) join anno df to unpivotted mapping df to get `query_id, genome, hit, sample`
-        # to link sample and query_id in mapping file to specific hits in anno file.
-        # anno file should already be filtered to anno needed features, so this should be pretty small
-        df.select([count_col, group_col, hit_col]).join(
-            (
-                # unpivot mapping df to get `count_col, sample, sample_abundance` as a long table of all nonnull nonzero abundances
-                # we consider the sample_abundance the abundance of a specific sample for a specific count_col, which
-                # we will match later by hit from the anno df
-                mapping_df.unpivot(
-                    index=count_col,
-                    on=sample_names,
-                    variable_name="sample",
-                    value_name="sample_abundance",
-                ).filter(
-                    pl.col("sample_abundance").is_not_null()
-                    & (pl.col("sample_abundance") != 0)
-                )
-            ),
-            on=count_col,
-            how="inner",
-            # validate="1:m"
-        )
+    # (inner) join anno df to the long abundance table to get `query_id, genome,
+    # hit, sample, sample_abundance`, linking each sample to the hits in its genes.
+    # anno df is already filtered to the needed features, so this stays small.
+    sample_hits_df = df.select([count_col, group_col, hit_col]).join(
+        sample_abundances(mapping_df, count_col, sample_names),
+        on=count_col,
+        how="inner",
     )
-    return df, mapping_df, sample_names
+    return df, sample_hits_df, sample_names
 
 
 @click.command()
@@ -376,30 +375,26 @@ def main(
             besthit_cols=besthit_cols,
             needed_features=compiled.needed_features,
         )
-        wide_mapping_df = mapping_df
-        anno_df, mapping_df, sample_names_mapping = join_present_map_df_to_mapping_df(
-            df=anno_df,
-            group_col="genome",
-            count_col="query_id",
-            mapping_df=mapping_df,
+        anno_df, sample_hits_df, sample_names_mapping = (
+            join_present_map_df_to_mapping_df(
+                df=anno_df,
+                group_col="genome",
+                count_col="query_id",
+                mapping_df=mapping_df,
+            )
         )
 
         # Annotation rows per sample, for rules that read rows (count_rows,
         # tax, ...): a gene belongs to every sample where its abundance isn't 0.
         sample_annotations = raw_anno.join(
-            wide_mapping_df.unpivot(
-                index="query_id",
-                on=sample_names_mapping,
-                variable_name="sample",
-                value_name="abundance",
-            )
-            .filter(pl.col("abundance") != 0)
-            .select("query_id", "sample"),
+            sample_abundances(mapping_df, "query_id", sample_names_mapping).select(
+                "query_id", "sample"
+            ),
             on="query_id",
         )
 
         present_map = build_present_map(
-            df=mapping_df,
+            df=sample_hits_df,
             sample_col="sample",
             needed_features=compiled.needed_features,
             sample_names=sample_names_mapping,
@@ -412,7 +407,7 @@ def main(
             sample_col="sample",
             # additional_cols=["long_name"],
             group_col=group_column,
-            anno_df=mapping_df,
+            anno_df=sample_hits_df,
             value_col="sample_abundance",
         )
         eval_cycles_kw["anno_df"] = anno_df
@@ -481,18 +476,18 @@ def main(
 
     if save_dataframes:
         for df_type, dfs_dict in dfs.items():
-            sample_col = df_type  # "genome" or "sample"
+            y_col = df_type  # the table's row id column: "genome" or "sample"
             df = pl.concat(
                 [d for key, d in dfs_dict.items() if key != "Meta"],
                 how="diagonal_relaxed",
             )
 
             val_cols = get_val_cols(df, allow_multiple=True)
-            df.select([sample_col, pl.all().exclude(sample_col)]).write_csv(
+            df.select([y_col, pl.all().exclude(y_col)]).write_csv(
                 output_dir / f"df_vertical_{df_type}.tsv", separator="\t"
             )
             df.pivot(
-                on=[sample_col],
+                on=[y_col],
                 values=val_cols,
                 # drop taxonomy because taxonomy and genome have a relationship, so either we would
                 # need to concatenate columns awkwardly, or drop it, or make a taxonomy column which would
@@ -503,7 +498,7 @@ def main(
                     if col
                     not in [
                         *val_cols,
-                        sample_col,
+                        y_col,
                         "taxonomy",
                         "gene_ids_present",
                         "steps",
