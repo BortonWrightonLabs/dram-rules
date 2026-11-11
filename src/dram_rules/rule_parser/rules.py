@@ -1485,6 +1485,7 @@ def evaluate_cycles(
                         }
                     )
             out = out.with_columns(pl.lit(rn).alias(label_col))
+            # anno_df/present_map hold uppercased ids (CompiledRules.needed_features)
             features = sorted({f.upper() for f in compiled.features_by_rules[rn]})
             hits = [[] for _ in samples]
 
@@ -1513,9 +1514,7 @@ def evaluate_cycles(
                         # then we group by the sample col
                         # and se sum them over the value column
                         (
-                            anno_df.filter(
-                                pl.col("hit").is_in(compiled.features_by_rules[rn])
-                            )
+                            anno_df.filter(pl.col("hit").is_in(features))
                             .group_by([sample_col])
                             .agg(pl.col(value_col).sum())
                         ),

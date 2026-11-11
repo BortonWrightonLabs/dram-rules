@@ -12,9 +12,15 @@ from panel_material_ui import Tree
 from dram_rules.apps.heatmap import Dashboard
 from dram_rules.processing.process_annotations import (
     build_tax_edge_df_pl,
-    build_tax_tree_selected_recurse,
     build_tree_pl,
 )
+
+
+def node_ids(nodes):
+    """Every node id in a taxonomy tree, depth first."""
+    for node in nodes:
+        yield node["id"]
+        yield from node_ids(node["items"])
 
 
 class TaxonomyFilterTests(unittest.TestCase):
@@ -84,16 +90,150 @@ class TaxonomyFilterTests(unittest.TestCase):
                 check(node["items"])
 
         check(self.tree)
-        ids = build_tax_tree_selected_recurse(self.tree)
+        ids = list(node_ids(self.tree))
         self.assertEqual(len(ids), len(set(ids)))
         self.assertTrue(set(self.taxonomies).issubset(ids))
+
+    def tree_ids(self, taxonomies):
+        frame = pl.DataFrame(
+            {
+                "genome": [f"g{i}" for i in range(len(taxonomies))],
+                "taxonomy": taxonomies,
+            },
+            schema={"genome": pl.String, "taxonomy": pl.String},
+        )
+        edges, _ = build_tax_edge_df_pl(frame)
+        tree = build_tree_pl(
+            edges, id_cb=lambda source, child, parent_id: f"{parent_id};{child}"
+        )
+
+        return set(node_ids(tree))
+
+    def test_partial_and_missing_lineages_build_a_tree(self):
+        ids = self.tree_ids(["d__Bacteria;p__A;c__A", "Unclassified Bacteria", None])
+        self.assertEqual(
+            ids,
+            {
+                "d__Bacteria",
+                "d__Bacteria;p__A",
+                "d__Bacteria;p__A;c__A",
+                "Unclassified Bacteria",
+            },
+        )
+
+    def test_shared_empty_rank_keeps_children_under_their_own_lineage(self):
+        ids = self.tree_ids(
+            [
+                "d__B;p__A;c__A;o__A;f__;g__;s__",
+                "d__B;p__B;c__B;o__B;f__;g__X;s__",
+            ]
+        )
+        self.assertIn("d__B;p__B;c__B;o__B;f__;g__X;s__", ids)
+        self.assertNotIn("d__B;p__A;c__A;o__A;f__;g__X", ids)
+
+    def test_genomes_without_full_lineage_are_plotted(self):
+        frame = pl.DataFrame(
+            {
+                "genome": ["full", "partial", "none"],
+                "taxonomy": [self.taxonomies[0], "d__Bacteria;p__C", None],
+                "name": ["Trait"] * 3,
+                "present": [True] * 3,
+            }
+        )
+        edges, _ = build_tax_edge_df_pl(frame.select("genome", "taxonomy"))
+        tree = build_tree_pl(
+            edges, id_cb=lambda source, child, parent_id: f"{parent_id};{child}"
+        )
+        dashboard = Dashboard(
+            dfs={"genome": {"All": frame}},
+            taxanomy_tree_data=tree,
+            output_dir=self.output_dir,
+        )
+        self.assertEqual(self.plotted_genomes(dashboard), [["full", "none", "partial"]])
+
+        dashboard.taxonomy_filter.active = [
+            path
+            for node_id, path in dashboard._taxonomy_paths.items()
+            if node_id != "d__Bacteria;p__C"
+        ]
+        dashboard.update_plot()
+        self.assertEqual(self.plotted_genomes(dashboard), [["full", "none"]])
+
+    def test_genome_whose_lineage_prefixes_another_is_plotted(self):
+        frame = pl.DataFrame(
+            {
+                "genome": ["short", "long"],
+                "taxonomy": ["d__B;p__C", "d__B;p__C;c__X"],
+                "name": ["Trait"] * 2,
+                "present": [True] * 2,
+            }
+        )
+        edges, _ = build_tax_edge_df_pl(frame.select("genome", "taxonomy"))
+        tree = build_tree_pl(
+            edges, id_cb=lambda source, child, parent_id: f"{parent_id};{child}"
+        )
+        dashboard = Dashboard(
+            dfs={"genome": {"All": frame}},
+            taxanomy_tree_data=tree,
+            output_dir=self.output_dir,
+        )
+        self.assertEqual(self.plotted_genomes(dashboard), [["long", "short"]])
+
+        dashboard.taxonomy_filter.active = [
+            path
+            for node_id, path in dashboard._taxonomy_paths.items()
+            if node_id != "d__B;p__C;c__X"
+        ]
+        dashboard.update_plot()
+        self.assertEqual(self.plotted_genomes(dashboard), [["short"]])
+
+    def test_taxonomy_label_on_y_axis(self):
+        frame = self.frame.vstack(
+            pl.DataFrame(
+                {
+                    "genome": ["g5"],
+                    "taxonomy": ["d__Bacteria;p__C"],
+                    "name": ["Trait"],
+                    "present": [True],
+                    "mean_sample_abundance": [5.0],
+                }
+            )
+        )
+        self.dfs["genome"] = {"All": frame}
+        edges, _ = build_tax_edge_df_pl(frame.select("genome", "taxonomy"))
+        self.tree = build_tree_pl(
+            edges, id_cb=lambda source, child, parent_id: f"{parent_id};{child}"
+        )
+        dashboard = self.dashboard()
+
+        def y_labels():
+            return list(dashboard.plot_view[0].object.y_range.factors)
+
+        dashboard.tax_axis_filter.value = True
+        dashboard.tax_axis_rank.value = "genus"
+        dashboard.update_plot()
+        # g1 and g2 share a genus but keep their own rows; g5 has no genus.
+        self.assertEqual(
+            y_labels(), ["g__A | g1", "g__A | g2", "g__A | g3", "g__B | g4", "g5"]
+        )
+
+        dashboard.tax_axis_rank.value = "phylum"
+        dashboard.update_plot()
+        self.assertEqual(
+            y_labels(),
+            ["p__A | g1", "p__A | g2", "p__A | g3", "p__B | g4", "p__C | g5"],
+        )
+
+        dashboard.tax_axis_filter.value = False
+        dashboard.update_plot()
+        self.assertEqual(y_labels(), ["g1", "g2", "g3", "g4", "g5"])
 
     def test_initial_selection(self):
         dashboard = self.dashboard()
         self.assertIsInstance(dashboard.taxonomy_filter, Tree)
         self.assertEqual(
             {item["id"] for item in dashboard.taxonomy_filter.value},
-            set(build_tax_tree_selected_recurse(self.tree)),
+            set(node_ids(self.tree)),
         )
         self.assertEqual(dashboard.taxonomy_filter.expanded, [])
         self.assertTrue(dashboard.taxonomy_filter.checkboxes)
@@ -148,13 +288,11 @@ class TaxonomyFilterTests(unittest.TestCase):
         dashboard.min_coverage = 0.5
         dashboard.tax_axis_filter.value = True
         dashboard.tax_axis_rank.value = "species"
-        dashboard.sort_by.value = ["genome"]
         dashboard.reset_filters()
         self.assertEqual(dashboard.min_coverage, 0)
         self.assertFalse(dashboard.tax_axis_filter.value)
         self.assertFalse(dashboard.tax_axis_rank.visible)
         self.assertEqual(dashboard.tax_axis_rank.value, "genus")
-        self.assertEqual(dashboard.sort_by.value, [])
         self.assertEqual(
             len(dashboard.taxonomy_filter.active), len(dashboard._taxonomy_paths)
         )
@@ -281,9 +419,7 @@ class TaxonomyFilterTests(unittest.TestCase):
             [0.1, 0.5, None, 1.0],
         )
         unsorted = pl.DataFrame({"genome": ["b", "a", "a", None], "row": [0, 1, 2, 3]})
-        self.assertEqual(
-            dashboard.get_sorted_dfs(unsorted)["row"].to_list(), [1, 2, 0, 3]
-        )
+        self.assertEqual(dashboard.sort_rows(unsorted)["row"].to_list(), [1, 2, 0, 3])
 
 
 if __name__ == "__main__":

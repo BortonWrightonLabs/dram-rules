@@ -16,7 +16,7 @@ from bokeh.resources import INLINE
 from bokeh.transform import factor_cmap, linear_cmap, log_cmap
 from panel_material_ui import Tree
 
-from dram_rules.definitions import NO_TAXONOMY_RANKS, TAXONOMY_RANKS_REGEX
+from dram_rules.definitions import TAXONOMY_RANKS_REGEX
 from dram_rules.rule_parser.rules import get_val_cols
 
 pn.extension("tabulator", "katex", template="bootstrap")
@@ -38,7 +38,6 @@ def heatmap(
     c_max=1,
     c_col: str = None,
     x_col: str = None,
-    x_cols: list[str] = None,
     log_colors: bool = False,
     **fig_kwargs,
 ):
@@ -71,14 +70,6 @@ def heatmap(
     Plot
         The heatmap plot
     """
-
-    if x_cols:
-        df = df.unpivot(
-            index=y_col, on=x_cols, variable_name="x_col", value_name="value"
-        ).unique(maintain_order=True)
-        x_col = "x_col"
-        c_col = "value"
-        tooltip_cols = [y_col, "value"]
 
     rect_kw = rect_kw or {}
 
@@ -205,7 +196,6 @@ class Dashboard(pn.viewable.Viewer):
         self.show_tax_box = pn.Column(self.tax_axis_filter, self.tax_axis_rank)
         pn.bind(self.reveal_tax_axis_rank_selector, self.tax_axis_filter, watch=True)
 
-        sort_options = {k: [k] for k in self.dfs}
         self.taxonomy_filter = None
         self._taxonomy_paths = {}
         if self.taxonomy_tree_data is not None:
@@ -234,13 +224,6 @@ class Dashboard(pn.viewable.Viewer):
                     if node_id in self._taxonomy_paths
                 ]
             )
-            sort_options["genome"].extend(list(TAXONOMY_RANKS_REGEX.keys()))
-            # sort_options = ["genome", *list(TAXONOMY_RANKS_REGEX.keys())]
-
-        if "Meta" in self.dfs["genome"]:
-            sort_options["genome"].extend(
-                [col for col in self.dfs["genome"]["Meta"].columns if col != "genome"]
-            )
 
         column_options = {k: ["presence/coverage"] for k in self.dfs}
         abundance_cols = ["sample_abundance", "mean_sample_abundance"]
@@ -255,10 +238,6 @@ class Dashboard(pn.viewable.Viewer):
             label="Y and C columns",
             options=column_options,
             levels=["Y Column", "Color Column"],
-        )
-        # self.c_col = pn.widgets.MultiChoice(name="Color Column", options=sort_options["genome"])
-        self.sort_by = pn.widgets.MultiChoice(
-            label="Sort By", options=sort_options[self.y_col]
         )
 
         self._init_view()
@@ -295,7 +274,6 @@ class Dashboard(pn.viewable.Viewer):
                 pn.Row(self.redraw_button, self.reset_button),
                 self.download_button,
                 pn.Row(self.column_options),
-                # self.sort_by,
                 self.param.min_coverage,
                 *additional_sidebar,
             ],
@@ -321,7 +299,6 @@ class Dashboard(pn.viewable.Viewer):
         """
         Make the product plot
         """
-        None if not self.tax_axis_filter.value else self.tax_axis_rank.value
         charts = []
         y_mode = self.y_col
         c_mode = self.color_col
@@ -337,7 +314,8 @@ class Dashboard(pn.viewable.Viewer):
                 and self.tax_axis_filter.value
                 and "taxonomy" in df.columns
             ):
-                kw["y_col"] = "taxonomy"
+                df = df.with_columns(taxonomy_label=self.taxonomy_label())
+                kw["y_col"] = "taxonomy_label"
             if charts:
                 kw["y_axis_location"] = None
             if "presence/coverage" in c_mode:
@@ -355,7 +333,7 @@ class Dashboard(pn.viewable.Viewer):
                 if kw["c_max"] == 0:
                     kw["c_max"] = 1
 
-            df = self.get_sorted_dfs(df, by=self.sort_by.value)
+            df = self.sort_rows(df)
 
             hm = heatmap(
                 df,
@@ -371,11 +349,21 @@ class Dashboard(pn.viewable.Viewer):
             # else:
             charts.append(hm)
 
-        # module_df, etc_df, function_df = self.get_sorted_dfs(module_df, etc_df, function_df, by=self.sort_by.value)
-
         self.plot_view[:] = charts or [
             pn.pane.Markdown("No genomes match the selected taxonomy.")
         ]
+
+    def taxonomy_label(self) -> pl.Expr:
+        """Y label for "Show Taxonomy on Y Axis": "<rank> | <genome>", e.g.
+        "g__Escherichia | genome1", so genomes sharing a taxon keep their own
+        rows. Genomes without that rank are labelled by genome alone."""
+        rank = list(TAXONOMY_RANKS_REGEX).index(self.tax_axis_rank.value)
+        taxon = (
+            pl.col("taxonomy").str.split(";").list.get(rank, null_on_oob=True)
+        ).str.strip_chars()
+        return pl.concat_str(taxon, pl.col("genome"), separator=" | ").fill_null(
+            pl.col("genome")
+        )
 
     def reset_filters(self, event=None):
         """
@@ -393,8 +381,6 @@ class Dashboard(pn.viewable.Viewer):
             self.tax_axis_rank.visible = False
             self.tax_axis_rank.value = "genus"
 
-        self.sort_by.value = []
-
     def filter_by_taxonomy(self, df: pl.DataFrame) -> pl.DataFrame:
         """
         Filter the dataframes by selected taxonomy ranks
@@ -405,13 +391,15 @@ class Dashboard(pn.viewable.Viewer):
             or "taxonomy" not in df.columns
         ):
             return df
-        selected = self.taxonomy_filter.value
-        leaves = [
-            node["id"].replace("; ", ";")
-            for node in selected
-            if len(node["id"].split(";")) == NO_TAXONOMY_RANKS
+        # Node ids are whole lineages, so a genome shows when the node of its own
+        # lineage is selected (a selected ancestor alone doesn't match).
+        selected = [
+            node["id"].replace("; ", ";") for node in self.taxonomy_filter.value
         ]
-        df = df.filter(pl.col("taxonomy").is_in(leaves))
+        # Genomes without a taxonomy aren't in the tree; always show them.
+        df = df.filter(
+            pl.col("taxonomy").is_in(selected) | pl.col("taxonomy").is_null()
+        )
 
         return df
 
@@ -428,12 +416,9 @@ class Dashboard(pn.viewable.Viewer):
             return
         self.tax_axis_rank.visible = False
 
-    def get_sorted_dfs(self, df, by=None):
-        """
-        Sort the dataframes by taxonomy
-        """
-        by = by or self.y_col
-        return df.sort(by=by, maintain_order=True, nulls_last=True)
+    def sort_rows(self, df):
+        """Sort rows by the y column (genome or sample), keeping ties in order."""
+        return df.sort(by=self.y_col, maintain_order=True, nulls_last=True)
 
     def download_heatmap(self, event=None, output_dir=None):
         """

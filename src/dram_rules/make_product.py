@@ -29,7 +29,6 @@ from dram_rules.definitions import (
 )
 from dram_rules.processing.process_annotations import (
     build_tax_edge_df_pl,
-    build_tax_tree_selected_recurse,
     build_taxonomy_df_pl,
     build_tree_pl,
 )
@@ -87,14 +86,26 @@ def get_column_name(
         return name
 
 
+def sample_abundances(
+    mapping_df: pl.DataFrame, count_col: str, sample_names: list[str]
+) -> pl.DataFrame:
+    """Long table `count_col, sample, sample_abundance` of every non-null,
+    non-zero abundance in the wide mapping table."""
+    return mapping_df.unpivot(
+        index=count_col,
+        on=sample_names,
+        variable_name="sample",
+        value_name="sample_abundance",
+    ).filter(
+        pl.col("sample_abundance").is_not_null() & (pl.col("sample_abundance") != 0)
+    )
+
+
 def join_present_map_df_to_mapping_df(
     df: pl.DataFrame,
     group_col: str,
     count_col: str,
-    besthit_cols: list[str],
-    needed_features: set[str],
-    additional_cols: list[str] = None,
-    mapping_df: pl.DataFrame = None,
+    mapping_df: pl.DataFrame,
 ):
 
     sample_names = [
@@ -107,31 +118,15 @@ def join_present_map_df_to_mapping_df(
         .select([count_col, group_col, hit_col, "mean_sample_abundance"])
     )
 
-    mapping_df = (
-        # (inner) join anno df to unpivotted mapping df to get `query_id, genome, hit, sample`
-        # to link sample and query_id in mapping file to specific hits in anno file.
-        # anno file should already be filtered to anno needed features, so this should be pretty small
-        df.select([count_col, group_col, hit_col]).join(
-            (
-                # unpivot mapping df to get `count_col, sample, sample_abundance` as a long table of all nonnull nonzero abundances
-                # we consider the sample_abundance the abundance of a specific sample for a specific count_col, which
-                # we will match later by hit from the anno df
-                mapping_df.unpivot(
-                    index=count_col,
-                    on=sample_names,
-                    variable_name="sample",
-                    value_name="sample_abundance",
-                ).filter(
-                    pl.col("sample_abundance").is_not_null()
-                    & (pl.col("sample_abundance") != 0)
-                )
-            ),
-            on=count_col,
-            how="inner",
-            # validate="1:m"
-        )
+    # (inner) join anno df to the long abundance table to get `query_id, genome,
+    # hit, sample, sample_abundance`, linking each sample to the hits in its genes.
+    # anno df is already filtered to the needed features, so this stays small.
+    sample_hits_df = df.select([count_col, group_col, hit_col]).join(
+        sample_abundances(mapping_df, count_col, sample_names),
+        on=count_col,
+        how="inner",
     )
-    return df, mapping_df, sample_names
+    return df, sample_hits_df, sample_names
 
 
 @click.command()
@@ -277,6 +272,12 @@ def main(
     label_column = get_column_name(
         label_column, BACKUP_LABEL_COLUMNS, name_of_data="rules", cols=rules_cols
     )
+    # Downstream (evaluation, heatmaps, common rules) reads rule names from "name".
+    if label_column != DEFAULT_LABEL_COLUMN:
+        rules_lf = rules_lf.drop(DEFAULT_LABEL_COLUMN, strict=False).rename(
+            {label_column: DEFAULT_LABEL_COLUMN}
+        )
+        label_column = DEFAULT_LABEL_COLUMN
     alias_column = get_column_name(
         alias_column,
         BACKUP_ALIAS_COLUMNS,
@@ -324,9 +325,11 @@ def main(
     dfs = {}
     eval_cycles_kw = {}
     if mapping:
-        mapping_df = pl.read_csv(mapping, separator="\t", ignore_errors=True).fill_null(
-            0
-        )
+        # Infer types from every row: a guess from the first rows can read a
+        # sample column as integers, and its later decimals would fail to parse.
+        mapping_df = pl.read_csv(
+            mapping, separator="\t", infer_schema_length=None
+        ).fill_null(0)
         # This renames the first column to query_id regardless of initial form (Genome, GeneId, reference, etc.)
         # It then drops known additional meta columns that could be there depending on the format
         # finally does a catch all of keeping only the label column and all floats (sample columns) as a backup
@@ -372,17 +375,26 @@ def main(
             besthit_cols=besthit_cols,
             needed_features=compiled.needed_features,
         )
-        anno_df, mapping_df, sample_names_mapping = join_present_map_df_to_mapping_df(
-            df=anno_df,
-            group_col="genome",
-            count_col="query_id",
-            besthit_cols=besthit_cols,
-            needed_features=compiled.needed_features,
-            mapping_df=mapping_df,
+        anno_df, sample_hits_df, sample_names_mapping = (
+            join_present_map_df_to_mapping_df(
+                df=anno_df,
+                group_col="genome",
+                count_col="query_id",
+                mapping_df=mapping_df,
+            )
+        )
+
+        # Annotation rows per sample, for rules that read rows (count_rows,
+        # tax, ...): a gene belongs to every sample where its abundance isn't 0.
+        sample_annotations = raw_anno.join(
+            sample_abundances(mapping_df, "query_id", sample_names_mapping).select(
+                "query_id", "sample"
+            ),
+            on="query_id",
         )
 
         present_map = build_present_map(
-            df=mapping_df,
+            df=sample_hits_df,
             sample_col="sample",
             needed_features=compiled.needed_features,
             sample_names=sample_names_mapping,
@@ -391,11 +403,11 @@ def main(
             compiled=compiled,
             samples=sample_names_mapping,
             present_map=present_map,
-            annotations=raw_anno,
+            annotations=sample_annotations,
             sample_col="sample",
             # additional_cols=["long_name"],
             group_col=group_column,
-            anno_df=mapping_df,
+            anno_df=sample_hits_df,
             value_col="sample_abundance",
         )
         eval_cycles_kw["anno_df"] = anno_df
@@ -445,7 +457,6 @@ def main(
         dfs["genome"] = d
 
     tax_tree_data = None
-    selected_tax_tree = None
     if "taxonomy" in raw_anno:
         tax_df = build_taxonomy_df_pl(raw_anno, "genome")
 
@@ -455,7 +466,6 @@ def main(
             tax_edge_df,
             id_cb=lambda source, child, parent_id: f"{parent_id};{child}",
         )
-        selected_tax_tree = build_tax_tree_selected_recurse(tax_tree_data)
 
         for key, df in dfs["genome"].items():
             dfs["genome"][key] = tax_df.join(df, on="genome", how="left")
@@ -466,17 +476,18 @@ def main(
 
     if save_dataframes:
         for df_type, dfs_dict in dfs.items():
+            y_col = df_type  # the table's row id column: "genome" or "sample"
             df = pl.concat(
                 [d for key, d in dfs_dict.items() if key != "Meta"],
                 how="diagonal_relaxed",
             )
 
             val_cols = get_val_cols(df, allow_multiple=True)
-            df.select(["genome", pl.all().exclude("genome")]).write_csv(
+            df.select([y_col, pl.all().exclude(y_col)]).write_csv(
                 output_dir / f"df_vertical_{df_type}.tsv", separator="\t"
             )
             df.pivot(
-                on=["genome"],
+                on=[y_col],
                 values=val_cols,
                 # drop taxonomy because taxonomy and genome have a relationship, so either we would
                 # need to concatenate columns awkwardly, or drop it, or make a taxonomy column which would
@@ -487,7 +498,7 @@ def main(
                     if col
                     not in [
                         *val_cols,
-                        "genome",
+                        y_col,
                         "taxonomy",
                         "gene_ids_present",
                         "steps",
@@ -515,7 +526,6 @@ def main(
     kw = dict(
         dfs=dfs,
         taxanomy_tree_data=tax_tree_data,
-        selected_tax_tree=selected_tax_tree,
         output_dir=output_dir,
         title=f"DRAM {rule_type} VISUALIZATION",
         # mapping=bool(mapping),

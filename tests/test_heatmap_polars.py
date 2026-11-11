@@ -60,20 +60,6 @@ class PolarsHeatmapTests(unittest.TestCase):
         self.assertEqual(list(data["value"]), [None, None, None])
         self.assertEqual(mapper.factors, [])
 
-    def test_unpivot_preserves_order_and_deduplicates(self):
-        frame = pl.DataFrame(
-            {"genome": ["g2", "g1", "g2"], "B": [2, 1, 2], "A": [4, 3, 4]}
-        )
-        with patch.object(
-            pl.DataFrame, "to_pandas", side_effect=AssertionError("pandas conversion")
-        ):
-            plot = heatmap(frame, y_col="genome", x_cols=["B", "A"], tooltip_cols=[])
-        self.assertEqual(plot.x_range.factors, ["B", "A"])
-        self.assertEqual(plot.y_range.factors, ["g2", "g1"])
-        data = plot.renderers[0].data_source.data
-        self.assertEqual(list(data["value"]), [2, 1, 4, 3])
-        self.assertEqual(list(data["genome"]), ["g2", "g1", "g2", "g1"])
-
 
 if __name__ == "__main__":
     unittest.main()
