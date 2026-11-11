@@ -84,3 +84,9 @@ __pycache__/
 # pixi environments
 .pixi/*
 !.pixi/config.toml
+
+# Local issue tracker (agent skills)
+.scratch/
+docs/agents/
+GLOSSARY.md
+docs/adr/
