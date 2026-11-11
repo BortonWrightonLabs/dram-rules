@@ -16,7 +16,6 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
-    "Programming Language :: Python :: 3.15",
     "Operating System :: OS Independent",
 ]
 dynamic = ["version"]
@@ -30,8 +29,8 @@ dependencies = [
     'panel-material-ui >=0.16.2,<0.17',
     'pandas >=2,<3.0',
     'polars >=2,<3',
-    'pyarrow',
-    'lark'
+    'pyarrow >=15',
+    'lark >=1.1,<2',
 ]
 
 [project.urls]
@@ -155,7 +154,7 @@ exclude_also = [
 
 [tool.pixi.workspace]
 channels = ["conda-forge"]
-platforms = ["linux-64"]
+platforms = ["linux-64", "osx-arm64", "osx-64"]
 
 [tool.pixi.pypi-dependencies]
 dram_viz = { path = ".", editable = true }
@@ -165,3 +164,10 @@ default = { solve-group = "default" }
 dev = { features = ["dev"], solve-group = "default" }
 
 [tool.pixi.tasks]
+# Run the CLI: pixi run viz -a <annotations.tsv> -o <output dir> [options]
+viz = "dram_viz"
+
+# Need the dev tools, so they run in the dev environment.
+[tool.pixi.feature.dev.tasks]
+test = "pytest tests"
+lint = "ruff check src tests"
