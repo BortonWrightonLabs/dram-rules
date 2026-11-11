@@ -90,6 +90,19 @@ def test_mapping_decimal_after_many_integer_rows_is_kept(tmp_path):
     assert value(sample, "sample_abundance", name="Cyc2", sample="S1") == 3.5
 
 
+def test_genome_mapping_drops_text_columns_and_counts_zeros_in_mean(tmp_path):
+    # Keyed by genome: each gene takes its genome's abundance. `Notes` is text,
+    # so it isn't a sample.
+    mapping = "genome\tNotes\tS1\tS2\nbin1\tx\t2\t0\nbin2\ty\t5\t6\n"
+    out = run(tmp_path, mapping=mapping)
+    sample = read(out, "sample")
+    assert set(sample["sample"]) == {"S1", "S2"}
+    assert value(sample, "sample_abundance", name="Cyc2", sample="S1") == 2.0
+    assert value(sample, "present", name="Cyc2", sample="S2") is False
+    genome = read(out, "genome")
+    assert value(genome, "mean_sample_abundance", name="Cyc2", genome="bin1") == 1.0
+
+
 def test_row_reading_rule_with_mapping(tmp_path):
     rules = (
         "name\tgroup\trule\n"
