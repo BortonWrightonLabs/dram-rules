@@ -88,3 +88,17 @@ def test_mapping_decimal_after_many_integer_rows_is_kept(tmp_path):
     out = run(tmp_path, annotations=annotations, mapping=mapping)
     sample = read(out, "sample")
     assert value(sample, "sample_abundance", name="Cyc2", sample="S1") == 3.5
+
+
+def test_row_reading_rule_with_mapping(tmp_path):
+    rules = (
+        "name\tgroup\trule\n"
+        "Heme\tG1\tfilter_compare(heme_regulatory_motif_count, >=, 4)"
+        " -> count_rows(>=, 1)\n"
+    )
+    # bin1_1 is the only gene with >= 4 heme motifs, and only S1 has it.
+    mapping = "Geneid\tS1\tS2\nbin1_1\t1\t0\nbin1_2\t3\t4\nbin2_1\t5\t6\n"
+    out = run(tmp_path, rules=rules, mapping=mapping)
+    sample = read(out, "sample")
+    assert value(sample, "present", name="Heme", sample="S1") is True
+    assert value(sample, "present", name="Heme", sample="S2") is False

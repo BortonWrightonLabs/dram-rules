@@ -374,6 +374,7 @@ def main(
             besthit_cols=besthit_cols,
             needed_features=compiled.needed_features,
         )
+        wide_mapping_df = mapping_df
         anno_df, mapping_df, sample_names_mapping = join_present_map_df_to_mapping_df(
             df=anno_df,
             group_col="genome",
@@ -381,6 +382,20 @@ def main(
             besthit_cols=besthit_cols,
             needed_features=compiled.needed_features,
             mapping_df=mapping_df,
+        )
+
+        # Annotation rows per sample, for rules that read rows (count_rows,
+        # tax, ...): a gene belongs to every sample where its abundance isn't 0.
+        sample_annotations = raw_anno.join(
+            wide_mapping_df.unpivot(
+                index="query_id",
+                on=sample_names_mapping,
+                variable_name="sample",
+                value_name="abundance",
+            )
+            .filter(pl.col("abundance") != 0)
+            .select("query_id", "sample"),
+            on="query_id",
         )
 
         present_map = build_present_map(
@@ -393,7 +408,7 @@ def main(
             compiled=compiled,
             samples=sample_names_mapping,
             present_map=present_map,
-            annotations=raw_anno,
+            annotations=sample_annotations,
             sample_col="sample",
             # additional_cols=["long_name"],
             group_col=group_column,
