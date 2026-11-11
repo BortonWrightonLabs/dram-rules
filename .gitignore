@@ -85,8 +85,6 @@ __pycache__/
 .pixi/*
 !.pixi/config.toml
 
-# Local issue tracker (agent skills)
-.scratch/
-docs/agents/
+# Agent-skill domain docs (.scratch/ and docs/agents/ are in the global gitignore)
 GLOSSARY.md
 docs/adr/

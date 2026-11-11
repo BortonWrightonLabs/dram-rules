@@ -171,3 +171,5 @@ viz = "dram_viz"
 [tool.pixi.feature.dev.tasks]
 test = "pytest tests"
 lint = "ruff check src tests"
+# Install the git pre-commit hooks from .pre-commit-config.yaml (once per clone).
+install-hooks = "pre-commit install"
