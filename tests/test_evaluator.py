@@ -417,8 +417,10 @@ def test_rejected_function_definitions(tmp_path, code, message):
         (
             "def high(col: Column) -> PerSample:\n    return pl.col(col) > 1",
             "high(score)",
-            "returned a Polars expression, which is a row filter. If it is a filter,"
-            " give it the return hint RowFilter and name it 'filter_high'",
+            (
+                "returned a Polars expression, which is a row filter. If it is a filter,"
+                " give it the return hint RowFilter and name it 'filter_high'"
+            ),
         ),
         (
             "def filter_high(col: Column) -> RowFilter:\n    return np.array([True, False])",

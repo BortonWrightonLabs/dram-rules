@@ -23,10 +23,11 @@ import importlib.util
 import inspect
 import operator
 import typing
+from collections.abc import Callable, Iterable
 from contextvars import ContextVar
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Callable, Iterable, Literal
+from typing import Any, Literal
 
 import numpy as np
 import polars as pl

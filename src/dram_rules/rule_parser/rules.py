@@ -1,26 +1,28 @@
 from __future__ import annotations
 
-import logging
-from dataclasses import dataclass, field
-from typing import Any, ClassVar, Dict, List, Optional, Sequence, Set, Tuple
 import contextlib
 import functools
+import json
+import logging
 import operator
 import os
+from collections.abc import Sequence
+from dataclasses import dataclass, field
 from pathlib import Path
-import json
+from typing import Any, ClassVar
 
 import numpy as np
 import polars as pl
 from lark import Lark, LarkError, Transformer
+
 from dram_rules.definitions import (
     BACKUP_GROUPBY_COLUMNS,
     DEFAULT_GROUPBY_COLUMN,
 )
 from dram_rules.rules_api import (
+    ArgKind,
     FunctionRegistry,
     Group,
-    ArgKind,
     Op,
     Param,
     Rows,
@@ -139,7 +141,7 @@ def parse_ids(col: str) -> pl.Expr:
 # Extra identifiers built by joining ids from several columns with ";".
 # Every id from the first column is paired with every id from the next,
 # e.g. dbcan_id "GH5;GH9" + dbcan_sub_ec "3.2.1.4" -> "GH5;3.2.1.4", "GH9;3.2.1.4".
-COMPUTED_COLUMNS: Dict[str, Tuple[str, ...]] = {
+COMPUTED_COLUMNS: dict[str, tuple[str, ...]] = {
     "dbcan_id_ec": ("dbcan_id", "dbcan_sub_ec"),
 }
 
@@ -175,10 +177,10 @@ def _match_key(hit: pl.Expr) -> pl.Expr:
 class Expr:
     """A node of a parsed rule."""
 
-    def children(self) -> Tuple[Expr, ...]:
+    def children(self) -> tuple[Expr, ...]:
         return ()
 
-    def with_children(self, children: Tuple[Expr, ...]) -> Expr:
+    def with_children(self, children: tuple[Expr, ...]) -> Expr:
         """A copy with new child nodes (same order as `children()`)."""
         return self
 
@@ -287,7 +289,7 @@ class Not(Expr):
 class Combination(Expr):
     """Parts joined by one operator: `a & b`, `a | b`, or steps `a, b`."""
 
-    parts: Tuple[Expr, ...]
+    parts: tuple[Expr, ...]
 
     separator: ClassVar[str]
     needs_all: ClassVar[bool]  # True: all parts must be present; False: any part
@@ -324,8 +326,8 @@ class Call(Expr):
     """A function call as written, before it is matched to its definition."""
 
     value: str
-    args: Tuple[Expr, ...] = ()
-    kwargs: Tuple[Tuple[str, Expr], ...] = ()
+    args: tuple[Expr, ...] = ()
+    kwargs: tuple[tuple[str, Expr], ...] = ()
 
     def children(self):
         return (*self.args, *(v for _, v in self.kwargs))
@@ -344,7 +346,7 @@ class Call(Expr):
 class PipeChain(Expr):
     """`source -> call -> ... -> call`: row filters, then a per-sample summary."""
 
-    parts: Tuple[Expr, ...]
+    parts: tuple[Expr, ...]
 
     def children(self):
         return self.parts
@@ -363,7 +365,7 @@ class BoundCall(Expr):
     arguments are Python values; sub-rule arguments are compiled `Expr`s."""
 
     function: RuleFunction
-    args: Tuple[Any, ...]
+    args: tuple[Any, ...]
     kind: ValueKind  # what the call returns: ValueKind.PER_SAMPLE or ValueKind.ROW_FILTER
 
     def children(self):
@@ -727,7 +729,7 @@ class RuleCompiler:
         raise TypeError(param.kind)
 
 
-def gene_ids(expr: Expr) -> Set[str]:
+def gene_ids(expr: Expr) -> set[str]:
     """The gene IDs a compiled rule looks up. Compiling turns literal
     arguments (column names, numbers, ...) into values, so every `Name` left
     is a gene ID."""
@@ -746,13 +748,13 @@ def _scan_rules_tsv(path: str | Path) -> pl.LazyFrame:
 
 @dataclass(frozen=True)
 class CompiledRules:
-    rules: Dict[str, Expr]  # compiled top-level rules, aliases expanded
-    needed_features: Set[str]  # gene IDs any rule looks up, uppercase
-    needed_features_raw: Set[str]  # the same, as written in the rules
-    features_by_rules: Dict[str, Set[str]]
+    rules: dict[str, Expr]  # compiled top-level rules, aliases expanded
+    needed_features: set[str]  # gene IDs any rule looks up, uppercase
+    needed_features_raw: set[str]  # the same, as written in the rules
+    features_by_rules: dict[str, set[str]]
     df: pl.DataFrame
     # Parsed `rule_options` JSON per rule name; rules without options are absent.
-    rule_options: Dict[str, dict] = field(default_factory=dict)
+    rule_options: dict[str, dict] = field(default_factory=dict)
     functions: FunctionRegistry = field(default_factory=builtin_functions)
 
     @classmethod
@@ -821,7 +823,7 @@ class CompiledRules:
         )
 
 
-def _check_not_alias_names(genes: Set[str], definitions: Dict[str, Expr]) -> None:
+def _check_not_alias_names(genes: set[str], definitions: dict[str, Expr]) -> None:
     clashes = sorted(genes & definitions.keys())
     if clashes:
         raise RuleError(
@@ -837,7 +839,7 @@ def coverage_mode(rule_options: dict) -> str | None:
 
 
 def _check_coverage_options(
-    rule_options: Dict[str, dict], df: pl.DataFrame, label_col: str, group_col: str | None
+    rule_options: dict[str, dict], df: pl.DataFrame, label_col: str, group_col: str | None
 ) -> None:
     for name, options in rule_options.items():
         mode = coverage_mode(options)
@@ -851,7 +853,7 @@ def _check_coverage_options(
     # A heatmap group shows one kind of value, so its rules must agree.
     named = df.select(label_col, group_col).drop_nulls(label_col)
     for (group,), frame in named.group_by(group_col, maintain_order=True):
-        by_mode: Dict[str, List[str]] = {}
+        by_mode: dict[str, list[str]] = {}
         for label in frame[label_col]:
             mode = coverage_mode(rule_options.get(label, {})) or "present/absent"
             by_mode.setdefault(mode, []).append(label)
@@ -863,7 +865,7 @@ def _check_coverage_options(
             )
 
 
-def _parse_rule_options(df: pl.DataFrame, label_col: str) -> Dict[str, dict]:
+def _parse_rule_options(df: pl.DataFrame, label_col: str) -> dict[str, dict]:
     """Read the optional `rule_options` column (JSON per rule) into a dict by rule name."""
     if "rule_options" not in df.columns:
         return {}
@@ -888,7 +890,7 @@ def load_rules(
     common_rules: pl.LazyFrame = None,
     common_rules_path: str | Path = None,
     check_for_dupes: bool = True,
-) -> Tuple[Dict[str, Expr], Dict[str, Expr], pl.DataFrame]:
+) -> tuple[dict[str, Expr], dict[str, Expr], pl.DataFrame]:
     """
     Assumes TSV has columns at least: name, rule
     Convention used here:
@@ -956,7 +958,7 @@ def load_rules(
         for s in df.get_column(rules_col).drop_nulls().unique()
     }
 
-    def rules_keyed_by(key_col: str) -> Dict[str, Expr]:
+    def rules_keyed_by(key_col: str) -> dict[str, Expr]:
         keyed = df.select(key_col, rules_col).drop_nulls(key_col)
         return {
             key: parsed.get(rule) for key, rule in zip(keyed[key_col], keyed[rules_col])
@@ -965,7 +967,7 @@ def load_rules(
     return rules_keyed_by(alias_col), rules_keyed_by(label_col), df
 
 
-def expand_macros(expr: Expr, definitions: Dict[str, Expr]) -> Expr:
+def expand_macros(expr: Expr, definitions: dict[str, Expr]) -> Expr:
     """Replace every `@alias` in `expr` by its definition, recursively. Each
     expansion is kept as an `AliasRef`, so messages can name the alias."""
     stack: list[str] = []  # aliases being expanded, to detect cycles
@@ -989,9 +991,9 @@ def expand_macros(expr: Expr, definitions: Dict[str, Expr]) -> Expr:
 def prepare_present_map_df(
     df: pl.DataFrame,
     count_col: str,
-    besthit_cols: List[str],
-    needed_features: Set[str],
-    additional_cols: List[str] = None,
+    besthit_cols: list[str],
+    needed_features: set[str],
+    additional_cols: list[str] = None,
     group_col: str = None,
 ):
     """Long table of (index cols, hit, additional cols): one row per gene and
@@ -1058,10 +1060,10 @@ def prepare_present_map_df(
 def build_present_map(
     df: pl.DataFrame,
     sample_col: str,
-    needed_features: Set[str],
+    needed_features: set[str],
     sample_names: list[str],
     value_col: str = None,
-) -> Tuple[List[str], Dict[str, np.ndarray]]:
+) -> tuple[list[str], dict[str, np.ndarray]]:
     """Build present_map of needed gene_ids from annotations DataFrame"""
     hit_col = "hit"
 
@@ -1069,7 +1071,7 @@ def build_present_map(
 
     sample_index = {s: i for i, s in enumerate(sample_names)}
     n = len(sample_names)
-    present_map: Dict[str, np.ndarray] = {f: np.zeros(n) for f in needed_features}
+    present_map: dict[str, np.ndarray] = {f: np.zeros(n) for f in needed_features}
 
     # Group by hit_id and set booleans
     for hit_id, sub in df.group_by(hit_col):
@@ -1102,10 +1104,10 @@ class Evaluator:
 
     def __init__(
         self,
-        samples: List[str],
-        present_map: Dict[str, np.ndarray],
+        samples: list[str],
+        present_map: dict[str, np.ndarray],
         sample_col: str,
-        annotations: Optional[pl.DataFrame],
+        annotations: pl.DataFrame | None,
     ):
         self.samples = samples
         self.present_map = present_map
@@ -1328,10 +1330,10 @@ def get_val_cols(df, allow_multiple=False):
 
 def evaluate_rules(
     compiled: CompiledRules,
-    samples: List[str],
-    present_map: Dict[str, np.ndarray],
-    annotations: Optional[pl.DataFrame] = None,
-    sample_col: Optional[str] = None,
+    samples: list[str],
+    present_map: dict[str, np.ndarray],
+    annotations: pl.DataFrame | None = None,
+    sample_col: str | None = None,
     bool_output: bool = True,
 ) -> pl.DataFrame:
     ev = Evaluator(
@@ -1366,13 +1368,13 @@ def evaluate_rules(
 
 def evaluate_cycles(
     compiled: CompiledRules,
-    samples: List[str],
-    present_map: Dict[str, np.ndarray],
-    annotations: Optional[pl.DataFrame],
-    group_col: Optional[str] = "group",
-    label_col: Optional[str] = "name",
-    sample_col: Optional[str] = None,
-    additional_cols: Optional[List[str]] = None,
+    samples: list[str],
+    present_map: dict[str, np.ndarray],
+    annotations: pl.DataFrame | None,
+    group_col: str | None = "group",
+    label_col: str | None = "name",
+    sample_col: str | None = None,
+    additional_cols: list[str] | None = None,
     anno_df: pl.DataFrame = None,
     value_col: str = None,
 ) -> pl.DataFrame:
