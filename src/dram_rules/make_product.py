@@ -29,7 +29,6 @@ from dram_rules.definitions import (
 )
 from dram_rules.processing.process_annotations import (
     build_tax_edge_df_pl,
-    build_tax_tree_selected_recurse,
     build_taxonomy_df_pl,
     build_tree_pl,
 )
@@ -91,10 +90,7 @@ def join_present_map_df_to_mapping_df(
     df: pl.DataFrame,
     group_col: str,
     count_col: str,
-    besthit_cols: list[str],
-    needed_features: set[str],
-    additional_cols: list[str] = None,
-    mapping_df: pl.DataFrame = None,
+    mapping_df: pl.DataFrame,
 ):
 
     sample_names = [
@@ -385,8 +381,6 @@ def main(
             df=anno_df,
             group_col="genome",
             count_col="query_id",
-            besthit_cols=besthit_cols,
-            needed_features=compiled.needed_features,
             mapping_df=mapping_df,
         )
 
@@ -468,7 +462,6 @@ def main(
         dfs["genome"] = d
 
     tax_tree_data = None
-    selected_tax_tree = None
     if "taxonomy" in raw_anno:
         tax_df = build_taxonomy_df_pl(raw_anno, "genome")
 
@@ -478,7 +471,6 @@ def main(
             tax_edge_df,
             id_cb=lambda source, child, parent_id: f"{parent_id};{child}",
         )
-        selected_tax_tree = build_tax_tree_selected_recurse(tax_tree_data)
 
         for key, df in dfs["genome"].items():
             dfs["genome"][key] = tax_df.join(df, on="genome", how="left")
@@ -539,7 +531,6 @@ def main(
     kw = dict(
         dfs=dfs,
         taxanomy_tree_data=tax_tree_data,
-        selected_tax_tree=selected_tax_tree,
         output_dir=output_dir,
         title=f"DRAM {rule_type} VISUALIZATION",
         # mapping=bool(mapping),

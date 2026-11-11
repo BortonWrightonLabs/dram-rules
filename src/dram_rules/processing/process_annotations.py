@@ -91,13 +91,3 @@ def build_tree_pl(
         return children
 
     return recurse_tree(None)
-
-
-def build_tax_tree_selected_recurse(tax_tree, flat_tree=None):
-    if flat_tree is None:
-        flat_tree = []
-    for node in tax_tree:
-        flat_tree.append(node["id"])
-        if "items" in node:
-            build_tax_tree_selected_recurse(node["items"], flat_tree)
-    return flat_tree

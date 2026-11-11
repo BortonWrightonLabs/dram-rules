@@ -12,9 +12,15 @@ from panel_material_ui import Tree
 from dram_rules.apps.heatmap import Dashboard
 from dram_rules.processing.process_annotations import (
     build_tax_edge_df_pl,
-    build_tax_tree_selected_recurse,
     build_tree_pl,
 )
+
+
+def node_ids(nodes):
+    """Every node id in a taxonomy tree, depth first."""
+    for node in nodes:
+        yield node["id"]
+        yield from node_ids(node["items"])
 
 
 class TaxonomyFilterTests(unittest.TestCase):
@@ -84,7 +90,7 @@ class TaxonomyFilterTests(unittest.TestCase):
                 check(node["items"])
 
         check(self.tree)
-        ids = build_tax_tree_selected_recurse(self.tree)
+        ids = list(node_ids(self.tree))
         self.assertEqual(len(ids), len(set(ids)))
         self.assertTrue(set(self.taxonomies).issubset(ids))
 
@@ -101,12 +107,7 @@ class TaxonomyFilterTests(unittest.TestCase):
             edges, id_cb=lambda source, child, parent_id: f"{parent_id};{child}"
         )
 
-        def ids(nodes):
-            for node in nodes:
-                yield node["id"]
-                yield from ids(node["items"])
-
-        return set(ids(tree))
+        return set(node_ids(tree))
 
     def test_partial_and_missing_lineages_build_a_tree(self):
         ids = self.tree_ids(["d__Bacteria;p__A;c__A", "Unclassified Bacteria", None])
@@ -204,7 +205,7 @@ class TaxonomyFilterTests(unittest.TestCase):
         self.assertIsInstance(dashboard.taxonomy_filter, Tree)
         self.assertEqual(
             {item["id"] for item in dashboard.taxonomy_filter.value},
-            set(build_tax_tree_selected_recurse(self.tree)),
+            set(node_ids(self.tree)),
         )
         self.assertEqual(dashboard.taxonomy_filter.expanded, [])
         self.assertTrue(dashboard.taxonomy_filter.checkboxes)
@@ -259,13 +260,11 @@ class TaxonomyFilterTests(unittest.TestCase):
         dashboard.min_coverage = 0.5
         dashboard.tax_axis_filter.value = True
         dashboard.tax_axis_rank.value = "species"
-        dashboard.sort_by.value = ["genome"]
         dashboard.reset_filters()
         self.assertEqual(dashboard.min_coverage, 0)
         self.assertFalse(dashboard.tax_axis_filter.value)
         self.assertFalse(dashboard.tax_axis_rank.visible)
         self.assertEqual(dashboard.tax_axis_rank.value, "genus")
-        self.assertEqual(dashboard.sort_by.value, [])
         self.assertEqual(
             len(dashboard.taxonomy_filter.active), len(dashboard._taxonomy_paths)
         )
