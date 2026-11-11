@@ -10,17 +10,17 @@ BTEX – Aerobic	TmoA_BmoA|TmoB_BmoB|TmoE|TomA1|TomA3|TomA4|DmpO|MAH_alpha|MAH_b
 Alkane – Anaerobic	AssA		Carbon Transformations	Hydrocarbon
 Alkane Long-Chain – Aerobic	AlkB|AlmA_GroupI|AlmA_GroupIII|CYP153|LadA_alpha|LadA_beta|LadB		Carbon Transformations	Hydrocarbon
 Alkane Short-Chain – Aerobic	pBmoA|pBmoB|pBmoC|sBmoX|sBmoY|sBmoZ|PrmA|PrmC		Carbon Transformations	Hydrocarbon
-Flavones	at_least(2, PRESENCE, [D00001,K26178,D00003,K26177,EC:5.5.1.6,D00006,K22906,EC:3.7.1.4,D00009,K26176])		Carbon Transformations	Oxygenated Aromatic
-Ferulic-Acid	at_least(1, PRESENCE, [D00038,K12508,EC:6.2.1.34,K18383])		Carbon Transformations	Oxygenated Aromatic
-Caffeic-Acid	at_least(2, PRESENCE, [D00014,K22432,D00015,K22431,D00016,K22430,EC:1.3.1.108,D00017,D00018])		Carbon Transformations	Oxygenated Aromatic
+Flavones	at_least(2, [D00001,K26178,D00003,K26177,EC:5.5.1.6,D00006,K22906,EC:3.7.1.4,D00009,K26176])		Carbon Transformations	Oxygenated Aromatic
+Ferulic-Acid	at_least(1, [D00038,K12508,EC:6.2.1.34,K18383])		Carbon Transformations	Oxygenated Aromatic
+Caffeic-Acid	at_least(2, [D00014,K22432,D00015,K22431,D00016,K22430,EC:1.3.1.108,D00017,D00018])		Carbon Transformations	Oxygenated Aromatic
 Syringate	K15064		Carbon Transformations	Oxygenated Aromatic
 Vanillate	K03862|K03863|K15066		Carbon Transformations	Oxygenated Aromatic
-Gallic-Acid	at_least(2, PRESENCE, [K22958, K22959, K22960])		Carbon Transformations	Oxygenated Aromatic
+Gallic-Acid	at_least(2, [K22958, K22959, K22960])		Carbon Transformations	Oxygenated Aromatic
 Coumarate	D00039		Carbon Transformations	Oxygenated Aromatic
-Protocatechuic-Acid	[at_least(1, PRESENCE, [K04100,K04101]) & at_least(2, PRESENCE, [K10219, EC:1.1.1.312, K10221, K10220, K16515,  K10218, K16514 ])] | [at_least(1, PRESENCE, [K00448,EC:1.13.11.3, K00449]) & at_least(2, PRESENCE, [K01607, EC:4.1.1.44, K01857, EC:5.5.1.2, K01055, EC:3.1.1.24, K01031])]		Carbon Transformations	Oxygenated Aromatic
+Protocatechuic-Acid	[at_least(1, [K04100,K04101]) & at_least(2, [K10219, EC:1.1.1.312, K10221, K10220, K16515,  K10218, K16514 ])] | [at_least(1, [K00448,EC:1.13.11.3, K00449]) & at_least(2, [K01607, EC:4.1.1.44, K01857, EC:5.5.1.2, K01055, EC:3.1.1.24, K01031])]		Carbon Transformations	Oxygenated Aromatic
 4-Methoxybenzoate	K22553		Carbon Transformations	Oxygenated Aromatic
 4-Hydroxybenzoate	[K00481|EC:1.14.13.2|K04105|K20458|EC:6.2.1.27|EC:6.2.1.25|K04107|EC:1.1.7.11|K04108|K04109]		Carbon Transformations	Oxygenated Aromatic
-Catechol	[[K03381|EC:1.13.11.1] & at_least(2, PRESENCE, [K01856, EC:5.5.1.1,K03464,EC:5.3.3.4,K01055,EC:3.1.1.24,K01031])] | [at_least(1, PRESENCE, [K00446,K07104]) & [K10216 | at_least(1, PRESENCE, [K10217,K01617,K01821]) ] & at_least(1, PRESENCE, [K02554,K01666,K18364,K18365])]		Carbon Transformations	Oxygenated Aromatic
+Catechol	[[K03381|EC:1.13.11.1] & at_least(2, [K01856, EC:5.5.1.1,K03464,EC:5.3.3.4,K01055,EC:3.1.1.24,K01031])] | [at_least(1, [K00446,K07104]) & [K10216 | at_least(1, [K10217,K01617,K01821]) ] & at_least(1, [K02554,K01666,K18364,K18365])]		Carbon Transformations	Oxygenated Aromatic
 Cellulose	@Cellulose		Carbon Transformations	Polysaccharides
 Hemicellulose	@Hemicellulose-Xylan | @Hemicellulose-Other		Carbon Transformations	Polysaccharides
 Galactomannan (e.g., Guar-Gum)	GH5;EC:3.2.1.78 | GH27;EC:3.2.1.22 | GH36;EC:3.2.1.22		Carbon Transformations	Polysaccharides

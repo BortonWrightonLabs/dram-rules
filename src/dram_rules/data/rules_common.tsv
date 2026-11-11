@@ -41,7 +41,7 @@
 	RibuloseBisphosphateCarboxylase	@RibuloseBisphosphateCarboxylaseLarge | @RibuloseBisphosphateCarboxylaseSmall
 	RibuloseBisphosphateCarboxylaseLarge	K01601 | EC:4.1.1.39
 	RibuloseBisphosphateCarboxylaseSmall	K01602 | EC:4.1.1.39
-	ReductiveCitricAcid	[@ATP-Citrate-Lyase | @Citryl-CoA-Lyase] & @2OxoglutarateFerredoxinOxidoreductase  & at_least(4, PRESENCE, [@SuccinateOrFumarateReductase, @MalateDehydrogenase, @FumarateHydratase, @SuccinylCoASyntetase, @AconitateHydratase, @IsocitrateDehydrogenase])
+	ReductiveCitricAcid	[@ATP-Citrate-Lyase | @Citryl-CoA-Lyase] & @2OxoglutarateFerredoxinOxidoreductase  & at_least(4, [@SuccinateOrFumarateReductase, @MalateDehydrogenase, @FumarateHydratase, @SuccinylCoASyntetase, @AconitateHydratase, @IsocitrateDehydrogenase])
 	ATP-Citrate-Lyase	K15230|K15231|EC:2.3.3.8
 	Citryl-CoA-Lyase	K15234|EC:4.1.3.34
 	2OxoglutarateFerredoxinOxidoreductase	K00174|K00175|K00176|K00177|EC:1.2.7.3
@@ -61,12 +61,12 @@
 	MalylCoA_SCitramalylCoALyase	K08691 | @MalylCoA_SCitramalylCoALyaseEC
 	MalylCoA_SCitramalylCoALyaseEC	EC:4.1.3.24 & EC:4.1.3.25
 	ReductiveAcetylCoAWoodLjungdahl	@ReductiveAcetylCoAWoodLjungdahl_Bacterial | @ReductiveAcetylCoAWoodLjungdahl_Archaeal
-	ReductiveAcetylCoAWoodLjungdahl_Bacterial	at_least(3, PRESENCE, [ [@FormateDehydrogenase_1 | @FormateDehydrogenase_2], @FormateTetrahydrofolateLigase, @MethylenetetrahydrofolateDehydrogenaseCyclohydrolase, @MethylenetetrahydrofolateReductase ]) & @5-MethylTHF-CorrinoidFeSProteinMethyltransferase & at_least(2, PRESENCE, [ @AnaerobicCarbonMonoxideDehydrogenase, @CODH_ACS_Complex , @AcetylCoASynthase])
+	ReductiveAcetylCoAWoodLjungdahl_Bacterial	at_least(3, [ [@FormateDehydrogenase_1 | @FormateDehydrogenase_2], @FormateTetrahydrofolateLigase, @MethylenetetrahydrofolateDehydrogenaseCyclohydrolase, @MethylenetetrahydrofolateReductase ]) & @5-MethylTHF-CorrinoidFeSProteinMethyltransferase & at_least(2, [ @AnaerobicCarbonMonoxideDehydrogenase, @CODH_ACS_Complex , @AcetylCoASynthase])
 	FormateDehydrogenase_1	K05299 & K15022
 	FormateDehydrogenase_2	K00123 | K22015
-	FormateDehydrogenase_3	at_least(3, PRESENCE, [K22338,K22339,K22340,K22341])
+	FormateDehydrogenase_3	at_least(3, [K22338,K22339,K22340,K22341])
 	FormateDehydrogenase_4	K08348 & K08349 & K08350
-	FormateDehydrogenase_5	at_least(4, PRESENCE, [K00122,K00123,K00126,K00127,K22515])
+	FormateDehydrogenase_5	at_least(4, [K00122,K00123,K00126,K00127,K22515])
 	MethylenetetrahydrofolateDehydrogenaseCyclohydrolase	K01491 | EC:1.5.1.5 | EC:3.5.4.9
 	FormateTetrahydrofolateLigase	K01938 | EC:6.3.4.3
 	MethylenetetrahydrofolateReductase	K00297|EC:1.5.1.20
@@ -74,8 +74,8 @@
 	AcetylCoASynthase	K14138|EC:2.3.1.169
 	AnaerobicCarbonMonoxideDehydrogenase	K00198|K00196|EC:1.2.7.4
 	CODH_ACS_Complex	K00197|K00194|EC:2.1.1.245
-	ReductiveAcetylCoAWoodLjungdahl_Archaeal	at_least(4, PRESENCE, [ @FormylmethanofuranDehydrogenase, @Formylmethanofuran-Tetrahydromethanopterin-N-formyltransferase, @MethenyltetraydromethanopterinCyclohydrolase, @MethelenetetraydromethanopterinDehydrogenaseand510-MethenyltetrahydromethanopterinHydrogenase , @510-MethylenetetrahydromethanopterinReductase ]) & at_least(2, PRESENCE, [ @AnaerobicCarbonMonoxideDehydrogenaseArchaeal , @CODH_ACS_ComplexArchaeal, @AcetylCoADecarbonylaseSynthase])
-	FormylmethanofuranDehydrogenase	at_least(4, PRESENCE, [ @FwdA, @FwdB, @FwdC, @FwdD, @FwdE, @FwdF, @FwdG, @FwdH ])
+	ReductiveAcetylCoAWoodLjungdahl_Archaeal	at_least(4, [ @FormylmethanofuranDehydrogenase, @Formylmethanofuran-Tetrahydromethanopterin-N-formyltransferase, @MethenyltetraydromethanopterinCyclohydrolase, @MethelenetetraydromethanopterinDehydrogenaseand510-MethenyltetrahydromethanopterinHydrogenase , @510-MethylenetetrahydromethanopterinReductase ]) & at_least(2, [ @AnaerobicCarbonMonoxideDehydrogenaseArchaeal , @CODH_ACS_ComplexArchaeal, @AcetylCoADecarbonylaseSynthase])
+	FormylmethanofuranDehydrogenase	at_least(4, [ @FwdA, @FwdB, @FwdC, @FwdD, @FwdE, @FwdF, @FwdG, @FwdH ])
 	FwdA	K00200
 	FwdB	K00201
 	FwdC	K00202
@@ -92,8 +92,8 @@
 	CODH_ACS_ComplexArchaeal	K00197|K00194|EC:2.1.1.245
 	AcetylCoADecarbonylaseSynthase	K00193
 	ReductiveGlycinePathway	[@FormateDehydrogenase_1 | @FormateDehydrogenase_5 | @FormateDehydrogenase_3 | @FormateDehydrogenase_4]  &  @GlycineCleavageSystem  &  K01938  &  K01491  &  [@GLYroute1 | @GLYroute2]
-	GlycineCleavageSystem	at_least(3, PRESENCE, [[K00281 | [K00282 & K00283]],K00605,K00382])
-	GLYroute1	at_least(5, PRESENCE, [K10670,K10671,K10672,K21576,K21577,K03671,K00384]) & [@PhosphateAcetyltransferase| @AcetateKinase]
+	GlycineCleavageSystem	at_least(3, [[K00281 | [K00282 & K00283]],K00605,K00382])
+	GLYroute1	at_least(5, [K10670,K10671,K10672,K21576,K21577,K03671,K00384]) & [@PhosphateAcetyltransferase| @AcetateKinase]
 	PhosphateAcetyltransferase	K00625 | K13788 | K04020 | K15024
 	AcetateKinase	K00925
 	GLYroute2	K00600 & K01752
@@ -115,8 +115,8 @@
 	AcetateKinase	K00925
 	PhosphateAcetyltransferase	K13788|K00625
 	AcetogenEnergyConservation	@RNFcomplex | @ECHcomplex
-	RNFcomplex	at_least(3, PRESENCE, [K03612,K03613,K03614,K03615,K03616,K03617])
-	ECHcomplex	at_least(3, PRESENCE, [K14086,K14087,K14088,K14089,K14090,K14091])
+	RNFcomplex	at_least(3, [K03612,K03613,K03614,K03615,K03616,K03617])
+	ECHcomplex	at_least(3, [K14086,K14087,K14088,K14089,K14090,K14091])
 
 	Aerobe	[@CytochromeCOxidase | @CytochromeAa3600MenaquinolOxidase | @CytochromeOUbiquinolOxidase] & @ETC50
 	CytochromeCOxidase	K02275 | K02274 | K02276 | K15408 | K02277
@@ -147,8 +147,8 @@
 	Nreducer	@ETC50 & [[@NarNitrateReductase|@NapNitrateReductase] | @NitriteReductase | @NitricOxideReductase | @NitrousOxideReductase]
 	TetrathionateReduction	[@1ofttrrs & @1ofttrabc] | @2ofttrabc
 	1ofttrrs	K13040 | K13041
-	2ofttrabc	at_least(2, PRESENCE, @ttrabc)
-	1ofttrabc	at_least(1, PRESENCE, @ttrabc)
+	2ofttrabc	at_least(2, @ttrabc)
+	1ofttrabc	at_least(1, @ttrabc)
 	ttrabc	K08359,K08358,K08357
 
 	DNRA	[@nrfA & [@NarNitrateReductase | @NapNitrateReductase]]
@@ -176,16 +176,16 @@
 	ExtABCD	ExtA_pcc_cyt | ExtB_porin | ExtC_pcc_lp_cyt | ExtD_pcc_lp_cyt
 
 	IronOxidation	[@Cyc2 |  @mtoAB | @foxEYZ ] & [@Microaerophillic | @Aerobe | @Sulfatereducer | @Denitrifier | @PhototrophAllTypes]
-	Cyc2	at_least(2, COUNTS, [Cyc2_repCluster1, Cyc2_repCluster2, Cyc2_repCluster3])
+	Cyc2	at_least(2, [Cyc2_repCluster1, Cyc2_repCluster2, Cyc2_repCluster3], mode=COUNTS)
 	foxEYZ	FoxE & FoxY & FoxZ
 	mtoAB	MtrB_TIGR03509
 
 	Sulfatereducer	@DsrABtyper & [K00958 | K00394 |K00395]
 	DsrABtyper	dsrAr | dsrBr | dsrAr_arch | dsrBr_arch
 	SulfiteRed	@DsrABtyper
-	TetrathionateRed	at_least(2, PRESENCE, [K08359, K08358, K08357])
-	ThiosulfateRed	at_least(2, PRESENCE, [K08352, K08353, K08354])
-	ElementalSRed	at_least(2, PRESENCE, [K17219, K17220, K17221])
+	TetrathionateRed	at_least(2, [K08359, K08358, K08357])
+	ThiosulfateRed	at_least(2, [K08352, K08353, K08354])
+	ElementalSRed	at_least(2, [K17219, K17220, K17221])
 	Non-sulfate-sulfur-reduction	@TetrathionateRed |@ThiosulfateRed | @SulfiteRed | @ElementalSRed
 
 	sulfateoxidizer	[@DsrABtypeo | @SoeABC | @SorAB | @Sqr | @FccAB | @SoxXA | @SoxYZ | @SoxB | @SoxCD] & @ETC50
@@ -206,19 +206,19 @@
 	OtherAjMethanogen	@Sulfatereducer | @Denitrifier | @AerobicAmmoniaOxidizer |@Comammox | @Annamox | @PhototrophAllTypes | @ETC60
 
 	hydrogenotrophic	[[[@Methanogen] & @ReductiveAcetylCoAWoodLjungdahl_Archaeal_MethylOnly & @TetrahydromethanopterinSMethyltransferase_MTRcomplex & [ @Frh_hydrogenase |@Mvh_hydrogenase |@Eha_hydrogenase |@Ehb_hydrogenase |@Fdo_hydrogenase |@FormateDehydrogenase_1|@FdhF|@FdhAB ]] | [[tax(o__Methanoflorentales)|tax(g__Methanobacterium_A)|tax(g__Methanobacterium_C)|tax(g__Methanobacterium_E)|tax(g__Methanobacterium_F)|tax(g__Methanobacterium)|tax(g__Methanobrevibacter_A)|tax(g__Methanobrevibacter)|tax(g__Methanothermobacter_A)|tax(g__Methanothermobacter)|tax(g__Methanothermus)|tax(f__Methanobacteriaceae)|tax(g__Methanocella_A)|tax(g__Methanocella)|tax(g__Methanooceanicella)|tax(o__Methanococcales)|tax(o__Methanomicrobiales)|tax(g__Methanopyrus)|tax(o__Nezhaarchaeales)|tax(g__Methanolacinia)|tax(g__Methanobacterium_B)|tax(g__Methanobacterium_D)|tax(g__Methanosarcina)] & not(tax(g__Methanosphaera))]] & not([@Methanogen] & [tax(g__Methanocomedens_A)|tax(g__Methanocomedens_B)|tax(g__Methanogaster_A)|tax(g__Methanogaster_B)|tax(g__Methanoperedens_A)|tax(g__Methanoperedens)|tax(g__ANME-1-THS)|tax(g__ANME1a)|tax(g__G60ANME1)|tax(g__Methanophaga)|tax(g__Methanovorans)|tax(g__Methanomarinus)|tax(g__Methanoxibalbensis)|tax(g__Methanospirare)|tax(g__Kmv04)|tax(g__Methanogaster_C)|tax(g__Methanogaster_D)|tax(g__CAZCRM01)|tax(g__UBA10536)|tax(g__Methanoxibalbensis)])
-	ReductiveAcetylCoAWoodLjungdahl_Archaeal_MethylOnly	at_least(4, PRESENCE, [ @FormylmethanofuranDehydrogenase, @Formylmethanofuran-Tetrahydromethanopterin-N-formyltransferase, @MethenyltetraydromethanopterinCyclohydrolase, @MethelenetetraydromethanopterinDehydrogenaseand510-MethenyltetrahydromethanopterinHydrogenase , @510-MethylenetetrahydromethanopterinReductase ])
-	TetrahydromethanopterinSMethyltransferase_MTRcomplex	at_least(2,PRESENCE, [K00577,K00578,K00579,K00580,K00581,K00582,K00583,K00584])
-	Frh_hydrogenase	at_least(2,PRESENCE, [K00440,K00441,K00442,K00443])
-	Mvh_hydrogenase	at_least(2,PRESENCE, [K14126,K14127,K14128])
-	Eha_hydrogenase	at_least(4,PRESENCE, [K14092,K14093,K14094,K14095,K14096,K14097,K14098,K14099,K14100,K14101,K14102,K14103,K14104,K14105,K14106,K14107,K14108,K14109])
-	Ehb_hydrogenase	at_least(4,PRESENCE, [K14110,K14111,K14112,K14113,K14114,K14115,K14116,K14117,K14118,K14119,K14120,K14121,K14122,K14123,K14124,K14125])
-	Fdo_hydrogenase	at_least(1,PRESENCE, [K00123, K00124])
+	ReductiveAcetylCoAWoodLjungdahl_Archaeal_MethylOnly	at_least(4, [ @FormylmethanofuranDehydrogenase, @Formylmethanofuran-Tetrahydromethanopterin-N-formyltransferase, @MethenyltetraydromethanopterinCyclohydrolase, @MethelenetetraydromethanopterinDehydrogenaseand510-MethenyltetrahydromethanopterinHydrogenase , @510-MethylenetetrahydromethanopterinReductase ])
+	TetrahydromethanopterinSMethyltransferase_MTRcomplex	at_least(2, [K00577,K00578,K00579,K00580,K00581,K00582,K00583,K00584])
+	Frh_hydrogenase	at_least(2, [K00440,K00441,K00442,K00443])
+	Mvh_hydrogenase	at_least(2, [K14126,K14127,K14128])
+	Eha_hydrogenase	at_least(4, [K14092,K14093,K14094,K14095,K14096,K14097,K14098,K14099,K14100,K14101,K14102,K14103,K14104,K14105,K14106,K14107,K14108,K14109])
+	Ehb_hydrogenase	at_least(4, [K14110,K14111,K14112,K14113,K14114,K14115,K14116,K14117,K14118,K14119,K14120,K14121,K14122,K14123,K14124,K14125])
+	Fdo_hydrogenase	at_least(1, [K00123, K00124])
 	FdhF	K22015
-	FdhAB	at_least(1,PRESENCE,[K00125,K22516])
+	FdhAB	at_least(1, [K00125,K22516])
 	McrAor3999	[McrA | K00399]
 
 	acetoclastic	"@Methanogen
-					& at_least(1, PRESENCE, [K00193,K00194,K00197,K00198])
+					& at_least(1, [K00193,K00194,K00197,K00198])
 					& [
 						[K00925&K00625]
 						|
@@ -229,13 +229,13 @@
 						@Methanogen
 						& [tax(g__Methanocomedens_A)|tax(g__Methanocomedens_B)|tax(g__Methanogaster_A)|tax(g__Methanogaster_B)|tax(g__Methanoperedens_A)|tax(g__Methanoperedens)|tax(g__ANME-1-THS)|tax(g__ANME1a)|tax(g__G60ANME1)|tax(g__Methanophaga)|tax(g__Methanovorans)|tax(g__Methanomarinus)|tax(g__Methanoxibalbensis)|tax(g__Methanospirare)|tax(g__Kmv04)|tax(g__Methanogaster_C)|tax(g__Methanogaster_D)|tax(g__CAZCRM01)|tax(g__UBA10536)|tax(g__Methanoxibalbensis)]
 						)"
-	ACS_CODH_complex	at_least(1, PRESENCE, @ACS_CODH)
+	ACS_CODH_complex	at_least(1, @ACS_CODH)
 	ACS_CODH	K00193,K00194,K00197,K00198
 	AcetateGenes	@Ack_Pta | @AcetylCoASynthetase
 	Ack_Pta	K00925 & K00625
 	AcetylCoASynthetase	K01895
 
-	methylotroph	[[@Methanogen & at_least(1, PRESENCE, [K04480,K14083,K16176,K16178,K25220,K16954,K25600,K25916,K26847])] | [tax(g__Methanobacterium_B)|tax(g__Methanobacterium_D)|tax(g__Methanosarcina)|tax(g__Methanodesulfokora)|tax(g__Methanosphaera)|tax(o__Methanomethylicales)|tax(c__Methanonatronarchaeia)|tax(g__Methanolobus)|tax(g__Methanomethylovorans)|tax(g__Methanohalobium)|tax(g__Methanohalophilus)|tax(g__Methanosalsum)|tax(g__Methermicoccus)|tax(g__Methanococcoides)|tax(g__Methanolapillus)|tax(g__MTP4)|tax(g__Methanimicrococcus)|tax(g__Methanofrustulum)|tax(o__Methanofastidiosales)|tax(o__Methanomassiliicoccales)|tax(f__Methanonatronarchaeaceae)]] & not(@Methanogen & [tax(g__Methanocomedens_A)|tax(g__Methanocomedens_B)|tax(g__Methanogaster_A)|tax(g__Methanogaster_B)|tax(g__Methanoperedens_A)|tax(g__Methanoperedens)|tax(g__ANME-1-THS)|tax(g__ANME1a)|tax(g__G60ANME1)|tax(g__Methanophaga)|tax(g__Methanovorans)|tax(g__Methanomarinus)|tax(g__Methanoxibalbensis)|tax(g__Methanospirare)|tax(g__Kmv04)|tax(g__Methanogaster_C)|tax(g__Methanogaster_D)|tax(g__CAZCRM01)|tax(g__UBA10536)|tax(g__Methanoxibalbensis)])
+	methylotroph	[[@Methanogen & at_least(1, [K04480,K14083,K16176,K16178,K25220,K16954,K25600,K25916,K26847])] | [tax(g__Methanobacterium_B)|tax(g__Methanobacterium_D)|tax(g__Methanosarcina)|tax(g__Methanodesulfokora)|tax(g__Methanosphaera)|tax(o__Methanomethylicales)|tax(c__Methanonatronarchaeia)|tax(g__Methanolobus)|tax(g__Methanomethylovorans)|tax(g__Methanohalobium)|tax(g__Methanohalophilus)|tax(g__Methanosalsum)|tax(g__Methermicoccus)|tax(g__Methanococcoides)|tax(g__Methanolapillus)|tax(g__MTP4)|tax(g__Methanimicrococcus)|tax(g__Methanofrustulum)|tax(o__Methanofastidiosales)|tax(o__Methanomassiliicoccales)|tax(f__Methanonatronarchaeaceae)]] & not(@Methanogen & [tax(g__Methanocomedens_A)|tax(g__Methanocomedens_B)|tax(g__Methanogaster_A)|tax(g__Methanogaster_B)|tax(g__Methanoperedens_A)|tax(g__Methanoperedens)|tax(g__ANME-1-THS)|tax(g__ANME1a)|tax(g__G60ANME1)|tax(g__Methanophaga)|tax(g__Methanovorans)|tax(g__Methanomarinus)|tax(g__Methanoxibalbensis)|tax(g__Methanospirare)|tax(g__Kmv04)|tax(g__Methanogaster_C)|tax(g__Methanogaster_D)|tax(g__CAZCRM01)|tax(g__UBA10536)|tax(g__Methanoxibalbensis)])
 	mtxB	K04480| K14083 |K16176 | K16178 |K25220 | K16954
 
 	AerobicMethanotroph	@TRUEPmoA | @mmoX
@@ -251,9 +251,9 @@
 
 	ProbIronReduction	[@notIronReductionGenes | @hemeCount] & @ETC50
 	notIronReductionGenes	not(@IronReductionGenes)
-	hemeCount	@NotUnironDescription -> column_count_values(heme_regulatory_motif_count,ge,4,ge,3)
-	NotUnironDescription	not(@UnironDescription)
-	UnironDescription	"filter_contains(kegg_description,""nitrate reductase"")"
+	hemeCount	@NotNitrateReductaseFilter -> filter_compare(heme_regulatory_motif_count, >=, 4) -> count_rows(>=, 3)
+	NotNitrateReductaseFilter	not(@NitrateReductaseFilter)
+	NitrateReductaseFilter	"filter_contains(kegg_description,""nitrate reductase"")"
 
 	PlantPolymerMixed	CE12;EC:3.1.1.- | GH27;EC:3.2.1.22 | GH31;EC:3.2.1.- | GH36;EC:3.2.1.22 | GH36;EC:3.2.1.- | GH95;EC:3.2.1.- | GH70;EC:2.4.1.- | GH125;EC:3.2.1.163 | GH2;EC:3.2.1.146 | GH76;EC:3.2.1.101 | GH78;EC:3.2.1.40 | GH3;EC:3.2.1.55 | GH42;EC:3.2.1.- | GH43;EC:3.2.1.- | GH51;EC:3.2.1.55 | GH54;EC:3.2.1.55 | GH62;EC:3.2.1.55 | AA9;EC:1.14.99.-
 	Cellulose	GH9;EC:3.2.1.74 | GH9;EC:3.2.1.4 | GH8;EC:3.2.1.4 | GH74;EC:3.2.1.4 | GH7;EC:3.2.1.73 | GH7;EC:3.2.1.4 | GH7;EC:3.2.1.176 | GH6;EC:3.2.1.91 | GH6;EC:3.2.1.73 | GH6;EC:3.2.1.4 | GH51;EC:3.2.1.91 | GH5;EC:3.2.1.91 | GH5;EC:3.2.1.74 | GH48;EC:3.2.1.91 | GH48;EC:3.2.1.4 | GH48;EC:3.2.1.176 | GH26;EC:3.2.1.4 | GH124;EC:3.2.1.4 | GH12;EC:3.2.1.4 | AA9;EC:1.14.99.56 | AA9;EC:1.14.99.54 | AA3;EC:1.1.99.18 | AA16;EC:1.14.99.54 | AA15;EC:1.14.99.54 | AA10;EC:1.14.99.56 | AA10;EC:1.14.99.54
@@ -304,7 +304,7 @@
 	Peroxide-catalase	K03781 | K03782 | K05910 | K00432
 	Peroxide-peroxiredoxin	K03386
 
-	C-P-Lyase-Complex	at_least(3, PRESENCE, [K06166, K06165,  K06164,  K06163, K05781, K05780, K06162])
+	C-P-Lyase-Complex	at_least(3, [K06166, K06165,  K06164,  K06163, K05781, K05780, K06162])
 	Organic-P-Mineralization	K07093 | K01077 | K09474 | K01078 | K03788
 	Phytase	K01093 | K01083
 	Inorganic-P-Solubilization	K01514 | K01507 | K06137 | K00117
@@ -346,20 +346,20 @@
 	ExtracellularMetallo	M04 | M09 | M10 | M12 | M36
 	ExtracellularSerine	S01 | S08 | S53
 
-	EpsProduction	at_least(2, PRESENCE, [K20997, K21001, K21154, K25902, K25904, K25906, K25205, K21461])
-	QuorumSensing	[[K13060 | K13061] & [K18304 | K18099]] | K07173 | at_least(2, PRESENCE, [K10555, K10556, K10557, K10558])
-	Motility	[K02410 | K02411] & at_least(3, PRESENCE, [K02406, K02407, K02400, K02408, K02409, K02412, K02416, K02417, K02386, K02387, K02391, K02393, K02404, K02405])
+	EpsProduction	at_least(2, [K20997, K21001, K21154, K25902, K25904, K25906, K25205, K21461])
+	QuorumSensing	[[K13060 | K13061] & [K18304 | K18099]] | K07173 | at_least(2, [K10555, K10556, K10557, K10558])
+	Motility	[K02410 | K02411] & at_least(3, [K02406, K02407, K02400, K02408, K02409, K02412, K02416, K02417, K02386, K02387, K02391, K02393, K02404, K02405])
 
-	IonBalance-saltinpotential	[K01546 & K01547] | [K05565 & at_least(3, PRESENCE, [K05566, K05567, K05568, K05569, K05570, K05571])] | [K03499 & K03498]
+	IonBalance-saltinpotential	[K01546 & K01547] | [K05565 & at_least(3, [K05566, K05567, K05568, K05569, K05570, K05571])] | [K03499 & K03498]
 	GlycineBetaineSynthesis	[[K00108 | K11440] & K00130] | [K18896 & K18897]
 	EctoineSynthesis	K06718 & K00836 & K06720
 	TrehaloseSynthesis	[K00697 & K01087] | [K01236 & K06044] | K05343
 	MannitolSynthesis	[K00009 & K19270]
 	GlycosylatedSynthesis	[K03692 & K05978] | [K05947 & K07026] | K18818
 	SugarDerivedCompatibleSoluteSynthesis	@TrehaloseSynthesis | @MannitolSynthesis |@GlycosylatedSynthesis
-	MethylatedCompatibleSoluteTransport	K02168 | K03451 | K05245 | K03762 | K05020 | [K02000 & K02001 & K02002] | at_least(2, PRESENCE, [K05845, K05846, K05847]) | at_least(2, PRESENCE, [K10036, K10037, K10038])
-	EctoineTransport	at_least(2, PRESENCE, [K02028, K02029, K02030])
-	SugarDerivedTransport	at_least(2, PRESENCE, [K10227, K10228, K10229, K10230]) | at_least(2, PRESENCE, [K02783, K02781, K02782]) | K02798 | at_least(2, PRESENCE, [K10109, K10110, K10111]) | K17314
+	MethylatedCompatibleSoluteTransport	K02168 | K03451 | K05245 | K03762 | K05020 | [K02000 & K02001 & K02002] | at_least(2, [K05845, K05846, K05847]) | at_least(2, [K10036, K10037, K10038])
+	EctoineTransport	at_least(2, [K02028, K02029, K02030])
+	SugarDerivedTransport	at_least(2, [K10227, K10228, K10229, K10230]) | at_least(2, [K02783, K02781, K02782]) | K02798 | at_least(2, [K10109, K10110, K10111]) | K17314
 
 	Tetracycline-inactivation	3000036
 	Tetracycline-efflux	0010002 | 0010001

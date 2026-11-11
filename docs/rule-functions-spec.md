@@ -1,6 +1,6 @@
 # Rule functions: language and API spec
 
-Status: agreed design (see [Decisions](#decisions)). Not implemented yet.
+Status: implemented (see [Decisions](#decisions)). Code: `src/dram_rules/rules_api.py` (API for writing functions), `src/dram_rules/rule_parser/functions.py` (built-ins), `src/dram_rules/rule_parser/rules.py` (compiling and evaluation).
 
 ## Goals
 
@@ -82,8 +82,9 @@ filter_contains(kegg_description, "hydrogenase") & filter_compare(kegg_bitScore,
 
 To make the difference visible when reading a rule, **`filter_` is reserved for
 row filters.** A function returns `RowFilter` exactly when its name starts with
-`filter_`, for built-in and user functions alike. The one exception is the
-built-in `not`, which returns the same kind as its argument.
+`filter_`, for built-in and user functions alike. `not(...)` isn't a function:
+like `&` and `|` it is part of the language, and it takes the kind of its
+argument, so it works on per-sample values and row filters alike.
 
 Aliases can't be checked this way, so by convention an alias that holds a
 filter is named `...Filter` (e.g. `@NitrateReductaseFilter`).
@@ -114,7 +115,7 @@ That is not planned now.
 
 | Function | Signature | Returns |
 |---|---|---|
-| `not` | `not(x: PerSample \| RowFilter)` | same kind as `x` |
+| `not` | `not(x)` (part of the language, like `&` and `\|`) | same kind as `x` |
 | `percent` | `percent(n: int, group: Group)` | `PerSample`: at least n% of parts present |
 | `at_least` | `at_least(n: int, group: Group, mode: PRESENCE \| COUNTS = PRESENCE)` | `PerSample`: at least n parts present, or n total hits |
 | `tax` | `tax(label: str, regex: bool = false)` + rows | `PerSample`: any row's taxonomy contains `label` |
@@ -204,6 +205,8 @@ Run with `--functions my_functions.py` (repeatable), then use them in rules:
   is allowed (e.g. `*steps: PerSample`).
 - The return hint is `PerSample` or `RowFilter`. The result is checked (e.g. a
   `PerSample` must have one value per sample).
+- `PerSample` arguments are read-only views, since they are shared between
+  rules; compute new arrays instead of changing them in place.
 - A function returning `RowFilter` must be named `filter_...`, and only those
   may be (see [Row filters vs per-sample values](#row-filters-vs-per-sample-values)).
 - Gene IDs inside `Group` and `PerSample` arguments are collected
@@ -239,10 +242,25 @@ Run with `--functions my_functions.py` (repeatable), then use them in rules:
   [Row filters vs per-sample values](#row-filters-vs-per-sample-values)), `&` or
   `|` mixing the two, a `coverage` option that doesn't fit its rule, rules in
   one heatmap group with different `coverage` settings.
-- **When evaluating:** missing `Column`s, and a function's return value.
+- **When evaluating:** missing `Column`s, and every function result against
+  its return hint. A mismatch says what was returned and how to fix the
+  function, e.g. `Rule 'r': high() has the return hint PerSample
+  (my_functions.py:3) but returned a Polars expression, which is a row filter.
+  If it is a filter, give it the return hint RowFilter and name it
+  'filter_high'; otherwise return one value per sample (an array of length 2).`
+  An error raised inside a function is reported with the rule, the call and
+  the function's file and line, with the original exception attached.
 
-Errors name the rule, for example: `Rule 'hemeCount': count_rows() got 'ge'
-for op; expected one of >=, >, <=, <, ==, !=`.
+Errors name the rule (or alias) and quote rule text as it is written in the
+sheet. Aliases are quoted by name, and an error inside an alias is prefixed
+with the chain of aliases it is in, outermost first, so the quoted text can be
+found in that alias's own definition:
+
+```
+Rule 'hemeCount': count_rows() argument 'op' expects a comparison operator (>=, >, <=, <, ==, !=), got ge; use >= (expected count_rows(op: comparison operator, n: number) -> per-sample value)
+Rule 'hemeCount': 'K00001 & @NitrateReductaseFilter' mixes row filters and per-sample values with '&'
+Alias '@NotNitrateReductaseFilter': in @NitrateReductaseFilter: filter_contains() argument 'regex' expects true or false, got maybe (expected filter_contains(col: column name, text: text, regex: true/false = False) -> row filter)
+```
 
 ## Coverage output
 
@@ -291,6 +309,9 @@ Settled on 2026-11-10:
    apart by position: row filters only left of `->`, per-sample values
    everywhere else. This is checked by kind when rule sheets load.
 7. The `filter_` prefix is reserved for functions returning `RowFilter`, built-in
-   or user-defined, and is enforced when a function is defined. `not` is the
-   only exception. Aliases holding a filter are named `...Filter` by convention
-   (not enforced).
+   or user-defined, and is enforced when a function is defined. Aliases holding
+   a filter are named `...Filter` by convention (not enforced).
+8. A function's kind comes from its return hint (`PerSample` or `RowFilter`), so
+   new kinds can be added later as new return types (e.g. a row transform
+   returning `Rows`) without new naming rules for existing functions. `not` is
+   part of the language, like `&` and `|`, not a function.

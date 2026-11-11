@@ -7,7 +7,7 @@ B	b1	@b2 | @b4
 	b3	K00399,[K00401 & K00402 & [K00333 | K03421] & [K03422 | K13380]],K00400,K00401,K00402,K03421,K03422
 	b4	K02591 | K02586 | K02588
 C	c1	@c2
-	c2	@c3 -> column_count_values(heme_regulatory_motif_count,ge,2,ge,2)
+	c2	@c3 -> filter_compare(heme_regulatory_motif_count, >=, 2) -> count_rows(>=, 2)
 	c3	not(@c4)
 	c4	filter_contains(kegg_description,"nitrate reductase")
 D	d1	percent(50,@d2)
