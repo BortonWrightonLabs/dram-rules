@@ -19,6 +19,7 @@ from dram_rules.definitions import (
     BACKUP_GROUPBY_COLUMNS,
     DEFAULT_GROUPBY_COLUMN,
 )
+from dram_rules.processing.process_annotations import scan_tsv
 from dram_rules.rules_api import (
     ArgKind,
     FunctionRegistry,
@@ -790,12 +791,9 @@ def gene_ids(expr: Expr) -> set[str]:
 
 def _scan_rules_tsv(path: str | Path) -> pl.LazyFrame:
     """Lazily read a rules TSV, dropping rows that are entirely empty."""
-    return pl.scan_csv(
-        path,
-        separator="\t",
-        infer_schema_length=None,
-        truncate_ragged_lines=True,
-    ).filter(~pl.all_horizontal(pl.all().is_null()))
+    return scan_tsv(
+        path, infer_schema_length=None, truncate_ragged_lines=True, drop_empty_rows=True
+    )
 
 
 @dataclass(frozen=True)
@@ -1048,7 +1046,7 @@ def expand_macros(expr: Expr, definitions: dict[str, Expr]) -> Expr:
 
 
 def prepare_present_map_df(
-    df: pl.DataFrame,
+    df: pl.DataFrame | pl.LazyFrame,
     count_col: str,
     besthit_cols: list[str],
     needed_features: set[str],
@@ -1068,10 +1066,11 @@ def prepare_present_map_df(
     keep_cols = [*index_cols, *additional_cols]
     hit_col = "hit"
 
-    hit_cols = [col for col in besthit_cols if col in df.columns]
+    columns = df.collect_schema().names()
+    hit_cols = [col for col in besthit_cols if col in columns]
     hit_cols += [
         col
-        for col in df.columns
+        for col in columns
         if col
         and col not in hit_cols
         and col not in keep_cols
@@ -1166,11 +1165,16 @@ class Evaluator:
         samples: list[str],
         present_map: dict[str, np.ndarray],
         sample_col: str,
-        annotations: pl.DataFrame | None,
+        annotations: pl.DataFrame | pl.LazyFrame | None,
     ):
         self.samples = samples
         self.present_map = present_map
         self.annotations = annotations
+        self.columns = (
+            set(annotations.collect_schema().names())
+            if annotations is not None
+            else set()
+        )
         self.sample_col = sample_col
         self._all_false = np.zeros(len(samples), dtype=bool)
         self._all_rows = (
@@ -1290,7 +1294,7 @@ class Evaluator:
             case ArgKind.ROW_FILTER:
                 return self.row_filter(value)
             case ArgKind.COLUMN:
-                if self.annotations is None or value not in self.annotations.columns:
+                if value not in self.columns:
                     raise RuleError(
                         f"Missing column '{value}' for {call.function.name}():"
                         " the annotations don't have it. If the rule should be skipped"
@@ -1399,7 +1403,7 @@ def evaluate_rules(
     compiled: CompiledRules,
     samples: list[str],
     present_map: dict[str, np.ndarray],
-    annotations: pl.DataFrame | None = None,
+    annotations: pl.DataFrame | pl.LazyFrame | None = None,
     sample_col: str | None = None,
     bool_output: bool = True,
 ) -> pl.DataFrame:
@@ -1411,7 +1415,7 @@ def evaluate_rules(
     )
 
     # Skip rules whose rule_options say they don't apply to these annotations.
-    available_columns = set(annotations.columns) if annotations is not None else set()
+    available_columns = ev.columns
     rule_names = sorted(
         rn
         for rn in compiled.rules
@@ -1437,7 +1441,7 @@ def evaluate_cycles(
     compiled: CompiledRules,
     samples: list[str],
     present_map: dict[str, np.ndarray],
-    annotations: pl.DataFrame | None,
+    annotations: pl.DataFrame | pl.LazyFrame | None,
     group_col: str | None = "group",
     label_col: str | None = "name",
     sample_col: str | None = None,
@@ -1454,7 +1458,7 @@ def evaluate_cycles(
         sample_col=sample_col,
         annotations=annotations,
     )
-    available_columns = set(annotations.columns) if annotations is not None else set()
+    available_columns = ev.columns
     dfs = {}
     additional_cols = [pl.col(c) for c in additional_cols] if additional_cols else []
     if compiled.df.drop_nulls(subset=pl.col(label_col))[group_col].null_count() > 0:

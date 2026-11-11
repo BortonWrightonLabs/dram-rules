@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import difflib
 import enum
+import functools
 import importlib.util
 import inspect
 import operator
@@ -137,14 +138,20 @@ class Rows:
     hinted ``Rows`` is not a rule argument.
 
     Attributes:
-        df: the annotation rows.
+        source: the annotation rows, possibly lazy.
         sample_col: name of the sample column in ``df``.
         samples: sample names, in output order.
     """
 
-    df: pl.DataFrame
+    source: pl.DataFrame | pl.LazyFrame
     sample_col: str
     samples: list[str]
+
+    @functools.cached_property
+    def df(self) -> pl.DataFrame:
+        """The annotation rows, collected on first use and then kept, so runs
+        whose rules never read rows never load them."""
+        return self.source.lazy().collect()
 
     def per_sample(self, agg: pl.Expr, fill: Any = 0) -> np.ndarray:
         """Aggregate ``agg`` over each sample's rows. Returns an array in

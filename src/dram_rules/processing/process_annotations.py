@@ -2,19 +2,85 @@ from __future__ import annotations
 
 import logging
 
-import pandas as pd
 import polars as pl
 
 from dram_rules.definitions import DEFAULT_FASTA_COLUMN
 
 logger = logging.getLogger("dram.viz")
 
+# Non-sample columns that feature-count style mapping files can carry.
+MAPPING_META_COLUMNS = ["Chr", "Start", "End", "Strand", "Length", "KO", "Description"]
+
+
+def scan_tsv(path, *, drop_empty_rows: bool = False, **kwargs) -> pl.LazyFrame:
+    """Lazily read a TSV. `kwargs` go to `pl.scan_csv`."""
+    lf = pl.scan_csv(path, separator="\t", **kwargs)
+    return lf.filter(~pl.all_horizontal(pl.all().is_null())) if drop_empty_rows else lf
+
+
+def load_mapping(
+    path, genes: pl.DataFrame
+) -> tuple[pl.DataFrame, pl.DataFrame, list[str]]:
+    """Read a mapping file of abundances per gene or per genome.
+
+    Its first column holds gene names (`query_id`) or genome names; that
+    becomes the key column, named `query_id` or `genome`, of both outputs:
+    - means: key, mean_sample_abundance (over all samples, missing as 0)
+    - abundances: key, sample, sample_abundance; non-zero abundances only
+    Sample columns are every numeric column except MAPPING_META_COLUMNS.
+    `genes` is the annotations' (query_id, genome) pairs.
+    """
+    # Types come from the first rows only, which picks the sample columns
+    # fast; every sample column is then read as Float64, so a decimal after
+    # those rows still parses and a stray string fails loudly.
+    schema = scan_tsv(path, infer_schema_length=10_000).collect_schema()
+    first, *rest = schema.names()
+    samples = [
+        c for c in rest if c not in MAPPING_META_COLUMNS and schema[c].is_numeric()
+    ]
+    wide = scan_tsv(
+        path,
+        infer_schema_length=10_000,
+        schema_overrides={first: pl.String, **{c: pl.Float64 for c in samples}},
+    ).select(first, *samples)
+    means, abundances = pl.collect_all(
+        [
+            wide.select(
+                first,
+                mean_sample_abundance=pl.mean_horizontal(pl.col(samples).fill_null(0)),
+            ),
+            wide.unpivot(
+                index=first,
+                variable_name="sample",
+                value_name="sample_abundance",
+            ).filter(pl.col("sample_abundance").fill_null(0) != 0),
+        ],
+        engine="streaming",
+    )
+
+    names = means[first]
+    if names.is_duplicated().any():
+        raise ValueError(
+            f"Mapping file has repeated names in its first column '{first}'"
+        )
+    if names.is_in(genes["query_id"].implode()).all():
+        key = "query_id"
+        if genes.unique()["query_id"].is_duplicated().any():
+            raise ValueError("A query_id in the annotations belongs to several genomes")
+    elif names.is_in(genes["genome"].implode()).all():
+        key = "genome"
+    else:
+        raise ValueError(
+            "First Column in Mapping file can't be mapped to raw annotation file either to query_id column (gene level) or input_fasta (fasta file name, stand in for genome)"
+        )
+    return means.rename({first: key}), abundances.rename({first: key}), samples
+
 
 def build_taxonomy_df_pl(
-    annotations_df: pd.DataFrame, groupby_column=DEFAULT_FASTA_COLUMN
+    annotations_df: pl.LazyFrame | pl.DataFrame, groupby_column=DEFAULT_FASTA_COLUMN
 ) -> pl.DataFrame:
     cols = [groupby_column, "taxonomy"]
-    tax_df = annotations_df[cols].unique()
+    tax_df = annotations_df.lazy().select(cols).unique().collect()
     tax_df = tax_df.rename({groupby_column: "genome"})
     return tax_df
 
