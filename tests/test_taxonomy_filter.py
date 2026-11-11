@@ -159,6 +159,34 @@ class TaxonomyFilterTests(unittest.TestCase):
         dashboard.update_plot()
         self.assertEqual(self.plotted_genomes(dashboard), [["full", "none"]])
 
+    def test_genome_whose_lineage_prefixes_another_is_plotted(self):
+        frame = pl.DataFrame(
+            {
+                "genome": ["short", "long"],
+                "taxonomy": ["d__B;p__C", "d__B;p__C;c__X"],
+                "name": ["Trait"] * 2,
+                "present": [True] * 2,
+            }
+        )
+        edges, _ = build_tax_edge_df_pl(frame.select("genome", "taxonomy"))
+        tree = build_tree_pl(
+            edges, id_cb=lambda source, child, parent_id: f"{parent_id};{child}"
+        )
+        dashboard = Dashboard(
+            dfs={"genome": {"All": frame}},
+            taxanomy_tree_data=tree,
+            output_dir=self.output_dir,
+        )
+        self.assertEqual(self.plotted_genomes(dashboard), [["long", "short"]])
+
+        dashboard.taxonomy_filter.active = [
+            path
+            for node_id, path in dashboard._taxonomy_paths.items()
+            if node_id != "d__B;p__C;c__X"
+        ]
+        dashboard.update_plot()
+        self.assertEqual(self.plotted_genomes(dashboard), [["short"]])
+
     def test_taxonomy_label_on_y_axis(self):
         frame = self.frame.vstack(
             pl.DataFrame(

@@ -198,15 +198,12 @@ class Dashboard(pn.viewable.Viewer):
 
         self.taxonomy_filter = None
         self._taxonomy_paths = {}
-        self._taxonomy_leaves = set()  # ids of nodes without children
         if self.taxonomy_tree_data is not None:
 
             def index_items(items, parent_path=()):
                 for index, item in enumerate(items):
                     path = (*parent_path, index)
                     self._taxonomy_paths[item["id"]] = path
-                    if not item.get("items"):
-                        self._taxonomy_leaves.add(item["id"])
                     index_items(item.get("items", []), path)
 
             index_items(self.taxonomy_tree_data)
@@ -394,16 +391,15 @@ class Dashboard(pn.viewable.Viewer):
             or "taxonomy" not in df.columns
         ):
             return df
-        # A genome's lineage is a leaf of the tree. shortcut: a genome whose
-        # lineage is a prefix of another genome's is an inner node and is never
-        # matched; key the tree by genome if that turns up in real data.
-        leaves = [
-            node["id"].replace("; ", ";")
-            for node in self.taxonomy_filter.value
-            if node["id"] in self._taxonomy_leaves
+        # Node ids are whole lineages, so a genome shows when the node of its own
+        # lineage is selected (a selected ancestor alone doesn't match).
+        selected = [
+            node["id"].replace("; ", ";") for node in self.taxonomy_filter.value
         ]
         # Genomes without a taxonomy aren't in the tree; always show them.
-        df = df.filter(pl.col("taxonomy").is_in(leaves) | pl.col("taxonomy").is_null())
+        df = df.filter(
+            pl.col("taxonomy").is_in(selected) | pl.col("taxonomy").is_null()
+        )
 
         return df
 
