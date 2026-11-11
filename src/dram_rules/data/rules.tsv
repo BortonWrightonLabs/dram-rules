@@ -1,5 +1,5 @@
-﻿name	long_name	alias	rule	group
-M00001	"Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate"	m1	"path_steps([K00844 | K12407 | K00845 | K25026 | K00886 | K08074 | K00918],
+﻿name	long_name	alias	rule	rule_options	group
+M00001	Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate	m1	"[K00844 | K12407 | K00845 | K25026 | K00886 | K08074 | K00918],
 			 [K01810 | K06859 | K13810 | K15916],
 			 [K00850 | K16370 | K21071 | K24182 | K00918],
 			 [K01623 | K01624 | K11645 | K16305 | K16306],
@@ -7,31 +7,31 @@ M00001	"Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate"	m1	"path_step
 			 [[[K00134 | K00150],K00927] | K11389],
 			 [K01834 | K15633 | K15634 | K15635],
 			 [K01689 | K27394],
-			 [K00873 | K12406])"	Module
-M00004	Pentose phosphate pathway (Pentose phosphate cycle)	m4	"path_steps([K13937 | [[K00036 | K19243],[K01057 | K07404]]],
+			 [K00873 | K12406]"	"{""coverage"":""steps""}"	Module
+M00004	Pentose phosphate pathway (Pentose phosphate cycle)	m4	"[K13937 | [[K00036 | K19243],[K01057 | K07404]]],
 			  K00033,
 			  K01783,
 			  [K01807 | K01808],
 			  K00615,
-			  [[K00616,[K01810 | K06859 | K15916]] | K13810])"	Module
-M00008	"Entner-Doudoroff pathway, glucose-6P => glyceraldehyde-3P + pyruvate"	m8	"path_steps(K00036,
+			  [[K00616,[K01810 | K06859 | K15916]] | K13810]"	"{""coverage"":""steps""}"	Module
+M00008	Entner-Doudoroff pathway, glucose-6P => glyceraldehyde-3P + pyruvate	m8	"K00036,
 			[K01057 | K07404],
 			K01690,
-			K01625)"	Module
-M00009	"Citrate cycle (TCA cycle, Krebs cycle)"	m9	"path_steps([K01647 | K05942 | K01659],
+			K01625"	"{""coverage"":""steps""}"	Module
+M00009	Citrate cycle (TCA cycle, Krebs cycle)	m9	"[K01647 | K05942 | K01659],
 			[K01681 | K27802 | K01682],
 			[K00031 | K00030],
 			[[[[K00164 & K00658] | K01616] & K00382] | [K00174 & K00175]],
 			[[K01902 & K01903] | [K01899 & K01900] | K18118],
 			[[K00234 & K00235 & K00236 & [K00237 | K25801]] | [K00239 & K00240 & K00241] | [K00244 & K00245 & K00246]],
 			[K01676 | K01679 | [K01677 & K01678]],
-			[K00026 | K00025 | K00024 | K00116])"	Module
-M00012	Glyoxylate cycle	m12	"path_steps([K01647 | K01659],
+			[K00026 | K00025 | K00024 | K00116]"	"{""coverage"":""steps""}"	Module
+M00012	Glyoxylate cycle	m12	"[K01647 | K01659],
 			[K01681 | K27802 | K01682],
 			K01637,
 			[K01638 | K19282],
-			[K00026 | K00025 | K00024])"	Module
-M00165	Reductive pentose phosphate cycle (Calvin cycle)	m165	"path_steps([K00855 | K28462],
+			[K00026 | K00025 | K00024]"	"{""coverage"":""steps""}"	Module
+M00165	Reductive pentose phosphate cycle (Calvin cycle)	m165	"[K00855 | K28462],
 			K01601,
 			K00927,
 			[K05298 | K00150 | K00134],
@@ -41,8 +41,8 @@ M00165	Reductive pentose phosphate cycle (Calvin cycle)	m165	"path_steps([K00855
 			K00615,
 			[K01100 | K11532 | K01086],
 			[K01807 | K01808],
-			K01783)"	Module
-M00173	Reductive citrate cycle (Arnon-Buchanan cycle)	m173	"path_steps([[K00169 & K00170 & K00171 & K00172] | K03737 | [K28726 & K28727 & K28729 & K28728]],
+			K01783"	"{""coverage"":""steps""}"	Module
+M00173	Reductive citrate cycle (Arnon-Buchanan cycle)	m173	"[[K00169 & K00170 & K00171 & K00172] | K03737 | [K28726 & K28727 & K28729 & K28728]],
 			[[[K01007 | K01006],K01595] | [K01959 & K01960] | K01958],
 			K00024,
 			[K01676 | K01679 | [K01677 & K01678]],
@@ -51,8 +51,8 @@ M00173	Reductive citrate cycle (Arnon-Buchanan cycle)	m173	"path_steps([[K00169 
 			[K00174 & K00175],
 			K00031,
 			[K27802 | K01682],
-			[[K15230 & K15231] | [K15232 & K15233,K15234]])"	Module
-M00374	Dicarboxylate-hydroxybutyrate cycle	m374	"path_steps([K00169 & K00170 & K00171 & K00172],
+			[[K15230 & K15231] | [K15232 & K15233,K15234]]"	"{""coverage"":""steps""}"	Module
+M00374	Dicarboxylate-hydroxybutyrate cycle	m374	"[K00169 & K00170 & K00171 & K00172],
 			K01007,
 			K01595,
 			K00024,
@@ -64,8 +64,8 @@ M00374	Dicarboxylate-hydroxybutyrate cycle	m374	"path_steps([K00169 & K00170 & K
 			[K14467 | K18861 | K25774],
 			K14534,
 			K15016,
-			K00626)"	Module
-M00375	Hydroxypropionate-hydroxybutylate cycle	m375	"path_steps([K01964 & K15037 & K15036],
+			K00626"	"{""coverage"":""steps""}"	Module
+M00375	Hydroxypropionate-hydroxybutylate cycle	m375	"[K01964 & K15037 & K15036],
 			K15017,
 			K15039,
 			K15018,
@@ -78,8 +78,8 @@ M00375	Hydroxypropionate-hydroxybutylate cycle	m375	"path_steps([K01964 & K15037
 			[K14466 | K18861 | K25774],
 			K14534,
 			K15016,
-			K00626)"	Module
-M00376	3-Hydroxypropionate bi-cycle	m376	"path_steps([K02160 & K01961 & K01962 & K01963],
+			K00626"	"{""coverage"":""steps""}"	Module
+M00376	3-Hydroxypropionate bi-cycle	m376	"[K02160 & K01961 & K01962 & K01963],
 			K14468,
 			K14469,
 			K15052,
@@ -91,118 +91,118 @@ M00376	3-Hydroxypropionate bi-cycle	m376	"path_steps([K02160 & K01961 & K01962 &
 			K08691,
 			K14449,
 			K14470,
-			K09709)"	Module
-M00377	Reductive acetyl-CoA pathway (Wood-Ljungdahl pathway)	m377	"path_steps(K00198,
+			K09709"	"{""coverage"":""steps""}"	Module
+M00377	Reductive acetyl-CoA pathway (Wood-Ljungdahl pathway)	m377	"K00198,
 			[K05299 | [K22015 & K25123 & K25124]],
 			K01938,
 			K01491,
 			K00297,
 			K15023,
-			K14138 & K00197 & K00194)"	Module
-M00422	"Acetyl-CoA pathway, CO2 => acetyl-CoA"	m422	"path_steps(K00192 & K00195,K00193 & K00197 & K00194)"	Module
-M00567	"Methanogenesis, CO2 => methane"	m567	"path_steps([K00200 & K00201 & K00202 & K00203 & [K00205 | K11260 | K00204]],
+			K14138 & K00197 & K00194"	"{""coverage"":""steps""}"	Module
+M00422	Acetyl-CoA pathway, CO2 => acetyl-CoA	m422	K00192 & K00195,K00193 & K00197 & K00194	"{""coverage"":""steps""}"	Module
+M00567	Methanogenesis, CO2 => methane	m567	"[K00200 & K00201 & K00202 & K00203 & [K00205 | K11260 | K00204]],
 			K00672,
 			K01499,
 			[K00319 | K13942],
 			K00320,
 			[K00577 & K00578 & K00579 & K00580 & K00581 & K00584],
 			[K00399 & K00401 & K00402],
-			[[K22480 & K22481 & K22482] | [K03388 & K03389 & K03390] | [K08264 & K08265] | [K03388 & K03389 & K03390 & K14127 & [[K14126 & K14128] | [K22516 & K00125]]]])"	Module
-M00144	"NADH:quinone oxidoreductase, prokaryotes"	m144	"path_subunits(K00330 & [[K00331 & K00332 & K00333] | [K00331 & K13378] | K13380] & K00334 & K00335 & K00336 & K00337 & K00338 & K00339 & K00340 & [[K00341 & K00342] | K15863] & K00343)"	Complex I
-M00145	"NAD(P)H:quinone oxidoreductase, chloroplasts and cyanobacteria"	m145	path_subunits(K05574 & K05582 & K05581 & K05579 & K05572 & K05580 & K05578 & K05576 & K05577 & K05575 & K05573)	Complex I
-M00146	NADH dehydrogenase (ubiquinone) 1 alpha subcomplex	m146	path_subunits(K03945 & K03946 & K03947 & K03948 & K03949 & K03950 & K03951 & K03952 & K03953 & K03954 & K03955 & K03956 & K11352 & K11353)	Complex I
-M00148	Succinate dehydrogenase (ubiquinone)	m148	path_subunits(K00236 & K00237 & K00234 & K00235)	Complex II
-M00149	"Succinate dehydrogenase, prokaryotes"	m149	path_subunits(K00241 & K00242 & K00239 & K00240)	Complex II
-M00150	"Fumarate reductase, prokaryotes"	m150	path_subunits(K00244 & K00245 & K00246 & K00247)	Complex II
-M00151	Cytochrome bc1 complex respiratory unit	m151	path_subunits([[[K00412 & K00413] | K00410] & K00411] |[ K03886 & K03887 & K03888] | [K03890 & K03891 & K03889])	Complex III
-M00152	Cytochrome bc1 complex	m152	path_subunits([[K00412 & K00413] | K00410] & K00411 & K00414 & K00415 & K00416 & K00417 & K00418 & K00419 & K00420)	Complex III
-M00153	Cytochrome bd ubiquinol oxidase	m153	path_subunits(K00425 & K00426 & [K00424 | K22501])	Complex IV H
-M00156	"Cytochrome c oxidase, cbb3-type"	m156	path_subunits([[[K00404 & K00405] | K15862] & K00407 & K00406])	Complex IV H
-M00154	Cytochrome c oxidase	m154	path_subunits([K02257 & K02262 & K02256 & K02261 & K02263 & K02264 & K02265 & K02266 & K02267 & K02268 & [K02269 | K02270] & K02272 & K02258 & K02259 & K02260])	Complex IV L
-M00155	"Cytochrome c oxidase, prokaryotes"	m155	path_subunits(K02275 & [[K02274 & K02276] | K15408])	Complex IV L
-M00416	Cytochrome aa3-600 menaquinol oxidase	m416	path_subunits(K02827 & K02826 & K02828 & K02829)	Complex IV L
-M00417	Cytochrome o ubiquinol oxidase	m417	path_subunits(K02297 & K02298 & K02299 & K02300)	Complex IV L
-M00157	"F-type ATPase, prokaryotes and chloroplasts"	m157	path_subunits(K02111 & K02112 & K02113 & K02114 & K02115 & K02108 & K02109 & K02110)	Complex V
-M00158	"F-type ATPase, eukaryotes"	m158	path_subunits(K02132 & K02133 & K02136 & K02134 & K02135 & K02137 & K02126 & K02127 & K02128 & K02138 & [K02129 | K01549] & [K02130 | K02139] & K02140 & [K02141 | K02131] & K02125)	Complex V
-M00159	"V/A-type ATPase, prokaryotes"	m159	path_subunits(K02117 & K02118 & K02119 & K02120 & K02121 & K02122 & K02107 & K02123 & K02124)	Complex V
-M00160	"V-type ATPase, eukaryotes"	m160	path_subunits(K02145 & K02147 & K02148 & K02149 & K02150 & K02151 & K02152 & K02144 & K02154 & [K03661 | K02155] & K02146 & K02153 & K03662)	Complex V
-Photosystem I	psaA-F; photosystem I P700 chlorophyll a apoprotein A1		K02689 | K02690 | K02691 | K02692 | K02693 | K02694 | K08940 | K08941 | K08942 | K08943	Photo
-Photosystem II	"psbA, psbD photosystem II reaction center D1 protein [EC:1.10.3.9]"		K02703 | K02704 | K02705 | K02706 | K02707 | K02708 | K08928 | K08929	Photo
-ammonia => nitrite	ammonia monooxygenase [EC:1.14.99.39] [RN:R00148]		EC:1.14.99.39	Nitrogen
-Bacterial/Archaeal ammonia oxidation	amoA; Methane/ammonia monooxygenase subunit A (aka: particulate ammonia monooxygenase) [EC:1.14.99.39] [RN:R00148]		K10944 | K10945 | K10946	Nitrogen
-Bacterial (aerobic-specific) ammonia oxidation	hao: Hydroxylamine dehydrogenase [EC:1.7.2.6] [RN:R10164]		K10535	Nitrogen
-Bacterial (anaerobic-specific) ammonia oxidation	hzs; Hydrazine synthase subunit (aka: hzsC) [EC:1.7.2.7] [RN:R09799]		K20932 | K20933 | K20934 | K20935	Nitrogen
-nitrite=> nitrate	"nxrA; Nitrite oxidoreductase, alpha subunit [EC:1.7.99.-] [RN:R00978]; nxrB; Nitrite oxidoreductase, beta subunit [EC:1.7.99.-] [RN:R00978]"		K00370 | K00371	Nitrogen
-nitrate => nitrite	periplasmic nitrate reductase NapA [EC:1.7.99.-] [RN:R00798] or nitrate reductase 1 NarG [EC:1.7.99.-] [RN:R00798]		K02567 | K00370 | K00371 | K02568	Nitrogen
-nitrite => nitric oxide	respiratory nitrite reductase [EC:1.7.1.15] [RN:R00787]		K00362 | K00368 | K15864	Nitrogen
-Dissimilatory nitrite reduction to ammonia (DNRA)	nrfA; Nitrite reductase (cytochrome c-552) [EC:1.7.2.2] [RN:R05712]; nrfH; cytochrome c nitrite reductase small subunit [EC:1.7.2.2] [RN:R05712]		K03385 | K15876	Nitrogen
-nitric oxide => nitrous oxide	nitric oxide reductase [EC:1.7.2.5] [RN:R00294]		K04561 | K15877	Nitrogen
-nitrous oxide => nitrogen	nitrous-oxide reductase [EC:1.7.2.4] [RN:R02804]		K00376	Nitrogen
-nitrogen => ammonia	nitrogenase iron protein [RN:R05185]		K02588 | K02586	Nitrogen
-Nitrogen fixation altennative	vnfD; Vanadium-dependent nitrogenase alpha chain [EC:1.18.6.2] [RN:R12084]		K22896	Nitrogen
-dissimilatory sulfate reduction (and oxidation) sulfate => sulfide	dissimilatory sulfite reductase alpha subunit [EC:1.8.99.5]		K11180 | K11181	Sulfur
-thiosulfate => sulfite	thiosulfate reductase / polysulfide reductase chain A [EC:1.8.5.5]		K08352	Sulfur
-"Thiosulfate oxidation by SOX complex, thiosulfate => sulfate"			K17222 | K17223 | K17224 | K17225 | K22622 | K17226 | K17227	Sulfur
-tetrathionate => thiosulfate			K08357	Sulfur
-selenate/Chlorate reduction	selenate/chlorate reductase subunit alpha		K17050	Other
-TMAO reductase	trimethylamine-N-oxide reductase (cytochrome c) [EC:1.7.2.3]		K07811	Other
-mercury reduction	mercury(II) reductase		EC:1.16.1.1	Other
-"arsenate reduction, pt 1"	arsenate reductase (glutaredoxin); ArsC (ambiguous)		EC:1.20.4.1	Other
-"arsenate reduction, pt 2"	arsenate reductase (donor); arsenate:(acceptor) oxidoreductase		EC:1.20.99.1	Other
-Key functional gene 	methyl-coenzyme M reductase [EC:2.8.4.1] [RN:R04541]		K00399 | K00401 | K00402	C1 metabolism
-"acetate => methane, pt 1"	acetyl-CoA synthetase [EC:6.2.1.1] [RN:R00235]		K01895	C1 metabolism
-"acetate => methane, pt 2"	acetate kinase [EC:2.7.2.1] [RN:R00315]		K00925	C1 metabolism
-"acetate => methane, pt 3"	phosphate acetyltransferase [EC:2.3.1.8] [RN:R00230]		K00625	C1 metabolism
-methanol => methane	mtaB; 5-hydroxybenzimidazolylcobamide Co-methyltransferase		K04480	C1 metabolism
-trimethylamine => dimethylamine	mttB; trimethylamine corrinoid protein Co-methyltransferase		K14083	C1 metabolism
-dimethylamine => monomethylamine	mtbB; dimethylamine corrinoid protein Co-methyltransferase		K16178	C1 metabolism
-monomethylamine => ammonia	mtmB; methylamine corrinoid protein Co-methyltransferase		K16176	C1 metabolism
-putative but not defining CO2 => methane	formylmethanofuran dehydrogenase [EC:1.2.99.5] [RN:R03015]		K00200	C1 metabolism
-"methane => methanol, with oxygen (pmo)"	"pmoA; Methane/ammonia monooxygenase subunit A (aka: Particulate methane monoxygenase, or subunit Beta) [EC:1.14.18.3] [RN:R09518]"		K10944 | K10945 | K10946	C1 metabolism
-"methane => methanol, with oxygen (mmo)"	"mmoX; Methane monooxygenase component A alpha chain (aka: Soluble methane monooxygenase, or methane hydroxylase) [EC1.14.13.25] [RN:R01142]"		K16157 | K16158 | K16159 | K16160 | K16161 | K16162	C1 metabolism
-Polyphenolics	Polyphenolics Cleavage		K05909 | AA1 | AA2 | K00422	CAZy
-Crystalline Cellulose	Crystalline Cellulose Backbone Cleavage		GH7 | GH48 | AA10 | AA15 | AA16 | AA9 | AA10 | AA11 | AA13	CAZy
-Amorphous Cellulose Backbone Cleavage	Amorphous Cellulose Backbone Cleavage		GH5 | GH6 | GH7 | GH8 | GH9 | GH10 | GH124 | GH12 | GH44 | GH45	CAZy
-Amorphous Cellulose Oligo Cleavage	Amorphous Cellulose Oligo Cleavage		GH94 | GH1 | GH2 | GH3 | GH5 | GH9 | GH16 | GH116	CAZy
-Mucin Backbone Cleavage	Mucin Backbone Cleavage		GH101	CAZy
-Mucin Oligo Cleavage	Mucin Oligo Cleavage		GH27 | GH129 | GH112 | GH109 | GH31 | GH36	CAZy
-Sulf-Polysachharides Backbone Cleavage	Sulf-Polysachharides Backbone Cleavage		GH111 | GH16 | GH82 | GH150 | GH79 | PL29 | PL30 | PL33 | PL8 | PL12 | PL13 | PL15 | PL21 | PL6 | PL37 | GH56 | GH86	CAZy
-Sulf-Polysachharides Oligo Cleavage	Sulf-Polysachharides Oligo Cleavage		PL21 | PL37 | PL23 | PL24 | PL25 | GH88 | PL15 | PL6 | GH117	CAZy
-Xyloglucan Backbone Cleavage	Xyloglucan Backbone Cleavage (Hemicellulose)		GH5 | GH9 | GH12 | GH16 | GH44 | GH45 | GH48 | GH74 | AA9	CAZy
-Xyloglucan Oligo Cleavage	Xyloglucan Oligo Cleavage (Hemicellulose)		GH31 | GH43 | GH10 | GH2	CAZy
-Starch Backbone Cleavage	Starch Backbone Cleavage		AA13 | GH13 | GH14 | GH57 | GH119 | GH126	CAZy
-Starch Oligo Cleavage	Starch Oligo Cleavage		GH133 | GH15 | GH97	CAZy
-Chitin Backbone Cleavage	Chitin Backbone Cleavage		GH18 | GH19 | GH23 | GH73	CAZy
-Chitin Oligo Cleavage	Chitin Oligo Cleavage		GH20 | GH3 | GH5 | GH84 | GH116 | AA10 | AA11 | AA15 | CE4	CAZy
-Pectin Backbone Cleavage	Pectin Backbone Cleavage		GH28 | PL1 | PL2 | PL9 | PL10 | PL11 | PL22 | PL26 | PL3 | PL4	CAZy
-Pectin Oligo Cleavage	Pectin Oligo Cleavage		GH78 | GH106 | GH138 | GH139 | GH143 | CE8 | GH105 | GH4 | CE12 | GH2	CAZy
-Alpha-galactans Backbone Cleavage	Alpha-galactans Backbone Cleavage		GH166	CAZy
-Alpha-galactans Oligo Cleavage	Alpha-galactans Oligo Cleavage		GH27 | GH110 | GH4 | GH31 | GH36 | GH97	CAZy
-Beta-galactan (pectic galactan) Backbone Cleavage	Beta-galactan (pectic galactan) Backbone Cleavage		GH53	CAZy
-Beta-galactan (pectic galactan) Oligo Cleavage	Beta-galactan (pectic galactan) Oligo Cleavage		GH2 | GH35 | GH42 | GH1 | GH59 | GH147 | GH165	CAZy
-Mixed-Linkage glucans Backbone Cleavage	Mixed-Linkage glucans Backbone Cleavage (Hemicellulose)		GH16 | GH30 | GH17 | GH7 | GH8 | GH9 | GH5 | GH55 | GH64 | GH81 | GH128 | GH152 | GH157 | GH158	CAZy
-Mixed-Linkage glucans Oligo Cleavage	Mixed-Linkage glucans Oligo Cleavage (Hemicellulose)		GH3 | GH16 | GH17 | GH55 | GH1	CAZy
-Xylans Backbone Cleavage	Xylan Backbone Cleavage (Hemicellulose)		GH10 | GH26 | GH8 | GH5 | GH11 | GH30 | GH98 | GH141	CAZy
-Xylans Oligo Cleavage	Xylan Oligo Cleavage (Hemicellulose)		GH39 | GH3 | GH31 | GH52 | GH120 | GH115 | GH67	CAZy
-Beta-mannan Backbone Cleavage	Beta-mannan Backbone Cleavage (Hemicellulose)		GH113 | GH134 | GH26 | GH5	CAZy
-Beta-mannan Oligo Cleavage	Beta-mannan Oligo Cleavage (Hemicellulose)		"GH26,GH130 | GH113 | CE2 | CE17 | GH2"	CAZy
-Alpha-mannan Backbone Cleavage	Alpha-mannan Backbone Cleavage (Hemicellulose)		GH99 | GH76	CAZy
-Alpha-mannan Oligo Cleavage	Alpha-mannan Oligo Cleavage (Hemicellulose)		GH76 | GH92 | GH38 | GH63 | GH47 | GH125 | GH130	CAZy
-Arabinan Backbone Cleavage	Arabinan Backbone Cleavage		GH43 | GH49	CAZy
-Arabinan Oligo Cleavage	Arabinan Oligo Cleavage		GH93 | GH43 | GH51 | GH3 | GH54 | GH62	CAZy
-Rhamnose cleavage	Rhamnose Oligo cleavage		GH78 | GH106 | GH145 | PL24 | PL25 | PL27 | PL28 | GH28	CAZy
-Fucose Cleavage	Fucose Oligo Cleavage		GH107 | GH139 | GH141 | GH151 | GH29 | GH95	CAZy
-Arabinose cleavage	Arabinose Oligo cleavage		GH121 | GH127 | GH137 | GH142 | GH146 | GH54 | GH62 | GH2	CAZy
-pyruvate => acetyl CoA v1	pyruvate dehydrogenase E1 component [EC:1.2.4.1]		K00163	SCFA/alcohol conversions
-pyruvate => acetyl CoA v2	"2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase subunit alpha [EC:1.2.7.3, 1.2.7.11]"		K00174	SCFA/alcohol conversions
-pyruvate => acetylCoA f+ formate v3	formate C-acetyltransferase [EC:2.3.1.54]		K00656	SCFA/alcohol conversions
-"acetate, pt 1"	"phosphate acetyltransferase [EC:2.3.1.8] [RN:R00230], acetate kinase [EC:2.7.2.1] [RN:R00315]"		"K00625,K00925"	SCFA/alcohol conversions
-"acetate, pt 2"	acetate---CoA ligase (ADP-forming) subunit alpha		K01905	SCFA/alcohol conversions
-"acetate, pt 3"	acetyl-CoA hydrolase [EC:3.1.2.1]		K01067	SCFA/alcohol conversions
-lactate L	L-lactate dehydrogenase [EC:1.1.1.27]; L-lactate dehydrogenase (cytochrome) [EC:1.1.2.3]		K00016 | K00101	SCFA/alcohol conversions
-lactate D	"D-lactate dehydrogenase [EC:1.1.1.28]; D-lactate dehydrogenase (quinone) [EC:1.1.5.12], D-lactate dehydrogenase (cytochrome) [EC:1.1.2.4], D-lactate dehydrogenase (cytochrome c-553)"		K03778 | K03777	SCFA/alcohol conversions
-"Butyrate, pt 1"	phosphate butyryltransferase [EC:2.3.1.19]		K00634	SCFA/alcohol conversions
-"Butyrate, pt 2"	"butyrate kinase [EC:2.7.2.7], medium-chain acyl-CoA synthetase [EC:6.2.1.2]"		K00929 | K01896	SCFA/alcohol conversions
-"Propionate, pt 1"	propionate kinase [EC:2.7.2.15]		K19697	SCFA/alcohol conversions
-"Propionate, pt 2"	propionate CoA-transferase [EC:2.8.3.1]		K01026	SCFA/alcohol conversions
-Alcohol production 	alcohol dehydrogenase [EC:1.1.1.1]		K00001 | K00121 | K04072 | K13951 | K13952 | K13953 | K13954 | K13980 | K18857	SCFA/alcohol conversions
+			[[K22480 & K22481 & K22482] | [K03388 & K03389 & K03390] | [K08264 & K08265] | [K03388 & K03389 & K03390 & K14127 & [[K14126 & K14128] | [K22516 & K00125]]]]"	"{""coverage"":""steps""}"	Module
+M00144	NADH:quinone oxidoreductase, prokaryotes	m144	K00330 & [[K00331 & K00332 & K00333] | [K00331 & K13378] | K13380] & K00334 & K00335 & K00336 & K00337 & K00338 & K00339 & K00340 & [[K00341 & K00342] | K15863] & K00343	"{""coverage"":""subunits""}"	Complex I
+M00145	NAD(P)H:quinone oxidoreductase, chloroplasts and cyanobacteria	m145	K05574 & K05582 & K05581 & K05579 & K05572 & K05580 & K05578 & K05576 & K05577 & K05575 & K05573	"{""coverage"":""subunits""}"	Complex I
+M00146	NADH dehydrogenase (ubiquinone) 1 alpha subcomplex	m146	K03945 & K03946 & K03947 & K03948 & K03949 & K03950 & K03951 & K03952 & K03953 & K03954 & K03955 & K03956 & K11352 & K11353	"{""coverage"":""subunits""}"	Complex I
+M00148	Succinate dehydrogenase (ubiquinone)	m148	K00236 & K00237 & K00234 & K00235	"{""coverage"":""subunits""}"	Complex II
+M00149	Succinate dehydrogenase, prokaryotes	m149	K00241 & K00242 & K00239 & K00240	"{""coverage"":""subunits""}"	Complex II
+M00150	Fumarate reductase, prokaryotes	m150	K00244 & K00245 & K00246 & K00247	"{""coverage"":""subunits""}"	Complex II
+M00151	Cytochrome bc1 complex respiratory unit	m151	[[[K00412 & K00413] | K00410] & K00411] |[ K03886 & K03887 & K03888] | [K03890 & K03891 & K03889]	"{""coverage"":""subunits""}"	Complex III
+M00152	Cytochrome bc1 complex	m152	[[K00412 & K00413] | K00410] & K00411 & K00414 & K00415 & K00416 & K00417 & K00418 & K00419 & K00420	"{""coverage"":""subunits""}"	Complex III
+M00153	Cytochrome bd ubiquinol oxidase	m153	K00425 & K00426 & [K00424 | K22501]	"{""coverage"":""subunits""}"	Complex IV H
+M00156	Cytochrome c oxidase, cbb3-type	m156	[[[K00404 & K00405] | K15862] & K00407 & K00406]	"{""coverage"":""subunits""}"	Complex IV H
+M00154	Cytochrome c oxidase	m154	[K02257 & K02262 & K02256 & K02261 & K02263 & K02264 & K02265 & K02266 & K02267 & K02268 & [K02269 | K02270] & K02272 & K02258 & K02259 & K02260]	"{""coverage"":""subunits""}"	Complex IV L
+M00155	Cytochrome c oxidase, prokaryotes	m155	K02275 & [[K02274 & K02276] | K15408]	"{""coverage"":""subunits""}"	Complex IV L
+M00416	Cytochrome aa3-600 menaquinol oxidase	m416	K02827 & K02826 & K02828 & K02829	"{""coverage"":""subunits""}"	Complex IV L
+M00417	Cytochrome o ubiquinol oxidase	m417	K02297 & K02298 & K02299 & K02300	"{""coverage"":""subunits""}"	Complex IV L
+M00157	F-type ATPase, prokaryotes and chloroplasts	m157	K02111 & K02112 & K02113 & K02114 & K02115 & K02108 & K02109 & K02110	"{""coverage"":""subunits""}"	Complex V
+M00158	F-type ATPase, eukaryotes	m158	K02132 & K02133 & K02136 & K02134 & K02135 & K02137 & K02126 & K02127 & K02128 & K02138 & [K02129 | K01549] & [K02130 | K02139] & K02140 & [K02141 | K02131] & K02125	"{""coverage"":""subunits""}"	Complex V
+M00159	V/A-type ATPase, prokaryotes	m159	K02117 & K02118 & K02119 & K02120 & K02121 & K02122 & K02107 & K02123 & K02124	"{""coverage"":""subunits""}"	Complex V
+M00160	V-type ATPase, eukaryotes	m160	K02145 & K02147 & K02148 & K02149 & K02150 & K02151 & K02152 & K02144 & K02154 & [K03661 | K02155] & K02146 & K02153 & K03662	"{""coverage"":""subunits""}"	Complex V
+Photosystem I	psaA-F; photosystem I P700 chlorophyll a apoprotein A1		K02689 | K02690 | K02691 | K02692 | K02693 | K02694 | K08940 | K08941 | K08942 | K08943		Photo
+Photosystem II	psbA, psbD photosystem II reaction center D1 protein [EC:1.10.3.9]		K02703 | K02704 | K02705 | K02706 | K02707 | K02708 | K08928 | K08929		Photo
+ammonia => nitrite	ammonia monooxygenase [EC:1.14.99.39] [RN:R00148]		EC:1.14.99.39		Nitrogen
+Bacterial/Archaeal ammonia oxidation	amoA; Methane/ammonia monooxygenase subunit A (aka: particulate ammonia monooxygenase) [EC:1.14.99.39] [RN:R00148]		K10944 | K10945 | K10946		Nitrogen
+Bacterial (aerobic-specific) ammonia oxidation	hao: Hydroxylamine dehydrogenase [EC:1.7.2.6] [RN:R10164]		K10535		Nitrogen
+Bacterial (anaerobic-specific) ammonia oxidation	hzs; Hydrazine synthase subunit (aka: hzsC) [EC:1.7.2.7] [RN:R09799]		K20932 | K20933 | K20934 | K20935		Nitrogen
+nitrite=> nitrate	nxrA; Nitrite oxidoreductase, alpha subunit [EC:1.7.99.-] [RN:R00978]; nxrB; Nitrite oxidoreductase, beta subunit [EC:1.7.99.-] [RN:R00978]		K00370 | K00371		Nitrogen
+nitrate => nitrite	periplasmic nitrate reductase NapA [EC:1.7.99.-] [RN:R00798] or nitrate reductase 1 NarG [EC:1.7.99.-] [RN:R00798]		K02567 | K00370 | K00371 | K02568		Nitrogen
+nitrite => nitric oxide	respiratory nitrite reductase [EC:1.7.1.15] [RN:R00787]		K00362 | K00368 | K15864		Nitrogen
+Dissimilatory nitrite reduction to ammonia (DNRA)	nrfA; Nitrite reductase (cytochrome c-552) [EC:1.7.2.2] [RN:R05712]; nrfH; cytochrome c nitrite reductase small subunit [EC:1.7.2.2] [RN:R05712]		K03385 | K15876		Nitrogen
+nitric oxide => nitrous oxide	nitric oxide reductase [EC:1.7.2.5] [RN:R00294]		K04561 | K15877		Nitrogen
+nitrous oxide => nitrogen	nitrous-oxide reductase [EC:1.7.2.4] [RN:R02804]		K00376		Nitrogen
+nitrogen => ammonia	nitrogenase iron protein [RN:R05185]		K02588 | K02586		Nitrogen
+Nitrogen fixation altennative	vnfD; Vanadium-dependent nitrogenase alpha chain [EC:1.18.6.2] [RN:R12084]		K22896		Nitrogen
+dissimilatory sulfate reduction (and oxidation) sulfate => sulfide	dissimilatory sulfite reductase alpha subunit [EC:1.8.99.5]		K11180 | K11181		Sulfur
+thiosulfate => sulfite	thiosulfate reductase / polysulfide reductase chain A [EC:1.8.5.5]		K08352		Sulfur
+Thiosulfate oxidation by SOX complex, thiosulfate => sulfate			K17222 | K17223 | K17224 | K17225 | K22622 | K17226 | K17227		Sulfur
+tetrathionate => thiosulfate			K08357		Sulfur
+selenate/Chlorate reduction	selenate/chlorate reductase subunit alpha		K17050		Other
+TMAO reductase	trimethylamine-N-oxide reductase (cytochrome c) [EC:1.7.2.3]		K07811		Other
+mercury reduction	mercury(II) reductase		EC:1.16.1.1		Other
+arsenate reduction, pt 1	arsenate reductase (glutaredoxin); ArsC (ambiguous)		EC:1.20.4.1		Other
+arsenate reduction, pt 2	arsenate reductase (donor); arsenate:(acceptor) oxidoreductase		EC:1.20.99.1		Other
+Key functional gene 	methyl-coenzyme M reductase [EC:2.8.4.1] [RN:R04541]		K00399 | K00401 | K00402		C1 metabolism
+acetate => methane, pt 1	acetyl-CoA synthetase [EC:6.2.1.1] [RN:R00235]		K01895		C1 metabolism
+acetate => methane, pt 2	acetate kinase [EC:2.7.2.1] [RN:R00315]		K00925		C1 metabolism
+acetate => methane, pt 3	phosphate acetyltransferase [EC:2.3.1.8] [RN:R00230]		K00625		C1 metabolism
+methanol => methane	mtaB; 5-hydroxybenzimidazolylcobamide Co-methyltransferase		K04480		C1 metabolism
+trimethylamine => dimethylamine	mttB; trimethylamine corrinoid protein Co-methyltransferase		K14083		C1 metabolism
+dimethylamine => monomethylamine	mtbB; dimethylamine corrinoid protein Co-methyltransferase		K16178		C1 metabolism
+monomethylamine => ammonia	mtmB; methylamine corrinoid protein Co-methyltransferase		K16176		C1 metabolism
+putative but not defining CO2 => methane	formylmethanofuran dehydrogenase [EC:1.2.99.5] [RN:R03015]		K00200		C1 metabolism
+methane => methanol, with oxygen (pmo)	pmoA; Methane/ammonia monooxygenase subunit A (aka: Particulate methane monoxygenase, or subunit Beta) [EC:1.14.18.3] [RN:R09518]		K10944 | K10945 | K10946		C1 metabolism
+methane => methanol, with oxygen (mmo)	mmoX; Methane monooxygenase component A alpha chain (aka: Soluble methane monooxygenase, or methane hydroxylase) [EC1.14.13.25] [RN:R01142]		K16157 | K16158 | K16159 | K16160 | K16161 | K16162		C1 metabolism
+Polyphenolics	Polyphenolics Cleavage		K05909 | AA1 | AA2 | K00422		CAZy
+Crystalline Cellulose	Crystalline Cellulose Backbone Cleavage		GH7 | GH48 | AA10 | AA15 | AA16 | AA9 | AA10 | AA11 | AA13		CAZy
+Amorphous Cellulose Backbone Cleavage	Amorphous Cellulose Backbone Cleavage		GH5 | GH6 | GH7 | GH8 | GH9 | GH10 | GH124 | GH12 | GH44 | GH45		CAZy
+Amorphous Cellulose Oligo Cleavage	Amorphous Cellulose Oligo Cleavage		GH94 | GH1 | GH2 | GH3 | GH5 | GH9 | GH16 | GH116		CAZy
+Mucin Backbone Cleavage	Mucin Backbone Cleavage		GH101		CAZy
+Mucin Oligo Cleavage	Mucin Oligo Cleavage		GH27 | GH129 | GH112 | GH109 | GH31 | GH36		CAZy
+Sulf-Polysachharides Backbone Cleavage	Sulf-Polysachharides Backbone Cleavage		GH111 | GH16 | GH82 | GH150 | GH79 | PL29 | PL30 | PL33 | PL8 | PL12 | PL13 | PL15 | PL21 | PL6 | PL37 | GH56 | GH86		CAZy
+Sulf-Polysachharides Oligo Cleavage	Sulf-Polysachharides Oligo Cleavage		PL21 | PL37 | PL23 | PL24 | PL25 | GH88 | PL15 | PL6 | GH117		CAZy
+Xyloglucan Backbone Cleavage	Xyloglucan Backbone Cleavage (Hemicellulose)		GH5 | GH9 | GH12 | GH16 | GH44 | GH45 | GH48 | GH74 | AA9		CAZy
+Xyloglucan Oligo Cleavage	Xyloglucan Oligo Cleavage (Hemicellulose)		GH31 | GH43 | GH10 | GH2		CAZy
+Starch Backbone Cleavage	Starch Backbone Cleavage		AA13 | GH13 | GH14 | GH57 | GH119 | GH126		CAZy
+Starch Oligo Cleavage	Starch Oligo Cleavage		GH133 | GH15 | GH97		CAZy
+Chitin Backbone Cleavage	Chitin Backbone Cleavage		GH18 | GH19 | GH23 | GH73		CAZy
+Chitin Oligo Cleavage	Chitin Oligo Cleavage		GH20 | GH3 | GH5 | GH84 | GH116 | AA10 | AA11 | AA15 | CE4		CAZy
+Pectin Backbone Cleavage	Pectin Backbone Cleavage		GH28 | PL1 | PL2 | PL9 | PL10 | PL11 | PL22 | PL26 | PL3 | PL4		CAZy
+Pectin Oligo Cleavage	Pectin Oligo Cleavage		GH78 | GH106 | GH138 | GH139 | GH143 | CE8 | GH105 | GH4 | CE12 | GH2		CAZy
+Alpha-galactans Backbone Cleavage	Alpha-galactans Backbone Cleavage		GH166		CAZy
+Alpha-galactans Oligo Cleavage	Alpha-galactans Oligo Cleavage		GH27 | GH110 | GH4 | GH31 | GH36 | GH97		CAZy
+Beta-galactan (pectic galactan) Backbone Cleavage	Beta-galactan (pectic galactan) Backbone Cleavage		GH53		CAZy
+Beta-galactan (pectic galactan) Oligo Cleavage	Beta-galactan (pectic galactan) Oligo Cleavage		GH2 | GH35 | GH42 | GH1 | GH59 | GH147 | GH165		CAZy
+Mixed-Linkage glucans Backbone Cleavage	Mixed-Linkage glucans Backbone Cleavage (Hemicellulose)		GH16 | GH30 | GH17 | GH7 | GH8 | GH9 | GH5 | GH55 | GH64 | GH81 | GH128 | GH152 | GH157 | GH158		CAZy
+Mixed-Linkage glucans Oligo Cleavage	Mixed-Linkage glucans Oligo Cleavage (Hemicellulose)		GH3 | GH16 | GH17 | GH55 | GH1		CAZy
+Xylans Backbone Cleavage	Xylan Backbone Cleavage (Hemicellulose)		GH10 | GH26 | GH8 | GH5 | GH11 | GH30 | GH98 | GH141		CAZy
+Xylans Oligo Cleavage	Xylan Oligo Cleavage (Hemicellulose)		GH39 | GH3 | GH31 | GH52 | GH120 | GH115 | GH67		CAZy
+Beta-mannan Backbone Cleavage	Beta-mannan Backbone Cleavage (Hemicellulose)		GH113 | GH134 | GH26 | GH5		CAZy
+Beta-mannan Oligo Cleavage	Beta-mannan Oligo Cleavage (Hemicellulose)		GH26,GH130 | GH113 | CE2 | CE17 | GH2		CAZy
+Alpha-mannan Backbone Cleavage	Alpha-mannan Backbone Cleavage (Hemicellulose)		GH99 | GH76		CAZy
+Alpha-mannan Oligo Cleavage	Alpha-mannan Oligo Cleavage (Hemicellulose)		GH76 | GH92 | GH38 | GH63 | GH47 | GH125 | GH130		CAZy
+Arabinan Backbone Cleavage	Arabinan Backbone Cleavage		GH43 | GH49		CAZy
+Arabinan Oligo Cleavage	Arabinan Oligo Cleavage		GH93 | GH43 | GH51 | GH3 | GH54 | GH62		CAZy
+Rhamnose cleavage	Rhamnose Oligo cleavage		GH78 | GH106 | GH145 | PL24 | PL25 | PL27 | PL28 | GH28		CAZy
+Fucose Cleavage	Fucose Oligo Cleavage		GH107 | GH139 | GH141 | GH151 | GH29 | GH95		CAZy
+Arabinose cleavage	Arabinose Oligo cleavage		GH121 | GH127 | GH137 | GH142 | GH146 | GH54 | GH62 | GH2		CAZy
+pyruvate => acetyl CoA v1	pyruvate dehydrogenase E1 component [EC:1.2.4.1]		K00163		SCFA/alcohol conversions
+pyruvate => acetyl CoA v2	2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase subunit alpha [EC:1.2.7.3, 1.2.7.11]		K00174		SCFA/alcohol conversions
+pyruvate => acetylCoA f+ formate v3	formate C-acetyltransferase [EC:2.3.1.54]		K00656		SCFA/alcohol conversions
+acetate, pt 1	phosphate acetyltransferase [EC:2.3.1.8] [RN:R00230], acetate kinase [EC:2.7.2.1] [RN:R00315]		K00625,K00925		SCFA/alcohol conversions
+acetate, pt 2	acetate---CoA ligase (ADP-forming) subunit alpha		K01905		SCFA/alcohol conversions
+acetate, pt 3	acetyl-CoA hydrolase [EC:3.1.2.1]		K01067		SCFA/alcohol conversions
+lactate L	L-lactate dehydrogenase [EC:1.1.1.27]; L-lactate dehydrogenase (cytochrome) [EC:1.1.2.3]		K00016 | K00101		SCFA/alcohol conversions
+lactate D	D-lactate dehydrogenase [EC:1.1.1.28]; D-lactate dehydrogenase (quinone) [EC:1.1.5.12], D-lactate dehydrogenase (cytochrome) [EC:1.1.2.4], D-lactate dehydrogenase (cytochrome c-553)		K03778 | K03777		SCFA/alcohol conversions
+Butyrate, pt 1	phosphate butyryltransferase [EC:2.3.1.19]		K00634		SCFA/alcohol conversions
+Butyrate, pt 2	butyrate kinase [EC:2.7.2.7], medium-chain acyl-CoA synthetase [EC:6.2.1.2]		K00929 | K01896		SCFA/alcohol conversions
+Propionate, pt 1	propionate kinase [EC:2.7.2.15]		K19697		SCFA/alcohol conversions
+Propionate, pt 2	propionate CoA-transferase [EC:2.8.3.1]		K01026		SCFA/alcohol conversions
+Alcohol production 	alcohol dehydrogenase [EC:1.1.1.1]		K00001 | K00121 | K04072 | K13951 | K13952 | K13953 | K13954 | K13980 | K18857		SCFA/alcohol conversions

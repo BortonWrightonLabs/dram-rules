@@ -40,13 +40,22 @@ This will install the DRAM Visualization Library and all of its dependencies fro
 
 #### Development Installation
 
-To install the DRAM Visualization Library as a development package, clone the repository, cd into the repository, create your environment, and run:
+To work on the DRAM Visualization Library, clone the repository and cd into it. With [pixi](https://pixi.sh) (recommended), the environments are defined in `pyproject.toml` and the package is installed in editable mode, so your changes take effect without reinstalling:
+
+```bash
+pixi run test                 # run the tests (in the dev environment)
+pixi run lint                 # run ruff
+pixi run viz --help           # run the dram_viz command
+pixi shell -e dev             # or open a shell in the dev environment
+```
+
+Without pixi, create your own environment and install the package in editable mode with the development dependencies:
 
 ```bash
 pip install -e '.[dev]'
 ```
 
-This will install the DRAM Visualization Library and all of its dependencies from the main branch of the GitHub repository, as well as the development dependencies.
+Note that an environment always runs the copy of the code it was installed from. To run a different checkout (for example a `git worktree` of an older commit) with the same environment, put that checkout first on the path: `PYTHONPATH=<checkout>/src dram_viz ...`.
 
 We use [pre-commit](https://pre-commit.com) to manage our pre-commit hooks (e.g., linting, formatting that run commit to keep code formatting in check). To install the pre-commit hooks, run:
 
@@ -65,20 +74,22 @@ pre-commit run --all-files
 To generate a figure like the one shown above [TODO: insert figure], run the following command:
 
 ```bash
-python -m dram_viz --annotations <path/to/annotations.tsv> --outdir <path/to/output/directory/>
+dram_viz --annotations <path/to/annotations.tsv> --output_dir <path/to/output/directory/>
 ```
+
+`python -m dram_rules ...` runs the same command.
 
 To launch a dashboard, run the following command:
 
 ```bash
-python -m dram_viz --annotations <path/to/annotations.tsv> --outdir <path/to/output/directory/> --dashboard
+dram_viz --annotations <path/to/annotations.tsv> --output_dir <path/to/output/directory/> --dashboard
 ```
 This should open your default web browser and display the dashboard. If the dashboard does not open automatically, you can navigate to http://localhost:5006 to view the dashboard.
 
-There are a number of other options available such as alternative rules to generate other dashbaords (`--rule_sysem ag` for example), ability to add abundance data through a mapping file and others. Use:
+There are a number of other options available such as alternative rules to generate other dashbaords (`--rules_system ag` for example), your own rule functions (`--functions my_functions.py`, see [docs/custom_rule_functions.md](docs/custom_rule_functions.md)), ability to add abundance data through a mapping file and others. Use:
 
 ```bash
-python -m dram_viz --help
+dram_viz --help
 ```
 
 to see all options
@@ -100,23 +111,25 @@ kill $(lsof -ti:5006)
 
 ### Rules File
 
-The DRAM Visualization Library uses a rules file to generate the figures. This rules file is a TSV rules file similar to the DRAM traits rules. Information on the general rules parsing can be found [on the DRAM Rules Parsing Page](https://dramit.readthedocs.io/en/latest/rules_parser.html). The rules file for the DRAM Visualization Library is located in at `dram_viz/data/rules.tsv`. You can use this rule file as a template for your own rules. The rules file contains the following columns:
+The DRAM Visualization Library uses a rules file to generate the figures. This rules file is a TSV rules file similar to the DRAM traits rules. Information on the general rules parsing can be found [on the DRAM Rules Parsing Page](https://dramit.readthedocs.io/en/latest/rules_parser.html). The rules files for the DRAM Visualization Library are in `src/dram_rules/data/` (e.g. `rules.tsv`). You can use this rule file as a template for your own rules. The rules file contains the following columns:
 
 
-| name | long_name | alia | rule | group |
-|---|---|---|---|---|
-| Name to appear for x column of heatmap | Optional name to add to heatmap hover | Optional rule alias to allow alliasing one rule line to another to break it up | The actual rule | Optional grouping variable to add multiple heatmaps next to each other |
+| name | long_name | alias | rule | rule_options | group |
+|---|---|---|---|---|---|
+| Name to appear for x column of heatmap | Optional name to add to heatmap hover | Optional rule alias to allow aliasing one rule line to another to break it up | The actual rule | Optional JSON settings for the rule (see below) | Optional grouping variable to add multiple heatmaps next to each other |
 
-Example of a rules file (excerpt from `dram_viz/data/rules.tsv`):
+Example of a rules file (excerpt from `src/dram_rules/data/rules.tsv`):
 
 ```tsv
-name	long_name	alias	rule	group
-M00422	"Acetyl-CoA pathway, CO2 => acetyl-CoA"	m422	"path_steps(K00192 & K00195,K00193 & K00197 & K00194)"	Module
-M00150	"Fumarate reductase, prokaryotes"	m150	path_subunits(K00244 & K00245 & K00246 & K00247)	Complex II
-tetrathionate => thiosulfate			K08357	Sulfur
+name	long_name	alias	rule	rule_options	group
+M00422	"Acetyl-CoA pathway, CO2 => acetyl-CoA"	m422	K00192 & K00195,K00193 & K00197 & K00194	{"coverage":"steps"}	Module
+M00150	"Fumarate reductase, prokaryotes"	m150	K00244 & K00245 & K00246 & K00247	{"coverage":"subunits"}	Complex II
+tetrathionate => thiosulfate			K08357		Sulfur
 ```
 
-By default, rules evuate as True/False (Presence or Absence), but the rules can also be set to evaluate as a percentage of steps present in the rule by adding either `path_steps()` or `path_subunits()` around a rule. `path_steps()` is utilized for when there are mutliple steps in a pathway seperated by a comma and you want to capture the number of steps and what percentage of steps are present. `path_subunits()` is utilized for when there are multiple subunits in a pathway seperated by ANDs (`&`) and you want to capture how many subunits are present and what percentage. You can not mix and match `path_steps()`, `path_subunits()`, and bare True/False rules in the same group, but all other rule parsing syntax is the same as the DRAM rules parsing syntax (see the DRAM Rules Parsing Page for more information).
+By default, rules evaluate as True/False (presence or absence). With `rule_options` `{"coverage":"steps"}`, a rule is instead shown as the percentage of its steps that are present: use it for pathways whose steps are separated by commas. `{"coverage":"subunits"}` does the same for subunits separated by ANDs (`&`). All rules in one group must use the same coverage setting. `{"include_when":{"all_columns_present":[...]}}` (or `all_columns_absent`) leaves a rule out entirely when the annotations don't have (or do have) the given columns.
+
+The full rule language is described in [docs/rules_parser.md](docs/rules_parser.md), the functions available in rules (`percent`, `at_least`, `tax`, `filter_contains`, `count_rows`, ...) in [docs/rule_functions.md](docs/rule_functions.md), and how to write your own and load them with `--functions` in [docs/custom_rule_functions.md](docs/custom_rule_functions.md).
 
 Rules can be defined across multiple lines if they are enclosed in double quotes (`"`), they do not have to be enclosed in quotes if contained on a single line. White space can be used for formatting.
 

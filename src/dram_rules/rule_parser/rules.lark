@@ -1,21 +1,21 @@
+
 ?start: step_expr
       | expr
 
+// Steps: a, b, c
 step_expr: expr ("," expr)+               -> step_
 
-# expr can be a pure-or chain, a pure-and chain, or a single pipe_expr
-?expr: or_expr
-     | and_expr
-     | pipe_expr
+// A pipe binds loosest: `a & b -> f(...)` filters on `a & b`, then calls f.
+?expr: bool_expr
+     | bool_expr ("->" call)+             -> pipe_
 
-# OR is a chain of pipe_expr operands (NOT and_expr operands)
-or_expr: pipe_expr ("|" pipe_expr)+       -> or_
+// A chain is all-or or all-and; mixing needs brackets: [a | b] & c
+?bool_expr: or_expr
+          | and_expr
+          | atom
 
-# AND is a chain of pipe_expr operands (NOT or_expr operands)
-and_expr: pipe_expr ("&" pipe_expr)+      -> and_
-
-?pipe_expr: atom
-          | pipe_expr "->" call           -> pipe_
+or_expr: atom ("|" atom)+                 -> or_
+and_expr: atom ("&" atom)+                -> and_
 
 ?atom: call
      | literal
@@ -24,13 +24,18 @@ and_expr: pipe_expr ("&" pipe_expr)+      -> and_
      | "(" expr ")"                       -> group
      | "(" step_expr ")"                  -> group
 
-call: IDENT "(" [arg ("," arg)*] ")"    -> call
+// Positional arguments first, then keyword arguments.
+call: IDENT "(" [arg ("," arg)*] ")"      -> call
+
+?arg: value
+    | IDENT "=" value                     -> kwarg
+
+?value: list_lit
+      | expr
+      | OP                                -> op
 
 // list literal as a VALUE (requires at least one comma)
-list_lit: "[" expr ("," expr)+ "]"   -> step_
-
-?arg: list_lit
-    | expr
+list_lit: "[" expr ("," expr)+ "]"        -> step_
 
 ?literal: name_ref
         | NUMBER                          -> number
@@ -43,6 +48,7 @@ name_ref: IDENT                           -> simple_name
         | "@" IDENT                       -> alias_name
         | "@" BTICK_NAME                  -> quoted_alias_name
 
+OP: ">=" | "<=" | "==" | "!=" | ">" | "<"
 IDENT: /[A-Za-z0-9_\-\.:;]+/
 BTICK_NAME: /`([^`\\]|\\.)*`/
 NUMBER: /[0-9]+(\.[0-9]+)?/

@@ -176,6 +176,14 @@ def join_present_map_df_to_mapping_df(
     help="Path to rules sheet with common rules to be added to all rules sheet. Useful for common aliases across multiple rules. If none is provided, will use default common rules system defined in Rule Parser.",
 )
 @click.option(
+    "--functions",
+    "-fn",
+    "function_files",
+    type=click.Path(exists=True, dir_okay=False),
+    multiple=True,
+    help="Python file of extra rule functions (decorated with @rule_function from dram_rules.rules_api). Can be given more than once.",
+)
+@click.option(
     "--mapping",
     "-m",
     type=Path,
@@ -231,6 +239,7 @@ def main(
     rules_system,
     rules_tsv,
     common_rules_tsv,
+    function_files,
     mapping,
     label_column,
     alias_column,
@@ -301,8 +310,8 @@ def main(
         label_col=label_column,
         alias_col=alias_column,
         rules_col="rule",
-        allow_visualize_functions=True,
         common_rules_path=common_rules_tsv,
+        function_files=function_files,
     )
     # kw = dict(rules_path=rules_path, label_col="module", parent_col=alias_column, rules_col="rule")
     compiled = CompiledRules.from_rules(**kw)

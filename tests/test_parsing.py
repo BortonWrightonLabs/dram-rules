@@ -4,16 +4,10 @@ import polars as pl
 import pytest
 
 from dram_rules.rule_parser.rules import (
-    And,
-    Call,
     CompiledRules,
     ID_PARSERS,
     Name,
-    Or,
-    PipeChain,
     RuleError,
-    Steps,
-    String,
     evaluate_rules_on_anno,
     load_rules,
     parse_ids,
@@ -49,147 +43,27 @@ COMPOUND_NEEDS = {
     "K14126",
 }
 
-BASIC_PARSE = {
-    "A": And(
-        parts=(
-            Or(
-                parts=(
-                    Name(value="K00399", qualifier=None),
-                    Name(value="K00400", qualifier=None),
-                    Name(value="K00401", qualifier=None),
-                    Name(value="K00402", qualifier=None),
-                    Name(value="K03421", qualifier=None),
-                    Name(value="K03422", qualifier=None),
-                )
-            ),
-            Call(
-                value="not",
-                args=(
-                    Or(
-                        parts=(
-                            Name(value="K02591", qualifier=None),
-                            Name(value="K02586", qualifier=None),
-                            Name(value="K02588", qualifier=None),
-                        )
-                    ),
-                ),
-            ),
-        )
-    )
+# What each rule in the test sheets means with its aliases written out in full.
+NOT_B4 = "not([K02591 | K02586 | K02588])"
+BASIC_EXPANDED = {
+    "A": f"[K00399 | K00400 | K00401 | K00402 | K03421 | K03422] & {NOT_B4}",
 }
 
-COMPOUND_PARSE = {
-    "A": And(
-        parts=(
-            Or(
-                parts=(
-                    Name(value="K00399", qualifier=None),
-                    Name(value="K00400", qualifier=None),
-                    Name(value="K00401", qualifier=None),
-                    Name(value="K00402", qualifier=None),
-                    Name(value="K03421", qualifier=None),
-                    Name(value="K03422", qualifier=None),
-                )
-            ),
-            Call(
-                value="not",
-                args=(
-                    Or(
-                        parts=(
-                            Name(value="K02591", qualifier=None),
-                            Name(value="K02586", qualifier=None),
-                            Name(value="K02588", qualifier=None),
-                        )
-                    ),
-                ),
-            ),
-        )
-    ),
-    "B": Or(
-        parts=(
-            Call(
-                value="percent",
-                args=(
-                    Name(value="50", qualifier=None),
-                    Steps(
-                        parts=(
-                            Name(value="K00399", qualifier=None),
-                            And(
-                                parts=(
-                                    Name(value="K00401", qualifier=None),
-                                    Name(value="K00402", qualifier=None),
-                                    Or(
-                                        parts=(
-                                            Name(value="K00333", qualifier=None),
-                                            Name(value="K03421", qualifier=None),
-                                        )
-                                    ),
-                                    Or(
-                                        parts=(
-                                            Name(value="K03422", qualifier=None),
-                                            Name(value="K13380", qualifier=None),
-                                        )
-                                    ),
-                                )
-                            ),
-                            Name(value="K00400", qualifier=None),
-                            Name(value="K00401", qualifier=None),
-                            Name(value="K00402", qualifier=None),
-                            Name(value="K03421", qualifier=None),
-                            Name(value="K03422", qualifier=None),
-                        )
-                    ),
-                ),
-            ),
-            Or(
-                parts=(
-                    Name(value="K02591", qualifier=None),
-                    Name(value="K02586", qualifier=None),
-                    Name(value="K02588", qualifier=None),
-                )
-            ),
-        )
-    ),
-    "C": PipeChain(
-        calls=(
-            Call(
-                value="not",
-                args=(
-                    Call(
-                        value="filter_contains",
-                        args=(
-                            Name(value="kegg_description", qualifier=None),
-                            String(value="nitrate reductase"),
-                        ),
-                    ),
-                ),
-            ),
-            Call(
-                value="column_count_values",
-                args=(
-                    Name(value="heme_regulatory_motif_count", qualifier=None),
-                    Name(value="ge", qualifier=None),
-                    Name(value="2", qualifier=None),
-                    Name(value="ge", qualifier=None),
-                    Name(value="2", qualifier=None),
-                ),
-            ),
-        )
-    ),
-    "D": Call(
-        value="percent",
-        args=(
-            Name(value="50", qualifier=None),
-            Steps(
-                parts=(
-                    Name(value="K00399", qualifier=None),
-                    Name(value="K14126", qualifier=None),
-                    Name(value="K02588", qualifier=None),
-                )
-            ),
-        ),
-    ),
+COMPOUND_EXPANDED = {
+    "A": BASIC_EXPANDED["A"],
+    "B": "percent(50, [K00399, [K00401 & K00402 & [K00333 | K03421] & [K03422 | K13380]],"
+    " K00400, K00401, K00402, K03421, K03422]) | [K02591 | K02586 | K02588]",
+    "C": 'not(filter_contains(kegg_description, "nitrate reductase"))'
+    " -> filter_compare(heme_regulatory_motif_count, >=, 2) -> count_rows(>=, 2)",
+    "D": "percent(50, [K00399, K14126, K02588])",
 }
+
+
+def compile_text(rule: str):
+    """Compile one rule written without aliases."""
+    return CompiledRules.from_rules(
+        rules=pl.DataFrame({"name": ["r"], "rule": [rule]}).lazy()
+    ).rules["r"]
 
 
 def test_dbcan_sub_ec_parsing():
@@ -393,9 +267,6 @@ def test_group_delimiters(square, round_):
 
     assert compiled.rules["square"] == compiled.rules["round"]
     assert compiled.features_by_rules["square"] == compiled.features_by_rules["round"]
-    assert set(compiled.trees_by_rules["square"].edges) == set(
-        compiled.trees_by_rules["round"].edges
-    )
 
 
 @pytest.mark.parametrize(
@@ -461,7 +332,7 @@ def test_basic_compiled_rules():
     compiled = CompiledRules.from_rules(rules_path=DATA_DIR / "basic_rules.tsv")
     assert compiled.needed_features == BASIC_NEEDS
 
-    assert compiled.rules == BASIC_PARSE
+    assert compiled.rules == {k: compile_text(v) for k, v in BASIC_EXPANDED.items()}
 
 
 def test_basic_rules_pass_annotation():
@@ -486,7 +357,7 @@ def test_compoun_compiled_rules():
     compiled = CompiledRules.from_rules(rules_path=DATA_DIR / "compound_rules.tsv")
     assert compiled.needed_features == COMPOUND_NEEDS
 
-    assert compiled.rules == COMPOUND_PARSE
+    assert compiled.rules == {k: compile_text(v) for k, v in COMPOUND_EXPANDED.items()}
 
 
 def test_compound_rules_pass_annotation():
