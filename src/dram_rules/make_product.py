@@ -277,6 +277,12 @@ def main(
     label_column = get_column_name(
         label_column, BACKUP_LABEL_COLUMNS, name_of_data="rules", cols=rules_cols
     )
+    # Downstream (evaluation, heatmaps, common rules) reads rule names from "name".
+    if label_column != DEFAULT_LABEL_COLUMN:
+        rules_lf = rules_lf.drop(DEFAULT_LABEL_COLUMN, strict=False).rename(
+            {label_column: DEFAULT_LABEL_COLUMN}
+        )
+        label_column = DEFAULT_LABEL_COLUMN
     alias_column = get_column_name(
         alias_column,
         BACKUP_ALIAS_COLUMNS,

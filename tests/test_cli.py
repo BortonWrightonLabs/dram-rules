@@ -102,3 +102,15 @@ def test_row_reading_rule_with_mapping(tmp_path):
     sample = read(out, "sample")
     assert value(sample, "present", name="Heme", sample="S1") is True
     assert value(sample, "present", name="Heme", sample="S2") is False
+
+
+def test_rules_named_in_label_column(tmp_path):
+    out = run(tmp_path, rules=RULES.replace("name\t", "label\t", 1), mapping=None)
+    assert set(read(out, "genome")["name"]) == {"Mcr", "Cyc2"}
+    assert (out / "heatmap_genome_presence_coverage.html").exists()
+
+
+def test_rules_named_by_label_column_option(tmp_path):
+    rules = RULES.replace("name\t", "trait\t", 1)
+    out = run(tmp_path, "--label_column", "trait", rules=rules, mapping=None)
+    assert set(read(out, "genome")["name"]) == {"Mcr", "Cyc2"}
