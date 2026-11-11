@@ -28,9 +28,15 @@ bin2_1\t5.0\t6.0
 """
 
 
-def run(tmp_path: Path, *args: str, rules: str = RULES, mapping: str | None = MAPPING):
+def run(
+    tmp_path: Path,
+    *args: str,
+    annotations: str = ANNOTATIONS,
+    rules: str = RULES,
+    mapping: str | None = MAPPING,
+):
     """Run the CLI on small inputs written to `tmp_path`; return the output dir."""
-    (tmp_path / "anno.tsv").write_text(ANNOTATIONS)
+    (tmp_path / "anno.tsv").write_text(annotations)
     (tmp_path / "rules.tsv").write_text(rules)
     (tmp_path / "common.tsv").write_text("name\talias\trule\n")
     out = tmp_path / "out"
@@ -67,3 +73,18 @@ def test_mixed_case_gene_id_gets_its_abundance(tmp_path):
     assert value(sample, "sample_abundance", name="Cyc2", sample="S2") == 4.0
     genome = read(out, "genome")
     assert value(genome, "mean_sample_abundance", name="Cyc2", genome="bin1") == 3.5
+
+
+def test_mapping_decimal_after_many_integer_rows_is_kept(tmp_path):
+    # Polars guesses column types from the first rows; 150 integer rows
+    # before the decimal one must not turn 3.5 into 0.
+    padding = [f"pad_{i}" for i in range(150)]
+    annotations = ANNOTATIONS + "".join(f"{g}\tbin3\t\t\t0\n" for g in padding)
+    mapping = (
+        "Geneid\tS1\tS2\n"
+        + "".join(f"{g}\t0\t0\n" for g in padding)
+        + "bin1_1\t1\t2\nbin1_2\t3.5\t4\nbin2_1\t5\t6\n"
+    )
+    out = run(tmp_path, annotations=annotations, mapping=mapping)
+    sample = read(out, "sample")
+    assert value(sample, "sample_abundance", name="Cyc2", sample="S1") == 3.5

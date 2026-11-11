@@ -324,9 +324,11 @@ def main(
     dfs = {}
     eval_cycles_kw = {}
     if mapping:
-        mapping_df = pl.read_csv(mapping, separator="\t", ignore_errors=True).fill_null(
-            0
-        )
+        # Infer types from every row: a guess from the first rows can read a
+        # sample column as integers, and its later decimals would fail to parse.
+        mapping_df = pl.read_csv(
+            mapping, separator="\t", infer_schema_length=None
+        ).fill_null(0)
         # This renames the first column to query_id regardless of initial form (Genome, GeneId, reference, etc.)
         # It then drops known additional meta columns that could be there depending on the format
         # finally does a catch all of keeping only the label column and all floats (sample columns) as a backup
