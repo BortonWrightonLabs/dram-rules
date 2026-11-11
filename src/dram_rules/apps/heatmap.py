@@ -324,7 +324,6 @@ class Dashboard(pn.viewable.Viewer):
         """
         Make the product plot
         """
-        None if not self.tax_axis_filter.value else self.tax_axis_rank.value
         charts = []
         y_mode = self.y_col
         c_mode = self.color_col
@@ -340,7 +339,8 @@ class Dashboard(pn.viewable.Viewer):
                 and self.tax_axis_filter.value
                 and "taxonomy" in df.columns
             ):
-                kw["y_col"] = "taxonomy"
+                df = df.with_columns(taxonomy_label=self.taxonomy_label())
+                kw["y_col"] = "taxonomy_label"
             if charts:
                 kw["y_axis_location"] = None
             if "presence/coverage" in c_mode:
@@ -379,6 +379,18 @@ class Dashboard(pn.viewable.Viewer):
         self.plot_view[:] = charts or [
             pn.pane.Markdown("No genomes match the selected taxonomy.")
         ]
+
+    def taxonomy_label(self) -> pl.Expr:
+        """Y label for "Show Taxonomy on Y Axis": "<rank> | <genome>", e.g.
+        "g__Escherichia | genome1", so genomes sharing a taxon keep their own
+        rows. Genomes without that rank are labelled by genome alone."""
+        rank = list(TAXONOMY_RANKS_REGEX).index(self.tax_axis_rank.value)
+        taxon = (
+            pl.col("taxonomy").str.split(";").list.get(rank, null_on_oob=True)
+        ).str.strip_chars()
+        return pl.concat_str(taxon, pl.col("genome"), separator=" | ").fill_null(
+            pl.col("genome")
+        )
 
     def reset_filters(self, event=None):
         """

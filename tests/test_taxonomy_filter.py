@@ -158,6 +158,47 @@ class TaxonomyFilterTests(unittest.TestCase):
         dashboard.update_plot()
         self.assertEqual(self.plotted_genomes(dashboard), [["full", "none"]])
 
+    def test_taxonomy_label_on_y_axis(self):
+        frame = self.frame.vstack(
+            pl.DataFrame(
+                {
+                    "genome": ["g5"],
+                    "taxonomy": ["d__Bacteria;p__C"],
+                    "name": ["Trait"],
+                    "present": [True],
+                    "mean_sample_abundance": [5.0],
+                }
+            )
+        )
+        self.dfs["genome"] = {"All": frame}
+        edges, _ = build_tax_edge_df_pl(frame.select("genome", "taxonomy"))
+        self.tree = build_tree_pl(
+            edges, id_cb=lambda source, child, parent_id: f"{parent_id};{child}"
+        )
+        dashboard = self.dashboard()
+
+        def y_labels():
+            return list(dashboard.plot_view[0].object.y_range.factors)
+
+        dashboard.tax_axis_filter.value = True
+        dashboard.tax_axis_rank.value = "genus"
+        dashboard.update_plot()
+        # g1 and g2 share a genus but keep their own rows; g5 has no genus.
+        self.assertEqual(
+            y_labels(), ["g__A | g1", "g__A | g2", "g__A | g3", "g__B | g4", "g5"]
+        )
+
+        dashboard.tax_axis_rank.value = "phylum"
+        dashboard.update_plot()
+        self.assertEqual(
+            y_labels(),
+            ["p__A | g1", "p__A | g2", "p__A | g3", "p__B | g4", "p__C | g5"],
+        )
+
+        dashboard.tax_axis_filter.value = False
+        dashboard.update_plot()
+        self.assertEqual(y_labels(), ["g1", "g2", "g3", "g4", "g5"])
+
     def test_initial_selection(self):
         dashboard = self.dashboard()
         self.assertIsInstance(dashboard.taxonomy_filter, Tree)
