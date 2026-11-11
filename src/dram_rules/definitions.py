@@ -20,4 +20,3 @@ TAXONOMY_RANKS_REGEX = {
     "genus": r"(?:;?g__)(?P<genus>.*?)",
     "species": r"(?:;?s__)(?P<species>.*)",
 }
-NO_TAXONOMY_RANKS = len(TAXONOMY_RANKS_REGEX)

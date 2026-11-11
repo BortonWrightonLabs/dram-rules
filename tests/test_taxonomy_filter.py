@@ -130,6 +130,34 @@ class TaxonomyFilterTests(unittest.TestCase):
         self.assertIn("d__B;p__B;c__B;o__B;f__;g__X;s__", ids)
         self.assertNotIn("d__B;p__A;c__A;o__A;f__;g__X", ids)
 
+    def test_genomes_without_full_lineage_are_plotted(self):
+        frame = pl.DataFrame(
+            {
+                "genome": ["full", "partial", "none"],
+                "taxonomy": [self.taxonomies[0], "d__Bacteria;p__C", None],
+                "name": ["Trait"] * 3,
+                "present": [True] * 3,
+            }
+        )
+        edges, _ = build_tax_edge_df_pl(frame.select("genome", "taxonomy"))
+        tree = build_tree_pl(
+            edges, id_cb=lambda source, child, parent_id: f"{parent_id};{child}"
+        )
+        dashboard = Dashboard(
+            dfs={"genome": {"All": frame}},
+            taxanomy_tree_data=tree,
+            output_dir=self.output_dir,
+        )
+        self.assertEqual(self.plotted_genomes(dashboard), [["full", "none", "partial"]])
+
+        dashboard.taxonomy_filter.active = [
+            path
+            for node_id, path in dashboard._taxonomy_paths.items()
+            if node_id != "d__Bacteria;p__C"
+        ]
+        dashboard.update_plot()
+        self.assertEqual(self.plotted_genomes(dashboard), [["full", "none"]])
+
     def test_initial_selection(self):
         dashboard = self.dashboard()
         self.assertIsInstance(dashboard.taxonomy_filter, Tree)
