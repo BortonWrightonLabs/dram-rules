@@ -171,34 +171,32 @@
 	nitrogen-fixer	[K02586 & K02591] | [K22896 & K22897]
 
 	IronReduction	@IronReductionGenes & @ETC50
-	IronReductionGenes	@mtrCAB | OmcF | OmcS | OmcZ  | @ExtABCD
-	mtrCAB	MtrA & @mtoAB & MtrC_TIGR03507
-	ExtABCD	ExtA_pcc_cyt | ExtB_porin | ExtC_pcc_lp_cyt | ExtD_pcc_lp_cyt
+	IronReductionGenes	@mtrCAB | @OmcGenes | @ExtABCD
+	mtrCAB	MtrC_TIGR03507 & [MtrA | MtrB_TIGR03509]
+	OmcGenes	at_least(2, [OmcF, OmcS, OmcZ])
+	ExtABCD	ExtB_porin & [ExtA_pcc_cyt | ExtC_pcc_lp_cyt | ExtD_pcc_lp_cyt]
 
-	IronOxidation	[@Cyc2 |  @mtoAB | @foxEYZ ] & [@Microaerophillic | @Aerobe | @Sulfatereducer | @Denitrifier | @PhototrophAllTypes]
-	Cyc2	at_least(2, [Cyc2_repCluster1, Cyc2_repCluster2, Cyc2_repCluster3], mode=COUNTS)
+	IronOxidation	[@Cyc2 | @mtoAB | @foxEYZ | @FoxArch] & [@Microaerophillic | @Aerobe | @Sulfatereducer | @Denitrifier | @PhototrophAllTypes]
+	Cyc2	Cyc2_repCluster1 | Cyc2_repCluster2 | Cyc2_repCluster3
+	mtoAB	MtoA & MtrB_TIGR03509 & not(MtrC_TIGR03507)
 	foxEYZ	FoxE & FoxY & FoxZ
-	mtoAB	MtrB_TIGR03509
+	FoxArch	FoxC
 
-	Sulfatereducer	@DsrABtyper & [K00958 | K00394 |K00395]
+	Sulfatereducer	@DsrABtyper & K00958 & [K00394 | K00395]
 	DsrABtyper	dsrAr | dsrBr | dsrAr_arch | dsrBr_arch
+
+	Non-sulfate-sulfur-reduction	@TetrathionateRed | @ThiosulfateRed | @PolysulfideRed | @SulfiteRed | @ElementalSRed
+	TetrathionateRed	at_least(2, [K08359, K08358, K08357]) & [K13040 | K13041]
+	ThiosulfateRed	K08352 & [K08353 | K08354]
+	PolysulfideRed	K08352 & [K16293 | K16294]
 	SulfiteRed	@DsrABtyper
-	TetrathionateRed	at_least(2, [K08359, K08358, K08357])
-	ThiosulfateRed	at_least(2, [K08352, K08353, K08354])
 	ElementalSRed	at_least(2, [K17219, K17220, K17221])
-	Non-sulfate-sulfur-reduction	@TetrathionateRed |@ThiosulfateRed | @SulfiteRed | @ElementalSRed
 
-	sulfateoxidizer	[@DsrABtypeo | @SoeABC | @SorAB | @Sqr | @FccAB | @SoxXA | @SoxYZ | @SoxB | @SoxCD] & @ETC50
+	sulfateoxidizer	[@DsrABtypeo | @SoxCore | @sHdr | @SORg] & @ETC50
 	DsrABtypeo	dsrAo | dsrBo
-	SoeABC	K21307 | K21308 | K21309
-	SorAB	K05301 | K00386
-	Sqr	sqr_alignment | K17218
-	FccAB	K17230 | K17229
-	SoxXA	K17223 | K17222
-	SoxYZ	SoxY | K17226 | SoxZ | K17227
-	SoxB	K17224
-	SoxCD	K17225 | K22622
-
+	SoxCore	K17224 & at_least(2, [K17222, K17223, [K17226 | SoxY], [K17227 | SoxZ]])
+	sHdr	at_least(2, [K28385, K28386, K28387])
+	SORg	K16952 | SOR
 
 	Methanogen	@MethylCoenzymeMReductase
 	MethylCoenzymeMReductase	@McrAor3999 | K00401 | K00402
@@ -249,8 +247,11 @@
 
 	AmmoniaMethaneOxidizer	[@ProbableAmmoniaMonooxygenase | @ProbablePmoA] & not(@AerobicAmmoniaOxidizer) & not(@AerobicMethanotroph)
 
-	ProbIronReduction	[@notIronReductionGenes | @hemeCount] & @ETC50
-	notIronReductionGenes	not(@IronReductionGenes)
+	ProbIronReduction	not(@IronReduction) | @hemeCount | @IronReductionGenes | @MtrAB_noC | @ExtCytOnly | @OmcSZ | @FLEET
+	MtrAB_noC	MtrA & MtrB_TIGR03509 & not(MtrC_TIGR03507)
+	ExtCytOnly	ExtA_pcc_cyt & [ExtC_pcc_lp_cyt | ExtD_pcc_lp_cyt]
+	OmcSZ	OmcS | OmcZ
+	FLEET	FmnA & at_least(2, [FmnB, DmkA, DmkB, EetA, EetB, PplA, Ndh2])
 	hemeCount	@NotNitrateReductaseFilter -> filter_compare(heme_regulatory_motif_count, >=, 4) -> count_rows(>=, 3)
 	NotNitrateReductaseFilter	not(@NitrateReductaseFilter)
 	NitrateReductaseFilter	"filter_contains(kegg_description,""nitrate reductase"")"
