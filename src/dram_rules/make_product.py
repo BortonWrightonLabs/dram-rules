@@ -36,10 +36,10 @@ from dram_rules.processing.process_annotations import (
 from dram_rules.rule_parser.rules import (
     ID_PARSERS,
     CompiledRules,
-    build_present_map,
-    evaluate_cycles,
-    prepare_present_map_df,
+    RuleError,
+    evaluate,
     get_val_cols,
+    prepare_present_map_df,
 )
 
 logger = logging.getLogger("dram.viz")
@@ -270,7 +270,10 @@ def main(
         function_files=function_files,
     )
     # kw = dict(rules_path=rules_path, label_col="module", parent_col=alias_column, rules_col="rule")
-    compiled = CompiledRules.from_rules(**kw)
+    try:
+        compiled = CompiledRules.from_rules(**kw)
+    except RuleError as e:
+        raise RuleError(f"Rule sheet {rules_tsv}: {e}") from e
     logger.info(f"Compiled rules in {time.time() - s} seconds")
 
     genes = raw_anno.select("query_id", "genome").collect()
@@ -283,7 +286,7 @@ def main(
         needed_features=compiled.needed_features,
     )
     dfs = {}
-    eval_cycles_kw = {}
+    abundance_col = None
     if mapping:
         means, abundances, sample_names_mapping = load_mapping(mapping, genes)
         key = means.columns[0]  # query_id or genome
@@ -296,43 +299,26 @@ def main(
             abundances.lazy().select(key, "sample"), on=key
         )
 
-        present_map = build_present_map(
-            df=sample_hits_df,
-            sample_col="sample",
-            needed_features=compiled.needed_features,
-            sample_names=sample_names_mapping,
-        )
-        dfs["sample"] = evaluate_cycles(
-            compiled=compiled,
-            samples=sample_names_mapping,
-            present_map=present_map,
-            annotations=sample_annotations,
-            sample_col="sample",
+        dfs["sample"] = evaluate(
+            compiled,
+            sample_hits_df,
+            sample_annotations,
+            "sample",
+            sample_names_mapping,
             group_col=group_column,
-            anno_df=sample_hits_df,
-            value_col="sample_abundance",
+            abundance_col="sample_abundance",
         )
-        eval_cycles_kw["anno_df"] = anno_df
-        eval_cycles_kw["value_col"] = "mean_sample_abundance"
+        abundance_col = "mean_sample_abundance"
 
-    present_map = build_present_map(
-        df=anno_df,
-        sample_col="genome",
-        needed_features=compiled.needed_features,
-        sample_names=sample_names,
-    )
-
-    logger.info(f"Built present map in {time.time() - s} seconds")
-
-    dfs["genome"] = evaluate_cycles(
-        compiled=compiled,
-        samples=sample_names,
-        present_map=present_map,
-        annotations=raw_anno,
-        sample_col="genome",
-        additional_cols=["long_name"],
+    dfs["genome"] = evaluate(
+        compiled,
+        anno_df,
+        raw_anno,
+        "genome",
+        sample_names,
         group_col=group_column,
-        **eval_cycles_kw,
+        additional_cols=["long_name"],
+        abundance_col=abundance_col,
     )
     logger.info("Evaluated all rules in:")
     logger.info(time.time() - s)

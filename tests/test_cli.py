@@ -128,3 +128,30 @@ def test_rules_named_by_label_column_option(tmp_path):
     out = run(tmp_path, "--label_column", "trait", rules=rules, mapping=None)
     assert set(read(out, "genome")["name"]) == {"Mcr", "Cyc2"}
     assert (out / "heatmap_genome_presence_coverage.html").exists()
+
+
+SUMMARIZE_SHEET = """\
+gene_id\tgene_description\ttopic_ecosystem
+K00399\tmcrA\tMethanogenesis
+Cyc2_repCluster1\tcyc2\tIron
+"""
+
+
+def test_summarize_sheet_draws_a_heatmap(tmp_path):
+    out = run(tmp_path, rules=SUMMARIZE_SHEET, mapping=None)
+    df = read(out, "genome")
+    assert value(df, "present", genome="bin1", name="K00399") is True
+    assert value(df, "present", genome="bin2", name="Cyc2_repCluster1") is False
+    assert list(out.glob("*.html"))
+
+
+def test_repeated_label_names_the_sheet(tmp_path):
+    (tmp_path / "anno.tsv").write_text(ANNOTATIONS)
+    (tmp_path / "rules.tsv").write_text(RULES + "Mcr\tG1\tK00400\n")
+    result = CliRunner().invoke(
+        main,
+        ["-a", str(tmp_path / "anno.tsv"), "-r", str(tmp_path / "rules.tsv"),
+         "-o", str(tmp_path / "out")],
+    )  # fmt: skip
+    assert "rules.tsv" in str(result.exception)
+    assert "Mcr" in str(result.exception)

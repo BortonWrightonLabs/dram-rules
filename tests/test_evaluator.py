@@ -7,13 +7,11 @@ import numpy as np
 import polars as pl
 import pytest
 
+from dram_rules.rule_parser import rules
 from dram_rules.rule_parser.rules import (
     CompiledRules,
     Evaluator,
     RuleError,
-    evaluate_cycles,
-    evaluate_rules,
-    evaluate_rules_on_anno,
     get_val_cols,
 )
 from dram_rules.rules_api import FunctionRegistry, RuleFunctionError, default_functions
@@ -23,21 +21,37 @@ SAMPLES = ["g1", "g2"]
 
 def compile_rule(rule: str, **kwargs) -> CompiledRules:
     return CompiledRules.from_rules(
-        rules=pl.DataFrame({"name": ["r"], "rule": [rule]}).lazy(), **kwargs
+        rules=pl.DataFrame({"name": ["r"], "rule": [rule], "group": ["grp"]}).lazy(),
+        **kwargs,
+    )
+
+
+def hits_from(present_map: dict, samples=SAMPLES) -> pl.DataFrame:
+    """Hits giving `present_map`'s count of each Gene ID per genome, one gene per hit."""
+    rows = [
+        (f"{gene_id}-{genome}-{i}", genome, gene_id)
+        for gene_id, counts in present_map.items()
+        for genome, count in zip(samples, counts)
+        for i in range(int(count))
+    ]
+    return pl.DataFrame(rows, schema=["query_id", "genome", "hit"], orient="row").cast(
+        pl.String
+    )
+
+
+def by_genome(compiled, present_map=None, annotations=None, samples=SAMPLES):
+    """`rules.evaluate` at the genome level, with hits made from `present_map`."""
+    if annotations is None:
+        annotations = pl.DataFrame({"genome": samples})
+    return rules.evaluate(
+        compiled, hits_from(present_map or {}, samples), annotations, "genome", samples
     )
 
 
 def evaluate(rule, present_map=None, annotations=None, samples=SAMPLES, **kwargs):
-    if annotations is None:
-        annotations = pl.DataFrame({"genome": samples})
-    out = evaluate_rules(
-        compile_rule(rule, **kwargs),
-        samples,
-        present_map or {},
-        annotations=annotations,
-        sample_col="genome",
-    )
-    return out["r"].to_list()
+    """Presence of one rule per genome."""
+    out = by_genome(compile_rule(rule, **kwargs), present_map, annotations, samples)
+    return out["grp"]["present"].to_list()
 
 
 ANNOTATIONS = pl.DataFrame(
@@ -163,14 +177,7 @@ def coverage_output(rule: str, mode: str, present_map) -> pl.DataFrame:
             }
         ).lazy()
     )
-    dfs = evaluate_cycles(
-        compiled,
-        SAMPLES,
-        present_map,
-        annotations=pl.DataFrame({"genome": SAMPLES}),
-        sample_col="genome",
-    )
-    return dfs["g"]
+    return by_genome(compiled, present_map)["g"]
 
 
 def test_coverage_steps_counts_steps_not_hits():
@@ -580,7 +587,7 @@ def test_missing_column_raises(rule):
         evaluate(rule, annotations=ANNOTATIONS)
 
 
-def test_rule_options_skip_rule_in_evaluate_rules():
+def test_include_when_leaves_rule_out():
     compiled = CompiledRules.from_rules(
         rules=pl.DataFrame(
             {
@@ -590,17 +597,12 @@ def test_rule_options_skip_rule_in_evaluate_rules():
                     '{"include_when":{"all_columns_present":["nope"]}}',
                     None,
                 ],
+                "group": ["grp", "grp"],
             }
         ).lazy()
     )
-    out = evaluate_rules(
-        compiled,
-        SAMPLES,
-        {"K1": np.array([1.0, 0.0])},
-        annotations=ANNOTATIONS,
-        sample_col="genome",
-    )
-    assert out.columns == ["genome", "always"]
+    out = by_genome(compiled, {"K1": np.array([1.0, 0.0])}, annotations=ANNOTATIONS)
+    assert out["grp"]["name"].unique().to_list() == ["always"]
 
 
 def test_invalid_rule_options_json_names_the_rule():
@@ -613,7 +615,9 @@ def test_invalid_rule_options_json_names_the_rule():
 
 
 @pytest.mark.parametrize("has_kegg_description", [True, False])
-def test_traits_run_with_and_without_kegg_description(has_kegg_description):
+def test_traits_run_with_and_without_kegg_description(
+    has_kegg_description, evaluate_annotations
+):
     data = Path(__file__).parents[1] / "src/dram_rules/data"
     annotations = pl.read_csv(
         Path(__file__).parent / "data/basic_anno.tsv", separator="\t"
@@ -621,17 +625,16 @@ def test_traits_run_with_and_without_kegg_description(has_kegg_description):
     if not has_kegg_description:
         annotations = annotations.drop("kegg_description")
 
-    out = evaluate_rules_on_anno(
-        count_col="query_id",
-        group_col="input_fasta",
-        annotations=annotations,
-        rules_path=data / "traits_rules.tsv",
+    out = evaluate_annotations(
+        data / "traits_rules.tsv",
+        annotations,
         common_rules_path=data / "rules_common.tsv",
     )
+    names = set(pl.concat(out.values())["name"])
     has_columns = (
         has_kegg_description and "heme_regulatory_motif_count" in annotations.columns
     )
-    assert ("probable-iron-reduction" in out.columns) == has_columns
+    assert ("probable-iron-reduction" in names) == has_columns
 
 
 # --- misc ---------------------------------------------------------------------------
@@ -654,3 +657,89 @@ def test_evaluator_is_garbage_collected():
     del ev
     gc.collect()
     assert ref() is None
+
+
+# --- evaluate: one entry point for every Evaluation Level ----------------------------
+
+
+def sheet(rules: dict[str, str], **columns) -> CompiledRules:
+    """A one-group rule sheet of name -> rule."""
+    return CompiledRules.from_rules(
+        rules=pl.DataFrame(
+            {
+                "name": list(rules),
+                "rule": list(rules.values()),
+                "group": "grp",
+                **columns,
+            }
+        ).lazy()
+    )
+
+
+GENE_ANNOTATIONS = pl.DataFrame(
+    {"query_id": ["a", "b", "c", "d"], "genome": ["g1", "g1", "g2", "g2"]}
+)
+
+
+def gene_counts(compiled, hits, annotations=GENE_ANNOTATIONS) -> dict[str, list]:
+    out = rules.evaluate(compiled, hits, annotations, "gene", SAMPLES)["grp"]
+    return {
+        name: frame.sort("genome")["gene_count"].to_list()
+        for (name,), frame in out.group_by("name")
+    }
+
+
+def test_gene_count_counts_genes_where_the_rule_holds():
+    hits = pl.DataFrame(
+        {"query_id": ["a", "b", "c"], "genome": ["g1", "g1", "g2"], "hit": ["K1"] * 3}
+    )
+    assert gene_counts(sheet({"r": "K1"}), hits) == {"r": [2, 1]}
+
+
+def test_gene_count_is_zero_when_the_rule_is_split_across_genes():
+    hits = pl.DataFrame(
+        {"query_id": ["a", "b"], "genome": ["g1", "g1"], "hit": ["K1", "K2"]}
+    )
+    assert gene_counts(sheet({"both": "K1 & K2", "either": "K1 | K2"}), hits) == {
+        "both": [0, 0],
+        "either": [2, 0],
+    }
+
+
+def test_gene_count_includes_genes_without_hits():
+    hits = pl.DataFrame({"query_id": ["c"], "genome": ["g2"], "hit": ["K1"]})
+    assert gene_counts(sheet({"r": "not(K1)"}), hits) == {"r": [2, 1]}
+
+
+def test_gene_count_leaves_out_rules_by_include_when():
+    compiled = sheet(
+        {"needs_nope": "K1", "always": "K1"},
+        rule_options=['{"include_when":{"all_columns_present":["nope"]}}', None],
+    )
+    hits = pl.DataFrame({"query_id": ["a"], "genome": ["g1"], "hit": ["K1"]})
+    assert gene_counts(compiled, hits) == {"always": [1, 0]}
+
+
+def test_gene_level_uses_the_columns_the_sheet_was_read_with():
+    """A Summarize Sheet (gene_id labels, topic_ecosystem Groups) needs no column names."""
+    compiled = CompiledRules.from_rules(
+        rules=pl.DataFrame({"gene_id": ["K1"], "topic_ecosystem": ["eco"]}).lazy()
+    )
+    hits = pl.DataFrame({"query_id": ["a"], "genome": ["g1"], "hit": ["K1"]})
+    out = rules.evaluate(compiled, hits, GENE_ANNOTATIONS, "gene", SAMPLES)["eco"]
+    assert out.sort("genome")["gene_count"].to_list() == [1, 0]
+    assert "gene_id" in out.columns
+
+
+def test_gene_ids_without_hits_are_numbers_to_functions(tmp_path):
+    path = write_functions(
+        tmp_path,
+        """
+        from dram_rules.rules_api import PerSample, rule_function
+
+        @rule_function
+        def difference(a: PerSample, b: PerSample) -> PerSample:
+            return (a - b) == 0
+        """,
+    )
+    assert evaluate("difference(K1, K2)", function_files=[path]) == [True, True]

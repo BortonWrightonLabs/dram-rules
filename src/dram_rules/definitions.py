@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 DEFAULT_LABEL_COLUMN = "name"
-BACKUP_LABEL_COLUMNS = ["label"]
+BACKUP_LABEL_COLUMNS = ["label", "gene_id"]
 DEFAULT_ALIAS_COLUMN = "alias"
 BACKUP_ALIAS_COLUMNS = ["aliases", "parent"]
 DEFAULT_FASTA_COLUMN = "input_fasta"
