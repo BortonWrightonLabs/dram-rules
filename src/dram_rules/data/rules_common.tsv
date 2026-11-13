@@ -247,7 +247,7 @@
 
 	AmmoniaMethaneOxidizer	[@ProbableAmmoniaMonooxygenase | @ProbablePmoA] & not(@AerobicAmmoniaOxidizer) & not(@AerobicMethanotroph)
 
-	ProbIronReduction	not(@IronReduction) | @hemeCount | @IronReductionGenes | @MtrAB_noC | @ExtCytOnly | @OmcSZ | @FLEET
+	ProbIronReduction	not(@IronReduction) & (@hemeCount | @IronReductionGenes | @MtrAB_noC | @ExtCytOnly | @OmcSZ | @FLEET)
 	MtrAB_noC	MtrA & MtrB_TIGR03509 & not(MtrC_TIGR03507)
 	ExtCytOnly	ExtA_pcc_cyt & [ExtC_pcc_lp_cyt | ExtD_pcc_lp_cyt]
 	OmcSZ	OmcS | OmcZ
