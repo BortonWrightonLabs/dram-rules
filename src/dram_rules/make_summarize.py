@@ -11,7 +11,7 @@ from pathlib import Path
 import polars as pl
 from xlsxwriter import Workbook
 
-from dram_rules.rule_parser.rules import CompiledRules, evaluate
+from dram_rules.rule_parser.rules import CompiledRules, check_gene_level, evaluate
 
 logger = logging.getLogger("dram.rules")
 
@@ -52,6 +52,19 @@ def summary_collections(
         ],
         "custom_summary": custom,
     }
+
+
+def load_summarize_sheet(
+    path: Path, common_rules_tsv: Path, function_files: tuple[str, ...]
+) -> CompiledRules:
+    """Compile a Summarize Sheet; coverage settings in it are an error."""
+    compiled = CompiledRules.from_rules(
+        rules_path=path,
+        common_rules_path=common_rules_tsv,
+        function_files=function_files,
+    )
+    check_gene_level(compiled)
+    return compiled
 
 
 def add_trna(annotations: pl.LazyFrame, trna_path: Path) -> pl.LazyFrame:

@@ -62,8 +62,8 @@ include = ["dram_rules*"]
 
 [project.scripts]
 "dram-rules" = "dram_rules.cli:main"
-"dram_viz" = "dram_rules.make_product:main"
-"dram.viz" = "dram_rules.make_product:main"
+"dram_viz" = "dram_rules.cli:main"
+"dram.viz" = "dram_rules.cli:main"
 
 [tool.setuptools_scm]
 write_to = "src/dram_rules/_version.py"
@@ -169,8 +169,8 @@ default = { solve-group = "default" }
 dev = { features = ["dev"], solve-group = "default" }
 
 [tool.pixi.tasks]
-# Run the CLI: pixi run viz -a <annotations.tsv> -o <output dir> [options]
-viz = "dram_viz"
+# Run the visualize step: pixi run viz -a <annotations.tsv> -o <output dir> [options]
+viz = "dram-rules --viz"
 
 # Need the dev tools, so they run in the dev environment.
 [tool.pixi.feature.dev.tasks]
