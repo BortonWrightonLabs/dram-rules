@@ -3,8 +3,10 @@
 from pathlib import Path
 
 import polars as pl
+import pytest
 from click.testing import CliRunner
 
+from dram_rules import make_summarize
 from dram_rules.cli import main
 
 # bin1 has two mcrA genes and a cyc2 gene; bin2 has one mcrA gene.
@@ -22,6 +24,31 @@ K00399\tmcrA\tMethanogenesis\tEnergy\tdropped
 Cyc2_repCluster1\tcyc2\tIron\tEnergy\tdropped
 K99999\tnothing\tNone\tOther\tdropped
 """
+
+
+# The built-in Summarize Sheets, by their --topics/--ecos names.
+BUILT_IN = {
+    "assim": "assimilation_and_cofactor_metabolism.tsv",
+    "cell": "cellular_machinery.tsv",
+    "energy": "energy_acquisition_bioenergetics.tsv",
+    "env": "environmental_interaction_and_adaptation.tsv",
+    "ag": "distill_ag.tsv",
+    "eng_sys": "distill_eng_sys.tsv",
+    "bgc": "distill_bgc.tsv",
+    "gut": "distill_gut.tsv",
+    "aquatic": "distill_aquatic.tsv",
+}
+
+
+@pytest.fixture(autouse=True)
+def fake_built_in_sheets(tmp_path, monkeypatch):
+    """Stand-ins for the built-in sheets (which fail the duplicate check until
+    they are deduplicated). Each counts K00399, in a Group named by its key."""
+    sheets = tmp_path / "built_in"
+    sheets.mkdir()
+    for key, name in BUILT_IN.items():
+        (sheets / name).write_text(f"gene_id\ttopic_ecosystem\nK00399\t{key}\n")
+    monkeypatch.setattr(make_summarize, "SUMMARIZE_SHEETS_DIR", sheets)
 
 
 def invoke(tmp_path: Path, *args: str, annotations: str = ANNOTATIONS):
@@ -176,3 +203,54 @@ def test_no_collection_when_every_rule_is_left_out(tmp_path):
     out = run(tmp_path, "--sum", "--sum_custom", b)
     assert not (out / "custom_summary.tsv").exists()
     assert not (out / "custom_summary.xlsx").exists()
+
+
+def worksheets(path: Path) -> list[str]:
+    return list(pl.read_excel(path, sheet_id=0))
+
+
+def test_topics_and_ecos_write_their_own_collections(tmp_path):
+    out = run(tmp_path, "--sum", "--topics", "energy,env", "--ecos", "gut")
+    assert worksheets(out / "topic_summary.xlsx") == ["energy", "env"]
+    assert worksheets(out / "ecosystem_summary.xlsx") == ["gut"]
+    df = pl.read_csv(out / "ecosystem_summary.tsv", separator="\t")
+    assert counts(df) == {"K00399": {"bin1": 2, "bin2": 1}}
+    assert (out / "topic_summary.tsv").exists()
+    assert not (out / "custom_summary.tsv").exists()
+    assert not (out / "custom_summary.xlsx").exists()
+
+
+def test_defaults_are_all_topics_and_ecosystems(tmp_path):
+    out = run(tmp_path, "--sum")
+    topics = ["assim", "cell", "energy", "env"]
+    assert worksheets(out / "topic_summary.xlsx") == topics
+    ecos = ["ag", "eng_sys", "bgc", "gut", "aquatic"]
+    assert worksheets(out / "ecosystem_summary.xlsx") == ecos
+
+
+@pytest.mark.parametrize("eco", ["legacy", "default"])
+def test_visualize_only_ecos_are_an_error(tmp_path, eco):
+    result = invoke(tmp_path, "--sum", "--ecos", f"gut,{eco}")
+    assert result.exit_code != 0
+    assert eco in result.output
+    assert not (tmp_path / "out").exists()
+
+
+def test_unknown_topic_is_an_error(tmp_path):
+    result = invoke(tmp_path, "--sum", "--topics", "energy,metals")
+    assert result.exit_code != 0
+    assert "metals" in result.output
+
+
+def test_empty_topics_and_ecos_leave_only_custom_sheets(tmp_path):
+    sheet = write(tmp_path, "a.tsv", SHEET)
+    out = run(tmp_path, "--sum", "--topics", "", "--ecos", "", "--sum_custom", sheet)
+    assert sorted(p.name for p in out.iterdir()) == [
+        "custom_summary.tsv",
+        "custom_summary.xlsx",
+    ]
+
+
+def test_built_in_sheets_are_packaged():
+    data = Path(make_summarize.__file__).parent / "data/summarize_sheets"
+    assert all((data / name).is_file() for name in BUILT_IN.values())

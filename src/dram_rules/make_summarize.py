@@ -21,6 +21,38 @@ SUMMARY_COLUMNS = ["gene_description", "module", "header", "subheader"]
 GROUP_COLUMN = "topic_ecosystem"
 SORT_COLUMNS = ["header", "subheader", "module"]  # then the label, as distill sorts
 
+SUMMARIZE_SHEETS_DIR = Path(__file__).parent / "data/summarize_sheets"
+# Built-in Summarize Sheets by their --topics/--ecos names, in distill's order.
+TOPICS = {
+    "assim": "assimilation_and_cofactor_metabolism.tsv",
+    "cell": "cellular_machinery.tsv",
+    "energy": "energy_acquisition_bioenergetics.tsv",
+    "env": "environmental_interaction_and_adaptation.tsv",
+}
+ECOSYSTEMS = {
+    "ag": "distill_ag.tsv",
+    "eng_sys": "distill_eng_sys.tsv",
+    "bgc": "distill_bgc.tsv",
+    "gut": "distill_gut.tsv",
+    "aquatic": "distill_aquatic.tsv",
+}
+
+
+def summary_collections(
+    topics: list[str], ecos: list[str], custom: list[Path]
+) -> dict[str, list[Path]]:
+    """Each Summary Collection's name and sheets: the chosen built-in topic
+    and ecosystem sheets, and the custom sheets."""
+    return {
+        "topic_summary": [
+            SUMMARIZE_SHEETS_DIR / f for t, f in TOPICS.items() if t in topics
+        ],
+        "ecosystem_summary": [
+            SUMMARIZE_SHEETS_DIR / f for e, f in ECOSYSTEMS.items() if e in ecos
+        ],
+        "custom_summary": custom,
+    }
+
 
 def add_trna(annotations: pl.LazyFrame, trna_path: Path) -> pl.LazyFrame:
     """Add tRNAscan rows (`input_fasta`, `query_id`, `gene_id`, as DRAM collects
