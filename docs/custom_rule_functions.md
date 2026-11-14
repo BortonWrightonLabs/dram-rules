@@ -17,7 +17,15 @@ Save this as `my_functions.py`:
 ```python
 import polars as pl
 
-from dram_rules.rules_api import Column, Group, Op, PerSample, RowFilter, Rows, rule_function
+from dram_rules.rules_api import (
+    Column,
+    Group,
+    Op,
+    PerSample,
+    RowFilter,
+    Rows,
+    rule_function,
+)
 
 
 @rule_function
