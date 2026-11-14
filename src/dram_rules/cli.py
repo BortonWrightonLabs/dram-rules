@@ -34,14 +34,15 @@ def split_commas(ctx, param, value: str | None) -> list[Path]:
 
 
 def split_choices(*choices: str):
-    """Click callback: a comma-separated list of `choices` ("" is an empty
-    list), or None when the option is not given."""
+    """Click callback: a comma-separated list of `choices` ("" or "none" is an
+    empty list), or None when the option is not given."""
 
     def callback(ctx, param, value: str | None) -> list[str] | None:
         if value is None:
             return None
-        choice = click.Choice(choices)
-        return [choice.convert(v, param, ctx) for v in value.split(",") if v]
+        choice = click.Choice([*choices, "none"])
+        values = [choice.convert(v, param, ctx) for v in value.split(",") if v]
+        return [v for v in values if v != "none"]
 
     return callback
 
@@ -75,7 +76,7 @@ def split_choices(*choices: str):
 @click.option(
     "--ecos",
     callback=split_choices(*ECOSYSTEMS, *VISUALIZE_ONLY_ECOS),
-    help='Built-in ecosystem sheets, comma separated; "" for none. '
+    help='Built-in ecosystem sheets, comma separated; none or "" for none. '
     "Summarize uses all five when omitted; legacy and default are visualize-only.",
 )
 @click.option("--summarize", "--sum", "-s", is_flag=True, help="Run the summarize step")
@@ -83,7 +84,7 @@ def split_choices(*choices: str):
     "--topics",
     default="default",
     callback=split_choices(*TOPICS, "default"),
-    help='Built-in topic Summarize Sheets, comma separated; "" for none. '
+    help='Built-in topic Summarize Sheets, comma separated; none or "" for none. '
     "default is all four.",
 )
 @click.option(

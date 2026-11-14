@@ -242,9 +242,12 @@ def test_unknown_topic_is_an_error(tmp_path):
     assert "metals" in result.output
 
 
-def test_empty_topics_and_ecos_leave_only_custom_sheets(tmp_path):
+@pytest.mark.parametrize("none", ["", "none"])
+def test_no_topics_and_ecos_leave_only_custom_sheets(tmp_path, none):
     sheet = write(tmp_path, "a.tsv", SHEET)
-    out = run(tmp_path, "--sum", "--topics", "", "--ecos", "", "--sum_custom", sheet)
+    out = run(
+        tmp_path, "--sum", "--topics", none, "--ecos", none, "--sum_custom", sheet
+    )
     assert sorted(p.name for p in out.iterdir()) == [
         "custom_summary.tsv",
         "custom_summary.xlsx",
