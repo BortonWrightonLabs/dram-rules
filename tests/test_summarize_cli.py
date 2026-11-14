@@ -131,3 +131,48 @@ def test_coverage_options_are_an_error_naming_the_rule(tmp_path):
     assert "Methanogenesis" in str(result.exception)
     assert "coverage" in str(result.exception)
     assert not (tmp_path / "out" / "summarize").exists()
+
+
+def test_null_trna_file_adds_nothing(tmp_path):
+    # DRAM writes a file holding only "NULL" when annotate found no tRNAs.
+    sheet = write(tmp_path, "a.tsv", SHEET)
+    trna = write(tmp_path, "trna.tsv", "NULL\n")
+    out = run(tmp_path, "--sum", "--sum_custom", sheet, "--trna_path", trna)
+    df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
+    assert counts(df)["K00399"] == {"bin1": 2, "bin2": 1}
+
+
+NEEDS_TAXONOMY = '{"include_when": {"all_columns_present": ["taxonomy"]}}'
+
+
+def test_rules_left_out_by_include_when_are_absent(tmp_path):
+    # The annotations have no taxonomy, so Group "Taxa" loses its only rule
+    # and sheet b loses every rule.
+    a = write(
+        tmp_path,
+        "a.tsv",
+        "gene_id\ttopic_ecosystem\trule_options\n"
+        "K00399\tEnergy\t\n"
+        f"Cyc2_repCluster1\tTaxa\t{NEEDS_TAXONOMY}\n",
+    )
+    b = write(
+        tmp_path,
+        "b.tsv",
+        f"name\ttopic_ecosystem\trule_options\nK00399\tEnergy\t{NEEDS_TAXONOMY}\n",
+    )
+    out = run(tmp_path, "--sum", "--sum_custom", f"{a},{b}")
+    df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
+    # Sheet b added nothing, so the label column stays a's `gene_id`.
+    assert counts(df) == {"K00399": {"bin1": 2, "bin2": 1}}
+    assert list(pl.read_excel(out / "custom_summary.xlsx", sheet_id=0)) == ["Energy"]
+
+
+def test_no_collection_when_every_rule_is_left_out(tmp_path):
+    b = write(
+        tmp_path,
+        "b.tsv",
+        f"gene_id\ttopic_ecosystem\trule_options\nK00399\tEnergy\t{NEEDS_TAXONOMY}\n",
+    )
+    out = run(tmp_path, "--sum", "--sum_custom", b)
+    assert not (out / "custom_summary.tsv").exists()
+    assert not (out / "custom_summary.xlsx").exists()

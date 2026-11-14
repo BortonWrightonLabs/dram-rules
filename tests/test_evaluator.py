@@ -743,3 +743,42 @@ def test_gene_ids_without_hits_are_numbers_to_functions(tmp_path):
         """,
     )
     assert evaluate("difference(K1, K2)", function_files=[path]) == [True, True]
+
+
+def _sheet(text: str) -> CompiledRules:
+    return CompiledRules.from_rules(
+        rules=pl.read_csv(textwrap.dedent(text).encode(), separator="\t").lazy()
+    )
+
+
+def _evaluate(compiled: CompiledRules, level="genome", **kwargs):
+    hits = pl.DataFrame(
+        schema={"query_id": pl.String, "genome": pl.String, "hit": pl.String}
+    )
+    annotations = pl.DataFrame({"query_id": ["q1"], "genome": ["g1"]})
+    return rules.evaluate(compiled, hits, annotations, level, ["g1"], **kwargs)
+
+
+def test_sheet_without_a_label_column_is_an_error():
+    with pytest.raises(RuleError, match="no label column"):
+        _sheet("rule\tgroup\nK00399\tG1\n")
+
+
+def test_unknown_evaluation_level_is_an_error():
+    with pytest.raises(ValueError, match="level must be one of"):
+        _evaluate(_sheet("name\tgroup\nK00399\tG1\n"), level="contig")
+
+
+def test_sheet_without_a_group_column_is_an_error():
+    with pytest.raises(RuleError, match="no Group column"):
+        _evaluate(_sheet("name\trule\nMcr\tK00399\n"))
+
+
+def test_abundance_at_the_gene_level_is_an_error():
+    with pytest.raises(ValueError, match="not supported at the gene level"):
+        _evaluate(_sheet("name\tgroup\nK00399\tG1\n"), level="gene", abundance_col="x")
+
+
+def test_rule_without_a_group_is_an_error_naming_it():
+    with pytest.raises(RuleError, match="null group columns: Cyc2"):
+        _evaluate(_sheet("name\tgroup\nK00399\tG1\nCyc2\t\n"))

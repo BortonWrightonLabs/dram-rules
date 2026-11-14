@@ -63,7 +63,7 @@ def get_column_name(
     backup_names: list[str],
     name_of_data: str,
     df: pl.LazyFrame | pl.DataFrame = None,
-    cols: list[str] = None,
+    cols: list[str] | None = None,
     raise_error: bool = True,
 ) -> str:
     assert df is not None or cols is not None, (
@@ -261,14 +261,14 @@ def main(
     )
     anno_columns = raw_anno.collect_schema().names()
 
-    kw = dict(
-        rules=rules_lf,
-        label_col=label_column,
-        alias_col=alias_column,
-        rules_col="rule",
-        common_rules_path=common_rules_tsv,
-        function_files=function_files,
-    )
+    kw = {
+        "rules": rules_lf,
+        "label_col": label_column,
+        "alias_col": alias_column,
+        "rules_col": "rule",
+        "common_rules_path": common_rules_tsv,
+        "function_files": function_files,
+    }
     # kw = dict(rules_path=rules_path, label_col="module", parent_col=alias_column, rules_col="rule")
     try:
         compiled = CompiledRules.from_rules(**kw)
@@ -403,13 +403,13 @@ def main(
         .removesuffix("_rules")
         .removesuffix("_rule")
     ).upper()
-    kw = dict(
-        dfs=dfs,
-        taxanomy_tree_data=tax_tree_data,
-        output_dir=output_dir,
-        title=f"DRAM {rule_type} VISUALIZATION",
+    kw = {
+        "dfs": dfs,
+        "taxanomy_tree_data": tax_tree_data,
+        "output_dir": output_dir,
+        "title": f"DRAM {rule_type} VISUALIZATION",
         # mapping=bool(mapping),
-    )
+    }
     logger.info(
         f"Finished all processing in: {time.time() - s} seconds, starting visualization"
     )

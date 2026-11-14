@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from math import pi
 from pathlib import Path
-from typing import Optional
 
 import panel as pn
 import param
@@ -36,8 +35,8 @@ def heatmap(
     rect_kw=None,
     c_min=0,
     c_max=1,
-    c_col: str = None,
-    x_col: str = None,
+    c_col: str | None = None,
+    x_col: str | None = None,
     log_colors: bool = False,
     **fig_kwargs,
 ):
@@ -162,9 +161,9 @@ class Dashboard(pn.viewable.Viewer):
     def __init__(
         self,
         dfs: dict[str, dict[str, pl.DataFrame]],
-        taxanomy_tree_data: Optional[list[dict]] = None,
-        selected_tax_tree: Optional[list[str]] = None,
-        output_dir: str | Path = None,
+        taxanomy_tree_data: list[dict] | None = None,
+        selected_tax_tree: list[str] | None = None,
+        output_dir: str | Path | None = None,
         title: str = "DRAM Product Visualization",
     ):
         super().__init__()
@@ -404,7 +403,7 @@ class Dashboard(pn.viewable.Viewer):
         return df
 
     def reveal_tax_axis_rank_selector(
-        self, event=None, tax_axis_filter_value: bool = None
+        self, event=None, tax_axis_filter_value: bool | None = None
     ):
         """
         Set the taxonomy filter

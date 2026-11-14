@@ -15,6 +15,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # diff-cover compares against origin/main
       - name: Set up Python
         # This is the version of the action for setting up Python, not the Python version.
         uses: actions/setup-python@v5
@@ -37,6 +39,11 @@ jobs:
 
       - name: Run tests
         run: python -m pytest tests --doctest-modules --cov=dram_rules --cov-report=xml --cov-report=html
+
+      # Every changed line must run in some test: an untested branch, or a test
+      # passing through a different check than the one it targets, fails here.
+      - name: Coverage of changed lines
+        run: diff-cover coverage.xml --compare-branch=origin/main --fail-under=100
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3

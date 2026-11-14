@@ -45,7 +45,9 @@ dev = [
     'pytest-cov',
     'fastexcel',
     'pre-commit',
-    'ruff',
+    'ruff ==0.17.5',  # same as .pre-commit-config.yaml
+    'diff-cover',
+    'networkx',  # DRAM2's distill imports it; for golden checks against it
 ]
 
 [tool.setuptools]
@@ -174,5 +176,7 @@ viz = "dram_viz"
 [tool.pixi.feature.dev.tasks]
 test = "pytest tests"
 lint = "ruff check src tests"
+# Every line changed since main must run in some test (CI enforces this too).
+cover = "pytest tests --cov=dram_rules --cov-report=xml && diff-cover coverage.xml --compare-branch=main --fail-under=100"
 # Install the git pre-commit hooks from .pre-commit-config.yaml (once per clone).
 install-hooks = "pre-commit install"

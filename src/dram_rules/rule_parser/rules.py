@@ -960,13 +960,13 @@ def _parse_rule_options(df: pl.DataFrame, label_col: str) -> dict[str, dict]:
 
 
 def load_rules(
-    rules_path: str | Path = None,
+    rules_path: str | Path | None = None,
     rules: pl.LazyFrame = None,
     label_col: str = "name",
     alias_col: str = "alias",
     rules_col: str = "rule",
     common_rules: pl.LazyFrame = None,
-    common_rules_path: str | Path = None,
+    common_rules_path: str | Path | None = None,
 ) -> tuple[dict[str, Expr], dict[str, Expr], pl.DataFrame]:
     """
     Assumes TSV has at least a label column (`label_col`, e.g. name).
@@ -1073,8 +1073,8 @@ def prepare_present_map_df(
     count_col: str,
     besthit_cols: list[str],
     needed_features: set[str],
-    additional_cols: list[str] = None,
-    group_col: str = None,
+    additional_cols: list[str] | None = None,
+    group_col: str | None = None,
 ):
     """Long table of (index cols, hit, additional cols): one row per gene and
     rule identifier it was annotated with, keeping only identifiers in
