@@ -1462,6 +1462,7 @@ def evaluate(
     if level == "gene":
         if abundance_col:
             raise ValueError("abundance_col is not supported at the gene level")
+        check_gene_level(compiled)
         return _evaluate_genes(
             compiled,
             hits,
@@ -1486,6 +1487,17 @@ def evaluate(
         anno_df=hits if abundance_col else None,
         value_col=abundance_col,
     )
+
+
+def check_gene_level(compiled: CompiledRules) -> None:
+    """Coverage is only reported at the genome or sample level, so a rule asking
+    for it can't be evaluated at the gene level."""
+    for name, options in compiled.rule_options.items():
+        if coverage_mode(options):
+            raise RuleError(
+                f"Rule '{name}': rule_options coverage is only reported at the"
+                " genome or sample level, not the gene level (summarize)"
+            )
 
 
 def _rules_by_group(

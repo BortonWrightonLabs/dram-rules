@@ -77,7 +77,13 @@ To generate a figure like the one shown above [TODO: insert figure], run the fol
 dram_viz --annotations <path/to/annotations.tsv> --output_dir <path/to/output/directory/>
 ```
 
-`python -m dram_rules ...` runs the same command.
+To count genes per genome for your own Summarize Sheets, with the new `dram-rules` command (`python -m dram_rules ...` runs the same command):
+
+```bash
+dram-rules --annotations <path/to/annotations.tsv> --output_dir <path/to/output/directory/> --sum --sum_custom <sheet1.tsv>,<sheet2.tsv> [--trna_path <trnas.tsv>]
+```
+
+This writes `summarize/custom_summary.xlsx` (one worksheet per group) and `summarize/custom_summary.tsv`.
 
 To launch a dashboard, run the following command:
 
