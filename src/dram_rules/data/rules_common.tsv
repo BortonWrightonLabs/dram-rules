@@ -197,6 +197,9 @@
 	SoxCore	K17224 & at_least(2, [K17222, K17223, [K17226 | SoxY], [K17227 | SoxZ]])
 	sHdr	at_least(2, [K28385, K28386, K28387])
 	SORg	K16952 | SOR
+	SoxXA	K17223 | K17222
+	SoxYZ	SoxY | K17226 | SoxZ | K17227
+	SoxB	K17224
 
 	Methanogen	@MethylCoenzymeMReductase
 	MethylCoenzymeMReductase	@McrAor3999 | K00401 | K00402
