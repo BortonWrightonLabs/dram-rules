@@ -387,3 +387,31 @@ def test_each_step_in_a_combined_run_matches_running_it_alone(tmp_path):
         assert alone.keys() == {k for k in combined if k.startswith(step + "/")}, step
         for key, df in alone.items():
             assert df.equals(combined[key]), key
+
+
+@pytest.mark.parametrize(
+    ("rule", "source"), [("K00399", "file"), ("count_rows(>=, 1)", "memory")]
+)
+def test_summarize_reads_rows_from_memory_only_when_a_rule_does(
+    tmp_path, monkeypatch, rule, source
+):
+    sources = []
+    evaluate = make_summarize.evaluate
+
+    def spy(compiled, hits, annotations, *args, **kwargs):
+        plan = annotations.lazy().explain().upper()
+        sources.append("file" if "SCAN" in plan else "memory")
+        return evaluate(compiled, hits, annotations, *args, **kwargs)
+
+    monkeypatch.setattr(make_summarize, "evaluate", spy)
+    sheet = write(
+        tmp_path, "a.tsv", f"name\ttopic_ecosystem\trule\nR\tEnergy\t{rule}\n"
+    )
+    out = run(
+        tmp_path, "--sum", "--topics", "none", "--ecos", "none", "--sum_custom", sheet
+    )
+    assert sources == [source]
+    df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
+    assert counts(df, "name")["R"] == (
+        {"bin1": 2, "bin2": 1} if rule == "K00399" else {"bin1": 3, "bin2": 1}
+    )

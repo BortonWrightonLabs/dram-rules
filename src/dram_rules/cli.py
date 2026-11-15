@@ -314,17 +314,20 @@ def main(
         pl.col("genome").cast(pl.String)
     )
 
+    every_sheet = [*(c for _, c in heatmap_sheets.values()), *sheets.values()]
     # One load of the annotations' Hits, for every Gene ID of every step.
     hits = prepare_present_map_df(
         raw_anno,
         count_col="query_id",
         group_col="genome",
         besthit_cols=list(ID_PARSERS),
-        needed_features=gene_ids(
-            *(c for _, c in heatmap_sheets.values()), *sheets.values()
-        ),
+        needed_features=gene_ids(*every_sheet),
     )
     logger.info(f"Loaded the annotations' Hits once, for {len(hits)} hits")
+    # Rules that read rows would otherwise read the file again for every sheet.
+    # After the Hits: building them from the in-memory copy peaked higher.
+    if any(c.reads_rows for c in every_sheet):
+        raw_anno = raw_anno.collect().lazy()
 
     # Every step evaluates before any writes, so a failure leaves no outputs.
     visualized = (

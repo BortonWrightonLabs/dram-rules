@@ -782,3 +782,31 @@ def test_abundance_at_the_gene_level_is_an_error():
 def test_rule_without_a_group_is_an_error_naming_it():
     with pytest.raises(RuleError, match="null group columns: Cyc2"):
         _evaluate(_sheet("name\tgroup\nK00399\tG1\nCyc2\t\n"))
+
+
+@pytest.mark.parametrize(
+    ("rule", "reads"),
+    [
+        ("K00399 & K00400", False),
+        ("percent(50, [K00399, K00400])", False),
+        ("count_rows(>=, 1)", True),
+        ("filter_contains(desc, x) -> count_rows(>=, 1)", True),
+        ('K00399 & tax("Archaea")', True),
+    ],
+)
+def test_reads_rows_when_any_rule_calls_a_row_reading_function(rule, reads):
+    assert compile_rule(rule).reads_rows is reads
+
+
+def test_one_value_column_is_expected_unless_several_are_allowed():
+    df = pl.DataFrame({"present": [True], "coverage_percentage": [50.0]})
+    assert set(rules.get_val_cols(df, allow_multiple=True)) == set(df.columns)
+    with pytest.raises(RuleError, match="same rule_options coverage"):
+        rules.get_val_cols(df)
+
+
+def test_reads_rows_through_an_alias():
+    sheet = compile_sheet(
+        ["r", None], [None, "Rows"], ["K1 & @Rows", "count_rows(>=, 1)"]
+    )
+    assert sheet.reads_rows

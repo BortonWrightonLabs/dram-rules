@@ -810,6 +810,15 @@ class CompiledRules:
     label_col: str = DEFAULT_LABEL_COLUMN  # the sheet's label column, as found
     group_col: str | None = None  # the sheet's Group column, as found
 
+    @property
+    def reads_rows(self) -> bool:
+        """Whether any rule calls a function that reads annotation rows."""
+        return any(
+            isinstance(node, BoundCall) and node.function.rows_param is not None
+            for expr in self.rules.values()
+            for node in walk(expr)
+        )
+
     @classmethod
     def from_rules(
         cls,
@@ -1569,7 +1578,7 @@ def _evaluate_genes(
             compiled.needed_features,
             gene_names,
         )
-        # shortcut: rules that read rows re-scan lazy annotations once per genome; collect them once if that gets slow.
+        # shortcut: rules that read rows filter the annotations once per genome; group them once if that gets slow.
         ev = Evaluator(
             gene_names,
             present_map,
