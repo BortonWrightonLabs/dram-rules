@@ -35,6 +35,9 @@ from dram_rules.rule_parser.rules import (
 
 logger = logging.getLogger("dram.viz")
 
+# Significant figures of abundances in the wide tables' row key.
+ABUNDANCE_SIG_FIGS = 10
+
 pn.config.reuse_sessions = True
 pn.config.global_loading_spinner = True
 
@@ -221,7 +224,14 @@ def write_tables(dfs: dict[str, dict[str, pl.DataFrame]], output_dir: Path) -> N
         df.select([y_col, pl.all().exclude(y_col)]).write_csv(
             output_dir / f"df_vertical_{df_type}.tsv", separator="\t"
         )
-        df.pivot(
+        # Abundances are part of the row key, so float noise in their last bits
+        # (from summing in a different order) would split a rule's row.
+        wide = df.with_columns(
+            pl.col(c).round_sig_figs(ABUNDANCE_SIG_FIGS)
+            for c in ("mean_sample_abundance", "sample_abundance")
+            if c in df.columns
+        )
+        wide.pivot(
             on=[y_col],
             values=val_cols,
             # drop taxonomy because taxonomy and genome have a relationship, so either we would
@@ -229,7 +239,7 @@ def write_tables(dfs: dict[str, dict[str, pl.DataFrame]], output_dir: Path) -> N
             # blow up the dataframe
             index=[
                 col
-                for col in df.columns
+                for col in wide.columns
                 if col
                 not in [
                     *val_cols,

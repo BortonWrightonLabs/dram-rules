@@ -492,3 +492,24 @@ def test_sample_level_reads_rows_from_memory_too(tmp_path, annotation_sources):
 def test_annotations_stay_on_disk_when_no_rule_reads_rows(tmp_path, annotation_sources):
     run(tmp_path)  # with the mapping file
     assert sorted(annotation_sources) == [("genome", "file"), ("sample", "file")]
+
+
+def test_wide_table_rows_ignore_float_noise_in_abundance(tmp_path):
+    from dram_rules.make_product import write_tables
+
+    # The same rule's mean abundance, summed in two orders: 0.1 + 0.2 != 0.3.
+    df = pl.DataFrame(
+        {
+            "genome": ["bin1", "bin2"],
+            "name": ["Mcr", "Mcr"],
+            "present": [True, False],
+            "mean_sample_abundance": [0.1 + 0.2, 0.3],
+        }
+    )
+    write_tables({"genome": {"G1": df}}, tmp_path)
+    wide = pl.read_csv(tmp_path / "df_genome.tsv", separator="\t")
+    assert wide.to_dicts() == [
+        {"name": "Mcr", "mean_sample_abundance": 0.3, "bin1": True, "bin2": False}
+    ]
+    vertical = pl.read_csv(tmp_path / "df_vertical_genome.tsv", separator="\t")
+    assert vertical["mean_sample_abundance"].to_list() == [0.1 + 0.2, 0.3]
