@@ -10,14 +10,14 @@ your own in Python.
 
 ## Rule Sheets in DRAM
 
-Rules are stored in tab-separated value (TSV) files. DRAM uses them when
-evaluating traits with `--traits` and when building heatmaps with `--visualize`.
-Custom sheets can be supplied with `--trait_rules_tsv` and `--viz_rules_tsv`.
-Traits are evaluated through dram-viz and produce both a traits table and a
-heatmap, so trait sheets can use the same options as visualization sheets.
+Rules are stored in tab-separated value (TSV) files. The `dram-rules` command
+uses them in three refinements: `--visualize` builds heatmaps and tables of each
+rule's Presence or Coverage per genome, `--traits` does the same for the traits
+sheet, and `--summarize` counts, per genome, the genes each rule finds (its
+Gene Count). Every kind of sheet is read the same way, so the options below
+work in all of them.
 
-DRAM automatically loads its common rule sheet for both traits and
-visualizations. The common sheet contains reusable alias definitions, so a
+DRAM automatically loads its Common Alias Sheet for every refinement. The common sheet contains reusable alias definitions, so a
 custom rule sheet can reference a shared definition such as `@DNRA` without
 copying its full expression. The maintained
 [rule sheets and common rules sheet](https://github.com/BortonWrightonLabs/dram-rules/tree/main/src/dram_rules/data)
@@ -27,13 +27,13 @@ copying its full expression. The maintained
 
 | Column | Required | Purpose |
 | --- | --- | --- |
-| `name` | Yes | Output label for an evaluated rule. Leave it empty on a helper-only alias row. |
-| `rule` | Yes | Rule expression to parse and evaluate. |
-| `alias` | No | Reusable name assigned to the expression in the same row. |
+| `name`, `label`, or `gene_id` | Yes, one of them | Output label for an evaluated rule; the first of these columns present is used. Leave it empty on a helper-only alias row. A rule name may appear only once in a sheet. |
+| `rule` | No | Rule expression to parse and evaluate. Without a `rule` column, or with an empty cell, the label itself is the rule (a Gene ID). |
+| `alias`, `aliases`, or `parent` | No | Reusable name assigned to the expression in the same row. |
 | `rule_options` | No | Strict JSON with per-rule settings: when the rule is included, and how it is reported. See [Rule Options](#rule-options). |
 | `long_name` | Visualization only | Longer label shown in visualization metadata. |
-| `group`, `topic_ecosystem`, or `module` | Yes, one of them | Groups related rules into a heatmap. The first of these columns present is used; empty cells in it are filled from the others. Common alias sheets don't need one. |
-| Other metadata | No | Columns such as `module`, or `notes` may organize downstream output. |
+| `group`, `topic_ecosystem`, or `module` | Yes, one of them | Groups related rules: one heatmap, or one worksheet of a Summary Collection, per Group. The first of these columns present is used; empty cells in it are filled from the others. Common alias sheets don't need one. |
+| Other metadata | No | Columns such as `module`, or `notes` may organize downstream output. Summary Collections keep `gene_description`, `module`, `header` and `subheader`. |
 
 A row with a `name` is emitted as a result. A row with an `alias` defines a
 reusable expression. A row may contain both, or it may leave `name` empty to
@@ -47,8 +47,13 @@ formatting.
 
 ### Passing a Custom Sheet to DRAM
 
+The commands in this section use the DRAM pipeline's current parameters. DRAM
+switches to the `dram-rules` command when it bumps its `rules` submodule; to
+run `dram-rules` yourself, see
+[Running dram-rules Directly](#running-dram-rules-directly).
+
 Use `--trait_rules_tsv` with `--traits`, or `--viz_rules_tsv` with
-`--visualize`. Each custom sheet replaces the default sheet for that step;
+`--visualize`. Each custom sheet replaces the default sheet for that refinement;
 the common alias sheet is still loaded separately. You can supply an existing
 DRAM annotations TSV with `--annotations` to evaluate new rules without
 repeating gene calling or database searches.
@@ -100,20 +105,29 @@ alias definition your custom rules depend on, including any built-in aliases
 you still use. The [common alias sheet example](#common-alias-sheet-example)
 below shows the format.
 
-### Running dram-viz Directly
+### Running dram-rules Directly
 
-Outside the pipeline, the `dram_viz` command evaluates a sheet against an
-annotations file:
+Outside the pipeline, the `dram-rules` command evaluates sheets against an
+annotations file. Custom sheets are added to a refinement's built-in sheets, so
+`--ecos none` leaves only yours:
 
 ```bash
-dram_viz --annotations raw-annotations.tsv --rules_tsv my_rules.tsv \
-    --output_dir rule-test --save_dataframes
+dram-rules --annotations raw-annotations.tsv --output_dir rule-test \
+    --viz --ecos none --viz_custom my_rules.tsv
 ```
+
+Use `--traits_custom` with `--traits`, or `--sum_custom` with `--summarize`
+(with `--topics none --ecos none` for only your sheets). Several sheets are
+comma separated. The tables and heatmaps are written to
+`rule-test/visualize/my_rules/` (`rule-test/traits/<sheet>/` and
+`rule-test/summarize/` for the other refinements). If your sheet's columns aren't
+named as above, `-lc`, `-acc` and `-gc` name its label, alias and Group
+columns.
 
 `--common_rules_tsv` replaces the common alias sheet, `--functions` loads
 [custom rule functions](custom_rule_functions.md), and `--save_needed_features`
-writes the gene identifiers the rules look for. Run `dram_viz --help` for all
-options.
+writes the Gene IDs each visualize sheet looks for. Run `dram-rules --help` for
+all options.
 
 ### Testing Rule Syntax and Results
 
@@ -540,8 +554,8 @@ sample, the same as genes that were not found. Give taxonomy-based rules
 
 ### Inspecting Required Features
 
-When running dram-viz directly, add `--save_needed_features` to write
-`needed_features.txt`. This lists the gene identifiers collected from the
+When running `dram-rules --viz` directly, add `--save_needed_features` to
+write `needed_features.txt` in each sheet's folder. This lists the Gene IDs collected from the
 expanded rules and can help diagnose spelling, capitalization, qualification,
 and alias-expansion problems. Column names, numbers, and other literal function
 arguments are not included.

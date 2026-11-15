@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from math import pi
 from pathlib import Path
-from typing import Optional
 
 import panel as pn
 import param
@@ -36,8 +35,8 @@ def heatmap(
     rect_kw=None,
     c_min=0,
     c_max=1,
-    c_col: str = None,
-    x_col: str = None,
+    c_col: str | None = None,
+    x_col: str | None = None,
     log_colors: bool = False,
     **fig_kwargs,
 ):
@@ -162,16 +161,16 @@ class Dashboard(pn.viewable.Viewer):
     def __init__(
         self,
         dfs: dict[str, dict[str, pl.DataFrame]],
-        taxanomy_tree_data: Optional[list[dict]] = None,
-        selected_tax_tree: Optional[list[str]] = None,
-        output_dir: str | Path = None,
+        taxanomy_tree_data: list[dict] | None = None,
+        selected_tax_tree: list[str] | None = None,
+        output_dir: str | Path | None = None,
         title: str = "DRAM Product Visualization",
     ):
         super().__init__()
         self.dfs = dfs
         self.title = title
         self.taxonomy_tree_data = taxanomy_tree_data
-        self._output_dir = Path(output_dir) if output_dir else Path.cwd()
+        self._output_dir = Path(output_dir) if output_dir else None
         self.plot_view = pn.Row()
         self.download_button = pn.widgets.Button(
             label="Download Heatmap", color="primary"
@@ -241,7 +240,8 @@ class Dashboard(pn.viewable.Viewer):
         )
 
         self._init_view()
-        self.download_heatmap()
+        if self._output_dir:  # no output_dir: save nothing until asked
+            self.download_heatmap()
 
     def __panel__(self, *args, **kwargs):
         return self.view
@@ -404,7 +404,7 @@ class Dashboard(pn.viewable.Viewer):
         return df
 
     def reveal_tax_axis_rank_selector(
-        self, event=None, tax_axis_filter_value: bool = None
+        self, event=None, tax_axis_filter_value: bool | None = None
     ):
         """
         Set the taxonomy filter
@@ -424,7 +424,7 @@ class Dashboard(pn.viewable.Viewer):
         """
         Save the heatmap to a file
         """
-        output_dir = output_dir or self._output_dir
+        output_dir = output_dir or self._output_dir or Path.cwd()
         plots = [
             Div(text=pane.object) if isinstance(pane, pn.pane.Markdown) else pane.object
             for pane in self.plot_view

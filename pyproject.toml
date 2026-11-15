@@ -31,6 +31,7 @@ dependencies = [
     'polars >=2,<3',
     'pyarrow >=15',
     'lark >=1.1,<2',
+    'xlsxwriter >=3,<4',
 ]
 
 [project.urls]
@@ -42,8 +43,11 @@ dependencies = [
 dev = [
     'pytest',
     'pytest-cov',
+    'fastexcel',
     'pre-commit',
-    'ruff',
+    'ruff ==0.17.5',  # same as .pre-commit-config.yaml
+    'diff-cover',
+    'networkx',  # DRAM2's distill imports it; for golden checks against it
 ]
 
 [tool.setuptools]
@@ -57,8 +61,9 @@ include = ["dram_rules*"]
 "*" = ["*.tsv", "*.lark"]
 
 [project.scripts]
-"dram_viz" = "dram_rules.make_product:main"
-"dram.viz" = "dram_rules.make_product:main"
+"dram-rules" = "dram_rules.cli:main"
+"dram_viz" = "dram_rules.cli:main"
+"dram.viz" = "dram_rules.cli:main"
 
 [tool.setuptools_scm]
 write_to = "src/dram_rules/_version.py"
@@ -164,12 +169,14 @@ default = { solve-group = "default" }
 dev = { features = ["dev"], solve-group = "default" }
 
 [tool.pixi.tasks]
-# Run the CLI: pixi run viz -a <annotations.tsv> -o <output dir> [options]
-viz = "dram_viz"
+# Run the visualize step: pixi run viz -a <annotations.tsv> -o <output dir> [options]
+viz = "dram-rules --viz"
 
 # Need the dev tools, so they run in the dev environment.
 [tool.pixi.feature.dev.tasks]
 test = "pytest tests"
 lint = "ruff check src tests"
+# Every line changed since main must run in some test (CI enforces this too).
+cover = "pytest tests --cov=dram_rules --cov-report=xml && diff-cover coverage.xml --compare-branch=main --fail-under=100"
 # Install the git pre-commit hooks from .pre-commit-config.yaml (once per clone).
 install-hooks = "pre-commit install"

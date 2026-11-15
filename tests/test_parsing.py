@@ -4,11 +4,10 @@ import polars as pl
 import pytest
 
 from dram_rules.rule_parser.rules import (
-    CompiledRules,
     ID_PARSERS,
+    CompiledRules,
     Name,
     RuleError,
-    evaluate_rules_on_anno,
     load_rules,
     parse_ids,
     prepare_present_map_df,
@@ -335,13 +334,21 @@ def test_basic_compiled_rules():
     assert compiled.rules == {k: compile_text(v) for k, v in BASIC_EXPANDED.items()}
 
 
-def test_basic_rules_pass_annotation():
+def presence_table(dfs: dict) -> pl.DataFrame:
+    """One row per genome, one True/False column per rule."""
+    return (
+        dfs["grp"]
+        .pivot(on="name", index="genome", values="present")
+        .rename({"genome": "input_fasta"})
+    )
 
-    df = evaluate_rules_on_anno(
-        rules_path=DATA_DIR / "basic_rules.tsv",
-        annotations_path=DATA_DIR / "basic_anno.tsv",
-        count_col="query_id",
-        group_col="input_fasta",
+
+def test_basic_rules_pass_annotation(evaluate_annotations):
+    df = presence_table(
+        evaluate_annotations(
+            DATA_DIR / "basic_rules.tsv",
+            pl.read_csv(DATA_DIR / "basic_anno.tsv", separator="\t"),
+        )
     )
 
     true_df = pl.DataFrame(
@@ -360,13 +367,12 @@ def test_compoun_compiled_rules():
     assert compiled.rules == {k: compile_text(v) for k, v in COMPOUND_EXPANDED.items()}
 
 
-def test_compound_rules_pass_annotation():
-
-    df = evaluate_rules_on_anno(
-        rules_path=DATA_DIR / "compound_rules.tsv",
-        annotations_path=DATA_DIR / "basic_anno.tsv",
-        count_col="query_id",
-        group_col="input_fasta",
+def test_compound_rules_pass_annotation(evaluate_annotations):
+    df = presence_table(
+        evaluate_annotations(
+            DATA_DIR / "compound_rules.tsv",
+            pl.read_csv(DATA_DIR / "basic_anno.tsv", separator="\t"),
+        )
     )
 
     true_df = pl.DataFrame(
@@ -379,3 +385,38 @@ def test_compound_rules_pass_annotation():
         }
     )
     assert df.equals(true_df)
+
+
+# --- one reader for every kind of rule sheet ----------------------------------------
+
+
+def test_summarize_sheet_labels_are_their_own_rules():
+    """A Summarize Sheet: labelled by gene_id, no rule column."""
+    compiled = CompiledRules.from_rules(
+        rules=pl.DataFrame(
+            {"gene_id": ["K00399", "GH2"], "topic_ecosystem": ["eco", "eco"]}
+        ).lazy()
+    )
+    assert compiled.rules == {"K00399": Name("K00399"), "GH2": Name("GH2")}
+
+
+def test_empty_rule_uses_the_label():
+    compiled = CompiledRules.from_rules(
+        rules=pl.DataFrame({"name": ["K1", "both"], "rule": [None, "K1 & K2"]}).lazy()
+    )
+    assert compiled.rules["K1"] == Name("K1")
+    assert compiled.needed_features == {"K1", "K2"}
+
+
+def test_label_lookup_prefers_name_over_gene_id():
+    compiled = CompiledRules.from_rules(
+        rules=pl.DataFrame({"name": ["r"], "gene_id": ["K9"], "rule": ["K1"]}).lazy()
+    )
+    assert list(compiled.rules) == ["r"]
+
+
+def test_repeated_label_in_a_sheet_is_an_error():
+    with pytest.raises(RuleError, match=r"Duplicate labels: \['K1'\]"):
+        CompiledRules.from_rules(
+            rules=pl.DataFrame({"gene_id": ["K1", "K2", "K1"]}).lazy()
+        )

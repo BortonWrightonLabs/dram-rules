@@ -5,11 +5,10 @@ import functools
 import json
 import logging
 import operator
-import os
 from collections.abc import Sequence
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, ClassVar
+from typing import Any, ClassVar, Literal
 
 import numpy as np
 import polars as pl
@@ -17,7 +16,9 @@ from lark import Lark, LarkError, Transformer
 
 from dram_rules.definitions import (
     BACKUP_GROUPBY_COLUMNS,
+    BACKUP_LABEL_COLUMNS,
     DEFAULT_GROUPBY_COLUMN,
+    DEFAULT_LABEL_COLUMN,
 )
 from dram_rules.processing.process_annotations import scan_tsv
 from dram_rules.rules_api import (
@@ -806,27 +807,43 @@ class CompiledRules:
     # Parsed `rule_options` JSON per rule name; rules without options are absent.
     rule_options: dict[str, dict] = field(default_factory=dict)
     functions: FunctionRegistry = field(default_factory=builtin_functions)
+    label_col: str = DEFAULT_LABEL_COLUMN  # the sheet's label column, as found
+    group_col: str | None = None  # the sheet's Group column, as found
+
+    @property
+    def reads_rows(self) -> bool:
+        """Whether any rule calls a function that reads annotation rows."""
+        return any(
+            isinstance(node, BoundCall) and node.function.rows_param is not None
+            for expr in self.rules.values()
+            for node in walk(expr)
+        )
 
     @classmethod
     def from_rules(
         cls,
-        *args,
-        label_col: str = "name",
+        rules_path: str | Path | None = None,
+        rules: pl.LazyFrame | None = None,
+        label_col: str | None = None,
         group_col=None,
         group_col_backups=BACKUP_GROUPBY_COLUMNS,
         functions: FunctionRegistry | None = None,
         function_files: Sequence[str | Path] = (),
         **kwargs,
     ) -> CompiledRules:
-        """Load, expand and compile rule sheets (arguments as for `load_rules`).
+        """Load, expand and compile a rule sheet (other arguments as for `load_rules`).
 
-        `functions` are the functions rules may call (default: the built-ins);
-        `function_files` are Python files of extra `@rule_function`s to add.
+        `label_col` defaults to the sheet's first column of `name`, `label`,
+        `gene_id`. `functions` are the functions rules may call (default: the
+        built-ins); `function_files` are Python files of extra `@rule_function`s to add.
         """
         if functions is None:
             functions = builtin_functions()
         functions = functions.with_files(function_files)
-        definitions, rules, df = load_rules(*args, label_col=label_col, **kwargs)
+        sheet = _scan_rules_tsv(rules_path) if rules_path else rules
+        if label_col is None:
+            label_col = find_label_column(sheet.collect_schema().names())
+        definitions, rules, df = load_rules(rules=sheet, label_col=label_col, **kwargs)
         compiler = RuleCompiler(functions)
 
         # Check each alias on its own, so errors in unused aliases are found too.
@@ -872,7 +889,20 @@ class CompiledRules:
             df=df,
             rule_options=rule_options,
             functions=functions,
+            label_col=label_col,
+            group_col=group_col,
         )
+
+
+def find_label_column(columns: Sequence[str]) -> str:
+    """The rule sheet's label column: the first of `name`, `label`, `gene_id` present."""
+    for col in [DEFAULT_LABEL_COLUMN, *BACKUP_LABEL_COLUMNS]:
+        if col in columns:
+            return col
+    raise RuleError(
+        f"Rule sheet has no label column: expected one of"
+        f" {[DEFAULT_LABEL_COLUMN, *BACKUP_LABEL_COLUMNS]}, found {list(columns)}"
+    )
 
 
 def _check_not_alias_names(genes: set[str], definitions: dict[str, Expr]) -> None:
@@ -939,19 +969,19 @@ def _parse_rule_options(df: pl.DataFrame, label_col: str) -> dict[str, dict]:
 
 
 def load_rules(
-    rules_path: str | Path = None,
+    rules_path: str | Path | None = None,
     rules: pl.LazyFrame = None,
     label_col: str = "name",
     alias_col: str = "alias",
     rules_col: str = "rule",
     common_rules: pl.LazyFrame = None,
-    common_rules_path: str | Path = None,
-    check_for_dupes: bool = True,
+    common_rules_path: str | Path | None = None,
 ) -> tuple[dict[str, Expr], dict[str, Expr], pl.DataFrame]:
     """
-    Assumes TSV has columns at least: name, rule
+    Assumes TSV has at least a label column (`label_col`, e.g. name).
     Convention used here:
-      - if `name` is non-empty: this is an OUTPUT RULE whose expression is in `rule`
+      - if `name` is non-empty: this is an OUTPUT RULE whose expression is in `rule`;
+        with no `rule` column, or an empty `rule`, the label itself is the rule
       - if `name` is empty and `alias` is non-empty: this is a DEFINITION macro: alias := rule
     If your file uses a slightly different convention, adjust this function only.
 
@@ -969,11 +999,12 @@ def load_rules(
         clf = common_rules
 
     cols = set(lf.collect_schema().names())
-    required = {label_col, rules_col}
-    if not required.issubset(cols):
+    if label_col not in cols:
         raise ValueError(
-            f"rules TSV missing required columns {required}. Found: {sorted(cols)}"
+            f"Rule sheet is missing its label column {label_col!r}. Found: {sorted(cols)}"
         )
+    if rules_col not in cols:
+        lf = lf.with_columns(pl.lit(None, dtype=pl.String).alias(rules_col))
 
     if not (alias_col and alias_col in cols):
         alias_col = alias_col or "alias"
@@ -996,17 +1027,18 @@ def load_rules(
         .with_columns(pl.col(label_col, alias_col, rules_col).str.strip_chars())
         # then treat empty cells (including whitespace-only ones) as missing.
         .with_columns(pl.col(pl.String).replace("", None))
+        # A rule with no expression is its own label (e.g. a Gene ID).
+        .with_columns(pl.col(rules_col).fill_null(pl.col(label_col)))
         .collect()
     )
 
-    if check_for_dupes:
-        labels = df.get_column(label_col).drop_nulls()
-        duplicate_labels = labels.filter(labels.is_duplicated()).unique().sort()
-        if len(duplicate_labels):
-            raise RuleError(
-                f"Rule column '{label_col}' needs to be unique."
-                f" Duplicate labels: {duplicate_labels.to_list()}"
-            )
+    labels = df.get_column(label_col).drop_nulls()
+    duplicate_labels = labels.filter(labels.is_duplicated()).unique().sort()
+    if len(duplicate_labels):
+        raise RuleError(
+            f"Rule column '{label_col}' needs to be unique."
+            f" Duplicate labels: {duplicate_labels.to_list()}"
+        )
 
     # Parse each distinct rule string once (aliases are often reused across sheets).
     parser = _get_parser()
@@ -1050,8 +1082,8 @@ def prepare_present_map_df(
     count_col: str,
     besthit_cols: list[str],
     needed_features: set[str],
-    additional_cols: list[str] = None,
-    group_col: str = None,
+    additional_cols: list[str] | None = None,
+    group_col: str | None = None,
 ):
     """Long table of (index cols, hit, additional cols): one row per gene and
     rule identifier it was annotated with, keeping only identifiers in
@@ -1120,33 +1152,21 @@ def build_present_map(
     sample_col: str,
     needed_features: set[str],
     sample_names: list[str],
-    value_col: str = None,
-) -> tuple[list[str], dict[str, np.ndarray]]:
-    """Build present_map of needed gene_ids from annotations DataFrame"""
-    hit_col = "hit"
+) -> dict[str, np.ndarray]:
+    """Hit counts per needed (uppercase) Gene ID, one value per sample.
 
-    df: pl.DataFrame = df.drop_nulls(subset=sample_col)
-
+    Only Gene IDs with a hit get an array: the Evaluator reads a missing one as
+    all zero, and at the gene level most Gene IDs have no hit among a genome's genes.
+    """
+    df = df.drop_nulls(subset=sample_col)
     sample_index = {s: i for i, s in enumerate(sample_names)}
-    n = len(sample_names)
-    present_map: dict[str, np.ndarray] = {f: np.zeros(n) for f in needed_features}
-
-    # Group by hit_id and set booleans
-    for hit_id, sub in df.group_by(hit_col):
-        hit = hit_id[0]
-        arr = present_map.get(hit)
-        if arr is None:
+    present_map: dict[str, np.ndarray] = {}
+    for (hit,), sub in df.group_by("hit"):
+        if hit not in needed_features:
             continue
-
-        if value_col:
-            # for name, value in sub.select([sample_col, value_col]).iter_rows():
-            for name, value in (
-                sub.group_by([sample_col]).agg(pl.col(value_col).sum()).iter_rows()
-            ):
-                arr[sample_index[name]] = value
-        else:
-            for name, count in sub[sample_col].value_counts().iter_rows():
-                arr[sample_index[name]] = count
+        arr = present_map[hit] = np.zeros(len(sample_names))
+        for name, count in sub[sample_col].value_counts().iter_rows():
+            arr[sample_index[name]] = count
     return present_map
 
 
@@ -1176,7 +1196,7 @@ class Evaluator:
             else set()
         )
         self.sample_col = sample_col
-        self._all_false = np.zeros(len(samples), dtype=bool)
+        self._no_hits = np.zeros(len(samples))
         self._all_rows = (
             Rows(annotations, sample_col, samples) if annotations is not None else None
         )
@@ -1189,7 +1209,7 @@ class Evaluator:
         """Per-sample value of a compiled rule: hit counts or True/False."""
         match expr:
             case Name(value=value):
-                return self.present_map.get(value.upper(), self._all_false)
+                return self.present_map.get(value.upper(), self._no_hits)
             case Not(part=part):
                 return np.logical_not(self.evaluate(part))
             case Combination(parts=parts):
@@ -1399,45 +1419,196 @@ def get_val_cols(df, allow_multiple=False):
     return cols[0]
 
 
-def evaluate_rules(
+EvaluationLevel = Literal["gene", "genome", "sample"]
+EVALUATION_LEVELS = ("gene", "genome", "sample")
+
+
+def evaluate(
     compiled: CompiledRules,
-    samples: list[str],
-    present_map: dict[str, np.ndarray],
-    annotations: pl.DataFrame | pl.LazyFrame | None = None,
-    sample_col: str | None = None,
-    bool_output: bool = True,
+    hits: pl.DataFrame,
+    annotations: pl.DataFrame | pl.LazyFrame,
+    level: EvaluationLevel,
+    genomes_or_samples: list[str],
+    *,
+    group_col: str | None = None,
+    label_col: str | None = None,
+    additional_cols: list[str] | None = None,
+    abundance_col: str | None = None,
+) -> dict[str, pl.DataFrame]:
+    """Evaluate every rule of `compiled` at an Evaluation Level.
+
+    Args:
+        hits: one row per (gene, Gene ID it was annotated with), as made by
+            `prepare_present_map_df`: `query_id`, `genome`, `hit` (uppercase),
+            plus `sample` and `abundance_col` when a mapping file is used.
+        annotations: the annotation rows, for rules that read rows. Has a
+            `genome` column, a `sample` column at the sample level, and
+            `query_id` at the gene level.
+        level: "genome" or "sample": one result per genome or sample, the rule's
+            Presence (or Coverage), with abundance when `abundance_col` is given.
+            "gene": each gene is evaluated, and the result is the Gene Count:
+            per genome, the number of its genes where the rule holds.
+        genomes_or_samples: the genomes (at the gene and genome levels) or
+            samples to report, in output order.
+        group_col, label_col: the sheet's Group and label columns; default to
+            the ones `compiled` found.
+        abundance_col: column of `hits` holding the abundance to sum per rule
+            (genome and sample levels only).
+
+    Returns:
+        One frame per Group, keyed by the Group's value. Rules left out by their
+        `include_when` are absent; a Group with no rules left is absent.
+    """
+    if level not in EVALUATION_LEVELS:
+        raise ValueError(f"level must be one of {EVALUATION_LEVELS}, got {level!r}")
+    group_col = group_col or compiled.group_col
+    label_col = label_col or compiled.label_col
+    if group_col is None or group_col not in compiled.df.columns:
+        raise RuleError(
+            f"Rule sheet has no Group column {group_col!r}: expected one of"
+            f" {[DEFAULT_GROUPBY_COLUMN, *BACKUP_GROUPBY_COLUMNS]}"
+        )
+    if level == "gene":
+        if abundance_col:
+            raise ValueError("abundance_col is not supported at the gene level")
+        check_gene_level(compiled)
+        return _evaluate_genes(
+            compiled,
+            hits,
+            annotations,
+            genomes_or_samples,
+            group_col,
+            label_col,
+            additional_cols,
+        )
+    present_map = build_present_map(
+        hits, level, compiled.needed_features, genomes_or_samples
+    )
+    return _evaluate_units(
+        compiled,
+        genomes_or_samples,
+        present_map,
+        annotations,
+        group_col=group_col,
+        label_col=label_col,
+        sample_col=level,
+        additional_cols=additional_cols,
+        anno_df=hits if abundance_col else None,
+        value_col=abundance_col,
+    )
+
+
+def check_gene_level(compiled: CompiledRules) -> None:
+    """Coverage is only reported at the genome or sample level, so a rule asking
+    for it can't be evaluated at the gene level."""
+    for name, options in compiled.rule_options.items():
+        if coverage_mode(options):
+            raise RuleError(
+                f"Rule '{name}': rule_options coverage is only reported at the"
+                " genome or sample level, not the gene level (summarize)"
+            )
+
+
+def _rules_by_group(
+    compiled: CompiledRules, group_col: str, label_col: str, columns: set[str]
+):
+    """(group, rule names) in sheet order, leaving out rules whose
+    `include_when` fails for these annotation `columns`."""
+    named = compiled.df.drop_nulls(subset=[label_col])
+    missing = named.filter(pl.col(group_col).is_null())[label_col]
+    if len(missing):
+        raise RuleError(
+            "Group column, and backup group columns contain no entries! Make sure each"
+            f" row for the group column contains values. Rule names with null group"
+            f" columns: {', '.join(missing)}"
+        )
+    for (group,), frame in named.group_by(group_col, maintain_order=True):
+        yield (
+            group,
+            [
+                rn
+                for rn in frame[label_col]
+                if should_include(compiled.rule_options.get(rn, {}), columns)
+            ],
+        )
+
+
+def _with_rule_columns(
+    df: pl.DataFrame,
+    compiled: CompiledRules,
+    group_col: str,
+    label_col: str,
+    additional_cols: list[str] | None,
 ) -> pl.DataFrame:
-    ev = Evaluator(
-        samples=samples,
-        present_map=present_map,
-        sample_col=sample_col,
-        annotations=annotations,
+    """Add each rule's Group (and `additional_cols`) from the sheet."""
+    return df.join(
+        compiled.df.select(label_col, group_col, *(additional_cols or [])),
+        on=label_col,
     )
 
-    # Skip rules whose rule_options say they don't apply to these annotations.
-    available_columns = ev.columns
-    rule_names = sorted(
-        rn
-        for rn in compiled.rules
-        if should_include(compiled.rule_options.get(rn, {}), available_columns)
-    )
-    data = {}
-    for rn in rule_names:
-        with _in_rule(rn):
-            out = ev.evaluate(compiled.rules[rn])
-        if bool_output:
-            out = out.astype(bool)
-        data[rn] = out
 
-    df = pl.DataFrame(data)
-    df = df.with_columns(pl.Series(sample_col, samples)).select(
-        [sample_col] + rule_names
-    )
+def _evaluate_genes(
+    compiled: CompiledRules,
+    hits: pl.DataFrame,
+    annotations: pl.DataFrame | pl.LazyFrame,
+    genomes: list[str],
+    group_col: str,
+    label_col: str,
+    additional_cols: list[str] | None,
+) -> dict[str, pl.DataFrame]:
+    """Gene Counts: evaluate each gene, then count per genome the genes where
+    the rule holds. One genome at a time, so the per-gene arrays stay small
+    (all genes at once would need genes x Gene IDs values)."""
+    annotations = annotations.lazy()
+    columns = set(annotations.collect_schema().names())
+    groups = list(_rules_by_group(compiled, group_col, label_col, columns))
+    genes = annotations.select("query_id", "genome").collect()
+    genes_by_genome = genes.partition_by("genome", as_dict=True)
+    # Hits may be shared by several sheets; keep only this sheet's Gene IDs.
+    hits = hits.filter(pl.col("hit").is_in(compiled.needed_features))
+    hits_by_genome = hits.partition_by("genome", as_dict=True)
+    no_hits = hits.clear()
 
-    return df
+    counts: dict[str, list[int]] = {rn: [] for _, names in groups for rn in names}
+    for genome in genomes:
+        gene_names = genes_by_genome.get((genome,), genes.clear())["query_id"].to_list()
+        present_map = build_present_map(
+            hits_by_genome.get((genome,), no_hits),
+            "query_id",
+            compiled.needed_features,
+            gene_names,
+        )
+        # shortcut: rules that read rows filter the annotations once per genome; group them once if that gets slow.
+        ev = Evaluator(
+            gene_names,
+            present_map,
+            "query_id",
+            annotations.filter(pl.col("genome") == genome),
+        )
+        for rn, genome_counts in counts.items():
+            with _in_rule(rn):
+                present = ev.evaluate(compiled.rules[rn]).astype(bool)
+            genome_counts.append(int(present.sum()))
+
+    dfs = {}
+    for group, names in groups:
+        if not names:
+            continue
+        df = pl.DataFrame(
+            {
+                "genome": genomes * len(names),
+                label_col: [rn for rn in names for _ in genomes],
+                "gene_count": [c for rn in names for c in counts[rn]],
+            },
+            schema_overrides={"genome": pl.String, "gene_count": pl.Int64},
+        )
+        dfs[group] = _with_rule_columns(
+            df, compiled, group_col, label_col, additional_cols
+        )
+    return dfs
 
 
-def evaluate_cycles(
+def _evaluate_units(
     compiled: CompiledRules,
     samples: list[str],
     present_map: dict[str, np.ndarray],
@@ -1446,36 +1617,22 @@ def evaluate_cycles(
     label_col: str | None = "name",
     sample_col: str | None = None,
     additional_cols: list[str] | None = None,
-    anno_df: pl.DataFrame = None,
-    value_col: str = None,
-) -> pl.DataFrame:
-    assert (anno_df is None and value_col is None) or (
-        anno_df is not None and value_col is not None
-    ), "anno_df and value_col must both be None or neither be None"
+    anno_df: pl.DataFrame | None = None,
+    value_col: str | None = None,
+) -> dict[str, pl.DataFrame]:
+    """Presence or Coverage per genome or sample, with abundance from
+    `anno_df[value_col]` when given."""
     ev = Evaluator(
         samples=samples,
         present_map=present_map,
         sample_col=sample_col,
         annotations=annotations,
     )
-    available_columns = ev.columns
     dfs = {}
-    additional_cols = [pl.col(c) for c in additional_cols] if additional_cols else []
-    if compiled.df.drop_nulls(subset=pl.col(label_col))[group_col].null_count() > 0:
-        raise RuleError(
-            "Group column, and backup group columns contain no entries! Make sure each row for the group column contains values."
-            f"Rule names with null group columns: {', '.join(val for val in compiled.df.drop_nulls(subset=pl.col(label_col)).filter(pl.col(group_col).is_null())[label_col])}"
-        )
-    for group, frame in compiled.df.drop_nulls(subset=[label_col]).group_by(
-        group_col, maintain_order=True
-    ):
-        group = group[0]
-        dfs[group] = []
-        for rn in frame[label_col]:
+    for group, names in _rules_by_group(compiled, group_col, label_col, ev.columns):
+        frames = []
+        for rn in names:
             options = compiled.rule_options.get(rn, {})
-            if not should_include(options, available_columns):
-                continue
-
             expr = compiled.rules[rn]
             mode = coverage_mode(options)
             with _in_rule(rn):
@@ -1511,93 +1668,22 @@ def evaluate_cycles(
             )
             if anno_df is not None:
                 check_col = get_val_cols(out)
-
-                out = (
-                    out.join(
-                        # We grab the the anno_df that only match the hits
-                        # then we group by the sample col
-                        # and se sum them over the value column
-                        (
-                            anno_df.filter(pl.col("hit").is_in(features))
-                            .group_by([sample_col])
-                            .agg(pl.col(value_col).sum())
-                        ),
-                        on=sample_col,
-                        how="left",
-                        validate="1:1",
-                    )
-                    # we want to scale the summed value columns by the check column (presence/absence or coverage %)
-                    .with_columns(
-                        pl.col(value_col).fill_null(strategy="zero") * pl.col(check_col)
-                    )
+                out = out.join(
+                    # Sum the abundance of this rule's hits per sample,
+                    anno_df.filter(pl.col("hit").is_in(features))
+                    .group_by(sample_col)
+                    .agg(pl.col(value_col).sum()),
+                    on=sample_col,
+                    how="left",
+                    validate="1:1",
+                ).with_columns(
+                    # scaled by the rule's presence or coverage.
+                    pl.col(value_col).fill_null(strategy="zero") * pl.col(check_col)
                 )
-            dfs[group].append(out)
+            frames.append(out)
 
-        assert all(isinstance(df, pl.DataFrame) for df in dfs[group]), (
-            f"All rules in group {group} should evaluate to the same type, but got different types: {[type(df) for df in dfs[group]]}"
-        )
-        if len(dfs[group]):
-            df = pl.concat(dfs[group])
-            df = df.join(
-                compiled.df.select(
-                    pl.col(label_col), pl.col(group_col), *additional_cols
-                ),
-                on=label_col,
+        if frames:
+            dfs[group] = _with_rule_columns(
+                pl.concat(frames), compiled, group_col, label_col, additional_cols
             )
-            dfs[group] = df
-        else:
-            del dfs[group]
-
     return dfs
-
-
-def evaluate_rules_on_anno(
-    count_col: str,
-    annotations_path: os.PathLike = None,
-    annotations: pl.DataFrame = None,
-    group_col: str | None = None,
-    *args,
-    **kwargs,
-):
-    compiled = CompiledRules.from_rules(*args, check_for_dupes=False, **kwargs)
-    print(f"Need {len(compiled.needed_features)} features")
-    assert (annotations_path is not None) != (annotations is not None), (
-        "Exactly one of annotations_path or annotations DataFrame must be provided."
-    )
-    if annotations_path:
-        try:
-            annotations = pl.read_csv(
-                annotations_path, separator="\t", infer_schema_length=10_000
-            )
-        except Exception:
-            annotations = pl.read_csv(
-                annotations_path, separator="\t", infer_schema_length=None
-            )
-
-    sample_col = group_col if group_col else count_col
-    sample_names = (
-        annotations.select(sample_col).unique().sort(sample_col).to_series().to_list()
-    )
-    df = prepare_present_map_df(
-        df=annotations,
-        count_col=count_col,
-        besthit_cols=list(ID_PARSERS),
-        needed_features=compiled.needed_features,
-        group_col=group_col,
-    )
-
-    present_map = build_present_map(
-        df=df,
-        sample_col=sample_col,
-        needed_features=compiled.needed_features,
-        sample_names=sample_names,
-    )
-
-    df = evaluate_rules(
-        compiled,
-        sample_names,
-        present_map,
-        annotations=annotations,
-        sample_col=sample_col,
-    )
-    return df

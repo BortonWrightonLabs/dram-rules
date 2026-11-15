@@ -88,3 +88,5 @@ __pycache__/
 # Agent-skill domain docs (.scratch/ and docs/agents/ are in the global gitignore)
 GLOSSARY.md
 docs/adr/
+.coverage
+coverage.xml
