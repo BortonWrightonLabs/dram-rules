@@ -26,6 +26,7 @@ from dram_rules.rule_parser.rules import (
 )
 
 COMMON_RULES = Path(__file__).parent / "data/rules_common.tsv"
+TRAITS_SHEET = Path(__file__).parent / "data/traits_rules.tsv"
 VISUALIZE_ONLY_ECOS = ("legacy", "default")
 
 
@@ -45,6 +46,15 @@ def split_choices(*choices: str):
         return [v for v in values if v != "none"]
 
     return callback
+
+
+def sheet_folders(step_dir: Path, named) -> list[tuple[Path, Path]]:
+    """`[(step_dir / name, sheet path)]` for each `(name, sheet path)`; two
+    sheets sharing a folder are an error."""
+    names = [name for name, _ in named]
+    if shared := sorted({n for n in names if names.count(n) > 1}):
+        raise click.UsageError(f"Sheets would share a folder in {step_dir}: {shared}")
+    return [(step_dir / name, path) for name, path in named]
 
 
 def compile_sheets(paths, load, *args) -> dict[Path, CompiledRules]:
@@ -67,7 +77,10 @@ def compile_sheets(paths, load, *args) -> dict[Path, CompiledRules]:
     help=f"Annotations column of genome names; falls back to {BACKUP_FASTA_COLUMNS}",
 )
 @click.option(
-    "--output_dir", "-o", type=Path, default=Path.cwd(), help="Output directory"
+    "--output_dir",
+    "-o",
+    type=Path,
+    help="Output directory; optional only with --no_save",
 )
 @click.option(
     "--common_rules_tsv",
@@ -110,6 +123,27 @@ def compile_sheets(paths, load, *args) -> dict[Path, CompiledRules]:
     is_flag=True,
     help="Write each visualize sheet's Gene IDs to needed_features.txt in its folder",
 )
+@click.option("--traits", "-t", is_flag=True, help="Run the traits step")
+@click.option(
+    "--traits_custom",
+    callback=split_commas,
+    help="Custom traits sheets, comma separated, added to the built-in one",
+)
+@click.option(
+    "--dashboard",
+    "-d",
+    is_flag=True,
+    help="Serve the live dashboard; the run must have exactly one visualize or "
+    "traits sheet",
+)
+@click.option(
+    "--port", default=5006, type=click.INT, help="Port to serve the dashboard on"
+)
+@click.option(
+    "--no_save",
+    is_flag=True,
+    help="Write nothing (no HTML, no tables); only with --dashboard",
+)
 @click.option("--summarize", "--sum", "-s", is_flag=True, help="Run the summarize step")
 @click.option(
     "--topics",
@@ -139,38 +173,66 @@ def main(
     visualize,
     viz_custom,
     save_needed_features,
+    traits,
+    traits_custom,
+    dashboard,
+    port,
+    no_save,
     summarize,
     topics,
     sum_custom,
     trna_path,
 ):
     """Visualize, score traits of, and summarize DRAM annotations."""
-    if not (visualize or summarize):
-        raise click.UsageError("Choose at least one step: --visualize, --summarize")
+    if not (visualize or traits or summarize):
+        raise click.UsageError(
+            "Choose at least one step: --visualize, --traits, --summarize"
+        )
+    if no_save and not dashboard:
+        raise click.UsageError("--no_save is only valid with --dashboard")
+    if no_save and summarize:
+        raise click.UsageError("--no_save would discard the summarize step's outputs")
+    if output_dir is None and not no_save:
+        raise click.UsageError("Missing option '--output_dir' / '-o'")
+    # Nothing is written with --no_save; the folders only name the sheets.
+    out = output_dir or Path.cwd()
 
     # Every sheet is compiled before the annotations load, so a bad sheet
-    # stops the run early.
-    viz_sheets = {}  # output folder: (sheet path, compiled sheet)
-    if visualize:
+    # stops the run early. Visualize and traits sheets are the same kind.
+    folders = []  # (output folder, sheet path)
+    if visualize or traits:
         from dram_rules import make_product  # imports panel, which is slow
 
+    if visualize:
         viz_ecos = ["default"] if ecos is None else ecos
-        named = [
-            *((e, make_product.RULES_SYSTEMS[e]) for e in viz_ecos),
-            *((p.stem, p) for p in viz_custom),
-        ]
-        names = [name for name, _ in named]
-        if shared := sorted({n for n in names if names.count(n) > 1}):
-            raise click.UsageError(f"Visualize sheets would share a folder: {shared}")
+        folders += sheet_folders(
+            out / "visualize",
+            [
+                *((e, make_product.RULES_SYSTEMS[e]) for e in viz_ecos),
+                *((p.stem, p) for p in viz_custom),
+            ],
+        )
+    if traits:
+        if traits_custom:
+            folders += sheet_folders(
+                out / "traits",
+                [("default", TRAITS_SHEET), *((p.stem, p) for p in traits_custom)],
+            )
+        else:  # the common case stays flat
+            folders.append((out / "traits", TRAITS_SHEET))
+    if dashboard and len(folders) != 1:
+        raise click.UsageError(
+            f"--dashboard needs exactly one visualize or traits sheet, not {len(folders)}"
+        )
+    heatmap_sheets = {}  # output folder: (sheet path, compiled sheet)
+    if folders:
         compiled = compile_sheets(
-            dict.fromkeys(p for _, p in named),
+            dict.fromkeys(p for _, p in folders),
             make_product.load_sheet,
             common_rules_tsv,
             function_files,
         )
-        viz_sheets = {
-            output_dir / "visualize" / name: (p, compiled[p]) for name, p in named
-        }
+        heatmap_sheets = {folder: (p, compiled[p]) for folder, p in folders}
 
     if summarize:
         topics = list(TOPICS) if "default" in topics else topics
@@ -204,8 +266,15 @@ def main(
         pl.col("genome").cast(pl.String)
     )
 
-    if visualize:
-        make_product.visualize(viz_sheets, raw_anno, mapping, save_needed_features)
+    if heatmap_sheets:
+        make_product.visualize(
+            heatmap_sheets,
+            raw_anno,
+            mapping,
+            save_needed_features,
+            port=port if dashboard else None,
+            save=not no_save,
+        )
 
     if summarize:
         # shortcut: summarize builds its own Hits, as tRNA rows are summarize-only; ticket 09 shares one load.

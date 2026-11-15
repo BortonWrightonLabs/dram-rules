@@ -6,7 +6,7 @@ import polars as pl
 import pytest
 from click.testing import CliRunner
 
-from dram_rules.cli import main
+from dram_rules.cli import TRAITS_SHEET, main
 
 ANNOTATIONS = """\
 query_id\tinput_fasta\tkegg_id\tfegenie_id\theme_regulatory_motif_count
@@ -55,11 +55,12 @@ def invoke(
     mapping: str | None = None,
     out: str = "out",
     empty_common: bool = True,
+    step: str = "--viz",
 ):
     """`dram-rules --viz` on small inputs written to `tmp_path`. Built-in
     sheets need the default Common Alias Sheet (`empty_common=False`)."""
     (tmp_path / "anno.tsv").write_text(annotations)
-    cli_args = ["-a", str(tmp_path / "anno.tsv"), "-o", str(tmp_path / out), "--viz"]
+    cli_args = ["-a", str(tmp_path / "anno.tsv"), "-o", str(tmp_path / out), step]
     if empty_common:
         (tmp_path / "common.tsv").write_text("name\talias\trule\n")
         cli_args += ["-c", str(tmp_path / "common.tsv")]
@@ -296,3 +297,98 @@ def test_sheet_without_group_column_errors_before_any_output(tmp_path):
     assert "b.tsv" in str(result.exception)
     assert "Group" in str(result.exception)
     assert not (tmp_path / "out").exists()
+
+
+@pytest.fixture
+def served(monkeypatch):
+    """Record `pn.serve` calls instead of starting a server."""
+    from dram_rules import make_product
+
+    calls = []
+    monkeypatch.setattr(
+        make_product.pn, "serve", lambda app, port: calls.append((app(), port))
+    )
+    return calls
+
+
+def test_dashboard_serves_the_one_sheet_and_still_writes(tmp_path, served):
+    out = invoke_ok(
+        tmp_path, "--ecos", "gut", "--dashboard", "--port", "5123", empty_common=False
+    )
+    [(dashboard, port)] = served
+    assert port == 5123
+    assert dashboard.title == "DRAM GUT VISUALIZATION"
+    assert list((out / "gut").glob("*.html"))
+    assert (out / "gut" / "df_vertical_genome.tsv").exists()
+
+
+def test_dashboard_with_two_sheets_errors_before_evaluating(tmp_path, served):
+    result = invoke(tmp_path, "--ecos", "gut,ag", "--dashboard", empty_common=False)
+    assert result.exit_code != 0
+    assert "--dashboard" in result.output
+    assert not served
+    assert not (tmp_path / "out").exists()
+
+
+def test_no_save_serves_and_writes_nothing(tmp_path, served, monkeypatch):
+    (tmp_path / "anno.tsv").write_text(ANNOTATIONS)
+    monkeypatch.chdir(tmp_path)
+    result = CliRunner().invoke(
+        main,
+        ["-a", "anno.tsv", "--viz", "--ecos", "gut", "--dashboard", "--no_save"],
+    )
+    assert result.exit_code == 0, result.output + repr(result.exception)
+    assert len(served) == 1
+    assert sorted(p.name for p in tmp_path.iterdir()) == ["anno.tsv"]
+
+
+def test_no_save_without_dashboard_errors(tmp_path):
+    result = invoke(tmp_path, "--ecos", "gut", "--no_save", empty_common=False)
+    assert result.exit_code != 0
+    assert "--no_save" in result.output
+
+
+def test_output_dir_is_required_without_no_save(tmp_path):
+    (tmp_path / "anno.tsv").write_text(ANNOTATIONS)
+    result = CliRunner().invoke(main, ["-a", str(tmp_path / "anno.tsv"), "--viz"])
+    assert result.exit_code != 0
+    assert "--output_dir" in result.output
+
+
+def test_traits_match_visualizing_the_traits_sheet(tmp_path):
+    out = invoke_ok(tmp_path, step="--traits", empty_common=False)
+    traits = tmp_path / "out" / "traits"
+    assert not out.exists()
+    assert (traits / "df_vertical_genome.tsv").exists()
+    assert list(traits.glob("*.html"))
+    viz = invoke_ok(
+        tmp_path, "--ecos", "none", "--viz_custom", str(TRAITS_SHEET),
+        empty_common=False, out="viz",
+    )  # fmt: skip
+    assert same_tables(traits, viz / "traits_rules")
+
+
+def test_traits_custom_adds_sheets_beside_default(tmp_path):
+    (tmp_path / "extra.tsv").write_text(SHEET_B)
+    invoke_ok(
+        tmp_path, "--ecos", "none", "--traits", "--traits_custom", str(tmp_path / "extra.tsv"),
+        empty_common=False,
+    )  # fmt: skip
+    traits = tmp_path / "out" / "traits"
+    assert sorted(p.name for p in traits.iterdir()) == ["default", "extra"]
+    assert (traits / "default" / "df_vertical_genome.tsv").exists()
+    assert (traits / "extra" / "df_vertical_genome.tsv").exists()
+
+
+def test_viz_and_traits_in_one_run(tmp_path):
+    out = invoke_ok(tmp_path, "--ecos", "gut", "--traits", empty_common=False)
+    assert [p.name for p in out.iterdir()] == ["gut"]
+    assert (tmp_path / "out" / "traits" / "df_vertical_genome.tsv").exists()
+
+
+def test_dashboard_with_viz_and_traits_errors(tmp_path, served):
+    result = invoke(
+        tmp_path, "--ecos", "gut", "--traits", "--dashboard", empty_common=False
+    )
+    assert result.exit_code != 0
+    assert not served

@@ -94,10 +94,14 @@ def visualize(
     raw_anno: pl.LazyFrame,
     mapping: Path | None,
     save_needed_features: bool,
+    port: int | None = None,
+    save: bool = True,
 ) -> None:
     """Heatmaps and tables for each sheet, `{output folder: (sheet path,
     compiled sheet)}`. The annotations' Hits, the mapping file and the
-    taxonomy are loaded once and shared by every sheet."""
+    taxonomy are loaded once and shared by every sheet. With `port`, the
+    live dashboard of the (one) sheet is served there; `save=False` writes
+    nothing."""
     s = time.time()
     anno_columns = raw_anno.collect_schema().names()
     genes = raw_anno.select("query_id", "genome").collect()
@@ -175,21 +179,24 @@ def visualize(
             for key, df in dfs["genome"].items():
                 dfs["genome"][key] = tax_df.join(df, on="genome", how="left")
 
-        output_dir.mkdir(parents=True, exist_ok=True)
-        write_tables(dfs, output_dir)
-        if save_needed_features:
-            (output_dir / "needed_features.txt").write_text(
-                "\n".join(compiled.needed_features_raw)
-            )
-        write_heatmaps(
-            Dashboard(
-                dfs=dfs,
-                taxanomy_tree_data=tax_tree_data,
-                output_dir=output_dir,
-                title=title(rules_tsv),
-            )
-        )
-        logger.info(f"Visualized {rules_tsv} in {output_dir}")
+        dashboard_args = {
+            "dfs": dfs,
+            "taxanomy_tree_data": tax_tree_data,
+            "output_dir": output_dir if save else None,
+            "title": title(rules_tsv),
+        }
+        if save:
+            output_dir.mkdir(parents=True, exist_ok=True)
+            write_tables(dfs, output_dir)
+            if save_needed_features:
+                (output_dir / "needed_features.txt").write_text(
+                    "\n".join(compiled.needed_features_raw)
+                )
+            write_heatmaps(Dashboard(**dashboard_args))
+            logger.info(f"Visualized {rules_tsv} in {output_dir}")
+        if port is not None:
+            # Each browser session gets its own Dashboard.
+            pn.serve(lambda args=dashboard_args: Dashboard(**args), port=port)
 
 
 def write_tables(dfs: dict[str, dict[str, pl.DataFrame]], output_dir: Path) -> None:
@@ -245,7 +252,6 @@ def title(rules_tsv: Path) -> str:
 
 def write_heatmaps(dashboard: Dashboard) -> None:
     """Save every heatmap the dashboard can show, as HTML."""
-    # shortcut: heatmaps are only saved; no live dashboard until ticket 06 adds --dashboard/--port.
     column_options = dashboard.column_options.options
     current_y = dashboard.y_col
     current_color_col = dashboard.color_col
