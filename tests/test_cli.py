@@ -392,3 +392,10 @@ def test_dashboard_with_viz_and_traits_errors(tmp_path, served):
     )
     assert result.exit_code != 0
     assert not served
+
+
+def test_port_without_dashboard_errors(tmp_path):
+    result = invoke(tmp_path, "--ecos", "gut", "--port", "5123", empty_common=False)
+    assert result.exit_code != 0
+    assert "--port" in result.output
+    assert not (tmp_path / "out").exists()

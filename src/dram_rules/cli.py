@@ -137,7 +137,9 @@ def compile_sheets(paths, load, *args) -> dict[Path, CompiledRules]:
     "traits sheet",
 )
 @click.option(
-    "--port", default=5006, type=click.INT, help="Port to serve the dashboard on"
+    "--port",
+    type=click.INT,
+    help="Port to serve the dashboard on (default 5006); only with --dashboard",
 )
 @click.option(
     "--no_save",
@@ -188,6 +190,8 @@ def main(
         raise click.UsageError(
             "Choose at least one step: --visualize, --traits, --summarize"
         )
+    if port is not None and not dashboard:
+        raise click.UsageError("--port is only valid with --dashboard")
     if no_save and not dashboard:
         raise click.UsageError("--no_save is only valid with --dashboard")
     if no_save and summarize:
@@ -272,7 +276,7 @@ def main(
             raw_anno,
             mapping,
             save_needed_features,
-            port=port if dashboard else None,
+            port=(5006 if port is None else port) if dashboard else None,
             save=not no_save,
         )
 
