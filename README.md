@@ -18,6 +18,8 @@ more options can be found by running:
 ```bash
 nextflow run DRAM --product --help
 ```
+
+DRAM's processes call this library's older `dram_viz` options. They switch to the `dram-rules` command described below when DRAM bumps its `rules` submodule.
 ## Standalone Usage
 
 The DRAM Visualization Library can also be used as a standalone Python package to generate figures and dashboards. First you will need to install the DRAM Visualization Library as a standalone package.
@@ -45,7 +47,7 @@ To work on the DRAM Visualization Library, clone the repository and cd into it. 
 ```bash
 pixi run test                 # run the tests (in the dev environment)
 pixi run lint                 # run ruff
-pixi run viz --help           # run the dram_viz command
+pixi run viz --help           # run dram-rules --viz
 pixi shell -e dev             # or open a shell in the dev environment
 ```
 
@@ -55,7 +57,7 @@ Without pixi, create your own environment and install the package in editable mo
 pip install -e '.[dev]'
 ```
 
-Note that an environment always runs the copy of the code it was installed from. To run a different checkout (for example a `git worktree` of an older commit) with the same environment, put that checkout first on the path: `PYTHONPATH=<checkout>/src dram_viz ...`.
+Note that an environment always runs the copy of the code it was installed from. To run a different checkout (for example a `git worktree` of an older commit) with the same environment, put that checkout first on the path: `PYTHONPATH=<checkout>/src dram-rules ...`.
 
 We use [pre-commit](https://pre-commit.com) to manage our pre-commit hooks (e.g., linting, formatting that run commit to keep code formatting in check). To install the pre-commit hooks, run:
 
@@ -71,34 +73,73 @@ pre-commit run --all-files
 
 ### Usage
 
-To generate a figure like the one shown above [TODO: insert figure], run the following command:
+One command, `dram-rules`, runs any mix of three steps on a DRAM annotations TSV. `dram_viz` and `python -m dram_rules` run the same command. The annotations are loaded once and shared by every step. Every rule sheet is checked before any step starts, so a mistake in a sheet stops the run before the slow work.
+
+| Step | Flags | What it gives, per genome |
+|---|---|---|
+| visualize | `--visualize`, `--viz`, `-v` | Heatmaps and tables of each rule's Presence or Coverage |
+| traits | `--traits`, `-t` | The same, for the built-in traits sheet |
+| summarize | `--summarize`, `--sum`, `-s` | Summary Collections: each rule's Gene Count |
+
+Choose at least one step. For example, to visualize the built-in gut sheet and score traits:
 
 ```bash
-dram_viz --annotations <path/to/annotations.tsv> --output_dir <path/to/output/directory/>
+dram-rules --annotations <path/to/annotations.tsv> --output_dir <path/to/output/directory/> --viz --traits
 ```
 
-To count genes per genome for your own Summarize Sheets, with the new `dram-rules` command (`python -m dram_rules ...` runs the same command):
+#### Choosing Rule Sheets
+
+- `--ecos` picks built-in ecosystem sheets, comma separated, from `ag`, `aquatic`, `bgc`, `eng_sys` and `gut`. Visualize and summarize share it. When it is left out, visualize uses `default` (the gut sheet) and summarize uses all five. `legacy` (the older all-in-one sheet) and `default` are for visualize only.
+- `--topics` picks built-in topic Summarize Sheets for summarize: `assim`, `cell`, `energy`, `env`, or `default` for all four (the default).
+- `--viz_custom`, `--traits_custom` and `--sum_custom` each add your own sheets, comma separated, to their step. They add to the built-in sheets rather than replace them. Pass `--ecos none` or `--topics none` to run only your own sheets.
+- `--custom_label_column`/`-lc`, `--custom_alias_column`/`-acc` and `--custom_group_column`/`-gc` name the label, alias and Group columns of every custom sheet, when those columns aren't named as the [Rules File](#rules-file) section describes. Built-in sheets always use the usual names.
+- `--common_rules_tsv`/`-c` replaces the Common Alias Sheet (aliases every sheet can use), and `--functions` loads [your own rule functions](docs/custom_rule_functions.md).
+
+For example, to visualize the gut sheet and your own, and summarize two topics, the gut ecosystem and your own Summarize Sheets:
 
 ```bash
-dram-rules --annotations <path/to/annotations.tsv> --output_dir <path/to/output/directory/> --sum --sum_custom <sheet1.tsv>,<sheet2.tsv> [--trna_path <trnas.tsv>]
+dram-rules --annotations <path/to/annotations.tsv> --output_dir <path/to/output/directory/> \
+    --viz --ecos gut --viz_custom <my_rules.tsv> \
+    --sum --topics cell,env --sum_custom <sheet1.tsv>,<sheet2.tsv> [--trna_path <trnas.tsv>]
 ```
 
-This writes `summarize/custom_summary.xlsx` (one worksheet per group) and `summarize/custom_summary.tsv`.
+`--ecos gut` applies to both steps here: visualize and summarize each use their gut sheet. `--trna_path` takes the tRNAscan output from DRAM annotate, so tRNA rules get Gene Counts.
 
-To launch a dashboard, run the following command:
+`--mapping`/`-m` adds abundances per sample to visualize and traits. Its first column holds gene names (matching the annotations' `query_id`) or genome names, and each numeric column after it is a sample. Summarize ignores the mapping file for now.
+
+Genomes are named by the annotations' `input_fasta` column, or else `fasta` or `sample`. `--fasta_column`/`-f` names another column.
+
+#### Outputs
+
+```
+<output_dir>/visualize/<sheet>/   heatmap HTML, wide (df_genome.tsv) and vertical (df_vertical_genome.tsv) tables
+<output_dir>/traits/              the same, for the built-in traits sheet
+<output_dir>/traits/default/      the built-in traits sheet, when --traits_custom is given
+<output_dir>/traits/<sheet>/      each --traits_custom sheet
+<output_dir>/summarize/           topic_summary, ecosystem_summary and custom_summary, each as .xlsx and .tsv
+```
+
+`<sheet>` is the built-in name (such as `gut`, or `default` when `--ecos` is left out) or the custom file's name without `.tsv`. With a mapping file, visualize also writes the sample tables (`df_sample.tsv`, `df_vertical_sample.tsv`). `--save_needed_features` writes each visualize sheet's Gene IDs to `needed_features.txt` in its folder. A Summary Collection is only written when it has sheets.
+
+Every step is evaluated before anything is written. If evaluation fails, the run writes no outputs at all.
+
+#### Dashboard
+
+To serve a live dashboard, run one visualize or traits sheet with `--dashboard`:
 
 ```bash
-dram_viz --annotations <path/to/annotations.tsv> --output_dir <path/to/output/directory/> --dashboard
+dram-rules --annotations <path/to/annotations.tsv> --output_dir <path/to/output/directory/> --viz --dashboard
 ```
-This should open your default web browser and display the dashboard. If the dashboard does not open automatically, you can navigate to http://localhost:5006 to view the dashboard.
 
-There are a number of other options available such as alternative rules to generate other dashbaords (`--rules_system ag` for example), your own rule functions (`--functions my_functions.py`, see [docs/custom_rule_functions.md](docs/custom_rule_functions.md)), ability to add abundance data through a mapping file and others. Use:
+Then open http://localhost:5006 (`--port` picks another port). The run still writes its outputs. `--no_save` writes nothing, and then `--output_dir` can be left out; it can't be used with `--summarize`. `--dashboard` needs exactly one visualize or traits sheet in the run, so any other number is an error.
+
+Use:
 
 ```bash
-dram_viz --help
+dram-rules --help
 ```
 
-to see all options
+to see all options.
 
 ### SSH Tunneling
 
@@ -122,7 +163,9 @@ The DRAM Visualization Library uses a rules file to generate the figures. This r
 
 | name | long_name | alias | rule | rule_options | group |
 |---|---|---|---|---|---|
-| Name to appear for x column of heatmap | Optional name to add to heatmap hover | Optional rule alias to allow aliasing one rule line to another to break it up | The actual rule | Optional JSON settings for the rule (see below) | Optional grouping variable to add multiple heatmaps next to each other |
+| Name to appear for x column of heatmap | Optional name to add to heatmap hover | Optional rule alias to allow aliasing one rule line to another to break it up | The actual rule | Optional JSON settings for the rule (see below) | The Group: one heatmap per Group, shown next to each other |
+
+The label column is the first of `name`, `label` and `gene_id` in the sheet, the alias column the first of `alias`, `aliases` and `parent`, and the Group column the first of `group`, `topic_ecosystem` and `module`. A row with no `rule` is its own rule: its label is the Gene ID to look for.
 
 Example of a rules file (excerpt from `src/dram_rules/data/rules.tsv`):
 
@@ -136,6 +179,18 @@ tetrathionate => thiosulfate			K08357		Sulfur
 By default, rules evaluate as True/False (presence or absence). With `rule_options` `{"coverage":"steps"}`, a rule is instead shown as the percentage of its steps that are present: use it for pathways whose steps are separated by commas. `{"coverage":"subunits"}` does the same for subunits separated by ANDs (`&`). All rules in one group must use the same coverage setting. `{"include_when":{"all_columns_present":[...]}}` (or `all_columns_absent`) leaves a rule out entirely when the annotations don't have (or do have) the given columns.
 
 The full rule language is described in [docs/rules_parser.md](docs/rules_parser.md), the functions available in rules (`percent`, `at_least`, `tax`, `filter_contains`, `count_rows`, ...) in [docs/rule_functions.md](docs/rule_functions.md), and how to write your own and load them with `--functions` in [docs/custom_rule_functions.md](docs/custom_rule_functions.md).
+
+### Summarize Sheets
+
+A Summarize Sheet is a rule sheet whose results are Gene Counts: for each genome, how many of its genes (annotation rows) the rule finds. A rule whose parts are on different genes counts 0. The built-in Summarize Sheets are in `src/dram_rules/data/summarize_sheets/`. They usually have a `gene_id` column and no `rule` column, so each Gene ID is its own rule, with its Group in `topic_ecosystem`:
+
+| gene_id | gene_description | module | header | subheader | topic_ecosystem |
+|---|---|---|---|---|---|
+| The label, and the rule when there is no `rule` column | Optional | Optional | Optional | Optional | The Group: one worksheet each |
+
+Any rule sheet works as a Summarize Sheet, with its columns found as for any [rule sheet](#rules-file). Coverage settings in `rule_options` are an error, since coverage is only reported per genome. A rule name repeated within one sheet is an error in any sheet.
+
+The sheets of one Summary Collection (topic, ecosystem or custom) are written together as `<collection>.xlsx`, one worksheet per Group sorted by header, subheader, module and label, and `<collection>.tsv`. Each worksheet's columns are the label, then `gene_description`, `module`, `header` and `subheader` when present, then one Gene Count column per genome. The `.tsv` has the same columns plus the Group, as `topic_ecosystem`, and keeps the sheets' row order. Other sheet columns (`notes`, `rule`, `alias`, ...) are dropped. If the sheets of one Collection use different label columns, the Collection labels its rows with `name`.
 
 Rules can be defined across multiple lines if they are enclosed in double quotes (`"`), they do not have to be enclosed in quotes if contained on a single line. White space can be used for formatting.
 

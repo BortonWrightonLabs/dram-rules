@@ -59,8 +59,8 @@ high-mean-score	filter_contains(kegg_description, "cytochrome") -> mean_column(k
 and load the file with `--functions`:
 
 ```bash
-dram_viz --annotations raw-annotations.tsv --rules_tsv my_rules.tsv \
-    --functions my_functions.py --output_dir out --save_dataframes
+dram-rules --annotations raw-annotations.tsv --output_dir out \
+    --viz --ecos none --viz_custom my_rules.tsv --functions my_functions.py
 ```
 
 `--functions` can be given more than once to load several files.
@@ -68,7 +68,9 @@ dram_viz --annotations raw-annotations.tsv --rules_tsv my_rules.tsv \
 ### In the DRAM Pipeline
 
 DRAM does not have a dedicated parameter for custom functions yet. The
-`TRAITS` and `PRODUCT_HEATMAP` processes pass extra arguments to dram-viz from
+`TRAITS` and `PRODUCT_HEATMAP` processes pass extra arguments to this library
+(its older `dram_viz` options, until DRAM switches to `dram-rules` when it
+bumps its `rules` submodule) from
 the process's `ext.args`, so a custom config can add `--functions`:
 
 ```groovy
@@ -250,7 +252,7 @@ def test_mean_column():
 
 `g3` has no rows, so its mean is the `fill` value, 0.0.
 
-To check the whole path from rule text to result, run `dram_viz` on a small
+To check the whole path from rule text to result, run `dram-rules` on a small
 annotations file with samples that should and shouldn't pass, as described in
 [Testing Rule Syntax and Results](rules_parser.md#testing-rule-syntax-and-results).
 
