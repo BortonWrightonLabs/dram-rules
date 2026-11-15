@@ -2,6 +2,8 @@
 #   Check out the docs at: https://pre-commit.com/
 
 default_stages: [pre-commit]
+# commit-msg too, so the local-path check also sees commit messages.
+default_install_hook_types: [pre-commit, commit-msg]
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
@@ -22,3 +24,16 @@ repos:
         args: [ --fix ]
       # Run the formatter.
       - id: ruff-format
+  - repo: local
+    hooks:
+      # Workstation paths name the user's profile; keep them out of the repo.
+      - id: no-local-paths
+        name: no workstation home-folder paths in files
+        language: pygrep
+        entry: '/(home|Users)/[^/\s]+/'
+        types: [text]
+      - id: no-local-paths-in-message
+        name: no workstation paths in the commit message
+        language: pygrep
+        entry: '/(home|Users)/[^/\s]+/'
+        stages: [commit-msg]
