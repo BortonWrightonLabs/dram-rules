@@ -1,5 +1,6 @@
 """End-to-end runs of `dram-rules --sum` (the summarize step)."""
 
+import shutil
 from pathlib import Path
 
 import polars as pl
@@ -7,7 +8,7 @@ import pytest
 from click.testing import CliRunner
 
 from dram_rules import make_summarize
-from dram_rules.cli import main
+from dram_rules.cli import COMMON_RULES, main
 
 # bin1 has two mcrA genes and a cyc2 gene; bin2 has one mcrA gene.
 ANNOTATIONS = """\
@@ -257,3 +258,132 @@ def test_no_topics_and_ecos_leave_only_custom_sheets(tmp_path, none):
 def test_built_in_sheets_are_packaged():
     data = Path(make_summarize.__file__).parent / "data/summarize_sheets"
     assert all((data / name).is_file() for name in BUILT_IN.values())
+
+
+def test_column_overrides_read_custom_sheets_not_built_in(tmp_path):
+    sheet = write(
+        tmp_path, "a.tsv",
+        "my_label\tmy_alias\tmy_group\trule\n"
+        "\tmcr\t\tK00399\n"
+        "Mcr\t\tEnergy\t@mcr\n",
+    )  # fmt: skip
+    out = run(
+        tmp_path, "--sum", "--topics", "energy", "--ecos", "none", "--sum_custom", sheet,
+        "-lc", "my_label", "-acc", "my_alias", "-gc", "my_group",
+    )  # fmt: skip
+    df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
+    assert counts(df, "my_label") == {"Mcr": {"bin1": 2, "bin2": 1}}
+    assert list(pl.read_excel(out / "custom_summary.xlsx", sheet_id=0)) == ["Energy"]
+    # The built-in sheet still uses the lookup (gene_id, topic_ecosystem).
+    topic = pl.read_csv(out / "topic_summary.tsv", separator="\t")
+    assert counts(topic) == {"K00399": {"bin1": 2, "bin2": 1}}
+
+
+# A visualize/traits sheet, for runs combining steps.
+VIZ_SHEET = "name\tgroup\trule\nMcr\tG1\tK00399\nCyc2\tG1\tCyc2_repCluster1\n"
+MAPPING = "Geneid\tS1\nbin1_1\t1\nbin1_2\t2\nbin1_3\t3\nbin2_1\t4\n"
+
+
+def test_a_bad_sheet_in_any_step_stops_the_run_before_any_output(tmp_path):
+    viz = write(tmp_path, "viz.tsv", VIZ_SHEET)
+    bad = write(tmp_path, "bad.tsv", SHEET + "K00399\tagain\tM\tEnergy\t\n")
+    result = invoke(
+        tmp_path, "--viz", "--ecos", "none", "--viz_custom", viz,
+        "--sum", "--topics", "none", "--sum_custom", bad,
+    )  # fmt: skip
+    assert result.exit_code != 0
+    assert "bad.tsv" in str(result.exception)
+    assert not (tmp_path / "out").exists()
+
+
+def test_a_failure_while_evaluating_leaves_no_outputs(tmp_path, monkeypatch):
+    from dram_rules import cli
+
+    def fail(*args):
+        raise RuntimeError("boom")
+
+    monkeypatch.setattr(cli, "summarize_sheet", fail)
+    viz = write(tmp_path, "viz.tsv", VIZ_SHEET)
+    sheet = write(tmp_path, "a.tsv", SHEET)
+    result = invoke(
+        tmp_path, "--viz", "--ecos", "none", "--viz_custom", viz,
+        "--sum", "--sum_custom", sheet,
+    )  # fmt: skip
+    assert result.exit_code != 0
+    assert not (tmp_path / "out").exists()
+
+
+def test_steps_share_one_load_of_hits(tmp_path, monkeypatch):
+    from dram_rules import cli
+
+    calls = []
+    prepare = cli.prepare_present_map_df
+    monkeypatch.setattr(
+        cli,
+        "prepare_present_map_df",
+        lambda *a, **kw: calls.append(kw["needed_features"]) or prepare(*a, **kw),
+    )
+    viz = write(tmp_path, "viz.tsv", VIZ_SHEET)
+    traits = write(tmp_path, "traits.tsv", "name\tgroup\trule\nOnly\tG\tK11111\n")
+    sheet = write(tmp_path, "a.tsv", SHEET)
+    run(
+        tmp_path, "--viz", "--ecos", "none", "--viz_custom", viz,
+        "--traits", "--traits_custom", traits, "-c", str(COMMON_RULES),
+        "--sum", "--sum_custom", sheet,
+    )  # fmt: skip
+    # One build of the Hits, for the Gene IDs of every step's sheets.
+    [needed] = calls
+    assert {"K00399", "CYC2_REPCLUSTER1", "K11111", "K99999"} <= needed
+
+
+def test_summarize_ignores_the_mapping_file(tmp_path, caplog):
+    sheet = write(tmp_path, "a.tsv", SHEET)
+    mapping = write(tmp_path, "m.tsv", MAPPING)
+    with caplog.at_level("INFO", logger="dram.rules"):
+        out = run(tmp_path, "--sum", "--sum_custom", sheet, "-m", mapping)
+    assert "ignores --mapping" in caplog.text
+    df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
+    assert counts(df)["K00399"] == {"bin1": 2, "bin2": 1}
+    assert counts(df)["Cyc2_repCluster1"] == {"bin1": 2, "bin2": 0}
+
+
+def files(folder: Path) -> dict[str, pl.DataFrame]:
+    """Every TSV under `folder` by relative path, rows sorted."""
+    return {
+        str(p.relative_to(folder)): (df := pl.read_csv(p, separator="\t")).sort(
+            df.columns
+        )
+        for p in sorted(folder.rglob("*.tsv"))
+    }
+
+
+def test_each_step_in_a_combined_run_matches_running_it_alone(tmp_path):
+    viz = write(tmp_path, "viz.tsv", VIZ_SHEET)
+    trna = write(tmp_path, "trna.tsv", TRNA)
+    sheet = write(tmp_path, "a.tsv", TRNA_SHEET)
+    mapping = write(tmp_path, "m.tsv", MAPPING)
+    steps = {
+        "visualize": ["--viz", "--viz_custom", viz],
+        "traits": ["--traits", "--traits_custom", viz],
+        "summarize": ["--sum", "--sum_custom", sheet, "--trna_path", trna],
+    }
+    # The built-in traits sheet needs the real Common Alias Sheet.
+    shared = [
+        "--ecos",
+        "none",
+        "--topics",
+        "none",
+        "-m",
+        mapping,
+        "-c",
+        str(COMMON_RULES),
+    ]
+    out = run(tmp_path, *shared, *(a for args in steps.values() for a in args)).parent
+    combined = files(out)
+    for step, args in steps.items():
+        shutil.rmtree(out)
+        run(tmp_path, *shared, *args)
+        alone = files(out)
+        assert alone.keys() == {k for k in combined if k.startswith(step + "/")}, step
+        for key, df in alone.items():
+            assert df.equals(combined[key]), key

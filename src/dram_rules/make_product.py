@@ -26,13 +26,11 @@ from dram_rules.processing.process_annotations import (
     scan_tsv,
 )
 from dram_rules.rule_parser.rules import (
-    ID_PARSERS,
     CompiledRules,
     RuleError,
     evaluate,
     find_label_column,
     get_val_cols,
-    prepare_present_map_df,
 )
 
 logger = logging.getLogger("dram.viz")
@@ -52,19 +50,25 @@ RULES_SYSTEMS = {
 
 
 def load_sheet(
-    path: Path, common_rules_tsv: Path, function_files: tuple[str, ...]
+    path: Path,
+    common_rules_tsv: Path,
+    function_files: tuple[str, ...],
+    label_col: str | None = None,
+    alias_col: str | None = None,
+    group_col: str | None = None,
 ) -> CompiledRules:
     """Compile a visualize or traits sheet. Its label column becomes `name`,
-    which the heatmaps read, and `long_name` falls back to the label."""
+    which the heatmaps read, and `long_name` falls back to the label. The
+    label, alias and Group columns are looked up unless given."""
     rules_lf = scan_tsv(path, infer_schema_length=None, truncate_ragged_lines=True)
     rules_cols = rules_lf.collect_schema().names()
-    label_column = find_label_column(rules_cols)
+    label_column = label_col or find_label_column(rules_cols)
     # Downstream (evaluation, heatmaps, common rules) reads rule names from "name".
     if label_column != DEFAULT_LABEL_COLUMN:
         rules_lf = rules_lf.drop(DEFAULT_LABEL_COLUMN, strict=False).rename(
             {label_column: DEFAULT_LABEL_COLUMN}
         )
-    alias_column = next(
+    alias_column = alias_col or next(
         (c for c in [DEFAULT_ALIAS_COLUMN, *BACKUP_ALIAS_COLUMNS] if c in rules_cols),
         DEFAULT_ALIAS_COLUMN,
     )
@@ -78,6 +82,7 @@ def load_sheet(
         label_col=DEFAULT_LABEL_COLUMN,
         alias_col=alias_column,
         rules_col="rule",
+        group_col=group_col,
         common_rules_path=common_rules_tsv,
         function_files=function_files,
     )
@@ -92,27 +97,18 @@ def load_sheet(
 def visualize(
     sheets: dict[Path, tuple[Path, CompiledRules]],
     raw_anno: pl.LazyFrame,
+    hits: pl.DataFrame,
     mapping: Path | None,
-    save_needed_features: bool,
-    port: int | None = None,
-    save: bool = True,
-) -> None:
-    """Heatmaps and tables for each sheet, `{output folder: (sheet path,
-    compiled sheet)}`. The annotations' Hits, the mapping file and the
-    taxonomy are loaded once and shared by every sheet. With `port`, the
-    live dashboard of the (one) sheet is served there; `save=False` writes
-    nothing."""
+) -> dict[Path, dict]:
+    """Evaluate each sheet, `{output folder: (sheet path, compiled sheet)}`,
+    for its heatmaps and tables. `hits` are the annotations' Hits for every
+    sheet; the mapping file and the taxonomy are loaded once and shared.
+    Returns each folder's `Dashboard` arguments; nothing is written."""
     s = time.time()
     anno_columns = raw_anno.collect_schema().names()
     genes = raw_anno.select("query_id", "genome").collect()
     sample_names = genes["genome"].unique().sort().to_list()
-    anno_df = prepare_present_map_df(
-        df=raw_anno,
-        count_col="query_id",
-        group_col="genome",
-        besthit_cols=list(ID_PARSERS),
-        needed_features=set().union(*(c.needed_features for _, c in sheets.values())),
-    )
+    anno_df = hits
     abundance_col = None
     if mapping:
         means, abundances, sample_names_mapping = load_mapping(mapping, genes)
@@ -152,6 +148,7 @@ def visualize(
         f"Loaded the shared data for {len(sheets)} sheets in {time.time() - s:.1f} s"
     )
 
+    results = {}
     for output_dir, (rules_tsv, compiled) in sheets.items():
         dfs = {}
         if mapping:
@@ -178,25 +175,37 @@ def visualize(
         if tax_df is not None:
             for key, df in dfs["genome"].items():
                 dfs["genome"][key] = tax_df.join(df, on="genome", how="left")
-
-        dashboard_args = {
+        results[output_dir] = {
             "dfs": dfs,
             "taxanomy_tree_data": tax_tree_data,
-            "output_dir": output_dir if save else None,
             "title": title(rules_tsv),
         }
-        if save:
-            output_dir.mkdir(parents=True, exist_ok=True)
-            write_tables(dfs, output_dir)
-            if save_needed_features:
-                (output_dir / "needed_features.txt").write_text(
-                    "\n".join(compiled.needed_features_raw)
-                )
-            write_heatmaps(Dashboard(**dashboard_args))
-            logger.info(f"Visualized {rules_tsv} in {output_dir}")
-        if port is not None:
-            # Each browser session gets its own Dashboard.
-            pn.serve(lambda args=dashboard_args: Dashboard(**args), port=port)
+    return results
+
+
+def save_visualized(
+    sheets: dict[Path, tuple[Path, CompiledRules]],
+    results: dict[Path, dict],
+    save_needed_features: bool,
+) -> None:
+    """Write each sheet's tables and heatmaps (and Gene IDs) to its folder."""
+    for output_dir, (rules_tsv, compiled) in sheets.items():
+        output_dir.mkdir(parents=True, exist_ok=True)
+        write_tables(results[output_dir]["dfs"], output_dir)
+        if save_needed_features:
+            (output_dir / "needed_features.txt").write_text(
+                "\n".join(compiled.needed_features_raw)
+            )
+        write_heatmaps(Dashboard(**results[output_dir], output_dir=output_dir))
+        logger.info(f"Visualized {rules_tsv} in {output_dir}")
+
+
+def serve(results: dict[Path, dict], port: int, save: bool) -> None:
+    """Serve the live dashboard of the (one) sheet; each browser session gets
+    its own Dashboard, saving downloads to the sheet's folder if `save`."""
+    [(output_dir, args)] = results.items()
+    output_dir = output_dir if save else None
+    pn.serve(lambda: Dashboard(**args, output_dir=output_dir), port=port)
 
 
 def write_tables(dfs: dict[str, dict[str, pl.DataFrame]], output_dir: Path) -> None:

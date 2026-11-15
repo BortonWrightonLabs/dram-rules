@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 from pathlib import Path
 
 import click
@@ -11,8 +12,8 @@ from dram_rules.definitions import BACKUP_FASTA_COLUMNS, DEFAULT_FASTA_COLUMN
 from dram_rules.make_summarize import (
     ECOSYSTEMS,
     TOPICS,
-    add_trna,
     load_summarize_sheet,
+    read_trna,
     summarize_sheet,
     summary_collections,
     write_collection,
@@ -28,6 +29,8 @@ from dram_rules.rule_parser.rules import (
 COMMON_RULES = Path(__file__).parent / "data/rules_common.tsv"
 TRAITS_SHEET = Path(__file__).parent / "data/traits_rules.tsv"
 VISUALIZE_ONLY_ECOS = ("legacy", "default")
+
+logger = logging.getLogger("dram.rules")
 
 
 def split_commas(ctx, param, value: str | None) -> list[Path]:
@@ -57,12 +60,20 @@ def sheet_folders(step_dir: Path, named) -> list[tuple[Path, Path]]:
     return [(step_dir / name, path) for name, path in named]
 
 
-def compile_sheets(paths, load, *args) -> dict[Path, CompiledRules]:
-    """`{path: load(path, *args)}`, naming the sheet in any RuleError."""
+def compile_sheets(
+    paths, load, *args, custom=(), columns=None
+) -> dict[Path, CompiledRules]:
+    """`{path: load(path, *args)}`, naming the sheet in any RuleError. Sheets
+    in `custom` are read with the `columns` overrides (label_col, alias_col,
+    group_col), which they must have."""
     compiled = {}
     for path in paths:
+        overrides = (columns or {}) if path in custom else {}
         try:
-            compiled[path] = load(path, *args)
+            names = scan_tsv(path).collect_schema().names() if overrides else []
+            if missing := [c for c in overrides.values() if c not in names]:
+                raise RuleError(f"No column {missing}, given as a custom column")
+            compiled[path] = load(path, *args, **overrides)
         except RuleError as e:
             raise RuleError(f"Rule sheet {path}: {e}") from e
     return compiled
@@ -96,6 +107,21 @@ def compile_sheets(paths, load, *args) -> dict[Path, CompiledRules]:
     type=click.Path(exists=True, dir_okay=False),
     multiple=True,
     help="Python file of extra rule functions. Can be given more than once.",
+)
+@click.option(
+    "--custom_label_column",
+    "-lc",
+    help="Label column of every custom sheet; built-in sheets look it up",
+)
+@click.option(
+    "--custom_alias_column",
+    "-acc",
+    help="Alias column of every custom sheet; built-in sheets look it up",
+)
+@click.option(
+    "--custom_group_column",
+    "-gc",
+    help="Group column of every custom sheet; built-in sheets look it up",
 )
 @click.option(
     "--mapping",
@@ -170,6 +196,9 @@ def main(
     output_dir,
     common_rules_tsv,
     function_files,
+    custom_label_column,
+    custom_alias_column,
+    custom_group_column,
     mapping,
     ecos,
     visualize,
@@ -200,6 +229,16 @@ def main(
         raise click.UsageError("Missing option '--output_dir' / '-o'")
     # Nothing is written with --no_save; the folders only name the sheets.
     out = output_dir or Path.cwd()
+    custom = {*viz_custom, *traits_custom, *sum_custom}
+    columns = {
+        k: v
+        for k, v in [
+            ("label_col", custom_label_column),
+            ("alias_col", custom_alias_column),
+            ("group_col", custom_group_column),
+        ]
+        if v
+    }
 
     # Every sheet is compiled before the annotations load, so a bad sheet
     # stops the run early. Visualize and traits sheets are the same kind.
@@ -235,9 +274,12 @@ def main(
             make_product.load_sheet,
             common_rules_tsv,
             function_files,
+            custom=custom,
+            columns=columns,
         )
         heatmap_sheets = {folder: (p, compiled[p]) for folder, p in folders}
 
+    sheets = {}
     if summarize:
         topics = list(TOPICS) if "default" in topics else topics
         sum_ecos = list(ECOSYSTEMS) if ecos is None else ecos
@@ -251,6 +293,8 @@ def main(
             load_summarize_sheet,
             common_rules_tsv,
             function_files,
+            custom=custom,
+            columns=columns,
         )
 
     raw_anno = scan_tsv(annotations, infer_schema_length=10_000)
@@ -270,37 +314,62 @@ def main(
         pl.col("genome").cast(pl.String)
     )
 
-    if heatmap_sheets:
-        make_product.visualize(
-            heatmap_sheets,
-            raw_anno,
-            mapping,
-            save_needed_features,
-            port=(5006 if port is None else port) if dashboard else None,
-            save=not no_save,
-        )
+    # One load of the annotations' Hits, for every Gene ID of every step.
+    hits = prepare_present_map_df(
+        raw_anno,
+        count_col="query_id",
+        group_col="genome",
+        besthit_cols=list(ID_PARSERS),
+        needed_features=gene_ids(
+            *(c for _, c in heatmap_sheets.values()), *sheets.values()
+        ),
+    )
+    logger.info(f"Loaded the annotations' Hits once, for {len(hits)} hits")
 
+    # Every step evaluates before any writes, so a failure leaves no outputs.
+    visualized = (
+        make_product.visualize(heatmap_sheets, raw_anno, hits, mapping)
+        if heatmap_sheets
+        else {}
+    )
     if summarize:
-        # shortcut: summarize builds its own Hits, as tRNA rows are summarize-only; ticket 09 shares one load.
-        sum_anno = add_trna(raw_anno, trna_path) if trna_path else raw_anno
-        hits = prepare_present_map_df(
-            sum_anno,
-            count_col="query_id",
-            group_col="genome",
-            besthit_cols=list(ID_PARSERS),
-            needed_features=set().union(*(c.needed_features for c in sheets.values())),
-        )
+        if mapping:
+            logger.info("Summarize ignores --mapping for now")
+        sum_anno, sum_hits = raw_anno, hits
+        # tRNA rows are summarize-only, so they get their own Hits.
+        if trna_path and (trna := read_trna(trna_path)) is not None:
+            sum_anno = pl.concat([raw_anno, trna], how="diagonal_relaxed")
+            trna_hits = prepare_present_map_df(
+                trna,
+                count_col="query_id",
+                group_col="genome",
+                besthit_cols=[],
+                needed_features=gene_ids(*sheets.values()),
+            )
+            sum_hits = pl.concat([hits, trna_hits], how="vertical_relaxed")
         genomes = sum_anno.select("genome").unique().sort("genome").collect()
-        # Every sheet is evaluated before any is written.
         summaries = {
             name: [
-                summarize_sheet(sheets[p], hits, sum_anno, genomes["genome"].to_list())
+                summarize_sheet(
+                    sheets[p], sum_hits, sum_anno, genomes["genome"].to_list()
+                )
                 for p in paths
             ]
             for name, paths in collections.items()
         }
+
+    if visualized and not no_save:
+        make_product.save_visualized(heatmap_sheets, visualized, save_needed_features)
+    if summarize:
         for name, frames in summaries.items():
             write_collection(frames, name, output_dir / "summarize")
+    if dashboard:
+        make_product.serve(visualized, 5006 if port is None else port, not no_save)
+
+
+def gene_ids(*compiled: CompiledRules) -> set[str]:
+    """Every Gene ID the sheets need, uppercase."""
+    return set().union(*(c.needed_features for c in compiled))
 
 
 if __name__ == "__main__":

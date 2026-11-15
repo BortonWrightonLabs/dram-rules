@@ -55,11 +55,20 @@ def summary_collections(
 
 
 def load_summarize_sheet(
-    path: Path, common_rules_tsv: Path, function_files: tuple[str, ...]
+    path: Path,
+    common_rules_tsv: Path,
+    function_files: tuple[str, ...],
+    label_col: str | None = None,
+    alias_col: str | None = None,
+    group_col: str | None = None,
 ) -> CompiledRules:
-    """Compile a Summarize Sheet; coverage settings in it are an error."""
+    """Compile a Summarize Sheet; coverage settings in it are an error. The
+    label, alias and Group columns are looked up unless given."""
     compiled = CompiledRules.from_rules(
         rules_path=path,
+        label_col=label_col,
+        alias_col=alias_col,
+        group_col=group_col,
         common_rules_path=common_rules_tsv,
         function_files=function_files,
     )
@@ -67,16 +76,17 @@ def load_summarize_sheet(
     return compiled
 
 
-def add_trna(annotations: pl.LazyFrame, trna_path: Path) -> pl.LazyFrame:
-    """Add tRNAscan rows (`input_fasta`, `query_id`, `gene_id`, as DRAM collects
-    them) to the annotations, with the tRNA's Gene ID in a `trna_id` column.
+def read_trna(trna_path: Path) -> pl.LazyFrame | None:
+    """tRNAscan rows (`input_fasta`, `query_id`, `gene_id`, as DRAM collects
+    them) as annotation rows: `genome`, `query_id`, and the tRNA's Gene ID in a
+    `trna_id` column. None for DRAM's file for "no tRNAs".
 
     Each tRNA is its own gene. Its `query_id` is its contig, which tRNAs on one
     contig share, so the row number is appended to keep them apart."""
     trna = pl.read_csv(trna_path, separator="\t", infer_schema_length=None)
-    if trna.columns == ["NULL"] or trna.is_empty():  # DRAM's file for "no tRNAs"
-        return annotations
-    trna = trna.lazy().select(
+    if trna.columns == ["NULL"] or trna.is_empty():
+        return None
+    return trna.lazy().select(
         genome=pl.col("input_fasta").cast(pl.String),
         query_id=pl.format(
             "{}_trna_{}",
@@ -85,7 +95,6 @@ def add_trna(annotations: pl.LazyFrame, trna_path: Path) -> pl.LazyFrame:
         ),
         trna_id=pl.col("gene_id"),
     )
-    return pl.concat([annotations, trna], how="diagonal_relaxed")
 
 
 def summarize_sheet(

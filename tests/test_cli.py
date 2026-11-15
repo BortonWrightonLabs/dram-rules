@@ -144,12 +144,57 @@ def test_rules_named_in_label_column(tmp_path):
     assert (out / "heatmap_genome_presence_coverage.html").exists()
 
 
-@pytest.mark.skip(reason="ticket 08 ports it to --custom_label_column/-lc")
 def test_rules_named_by_label_column_option(tmp_path):
     rules = RULES.replace("name\t", "trait\t", 1)
-    out = run(tmp_path, "--label_column", "trait", rules=rules, mapping=None)
+    out = run(tmp_path, "-lc", "trait", rules=rules, mapping=None)
     assert set(read(out, "genome")["name"]) == {"Mcr", "Cyc2"}
     assert (out / "heatmap_genome_presence_coverage.html").exists()
+
+
+# Labelled, aliased and grouped by columns the lookup doesn't know.
+CUSTOM_COLUMNS = """\
+my_label\tmy_alias\tmy_group\trule
+\tmcr\t\tK00399
+Mcr\t\tG1\t@mcr
+Cyc2\t\tG2\tCyc2_repCluster1
+"""
+OVERRIDES = ("-lc", "my_label", "-acc", "my_alias", "-gc", "my_group")
+
+
+@pytest.mark.parametrize("step", ["--viz", "--traits"])
+def test_column_overrides_read_custom_sheets_not_built_in(tmp_path, step):
+    (tmp_path / "mine.tsv").write_text(CUSTOM_COLUMNS)
+    custom = "--viz_custom" if step == "--viz" else "--traits_custom"
+    # The built-in gut and traits sheets have no my_label column: they keep the lookup.
+    invoke_ok(
+        tmp_path, "--ecos", "gut", custom, str(tmp_path / "mine.tsv"), *OVERRIDES,
+        step=step, empty_common=False,
+    )  # fmt: skip
+    folder = tmp_path / "out" / step.strip("-").replace("viz", "visualize")
+    genome = read(folder / "mine", "genome")
+    assert value(genome, "present", name="Mcr", genome="bin2") is True
+    assert value(genome, "my_group", name="Cyc2", genome="bin1") == "G2"
+    built_in = folder / ("gut" if step == "--viz" else "default")
+    assert (built_in / "df_vertical_genome.tsv").exists()
+
+
+def test_override_column_missing_from_a_custom_sheet_names_it(tmp_path):
+    (tmp_path / "rules.tsv").write_text(RULES)
+    result = invoke(
+        tmp_path, "--ecos", "none", "--viz_custom", str(tmp_path / "rules.tsv"),
+        "-lc", "my_label",
+    )  # fmt: skip
+    assert result.exit_code != 0
+    assert "my_label" in str(result.exception)
+    assert "rules.tsv" in str(result.exception)
+
+
+@pytest.mark.parametrize("old", ["-l", "-ac", "-g"])
+def test_all_sheet_column_overrides_are_gone(tmp_path, old):
+    result = invoke(tmp_path, "--ecos", "gut", old, "name")
+    assert result.exit_code == 2
+    # -ac reads as -a c, then "name" is an extra argument.
+    assert ("No such option" if old != "-ac" else "extra argument") in result.output
 
 
 SUMMARIZE_SHEET = """\
