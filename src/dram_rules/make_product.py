@@ -1,4 +1,4 @@
-"""The visualize step: heatmaps and tables of each rule's Presence, Coverage
+"""The visualize refinement: heatmaps and tables of each rule's Presence, Coverage
 and abundance per genome (and per sample, with a mapping file)."""
 
 from __future__ import annotations

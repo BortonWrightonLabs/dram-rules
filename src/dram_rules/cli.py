@@ -1,4 +1,4 @@
-"""The `dram-rules` command: load annotations once, then run each enabled step."""
+"""The `dram-rules` command: load annotations once, then run each enabled refinement."""
 
 from __future__ import annotations
 
@@ -137,7 +137,9 @@ def compile_sheets(
     "Visualize uses default (gut) and summarize all five when omitted; "
     "legacy and default are visualize-only.",
 )
-@click.option("--visualize", "--viz", "-v", is_flag=True, help="Run the visualize step")
+@click.option(
+    "--visualize", "--viz", "-v", is_flag=True, help="Run the visualize refinement"
+)
 @click.option(
     "--viz_custom",
     callback=split_commas,
@@ -149,7 +151,7 @@ def compile_sheets(
     is_flag=True,
     help="Write each visualize sheet's Gene IDs to needed_features.txt in its folder",
 )
-@click.option("--traits", "-t", is_flag=True, help="Run the traits step")
+@click.option("--traits", "-t", is_flag=True, help="Run the traits refinement")
 @click.option(
     "--traits_custom",
     callback=split_commas,
@@ -172,7 +174,9 @@ def compile_sheets(
     is_flag=True,
     help="Write nothing (no HTML, no tables); only with --dashboard",
 )
-@click.option("--summarize", "--sum", "-s", is_flag=True, help="Run the summarize step")
+@click.option(
+    "--summarize", "--sum", "-s", is_flag=True, help="Run the summarize refinement"
+)
 @click.option(
     "--topics",
     default="default",
@@ -217,14 +221,16 @@ def main(
     """Visualize, score traits of, and summarize DRAM annotations."""
     if not (visualize or traits or summarize):
         raise click.UsageError(
-            "Choose at least one step: --visualize, --traits, --summarize"
+            "Choose at least one refinement: --visualize, --traits, --summarize"
         )
     if port is not None and not dashboard:
         raise click.UsageError("--port is only valid with --dashboard")
     if no_save and not dashboard:
         raise click.UsageError("--no_save is only valid with --dashboard")
     if no_save and summarize:
-        raise click.UsageError("--no_save would discard the summarize step's outputs")
+        raise click.UsageError(
+            "--no_save would discard the summarize refinement's outputs"
+        )
     if output_dir is None and not no_save:
         raise click.UsageError("Missing option '--output_dir' / '-o'")
     # Nothing is written with --no_save; the folders only name the sheets.
@@ -315,7 +321,7 @@ def main(
     )
 
     every_sheet = [*(c for _, c in heatmap_sheets.values()), *sheets.values()]
-    # One load of the annotations' Hits, for every Gene ID of every step.
+    # One load of the annotations' Hits, for every Gene ID of every refinement.
     hits = prepare_present_map_df(
         raw_anno,
         count_col="query_id",
@@ -329,7 +335,7 @@ def main(
     if any(c.reads_rows for c in every_sheet):
         raw_anno = raw_anno.collect().lazy()
 
-    # Every step evaluates before any writes, so a failure leaves no outputs.
+    # Every refinement evaluates before any writes, so a failure leaves no outputs.
     visualized = (
         make_product.visualize(heatmap_sheets, raw_anno, hits, mapping)
         if heatmap_sheets

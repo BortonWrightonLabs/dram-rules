@@ -1,4 +1,4 @@
-"""End-to-end runs of `dram-rules --viz` (the visualize step)."""
+"""End-to-end runs of `dram-rules --viz` (the visualize refinement)."""
 
 from pathlib import Path
 
@@ -55,12 +55,12 @@ def invoke(
     mapping: str | None = None,
     out: str = "out",
     empty_common: bool = True,
-    step: str = "--viz",
+    refinement: str = "--viz",
 ):
     """`dram-rules --viz` on small inputs written to `tmp_path`. Built-in
     sheets need the default Common Alias Sheet (`empty_common=False`)."""
     (tmp_path / "anno.tsv").write_text(annotations)
-    cli_args = ["-a", str(tmp_path / "anno.tsv"), "-o", str(tmp_path / out), step]
+    cli_args = ["-a", str(tmp_path / "anno.tsv"), "-o", str(tmp_path / out), refinement]
     if empty_common:
         (tmp_path / "common.tsv").write_text("name\talias\trule\n")
         cli_args += ["-c", str(tmp_path / "common.tsv")]
@@ -161,20 +161,20 @@ Cyc2\t\tG2\tCyc2_repCluster1
 OVERRIDES = ("-lc", "my_label", "-acc", "my_alias", "-gc", "my_group")
 
 
-@pytest.mark.parametrize("step", ["--viz", "--traits"])
-def test_column_overrides_read_custom_sheets_not_built_in(tmp_path, step):
+@pytest.mark.parametrize("refinement", ["--viz", "--traits"])
+def test_column_overrides_read_custom_sheets_not_built_in(tmp_path, refinement):
     (tmp_path / "mine.tsv").write_text(CUSTOM_COLUMNS)
-    custom = "--viz_custom" if step == "--viz" else "--traits_custom"
+    custom = "--viz_custom" if refinement == "--viz" else "--traits_custom"
     # The built-in gut and traits sheets have no my_label column: they keep the lookup.
     invoke_ok(
         tmp_path, "--ecos", "gut", custom, str(tmp_path / "mine.tsv"), *OVERRIDES,
-        step=step, empty_common=False,
+        refinement=refinement, empty_common=False,
     )  # fmt: skip
-    folder = tmp_path / "out" / step.strip("-").replace("viz", "visualize")
+    folder = tmp_path / "out" / refinement.strip("-").replace("viz", "visualize")
     genome = read(folder / "mine", "genome")
     assert value(genome, "present", name="Mcr", genome="bin2") is True
     assert value(genome, "my_group", name="Cyc2", genome="bin1") == "G2"
-    built_in = folder / ("gut" if step == "--viz" else "default")
+    built_in = folder / ("gut" if refinement == "--viz" else "default")
     assert (built_in / "df_vertical_genome.tsv").exists()
 
 
@@ -401,7 +401,7 @@ def test_output_dir_is_required_without_no_save(tmp_path):
 
 
 def test_traits_match_visualizing_the_traits_sheet(tmp_path):
-    out = invoke_ok(tmp_path, step="--traits", empty_common=False)
+    out = invoke_ok(tmp_path, refinement="--traits", empty_common=False)
     traits = tmp_path / "out" / "traits"
     assert not out.exists()
     assert (traits / "df_vertical_genome.tsv").exists()

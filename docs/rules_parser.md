@@ -11,13 +11,13 @@ your own in Python.
 ## Rule Sheets in DRAM
 
 Rules are stored in tab-separated value (TSV) files. The `dram-rules` command
-uses them in three steps: `--visualize` builds heatmaps and tables of each
+uses them in three refinements: `--visualize` builds heatmaps and tables of each
 rule's Presence or Coverage per genome, `--traits` does the same for the traits
 sheet, and `--summarize` counts, per genome, the genes each rule finds (its
 Gene Count). Every kind of sheet is read the same way, so the options below
 work in all of them.
 
-DRAM automatically loads its Common Alias Sheet for every step. The common sheet contains reusable alias definitions, so a
+DRAM automatically loads its Common Alias Sheet for every refinement. The common sheet contains reusable alias definitions, so a
 custom rule sheet can reference a shared definition such as `@DNRA` without
 copying its full expression. The maintained
 [rule sheets and common rules sheet](https://github.com/BortonWrightonLabs/dram-rules/tree/main/src/dram_rules/data)
@@ -53,7 +53,7 @@ run `dram-rules` yourself, see
 [Running dram-rules Directly](#running-dram-rules-directly).
 
 Use `--trait_rules_tsv` with `--traits`, or `--viz_rules_tsv` with
-`--visualize`. Each custom sheet replaces the default sheet for that step;
+`--visualize`. Each custom sheet replaces the default sheet for that refinement;
 the common alias sheet is still loaded separately. You can supply an existing
 DRAM annotations TSV with `--annotations` to evaluate new rules without
 repeating gene calling or database searches.
@@ -108,7 +108,7 @@ below shows the format.
 ### Running dram-rules Directly
 
 Outside the pipeline, the `dram-rules` command evaluates sheets against an
-annotations file. Custom sheets are added to a step's built-in sheets, so
+annotations file. Custom sheets are added to a refinement's built-in sheets, so
 `--ecos none` leaves only yours:
 
 ```bash
@@ -120,7 +120,7 @@ Use `--traits_custom` with `--traits`, or `--sum_custom` with `--summarize`
 (with `--topics none --ecos none` for only your sheets). Several sheets are
 comma separated. The tables and heatmaps are written to
 `rule-test/visualize/my_rules/` (`rule-test/traits/<sheet>/` and
-`rule-test/summarize/` for the other steps). If your sheet's columns aren't
+`rule-test/summarize/` for the other refinements). If your sheet's columns aren't
 named as above, `-lc`, `-acc` and `-gc` name its label, alias and Group
 columns.
 

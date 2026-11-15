@@ -73,15 +73,15 @@ pre-commit run --all-files
 
 ### Usage
 
-One command, `dram-rules`, runs any mix of three steps on a DRAM annotations TSV. `dram_viz` and `python -m dram_rules` run the same command. The annotations are loaded once and shared by every step. Every rule sheet is checked before any step starts, so a mistake in a sheet stops the run before the slow work.
+One command, `dram-rules`, runs any mix of three refinements on a DRAM annotations TSV. `dram_viz` and `python -m dram_rules` run the same command. The annotations are loaded once and shared by every refinement. Every rule sheet is checked before any refinement starts, so a mistake in a sheet stops the run before the slow work.
 
-| Step | Flags | What it gives, per genome |
+| Refinement | Flags | What it gives, per genome |
 |---|---|---|
 | visualize | `--visualize`, `--viz`, `-v` | Heatmaps and tables of each rule's Presence or Coverage |
 | traits | `--traits`, `-t` | The same, for the built-in traits sheet |
 | summarize | `--summarize`, `--sum`, `-s` | Summary Collections: each rule's Gene Count |
 
-Choose at least one step. For example, to visualize the built-in gut sheet and score traits:
+Choose at least one refinement. For example, to visualize the built-in gut sheet and score traits:
 
 ```bash
 dram-rules --annotations <path/to/annotations.tsv> --output_dir <path/to/output/directory/> --viz --traits
@@ -91,7 +91,7 @@ dram-rules --annotations <path/to/annotations.tsv> --output_dir <path/to/output/
 
 - `--ecos` picks built-in ecosystem sheets, comma separated, from `ag`, `aquatic`, `bgc`, `eng_sys` and `gut`. Visualize and summarize share it. When it is left out, visualize uses `default` (the gut sheet) and summarize uses all five. `legacy` (the older all-in-one sheet) and `default` are for visualize only.
 - `--topics` picks built-in topic Summarize Sheets for summarize: `assim`, `cell`, `energy`, `env`, or `default` for all four (the default).
-- `--viz_custom`, `--traits_custom` and `--sum_custom` each add your own sheets, comma separated, to their step. They add to the built-in sheets rather than replace them. Pass `--ecos none` or `--topics none` to run only your own sheets.
+- `--viz_custom`, `--traits_custom` and `--sum_custom` each add your own sheets, comma separated, to their refinement. They add to the built-in sheets rather than replace them. Pass `--ecos none` or `--topics none` to run only your own sheets.
 - `--custom_label_column`/`-lc`, `--custom_alias_column`/`-acc` and `--custom_group_column`/`-gc` name the label, alias and Group columns of every custom sheet, when those columns aren't named as the [Rules File](#rules-file) section describes. Built-in sheets always use the usual names.
 - `--common_rules_tsv`/`-c` replaces the Common Alias Sheet (aliases every sheet can use), and `--functions` loads [your own rule functions](docs/custom_rule_functions.md).
 
@@ -103,7 +103,7 @@ dram-rules --annotations <path/to/annotations.tsv> --output_dir <path/to/output/
     --sum --topics cell,env --sum_custom <sheet1.tsv>,<sheet2.tsv> [--trna_path <trnas.tsv>]
 ```
 
-`--ecos gut` applies to both steps here: visualize and summarize each use their gut sheet. `--trna_path` takes the tRNAscan output from DRAM annotate, so tRNA rules get Gene Counts.
+`--ecos gut` applies to both refinements here: visualize and summarize each use their gut sheet. `--trna_path` takes the tRNAscan output from DRAM annotate, so tRNA rules get Gene Counts.
 
 `--mapping`/`-m` adds abundances per sample to visualize and traits. Its first column holds gene names (matching the annotations' `query_id`) or genome names, and each numeric column after it is a sample. Summarize ignores the mapping file for now.
 
@@ -121,7 +121,7 @@ Genomes are named by the annotations' `input_fasta` column, or else `fasta` or `
 
 `<sheet>` is the built-in name (such as `gut`, or `default` when `--ecos` is left out) or the custom file's name without `.tsv`. With a mapping file, visualize also writes the sample tables (`df_sample.tsv`, `df_vertical_sample.tsv`). `--save_needed_features` writes each visualize sheet's Gene IDs to `needed_features.txt` in its folder. A Summary Collection is only written when it has sheets.
 
-Every step is evaluated before anything is written. If evaluation fails, the run writes no outputs at all.
+Every refinement is evaluated before anything is written. If evaluation fails, the run writes no outputs at all.
 
 #### Dashboard
 

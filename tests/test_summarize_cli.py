@@ -1,4 +1,4 @@
-"""End-to-end runs of `dram-rules --sum` (the summarize step)."""
+"""End-to-end runs of `dram-rules --sum` (the summarize refinement)."""
 
 import shutil
 from pathlib import Path
@@ -279,12 +279,12 @@ def test_column_overrides_read_custom_sheets_not_built_in(tmp_path):
     assert counts(topic) == {"K00399": {"bin1": 2, "bin2": 1}}
 
 
-# A visualize/traits sheet, for runs combining steps.
+# A visualize/traits sheet, for runs combining refinements.
 VIZ_SHEET = "name\tgroup\trule\nMcr\tG1\tK00399\nCyc2\tG1\tCyc2_repCluster1\n"
 MAPPING = "Geneid\tS1\nbin1_1\t1\nbin1_2\t2\nbin1_3\t3\nbin2_1\t4\n"
 
 
-def test_a_bad_sheet_in_any_step_stops_the_run_before_any_output(tmp_path):
+def test_a_bad_sheet_in_any_refinement_stops_the_run_before_any_output(tmp_path):
     viz = write(tmp_path, "viz.tsv", VIZ_SHEET)
     bad = write(tmp_path, "bad.tsv", SHEET + "K00399\tagain\tM\tEnergy\t\n")
     result = invoke(
@@ -313,7 +313,7 @@ def test_a_failure_while_evaluating_leaves_no_outputs(tmp_path, monkeypatch):
     assert not (tmp_path / "out").exists()
 
 
-def test_steps_share_one_load_of_hits(tmp_path, monkeypatch):
+def test_refinements_share_one_load_of_hits(tmp_path, monkeypatch):
     from dram_rules import cli
 
     calls = []
@@ -331,7 +331,7 @@ def test_steps_share_one_load_of_hits(tmp_path, monkeypatch):
         "--traits", "--traits_custom", traits, "-c", str(COMMON_RULES),
         "--sum", "--sum_custom", sheet,
     )  # fmt: skip
-    # One build of the Hits, for the Gene IDs of every step's sheets.
+    # One build of the Hits, for the Gene IDs of every refinement's sheets.
     [needed] = calls
     assert {"K00399", "CYC2_REPCLUSTER1", "K11111", "K99999"} <= needed
 
@@ -357,12 +357,12 @@ def files(folder: Path) -> dict[str, pl.DataFrame]:
     }
 
 
-def test_each_step_in_a_combined_run_matches_running_it_alone(tmp_path):
+def test_each_refinement_in_a_combined_run_matches_running_it_alone(tmp_path):
     viz = write(tmp_path, "viz.tsv", VIZ_SHEET)
     trna = write(tmp_path, "trna.tsv", TRNA)
     sheet = write(tmp_path, "a.tsv", TRNA_SHEET)
     mapping = write(tmp_path, "m.tsv", MAPPING)
-    steps = {
+    refinements = {
         "visualize": ["--viz", "--viz_custom", viz],
         "traits": ["--traits", "--traits_custom", viz],
         "summarize": ["--sum", "--sum_custom", sheet, "--trna_path", trna],
@@ -378,13 +378,17 @@ def test_each_step_in_a_combined_run_matches_running_it_alone(tmp_path):
         "-c",
         str(COMMON_RULES),
     ]
-    out = run(tmp_path, *shared, *(a for args in steps.values() for a in args)).parent
+    out = run(
+        tmp_path, *shared, *(a for args in refinements.values() for a in args)
+    ).parent
     combined = files(out)
-    for step, args in steps.items():
+    for refinement, args in refinements.items():
         shutil.rmtree(out)
         run(tmp_path, *shared, *args)
         alone = files(out)
-        assert alone.keys() == {k for k in combined if k.startswith(step + "/")}, step
+        assert alone.keys() == {
+            k for k in combined if k.startswith(refinement + "/")
+        }, refinement
         for key, df in alone.items():
             assert df.equals(combined[key]), key
 

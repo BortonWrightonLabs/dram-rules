@@ -1,4 +1,4 @@
-"""The summarize step: Gene Counts per genome for Summarize Sheets, written as
+"""The summarize refinement: Gene Counts per genome for Summarize Sheets, written as
 Summary Collections (one workbook with a worksheet per Group, plus a TSV).
 
 Ported from DRAM2's `bin/distill.py` (ADR 0002: dram-rules is standalone)."""
