@@ -124,6 +124,33 @@ def test_genome_mapping_drops_text_columns_and_counts_zeros_in_mean(tmp_path):
     assert value(genome, "mean_sample_abundance", name="Cyc2", genome="bin1") == 1.0
 
 
+# ADR 0003: abundance is summed once per Hit (gene, Gene ID). g1 carries both
+# of the rule's Gene IDs, g2 one; with a per-genome file every gene takes G's.
+PIN_ANNOTATIONS = """\
+query_id\tinput_fasta\tkegg_id\tfegenie_id
+g1\tG\tK00399\tCyc2_repCluster1
+g2\tG\tK00399\t
+"""
+PIN_RULES = "name\tgroup\trule\nBoth\tG1\tK00399 & Cyc2_repCluster1\n"
+
+
+@pytest.mark.parametrize(
+    "mapping, expected",
+    [
+        ("Geneid\tS\ng1\t10\ng2\t4\n", 10 + 10 + 4),
+        ("genome\tS\nG\t10\n", 10 + 10 + 10),
+    ],
+    ids=["per-gene", "per-genome"],
+)
+def test_abundance_sums_once_per_hit(tmp_path, mapping, expected):
+    out = run(tmp_path, annotations=PIN_ANNOTATIONS, rules=PIN_RULES, mapping=mapping)
+    sample = read(out, "sample")
+    assert value(sample, "sample_abundance", name="Both", sample="S") == expected
+    # One sample, so the mean over samples is the same sum.
+    genome = read(out, "genome")
+    assert value(genome, "mean_sample_abundance", name="Both", genome="G") == expected
+
+
 def test_row_reading_rule_with_mapping(tmp_path):
     rules = (
         "name\tgroup\trule\n"
