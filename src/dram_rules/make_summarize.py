@@ -11,7 +11,8 @@ from pathlib import Path
 import polars as pl
 from xlsxwriter import Workbook
 
-from dram_rules.rule_parser.rules import CompiledRules, check_gene_level, evaluate
+from dram_rules.hits import Hits
+from dram_rules.rule_parser.rules import CompiledRules, check_gene_level
 
 logger = logging.getLogger("dram.rules")
 
@@ -76,38 +77,12 @@ def load_summarize_sheet(
     return compiled
 
 
-def read_trna(trna_path: Path) -> pl.LazyFrame | None:
-    """tRNAscan rows (`input_fasta`, `query_id`, `gene_id`, as DRAM collects
-    them) as annotation rows: `genome`, `query_id`, and the tRNA's Gene ID in a
-    `trna_id` column. None for DRAM's file for "no tRNAs".
-
-    Each tRNA is its own gene. Its `query_id` is its contig, which tRNAs on one
-    contig share, so the row number is appended to keep them apart."""
-    trna = pl.read_csv(trna_path, separator="\t", infer_schema_length=None)
-    if trna.columns == ["NULL"] or trna.is_empty():
-        return None
-    return trna.lazy().select(
-        genome=pl.col("input_fasta").cast(pl.String),
-        query_id=pl.format(
-            "{}_trna_{}",
-            pl.col("query_id").cast(pl.String).str.strip_chars(),
-            pl.int_range(pl.len()),
-        ),
-        trna_id=pl.col("gene_id"),
-    )
-
-
-def summarize_sheet(
-    compiled: CompiledRules,
-    hits: pl.DataFrame,
-    annotations: pl.LazyFrame,
-    genomes: list[str],
-) -> pl.DataFrame | None:
+def summarize_sheet(compiled: CompiledRules, hits: Hits) -> pl.DataFrame | None:
     """One row per rule, in sheet order: the label, the Group (as GROUP_COLUMN),
     the SUMMARY_COLUMNS the sheet has, then one Gene Count column per genome.
     Rules left out by `include_when` are absent; None if no rule is left."""
     label, group = compiled.label_col, compiled.group_col
-    dfs = evaluate(compiled, hits, annotations, "gene", genomes)
+    dfs = hits.evaluate(compiled, "gene")
     if not dfs:
         return None
     counts = pl.concat(dfs.values()).pivot(

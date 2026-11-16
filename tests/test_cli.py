@@ -351,6 +351,30 @@ def test_genome_tables_carry_taxonomy(tmp_path):
     assert value(genome, "present", name="Mcr", genome="bin2") is False
 
 
+def test_trna_rows_leave_meta_and_taxonomy_alone(tmp_path):
+    from dram_rules.hits import Hits
+    from dram_rules.make_product import load_sheet, visualize
+
+    (tmp_path / "anno.tsv").write_text(
+        "query_id\tinput_fasta\tkegg_id\ttaxonomy\tCompleteness\n"
+        "bin1_1\tbin1\tK00399\td__Archaea;p__Halo\t90.5\n"
+    )
+    (tmp_path / "trna.tsv").write_text(
+        "input_fasta\tquery_id\tgene_id\nbin1\tbin1_contig1\tAla (AGC)\n"
+    )
+    (tmp_path / "rules.tsv").write_text("name\tgroup\trule\nAla\tG1\t`Ala (AGC)`\n")
+    compiled = load_sheet(tmp_path / "rules.tsv", None, ())
+    hits = Hits.load(tmp_path / "anno.tsv", [compiled], trna=tmp_path / "trna.tsv")
+    [result] = visualize({tmp_path: (tmp_path / "rules.tsv", compiled)}, hits).values()
+    dfs = result["dfs"]["genome"]
+    assert dfs["Meta"].select("genome", "name", "value").rows() == [
+        ("bin1", "Completeness", 90.5)
+    ]
+    assert dfs["G1"].select("taxonomy", "present").rows() == [
+        ("d__Archaea;p__Halo", True)
+    ]
+
+
 def test_custom_sheets_add_to_the_default(tmp_path):
     (tmp_path / "my_rules.tsv").write_text(SHEET_B)
     out = invoke_ok(
@@ -471,54 +495,6 @@ def test_port_without_dashboard_errors(tmp_path):
     assert result.exit_code != 0
     assert "--port" in result.output
     assert not (tmp_path / "out").exists()
-
-
-@pytest.fixture
-def annotation_sources(monkeypatch):
-    """Where each genome- or sample-level evaluation got its annotations:
-    `(level, "file")` for a scan, `(level, "memory")` otherwise."""
-    from dram_rules import make_product
-
-    sources = []
-    evaluate = make_product.evaluate
-
-    def spy(compiled, hits, annotations, level, *args, **kwargs):
-        plan = annotations.lazy().explain().upper()
-        sources.append((level, "file" if "SCAN" in plan else "memory"))
-        return evaluate(compiled, hits, annotations, level, *args, **kwargs)
-
-    monkeypatch.setattr(make_product, "evaluate", spy)
-    return sources
-
-
-ROWS_SHEET = "name\tgroup\trule\nAny\tG1\tcount_rows(>=, 1)\nMcr\tG1\tK00399\n"
-
-
-def test_sheets_reading_rows_share_one_copy_in_memory(tmp_path, annotation_sources):
-    (tmp_path / "a.tsv").write_text(ROWS_SHEET)
-    (tmp_path / "b.tsv").write_text(SHEET_B)
-    invoke_ok(
-        tmp_path, "--ecos", "none", "--viz_custom", f"{tmp_path / 'a.tsv'},{tmp_path / 'b.tsv'}",
-    )  # fmt: skip
-    assert annotation_sources == [("genome", "memory")] * 2
-
-
-def test_sample_level_reads_rows_from_memory_too(tmp_path, annotation_sources):
-    (tmp_path / "a.tsv").write_text(ROWS_SHEET)
-    (tmp_path / "b.tsv").write_text(SHEET_B)
-    invoke_ok(
-        tmp_path, "--ecos", "none", "--viz_custom", f"{tmp_path / 'a.tsv'},{tmp_path / 'b.tsv'}",
-        mapping=MAPPING,
-    )  # fmt: skip
-    assert (
-        sorted(annotation_sources)
-        == [("genome", "memory")] * 2 + [("sample", "memory")] * 2
-    )
-
-
-def test_annotations_stay_on_disk_when_no_rule_reads_rows(tmp_path, annotation_sources):
-    run(tmp_path)  # with the mapping file
-    assert sorted(annotation_sources) == [("genome", "file"), ("sample", "file")]
 
 
 def test_wide_table_rows_ignore_float_noise_in_abundance(tmp_path):

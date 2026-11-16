@@ -15,15 +15,14 @@ from dram_rules.apps.heatmap import Dashboard
 from dram_rules.definitions import (
     DEFAULT_LABEL_COLUMN,
 )
+from dram_rules.hits import Hits
 from dram_rules.processing.process_annotations import (
     build_tax_edge_df_pl,
     build_taxonomy_df_pl,
     build_tree_pl,
-    load_mapping,
 )
 from dram_rules.rule_parser.rules import (
     CompiledRules,
-    evaluate,
     get_val_cols,
 )
 
@@ -79,41 +78,22 @@ def load_sheet(
 
 
 def visualize(
-    sheets: dict[Path, tuple[Path, CompiledRules]],
-    raw_anno: pl.LazyFrame,
-    hits: pl.DataFrame,
-    mapping: Path | None,
+    sheets: dict[Path, tuple[Path, CompiledRules]], hits: Hits
 ) -> dict[Path, dict]:
     """Evaluate each sheet, `{output folder: (sheet path, compiled sheet)}`,
-    for its heatmaps and tables. `hits` are the annotations' Hits for every
-    sheet; the mapping file and the taxonomy are loaded once and shared.
-    Returns each folder's `Dashboard` arguments; nothing is written."""
+    for its heatmaps and tables, at the sample level too when `hits` has a
+    mapping file. The taxonomy is loaded once and shared. Returns each
+    folder's `Dashboard` arguments; nothing is written."""
     s = time.time()
-    anno_columns = raw_anno.collect_schema().names()
-    genes = raw_anno.select("query_id", "genome").collect()
-    sample_names = genes["genome"].unique().sort().to_list()
-    anno_df = hits
-    abundance_col = None
-    if mapping:
-        means, abundances, sample_names_mapping = load_mapping(mapping, genes)
-        key = means.columns[0]  # query_id or genome
-        # query_id, genome, hit, sample, sample_abundance: each sample's hits
-        sample_hits_df = anno_df.join(abundances, on=key)
-        anno_df = anno_df.join(means, on=key)
-        # Annotation rows per sample, for rules that read rows (count_rows,
-        # tax, ...): a gene belongs to every sample where its abundance isn't 0.
-        sample_annotations = raw_anno.join(
-            abundances.lazy().select(key, "sample"), on=key
-        )
-        abundance_col = "mean_sample_abundance"
-
+    genes = hits.genes
+    anno_columns = genes.collect_schema().names()
     extra_cols = [
         col for col in ["Completeness", "Contamination"] if col in anno_columns
     ]
     meta = None
     if extra_cols:
         meta = (
-            raw_anno.unpivot(
+            genes.unpivot(
                 index="genome", on=extra_cols, variable_name=DEFAULT_LABEL_COLUMN
             )
             .unique()
@@ -122,7 +102,7 @@ def visualize(
 
     tax_df = tax_tree_data = None
     if "taxonomy" in anno_columns:
-        tax_df = build_taxonomy_df_pl(raw_anno, "genome")
+        tax_df = build_taxonomy_df_pl(genes, "genome")
         tax_edge_df, tax_df = build_tax_edge_df_pl(tax_df)
         tax_tree_data = build_tree_pl(
             tax_edge_df,
@@ -135,24 +115,9 @@ def visualize(
     results = {}
     for output_dir, (rules_tsv, compiled) in sheets.items():
         dfs = {}
-        if mapping:
-            dfs["sample"] = evaluate(
-                compiled,
-                sample_hits_df,
-                sample_annotations,
-                "sample",
-                sample_names_mapping,
-                abundance_col="sample_abundance",
-            )
-        dfs["genome"] = evaluate(
-            compiled,
-            anno_df,
-            raw_anno,
-            "genome",
-            sample_names,
-            additional_cols=["long_name"],
-            abundance_col=abundance_col,
-        )
+        if hits.samples is not None:
+            dfs["sample"] = hits.evaluate(compiled, "sample")
+        dfs["genome"] = hits.evaluate(compiled, "genome", additional_cols=["long_name"])
         if meta is not None:
             # The metadata frame goes first.
             dfs["genome"] = {"Meta": meta, **dfs["genome"]}
