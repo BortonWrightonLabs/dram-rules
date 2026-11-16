@@ -70,9 +70,6 @@ def compile_sheets(
     for path in paths:
         overrides = (columns or {}) if path in custom else {}
         try:
-            names = scan_tsv(path).collect_schema().names() if overrides else []
-            if missing := [c for c in overrides.values() if c not in names]:
-                raise RuleError(f"No column {missing}, given as a custom column")
             compiled[path] = load(path, *args, **overrides)
         except RuleError as e:
             raise RuleError(f"Rule sheet {path}: {e}") from e

@@ -1,14 +1,14 @@
-name	alias	rule
-A	a1	@a2 & @a3
-	a2	K00399 | K00400 | K00401 | K00402 | K03421 | K03422
-	a3	not(@b4)
-B	b1	@b2 | @b4
-	b2	percent(50,@b3)
-	b3	K00399,[K00401 & K00402 & [K00333 | K03421] & [K03422 | K13380]],K00400,K00401,K00402,K03421,K03422
-	b4	K02591 | K02586 | K02588
-C	c1	@c2
-	c2	@c3 -> filter_compare(heme_regulatory_motif_count, >=, 2) -> count_rows(>=, 2)
-	c3	not(@c4)
-	c4	filter_contains(kegg_description,"nitrate reductase")
-D	d1	percent(50,@d2)
-	d2	K00399,K14126,K02588
+name	alias	rule	group
+A	a1	@a2 & @a3	grp
+	a2	K00399 | K00400 | K00401 | K00402 | K03421 | K03422	grp
+	a3	not(@b4)	grp
+B	b1	@b2 | @b4	grp
+	b2	percent(50,@b3)	grp
+	b3	K00399,[K00401 & K00402 & [K00333 | K03421] & [K03422 | K13380]],K00400,K00401,K00402,K03421,K03422	grp
+	b4	K02591 | K02586 | K02588	grp
+C	c1	@c2	grp
+	c2	@c3 -> filter_compare(heme_regulatory_motif_count, >=, 2) -> count_rows(>=, 2)	grp
+	c3	not(@c4)	grp
+	c4	filter_contains(kegg_description,"nitrate reductase")	grp
+D	d1	percent(50,@d2)	grp
+	d2	K00399,K14126,K02588	grp

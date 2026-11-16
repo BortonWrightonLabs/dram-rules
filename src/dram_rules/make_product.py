@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import logging
 import time
+from dataclasses import replace
 from pathlib import Path
 
 import panel as pn
@@ -12,10 +13,6 @@ import polars as pl
 
 from dram_rules.apps.heatmap import Dashboard
 from dram_rules.definitions import (
-    BACKUP_ALIAS_COLUMNS,
-    BACKUP_GROUPBY_COLUMNS,
-    DEFAULT_ALIAS_COLUMN,
-    DEFAULT_GROUPBY_COLUMN,
     DEFAULT_LABEL_COLUMN,
 )
 from dram_rules.processing.process_annotations import (
@@ -23,13 +20,10 @@ from dram_rules.processing.process_annotations import (
     build_taxonomy_df_pl,
     build_tree_pl,
     load_mapping,
-    scan_tsv,
 )
 from dram_rules.rule_parser.rules import (
     CompiledRules,
-    RuleError,
     evaluate,
-    find_label_column,
     get_val_cols,
 )
 
@@ -63,38 +57,25 @@ def load_sheet(
     """Compile a visualize or traits sheet. Its label column becomes `name`,
     which the heatmaps read, and `long_name` falls back to the label. The
     label, alias and Group columns are looked up unless given."""
-    rules_lf = scan_tsv(path, infer_schema_length=None, truncate_ragged_lines=True)
-    rules_cols = rules_lf.collect_schema().names()
-    label_column = label_col or find_label_column(rules_cols)
-    # Downstream (evaluation, heatmaps, common rules) reads rule names from "name".
-    if label_column != DEFAULT_LABEL_COLUMN:
-        rules_lf = rules_lf.drop(DEFAULT_LABEL_COLUMN, strict=False).rename(
-            {label_column: DEFAULT_LABEL_COLUMN}
-        )
-    alias_column = alias_col or next(
-        (c for c in [DEFAULT_ALIAS_COLUMN, *BACKUP_ALIAS_COLUMNS] if c in rules_cols),
-        DEFAULT_ALIAS_COLUMN,
-    )
-    if "long_name" not in rules_cols:
-        rules_lf = rules_lf.with_columns(long_name=pl.col(DEFAULT_LABEL_COLUMN))
-    rules_lf = rules_lf.with_columns(
-        pl.col("long_name").fill_null(pl.col(DEFAULT_LABEL_COLUMN))
-    )
     compiled = CompiledRules.from_rules(
-        rules=rules_lf,
-        label_col=DEFAULT_LABEL_COLUMN,
-        alias_col=alias_column,
-        rules_col="rule",
+        rules_path=path,
+        label_col=label_col,
+        alias_col=alias_col,
         group_col=group_col,
         common_rules_path=common_rules_tsv,
         function_files=function_files,
     )
-    if compiled.group_col is None:
-        raise RuleError(
-            "No Group column: expected one of"
-            f" {[DEFAULT_GROUPBY_COLUMN, *BACKUP_GROUPBY_COLUMNS]}"
+    label = compiled.label_col
+    # Downstream (heatmaps, tables) reads rule names from "name".
+    df = compiled.df
+    if label != DEFAULT_LABEL_COLUMN:
+        df = df.drop(DEFAULT_LABEL_COLUMN, strict=False).rename(
+            {label: DEFAULT_LABEL_COLUMN}
         )
-    return compiled
+    if "long_name" not in df.columns:
+        df = df.with_columns(long_name=pl.col(DEFAULT_LABEL_COLUMN))
+    df = df.with_columns(pl.col("long_name").fill_null(pl.col(DEFAULT_LABEL_COLUMN)))
+    return replace(compiled, df=df, label_col=DEFAULT_LABEL_COLUMN)
 
 
 def visualize(

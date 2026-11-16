@@ -279,6 +279,31 @@ def test_column_overrides_read_custom_sheets_not_built_in(tmp_path):
     assert counts(topic) == {"K00399": {"bin1": 2, "bin2": 1}}
 
 
+@pytest.mark.parametrize("alias_column", ["aliases", "parent"])
+def test_backup_alias_columns_hold_aliases(tmp_path, alias_column):
+    sheet = write(
+        tmp_path, "a.tsv",
+        f"gene_id\t{alias_column}\ttopic_ecosystem\trule\n"
+        "\tmcr\t\tK00399\n"
+        "Mcr\t\tEnergy\t@mcr\n",
+    )  # fmt: skip
+    out = run(
+        tmp_path, "--sum", "--topics", "none", "--ecos", "none", "--sum_custom", sheet
+    )
+    df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
+    assert counts(df) == {"Mcr": {"bin1": 2, "bin2": 1}}
+
+
+def test_a_sheet_without_a_group_column_names_the_sheet(tmp_path):
+    sheet = write(tmp_path, "nogroup.tsv", "gene_id\tgene_description\nK00399\tmcrA\n")
+    result = invoke(
+        tmp_path, "--sum", "--topics", "none", "--ecos", "none", "--sum_custom", sheet
+    )
+    assert result.exit_code != 0
+    assert "nogroup.tsv" in str(result.exception)
+    assert "No Group column" in str(result.exception)
+
+
 # A visualize/traits sheet, for runs combining refinements.
 VIZ_SHEET = "name\tgroup\trule\nMcr\tG1\tK00399\nCyc2\tG1\tCyc2_repCluster1\n"
 MAPPING = "Geneid\tS1\nbin1_1\t1\nbin1_2\t2\nbin1_3\t3\nbin2_1\t4\n"
