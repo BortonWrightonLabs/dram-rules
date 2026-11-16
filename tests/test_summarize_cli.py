@@ -1,4 +1,4 @@
-"""End-to-end runs of `dram-rules --sum` (the summarize refinement)."""
+"""The summarize refinement: `summarize()` directly, and `dram-rules --sum` end to end."""
 
 import shutil
 from pathlib import Path
@@ -9,6 +9,7 @@ from click.testing import CliRunner
 
 from dram_rules import make_summarize
 from dram_rules.cli import COMMON_RULES, main
+from dram_rules.hits import Hits
 
 # bin1 has two mcrA genes and a cyc2 gene; bin2 has one mcrA gene.
 ANNOTATIONS = """\
@@ -82,11 +83,25 @@ def counts(df: pl.DataFrame, label_col: str = "gene_id") -> dict:
     }
 
 
+def summarize(tmp_path: Path, *sheets: str, trna: str | None = None) -> pl.DataFrame:
+    """The `summarize` table of one Summary Collection of `sheets` (TSV text)."""
+    common = write(tmp_path, "common.tsv", "name\talias\trule\n")
+    compiled = [
+        make_summarize.load_summarize_sheet(
+            Path(write(tmp_path, f"s{i}.tsv", text)), Path(common), ()
+        )
+        for i, text in enumerate(sheets)
+    ]
+    hits = Hits.load(
+        Path(write(tmp_path, "anno.tsv", ANNOTATIONS)),
+        compiled,
+        trna=Path(write(tmp_path, "trna.tsv", trna)) if trna else None,
+    )
+    return make_summarize.summarize({"c": compiled}, hits)["c"]
+
+
 def test_custom_sheet_gene_counts(tmp_path):
-    sheet = write(tmp_path, "a.tsv", SHEET)
-    out = run(tmp_path, "--sum", "--sum_custom", sheet)
-    df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
-    assert counts(df) == {
+    assert counts(summarize(tmp_path, SHEET)) == {
         "K00399": {"bin1": 2, "bin2": 1},
         "Cyc2_repCluster1": {"bin1": 2, "bin2": 0},
         "K99999": {"bin1": 0, "bin2": 0},
@@ -107,14 +122,12 @@ def test_workbook_has_a_sorted_worksheet_per_group(tmp_path):
 
 
 def test_sheets_with_different_label_columns_use_name(tmp_path):
-    a = write(tmp_path, "a.tsv", SHEET)
-    b = write(tmp_path, "b.tsv", "name\ttopic_ecosystem\trule\nMcr\tEnergy\tK00399\n")
-    out = run(tmp_path, "--sum", "--sum_custom", f"{a},{b}")
-    df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
+    df = summarize(
+        tmp_path, SHEET, "name\ttopic_ecosystem\trule\nMcr\tEnergy\tK00399\n"
+    )
+    assert df.columns[0] == "name"
     assert counts(df, "name")["Mcr"] == {"bin1": 2, "bin2": 1}
     assert counts(df, "name")["K00399"] == {"bin1": 2, "bin2": 1}
-    book = pl.read_excel(out / "custom_summary.xlsx", sheet_id=0)
-    assert book["Energy"].columns[0] == "name"
 
 
 # tRNAscan rows as DRAM collects them: query_id is the contig, so two tRNAs
@@ -135,11 +148,7 @@ K00399\tmcrA\tEnergy
 
 
 def test_trna_rows_get_gene_counts(tmp_path):
-    sheet = write(tmp_path, "a.tsv", TRNA_SHEET)
-    trna = write(tmp_path, "trna.tsv", TRNA)
-    out = run(tmp_path, "--sum", "--sum_custom", sheet, "--trna_path", trna)
-    df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
-    assert counts(df) == {
+    assert counts(summarize(tmp_path, TRNA_SHEET, trna=TRNA)) == {
         "`Ala (AGC)`": {"bin1": 2, "bin2": 0},
         "`Val (GAC)`": {"bin1": 0, "bin2": 1},
         "K00399": {"bin1": 2, "bin2": 1},
@@ -163,10 +172,7 @@ def test_coverage_options_are_an_error_naming_the_rule(tmp_path):
 
 def test_null_trna_file_adds_nothing(tmp_path):
     # DRAM writes a file holding only "NULL" when annotate found no tRNAs.
-    sheet = write(tmp_path, "a.tsv", SHEET)
-    trna = write(tmp_path, "trna.tsv", "NULL\n")
-    out = run(tmp_path, "--sum", "--sum_custom", sheet, "--trna_path", trna)
-    df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
+    df = summarize(tmp_path, SHEET, trna="NULL\n")
     assert counts(df)["K00399"] == {"bin1": 2, "bin2": 1}
 
 
@@ -176,32 +182,25 @@ NEEDS_TAXONOMY = '{"include_when": {"all_columns_present": ["taxonomy"]}}'
 def test_rules_left_out_by_include_when_are_absent(tmp_path):
     # The annotations have no taxonomy, so Group "Taxa" loses its only rule
     # and sheet b loses every rule.
-    a = write(
-        tmp_path,
-        "a.tsv",
+    a = (
         "gene_id\ttopic_ecosystem\trule_options\n"
         "K00399\tEnergy\t\n"
-        f"Cyc2_repCluster1\tTaxa\t{NEEDS_TAXONOMY}\n",
+        f"Cyc2_repCluster1\tTaxa\t{NEEDS_TAXONOMY}\n"
     )
-    b = write(
-        tmp_path,
-        "b.tsv",
-        f"name\ttopic_ecosystem\trule_options\nK00399\tEnergy\t{NEEDS_TAXONOMY}\n",
-    )
-    out = run(tmp_path, "--sum", "--sum_custom", f"{a},{b}")
-    df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
+    b = f"name\ttopic_ecosystem\trule_options\nK00399\tEnergy\t{NEEDS_TAXONOMY}\n"
+    df = summarize(tmp_path, a, b)
     # Sheet b added nothing, so the label column stays a's `gene_id`.
     assert counts(df) == {"K00399": {"bin1": 2, "bin2": 1}}
-    assert list(pl.read_excel(out / "custom_summary.xlsx", sheet_id=0)) == ["Energy"]
+    assert df["topic_ecosystem"].to_list() == ["Energy"]
 
 
 def test_no_collection_when_every_rule_is_left_out(tmp_path):
-    b = write(
-        tmp_path,
-        "b.tsv",
-        f"gene_id\ttopic_ecosystem\trule_options\nK00399\tEnergy\t{NEEDS_TAXONOMY}\n",
+    sheet = (
+        f"gene_id\ttopic_ecosystem\trule_options\nK00399\tEnergy\t{NEEDS_TAXONOMY}\n"
     )
-    out = run(tmp_path, "--sum", "--sum_custom", b)
+    assert summarize(tmp_path, sheet) is None
+    # The command then writes no workbook.
+    out = run(tmp_path, "--sum", "--sum_custom", write(tmp_path, "b.tsv", sheet))
     assert not (out / "custom_summary.tsv").exists()
     assert not (out / "custom_summary.xlsx").exists()
 
@@ -321,20 +320,20 @@ def test_a_bad_sheet_in_any_refinement_stops_the_run_before_any_output(tmp_path)
     assert not (tmp_path / "out").exists()
 
 
-def test_a_failure_while_evaluating_leaves_no_outputs(tmp_path, monkeypatch):
-    from dram_rules import cli
-
-    def fail(*args):
-        raise RuntimeError("boom")
-
-    monkeypatch.setattr(cli, "summarize_sheet", fail)
+def test_a_failure_while_evaluating_leaves_no_outputs(tmp_path):
+    # Compiles, but reading a missing column fails at evaluate (ADR 0001).
+    sheet = write(
+        tmp_path, "a.tsv",
+        "name\ttopic_ecosystem\trule\n"
+        'Bad\tEnergy\tfilter_contains(no_such_column, "x") -> count_rows(>=, 1)\n',
+    )  # fmt: skip
     viz = write(tmp_path, "viz.tsv", VIZ_SHEET)
-    sheet = write(tmp_path, "a.tsv", SHEET)
     result = invoke(
         tmp_path, "--viz", "--ecos", "none", "--viz_custom", viz,
         "--sum", "--sum_custom", sheet,
     )  # fmt: skip
     assert result.exit_code != 0
+    assert "no_such_column" in str(result.exception)
     assert not (tmp_path / "out").exists()
 
 

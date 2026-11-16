@@ -7,13 +7,13 @@ from pathlib import Path
 
 import click
 
+from dram_rules import make_summarize
 from dram_rules.definitions import BACKUP_FASTA_COLUMNS, DEFAULT_FASTA_COLUMN
 from dram_rules.hits import Hits
 from dram_rules.make_summarize import (
     ECOSYSTEMS,
     TOPICS,
     load_summarize_sheet,
-    summarize_sheet,
     summary_collections,
     write_collection,
 )
@@ -315,16 +315,16 @@ def main(
     if summarize:
         if mapping:
             logger.info("Summarize ignores --mapping for now")
-        summaries = {
-            name: [summarize_sheet(sheets[p], hits) for p in paths]
-            for name, paths in collections.items()
-        }
+        summaries = make_summarize.summarize(
+            {name: [sheets[p] for p in paths] for name, paths in collections.items()},
+            hits,
+        )
 
     if visualized and not no_save:
         make_product.save_visualized(heatmap_sheets, visualized, save_needed_features)
     if summarize:
-        for name, frames in summaries.items():
-            write_collection(frames, name, output_dir / "summarize")
+        for name, df in summaries.items():
+            write_collection(df, name, output_dir / "summarize")
     if dashboard:
         make_product.serve(visualized, 5006 if port is None else port, not no_save)
 

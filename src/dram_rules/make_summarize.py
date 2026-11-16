@@ -99,20 +99,27 @@ def summarize_sheet(compiled: CompiledRules, hits: Hits) -> pl.DataFrame | None:
     )
 
 
-def write_collection(
-    sheets: list[pl.DataFrame | None], name: str, out_dir: Path
-) -> None:
-    """Write `summarize_sheet` frames as one Summary Collection: `<name>.xlsx`,
-    a worksheet per Group, and `<name>.tsv`. The label column keeps the sheets'
-    name, or is `name` when they disagree. Nothing is written without sheets."""
-    sheets = [df for df in sheets if df is not None]
-    if not sheets:
+def summarize(
+    collections: dict[str, list[CompiledRules]], hits: Hits
+) -> dict[str, pl.DataFrame | None]:
+    """Each Summary Collection's table: the `summarize_sheet` rows of its
+    sheets, one sheet after another. The label column keeps the sheets' name,
+    or is `name` when they disagree. None when no rule is left."""
+    tables = {}
+    for name, sheets in collections.items():
+        frames = [df for c in sheets if (df := summarize_sheet(c, hits)) is not None]
+        if len({df.columns[0] for df in frames}) > 1:
+            frames = [df.rename({df.columns[0]: "name"}) for df in frames]
+        tables[name] = pl.concat(frames, how="diagonal_relaxed") if frames else None
+    return tables
+
+
+def write_collection(df: pl.DataFrame | None, name: str, out_dir: Path) -> None:
+    """Write a `summarize` table as `<name>.xlsx`, a worksheet per Group, and
+    `<name>.tsv`. Nothing is written for None."""
+    if df is None:
         return
-    labels = {df.columns[0] for df in sheets}
-    if len(labels) > 1:
-        sheets = [df.rename({df.columns[0]: "name"}) for df in sheets]
-    label = sheets[0].columns[0]
-    df = pl.concat(sheets, how="diagonal_relaxed")
+    label = df.columns[0]
     out_dir.mkdir(parents=True, exist_ok=True)
     df.write_csv(out_dir / f"{name}.tsv", separator="\t")
     sort = [c for c in SORT_COLUMNS if c in df.columns] + [label]
