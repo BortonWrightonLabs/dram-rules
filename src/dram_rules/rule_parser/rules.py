@@ -15,8 +15,10 @@ import polars as pl
 from lark import Lark, LarkError, Transformer
 
 from dram_rules.definitions import (
+    BACKUP_ALIAS_COLUMNS,
     BACKUP_GROUPBY_COLUMNS,
     BACKUP_LABEL_COLUMNS,
+    DEFAULT_ALIAS_COLUMN,
     DEFAULT_GROUPBY_COLUMN,
     DEFAULT_LABEL_COLUMN,
 )
@@ -825,6 +827,7 @@ class CompiledRules:
         rules_path: str | Path | None = None,
         rules: pl.LazyFrame | None = None,
         label_col: str | None = None,
+        alias_col: str | None = None,
         group_col=None,
         group_col_backups=BACKUP_GROUPBY_COLUMNS,
         functions: FunctionRegistry | None = None,
@@ -833,17 +836,28 @@ class CompiledRules:
     ) -> CompiledRules:
         """Load, expand and compile a rule sheet (other arguments as for `load_rules`).
 
-        `label_col` defaults to the sheet's first column of `name`, `label`,
-        `gene_id`. `functions` are the functions rules may call (default: the
-        built-ins); `function_files` are Python files of extra `@rule_function`s to add.
+        The label, alias and Group columns are the first of their default and
+        backups the sheet has (`definitions.py`), unless given; a given column
+        the sheet lacks, or no Group column at all, is a RuleError.
+        `functions` are the functions rules may call (default: the built-ins);
+        `function_files` are Python files of extra `@rule_function`s to add.
         """
         if functions is None:
             functions = builtin_functions()
         functions = functions.with_files(function_files)
         sheet = _scan_rules_tsv(rules_path) if rules_path else rules
-        if label_col is None:
-            label_col = find_label_column(sheet.collect_schema().names())
-        definitions, rules, df = load_rules(rules=sheet, label_col=label_col, **kwargs)
+        columns = sheet.collect_schema().names()
+        given = [label_col, alias_col, group_col]
+        if missing := [c for c in given if c and c not in columns]:
+            raise RuleError(f"No column {missing}, given as a custom column")
+        label_col = label_col or find_label_column(columns)
+        alias_col = alias_col or next(
+            (c for c in [DEFAULT_ALIAS_COLUMN, *BACKUP_ALIAS_COLUMNS] if c in columns),
+            DEFAULT_ALIAS_COLUMN,
+        )
+        definitions, rules, df = load_rules(
+            rules=sheet, label_col=label_col, alias_col=alias_col, **kwargs
+        )
         compiler = RuleCompiler(functions)
 
         # Check each alias on its own, so errors in unused aliases are found too.
@@ -872,11 +886,15 @@ class CompiledRules:
                 (c for c in [DEFAULT_GROUPBY_COLUMN, *group_col_backups] if c in df),
                 None,
             )
-        if group_col:
-            # Fill nulls in the group column from the remaining backups, in order.
-            backups = [c for c in group_col_backups if c in df and c != group_col]
-            if backups:
-                df = df.with_columns(pl.coalesce(group_col, *backups).alias(group_col))
+        if group_col is None:
+            raise RuleError(
+                "No Group column: expected one of"
+                f" {[DEFAULT_GROUPBY_COLUMN, *group_col_backups]}"
+            )
+        # Fill nulls in the group column from the remaining backups, in order.
+        backups = [c for c in group_col_backups if c in df and c != group_col]
+        if backups:
+            df = df.with_columns(pl.coalesce(group_col, *backups).alias(group_col))
 
         rule_options = _parse_rule_options(df, label_col)
         _check_coverage_options(rule_options, df, label_col, group_col)

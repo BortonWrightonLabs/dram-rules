@@ -215,6 +215,7 @@ def test_unknown_coverage_mode_is_an_error():
                     "name": ["r"],
                     "rule": ["K1"],
                     "rule_options": ['{"coverage":"pathway"}'],
+                    "group": ["g"],
                 }
             ).lazy()
         )
@@ -284,7 +285,9 @@ def test_rule_errors_name_the_problem(rule, message):
 
 def compile_sheet(names, aliases, rules):
     return CompiledRules.from_rules(
-        rules=pl.DataFrame({"name": names, "alias": aliases, "rule": rules}).lazy()
+        rules=pl.DataFrame(
+            {"name": names, "alias": aliases, "rule": rules, "group": "g"}
+        ).lazy()
     )
 
 
@@ -609,7 +612,12 @@ def test_invalid_rule_options_json_names_the_rule():
     with pytest.raises(RuleError, match="bad_rule"):
         CompiledRules.from_rules(
             rules=pl.DataFrame(
-                {"name": ["bad_rule"], "rule": ["K1"], "rule_options": ["{not json"]}
+                {
+                    "name": ["bad_rule"],
+                    "rule": ["K1"],
+                    "rule_options": ["{not json"],
+                    "group": ["g"],
+                }
             ).lazy()
         )
 
@@ -770,8 +778,8 @@ def test_unknown_evaluation_level_is_an_error():
 
 
 def test_sheet_without_a_group_column_is_an_error():
-    with pytest.raises(RuleError, match="no Group column"):
-        _evaluate(_sheet("name\trule\nMcr\tK00399\n"))
+    with pytest.raises(RuleError, match="No Group column"):
+        _sheet("name\trule\nMcr\tK00399\n")
 
 
 def test_abundance_at_the_gene_level_is_an_error():

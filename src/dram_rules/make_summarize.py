@@ -11,7 +11,8 @@ from pathlib import Path
 import polars as pl
 from xlsxwriter import Workbook
 
-from dram_rules.rule_parser.rules import CompiledRules, check_gene_level, evaluate
+from dram_rules.hits import Hits
+from dram_rules.rule_parser.rules import CompiledRules, check_gene_level
 
 logger = logging.getLogger("dram.rules")
 
@@ -76,38 +77,12 @@ def load_summarize_sheet(
     return compiled
 
 
-def read_trna(trna_path: Path) -> pl.LazyFrame | None:
-    """tRNAscan rows (`input_fasta`, `query_id`, `gene_id`, as DRAM collects
-    them) as annotation rows: `genome`, `query_id`, and the tRNA's Gene ID in a
-    `trna_id` column. None for DRAM's file for "no tRNAs".
-
-    Each tRNA is its own gene. Its `query_id` is its contig, which tRNAs on one
-    contig share, so the row number is appended to keep them apart."""
-    trna = pl.read_csv(trna_path, separator="\t", infer_schema_length=None)
-    if trna.columns == ["NULL"] or trna.is_empty():
-        return None
-    return trna.lazy().select(
-        genome=pl.col("input_fasta").cast(pl.String),
-        query_id=pl.format(
-            "{}_trna_{}",
-            pl.col("query_id").cast(pl.String).str.strip_chars(),
-            pl.int_range(pl.len()),
-        ),
-        trna_id=pl.col("gene_id"),
-    )
-
-
-def summarize_sheet(
-    compiled: CompiledRules,
-    hits: pl.DataFrame,
-    annotations: pl.LazyFrame,
-    genomes: list[str],
-) -> pl.DataFrame | None:
+def summarize_sheet(compiled: CompiledRules, hits: Hits) -> pl.DataFrame | None:
     """One row per rule, in sheet order: the label, the Group (as GROUP_COLUMN),
     the SUMMARY_COLUMNS the sheet has, then one Gene Count column per genome.
     Rules left out by `include_when` are absent; None if no rule is left."""
     label, group = compiled.label_col, compiled.group_col
-    dfs = evaluate(compiled, hits, annotations, "gene", genomes)
+    dfs = hits.evaluate(compiled, "gene")
     if not dfs:
         return None
     counts = pl.concat(dfs.values()).pivot(
@@ -124,20 +99,27 @@ def summarize_sheet(
     )
 
 
-def write_collection(
-    sheets: list[pl.DataFrame | None], name: str, out_dir: Path
-) -> None:
-    """Write `summarize_sheet` frames as one Summary Collection: `<name>.xlsx`,
-    a worksheet per Group, and `<name>.tsv`. The label column keeps the sheets'
-    name, or is `name` when they disagree. Nothing is written without sheets."""
-    sheets = [df for df in sheets if df is not None]
-    if not sheets:
+def summarize(
+    collections: dict[str, list[CompiledRules]], hits: Hits
+) -> dict[str, pl.DataFrame | None]:
+    """Each Summary Collection's table: the `summarize_sheet` rows of its
+    sheets, one sheet after another. The label column keeps the sheets' name,
+    or is `name` when they disagree. None when no rule is left."""
+    tables = {}
+    for name, sheets in collections.items():
+        frames = [df for c in sheets if (df := summarize_sheet(c, hits)) is not None]
+        if len({df.columns[0] for df in frames}) > 1:
+            frames = [df.rename({df.columns[0]: "name"}) for df in frames]
+        tables[name] = pl.concat(frames, how="diagonal_relaxed") if frames else None
+    return tables
+
+
+def write_collection(df: pl.DataFrame | None, name: str, out_dir: Path) -> None:
+    """Write a `summarize` table as `<name>.xlsx`, a worksheet per Group, and
+    `<name>.tsv`. Nothing is written for None."""
+    if df is None:
         return
-    labels = {df.columns[0] for df in sheets}
-    if len(labels) > 1:
-        sheets = [df.rename({df.columns[0]: "name"}) for df in sheets]
-    label = sheets[0].columns[0]
-    df = pl.concat(sheets, how="diagonal_relaxed")
+    label = df.columns[0]
     out_dir.mkdir(parents=True, exist_ok=True)
     df.write_csv(out_dir / f"{name}.tsv", separator="\t")
     sort = [c for c in SORT_COLUMNS if c in df.columns] + [label]

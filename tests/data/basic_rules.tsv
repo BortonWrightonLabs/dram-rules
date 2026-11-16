@@ -1,5 +1,5 @@
-name	alias	rule
-A	a1	@a2 & @a3
-	a2	K00399 | K00400 | K00401 | K00402 | K03421 | K03422
-	a3	not(@a4)
-	a4	K02591 | K02586 | K02588
+name	alias	rule	group
+A	a1	@a2 & @a3	grp
+	a2	K00399 | K00400 | K00401 | K00402 | K03421 | K03422	grp
+	a3	not(@a4)	grp
+	a4	K02591 | K02586 | K02588	grp

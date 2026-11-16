@@ -61,7 +61,7 @@ COMPOUND_EXPANDED = {
 def compile_text(rule: str):
     """Compile one rule written without aliases."""
     return CompiledRules.from_rules(
-        rules=pl.DataFrame({"name": ["r"], "rule": [rule]}).lazy()
+        rules=pl.DataFrame({"name": ["r"], "rule": [rule], "group": ["g"]}).lazy()
     ).rules["r"]
 
 
@@ -260,6 +260,7 @@ def test_group_delimiters(square, round_):
                 "name": ["square", "round", ""],
                 "alias": ["", "", "CalvinCycle"],
                 "rule": [square, round_, "(K12345, K12346)"],
+                "group": ["g", "g", None],
             }
         ).lazy()
     )
@@ -402,7 +403,9 @@ def test_summarize_sheet_labels_are_their_own_rules():
 
 def test_empty_rule_uses_the_label():
     compiled = CompiledRules.from_rules(
-        rules=pl.DataFrame({"name": ["K1", "both"], "rule": [None, "K1 & K2"]}).lazy()
+        rules=pl.DataFrame(
+            {"name": ["K1", "both"], "rule": [None, "K1 & K2"], "group": ["g", "g"]}
+        ).lazy()
     )
     assert compiled.rules["K1"] == Name("K1")
     assert compiled.needed_features == {"K1", "K2"}
@@ -410,7 +413,9 @@ def test_empty_rule_uses_the_label():
 
 def test_label_lookup_prefers_name_over_gene_id():
     compiled = CompiledRules.from_rules(
-        rules=pl.DataFrame({"name": ["r"], "gene_id": ["K9"], "rule": ["K1"]}).lazy()
+        rules=pl.DataFrame(
+            {"name": ["r"], "gene_id": ["K9"], "rule": ["K1"], "group": ["g"]}
+        ).lazy()
     )
     assert list(compiled.rules) == ["r"]
 

@@ -103,7 +103,7 @@ dram-rules --annotations <path/to/annotations.tsv> --output_dir <path/to/output/
     --sum --topics cell,env --sum_custom <sheet1.tsv>,<sheet2.tsv> [--trna_path <trnas.tsv>]
 ```
 
-`--ecos gut` applies to both refinements here: visualize and summarize each use their gut sheet. `--trna_path` takes the tRNAscan output from DRAM annotate, so tRNA rules get Gene Counts.
+`--ecos gut` applies to both refinements here: visualize and summarize each use their gut sheet. `--trna_path` takes the tRNAscan output from DRAM annotate. Each tRNA becomes a gene of its genome for every refinement, so rules can name tRNAs (as `` `Ala (AGC)` ``) in any sheet. With a mapping file keyed by gene, tRNAs belong to no sample, because the mapping file doesn't name them; keyed by genome, they take their genome's abundance.
 
 `--mapping`/`-m` adds abundances per sample to visualize and traits. Its first column holds gene names (matching the annotations' `query_id`) or genome names, and each numeric column after it is a sample. Summarize ignores the mapping file for now.
 

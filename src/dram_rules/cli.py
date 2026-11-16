@@ -6,24 +6,20 @@ import logging
 from pathlib import Path
 
 import click
-import polars as pl
 
+from dram_rules import make_summarize
 from dram_rules.definitions import BACKUP_FASTA_COLUMNS, DEFAULT_FASTA_COLUMN
+from dram_rules.hits import Hits
 from dram_rules.make_summarize import (
     ECOSYSTEMS,
     TOPICS,
     load_summarize_sheet,
-    read_trna,
-    summarize_sheet,
     summary_collections,
     write_collection,
 )
-from dram_rules.processing.process_annotations import scan_tsv
 from dram_rules.rule_parser.rules import (
-    ID_PARSERS,
     CompiledRules,
     RuleError,
-    prepare_present_map_df,
 )
 
 COMMON_RULES = Path(__file__).parent / "data/rules_common.tsv"
@@ -70,9 +66,6 @@ def compile_sheets(
     for path in paths:
         overrides = (columns or {}) if path in custom else {}
         try:
-            names = scan_tsv(path).collect_schema().names() if overrides else []
-            if missing := [c for c in overrides.values() if c not in names]:
-                raise RuleError(f"No column {missing}, given as a custom column")
             compiled[path] = load(path, *args, **overrides)
         except RuleError as e:
             raise RuleError(f"Rule sheet {path}: {e}") from e
@@ -192,7 +185,7 @@ def compile_sheets(
 @click.option(
     "--trna_path",
     type=click.Path(exists=True, dir_okay=False, path_type=Path),
-    help="tRNAscan output from DRAM annotate, so tRNA rules get Gene Counts (summarize)",
+    help="tRNAscan output from DRAM annotate; its tRNAs count as genes in every refinement",
 )
 def main(
     annotations,
@@ -303,82 +296,37 @@ def main(
             columns=columns,
         )
 
-    raw_anno = scan_tsv(annotations, infer_schema_length=10_000)
-    fasta_column = next(
-        (
-            c
-            for c in [fasta_column, *BACKUP_FASTA_COLUMNS]
-            if c in raw_anno.collect_schema().names()
-        ),
-        None,
-    )
-    if fasta_column is None:
-        raise click.UsageError(
-            f"Annotations have none of the genome columns {[DEFAULT_FASTA_COLUMN, *BACKUP_FASTA_COLUMNS]}"
-        )
-    raw_anno = raw_anno.rename({fasta_column: "genome"}).with_columns(
-        pl.col("genome").cast(pl.String)
-    )
-
     every_sheet = [*(c for _, c in heatmap_sheets.values()), *sheets.values()]
-    # One load of the annotations' Hits, for every Gene ID of every refinement.
-    hits = prepare_present_map_df(
-        raw_anno,
-        count_col="query_id",
-        group_col="genome",
-        besthit_cols=list(ID_PARSERS),
-        needed_features=gene_ids(*every_sheet),
-    )
-    logger.info(f"Loaded the annotations' Hits once, for {len(hits)} hits")
-    # Rules that read rows would otherwise read the file again for every sheet.
-    # After the Hits: building them from the in-memory copy peaked higher.
-    if any(c.reads_rows for c in every_sheet):
-        raw_anno = raw_anno.collect().lazy()
+    try:
+        # One load of the annotations' Hits, for every Gene ID of every refinement.
+        hits = Hits.load(
+            annotations,
+            every_sheet,
+            fasta_column=fasta_column,
+            trna=trna_path,
+            # Summarize ignores the mapping file, so only heatmaps load it.
+            mapping=mapping if heatmap_sheets else None,
+        )
+    except ValueError as e:
+        raise click.UsageError(str(e)) from e
 
     # Every refinement evaluates before any writes, so a failure leaves no outputs.
-    visualized = (
-        make_product.visualize(heatmap_sheets, raw_anno, hits, mapping)
-        if heatmap_sheets
-        else {}
-    )
+    visualized = make_product.visualize(heatmap_sheets, hits) if heatmap_sheets else {}
     if summarize:
         if mapping:
             logger.info("Summarize ignores --mapping for now")
-        sum_anno, sum_hits = raw_anno, hits
-        # tRNA rows are summarize-only, so they get their own Hits.
-        if trna_path and (trna := read_trna(trna_path)) is not None:
-            sum_anno = pl.concat([raw_anno, trna], how="diagonal_relaxed")
-            trna_hits = prepare_present_map_df(
-                trna,
-                count_col="query_id",
-                group_col="genome",
-                besthit_cols=[],
-                needed_features=gene_ids(*sheets.values()),
-            )
-            sum_hits = pl.concat([hits, trna_hits], how="vertical_relaxed")
-        genomes = sum_anno.select("genome").unique().sort("genome").collect()
-        summaries = {
-            name: [
-                summarize_sheet(
-                    sheets[p], sum_hits, sum_anno, genomes["genome"].to_list()
-                )
-                for p in paths
-            ]
-            for name, paths in collections.items()
-        }
+        summaries = make_summarize.summarize(
+            {name: [sheets[p] for p in paths] for name, paths in collections.items()},
+            hits,
+        )
 
     if visualized and not no_save:
         make_product.save_visualized(heatmap_sheets, visualized, save_needed_features)
     if summarize:
-        for name, frames in summaries.items():
-            write_collection(frames, name, output_dir / "summarize")
+        for name, df in summaries.items():
+            write_collection(df, name, output_dir / "summarize")
     if dashboard:
         make_product.serve(visualized, 5006 if port is None else port, not no_save)
-
-
-def gene_ids(*compiled: CompiledRules) -> set[str]:
-    """Every Gene ID the sheets need, uppercase."""
-    return set().union(*(c.needed_features for c in compiled))
 
 
 if __name__ == "__main__":
