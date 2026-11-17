@@ -1,12 +1,10 @@
-﻿topic_ecosystem	module	gene_id	gene_description
+topic_ecosystem	module	gene_id	gene_description
 Carbon_Organic Trophic	Organic Trophic Groups (polymer, sugar, LMOA)	K01812	glucuronate isomerase
 Carbon_Organic Trophic	Organic Trophic Groups (polymer, sugar, LMOA)	K00041	tagaturonate reductase
 Carbon_Organic Trophic	Organic Trophic Groups (polymer, sugar, LMOA)	K01685	altronate hydrolase
 Carbon_Organic Trophic	Organic Trophic Groups (polymer, sugar, LMOA)	K16849	altronate dehydratase small subunit
 Carbon_Organic Trophic	Organic Trophic Groups (polymer, sugar, LMOA)	K16850	altronate dehydratase large subunit
 Carbon_Organic Trophic	Organic Trophic Groups (polymer, sugar, LMOA)	K00874	2-dehydro-3-deoxygluconokinase
-Carbon_Organic Trophic	Organic Trophic Groups (polymer, sugar, LMOA)	K01625	2-dehydro-3-deoxyphosphogluconate aldolase / (4S)-4-hydroxy-2-oxoglutarate aldolase
-Carbon_Organic Trophic	Organic Trophic Groups (polymer, sugar, LMOA)	K01785	aldose 1-epimerase
 Carbon_Organic Trophic	Organic Trophic Groups (polymer, sugar, LMOA)	K01190	beta-galactosidase
 Carbon_Organic Trophic	Organic Trophic Groups (polymer, sugar, LMOA)	K12111	evolved beta-galactosidase subunit alpha
 Carbon_Organic Trophic	Organic Trophic Groups (polymer, sugar, LMOA)	K12112	evolved beta-galactosidase subunit beta
@@ -2779,7 +2777,6 @@ Carbon_Central Carbon	Central carbon metabolism (pathway)	K01637	isocitrate lyas
 Carbon_Central Carbon	Central carbon metabolism (pathway)	K01638	malate synthase [EC:2.3.3.9] [RN:R00472]
 Carbon_Central Carbon	Central carbon metabolism (pathway)	K19282	bifunctional (S)-malyl-CoA lyase/thioesterase [EC:4.1.3.24 3.1.2.30] [RN:R00473 R10612]
 Carbon_Central Carbon	Central carbon metabolism (pathway)	K05308	gluconate dehydratase [EC:4.2.1.140] [RN:R01538]
-Carbon_Central Carbon	Central carbon metabolism (pathway)	K00874	2-dehydro-3-deoxygluconokinase [EC:2.7.1.45] [RN:R01541]
 Carbon_Central Carbon	Central carbon metabolism (pathway)	K00131	glyceraldehyde-3-phosphate dehydrogenase (NADP+) [EC:1.2.1.9] [RN:R01058]
 Carbon_Central Carbon	Central carbon metabolism (pathway)	K18978	glyceraldehyde-3-phosphate dehydrogenase [NAD(P)+] [EC:1.2.1.90] [RN:R01058 R10860]
 Carbon_Central Carbon	Central carbon metabolism (pathway)	K11395	2-dehydro-3-deoxy-phosphogluconate/2-dehydro-3-deoxy-6-phosphogalactonate aldolase [EC:4.1.2.55] [RN:R08570 R10616]
@@ -2792,11 +2789,6 @@ Carbon_Central Carbon	Central carbon metabolism (pathway)	K03738	aldehyde:ferred
 Carbon_Central Carbon	Central carbon metabolism (pathway)	K01684	galactonate dehydratase [EC:4.2.1.6] [RN:R03033]
 Carbon_Central Carbon	Central carbon metabolism (pathway)	K00883	2-dehydro-3-deoxygalactonokinase [EC:2.7.1.58] [RN:R03387]
 Carbon_Central Carbon	Central carbon metabolism (pathway)	K01631	2-dehydro-3-deoxyphosphogalactonate aldolase [EC:4.1.2.21] [RN:R01064]
-Carbon_Central Carbon	Central carbon metabolism (pathway)	K01812	glucuronate isomerase [EC:5.3.1.12] [RN:R01983]
-Carbon_Central Carbon	Central carbon metabolism (pathway)	K00041	tagaturonate reductase [EC:1.1.1.58] [RN:R02555]
-Carbon_Central Carbon	Central carbon metabolism (pathway)	K01685	altronate hydrolase [EC:4.2.1.7] [RN:R01540]
-Carbon_Central Carbon	Central carbon metabolism (pathway)	K16849	altronate hydrolase [EC:4.2.1.7] [RN:R01540]
-Carbon_Central Carbon	Central carbon metabolism (pathway)	K16850	altronate hydrolase [EC:4.2.1.7] [RN:R01540]
 Carbon_Central Carbon	Central carbon metabolism (pathway)	K17463	2-dehydro-3-deoxy-phosphogluconate aldolase [EC:4.1.2.14] [RN:R05605]
 Carbon_Central Carbon	Central carbon metabolism (pathway)	K01785	aldose 1-epimerase [EC:5.1.3.3] [RN:R10619]
 Carbon_Central Carbon	Central carbon metabolism (pathway)	K18126	2-dehydro-3-deoxygluconokinase [EC:2.7.1.178] [RN:R01541 R03387]
@@ -3072,8 +3064,6 @@ Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FCSD-flav_b
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	SOR	Sulfur Oxygenase Reductase
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	sulfur_dioxygenase_sdo_alignment	Sulfur dioxygenase
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	sqr_alignment	sulfide:quinone oxidoreductase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	EC:1.16.1.1	mercury(II) reductase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	EC:1.20.4.1	arsenate reductase (glutaredoxin); ArsC (ambiguous)
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	EC:1.20.99.1	arsenate reductase (donor); arsenate:(acceptor) oxidoreductase
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K17050	selenate/chlorate reductase subunit alpha[EC:1.97.1.9 1.97.1.1]
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K00436	NAD-reducing hydrogenase large subunit [EC:1.12.1.2]
@@ -3144,67 +3134,20 @@ Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K18023	memb
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K18330	NADP-reducing hydrogenase subunit HndA [EC:1.12.1.3]
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K18331	NADP-reducing hydrogenase subunit HndC [EC:1.12.1.3]
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K18332	NADP-reducing hydrogenase subunit HndD [EC:1.12.1.3]
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K19640	putative two-component system protein, hydrogenase maturation factor HypX/HoxX
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K23548	uptake hydrogenase small subunit [EC:1.12.99.6]
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K23549	uptake hydrogenase large subunit [EC:1.12.99.6]
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K00537	arsC; arsenate reductase (glutaredoxin) [EC:1.20.4.1]
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K28466	arrA; arsenate reductase (donor) subunit ArrA [EC:1.20.99.1]
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	AsbE_petrobactin_synthesis-rep	fegenie db:AsbE-family-siderophore-synthesis
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Cyc1	fegenie db:Iron oxidation; Acidithiobacillus ferrooxidans
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Cyc2_repCluster1	fegenie db:Iron oxidation; Acidithiobacillus ferrooxidans, Mariprofundus ferroxydans, Leptospirillum rubarum
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Cyc2_repCluster2	fegenie db:Iron oxidation; Acidithiobacillus ferrooxidans, Mariprofundus ferroxydans, Leptospirillum rubarum
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Cyc2_repCluster3	fegenie db:Iron oxidation; Acidithiobacillus ferrooxidans, Mariprofundus ferroxydans, Leptospirillum rubarum
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	CymA	fegenie db:Iron reduction/oxidation; cymA (Sideroxydans lithotrophicus ES-1)
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	DhbA-VibA-VabA-EntA	fegenie db:VabA-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	DhbB-EntB-VenB-VibB-VabB	fegenie db:VabB-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	DhbC-VibC-VabC	fegenie db:VabC-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	DhbE-PchD-VibE-VabE-EntE-IroD-PvdQ-MbtA	fegenie db:VabE-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	DhbF-PvdDIJL-VabF	fegenie db:VabF-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	EfeB	fegenie db:EfeB-family peroxidase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	EfeO-Iron_uptake	fegenie db:EfeO-family-iron-uptake
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FbpA-iron_binding_and_transport-rep	fegenie db:FbpA-family-iron-binding-protein
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FbpB-FutB-iron_permease_fam1-rep	fegenie db:FbpB-FutB-family-iron-permease
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FbpB-iron_permease_fam2-rep	fegenie db:FbpB-family-iron-permease
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FbpC-iron_uptake_ATPase-rep	fegenie db:FbpC-family-ATPase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FecB-PvuB-vibrioferrin_transport	fegenie db:PvuB-family-substrate-binding-protein
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FecE-PvuE-FhuC-CbrD-FepC-YusV-FpuD-FpuC-PiuA-PirA-FepA-RhtA	fegenie db:PvuE-family-ATP-binding-protein
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FeuB-FhuB-PvuC-CbrB-PvuD-FeuC-CbrC	fegenie db:PvuC-family-permease
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FhuB-FeuB-CbrB-PvuC-iron_ABC_transporter_periplasmic	fegenie db:PvuC-family-permease
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FoxA	fegenie db:Iron oxidation; FoxABC (Sulfolobus tokodaii)
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FoxB	fegenie db:Iron oxidation; FoxABC (Sulfolobus tokodaii)
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FoxC	fegenie db:Iron oxidation; FoxABC (Sulfolobus tokodaii)
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FoxE	fegenie db:Iron oxidation; FoxEYZ (Rhodobacter ferroxidans)
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FoxY	fegenie db:Iron oxidation; FoxEYZ (Rhodobacter ferroxidans)
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FoxZ	fegenie db:Iron oxidation; FoxEYZ (Rhodobacter ferroxidans)
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FpuC-FhuC-FpuD-YusV-CbrD-FepC-PvuE-FecE-HatC-ATPase	fegenie db:PvuE-family-permease
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FpuCD-YusV-CbrD-FepC-FepE-PvuE-ABC_transporters_ATPase	fegenie db:PvuE-family-ATP-binding-protein
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FpvK-sid_Pyoverdine_uptake-rep	fegenie db:FpvK-family-hypothetical
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FutA1-iron_ABC_transporter_iron-binding-rep	fegenie db:FutA1-family-iron-binding-proteins
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FutA2-iron_ABC_transporter_iron-binding-rep	fegenie db:FutA2-family-iron-binding-proteins
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FutC-iron_ABC_transporter_ATPase-rep	fegenie db:FutC-family-ATPase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	HasB-TonB_paralog_heme_uptake_fam1-rep	fegenie db:Iron acquisition - heme transport
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	HmuV-HatC-ViuC-Hemin_ABC_transporter_ATPase-rep	fegenie db:HmuV-family-ATP-binding-protein
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	HugZ-ChuZ-heme_oxygenase-rep	fegenie db:HugZ-family-heme-oxygenase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	HutZ-heme_storage-rep	fegenie db:HutZ-family-substrate-binding-protein
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	IroC-salmochelin_transport-rep	fegenie db:IroC-family-ATP-binding-protein
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	IroD-VabH-enterochelin_esterase-rep	fegenie db:VabH-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	IsdG-heme-oxygenase_fam1-rep	fegenie db:IsdG-family-heme-oxygenase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	IsdG-heme-oxygenase_fam2-rep	fegenie db:IsdG-family-heme-oxygenase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	IsdG-heme-oxygenase_fam3-rep	fegenie db:IsdG-family-heme-oxygenase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	IsdI-heme-oxygenase-rep	fegenie db:IsdI-family-heme-oxygenase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	LbtU_LbtB-legiobactin_receptor_2	fegenie db:LbtU-family-siderophore-receptor
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	LbtU-LvtA-PiuA-PirA-RhtA-ViuA	fegenie db:LbtU-family-siderophore receptor
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	LbtU-LbtB-legiobactin_receptor	fegenie db:LbtU-family-siderophore-receptor
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	MamA	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	MamB	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	MamE	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	MamK	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	MamM	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	MamP	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	MamI	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	MamL	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	MamO	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	MamQ	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	MtoA	fegenie db:Iron oxidation; MtoAB (Sideroxydans lithotrophicus ES-1)
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	MtrA	fegenie db:Iron reduction; MtrCAB (Shewanella oneidensis MR-1) ; pioABC (Rhodopseudomonas palustris TIE-1)
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	MtrB_TIGR03509	fegenie db:Probably Iron oxidation/potenetial iron reduction; MtoAB (Sideroxydans lithotrophicus ES-1) ; MtrCAB (Shewanella oneidensis MR-1) ; pioABC (Rhodopseudomonas palustris TIE-1)
@@ -3219,54 +3162,7 @@ Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	ExtA_pcc_cy
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	ExtB_porin	fegenie db:Geobacter-like multiheme-cytochromes
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	ExtC_pcc_lp_cyt	fegenie db:Geobacter-like multiheme-cytochromes
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	ExtD_pcc_lp_cyt	fegenie db:Geobacter-like multiheme-cytochromes
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF00210-Ferritin_like_domain	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF13668_Ferritin_like_domain	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF00593-TonB_dependent_receptor-PiuA-PirA-FepA-RhtA	fegenie db:PirA-family-siderophore-receptor
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF01032-FecCD-YfhA-FpvE-YfeCD_transport_family	fegenie db:FpvE-family-permease
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Fe_dep_repress	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FUR	fegenie db:Iron gene regulation; Ferric uptake regulator
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF01618-MotA_TolQ_ExbB_proton_channel_family	fegenie db:ExbB-family
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FeoB_N	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF02472-ExbD	fegenie db:ExbD-family
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Fe_dep_repr_C	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FTR1	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FeoA	fegenie db:Iron acquisition - iron transport; FeoAB; FeoABC (Escherichia coli)
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF04183-IucA_IucC-rhbCF-AcsD-PvsD	fegenie db:PvsD-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Cofac_haem_bdg	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF06276-RhbCF-AcsD-IucA-IucC-PvsB-Ferric_iron_reductase_FhuF_like_transporter	fegenie db:IucA-family-iron-reductase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	HasA	fegenie db:Iron acquisition - heme transport; HasRADEF, HasRADEBF (Serratia marcescens, Pseudomonas aeruginosa, Pseudomonas fluorescens, Yersinia pestis, and Yersinia enterocolitica)
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FeoB_C	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FeoB_Gate	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Gate	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF07715_sub-TonB_dependent_siderophore_receptor_plug-PirA-PiuA-FepA-RhtA-LvtA	fegenie db:PirA-family-siderophore-receptor
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FeoC	fegenie db:Iron gene regulation; FeoAB; FeoABC (Escherichia coli)
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	HmuY	fegenie db:Iron acquisition - heme transport; Porphyromonas gingivalis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PirA-siderophore_receptor-rep	fegenie db:PirA-family-siderophore-receptor
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PiuA-siderophore_receptor-rep	fegenie db:PiuA-family-siderophore-receptor
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PvdDIJL-VabF-VibF-EntF-DhbF-MbtB-PchE	fegenie db:VabF-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PvdDIJL-VabF-VibF-EntF-DhbF-MbtB-PchE-AngR_2	fegenie db:VabF-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PvdDIJL-VabF-VibF-EntF-DhbF-MbtBEF-PchE-AngR-PchF	fegenie db:VabF-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PvdQ_pyoverdine_biosynthesis-rep	fegenie db:PvdQ-family-siderophore-synthesis
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	sulfocyanin	fegenie db:Iron oxidation; Ferroplasma acidarmanus, Sulfolobus acidocaldarius, Ferroplasma acidiphilum
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PvsA_vibrioferrin_biosynthesis-rep	fegenie db:PvsA-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PvsB-AcsD-IucA-IucC-RhbCF-PvsD	fegenie db:PvsD-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PvsC_vibrioferrin_biosynthesis-rep	fegenie db:PvsC-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PvsD-AcsD-IucA-IucC-RhbCF-PvsB	fegenie db:PvsD-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PvsE-AcsE_vibrioferrin_biosynthesis-rep	fegenie db:PvsE-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PvuB-FecB_vibrioferrin_transport	fegenie db:PvuB-family-substrate-binding-protein
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PvuCD-FhuB-CbrBC-FeuB-CbrC-YfhA	fegenie db:PvuCD-family-permease
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PvuCD-FhuB-CbrBC-FeuBC	fegenie db:PvuCD-family-permease
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PvuE-FecB-vibrioferrin_transport	fegenie db:PvuE-family-substrate-binding-protein
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FpuD-CbrD-FepC-FhuC-PvuDE-FecE-SstC-ViuC-Siderophore_ABC_transport	fegenie db:PvuD-family-ATP-binding-protein
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	VabA-DhbA-EntA-VibA	fegenie db:VabA-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	VabB-EntB-DhbB-VenB-VibB	fegenie db:VabB-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	VabC-DhbC-VibC-EntC-AmoA-PchA	fegenie db:VabC-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	VabE_Vanchrobactin_biosynthesis-rep	fegenie db:VabE-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	VabF_Vanchrobactin_biosynthesis-rep	fegenie db:VabF-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	VabG_Vanchrobactin_biosynthesis-rep	fegenie db:VabG-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF05171-HemS-PhuS-ChuS	fegenie db:HemS-family-heme-degradation
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	MHB	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF05031-NEAT	fegenie db:NEAT-family-subtrate-binding-protein
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FmnA	fegenie db:Iron reduction; FmnA-dmkA-fmnB-pplA-ndh2-eetAB-dmkB (Listeria monocytogenes)
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	DmkA	fegenie db:Iron reduction; FmnA-dmkA-fmnB-pplA-ndh2-eetAB-dmkB (Listeria monocytogenes)
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FmnB	fegenie db:Iron reduction; FmnA-dmkA-fmnB-pplA-ndh2-eetAB-dmkB (Listeria monocytogenes)
@@ -3275,85 +3171,6 @@ Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Ndh2	fegeni
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	EetA	fegenie db:Iron reduction; FmnA-dmkA-fmnB-pplA-ndh2-eetAB-dmkB (Listeria monocytogenes)
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	EetB	fegenie db:Iron reduction; FmnA-dmkA-fmnB-pplA-ndh2-eetAB-dmkB (Listeria monocytogenes)
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	DmkB	fegenie db:Iron reduction; FmnA-dmkA-fmnB-pplA-ndh2-eetAB-dmkB (Listeria monocytogenes)
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PigA_Heme_oxygenase_Pseudomonas_aeruginosa_PDB_1sk7	fegenie db:PigA-family-heme-oxygenase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	MhuD_Heme_oxygenase_Mycobacterium_tuberculosis_pdb_4nl5	fegenie db:MhuD-family-heme-oxygenase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Isd-LmHde_Heme_oxygenase_Listeria_monocytogenes_pdb_4kia	fegenie db:Isd-family-heme-oxygenase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	HupZ_Heme_binding_Group_A_Streptococcus_pdb_5esc	fegenie db:HupZ-family-heme-oxygenase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	HmoB_Heme_oxygenase_Bacillus_subtilis_subsp_spizizenii_str_W23_pdb_4fvc	fegenie db:HmoB-family-heme-oxygenase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	HemO_Heme_oxygenase_Neisseria_Meningitidis_PDB_1p3t	fegenie db:HemO-family-heme-oxygenase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	HxuB-refseq	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	HxuA-refseq	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF03544_TonB_C	fegenie db:TonB-family
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF16031_TonB_N	fegenie db:TonB-family
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF13103_TonB_2	fegenie db:TonB-family
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF01497_Peripla_BP_2-HatD-SsstD-PhuT-FhuD-HmuT-YfiY-FpuA-FatB-ViuP-CbrA	fegenie db:HatD-family-substrate-binding-protein
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF04773_FecR	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF01126-HmuO_Heme_oxygenase	fegenie db:HmuO-family-heme-oxygenase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	PF06228_ChuX_HutX	fegenie db:ChuX-family-substrate-binding-protein
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Transferrin_TbpB_binding_protein_Haemophilus_influenzae_P44971	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_YqjI_regulator_for_YqjH_P64588_Escherichia_coli_180606	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_YqjH_NADPH-dep_ferric_chelate_reductase_enterobactin_Q46871_Escherichia_coli_180606	fegenie db:YqjH-family-iron-reductase
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_VibH_Vanchrobactin_Biosynthesis_Vibrio_cholerae_AAG00565.1_180623	fegenie db:VibH-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_VabS_Vanchrobactin_Export_Vibrio_anguillarum_CAJ45638.1_180623	fegenie db:VabS-family-siderophore-export
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_VabD_Vanchrobactin_Biosynthesis_Vibrio_anguillarum_AAW66006.2_180623	fegenie db:VabD-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_RhbD_Rhizobactin_biosynthesis_Rhizobium_meliloti_Q9Z3Q9	fegenie db:RhbD-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_RhbB_Rhizobactin_biosynthesis_Rhizobium_meliloti_Q9Z3R1	fegenie db:RhbB-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_RhbA_Rhizobactin_biosynthesis_Rhizobium_meliloti_Q9Z3R2	fegenie db:RhbA-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PvdT_Pyoverdine_export_Paeruginosa_PA2390_180623	fegenie db:PvdT-family-siderophore-export
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PvdS_regulator_Paeruginosa_PA2426_180620	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PvdR_Pyoverdine_export_Paeruginosa_PA2389_180623	fegenie db:PvdR-family-sideropore-export
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PvdP_Pyoverdine_biosynthesis_Paeruginosa_PA2392_180623	fegenie db:PvdP-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PvdO_Pyoverdine_biosynthesis_Paeruginosa_PA2395_180623	fegenie db:PvdO-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PvdN_Pyoverdine_biosynthesis_Paeruginosa_PA2394_180623	fegenie db:PvdN-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PvdM_Pyoverdine_biosynthesis_Pseudomonas_fluorescens_PSF113_1846_180623	fegenie db:PvdM-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PvdH_Pyoverdine_biosynthesis_Pseudomonas_aeruginosa_PA2413_180623	fegenie db:PvdH-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PvdF_Pyoverdine_biosynthesis_Paeruginosa_PA2396_180623	fegenie db:PvdF-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PvdE_Pyoverdine_biosynthesis_Paeruginosa_PA2397_180623	fegenie db:PvdE-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PvdA_Pyoverdine_biosynthesis	fegenie db:PvdA-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PchR_pyochelin_regulator_Pseudomonas_aeruginosa_PA4227_180623	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PchI_pyochelin_biosynthesis_Pseudomonas_aeruginosa_PA4222_180623	fegenie db:PchI-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PchH_pyochelin_biosynthesis_Pseudomonas_aeruginosa_PA4223_180623	fegenie db:PchH-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PchG_pyochelin_biosynthesis_Pseudomonas_aeruginosa_PA4224_180623	fegenie db:PchG-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PchC_pyochelin_biosynthesis_Pseudomonas_aeruginosa_PA4229	fegenie db:PchC-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_PchB_pyochelin_biosynthesis_Pseudomonas_aeruginosa_Q51507	fegenie db:PchB-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_LbtC_Legiobactin_PAP2_superfamily_Legionella_oakridgensis_AHE65915.1_180604	fegenie db:MFS-transporter
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_IucD_Escherichia_coli_P11295	fegenie db:IucD-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_IucB_Escherichia_coli_Q47317	fegenie db:IucB-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_IroE_Shigella_dysenteriae_AAR13269.1_180606	fegenie db:IroE-family-siderophore-transport
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_IroB_Shigella_dysenteriae_AAR13266.1_180606	fegenie db:IroB-family-siderophore-transport
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_FpvJ_PA2405_Paeruginosa_PAO1_180602	fegenie db:FpvJ-family-siderophore-transport
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_FpvI_regulator_PA2387_Paeruginosa_PAO1_180620	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_FpvH_iron_release_PA2404_Paeruginosa_PAO1_180602	fegenie db:FpvH-family-siderophore-transport
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_FpvG_iron_reductase_PA2403_Paeruginosa_PAO1_180602	fegenie db:FpvG-family-siderophore-transport
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_FpvF_metal_ion_transport_PA2410_Paeruginosa_PAO1_180602	fegenie db:FpvF-family-siderophore-transport
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_FpvD_ATPase_PA2408_Paeruginosa_PAO1_180602	fegenie db:FpvD-family-siderophore-transport
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_FpvC_metal_ion_transport_PA2407_Paeruginosa_PAO1_180602	fegenie db:FpvC-family-siderophore-transport
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_FptX_Ferripyochelin_uptake_Pseudomonas_aeruginosa_PA4218_180623	fegenie db:FptX-family-siderophore-transport
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_FptC_Ferripyochelin_uptake_Pseudomonas_aeruginosa_PA4219_180623	fegenie db:FptC-family-siderophore-transport
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_FptB_Ferripyochelin_uptake_Pseudomonas_aeruginosa_PA4220_180623	fegenie db:FptB-family-siderophore-transport
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_EntS_enterobactin_exporter_Ecoli_P24077_180603	fegenie db:EntS-family-siderophore-export
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_EntD_enterobactin_synthesis_Ecoli	fegenie db:EntD-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_BesA_Bacillibactin_hydrolyze_Bsubtilis_YP_003867459.1_180603	fegenie db:BesA-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_AsbF_Petrobactin_biosynthesis_Bacillus_anthracis_Q81RQ4_180606	fegenie db:AsbF-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_AsbD_Petrobactin_biosynthesis_Bacillus_anthracis_Q81RQ6_180623	fegenie db:AsbD-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_AsbC_Petrobactin_biosynthesis_Bacillus_anthracis_Q81RQ7_180623	fegenie db:AsbC-family-siderophore-synthesis
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Iron_uptake_YfeB_Chelated_iron_transport_system_membrane_protein_Q56953_Yersinia_pestis_180610	fegenie db:YfeB-family-membrane-proteins
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Iron_uptake_YfeA_Periplasmic_chelated_iron-binding_protein_Q56952_Yersinia_pestis_180610	fegenie db:YfeA-family-iron-binding-proteins
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Heme_HasF_outer_membrane_protein_Pseudomonas_fluorescens_BAA88494.1	fegenie db:HasF-family-outer-membrane-protein
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Heme_HasE_membrane_fusion_protein_Pseudomonas_fluorescens_BAA88493.1	fegenie db:HasE-family-membrane-fusion-protein
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Heme_HasD_ABC_protein_Pseudomonas_fluorescens_BAA88492.1	fegenie db:HasD-family-ATP-binding-protein
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_ViuB_Vibriobactin_siderophore_transport_utilization_protein_Vibrio_cholerae_A5F660	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_VibD_Vibriobactin_siderophore_biosynthesis_Vibrio_cholerae_AAD48884.1	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_RhbE_Rhizobactin_siderophore_biosynthesis_Rhizobium_meliloti_Q9Z3Q8	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_MbtJ_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_YP_177876.1	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_MbtI_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_NC_000962.3	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_MbtH_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_NP_216893.1	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_MbtG_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_NP_216894.1	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_MbtD_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_NP_216897.1	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_MbtC_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_NP_216898.1	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_AcsF_Achromobactin_siderophore_synthesis_Pseudomonas_syringae_EPF66771.1	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	Sid_AcsB_Achromobactin_siderophore_synthesis_Dickeya_chrysanthemi_AAL14564.1	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	FeoE	fegenie db:FeoE-family-iron-efflux
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	DFE_0448	fegenie db:Iron reduction; DFE_0448-0451
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	DFE_0449	fegenie db:Iron reduction; DFE_0448-0451
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	DFE_0450	fegenie db:Iron reduction; DFE_0448-0451
@@ -3369,8 +3186,6 @@ Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	GACE_1844	f
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	GACE_1845	fegenie db:
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	GACE_1846	fegenie db:
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	GACE_1847	fegenie db:
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	nramp	fegenie db:Nramp-family-protein
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	zip	fegenie db:Zip-family-zink-and-iron-uptake
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	NiFe_group1	NiFe_group1
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	NiFe_group2	NiFe_group2
 Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	NiFe_group3	NiFe_group3
@@ -3389,9 +3204,6 @@ Photosynthesis	Photosynthesis- Anoxygenic- Sulfur-Based Electron Donor	K11180	fc
 Photosynthesis	Photosynthesis- Anoxygenic- Sulfur-Based Electron Donor	K17218	soxA; Anoxygenic photosynthesis (thiosulfate oxidation)
 Photosynthesis	Photosynthesis- Anoxygenic- Sulfur-Based Electron Donor	K17220	soxB; Anoxygenic photosynthesis
 Photosynthesis	Photosynthesis- Anoxygenic- Sulfur-Based Electron Donor	K17221	soxC; Anoxygenic photosynthesis
-Photosynthesis	Photosynthesis- Anoxygenic- Sulfur-Based Electron Donor	K17222	soxD; Anoxygenic photosynthesis
-Photosynthesis	Photosynthesis- Anoxygenic- Sulfur-Based Electron Donor	K17223	soxY; Anoxygenic photosynthesis
-Photosynthesis	Photosynthesis- Anoxygenic- Sulfur-Based Electron Donor	K17224	soxZ; Anoxygenic photosynthesis
 Photosynthesis	Photosynthesis-Shared Oxygenic and Anoxygenic- Chlorophyll/ Bacteriochlorophyll biosynthesis	K04042	bchB; Photosynthesis (pigment biosynthesis)
 Photosynthesis	Photosynthesis-Shared Oxygenic and Anoxygenic- Chlorophyll/ Bacteriochlorophyll biosynthesis	K03403	chlL;Oxygenic + anoxygenic (light-independent chlorophyll synthesis)
 Photosynthesis	Photosynthesis-Shared Oxygenic and Anoxygenic- Chlorophyll/ Bacteriochlorophyll biosynthesis	K03404	chlN; Oxygenic + anoxygenic
@@ -3485,7 +3297,6 @@ Carbon_Hydrocarbons	Polyphenol and related compounds (CAMPER)	K10216	dmpD; 2-hyd
 Carbon_Hydrocarbons	Polyphenol and related compounds (CAMPER)	K10217	dmpC; 2-hydroxymuconate semialdehyde dehydrogenase
 Carbon_Hydrocarbons	Polyphenol and related compounds (CAMPER)	K10218	ligK; 4-oxalocitramalate aldolase
 Carbon_Hydrocarbons	Polyphenol and related compounds (CAMPER)	K10219	ligC; 2-hydroxy-4-carboxymuconic-6-semialdehyde dehydrogenase
-Carbon_Hydrocarbons	Polyphenol and related compounds (CAMPER)	K10219	ligC; 2-hydroxy-4-carboxymuconate semialdehyde hemiacetal dehydrogenase [EC:1.1.1.312]
 Carbon_Hydrocarbons	Polyphenol and related compounds (CAMPER)	K10221	ligI; 2-pyrone-4,6-dicarboxylate hydrolase
 Carbon_Hydrocarbons	Polyphenol and related compounds (CAMPER)	K10222	bphD; 2,6-dioxo-6-phenylhexa-3-enoate hydrolase [EC:3.7.1.8]
 Carbon_Hydrocarbons	Polyphenol and related compounds (CAMPER)	K10616	cymAa; p-cymene methyl-monooxygenase [EC:1.14.15.25]
@@ -3632,12 +3443,6 @@ Respiratory-ETC	Electron Transport Chain Components	K00249	acyl-CoA dehydrogenas
 Respiratory-ETC	Electron Transport Chain Components	K07511	enoyl-CoA hydratase [EC:4.2.1.17] [RN:R03045]
 Respiratory-ETC	Electron Transport Chain Components	K07514	enoyl-CoA hydratase [EC:4.2.1.17] [RN:R03045]
 Respiratory-ETC	Electron Transport Chain Components	K07515	enoyl-CoA hydratase [EC:4.2.1.17] [RN:R03045]
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K00956	sulfate adenylyltransferase [EC:2.7.7.4] [RN:R00529]
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K00957	sulfate adenylyltransferase [EC:2.7.7.4] [RN:R00529]
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K13942	5,10-methenyltetrahydromethanopterin hydrogenase [EC:1.12.98.2]
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K14126	F420-non-reducing hydrogenase large subunit [EC:1.12.99.- 1.8.98.5]
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K14127	F420-non-reducing hydrogenase iron-sulfur subunit [EC:1.12.99.- 1.8.98.5 1.8.98.6]
-Respiratory- Other	Other Respiratory Redox (Fe, Sulfur, Mn, Arsenic)	K14128	F420-non-reducing hydrogenase small subunit [EC:1.12.99.- 1.8.98.5]
 Photosynthesis	Photosynthesis-Oxygenic	K02703	psbA; photosystem II reaction center D1 protein [EC:1.10.3.9]
 Photosynthesis	Photosynthesis-Oxygenic	K02706	psbD; photosystem II reaction center D2 protein [EC:1.10.3.9]
 Photosynthesis	Photosynthesis-Oxygenic	K02705	psbC; photosystem II CP43 chlorophyll apoprotein
