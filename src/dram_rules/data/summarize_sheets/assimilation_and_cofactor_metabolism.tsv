@@ -1,4 +1,4 @@
-﻿topic_ecosystem	module	gene_id	gene_description
+topic_ecosystem	module	gene_id	gene_description
 Assimilation nutrient aquistion	Nitrogen fixation, organic nitrogen degradation, inorganic n assimilation	K02588	nitrogenase iron protein [RN:R05185]
 Assimilation nutrient aquistion	Nitrogen fixation, organic nitrogen degradation, inorganic n assimilation	K02586	nitrogenase molybdenum-iron protein [EC:1.18.6.1] [RN:R05185]
 Assimilation nutrient aquistion	Nitrogen fixation, organic nitrogen degradation, inorganic n assimilation	K02591	nitrogenase molybdenum-iron protein [EC:1.18.6.1] [RN:R05185]
@@ -535,6 +535,8 @@ Assimilation nutrient aquistion	Sulfur, Phosphorus assimilation	K07093	phoX, Alk
 Assimilation nutrient aquistion	Sulfur, Phosphorus assimilation	K09474	phoN, Acid phosphatase class A [EC:3.1.3.2]
 Assimilation nutrient aquistion	Sulfur, Phosphorus assimilation	K01078	olpA, Acid phosphatase class C
 Assimilation nutrient aquistion	Sulfur, Phosphorus assimilation	K03788	aphA, Acid phosphatase class B [EC:3.1.3.2]
+Assimilation nutrient aquistion	Sulfur, Phosphorus assimilation	K00956	sulfate adenylyltransferase [EC:2.7.7.4] [RN:R00529]
+Assimilation nutrient aquistion	Sulfur, Phosphorus assimilation	K00957	sulfate adenylyltransferase [EC:2.7.7.4] [RN:R00529]
 Transporters	Transporters	K02784 | 8.A.8.1.1	MicroTrait: phosphocarrier protein HPr, DRAM2 Transport Cat: Miscellaneous, DRAM2 Predicted Substrate Class: ambiguous
 Transporters	Transporters	K19290 | 4.D.1.1.7 | 4.D.1.1.9	MicroTrait: mannuronan synthase [EC:2.4.1.33], DRAM2 Transport Cat: Organic carbon uptake & transport, DRAM2 Predicted Substrate Class: polysaccharides
 Transporters	Transporters	K03811 | 4.B.1.1.1_P24520 | 4.B.1.1.2_Q4QLL1 | 4.B.1.1.3_Q9EWJ7 | 4.B.1.1.5_Q8NU75 | 4.B.1.1.6_Q837U1	MicroTrait: nicotinamide mononucleotide transporter, DRAM2 Transport Cat: Miscellaneous, DRAM2 Predicted Substrate Class: cobalt-containing cofactors
@@ -1427,6 +1429,166 @@ Transporters	Transporters	K19081	braS; two-component system, OmpR family, sensor
 Transporters	Transporters	K19082	braR; two-component system, OmpR family, response regulator protein BraR/BceR
 Transporters	Transporters	K11629	bceS; two-component system, OmpR family, bacitracin resistance sensor histidine kinase BceS [EC:2.7.13.3]
 Transporters	Transporters	K11630	bceR; two-component system, OmpR family, bacitracin resistance response regulator BceR
+Transporters	Transporters	AsbE_petrobactin_synthesis-rep	fegenie db:AsbE-family-siderophore-synthesis
+Transporters	Transporters	DhbA-VibA-VabA-EntA	fegenie db:VabA-family-siderophore-synthesis
+Transporters	Transporters	DhbB-EntB-VenB-VibB-VabB	fegenie db:VabB-family-siderophore-synthesis
+Transporters	Transporters	DhbC-VibC-VabC	fegenie db:VabC-family-siderophore-synthesis
+Transporters	Transporters	DhbE-PchD-VibE-VabE-EntE-IroD-PvdQ-MbtA	fegenie db:VabE-family-siderophore-synthesis
+Transporters	Transporters	DhbF-PvdDIJL-VabF	fegenie db:VabF-family-siderophore-synthesis
+Transporters	Transporters	EfeB	fegenie db:EfeB-family peroxidase
+Transporters	Transporters	EfeO-Iron_uptake	fegenie db:EfeO-family-iron-uptake
+Transporters	Transporters	FbpA-iron_binding_and_transport-rep	fegenie db:FbpA-family-iron-binding-protein
+Transporters	Transporters	FbpB-FutB-iron_permease_fam1-rep	fegenie db:FbpB-FutB-family-iron-permease
+Transporters	Transporters	FbpB-iron_permease_fam2-rep	fegenie db:FbpB-family-iron-permease
+Transporters	Transporters	FbpC-iron_uptake_ATPase-rep	fegenie db:FbpC-family-ATPase
+Transporters	Transporters	FecB-PvuB-vibrioferrin_transport	fegenie db:PvuB-family-substrate-binding-protein
+Transporters	Transporters	FecE-PvuE-FhuC-CbrD-FepC-YusV-FpuD-FpuC-PiuA-PirA-FepA-RhtA	fegenie db:PvuE-family-ATP-binding-protein
+Transporters	Transporters	FeuB-FhuB-PvuC-CbrB-PvuD-FeuC-CbrC	fegenie db:PvuC-family-permease
+Transporters	Transporters	FhuB-FeuB-CbrB-PvuC-iron_ABC_transporter_periplasmic	fegenie db:PvuC-family-permease
+Transporters	Transporters	FpuC-FhuC-FpuD-YusV-CbrD-FepC-PvuE-FecE-HatC-ATPase	fegenie db:PvuE-family-permease
+Transporters	Transporters	FpuCD-YusV-CbrD-FepC-FepE-PvuE-ABC_transporters_ATPase	fegenie db:PvuE-family-ATP-binding-protein
+Transporters	Transporters	FpvK-sid_Pyoverdine_uptake-rep	fegenie db:FpvK-family-hypothetical
+Transporters	Transporters	FutA1-iron_ABC_transporter_iron-binding-rep	fegenie db:FutA1-family-iron-binding-proteins
+Transporters	Transporters	FutA2-iron_ABC_transporter_iron-binding-rep	fegenie db:FutA2-family-iron-binding-proteins
+Transporters	Transporters	FutC-iron_ABC_transporter_ATPase-rep	fegenie db:FutC-family-ATPase
+Transporters	Transporters	HasB-TonB_paralog_heme_uptake_fam1-rep	fegenie db:Iron acquisition - heme transport
+Transporters	Transporters	HmuV-HatC-ViuC-Hemin_ABC_transporter_ATPase-rep	fegenie db:HmuV-family-ATP-binding-protein
+Transporters	Transporters	HugZ-ChuZ-heme_oxygenase-rep	fegenie db:HugZ-family-heme-oxygenase
+Transporters	Transporters	HutZ-heme_storage-rep	fegenie db:HutZ-family-substrate-binding-protein
+Transporters	Transporters	IroC-salmochelin_transport-rep	fegenie db:IroC-family-ATP-binding-protein
+Transporters	Transporters	IroD-VabH-enterochelin_esterase-rep	fegenie db:VabH-family-siderophore-synthesis
+Transporters	Transporters	IsdG-heme-oxygenase_fam1-rep	fegenie db:IsdG-family-heme-oxygenase
+Transporters	Transporters	IsdG-heme-oxygenase_fam2-rep	fegenie db:IsdG-family-heme-oxygenase
+Transporters	Transporters	IsdG-heme-oxygenase_fam3-rep	fegenie db:IsdG-family-heme-oxygenase
+Transporters	Transporters	IsdI-heme-oxygenase-rep	fegenie db:IsdI-family-heme-oxygenase
+Transporters	Transporters	LbtU_LbtB-legiobactin_receptor_2	fegenie db:LbtU-family-siderophore-receptor
+Transporters	Transporters	LbtU-LvtA-PiuA-PirA-RhtA-ViuA	fegenie db:LbtU-family-siderophore receptor
+Transporters	Transporters	LbtU-LbtB-legiobactin_receptor	fegenie db:LbtU-family-siderophore-receptor
+Transporters	Transporters	PF00593-TonB_dependent_receptor-PiuA-PirA-FepA-RhtA	fegenie db:PirA-family-siderophore-receptor
+Transporters	Transporters	PF01032-FecCD-YfhA-FpvE-YfeCD_transport_family	fegenie db:FpvE-family-permease
+Transporters	Transporters	Fe_dep_repress	fegenie db:
+Transporters	Transporters	FUR	fegenie db:Iron gene regulation; Ferric uptake regulator
+Transporters	Transporters	PF01618-MotA_TolQ_ExbB_proton_channel_family	fegenie db:ExbB-family
+Transporters	Transporters	FeoB_N	fegenie db:
+Transporters	Transporters	PF02472-ExbD	fegenie db:ExbD-family
+Transporters	Transporters	Fe_dep_repr_C	fegenie db:
+Transporters	Transporters	FTR1	fegenie db:
+Transporters	Transporters	FeoA	fegenie db:Iron acquisition - iron transport; FeoAB; FeoABC (Escherichia coli)
+Transporters	Transporters	PF04183-IucA_IucC-rhbCF-AcsD-PvsD	fegenie db:PvsD-family-siderophore-synthesis
+Transporters	Transporters	Cofac_haem_bdg	fegenie db:
+Transporters	Transporters	PF06276-RhbCF-AcsD-IucA-IucC-PvsB-Ferric_iron_reductase_FhuF_like_transporter	fegenie db:IucA-family-iron-reductase
+Transporters	Transporters	HasA	fegenie db:Iron acquisition - heme transport; HasRADEF, HasRADEBF (Serratia marcescens, Pseudomonas aeruginosa, Pseudomonas fluorescens, Yersinia pestis, and Yersinia enterocolitica)
+Transporters	Transporters	FeoB_C	fegenie db:
+Transporters	Transporters	FeoB_Gate	fegenie db:
+Transporters	Transporters	Gate	fegenie db:
+Transporters	Transporters	PF07715_sub-TonB_dependent_siderophore_receptor_plug-PirA-PiuA-FepA-RhtA-LvtA	fegenie db:PirA-family-siderophore-receptor
+Transporters	Transporters	FeoC	fegenie db:Iron gene regulation; FeoAB; FeoABC (Escherichia coli)
+Transporters	Transporters	HmuY	fegenie db:Iron acquisition - heme transport; Porphyromonas gingivalis
+Transporters	Transporters	PirA-siderophore_receptor-rep	fegenie db:PirA-family-siderophore-receptor
+Transporters	Transporters	PiuA-siderophore_receptor-rep	fegenie db:PiuA-family-siderophore-receptor
+Transporters	Transporters	PvdDIJL-VabF-VibF-EntF-DhbF-MbtB-PchE	fegenie db:VabF-family-siderophore-synthesis
+Transporters	Transporters	PvdDIJL-VabF-VibF-EntF-DhbF-MbtB-PchE-AngR_2	fegenie db:VabF-family-siderophore-synthesis
+Transporters	Transporters	PvdDIJL-VabF-VibF-EntF-DhbF-MbtBEF-PchE-AngR-PchF	fegenie db:VabF-family-siderophore-synthesis
+Transporters	Transporters	PvdQ_pyoverdine_biosynthesis-rep	fegenie db:PvdQ-family-siderophore-synthesis
+Transporters	Transporters	PvsA_vibrioferrin_biosynthesis-rep	fegenie db:PvsA-family-siderophore-synthesis
+Transporters	Transporters	PvsB-AcsD-IucA-IucC-RhbCF-PvsD	fegenie db:PvsD-family-siderophore-synthesis
+Transporters	Transporters	PvsC_vibrioferrin_biosynthesis-rep	fegenie db:PvsC-family-siderophore-synthesis
+Transporters	Transporters	PvsD-AcsD-IucA-IucC-RhbCF-PvsB	fegenie db:PvsD-family-siderophore-synthesis
+Transporters	Transporters	PvsE-AcsE_vibrioferrin_biosynthesis-rep	fegenie db:PvsE-family-siderophore-synthesis
+Transporters	Transporters	PvuB-FecB_vibrioferrin_transport	fegenie db:PvuB-family-substrate-binding-protein
+Transporters	Transporters	PvuCD-FhuB-CbrBC-FeuB-CbrC-YfhA	fegenie db:PvuCD-family-permease
+Transporters	Transporters	PvuCD-FhuB-CbrBC-FeuBC	fegenie db:PvuCD-family-permease
+Transporters	Transporters	PvuE-FecB-vibrioferrin_transport	fegenie db:PvuE-family-substrate-binding-protein
+Transporters	Transporters	FpuD-CbrD-FepC-FhuC-PvuDE-FecE-SstC-ViuC-Siderophore_ABC_transport	fegenie db:PvuD-family-ATP-binding-protein
+Transporters	Transporters	VabA-DhbA-EntA-VibA	fegenie db:VabA-family-siderophore-synthesis
+Transporters	Transporters	VabB-EntB-DhbB-VenB-VibB	fegenie db:VabB-family-siderophore-synthesis
+Transporters	Transporters	VabC-DhbC-VibC-EntC-AmoA-PchA	fegenie db:VabC-family-siderophore-synthesis
+Transporters	Transporters	VabE_Vanchrobactin_biosynthesis-rep	fegenie db:VabE-family-siderophore-synthesis
+Transporters	Transporters	VabF_Vanchrobactin_biosynthesis-rep	fegenie db:VabF-family-siderophore-synthesis
+Transporters	Transporters	VabG_Vanchrobactin_biosynthesis-rep	fegenie db:VabG-family-siderophore-synthesis
+Transporters	Transporters	PF05171-HemS-PhuS-ChuS	fegenie db:HemS-family-heme-degradation
+Transporters	Transporters	MHB	fegenie db:
+Transporters	Transporters	PF05031-NEAT	fegenie db:NEAT-family-subtrate-binding-protein
+Transporters	Transporters	PigA_Heme_oxygenase_Pseudomonas_aeruginosa_PDB_1sk7	fegenie db:PigA-family-heme-oxygenase
+Transporters	Transporters	MhuD_Heme_oxygenase_Mycobacterium_tuberculosis_pdb_4nl5	fegenie db:MhuD-family-heme-oxygenase
+Transporters	Transporters	Isd-LmHde_Heme_oxygenase_Listeria_monocytogenes_pdb_4kia	fegenie db:Isd-family-heme-oxygenase
+Transporters	Transporters	HupZ_Heme_binding_Group_A_Streptococcus_pdb_5esc	fegenie db:HupZ-family-heme-oxygenase
+Transporters	Transporters	HmoB_Heme_oxygenase_Bacillus_subtilis_subsp_spizizenii_str_W23_pdb_4fvc	fegenie db:HmoB-family-heme-oxygenase
+Transporters	Transporters	HemO_Heme_oxygenase_Neisseria_Meningitidis_PDB_1p3t	fegenie db:HemO-family-heme-oxygenase
+Transporters	Transporters	HxuB-refseq	fegenie db:
+Transporters	Transporters	HxuA-refseq	fegenie db:
+Transporters	Transporters	PF03544_TonB_C	fegenie db:TonB-family
+Transporters	Transporters	PF16031_TonB_N	fegenie db:TonB-family
+Transporters	Transporters	PF13103_TonB_2	fegenie db:TonB-family
+Transporters	Transporters	PF01497_Peripla_BP_2-HatD-SsstD-PhuT-FhuD-HmuT-YfiY-FpuA-FatB-ViuP-CbrA	fegenie db:HatD-family-substrate-binding-protein
+Transporters	Transporters	PF04773_FecR	fegenie db:
+Transporters	Transporters	PF01126-HmuO_Heme_oxygenase	fegenie db:HmuO-family-heme-oxygenase
+Transporters	Transporters	PF06228_ChuX_HutX	fegenie db:ChuX-family-substrate-binding-protein
+Transporters	Transporters	Transferrin_TbpB_binding_protein_Haemophilus_influenzae_P44971	fegenie db:
+Transporters	Transporters	Sid_YqjI_regulator_for_YqjH_P64588_Escherichia_coli_180606	fegenie db:
+Transporters	Transporters	Sid_YqjH_NADPH-dep_ferric_chelate_reductase_enterobactin_Q46871_Escherichia_coli_180606	fegenie db:YqjH-family-iron-reductase
+Transporters	Transporters	Sid_VibH_Vanchrobactin_Biosynthesis_Vibrio_cholerae_AAG00565.1_180623	fegenie db:VibH-family-siderophore-synthesis
+Transporters	Transporters	Sid_VabS_Vanchrobactin_Export_Vibrio_anguillarum_CAJ45638.1_180623	fegenie db:VabS-family-siderophore-export
+Transporters	Transporters	Sid_VabD_Vanchrobactin_Biosynthesis_Vibrio_anguillarum_AAW66006.2_180623	fegenie db:VabD-family-siderophore-synthesis
+Transporters	Transporters	Sid_RhbD_Rhizobactin_biosynthesis_Rhizobium_meliloti_Q9Z3Q9	fegenie db:RhbD-family-siderophore-synthesis
+Transporters	Transporters	Sid_RhbB_Rhizobactin_biosynthesis_Rhizobium_meliloti_Q9Z3R1	fegenie db:RhbB-family-siderophore-synthesis
+Transporters	Transporters	Sid_RhbA_Rhizobactin_biosynthesis_Rhizobium_meliloti_Q9Z3R2	fegenie db:RhbA-family-siderophore-synthesis
+Transporters	Transporters	Sid_PvdT_Pyoverdine_export_Paeruginosa_PA2390_180623	fegenie db:PvdT-family-siderophore-export
+Transporters	Transporters	Sid_PvdS_regulator_Paeruginosa_PA2426_180620	fegenie db:
+Transporters	Transporters	Sid_PvdR_Pyoverdine_export_Paeruginosa_PA2389_180623	fegenie db:PvdR-family-sideropore-export
+Transporters	Transporters	Sid_PvdP_Pyoverdine_biosynthesis_Paeruginosa_PA2392_180623	fegenie db:PvdP-family-siderophore-synthesis
+Transporters	Transporters	Sid_PvdO_Pyoverdine_biosynthesis_Paeruginosa_PA2395_180623	fegenie db:PvdO-family-siderophore-synthesis
+Transporters	Transporters	Sid_PvdN_Pyoverdine_biosynthesis_Paeruginosa_PA2394_180623	fegenie db:PvdN-family-siderophore-synthesis
+Transporters	Transporters	Sid_PvdM_Pyoverdine_biosynthesis_Pseudomonas_fluorescens_PSF113_1846_180623	fegenie db:PvdM-family-siderophore-synthesis
+Transporters	Transporters	Sid_PvdH_Pyoverdine_biosynthesis_Pseudomonas_aeruginosa_PA2413_180623	fegenie db:PvdH-family-siderophore-synthesis
+Transporters	Transporters	Sid_PvdF_Pyoverdine_biosynthesis_Paeruginosa_PA2396_180623	fegenie db:PvdF-family-siderophore-synthesis
+Transporters	Transporters	Sid_PvdE_Pyoverdine_biosynthesis_Paeruginosa_PA2397_180623	fegenie db:PvdE-family-siderophore-synthesis
+Transporters	Transporters	Sid_PvdA_Pyoverdine_biosynthesis	fegenie db:PvdA-family-siderophore-synthesis
+Transporters	Transporters	Sid_PchR_pyochelin_regulator_Pseudomonas_aeruginosa_PA4227_180623	fegenie db:
+Transporters	Transporters	Sid_PchI_pyochelin_biosynthesis_Pseudomonas_aeruginosa_PA4222_180623	fegenie db:PchI-family-siderophore-synthesis
+Transporters	Transporters	Sid_PchH_pyochelin_biosynthesis_Pseudomonas_aeruginosa_PA4223_180623	fegenie db:PchH-family-siderophore-synthesis
+Transporters	Transporters	Sid_PchG_pyochelin_biosynthesis_Pseudomonas_aeruginosa_PA4224_180623	fegenie db:PchG-family-siderophore-synthesis
+Transporters	Transporters	Sid_PchC_pyochelin_biosynthesis_Pseudomonas_aeruginosa_PA4229	fegenie db:PchC-family-siderophore-synthesis
+Transporters	Transporters	Sid_PchB_pyochelin_biosynthesis_Pseudomonas_aeruginosa_Q51507	fegenie db:PchB-family-siderophore-synthesis
+Transporters	Transporters	Sid_LbtC_Legiobactin_PAP2_superfamily_Legionella_oakridgensis_AHE65915.1_180604	fegenie db:MFS-transporter
+Transporters	Transporters	Sid_IucD_Escherichia_coli_P11295	fegenie db:IucD-family-siderophore-synthesis
+Transporters	Transporters	Sid_IucB_Escherichia_coli_Q47317	fegenie db:IucB-family-siderophore-synthesis
+Transporters	Transporters	Sid_IroE_Shigella_dysenteriae_AAR13269.1_180606	fegenie db:IroE-family-siderophore-transport
+Transporters	Transporters	Sid_IroB_Shigella_dysenteriae_AAR13266.1_180606	fegenie db:IroB-family-siderophore-transport
+Transporters	Transporters	Sid_FpvJ_PA2405_Paeruginosa_PAO1_180602	fegenie db:FpvJ-family-siderophore-transport
+Transporters	Transporters	Sid_FpvI_regulator_PA2387_Paeruginosa_PAO1_180620	fegenie db:
+Transporters	Transporters	Sid_FpvH_iron_release_PA2404_Paeruginosa_PAO1_180602	fegenie db:FpvH-family-siderophore-transport
+Transporters	Transporters	Sid_FpvG_iron_reductase_PA2403_Paeruginosa_PAO1_180602	fegenie db:FpvG-family-siderophore-transport
+Transporters	Transporters	Sid_FpvF_metal_ion_transport_PA2410_Paeruginosa_PAO1_180602	fegenie db:FpvF-family-siderophore-transport
+Transporters	Transporters	Sid_FpvD_ATPase_PA2408_Paeruginosa_PAO1_180602	fegenie db:FpvD-family-siderophore-transport
+Transporters	Transporters	Sid_FpvC_metal_ion_transport_PA2407_Paeruginosa_PAO1_180602	fegenie db:FpvC-family-siderophore-transport
+Transporters	Transporters	Sid_FptX_Ferripyochelin_uptake_Pseudomonas_aeruginosa_PA4218_180623	fegenie db:FptX-family-siderophore-transport
+Transporters	Transporters	Sid_FptC_Ferripyochelin_uptake_Pseudomonas_aeruginosa_PA4219_180623	fegenie db:FptC-family-siderophore-transport
+Transporters	Transporters	Sid_FptB_Ferripyochelin_uptake_Pseudomonas_aeruginosa_PA4220_180623	fegenie db:FptB-family-siderophore-transport
+Transporters	Transporters	Sid_EntS_enterobactin_exporter_Ecoli_P24077_180603	fegenie db:EntS-family-siderophore-export
+Transporters	Transporters	Sid_EntD_enterobactin_synthesis_Ecoli	fegenie db:EntD-family-siderophore-synthesis
+Transporters	Transporters	Sid_BesA_Bacillibactin_hydrolyze_Bsubtilis_YP_003867459.1_180603	fegenie db:BesA-family-siderophore-synthesis
+Transporters	Transporters	Sid_AsbF_Petrobactin_biosynthesis_Bacillus_anthracis_Q81RQ4_180606	fegenie db:AsbF-family-siderophore-synthesis
+Transporters	Transporters	Sid_AsbD_Petrobactin_biosynthesis_Bacillus_anthracis_Q81RQ6_180623	fegenie db:AsbD-family-siderophore-synthesis
+Transporters	Transporters	Sid_AsbC_Petrobactin_biosynthesis_Bacillus_anthracis_Q81RQ7_180623	fegenie db:AsbC-family-siderophore-synthesis
+Transporters	Transporters	Iron_uptake_YfeB_Chelated_iron_transport_system_membrane_protein_Q56953_Yersinia_pestis_180610	fegenie db:YfeB-family-membrane-proteins
+Transporters	Transporters	Iron_uptake_YfeA_Periplasmic_chelated_iron-binding_protein_Q56952_Yersinia_pestis_180610	fegenie db:YfeA-family-iron-binding-proteins
+Transporters	Transporters	Heme_HasF_outer_membrane_protein_Pseudomonas_fluorescens_BAA88494.1	fegenie db:HasF-family-outer-membrane-protein
+Transporters	Transporters	Heme_HasE_membrane_fusion_protein_Pseudomonas_fluorescens_BAA88493.1	fegenie db:HasE-family-membrane-fusion-protein
+Transporters	Transporters	Heme_HasD_ABC_protein_Pseudomonas_fluorescens_BAA88492.1	fegenie db:HasD-family-ATP-binding-protein
+Transporters	Transporters	Sid_ViuB_Vibriobactin_siderophore_transport_utilization_protein_Vibrio_cholerae_A5F660	fegenie db:
+Transporters	Transporters	Sid_VibD_Vibriobactin_siderophore_biosynthesis_Vibrio_cholerae_AAD48884.1	fegenie db:
+Transporters	Transporters	Sid_RhbE_Rhizobactin_siderophore_biosynthesis_Rhizobium_meliloti_Q9Z3Q8	fegenie db:
+Transporters	Transporters	Sid_MbtJ_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_YP_177876.1	fegenie db:
+Transporters	Transporters	Sid_MbtI_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_NC_000962.3	fegenie db:
+Transporters	Transporters	Sid_MbtH_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_NP_216893.1	fegenie db:
+Transporters	Transporters	Sid_MbtG_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_NP_216894.1	fegenie db:
+Transporters	Transporters	Sid_MbtD_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_NP_216897.1	fegenie db:
+Transporters	Transporters	Sid_MbtC_Mycobactin_biosynthesis_Mycobacterium_tuberculosis_NP_216898.1	fegenie db:
+Transporters	Transporters	Sid_AcsF_Achromobactin_siderophore_synthesis_Pseudomonas_syringae_EPF66771.1	fegenie db:
+Transporters	Transporters	Sid_AcsB_Achromobactin_siderophore_synthesis_Dickeya_chrysanthemi_AAL14564.1	fegenie db:
+Transporters	Transporters	nramp	fegenie db:Nramp-family-protein
+Transporters	Transporters	zip	fegenie db:Zip-family-zink-and-iron-uptake
 Anabolism biosynthesis	macromolecules  (lipids, nuclecic acids, amino acids)	K01758	cystathionine gamma-lyase [EC:4.4.1.1] [RN:R01001]
 Anabolism biosynthesis	macromolecules  (lipids, nuclecic acids, amino acids)	K17462	putative AdoMet-dependent methyltransferase [EC:2.1.1.-] [RN:R10404]
 Anabolism biosynthesis	macromolecules  (lipids, nuclecic acids, amino acids)	K01243	S-adenosylhomocysteine/5'-methylthioadenosine nucleosidase [EC:3.2.2.9] [RN:R00194]

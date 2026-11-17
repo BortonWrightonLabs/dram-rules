@@ -233,7 +233,6 @@ K15555	ssuB; aliphatic sulfonate transport system permease protein Sulfur transp
 K15553	ssuA; aliphatic sulfonate transport system substrate-binding protein Sulfur transport; sulfonate uptake; ; ; 	Sulfur Transport	Organic Sulfur	ag	sulfonate uptake
 K15551	tauB; taurine transport system ATP-binding protein Sulfur transport; sulfonate uptake; ; ; 	Sulfur Transport	Organic Sulfur	ag	taurine-derived sulfur uptake
 K15552	tauC; taurine transport system permease protein Sulfur transport; sulfonate uptake; ; ; 	Sulfur Transport	Organic Sulfur	ag	taurine-derived sulfur uptake
-K15553	tauA; taurine transport system substrate-binding protein Sulfur transport; taurine-derived sulfur uptake; ; 	Sulfur Transport	Organic Sulfur	ag	taurine-derived sulfur uptake
 K04091	ssuD; alkanesulfonate monooxygenase Organosulfur mineralization; sulfonate desulfurization; ; 	Sulfur Transport	Organic Sulfur	ag	Organosulfur mineralization; sulfonate desulfurization
 K04092	ssuE; FMN reductase component of alkanesulfonate monooxygenase Organosulfur mineralization; supports sulfonate desulfurization; ; 	Sulfur Organic Transformations	Organic Sulfur	ag	Organosulfur mineralization; supports sulfonate desulfurization
 K03119	tauD; taurine dioxygenase Organosulfur mineralization; supports sulfonate desulfurization; ; 	Sulfur Organic Transformations	Organic Sulfur	ag	Organosulfur mineralization; taurine/sulfonate sulfur acquisition

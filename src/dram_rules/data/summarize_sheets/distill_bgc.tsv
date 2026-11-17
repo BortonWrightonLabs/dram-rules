@@ -1,5 +1,4 @@
 ﻿gene_id	gene_description	module	subheader	topic_ecosystem	note	reference	count	pathway
-ExtABCD		"Nutrient Cycling , Redox Ladder"	Iron Reduction	bgc
 FmnA	fegenie db: HMM	"Nutrient Cycling , Redox Ladder"	Iron Reduction	bgc
 MtrA	fegenie db: HMM	"Nutrient Cycling , Redox Ladder"	Iron Reduction	bgc
 MtrB_TIGR03509	fegenie db: HMM	"Nutrient Cycling , Redox Ladder"	Iron Reduction	bgc
@@ -641,7 +640,6 @@ K03711	"fur, zur, furB; Fur family transcriptional regulator, ferric uptake regu
 K03781	"katE, CAT, catB, srpA; catalase [EC:1.11.1.6]"	Environmental Adaptation	Oxidative Stress	bgc
 K03782	katG; catalase-peroxidase [EC:1.11.1.21]	Environmental Adaptation	Oxidative Stress	bgc
 K04047	dps; starvation-inducible DNA-binding protein	Environmental Adaptation	Oxidative Stress	bgc
-K04063	"osmC, ohr; lipoyl-dependent peroxiredoxin [EC:1.11.1.28]"	Environmental Adaptation	Oxidative Stress	bgc
 K04084	"dsbD, dipZ; thioredoxin:protein disulfide reductase [EC:1.8.4.16]"	Environmental Adaptation	Oxidative Stress	bgc
 K04487	iscS; cysteine desulfurase [EC:2.8.1.7]	Environmental Adaptation	Oxidative Stress	bgc
 K04564	"SOD2; superoxide dismutase, Fe-Mn family [EC:1.15.1.1]"	Environmental Adaptation	Oxidative Stress	bgc
@@ -1030,7 +1028,7 @@ PL26	PL26 rhamnogalacturonan exolyase (EC:4.2.2.24).	Carbon Transformations	Pect
 PL3	PL3 pectate lyase (EC:4.2.2.2).	Carbon Transformations	Pectin degradation	bgc	CAZY			Polysaccharide Lyases
 PL4	PL4 rhamnogalacturonan endolyase (EC:4.2.2.23).	Carbon Transformations	Pectin degradation	bgc	CAZY			Polysaccharide Lyases
 PL9	PL9 pectate lyase (EC:4.2.2.2); exopolygalacturonate lyase (EC:4.2.2.9); thiopeptidoglycan lyase (EC:4.2.2.-).	Carbon Transformations	Pectin degradation	bgc	CAZY			Polysaccharide Lyases
-Cyc2	fegenie db: cytochrome-porin protein	Nutrient Cycling	Iron Oxidation	bgc
+@Cyc2	fegenie db: cytochrome-porin protein	Nutrient Cycling	Iron Oxidation	bgc
 EC:1.1.1.-	succinate semialdehyde reductase (NADPH) [EC:1.1.1.-] [RN:R09281]	"Carbon Transformations , Greenhouse Gases"	"Hydroxypropionate-Hydroxybutyrate Cycle , Dicarboxylate Hydroxybutyrate Cycle , Carbon Dioxide Reduction"	bgc
 EC:1.1.1.298	3-hydroxypropionate dehydrogenase (NADP+); [EC:1.1.1.298] [RN:R09289]	"Carbon Transformations , Greenhouse Gases"	"Hydroxypropionate-Hydroxybutyrate Cycle , Carbon Dioxide Reduction"	bgc
 EC:1.1.1.312	ligC; 2-hydroxy-4-carboxymuconic-6-semialdehyde dehydrogenase	Carbon Transformations	Aromatic Monomers (protocatechuic acid degradation- meta-cleavage (oxic))	bgc	"2-hydroxy-4-carboxymuconic semialdehyde hemiacetal => 2-pyrone-4,6-dicarboxylate"

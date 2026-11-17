@@ -125,7 +125,7 @@ ExtA_pcc_cyt	fegenie db:Geobacter-like multiheme-cytochromes	Metals	Metal Cyclin
 ExtB_porin	fegenie db:Geobacter-like multiheme-cytochromes	Metals	Metal Cycling	eng_sys	Iron/Manganese/Selenium Reduction
 ExtC_pcc_lp_cyt	fegenie db:Geobacter-like multiheme-cytochromes	Metals	Metal Cycling	eng_sys	Iron/Manganese/Selenium Reduction
 ExtD_pcc_lp_cyt	fegenie db:Geobacter-like multiheme-cytochromes	Metals	Metal Cycling	eng_sys	Iron/Manganese/Selenium Reduction
-Cyc2	fegenie db: cytochrome-porin protein	Metals	Metal Cycling	eng_sys	Iron Oxidation
+@Cyc2	fegenie db: cytochrome-porin protein	Metals	Metal Cycling	eng_sys	Iron Oxidation
 PioA	fegenie db: Iron oxidation, decaheme c-type cytochrome	Metals	Metal Cycling	eng_sys	Iron Oxidation
 MtoA	fegenie db:Iron oxidation; MtoAB (Sideroxydans lithotrophicus ES-1)	Metals	Metal Cycling	eng_sys	Iron Oxidation
 MtoB	fegenie db: outer membrane β-barrel porin	Metals	Metal Cycling	eng_sys	Iron Oxidation

@@ -42,23 +42,14 @@ BUILT_IN = {
 }
 
 
-@pytest.fixture(autouse=True)
-def fake_built_in_sheets(tmp_path, monkeypatch):
-    """Stand-ins for the built-in sheets (which fail the duplicate check until
-    they are deduplicated). Each counts K00399, in a Group named by its key."""
-    sheets = tmp_path / "built_in"
-    sheets.mkdir()
-    for key, name in BUILT_IN.items():
-        (sheets / name).write_text(f"gene_id\ttopic_ecosystem\nK00399\t{key}\n")
-    monkeypatch.setattr(make_summarize, "SUMMARIZE_SHEETS_DIR", sheets)
+# Summarize only the custom sheets, skipping the slow-to-load built-in ones.
+CUSTOM_ONLY = ("--sum", "--topics", "none", "--ecos", "none")
 
 
 def invoke(tmp_path: Path, *args: str, annotations: str = ANNOTATIONS):
     (tmp_path / "anno.tsv").write_text(annotations)
-    (tmp_path / "common.tsv").write_text("name\talias\trule\n")
     cli_args = [
         "-a", str(tmp_path / "anno.tsv"),
-        "-c", str(tmp_path / "common.tsv"),
         "-o", str(tmp_path / "out"),
     ]  # fmt: skip
     return CliRunner().invoke(main, [*cli_args, *args])
@@ -110,7 +101,7 @@ def test_custom_sheet_gene_counts(tmp_path):
 
 def test_workbook_has_a_sorted_worksheet_per_group(tmp_path):
     sheet = write(tmp_path, "a.tsv", SHEET)
-    out = run(tmp_path, "--sum", "--sum_custom", sheet)
+    out = run(tmp_path, *CUSTOM_ONLY, "--sum_custom", sheet)
     book = pl.read_excel(out / "custom_summary.xlsx", sheet_id=0)
     assert list(book) == ["Energy", "Other"]
     energy = book["Energy"]
@@ -200,21 +191,32 @@ def test_no_collection_when_every_rule_is_left_out(tmp_path):
     )
     assert summarize(tmp_path, sheet) is None
     # The command then writes no workbook.
-    out = run(tmp_path, "--sum", "--sum_custom", write(tmp_path, "b.tsv", sheet))
+    out = run(tmp_path, *CUSTOM_ONLY, "--sum_custom", write(tmp_path, "b.tsv", sheet))
     assert not (out / "custom_summary.tsv").exists()
     assert not (out / "custom_summary.xlsx").exists()
 
 
-def worksheets(path: Path) -> list[str]:
-    return list(pl.read_excel(path, sheet_id=0))
+def worksheets(path: Path) -> set[str]:
+    return set(pl.read_excel(path, sheet_id=0))
+
+
+def groups(*keys: str) -> set[str]:
+    """The Groups (topic_ecosystem values) of the built-in sheets `keys`."""
+    sheets = [
+        make_summarize.load_summarize_sheet(
+            make_summarize.SUMMARIZE_SHEETS_DIR / BUILT_IN[key], COMMON_RULES, ()
+        )
+        for key in keys
+    ]
+    return {g for s in sheets for g in s.df[s.group_col].drop_nulls()}
 
 
 def test_topics_and_ecos_write_their_own_collections(tmp_path):
     out = run(tmp_path, "--sum", "--topics", "energy,env", "--ecos", "gut")
-    assert worksheets(out / "topic_summary.xlsx") == ["energy", "env"]
-    assert worksheets(out / "ecosystem_summary.xlsx") == ["gut"]
+    assert worksheets(out / "topic_summary.xlsx") == groups("energy", "env")
+    assert worksheets(out / "ecosystem_summary.xlsx") == groups("gut")
     df = pl.read_csv(out / "ecosystem_summary.tsv", separator="\t")
-    assert counts(df) == {"K00399": {"bin1": 2, "bin2": 1}}
+    assert counts(df)["K00399"] == {"bin1": 2, "bin2": 1}
     assert (out / "topic_summary.tsv").exists()
     assert not (out / "custom_summary.tsv").exists()
     assert not (out / "custom_summary.xlsx").exists()
@@ -222,9 +224,9 @@ def test_topics_and_ecos_write_their_own_collections(tmp_path):
 
 def test_defaults_are_all_topics_and_ecosystems(tmp_path):
     out = run(tmp_path, "--sum")
-    topics = ["assim", "cell", "energy", "env"]
+    topics = groups("assim", "cell", "energy", "env")
     assert worksheets(out / "topic_summary.xlsx") == topics
-    ecos = ["ag", "eng_sys", "bgc", "gut", "aquatic"]
+    ecos = groups("ag", "eng_sys", "bgc", "gut", "aquatic")
     assert worksheets(out / "ecosystem_summary.xlsx") == ecos
 
 
@@ -267,15 +269,15 @@ def test_column_overrides_read_custom_sheets_not_built_in(tmp_path):
         "Mcr\t\tEnergy\t@mcr\n",
     )  # fmt: skip
     out = run(
-        tmp_path, "--sum", "--topics", "energy", "--ecos", "none", "--sum_custom", sheet,
+        tmp_path, "--sum", "--topics", "none", "--ecos", "gut", "--sum_custom", sheet,
         "-lc", "my_label", "-acc", "my_alias", "-gc", "my_group",
     )  # fmt: skip
     df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
     assert counts(df, "my_label") == {"Mcr": {"bin1": 2, "bin2": 1}}
     assert list(pl.read_excel(out / "custom_summary.xlsx", sheet_id=0)) == ["Energy"]
     # The built-in sheet still uses the lookup (gene_id, topic_ecosystem).
-    topic = pl.read_csv(out / "topic_summary.tsv", separator="\t")
-    assert counts(topic) == {"K00399": {"bin1": 2, "bin2": 1}}
+    eco = pl.read_csv(out / "ecosystem_summary.tsv", separator="\t")
+    assert counts(eco)["K00399"] == {"bin1": 2, "bin2": 1}
 
 
 @pytest.mark.parametrize("alias_column", ["aliases", "parent"])
@@ -352,8 +354,8 @@ def test_refinements_share_one_load_of_hits(tmp_path, monkeypatch):
     sheet = write(tmp_path, "a.tsv", SHEET)
     run(
         tmp_path, "--viz", "--ecos", "none", "--viz_custom", viz,
-        "--traits", "--traits_custom", traits, "-c", str(COMMON_RULES),
-        "--sum", "--sum_custom", sheet,
+        "--traits", "--traits_custom", traits,
+        *CUSTOM_ONLY, "--sum_custom", sheet,
     )  # fmt: skip
     # One build of the Hits, for the Gene IDs of every refinement's sheets.
     [needed] = calls
@@ -364,7 +366,7 @@ def test_summarize_ignores_the_mapping_file(tmp_path, caplog):
     sheet = write(tmp_path, "a.tsv", SHEET)
     mapping = write(tmp_path, "m.tsv", MAPPING)
     with caplog.at_level("INFO", logger="dram.rules"):
-        out = run(tmp_path, "--sum", "--sum_custom", sheet, "-m", mapping)
+        out = run(tmp_path, *CUSTOM_ONLY, "--sum_custom", sheet, "-m", mapping)
     assert "ignores --mapping" in caplog.text
     df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
     assert counts(df)["K00399"] == {"bin1": 2, "bin2": 1}
@@ -391,17 +393,7 @@ def test_each_refinement_in_a_combined_run_matches_running_it_alone(tmp_path):
         "traits": ["--traits", "--traits_custom", viz],
         "summarize": ["--sum", "--sum_custom", sheet, "--trna_path", trna],
     }
-    # The built-in traits sheet needs the real Common Alias Sheet.
-    shared = [
-        "--ecos",
-        "none",
-        "--topics",
-        "none",
-        "-m",
-        mapping,
-        "-c",
-        str(COMMON_RULES),
-    ]
+    shared = ["--ecos", "none", "--topics", "none", "-m", mapping]
     out = run(
         tmp_path, *shared, *(a for args in refinements.values() for a in args)
     ).parent

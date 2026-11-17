@@ -1,4 +1,4 @@
-﻿topic_ecosystem	module	gene_id	gene_description
+topic_ecosystem	module	gene_id	gene_description
 Defense System-Viral	Crispr/phage resistance	K07016	csm1, cas10; CRISPR-associated protein Csm1
 Defense System-Viral	Crispr/phage resistance	K19138	csm2; CRISPR-associated protein Csm2
 Defense System-Viral	Crispr/phage resistance	K09002	csm3; CRISPR-associated protein Csm3
@@ -375,6 +375,27 @@ Stress Tolerance-Metal	Heavy Metal resistance and detoxification	znuC-yebM	znuC-
 Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K06042	precorrin-8X/cobalt-precorrin-8 methylmutase
 Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K11708	manganese/zinc/iron transport system permease protein
 Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K11709	manganese/zinc/iron transport system permease protein
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	EC:1.16.1.1	mercury(II) reductase
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	EC:1.20.4.1	arsenate reductase (glutaredoxin); ArsC (ambiguous)
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K19640	putative two-component system protein, hydrogenase maturation factor HypX/HoxX
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K00537	arsC; arsenate reductase (glutaredoxin) [EC:1.20.4.1]
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	MamA	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	MamB	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	MamE	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	MamK	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	MamM	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	MamP	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	MamI	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	MamL	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	MamO	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	MamQ	fegenie db:Magnetosome formation; Magnetospirillum gryphiswaldense
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	PF00210-Ferritin_like_domain	fegenie db:
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	PF13668_Ferritin_like_domain	fegenie db:
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	FeoE	fegenie db:FeoE-family-iron-efflux
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K13942	5,10-methenyltetrahydromethanopterin hydrogenase [EC:1.12.98.2]
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K14126	F420-non-reducing hydrogenase large subunit [EC:1.12.99.- 1.8.98.5]
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K14127	F420-non-reducing hydrogenase iron-sulfur subunit [EC:1.12.99.- 1.8.98.5 1.8.98.6]
+Stress Tolerance-Metal	Heavy Metal resistance and detoxification	K14128	F420-non-reducing hydrogenase small subunit [EC:1.12.99.- 1.8.98.5]
 Social interactions	Social (quorom sensing, EPS, biofilm formation)	EC:2.3.1.184	LasI; QuorumSensing
 Social interactions	Social (quorom sensing, EPS, biofilm formation)	EC:2.3.1.230	PqsBC; QuorumSensing
 Social interactions	Social (quorom sensing, EPS, biofilm formation)	EC:3.1.2.32	PqsE; QuorumSensing
