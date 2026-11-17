@@ -35,6 +35,8 @@ class Hits:
     genome_hits: pl.DataFrame | None = None  # hits + mean_sample_abundance
     sample_hits: pl.DataFrame | None = None  # hits + sample, sample_abundance
     sample_rows: pl.LazyFrame | None = None  # rows, once per sample holding them
+    # query_id or genome, then one column per sample (missing as 0), for the gene level
+    abundances: pl.DataFrame | None = None
 
     @classmethod
     def load(
@@ -109,6 +111,7 @@ class Hits:
             sample_hits=hits.join(abundances, on=key),
             # A gene belongs to every sample where its abundance isn't 0.
             sample_rows=rows.join(abundances.lazy().select(key, "sample"), on=key),
+            abundances=_wide(abundances, key, samples),
         )
 
     def evaluate(
@@ -117,8 +120,9 @@ class Hits:
         level: EvaluationLevel,
         additional_cols: list[str] | None = None,
     ) -> dict[str, pl.DataFrame]:
-        """`rules.evaluate` at `level`, with abundance at the genome and sample
-        levels when a mapping file was given. The sample level needs one."""
+        """`rules.evaluate` at `level`, with abundance when a mapping file was
+        given: Gene Abundance sums at the gene level, Sample Abundance at the
+        genome and sample levels. The sample level needs a mapping file."""
         if level == "sample":
             if self.samples is None:
                 raise ValueError("The sample level needs a mapping file")
@@ -148,7 +152,18 @@ class Hits:
             level,
             self.genomes,
             additional_cols=additional_cols,
+            gene_abundances=self.abundances if level == "gene" else None,
         )
+
+
+def _wide(abundances: pl.DataFrame, key: str, samples: list[str]) -> pl.DataFrame:
+    """`load_mapping`'s non-zero abundances back to one column per sample, in
+    `samples` order; a sample with no non-zero abundance is all 0."""
+    wide = abundances.pivot(on="sample", index=key, values="sample_abundance")
+    return wide.select(
+        key,
+        *(pl.col(s) if s in wide.columns else pl.lit(0.0).alias(s) for s in samples),
+    ).fill_null(0)
 
 
 def read_trna(trna_path: Path) -> pl.LazyFrame | None:

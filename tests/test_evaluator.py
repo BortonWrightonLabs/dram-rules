@@ -692,8 +692,8 @@ GENE_ANNOTATIONS = pl.DataFrame(
 def gene_counts(compiled, hits, annotations=GENE_ANNOTATIONS) -> dict[str, list]:
     out = rules.evaluate(compiled, hits, annotations, "gene", SAMPLES)["grp"]
     return {
-        name: frame.sort("genome")["gene_count"].to_list()
-        for (name,), frame in out.group_by("name")
+        row["name"]: [row["gene_count"][g] for g in SAMPLES]
+        for row in out.iter_rows(named=True)
     }
 
 
@@ -735,7 +735,7 @@ def test_gene_level_uses_the_columns_the_sheet_was_read_with():
     )
     hits = pl.DataFrame({"query_id": ["a"], "genome": ["g1"], "hit": ["K1"]})
     out = rules.evaluate(compiled, hits, GENE_ANNOTATIONS, "gene", SAMPLES)["eco"]
-    assert out.sort("genome")["gene_count"].to_list() == [1, 0]
+    assert out["gene_count"].to_list() == [{"g1": 1, "g2": 0}]
     assert "gene_id" in out.columns
 
 

@@ -105,7 +105,7 @@ dram-rules --annotations <path/to/annotations.tsv> --output_dir <path/to/output/
 
 `--ecos gut` applies to both refinements here: visualize and summarize each use their gut sheet. `--trna_path` takes the tRNAscan output from DRAM annotate. Each tRNA becomes a gene of its genome for every refinement, so rules can name tRNAs (as `` `Ala (AGC)` ``) in any sheet. With a mapping file keyed by gene, tRNAs belong to no sample, because the mapping file doesn't name them; keyed by genome, they take their genome's abundance.
 
-`--mapping`/`-m` adds abundances per sample to visualize and traits. Its first column holds gene names (matching the annotations' `query_id`) or genome names, and each numeric column after it is a sample. Summarize ignores the mapping file for now.
+`--mapping`/`-m` adds abundances per sample to every refinement. Its first column holds gene names (matching the annotations' `query_id`) or genome names, and each numeric column after it is a sample. Summarize adds one Gene Abundance column per sample after the Gene Counts: each rule's abundance in that sample over the genes where it holds, counting each gene once and a gene the mapping file doesn't list as 0. `--abundance mean` (the default) averages it over those genes and names the columns `mean_abundance_<sample>`; `--abundance sum` sums it and names them `sum_abundance_<sample>`. With a mapping file keyed by genome, each gene takes its genome's abundance.
 
 Genomes are named by the annotations' `input_fasta` column, or else `fasta` or `sample`. `--fasta_column`/`-f` names another column.
 

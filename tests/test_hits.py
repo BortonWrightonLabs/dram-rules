@@ -92,7 +92,7 @@ def test_trna_rows_reach_every_level_but_not_the_gene_rows(tmp_path):
         "bin3": True,
     }
     gene_counts = pl.concat(hits.evaluate(compiled, "gene").values())
-    assert gene_counts["gene_count"].sum() == 2
+    assert gene_counts["gene_count"].struct.unnest().sum_horizontal().sum() == 2
     # Meta and taxonomy read the gene rows, which have no tRNA rows.
     genes = hits.genes.collect()
     assert genes["genome"].unique().sort().to_list() == ["bin1", "bin2"]

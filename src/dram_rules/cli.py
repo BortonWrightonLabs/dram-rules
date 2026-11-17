@@ -11,6 +11,7 @@ from dram_rules import make_summarize
 from dram_rules.definitions import BACKUP_FASTA_COLUMNS, DEFAULT_FASTA_COLUMN
 from dram_rules.hits import Hits
 from dram_rules.make_summarize import (
+    ABUNDANCES,
     ECOSYSTEMS,
     TOPICS,
     load_summarize_sheet,
@@ -121,7 +122,15 @@ def compile_sheets(
     "-m",
     type=click.Path(exists=True, dir_okay=False, path_type=Path),
     help="Gene or genome abundances per sample: a Geneid (matching the annotations' "
-    "query_id) or genome column, then one column per sample (visualize)",
+    "query_id) or genome column, then one column per sample",
+)
+@click.option(
+    "--abundance",
+    type=click.Choice(ABUNDANCES),
+    default="mean",
+    show_default=True,
+    help="With --mapping, how summarize aggregates each rule's abundance in a "
+    "sample over the genes where it holds",
 )
 @click.option(
     "--ecos",
@@ -197,6 +206,7 @@ def main(
     custom_alias_column,
     custom_group_column,
     mapping,
+    abundance,
     ecos,
     visualize,
     viz_custom,
@@ -304,8 +314,7 @@ def main(
             every_sheet,
             fasta_column=fasta_column,
             trna=trna_path,
-            # Summarize ignores the mapping file, so only heatmaps load it.
-            mapping=mapping if heatmap_sheets else None,
+            mapping=mapping,
         )
     except ValueError as e:
         raise click.UsageError(str(e)) from e
@@ -313,11 +322,10 @@ def main(
     # Every refinement evaluates before any writes, so a failure leaves no outputs.
     visualized = make_product.visualize(heatmap_sheets, hits) if heatmap_sheets else {}
     if summarize:
-        if mapping:
-            logger.info("Summarize ignores --mapping for now")
         summaries = make_summarize.summarize(
             {name: [sheets[p] for p in paths] for name, paths in collections.items()},
             hits,
+            abundance,
         )
 
     if visualized and not no_save:

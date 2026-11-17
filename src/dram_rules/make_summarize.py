@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import logging
 from pathlib import Path
+from typing import Literal
 
 import polars as pl
 from xlsxwriter import Workbook
@@ -21,6 +22,10 @@ SUMMARY_COLUMNS = ["gene_description", "module", "header", "subheader"]
 # A Collection's Group column (the worksheet names); distill's name for it.
 GROUP_COLUMN = "topic_ecosystem"
 SORT_COLUMNS = ["header", "subheader", "module"]  # then the label, as distill sorts
+
+# How Gene Abundance aggregates over a rule's genes in each sample.
+Abundance = Literal["mean", "sum"]
+ABUNDANCES = ("mean", "sum")
 
 SUMMARIZE_SHEETS_DIR = Path(__file__).parent / "data/summarize_sheets"
 # Built-in Summarize Sheets by their --topics/--ecos names, in distill's order.
@@ -77,17 +82,30 @@ def load_summarize_sheet(
     return compiled
 
 
-def summarize_sheet(compiled: CompiledRules, hits: Hits) -> pl.DataFrame | None:
+def summarize_sheet(
+    compiled: CompiledRules, hits: Hits, abundance: Abundance = "mean"
+) -> pl.DataFrame | None:
     """One row per rule, in sheet order: the label, the Group (as GROUP_COLUMN),
     the SUMMARY_COLUMNS the sheet has, then one Gene Count column per genome.
-    Rules left out by `include_when` are absent; None if no rule is left."""
+    With a mapping file, then one `<abundance>_abundance_<sample>` Gene
+    Abundance column per sample. Rules left out by `include_when` are absent;
+    None if no rule is left."""
     label, group = compiled.label_col, compiled.group_col
     dfs = hits.evaluate(compiled, "gene")
     if not dfs:
         return None
-    counts = pl.concat(dfs.values()).pivot(
-        on="genome", index=label, values="gene_count"
-    )
+    rules = pl.concat(dfs.values())
+    counts = rules.select(label, pl.col("gene_count").struct.unnest())
+    if "abundance" in rules.columns:
+        columns = {f"{abundance}_abundance_{s}": s for s in hits.samples}
+        sums = [
+            pl.col("abundance").struct.field(s).alias(c) for c, s in columns.items()
+        ]
+        if abundance == "mean":
+            genes = pl.lit(rules["gene_count"].struct.unnest().sum_horizontal())
+            # A rule that holds for no gene gets 0, not NaN.
+            sums = [pl.when(genes > 0).then(s / genes).otherwise(0.0) for s in sums]
+        counts = counts.with_columns(rules.select(*sums))
     return (
         compiled.df.drop_nulls(label)
         .select(
@@ -100,14 +118,21 @@ def summarize_sheet(compiled: CompiledRules, hits: Hits) -> pl.DataFrame | None:
 
 
 def summarize(
-    collections: dict[str, list[CompiledRules]], hits: Hits
+    collections: dict[str, list[CompiledRules]],
+    hits: Hits,
+    abundance: Abundance = "mean",
 ) -> dict[str, pl.DataFrame | None]:
     """Each Summary Collection's table: the `summarize_sheet` rows of its
     sheets, one sheet after another. The label column keeps the sheets' name,
-    or is `name` when they disagree. None when no rule is left."""
+    or is `name` when they disagree. None when no rule is left. `abundance`
+    picks how Gene Abundance aggregates, when Hits was loaded with a mapping file."""
     tables = {}
     for name, sheets in collections.items():
-        frames = [df for c in sheets if (df := summarize_sheet(c, hits)) is not None]
+        frames = [
+            df
+            for c in sheets
+            if (df := summarize_sheet(c, hits, abundance)) is not None
+        ]
         if len({df.columns[0] for df in frames}) > 1:
             frames = [df.rename({df.columns[0]: "name"}) for df in frames]
         tables[name] = pl.concat(frames, how="diagonal_relaxed") if frames else None

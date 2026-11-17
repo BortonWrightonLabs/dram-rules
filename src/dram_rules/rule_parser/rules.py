@@ -40,6 +40,47 @@ logger = logging.getLogger("drams.rules")
 
 COVERAGE_MODES = ("steps", "subunits")
 
+EC_NUMBER = r"EC:\d+\.\d+\.\d+\.\d+"
+PFAM = r"PF\d{5}"
+
+# Extra identifiers built by joining ids from several columns with ";".
+# Every id from the first column is paired with every id from the next,
+# e.g. dbcan_id "GH5;GH9" + dbcan_sub_ec "3.2.1.4" -> "GH5;3.2.1.4", "GH9;3.2.1.4".
+COMPUTED_COLUMNS: dict[str, tuple[str, ...]] = {
+    "dbcan_id_ec": ("dbcan_id", "dbcan_sub_ec"),
+}
+
+# Annotation columns that never hold rule identifiers, so they are not searched.
+NON_ID_ANNOTATION_COLUMNS = {
+    "genome",
+    "scaffold",
+    "gene_number",
+    "start_position",
+    "stop_position",
+    "strandedness",
+    "rank",
+    "heme_regulatory_motif_count",
+}
+
+_TRUE_WORDS = {"true", "yes", "t", "1"}
+_FALSE_WORDS = {"false", "no", "f", "0"}
+_OLD_OPERATORS = {"ge": ">=", "gt": ">", "le": "<=", "lt": "<", "eq": "==", "ne": "!="}
+
+# Functions removed from the rule language, and what to write instead.
+_REMOVED_FUNCTIONS = {
+    "path_steps": "write the steps as the rule itself (A, B, C) and give it"
+    ' rule_options {"coverage":"steps"}',
+    "path_subunits": "write the subunits as the rule itself (A & B & C) and give it"
+    ' rule_options {"coverage":"subunits"}',
+    "column_count_values": "use filter_compare(col, >=, value) -> count_rows(>=, count),"
+    " e.g. column_count_values(col,ge,4,ge,3) becomes"
+    " filter_compare(col, >=, 4) -> count_rows(>=, 3)",
+    "column_sum_values": "use sum_column(col, op, value), e.g. sum_column(col, >=, 10)",
+}
+
+EvaluationLevel = Literal["gene", "genome", "sample"]
+EVALUATION_LEVELS = ("gene", "genome", "sample")
+
 
 # ---------------------------------------------------------------------------
 # Parsing annotation columns into identifiers
@@ -97,9 +138,6 @@ def cazy_ecs(col: str) -> pl.Expr:
     return _text(col).str.replace_all(r"EC\s+", "EC:").str.extract_all(r"EC:[\d.\-]+")
 
 
-EC_NUMBER = r"EC:\d+\.\d+\.\d+\.\d+"
-PFAM = r"PF\d{5}"
-
 # Known annotation columns and how to read them. Any other column is still
 # searched: see `parse_ids` for the fallbacks.
 ID_PARSERS = {
@@ -140,26 +178,6 @@ def parse_ids(col: str) -> pl.Expr:
         if col.endswith(suffix):
             return parser(col)
     return DEFAULT_PARSER(col)
-
-
-# Extra identifiers built by joining ids from several columns with ";".
-# Every id from the first column is paired with every id from the next,
-# e.g. dbcan_id "GH5;GH9" + dbcan_sub_ec "3.2.1.4" -> "GH5;3.2.1.4", "GH9;3.2.1.4".
-COMPUTED_COLUMNS: dict[str, tuple[str, ...]] = {
-    "dbcan_id_ec": ("dbcan_id", "dbcan_sub_ec"),
-}
-
-# Annotation columns that never hold rule identifiers, so they are not searched.
-NON_ID_ANNOTATION_COLUMNS = {
-    "genome",
-    "scaffold",
-    "gene_number",
-    "start_position",
-    "stop_position",
-    "strandedness",
-    "rank",
-    "heme_regulatory_motif_count",
-}
 
 
 def _match_key(hit: pl.Expr) -> pl.Expr:
@@ -526,23 +544,6 @@ def builtin_functions() -> FunctionRegistry:
     import dram_rules.rule_parser.functions  # noqa: F401
 
     return default_functions
-
-
-_TRUE_WORDS = {"true", "yes", "t", "1"}
-_FALSE_WORDS = {"false", "no", "f", "0"}
-_OLD_OPERATORS = {"ge": ">=", "gt": ">", "le": "<=", "lt": "<", "eq": "==", "ne": "!="}
-
-# Functions removed from the rule language, and what to write instead.
-_REMOVED_FUNCTIONS = {
-    "path_steps": "write the steps as the rule itself (A, B, C) and give it"
-    ' rule_options {"coverage":"steps"}',
-    "path_subunits": "write the subunits as the rule itself (A & B & C) and give it"
-    ' rule_options {"coverage":"subunits"}',
-    "column_count_values": "use filter_compare(col, >=, value) -> count_rows(>=, count),"
-    " e.g. column_count_values(col,ge,4,ge,3) becomes"
-    " filter_compare(col, >=, 4) -> count_rows(>=, 3)",
-    "column_sum_values": "use sum_column(col, op, value), e.g. sum_column(col, >=, 10)",
-}
 
 
 def _word(expr: Expr) -> str | None:
@@ -1437,10 +1438,6 @@ def get_val_cols(df, allow_multiple=False):
     return cols[0]
 
 
-EvaluationLevel = Literal["gene", "genome", "sample"]
-EVALUATION_LEVELS = ("gene", "genome", "sample")
-
-
 def evaluate(
     compiled: CompiledRules,
     hits: pl.DataFrame,
@@ -1452,6 +1449,7 @@ def evaluate(
     label_col: str | None = None,
     additional_cols: list[str] | None = None,
     abundance_col: str | None = None,
+    gene_abundances: pl.DataFrame | None = None,
 ) -> dict[str, pl.DataFrame]:
     """Evaluate every rule of `compiled` at an Evaluation Level.
 
@@ -1464,14 +1462,19 @@ def evaluate(
             `query_id` at the gene level.
         level: "genome" or "sample": one result per genome or sample, the rule's
             Presence (or Coverage), with abundance when `abundance_col` is given.
-            "gene": each gene is evaluated, and the result is the Gene Count:
-            per genome, the number of its genes where the rule holds.
+            "gene": each gene is evaluated, and the result is one row per rule
+            with a `gene_count` struct: per genome (one field each), the number
+            of its genes where the rule holds.
         genomes_or_samples: the genomes (at the gene and genome levels) or
             samples to report, in output order.
         group_col, label_col: the sheet's Group and label columns; default to
             the ones `compiled` found.
         abundance_col: column of `hits` holding the abundance to sum per rule
             (genome and sample levels only).
+        gene_abundances: gene level only: `query_id` or `genome`, then one column
+            per sample. Adds an `abundance` struct column, one field per sample:
+            the summed abundance of the genes where the rule holds, over all
+            genomes.
 
     Returns:
         One frame per Group, keyed by the Group's value. Rules left out by their
@@ -1498,7 +1501,10 @@ def evaluate(
             group_col,
             label_col,
             additional_cols,
+            gene_abundances,
         )
+    if gene_abundances is not None:
+        raise ValueError("gene_abundances is only supported at the gene level")
     present_map = build_present_map(
         hits, level, compiled.needed_features, genomes_or_samples
     )
@@ -1573,14 +1579,26 @@ def _evaluate_genes(
     group_col: str,
     label_col: str,
     additional_cols: list[str] | None,
+    abundances: pl.DataFrame | None,
 ) -> dict[str, pl.DataFrame]:
     """Gene Counts: evaluate each gene, then count per genome the genes where
-    the rule holds. One genome at a time, so the per-gene arrays stay small
-    (all genes at once would need genes x Gene IDs values)."""
+    the rule holds; with `abundances`, also sum those genes' abundance per
+    sample. One genome at a time, so the per-gene arrays stay small (all genes
+    at once would need genes x Gene IDs values)."""
     annotations = annotations.lazy()
     columns = set(annotations.collect_schema().names())
     groups = list(_rules_by_group(compiled, group_col, label_col, columns))
-    genes = annotations.select("query_id", "genome").collect()
+    genes = annotations.select("query_id", "genome")
+    samples = abundances.columns[1:] if abundances is not None else []
+    if abundances is not None:
+        # Keyed by query_id or genome; a gene the mapping file lacks is 0.
+        genes = genes.join(
+            abundances.lazy(),
+            on=abundances.columns[0],
+            how="left",
+            maintain_order="left",
+        ).with_columns(pl.col(samples).fill_null(0))
+    genes = genes.collect()
     genes_by_genome = genes.partition_by("genome", as_dict=True)
     # Hits may be shared by several sheets; keep only this sheet's Gene IDs.
     hits = hits.filter(pl.col("hit").is_in(compiled.needed_features))
@@ -1588,8 +1606,16 @@ def _evaluate_genes(
     no_hits = hits.clear()
 
     counts: dict[str, list[int]] = {rn: [] for _, names in groups for rn in names}
+    # Per rule, abundance per sample summed over genomes as they are evaluated:
+    # a vector per (genome, rule) would need genomes x rules x samples values.
+    sums = {rn: np.zeros(len(samples)) for rn in counts}
     for genome in genomes:
-        gene_names = genes_by_genome.get((genome,), genes.clear())["query_id"].to_list()
+        genome_genes = genes_by_genome.get((genome,), genes.clear())
+        gene_names = genome_genes["query_id"].to_list()
+        if samples:  # genes x samples
+            gene_abundance = genome_genes.select(
+                pl.col(samples).cast(pl.Float64)
+            ).to_numpy()
         present_map = build_present_map(
             hits_by_genome.get((genome,), no_hits),
             "query_id",
@@ -1606,20 +1632,28 @@ def _evaluate_genes(
         for rn, genome_counts in counts.items():
             with _in_rule(rn):
                 present = ev.evaluate(compiled.rules[rn]).astype(bool)
-            genome_counts.append(int(present.sum()))
+            genome_counts.append(count := int(present.sum()))
+            if samples and count:  # most rules hold for no gene of a genome
+                sums[rn] += gene_abundance[present].sum(axis=0)
 
     dfs = {}
     for group, names in groups:
         if not names:
             continue
-        df = pl.DataFrame(
-            {
-                "genome": genomes * len(names),
-                label_col: [rn for rn in names for _ in genomes],
-                "gene_count": [c for rn in names for c in counts[rn]],
-            },
-            schema_overrides={"genome": pl.String, "gene_count": pl.Int64},
+        # Structs, so genome and sample names can't collide with other columns.
+        df = pl.DataFrame({label_col: names}).with_columns(
+            pl.DataFrame(
+                [counts[rn] for rn in names],
+                schema={g: pl.Int64 for g in genomes},
+                orient="row",
+            ).to_struct("gene_count")
         )
+        if samples:
+            df = df.with_columns(
+                pl.DataFrame(
+                    [sums[rn] for rn in names], schema=samples, orient="row"
+                ).to_struct("abundance")
+            )
         dfs[group] = _with_rule_columns(
             df, compiled, group_col, label_col, additional_cols
         )

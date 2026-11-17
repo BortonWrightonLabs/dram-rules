@@ -83,8 +83,16 @@ def counts(df: pl.DataFrame, label_col: str = "gene_id") -> dict:
     }
 
 
-def summarize(tmp_path: Path, *sheets: str, trna: str | None = None) -> pl.DataFrame:
-    """The `summarize` table of one Summary Collection of `sheets` (TSV text)."""
+def summarize(
+    tmp_path: Path,
+    *sheets: str,
+    trna: str | None = None,
+    annotations: str = ANNOTATIONS,
+    mapping: str | None = None,
+    **kwargs,
+) -> pl.DataFrame:
+    """The `summarize` table of one Summary Collection of `sheets` (TSV text).
+    `kwargs` go to `make_summarize.summarize`."""
     common = write(tmp_path, "common.tsv", "name\talias\trule\n")
     compiled = [
         make_summarize.load_summarize_sheet(
@@ -93,11 +101,126 @@ def summarize(tmp_path: Path, *sheets: str, trna: str | None = None) -> pl.DataF
         for i, text in enumerate(sheets)
     ]
     hits = Hits.load(
-        Path(write(tmp_path, "anno.tsv", ANNOTATIONS)),
+        Path(write(tmp_path, "anno.tsv", annotations)),
         compiled,
         trna=Path(write(tmp_path, "trna.tsv", trna)) if trna else None,
+        mapping=Path(write(tmp_path, "map.tsv", mapping)) if mapping else None,
     )
-    return make_summarize.summarize({"c": compiled}, hits)["c"]
+    return make_summarize.summarize({"c": compiled}, hits, **kwargs)["c"]
+
+
+# The spec's worked example: bin2_2 carries no KO, so K12345's genes are
+# bin1_1, bin1_2 and bin2_1.
+EXAMPLE_ANNOTATIONS = """\
+query_id\tinput_fasta\tkegg_id
+bin1_1\tbin1\tK12345
+bin1_2\tbin1\tK12345
+bin2_1\tbin2\tK12345
+bin2_2\tbin2\t
+"""
+EXAMPLE_MAPPING = """\
+Geneid\tsample1\tsample2
+bin1_1\t0\t1
+bin1_2\t1\t1
+bin2_1\t0\t2
+bin2_2\t2\t2
+"""
+EXAMPLE_SHEET = "gene_id\ttopic_ecosystem\nK12345\tEnergy\n"
+
+
+def example(tmp_path: Path, **kwargs) -> dict:
+    """The worked example's one summary row, without its Group."""
+    df = summarize(
+        tmp_path,
+        EXAMPLE_SHEET,
+        annotations=EXAMPLE_ANNOTATIONS,
+        mapping=EXAMPLE_MAPPING,
+        **kwargs,
+    )
+    return df.drop("topic_ecosystem").row(0, named=True)
+
+
+def test_gene_abundance_sums_each_sample_over_the_rules_genes(tmp_path):
+    assert example(tmp_path, abundance="sum") == {
+        "gene_id": "K12345",
+        "bin1": 2,
+        "bin2": 1,
+        "sum_abundance_sample1": 1.0,
+        "sum_abundance_sample2": 4.0,
+    }
+
+
+def test_gene_abundance_averages_over_the_rules_genes_by_default(tmp_path):
+    row = example(tmp_path)
+    assert row["mean_abundance_sample1"] == pytest.approx(1 / 3)
+    assert row["mean_abundance_sample2"] == pytest.approx(4 / 3)
+    assert "sum_abundance_sample1" not in row
+
+
+# g1 carries K1 and K2, g2 carries K1; g3 holds no rule. All in genome G.
+ONCE_ANNOTATIONS = """\
+query_id\tinput_fasta\tkegg_id
+g1\tG\tK1
+g1\tG\tK2
+g2\tG\tK1
+g3\tG\tK9
+"""
+ONCE_SHEET = "name\ttopic_ecosystem\trule\nEither\tE\tK1 | K2\n"
+
+
+@pytest.mark.parametrize(
+    "mapping, expected_sum, expected_mean",
+    [
+        # Once per gene: 10 + 4, where Sample Abundance (once per Hit) gives 24.
+        ("Geneid\tS\ng1\t10\ng2\t4\ng3\t100\n", 14.0, 7.0),
+        # Per genome: both of G's genes take G's 10.
+        ("genome\tS\nG\t10\n", 20.0, 10.0),
+    ],
+)
+def test_gene_abundance_counts_each_gene_once(
+    tmp_path, mapping, expected_sum, expected_mean
+):
+    def gene_abundance(abundance):
+        df = summarize(
+            tmp_path,
+            ONCE_SHEET,
+            annotations=ONCE_ANNOTATIONS,
+            mapping=mapping,
+            abundance=abundance,
+        )
+        return df[f"{abundance}_abundance_S"].item()
+
+    assert gene_abundance("sum") == expected_sum
+    assert gene_abundance("mean") == expected_mean
+
+
+def test_unmapped_genes_count_as_zero_in_the_mean(tmp_path):
+    # The mapping file lists only g1, so g2 counts as 0 and stays a gene of the rule.
+    df = summarize(
+        tmp_path,
+        ONCE_SHEET + "Nothing\tE\tK7\n",
+        annotations=ONCE_ANNOTATIONS,
+        mapping="Geneid\tS\ng1\t10\n",
+    )
+    assert df["mean_abundance_S"].to_list() == [5.0, 0.0]
+
+
+def test_sample_columns_follow_the_mapping_file_after_the_genomes(tmp_path):
+    # A sample named like a genome doesn't collide with its Gene Count column.
+    df = summarize(
+        tmp_path,
+        SHEET,
+        mapping="Geneid\tzeta\tbin1\nbin1_1\t1\t2\n",
+        abundance="sum",
+    )
+    assert df.columns[-4:] == [
+        "bin1",
+        "bin2",
+        "sum_abundance_zeta",
+        "sum_abundance_bin1",
+    ]
+    assert counts(df)["K00399"] == {"bin1": 2, "bin2": 1}
+    assert df["sum_abundance_bin1"].to_list() == [2.0, 0.0, 0.0]
 
 
 def test_custom_sheet_gene_counts(tmp_path):
@@ -360,15 +483,31 @@ def test_refinements_share_one_load_of_hits(tmp_path, monkeypatch):
     assert {"K00399", "CYC2_REPCLUSTER1", "K11111", "K99999"} <= needed
 
 
-def test_summarize_ignores_the_mapping_file(tmp_path, caplog):
+@pytest.mark.parametrize(
+    "args, column, expected",
+    [
+        ([], "mean_abundance_S1", [7 / 3, 2.5, 0.0]),
+        (["--abundance", "sum"], "sum_abundance_S1", [7.0, 5.0, 0.0]),
+    ],
+)
+def test_mapping_adds_gene_abundance_to_summaries(tmp_path, args, column, expected):
     sheet = write(tmp_path, "a.tsv", SHEET)
     mapping = write(tmp_path, "m.tsv", MAPPING)
-    with caplog.at_level("INFO", logger="dram.rules"):
-        out = run(tmp_path, "--sum", "--sum_custom", sheet, "-m", mapping)
-    assert "ignores --mapping" in caplog.text
+    out = run(tmp_path, "--sum", "--sum_custom", sheet, "-m", mapping, *args)
     df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
     assert counts(df)["K00399"] == {"bin1": 2, "bin2": 1}
-    assert counts(df)["Cyc2_repCluster1"] == {"bin1": 2, "bin2": 0}
+    assert df.columns[-1] == column
+    assert df[column].to_list() == pytest.approx(expected)
+    book = pl.read_excel(out / "custom_summary.xlsx", sheet_id=0)
+    assert book["Energy"].columns[-1] == column
+
+
+def test_abundance_without_mapping_changes_nothing(tmp_path):
+    sheet = write(tmp_path, "a.tsv", SHEET)
+    out = run(tmp_path, "--sum", "--sum_custom", sheet)
+    plain = (out / "custom_summary.tsv").read_bytes()
+    out = run(tmp_path, "--sum", "--sum_custom", sheet, "--abundance", "sum")
+    assert (out / "custom_summary.tsv").read_bytes() == plain
 
 
 def files(folder: Path) -> dict[str, pl.DataFrame]:

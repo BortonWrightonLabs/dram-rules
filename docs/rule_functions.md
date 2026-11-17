@@ -28,7 +28,8 @@ own, see [Writing Custom Rule Functions](custom_rule_functions.md).
 "Sample" here means whatever the refinement reports on: a genome, or a sample from a
 mapping file. Summarize (`dram-rules --summarize`) instead evaluates each gene
 on its own and reports the Gene Count: the number of a genome's genes where the
-rule holds. There, functions that read rows see only that gene's annotation
+rule holds (and, with a mapping file, its Gene Abundance per sample over those
+genes). There, functions that read rows see only that gene's annotation
 row, and a gene group's parts count only when they are on that same gene.
 
 In the signatures below, `op` is a comparison: `>=`, `>`, `<=`, `<`, `==`, or
