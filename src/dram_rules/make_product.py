@@ -34,16 +34,6 @@ ABUNDANCE_SIG_FIGS = 10
 pn.config.reuse_sessions = True
 pn.config.global_loading_spinner = True
 
-RULES_SYSTEMS = {
-    "legacy": Path(__file__).parent / "data/rules.tsv",
-    "ag": Path(__file__).parent / "data/rules_ag.tsv",
-    "bgc": Path(__file__).parent / "data/rules_bgc.tsv",
-    "aquatic": Path(__file__).parent / "data/rules_aquatic.tsv",
-    "eng_sys": Path(__file__).parent / "data/rules_eng_sys.tsv",
-    "gut": Path(__file__).parent / "data/rules_gut.tsv",
-    "default": Path(__file__).parent / "data/rules_gut.tsv",
-}
-
 
 def load_sheet(
     path: Path,
@@ -202,7 +192,7 @@ def write_tables(dfs: dict[str, dict[str, pl.DataFrame]], output_dir: Path) -> N
 
 
 def title(rules_tsv: Path) -> str:
-    """The heatmap title, from the sheet's file name: rules_gut.tsv is GUT."""
+    """The heatmap title, from the sheet's file name: gut.tsv or rules_gut.tsv is GUT."""
     rule_type = (
         Path(rules_tsv)
         .stem.lower()

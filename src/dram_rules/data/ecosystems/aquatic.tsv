@@ -71,15 +71,15 @@ Thiosulfate-Reduction-(Rhodanese)	K01011 | Rhodanese		Respiratory Redox Processe
 Sulfur-Oxidation-Sox	@SoxXA & @SoxYZ & @SoxB		Respiratory Redox Processes	Sulfur Cycling
 Sulfur-Oxidation-Reverse-Dsr	@DsrABtypeo		Respiratory Redox Processes	Sulfur Cycling
 Tetrathionate-Reduction	@TetrathionateRed		Respiratory Redox Processes	Sulfur Cycling
-[Fefe] Group_A Hydrogenase	hmm@fefe_group_a_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
-[Fefe] Group_B Hydrogenase	hmm@fefe_group_b_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
-[Fefe] Group_C Hydrogenase	hmm@fefe_group_c_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
-[Fefe] Group_E Hydrogenase	hmm@fefe_group_e_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
-[Fefe] Group_F Hydrogenase	hmm@fefe_group_f_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
-[Nife] Group_1 Hydrogenase	hmm@nife_group_1_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
-[Nife] Group_2 Hydrogenase	hmm@nife_group_2_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
-[Nife] Group_3 Hydrogenase	hmm@nife_group_3_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
-[Nife] Group_4 Hydrogenase	hmm@nife_group_4_hydrogenase		Other Energy Metabolisms	Hydrogen Metabolism
+[Fefe] Group_A Hydrogenase	FeFe_groupA		Other Energy Metabolisms	Hydrogen Metabolism
+[Fefe] Group_B Hydrogenase	FeFe_groupB		Other Energy Metabolisms	Hydrogen Metabolism
+[Fefe] Group_C Hydrogenase	FeFe_groupC		Other Energy Metabolisms	Hydrogen Metabolism
+[Fefe] Group_E Hydrogenase	FeFe_groupE		Other Energy Metabolisms	Hydrogen Metabolism
+[Fefe] Group_F Hydrogenase	FeFe_groupF		Other Energy Metabolisms	Hydrogen Metabolism
+[Nife] Group_1 Hydrogenase	NiFe_group1		Other Energy Metabolisms	Hydrogen Metabolism
+[Nife] Group_2 Hydrogenase	NiFe_group2		Other Energy Metabolisms	Hydrogen Metabolism
+[Nife] Group_3 Hydrogenase	NiFe_group3		Other Energy Metabolisms	Hydrogen Metabolism
+[Nife] Group_4 Hydrogenase	NiFe_group4		Other Energy Metabolisms	Hydrogen Metabolism
 Candidate Extracellular Aspartic Peptidases	@ExtracellularAspartic		Nutrient Acquisition 	Nitrogen Assimilation
 Candidate Extracellular Cysteine Peptidases	@ExtracellularCysteine		Nutrient Acquisition 	Nitrogen Assimilation
 Candidate Extracellular Glutamic Peptidases	@ExtracellularGlutamic		Nutrient Acquisition 	Nitrogen Assimilation

@@ -11,10 +11,10 @@ from dram_rules import make_summarize
 from dram_rules.definitions import BACKUP_FASTA_COLUMNS, DEFAULT_FASTA_COLUMN
 from dram_rules.hits import Hits
 from dram_rules.make_summarize import (
-    ECOSYSTEMS,
+    SUMMARIZE_SHEETS_DIR,
     TOPICS,
+    load_rule_sheet,
     load_summarize_sheet,
-    summary_collections,
     write_collection,
 )
 from dram_rules.rule_parser.rules import (
@@ -24,7 +24,14 @@ from dram_rules.rule_parser.rules import (
 
 COMMON_RULES = Path(__file__).parent / "data/rules_common.tsv"
 TRAITS_SHEET = Path(__file__).parent / "data/traits_rules.tsv"
-VISUALIZE_ONLY_ECOS = ("legacy", "default")
+# The built-in ecosystem sheets by --ecos name: every sheet in the folder.
+ECOSYSTEMS = {
+    p.stem: p for p in sorted((Path(__file__).parent / "data/ecosystems").glob("*.tsv"))
+}
+VISUALIZE_ONLY_ECOS = {
+    "legacy": Path(__file__).parent / "data/rules.tsv",
+    "default": ECOSYSTEMS["gut"],
+}
 
 logger = logging.getLogger("dram.rules")
 
@@ -127,8 +134,9 @@ def compile_sheets(
     "--ecos",
     callback=split_choices(*ECOSYSTEMS, *VISUALIZE_ONLY_ECOS),
     help='Built-in ecosystem sheets, comma separated; none or "" for none. '
-    "Visualize uses default (gut) and summarize all five when omitted; "
-    "legacy and default are visualize-only.",
+    "Visualize uses default (gut) and summarize all of them when omitted; "
+    "legacy and default are visualize-only. Summarize derives each sheet's "
+    "ecosystem_summary worksheet from it.",
 )
 @click.option(
     "--visualize", "--viz", "-v", is_flag=True, help="Run the visualize refinement"
@@ -136,7 +144,8 @@ def compile_sheets(
 @click.option(
     "--viz_custom",
     callback=split_commas,
-    help="Custom visualize sheets, comma separated",
+    help="Custom visualize sheets, comma separated. With --summarize, each "
+    "also gets a derived worksheet in custom_derived_summary.",
 )
 @click.option(
     "--save_needed_features",
@@ -183,6 +192,12 @@ def compile_sheets(
     help="Custom Summarize Sheets, comma separated",
 )
 @click.option(
+    "--descriptions",
+    callback=split_commas,
+    help="Custom Description Tables (gene_id and description columns), comma "
+    "separated; they win over the built-in ones in derived summaries",
+)
+@click.option(
     "--trna_path",
     type=click.Path(exists=True, dir_okay=False, path_type=Path),
     help="tRNAscan output from DRAM annotate; its tRNAs count as genes in every refinement",
@@ -209,6 +224,7 @@ def main(
     summarize,
     topics,
     sum_custom,
+    descriptions,
     trna_path,
 ):
     """Visualize, score traits of, and summarize DRAM annotations."""
@@ -250,7 +266,7 @@ def main(
         folders += sheet_folders(
             out / "visualize",
             [
-                *((e, make_product.RULES_SYSTEMS[e]) for e in viz_ecos),
+                *((e, {**ECOSYSTEMS, **VISUALIZE_ONLY_ECOS}[e]) for e in viz_ecos),
                 *((p.stem, p) for p in viz_custom),
             ],
         )
@@ -278,7 +294,7 @@ def main(
         )
         heatmap_sheets = {folder: (p, compiled[p]) for folder, p in folders}
 
-    sheets = {}
+    sheets, derived_sheets = {}, {}
     if summarize:
         topics = list(TOPICS) if "default" in topics else topics
         sum_ecos = list(ECOSYSTEMS) if ecos is None else ecos
@@ -286,7 +302,12 @@ def main(
             raise click.UsageError(
                 f"--ecos {visualize_only}: visualize only, not summarize"
             )
-        collections = summary_collections(topics, sum_ecos, sum_custom)
+        collections = {
+            "topic_summary": [
+                SUMMARIZE_SHEETS_DIR / f for t, f in TOPICS.items() if t in topics
+            ],
+            "custom_summary": sum_custom,
+        }
         sheets = compile_sheets(
             dict.fromkeys(p for paths in collections.values() for p in paths),
             load_summarize_sheet,
@@ -295,8 +316,32 @@ def main(
             custom=custom,
             columns=columns,
         )
+        # Derived Summarize Sheets: built-in ones strict, custom ones not.
+        derived = {
+            "ecosystem_summary": ({e: ECOSYSTEMS[e] for e in sum_ecos}, True),
+            "custom_derived_summary": ({p.stem: p for p in viz_custom}, False),
+        }
+        derived_sheets = compile_sheets(
+            dict.fromkeys(p for named, _ in derived.values() for p in named.values()),
+            load_rule_sheet,
+            common_rules_tsv,
+            function_files,
+            custom=custom,
+            columns=columns,
+        )
+        lookup = make_summarize.load_descriptions(descriptions)
+        derived_frames = {
+            name: make_summarize.derive_collection(
+                {n: derived_sheets[p] for n, p in named.items()}, lookup, strict
+            )
+            for name, (named, strict) in derived.items()
+        }
 
-    every_sheet = [*(c for _, c in heatmap_sheets.values()), *sheets.values()]
+    every_sheet = [
+        *(c for _, c in heatmap_sheets.values()),
+        *sheets.values(),
+        *derived_sheets.values(),
+    ]
     try:
         # One load of the annotations' Hits, for every Gene ID of every refinement.
         hits = Hits.load(
@@ -319,12 +364,18 @@ def main(
             {name: [sheets[p] for p in paths] for name, paths in collections.items()},
             hits,
         )
+        derived_summaries = {
+            name: make_summarize.count_derived(frames, hits)
+            for name, frames in derived_frames.items()
+        }
 
     if visualized and not no_save:
         make_product.save_visualized(heatmap_sheets, visualized, save_needed_features)
     if summarize:
         for name, df in summaries.items():
             write_collection(df, name, output_dir / "summarize")
+        for name, df in derived_summaries.items():
+            write_collection(df, name, output_dir / "summarize", sort=False)
     if dashboard:
         make_product.serve(visualized, 5006 if port is None else port, not no_save)
 

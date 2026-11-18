@@ -1,1 +1,6 @@
 *
+# The Description Tables and the built-in ecosystem sheets are tracked (ADR 0004).
+!definitions/
+!definitions/*
+!ecosystems/
+!ecosystems/*

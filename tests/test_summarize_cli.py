@@ -28,18 +28,28 @@ K99999\tnothing\tNone\tOther\tdropped
 """
 
 
-# The built-in Summarize Sheets, by their --topics/--ecos names.
+# The built-in topic Summarize Sheets, by their --topics names.
 BUILT_IN = {
     "assim": "assimilation_and_cofactor_metabolism.tsv",
     "cell": "cellular_machinery.tsv",
     "energy": "energy_acquisition_bioenergetics.tsv",
     "env": "environmental_interaction_and_adaptation.tsv",
-    "ag": "distill_ag.tsv",
-    "eng_sys": "distill_eng_sys.tsv",
-    "bgc": "distill_bgc.tsv",
-    "gut": "distill_gut.tsv",
-    "aquatic": "distill_aquatic.tsv",
 }
+
+
+@pytest.fixture
+def ecosystems(tmp_path, monkeypatch):
+    """Every built-in ecosystem sheet replaced with one describable rule, so
+    strict ecosystem summaries pass (tests/test_derived_summaries.py covers
+    deriving them)."""
+    from dram_rules import cli
+
+    sheet = tmp_path / "eco.tsv"
+    sheet.write_text("name\tgroup\trule\nMcr\tG\tK00399\n")
+    monkeypatch.setattr(cli, "ECOSYSTEMS", dict.fromkeys(cli.ECOSYSTEMS, sheet))
+    monkeypatch.setattr(
+        make_summarize, "load_descriptions", lambda custom: {"K00399": "mcrA"}
+    )
 
 
 # Summarize only the custom sheets, skipping the slow-to-load built-in ones.
@@ -211,10 +221,10 @@ def groups(*keys: str) -> set[str]:
     return {g for s in sheets for g in s.df[s.group_col].drop_nulls()}
 
 
-def test_topics_and_ecos_write_their_own_collections(tmp_path):
+def test_topics_and_ecos_write_their_own_collections(tmp_path, ecosystems):
     out = run(tmp_path, "--sum", "--topics", "energy,env", "--ecos", "gut")
     assert worksheets(out / "topic_summary.xlsx") == groups("energy", "env")
-    assert worksheets(out / "ecosystem_summary.xlsx") == groups("gut")
+    assert worksheets(out / "ecosystem_summary.xlsx") == {"gut"}
     df = pl.read_csv(out / "ecosystem_summary.tsv", separator="\t")
     assert counts(df)["K00399"] == {"bin1": 2, "bin2": 1}
     assert (out / "topic_summary.tsv").exists()
@@ -222,12 +232,13 @@ def test_topics_and_ecos_write_their_own_collections(tmp_path):
     assert not (out / "custom_summary.xlsx").exists()
 
 
-def test_defaults_are_all_topics_and_ecosystems(tmp_path):
+def test_defaults_are_all_topics_and_ecosystems(tmp_path, ecosystems):
+    from dram_rules.cli import ECOSYSTEMS
+
     out = run(tmp_path, "--sum")
     topics = groups("assim", "cell", "energy", "env")
     assert worksheets(out / "topic_summary.xlsx") == topics
-    ecos = groups("ag", "eng_sys", "bgc", "gut", "aquatic")
-    assert worksheets(out / "ecosystem_summary.xlsx") == ecos
+    assert worksheets(out / "ecosystem_summary.xlsx") == set(ECOSYSTEMS)
 
 
 @pytest.mark.parametrize("eco", ["legacy", "default"])
@@ -261,7 +272,7 @@ def test_built_in_sheets_are_packaged():
     assert all((data / name).is_file() for name in BUILT_IN.values())
 
 
-def test_column_overrides_read_custom_sheets_not_built_in(tmp_path):
+def test_column_overrides_read_custom_sheets_not_built_in(tmp_path, ecosystems):
     sheet = write(
         tmp_path, "a.tsv",
         "my_label\tmy_alias\tmy_group\trule\n"
@@ -275,7 +286,7 @@ def test_column_overrides_read_custom_sheets_not_built_in(tmp_path):
     df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
     assert counts(df, "my_label") == {"Mcr": {"bin1": 2, "bin2": 1}}
     assert list(pl.read_excel(out / "custom_summary.xlsx", sheet_id=0)) == ["Energy"]
-    # The built-in sheet still uses the lookup (gene_id, topic_ecosystem).
+    # The built-in sheet still uses the lookup (name, group).
     eco = pl.read_csv(out / "ecosystem_summary.tsv", separator="\t")
     assert counts(eco)["K00399"] == {"bin1": 2, "bin2": 1}
 
@@ -389,11 +400,13 @@ def test_each_refinement_in_a_combined_run_matches_running_it_alone(tmp_path):
     sheet = write(tmp_path, "a.tsv", TRNA_SHEET)
     mapping = write(tmp_path, "m.tsv", MAPPING)
     refinements = {
-        "visualize": ["--viz", "--viz_custom", viz],
+        "visualize": ["--viz"],
         "traits": ["--traits", "--traits_custom", viz],
         "summarize": ["--sum", "--sum_custom", sheet, "--trna_path", trna],
     }
-    shared = ["--ecos", "none", "--topics", "none", "-m", mapping]
+    # --viz_custom also gives summarize a custom_derived_summary, so every run
+    # passes it; only --viz makes its heatmaps.
+    shared = ["--ecos", "none", "--topics", "none", "-m", mapping, "--viz_custom", viz]
     out = run(
         tmp_path, *shared, *(a for args in refinements.values() for a in args)
     ).parent
