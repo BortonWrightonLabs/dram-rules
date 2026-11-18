@@ -241,11 +241,51 @@ def test_defaults_are_all_topics_and_ecosystems(tmp_path, ecosystems):
     assert worksheets(out / "ecosystem_summary.xlsx") == set(ECOSYSTEMS)
 
 
-@pytest.mark.parametrize("eco", ["legacy", "default"])
-def test_visualize_only_ecos_are_an_error(tmp_path, eco):
-    result = invoke(tmp_path, "--sum", "--ecos", f"gut,{eco}")
+def test_all_is_every_topic_and_ecosystem_sheet(tmp_path, ecosystems):
+    from dram_rules.cli import ECOSYSTEMS
+
+    out = run(tmp_path, "--sum", "--topics", "all,energy", "--ecos", "all,gut")
+    assert worksheets(out / "topic_summary.xlsx") == groups(*BUILT_IN)
+    assert worksheets(out / "ecosystem_summary.xlsx") == set(ECOSYSTEMS)
+
+
+def test_no_built_in_sheet_has_a_reserved_name():
+    from dram_rules.cli import ECOSYSTEMS, TOPICS, VISUALIZE_ONLY_ECOS
+
+    # all and none are split_choices' words; default and legacy name other sheets.
+    assert not {"all", "none", *VISUALIZE_ONLY_ECOS} & {*ECOSYSTEMS, *TOPICS}
+
+
+def test_summarize_skips_visualize_only_ecos_with_a_warning(
+    tmp_path, ecosystems, caplog
+):
+    with caplog.at_level("WARNING", logger="dram.rules"):
+        out = run(tmp_path, "--viz", "--sum", "--ecos", "gut,legacy")
+    assert sorted(p.name for p in (out.parent / "visualize").iterdir()) == [
+        "gut",
+        "legacy",
+    ]
+    assert worksheets(out / "ecosystem_summary.xlsx") == {"gut"}
+    [warning] = [r for r in caplog.records if r.name == "dram.rules"]
+    assert "legacy" in warning.getMessage()
+
+
+def test_summarize_skips_default_rather_than_reading_it_as_gut(tmp_path, caplog):
+    with caplog.at_level("WARNING", logger="dram.rules"):
+        out = run(tmp_path, "--sum", "--topics", "none", "--ecos", "default")
+    assert not out.exists()
+    [warning] = [r for r in caplog.records if r.name == "dram.rules"]
+    assert "default" in warning.getMessage()
+
+
+def test_viz_custom_sheets_sharing_a_name_are_an_error(tmp_path):
+    for folder in ("a", "b"):
+        (tmp_path / folder).mkdir()
+        write(tmp_path, f"{folder}/x.tsv", "name\tgroup\trule\nMcr\tG\tK00399\n")
+    sheets = f"{tmp_path / 'a/x.tsv'},{tmp_path / 'b/x.tsv'}"
+    result = invoke(tmp_path, *CUSTOM_ONLY, "--viz_custom", sheets)
     assert result.exit_code != 0
-    assert eco in result.output
+    assert "share a worksheet in custom_derived_summary: ['x']" in result.output
     assert not (tmp_path / "out").exists()
 
 
