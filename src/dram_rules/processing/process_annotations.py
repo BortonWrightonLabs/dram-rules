@@ -156,19 +156,24 @@ def load_sample_columns(
         "query_id",
         "genome",
         *(pl.col(c).cast(pl.Float64).alias(s) for c, s in zip(columns, samples)),
-    )
-    most_values_in_a_genome = (
+    ).filter(pl.any_horizontal(pl.col(samples).is_not_null()))
+    # Uniform also needs every gene of the genome mapped. Measured on 4M genes:
+    # one query over all rows, or `.n_unique()` without `.max()`, peaks 1.5 GB
+    # higher; reading the genome column again costs ~1 s.
+    genes_per_genome = genes.group_by("genome").len().collect()
+    per_genome = (
         wide.group_by("genome")
-        .agg(values=pl.max_horizontal(pl.col(samples).n_unique()))
-        .select(pl.col("values").max())
+        .agg(pl.len(), pl.col(samples).n_unique().max())
         .collect()
-        .item()
     )
-    if most_values_in_a_genome in (None, 1):
+    uniform = per_genome.join(genes_per_genome, on="genome").select(
+        (pl.col("len") == pl.col("len_right")).all()
+        & (pl.max_horizontal(samples) == 1).all()
+    )
+    if uniform.item():
         wide, key = wide.select("genome", *samples).unique("genome"), "genome"
     else:
         wide, key = wide.select("query_id", *samples), "query_id"
-    wide = wide.filter(pl.any_horizontal(pl.col(samples).is_not_null()))
     means, abundances = means_and_abundances(wide, key, samples)
     return means, abundances, samples
 
