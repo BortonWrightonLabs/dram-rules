@@ -1,5 +1,10 @@
 from __future__ import annotations
 
+# Standard library only: DRAM imports this module in containers without
+# dram-rules' dependencies (its column ordering keeps Sample Columns last).
+
+# Annotations columns headed `sample:<name>` hold one Sample's abundances.
+SAMPLE_COLUMN_PREFIX = "sample:"
 DEFAULT_LABEL_COLUMN = "name"
 BACKUP_LABEL_COLUMNS = ["label", "gene_id"]
 DEFAULT_ALIAS_COLUMN = "alias"
