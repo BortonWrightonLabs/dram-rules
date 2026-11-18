@@ -147,26 +147,28 @@ def load_sample_columns(
 
     Genome-level when every gene of each genome has the same abundances in
     every Sample, so a genome's tRNA rows still belong to its Samples;
-    otherwise gene-level. Rows with no abundance in any Sample are left out,
-    as genes or genomes missing from a mapping file are.
+    otherwise gene-level. An empty cell differs from a value, so a genome with
+    only some genes mapped is gene-level. Rows with no abundance in any Sample
+    are then left out, as genes or genomes missing from a mapping file are.
     """
     samples = [c.removeprefix(SAMPLE_COLUMN_PREFIX) for c in columns]
     wide = genes.select(
         "query_id",
         "genome",
         *(pl.col(c).cast(pl.Float64).alias(s) for c, s in zip(columns, samples)),
-    ).filter(pl.any_horizontal(pl.col(samples).is_not_null()))
-    per_genome = (
+    )
+    most_values_in_a_genome = (
         wide.group_by("genome")
-        .agg(pl.col(samples).n_unique().max())
-        .select(pl.max_horizontal(samples).max())
+        .agg(values=pl.max_horizontal(pl.col(samples).n_unique()))
+        .select(pl.col("values").max())
         .collect()
         .item()
     )
-    if per_genome in (None, 1):
+    if most_values_in_a_genome in (None, 1):
         wide, key = wide.select("genome", *samples).unique("genome"), "genome"
     else:
         wide, key = wide.select("query_id", *samples), "query_id"
+    wide = wide.filter(pl.any_horizontal(pl.col(samples).is_not_null()))
     means, abundances = means_and_abundances(wide, key, samples)
     return means, abundances, samples
 

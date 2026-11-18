@@ -69,10 +69,12 @@ class Hits:
             pl.col("genome").cast(pl.String)
         )
         # Sample Columns are abundances, never Gene IDs or rows rules read.
-        attached = sample_columns(names)
-        if attached and mapping is not None:
-            logger.warning(f"--mapping is used; ignoring the Sample Columns {attached}")
-        with_samples, genes = genes, genes.drop(attached)
+        sample_cols = sample_columns(names)
+        if sample_cols and mapping is not None:
+            logger.warning(
+                f"--mapping is used; ignoring the Sample Columns {sample_cols}"
+            )
+        genes_with_sample_cols, genes = genes, genes.drop(sample_cols)
 
         needed = set().union(*(s.needed_features for s in sheets))
         hits = prepare_present_map_df(
@@ -106,8 +108,10 @@ class Hits:
         if mapping is not None:
             pairs = genes.select("query_id", "genome").collect()
             means, abundances, samples = load_mapping(mapping, pairs)
-        elif attached:
-            means, abundances, samples = load_sample_columns(with_samples, attached)
+        elif sample_cols:
+            means, abundances, samples = load_sample_columns(
+                genes_with_sample_cols, sample_cols
+            )
         else:
             return cls(hits, rows, genes, genomes)
         key = means.columns[0]  # query_id or genome

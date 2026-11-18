@@ -28,6 +28,9 @@ bin1_1\t1.0\t2.0
 bin1_2\t3.0\t4.0
 bin2_1\t5.0\t6.0
 """
+GENOME_MAPPING = "genome\tS1\tS2\nbin1\t2\t0\nbin2\t5\t6\n"
+# Per gene, but at most one gene per genome: still gene abundances.
+SPARSE_MAPPING = "Geneid\tS1\nbin1_1\t3\nbin2_1\t5\n"
 
 
 def run(
@@ -125,7 +128,11 @@ def test_genome_mapping_drops_text_columns_and_counts_zeros_in_mean(tmp_path):
     assert value(genome, "mean_sample_abundance", name="Cyc2", genome="bin1") == 1.0
 
 
-GENOME_MAPPING = "genome\tS1\tS2\nbin1\t2\t0\nbin2\t5\t6\n"
+def folders(tmp_path: Path, *names: str) -> list[Path]:
+    """One new folder per name under `tmp_path`, for runs compared side by side."""
+    for name in names:
+        (tmp_path / name).mkdir()
+    return [tmp_path / name for name in names]
 
 
 def with_sample_columns(tmp_path: Path, annotations: str, mapping: str) -> str:
@@ -137,39 +144,35 @@ def with_sample_columns(tmp_path: Path, annotations: str, mapping: str) -> str:
 
 
 @pytest.mark.parametrize(
-    "mapping", [MAPPING, GENOME_MAPPING], ids=["per-gene", "per-genome"]
+    "mapping",
+    [MAPPING, GENOME_MAPPING, SPARSE_MAPPING],
+    ids=["per-gene", "per-genome", "per-gene-sparse"],
 )
 def test_sample_columns_stand_in_for_the_mapping_file(tmp_path, mapping):
-    given, attached = tmp_path / "given", tmp_path / "attached"
-    given.mkdir()
-    attached.mkdir()
+    given, as_columns = folders(tmp_path, "given", "as_columns")
     expected = run(given, mapping=mapping)
     annotations = with_sample_columns(tmp_path, ANNOTATIONS, mapping)
-    assert same_tables(run(attached, annotations=annotations, mapping=None), expected)
+    assert same_tables(run(as_columns, annotations=annotations, mapping=None), expected)
 
 
 def test_genome_sample_columns_keep_trna_rows_in_samples(tmp_path):
-    # Attached genome abundances repeat on each gene; read as gene-level they
+    # Genome abundances in Sample Columns repeat on each gene; read as gene-level they
     # would drop bin1's tRNA (no query_id in the annotations) from its Samples.
     (tmp_path / "trna.tsv").write_text(
         "input_fasta\tquery_id\tgene_id\nbin1\tbin1_contig1\tAla (AGC)\n"
     )
     rules = "name\tgroup\trule\nAla\tG1\t`Ala (AGC)`\n"
     trna = ("--trna_path", str(tmp_path / "trna.tsv"))
-    given, attached = tmp_path / "given", tmp_path / "attached"
-    given.mkdir()
-    attached.mkdir()
+    given, as_columns = folders(tmp_path, "given", "as_columns")
     expected = run(given, *trna, rules=rules, mapping=GENOME_MAPPING)
     assert value(read(expected, "sample"), "present", name="Ala", sample="S1") is True
     annotations = with_sample_columns(tmp_path, ANNOTATIONS, GENOME_MAPPING)
-    got = run(attached, *trna, rules=rules, annotations=annotations, mapping=None)
+    got = run(as_columns, *trna, rules=rules, annotations=annotations, mapping=None)
     assert same_tables(got, expected)
 
 
 def test_mapping_file_wins_over_sample_columns(tmp_path, caplog):
-    given, both = tmp_path / "given", tmp_path / "both"
-    given.mkdir()
-    both.mkdir()
+    given, both = folders(tmp_path, "given", "both")
     expected = run(given, mapping=MAPPING)
     annotations = with_sample_columns(tmp_path, ANNOTATIONS, GENOME_MAPPING)
     with caplog.at_level("WARNING", logger="dram.rules"):
@@ -179,7 +182,7 @@ def test_mapping_file_wins_over_sample_columns(tmp_path, caplog):
 
 
 def test_sample_columns_are_never_gene_ids(tmp_path):
-    # bin1's attached S1 abundance is written 2.0; a rule looking up `2.0`
+    # bin1's S1 abundance in its Sample Column is written 2.0; a rule looking up `2.0`
     # must not find it.
     rules = "name\tgroup\trule\nTwo\tG1\t`2.0`\n"
     annotations = with_sample_columns(tmp_path, ANNOTATIONS, GENOME_MAPPING)
