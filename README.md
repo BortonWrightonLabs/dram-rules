@@ -71,6 +71,12 @@ now pre-commit will run automatically on git commit, but you can run it manually
 pre-commit run --all-files
 ```
 
+PRs into `main` are squash merged, so the PR title is the commit title, and the `pr-title` check requires a [Conventional Commit](https://www.conventionalcommits.org/) one. The changelog is built from these commits by [git-cliff](https://git-cliff.org) (2.14.1+, `cliff.toml`):
+
+- `style:` is for formatting only and stays out of the changelog. A formatting commit with another type can be listed in `.git-blame-ignore-revs`, which git-cliff and `git blame` both skip.
+- `fix(internal):` is a fix users can't see (code, not rule results or the CLI). It goes under an Internal subheading. If a change could alter outputs, make it a plain `fix:`, and split mixed changes into separate PRs.
+- A fix for a bug that hasn't been released yet ends its message with a `Fixes: <sha>` trailer naming the commit that introduced it. The changelog leaves it out when that commit is in the same release, since users never saw the bug.
+
 ### Usage
 
 One command, `dram-rules`, runs any mix of three refinements on a DRAM annotations TSV. `dram_viz` and `python -m dram_rules` run the same command. The annotations are loaded once and shared by every refinement. Every rule sheet is checked before any refinement starts, so a mistake in a sheet stops the run before the slow work.
