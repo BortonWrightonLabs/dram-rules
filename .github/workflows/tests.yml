@@ -26,6 +26,9 @@ jobs:
   test:
 
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write  # pytest-coverage-comment
 
     steps:
       - uses: actions/checkout@v4
@@ -52,9 +55,6 @@ jobs:
       # passing through a different check than the one it targets, fails here.
       - name: Coverage of changed lines
         run: diff-cover coverage.xml --compare-branch=origin/main --fail-under=100
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
 
       - name: Pytest coverage comment
         uses: MishaKav/pytest-coverage-comment@main
