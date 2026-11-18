@@ -4,7 +4,7 @@ import logging
 
 import polars as pl
 
-from dram_rules.definitions import DEFAULT_FASTA_COLUMN
+from dram_rules.definitions import DEFAULT_FASTA_COLUMN, SAMPLE_COLUMN_PREFIX
 
 logger = logging.getLogger("dram.viz")
 
@@ -18,17 +18,11 @@ def scan_tsv(path, *, drop_empty_rows: bool = False, **kwargs) -> pl.LazyFrame:
     return lf.filter(~pl.all_horizontal(pl.all().is_null())) if drop_empty_rows else lf
 
 
-def load_mapping(
-    path, genes: pl.DataFrame
-) -> tuple[pl.DataFrame, pl.DataFrame, list[str]]:
-    """Read a mapping file of abundances per gene or per genome.
+def read_mapping(path) -> tuple[pl.LazyFrame, str, list[str]]:
+    """A mapping file's first column (names, as text) and its Sample columns.
 
-    Its first column holds gene names (`query_id`) or genome names; that
-    becomes the key column, named `query_id` or `genome`, of both outputs:
-    - means: key, mean_sample_abundance (over all samples, missing as 0)
-    - abundances: key, sample, sample_abundance; non-zero abundances only
-    Sample columns are every numeric column except MAPPING_META_COLUMNS.
-    `genes` is the annotations' (query_id, genome) pairs.
+    Returns the wide table, the first column's name and the Samples: every
+    numeric column except MAPPING_META_COLUMNS, as Float64, in file order.
     """
     # Types come from the first rows only, which picks the sample columns
     # fast; every sample column is then read as Float64, so a decimal after
@@ -43,37 +37,145 @@ def load_mapping(
         infer_schema_length=10_000,
         schema_overrides={first: pl.String, **{c: pl.Float64 for c in samples}},
     ).select(first, *samples)
-    means, abundances = pl.collect_all(
-        [
-            wide.select(
-                first,
-                mean_sample_abundance=pl.mean_horizontal(pl.col(samples).fill_null(0)),
-            ),
-            wide.unpivot(
-                index=first,
-                variable_name="sample",
-                value_name="sample_abundance",
-            ).filter(pl.col("sample_abundance").fill_null(0) != 0),
-        ],
-        engine="streaming",
-    )
+    return wide, first, samples
 
-    names = means[first]
+
+def mapping_key(names: pl.Series, genes: pl.DataFrame) -> str:
+    """ "query_id" when every mapping name is a gene, else "genome" when every
+    one is a genome. `genes` is the annotations' (query_id, genome) pairs.
+    Raises ValueError for repeated names or names matching neither."""
     if names.is_duplicated().any():
         raise ValueError(
-            f"Mapping file has repeated names in its first column '{first}'"
+            f"Mapping file has repeated names in its first column '{names.name}'"
         )
     if names.is_in(genes["query_id"].implode()).all():
-        key = "query_id"
         if genes.unique()["query_id"].is_duplicated().any():
             raise ValueError("A query_id in the annotations belongs to several genomes")
-    elif names.is_in(genes["genome"].implode()).all():
-        key = "genome"
-    else:
-        raise ValueError(
-            "First Column in Mapping file can't be mapped to raw annotation file either to query_id column (gene level) or input_fasta (fasta file name, stand in for genome)"
-        )
+        return "query_id"
+    if names.is_in(genes["genome"].implode()).all():
+        return "genome"
+    raise ValueError(
+        "First Column in Mapping file can't be mapped to raw annotation file either to query_id column (gene level) or input_fasta (fasta file name, stand in for genome)"
+    )
+
+
+def join_mapping(
+    annotations: pl.DataFrame,
+    path,
+    gene_column: str = "query_id",
+    genome_column: str = DEFAULT_FASTA_COLUMN,
+) -> pl.DataFrame:
+    """The annotations unchanged, with a mapping file's Samples joined on as
+    Sample Columns (`sample:<name>`, in file order) after every other column.
+
+    The mapping joins on `gene_column` or `genome_column`, as `load_mapping`
+    decides; rows the mapping lacks get nulls. Raises ValueError as
+    `mapping_key` does, or when a Sample Column is already in the annotations.
+    """
+    wide, first, samples = read_mapping(path)
+    wide = wide.collect()
+    genes = annotations.select(
+        query_id=pl.col(gene_column).cast(pl.String),
+        genome=pl.col(genome_column).cast(pl.String),
+    )
+    key = {"query_id": gene_column, "genome": genome_column}[
+        mapping_key(wide[first], genes)
+    ]
+    columns = {s: SAMPLE_COLUMN_PREFIX + s for s in samples}
+    if clash := [c for c in columns.values() if c in annotations.columns]:
+        raise ValueError(f"The annotations already have Sample Columns {clash}")
+    wide = wide.rename({first: key, **columns}).with_columns(
+        pl.col(key).cast(annotations.schema[key])
+    )
+    return annotations.join(wide, on=key, how="left", maintain_order="left")
+
+
+def load_mapping(
+    path, genes: pl.DataFrame
+) -> tuple[pl.DataFrame, pl.DataFrame, list[str]]:
+    """Read a mapping file of abundances per gene or per genome.
+
+    Its first column holds gene names (`query_id`) or genome names; that
+    becomes the key column, named `query_id` or `genome`, of both outputs:
+    - means: key, mean_sample_abundance (over all samples, missing as 0)
+    - abundances: key, sample, sample_abundance; non-zero abundances only
+    Sample columns are every numeric column except MAPPING_META_COLUMNS.
+    `genes` is the annotations' (query_id, genome) pairs.
+    """
+    wide, first, samples = read_mapping(path)
+    means, abundances = means_and_abundances(wide, first, samples)
+    key = mapping_key(means[first], genes)
     return means.rename({first: key}), abundances.rename({first: key}), samples
+
+
+def means_and_abundances(
+    wide: pl.LazyFrame, key: str, samples: list[str]
+) -> tuple[pl.DataFrame, pl.DataFrame]:
+    """`load_mapping`'s means and abundances from a wide table of `key` and
+    one column per Sample."""
+    return tuple(
+        pl.collect_all(
+            [
+                wide.select(
+                    key,
+                    mean_sample_abundance=pl.mean_horizontal(
+                        pl.col(samples).fill_null(0)
+                    ),
+                ),
+                wide.unpivot(
+                    index=key,
+                    on=samples,
+                    variable_name="sample",
+                    value_name="sample_abundance",
+                ).filter(pl.col("sample_abundance").fill_null(0) != 0),
+            ],
+            engine="streaming",
+        )
+    )
+
+
+def sample_columns(names: list[str]) -> list[str]:
+    """The Sample Columns among annotation column `names`."""
+    return [c for c in names if c.startswith(SAMPLE_COLUMN_PREFIX)]
+
+
+def load_sample_columns(
+    genes: pl.LazyFrame, columns: list[str]
+) -> tuple[pl.DataFrame, pl.DataFrame, list[str]]:
+    """`load_mapping`'s outputs from annotations carrying Sample `columns`
+    (genome column already named `genome`).
+
+    Genome-level when every gene of each genome has the same abundances in
+    every Sample, so a genome's tRNA rows still belong to its Samples;
+    otherwise gene-level. An empty cell differs from a value, so a genome with
+    only some genes mapped is gene-level. Rows with no abundance in any Sample
+    are then left out, as genes or genomes missing from a mapping file are.
+    """
+    samples = [c.removeprefix(SAMPLE_COLUMN_PREFIX) for c in columns]
+    wide = genes.select(
+        "query_id",
+        "genome",
+        *(pl.col(c).cast(pl.Float64).alias(s) for c, s in zip(columns, samples)),
+    ).filter(pl.any_horizontal(pl.col(samples).is_not_null()))
+    # Uniform also needs every gene of the genome mapped. Measured on 4M genes:
+    # one query over all rows, or `.n_unique()` without `.max()`, peaks 1.5 GB
+    # higher; reading the genome column again costs ~1 s.
+    genes_per_genome = genes.group_by("genome").len().collect()
+    per_genome = (
+        wide.group_by("genome")
+        .agg(pl.len(), pl.col(samples).n_unique().max())
+        .collect()
+    )
+    uniform = per_genome.join(genes_per_genome, on="genome").select(
+        (pl.col("len") == pl.col("len_right")).all()
+        & (pl.max_horizontal(samples) == 1).all()
+    )
+    if uniform.item():
+        wide, key = wide.select("genome", *samples).unique("genome"), "genome"
+    else:
+        wide, key = wide.select("query_id", *samples), "query_id"
+    means, abundances = means_and_abundances(wide, key, samples)
+    return means, abundances, samples
 
 
 def build_taxonomy_df_pl(

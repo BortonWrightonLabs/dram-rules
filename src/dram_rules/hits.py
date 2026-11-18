@@ -11,7 +11,12 @@ from pathlib import Path
 import polars as pl
 
 from dram_rules.definitions import BACKUP_FASTA_COLUMNS, DEFAULT_FASTA_COLUMN
-from dram_rules.processing.process_annotations import load_mapping, scan_tsv
+from dram_rules.processing.process_annotations import (
+    load_mapping,
+    load_sample_columns,
+    sample_columns,
+    scan_tsv,
+)
 from dram_rules.rule_parser.rules import (
     ID_PARSERS,
     CompiledRules,
@@ -63,6 +68,13 @@ class Hits:
         genes = genes.rename({column: "genome"}).with_columns(
             pl.col("genome").cast(pl.String)
         )
+        # Sample Columns are abundances, never Gene IDs or rows rules read.
+        sample_cols = sample_columns(names)
+        if sample_cols and mapping is not None:
+            logger.warning(
+                f"--mapping is used; ignoring the Sample Columns {sample_cols}"
+            )
+        genes_with_sample_cols, genes = genes, genes.drop(sample_cols)
 
         needed = set().union(*(s.needed_features for s in sheets))
         hits = prepare_present_map_df(
@@ -93,11 +105,15 @@ class Hits:
             rows = pl.concat([genes, trna_rows], how="diagonal_relaxed")
         genomes = rows.select("genome").unique().sort("genome").collect()
         genomes = genomes["genome"].to_list()
-        if mapping is None:
+        if mapping is not None:
+            pairs = genes.select("query_id", "genome").collect()
+            means, abundances, samples = load_mapping(mapping, pairs)
+        elif sample_cols:
+            means, abundances, samples = load_sample_columns(
+                genes_with_sample_cols, sample_cols
+            )
+        else:
             return cls(hits, rows, genes, genomes)
-
-        pairs = genes.select("query_id", "genome").collect()
-        means, abundances, samples = load_mapping(mapping, pairs)
         key = means.columns[0]  # query_id or genome
         return cls(
             hits,

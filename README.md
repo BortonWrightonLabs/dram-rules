@@ -114,6 +114,8 @@ dram-rules --annotations <path/to/annotations.tsv> --output_dir <path/to/output/
 
 `--mapping`/`-m` adds abundances per sample to visualize and traits. Its first column holds gene names (matching the annotations' `query_id`) or genome names, and each numeric column after it is a sample. Summarize ignores the mapping file for now.
 
+Instead of a mapping file, the annotations can carry the abundances as Sample Columns: one column per sample, headed `sample:<name>` (DRAM writes them when given a mapping file; `join_mapping` in `dram_rules.processing.process_annotations` attaches one in Python). They are read as genome abundances when every gene of each genome has the same values, so a genome's tRNAs still count in its samples, and as gene abundances otherwise. Sample Columns are never searched for Gene IDs. When `--mapping` is given too, it is used and the Sample Columns are ignored, with a warning.
+
 Genomes are named by the annotations' `input_fasta` column, or else `fasta` or `sample`. `--fasta_column`/`-f` names another column.
 
 #### Outputs
