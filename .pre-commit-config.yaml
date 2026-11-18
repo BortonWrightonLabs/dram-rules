@@ -14,8 +14,11 @@ repos:
       - id: check-toml
       - id: check-json
       - id: detect-private-key
+      # The dbCAN table is an unedited dbCAN release (ADR 0004), so it is never rewritten.
       - id: end-of-file-fixer
+        exclude: ^src/dram_rules/data/definitions/dbcan\.fam-activities\.tsv$
       - id: trailing-whitespace
+        exclude: ^src/dram_rules/data/definitions/dbcan\.fam-activities\.tsv$
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.17.5
     hooks:

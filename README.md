@@ -89,9 +89,10 @@ dram-rules --annotations <path/to/annotations.tsv> --output_dir <path/to/output/
 
 #### Choosing Rule Sheets
 
-- `--ecos` picks built-in ecosystem sheets, comma separated, from `ag`, `aquatic`, `bgc`, `eng_sys` and `gut`. Visualize and summarize share it. When it is left out, visualize uses `default` (the gut sheet) and summarize uses all five. `legacy` (the older all-in-one sheet) and `default` are for visualize only.
+- `--ecos` picks built-in ecosystem sheets, comma separated: one per file in `src/dram_rules/data/ecosystems/` (`ag`, `aquatic`, `bgc`, `eng_sys` and `gut`). Visualize and summarize share it: visualize draws each sheet, and summarize [derives its summary](#derived-summarize-sheets) from the same sheet. When it is left out, visualize uses `default` (the gut sheet) and summarize uses all of them. `legacy` (the older all-in-one sheet) and `default` are for visualize only.
 - `--topics` picks built-in topic Summarize Sheets for summarize: `assim`, `cell`, `energy`, `env`, or `default` for all four (the default).
-- `--viz_custom`, `--traits_custom` and `--sum_custom` each add your own sheets, comma separated, to their refinement. They add to the built-in sheets rather than replace them. Pass `--ecos none` or `--topics none` to run only your own sheets.
+- `--viz_custom`, `--traits_custom` and `--sum_custom` each add your own sheets, comma separated, to their refinement. They add to the built-in sheets rather than replace them. Pass `--ecos none` or `--topics none` to run only your own sheets. With `--sum`, each `--viz_custom` sheet also gets a derived summary.
+- `--descriptions` adds your own [Description Tables](#derived-summarize-sheets), comma separated.
 - `--custom_label_column`/`-lc`, `--custom_alias_column`/`-acc` and `--custom_group_column`/`-gc` name the label, alias and Group columns of every custom sheet, when those columns aren't named as the [Rules File](#rules-file) section describes. Built-in sheets always use the usual names.
 - `--common_rules_tsv`/`-c` replaces the Common Alias Sheet (aliases every sheet can use), and `--functions` loads [your own rule functions](docs/custom_rule_functions.md).
 
@@ -103,7 +104,7 @@ dram-rules --annotations <path/to/annotations.tsv> --output_dir <path/to/output/
     --sum --topics cell,env --sum_custom <sheet1.tsv>,<sheet2.tsv> [--trna_path <trnas.tsv>]
 ```
 
-`--ecos gut` applies to both refinements here: visualize and summarize each use their gut sheet. `--trna_path` takes the tRNAscan output from DRAM annotate. Each tRNA becomes a gene of its genome for every refinement, so rules can name tRNAs (as `` `Ala (AGC)` ``) in any sheet. With a mapping file keyed by gene, tRNAs belong to no sample, because the mapping file doesn't name them; keyed by genome, they take their genome's abundance.
+`--ecos gut` applies to both refinements here: visualize draws the gut sheet and summarize derives its summary from it. `--trna_path` takes the tRNAscan output from DRAM annotate. Each tRNA becomes a gene of its genome for every refinement, so rules can name tRNAs (as `` `Ala (AGC)` ``) in any sheet. With a mapping file keyed by gene, tRNAs belong to no sample, because the mapping file doesn't name them; keyed by genome, they take their genome's abundance.
 
 `--mapping`/`-m` adds abundances per sample to visualize and traits. Its first column holds gene names (matching the annotations' `query_id`) or genome names, and each numeric column after it is a sample. Summarize ignores the mapping file for now.
 
@@ -116,7 +117,7 @@ Genomes are named by the annotations' `input_fasta` column, or else `fasta` or `
 <output_dir>/traits/              the same, for the built-in traits sheet
 <output_dir>/traits/default/      the built-in traits sheet, when --traits_custom is given
 <output_dir>/traits/<sheet>/      each --traits_custom sheet
-<output_dir>/summarize/           topic_summary, ecosystem_summary and custom_summary, each as .xlsx and .tsv
+<output_dir>/summarize/           topic_summary, ecosystem_summary, custom_summary and custom_derived_summary, each as .xlsx and .tsv
 ```
 
 `<sheet>` is the built-in name (such as `gut`, or `default` when `--ecos` is left out) or the custom file's name without `.tsv`. With a mapping file, visualize also writes the sample tables (`df_sample.tsv`, `df_vertical_sample.tsv`). `--save_needed_features` writes each visualize sheet's Gene IDs to `needed_features.txt` in its folder. A Summary Collection is only written when it has sheets.
@@ -182,7 +183,7 @@ The full rule language is described in [docs/rules_parser.md](docs/rules_parser.
 
 ### Summarize Sheets
 
-A Summarize Sheet is a rule sheet whose results are Gene Counts: for each genome, how many of its genes (annotation rows) the rule finds. A rule whose parts are on different genes counts 0. The built-in Summarize Sheets are in `src/dram_rules/data/summarize_sheets/`. They usually have a `gene_id` column and no `rule` column, so each Gene ID is its own rule, with its Group in `topic_ecosystem`:
+A Summarize Sheet is a rule sheet whose results are Gene Counts: for each genome, how many of its genes (annotation rows) the rule finds. A rule whose parts are on different genes counts 0. The built-in topic Summarize Sheets are in `src/dram_rules/data/summarize_sheets/`. They usually have a `gene_id` column and no `rule` column, so each Gene ID is its own rule, with its Group in `topic_ecosystem`:
 
 | gene_id | gene_description | module | header | subheader | topic_ecosystem |
 |---|---|---|---|---|---|
@@ -190,7 +191,23 @@ A Summarize Sheet is a rule sheet whose results are Gene Counts: for each genome
 
 Any rule sheet works as a Summarize Sheet, with its columns found as for any [rule sheet](#rules-file). Coverage settings in `rule_options` are an error, since coverage is only reported per genome. A rule name repeated within one sheet is an error in any sheet.
 
-The sheets of one Summary Collection (topic, ecosystem or custom) are written together as `<collection>.xlsx`, one worksheet per Group sorted by header, subheader, module and label, and `<collection>.tsv`. Each worksheet's columns are the label, then `gene_description`, `module`, `header` and `subheader` when present, then one Gene Count column per genome. The `.tsv` has the same columns plus the Group, as `topic_ecosystem`, and keeps the sheets' row order. Other sheet columns (`notes`, `rule`, `alias`, ...) are dropped. If the sheets of one Collection use different label columns, the Collection labels its rows with `name`.
+The sheets of one hand-written Summary Collection (topic or custom) are written together as `<collection>.xlsx`, one worksheet per Group sorted by header, subheader, module and label, and `<collection>.tsv`. Each worksheet's columns are the label, then `gene_description`, `module`, `header` and `subheader` when present, then one Gene Count column per genome. The `.tsv` has the same columns plus the Group, as `topic_ecosystem`, and keeps the sheets' row order. Other sheet columns (`notes`, `rule`, `alias`, ...) are dropped. If the sheets of one Collection use different label columns, the Collection labels its rows with `name`.
+
+#### Derived Summarize Sheets
+
+Ecosystem summaries have no hand-written sheet. Each run derives them from the visualize sheets (`--ecos` into `ecosystem_summary`, `--viz_custom` into `custom_derived_summary`), one worksheet per sheet, so the summary always lists the Gene IDs the heatmaps use. Each Gene ID any rule looks up (aliases expanded, negated ones included) is one row, in this order: by module, then Group, each in sheet order, then by where the Gene ID first appears.
+
+| gene_id | gene_description | rule | module | group | Gene Counts |
+|---|---|---|---|---|---|
+| As written in the sheet | See below | Every rule using it, joined with ` \| ` | Their modules | Their Groups | One column per genome: its genes annotated with the Gene ID |
+
+The `.tsv` also has the sheet's name, as `topic_ecosystem`.
+
+Descriptions come from the Description Tables. In order, each winning over the ones before: `dbcan.fam-activities.tsv` (an unedited dbCAN release, by CAZy family), the built-in topic Summarize Sheets (`gene_id` and `gene_description`; a `|`-joined `gene_id` describes each of its Gene IDs, and the first sheet wins where they disagree), and `gene_descriptions.tsv` (hand curated). The two tables are in `src/dram_rules/data/definitions/`. A Gene ID is looked up whole, regardless of case. A CAZy Family;EC Gene ID such as `GH18;EC:3.2.1.14` is described from the sheet instead, as `<module>; <group>; <name>` of each rule using it, but its family must be in a table. `--descriptions` adds your own tables, with `gene_id` and `description` columns; they win over the built-in ones.
+
+The built-in sheets are strict: a Gene ID or family without a description stops the run, listing every one, before anything is written. Your `--viz_custom` sheets are not: missing descriptions are left empty, with a warning.
+
+When you add a Gene ID to a built-in sheet, or add a sheet to `src/dram_rules/data/ecosystems/`, describe each new Gene ID in `gene_descriptions.tsv`. `test_every_built_in_gene_id_has_a_description` fails until you do, and lists what is missing. Taxa named in `tax(...)` are not Gene IDs and need no description.
 
 Rules can be defined across multiple lines if they are enclosed in double quotes (`"`), they do not have to be enclosed in quotes if contained on a single line. White space can be used for formatting.
 

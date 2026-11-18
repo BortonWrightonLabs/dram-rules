@@ -2533,7 +2533,7 @@ Carbon_Organic Trophic	C1 metabolisms (fixation and methane+methanol)	K28729	pyr
 Carbon_Organic Trophic	C1 metabolisms (fixation and methane+methanol)	K25220   	mtgB; glycine betaine---corrinoid protein Co-methyltransferase [EC:2.1.1.376]
 Carbon_Organic Trophic	C1 metabolisms (fixation and methane+methanol)	K25600	mtcB; L-carnitine---corrinoid protein Co-methyltransferase [EC:2.1.1.383]
 Carbon_Organic Trophic	C1 metabolisms (fixation and methane+methanol)	K25916	mtvB, mtoB; methoxylated aromatic compound---corrinoid protein Co-methyltransferase [EC:2.1.1.382]
-Carbon_Organic Trophic	C1 metabolisms (fixation and methane+methanol)	K26847  	"mtpB;	 proline betaine --- corrinoid protein Co-methyltransferase [EC:2.1.1.388]"
+Carbon_Organic Trophic	C1 metabolisms (fixation and methane+methanol)	K26847	"mtpB; proline betaine --- corrinoid protein Co-methyltransferase [EC:2.1.1.388]"
 Carbon_Organic Trophic	C1 metabolisms (fixation and methane+methanol)	K16955 	mtsB; methylated-thiol--corrinoid protein
 Carbon_Organic Trophic	C1 metabolisms (fixation and methane+methanol)	K25221	mtgA; [methyl-Co(III) glycine betaine-specific corrinoid protein]---tetrahydrofolate methyltransferase [EC:2.1.1.378]
 Carbon_Organic Trophic	C1 metabolisms (fixation and methane+methanol)	K26930 	mtqA; [methyl-Co(III) quaternary-amine-specific corrinoid protein]---tetrahydrofolate methyltransferase [EC:2.1.1.389]

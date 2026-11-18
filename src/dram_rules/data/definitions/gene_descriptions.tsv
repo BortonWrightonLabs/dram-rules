@@ -1,0 +1,489 @@
+gene_id	description
+EC:1.14.18.3	methane monooxygenase (particulate) [EC:1.14.18.3]
+EC:1.14.99.39	ammonia monooxygenase [EC:1.14.99.39]
+0000002	tetracycline-resistant ribosomal protection protein
+0010001	ATP-binding cassette (ABC) antibiotic efflux pump
+0010002	major facilitator superfamily (MFS) antibiotic efflux pump
+3000384	"AcrAB-TolC;tripartite RND efflux system that confers resistance to tetracycline, chloramphenicol, ampicillin, nalidixic acid, and rifampin  in Gram-negative bacteria"
+3000386	no longer needed
+3000410	sulfonamide resistant sul;antibiotic target replacement
+3000412	sulfonamide resistant sul;antibiotic target replacement
+3000413	sulfonamide resistant sul;antibiotic target replacement
+3000491	resistance-nodulation-cell division (RND) antibiotic efflux pump;antibiotic efflux
+3000503	no longer needed
+3000560	Erm-like 23S rRNA methyltransferase
+3000773	no longer needed
+3000788	no longer needed
+3000797	no longer needed
+3000815	ATP-binding cassette (ABC) antibiotic efflux pump;antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;antibiotic efflux
+3003032	no longer needed
+3003038	no longer needed
+3003841	antibiotic efflux regulatory protein;kdpDE;antibiotic efflux
+3004271	16S rRNA methyltransferase (G1405)
+3004272	16S rRNA methyltransferase (A1408)
+3004361	sulfonamide resistant sul;antibiotic target replacement
+GH177;EC:3.2.1.18	exo-_-sialidase (SiaHI; TF2207;BFO_1210)
+GH181;EC:3.2.1.18	exo-_-sialidase / neuraminidase (AmGH181; Amuc_1547; Am1757)
+K01118	FMN-dependent NADH-azoreductase [EC:1.7.1.17]
+K01347	IgA-specific serine endopeptidase [EC:3.4.21.72]
+K01387	microbial collagenase [EC:3.4.24.3]
+K01390	IgA-specific metalloendopeptidase [EC:3.4.24.13]
+K02650	type IV pilus assembly protein PilA
+K03219	type III secretion protein C
+K03222	type III secretion protein J
+K03224	ATP synthase in type III secretion protein N [EC:7.4.2.8]
+K03225	type III secretion protein Q
+K03230	type III secretion protein V
+K03532	"trimethylamine-N-oxide reductase (cytochrome c), cytochrome c-type subunit TorC"
+K04057	type III secretion protein P
+K06189	hemolysin (HlyC) family protein
+K07345	major type 1 subunit fimbrin (pilin)
+K07349	minor fimbrial subunit
+K07350	minor fimbrial subunit
+K07352	type 1 fimbrial protein
+K07812	trimethylamine-N-oxide reductase (cytochrome c) [EC:1.7.2.3]
+K07821	"trimethylamine-N-oxide reductase (cytochrome c), cytochrome c-type subunit TorY"
+K10678	nitroreductase [EC:1.-.-.-]
+K10679	nitroreductase / dihydropteridine reductase [EC:1.-.-.- 1.5.1.34]
+K10928	cholera enterotoxin subunit A [EC:2.4.2.36]
+K10929	cholera enterotoxin subunit B
+K10948	hemolysin
+K11005	hemolysin A
+K11014	cytolethal distending toxin subunit B
+K11028	vacuolating cytotoxin
+K11032	hemolysin II
+K11038	leukocidin/hemolysin toxin family protein
+K11139	hemolysin E
+K11904	type VI secretion system secreted protein VgrG
+K12678	autotransporter family porin
+K12679	outer membrane protein IcsA
+K12689	campylobacter adhesion protein
+K12790	intimin
+K13285	invasin B
+K13287	invasin D
+K13733	fibronectin-binding protein B
+K14194	serine-aspartate repeat-containing protein C/D/E
+K15344	secreted effector protein SseB
+K15345	secreted effector protein SseC
+K15346	secreted effector protein SseD
+K15721	pesticin/yersiniabactin receptor
+K16087	hemoglobin/transferrin/lactoferrin receptor protein
+K16883	heat-stable enterotoxin STa/STI
+K16884	heat-stable enterotoxin STb/STII
+K19231	fibronectin-binding autotransporter adhesin
+K19232	hyaluronate-binding autotransporter adhesin
+K19233	ECM component-binding autotransporter adhesin
+K19297	"subtilase cytotoxin, subunit A"
+K19298	"subtilase cytotoxin, subunit B"
+K20037	choline trimethylamine-lyase activating enzyme [EC:1.97.1.-]
+K20038	choline trimethylamine-lyase [EC:4.3.99.4]
+K21449	trimeric autotransporter adhesin
+K21579	betaine reductase complex component B subunit beta [EC:1.21.4.4]
+K22330	tyrosine decarboxylase [EC:4.1.1.25]
+K22443	carnitine monooxygenase subunit [EC:1.14.13.239]
+K23648	T3SS secreted effector ADP-ribosyltransferase EspJ
+K23651	T3SS secreted effector EspT
+K23652	T3SS secreted effector EspW
+K23653	T3SS effector EspM
+K23654	T3SS secreted effector NleE
+K23655	T3SS secreted effector NleC
+K23656	T3SS secreted effector NleD
+K23657	T3SS secreted effector NleB
+K23658	T3SS secreted effector NleF
+K26579	colibactin biosynthesis peptidase
+3000014	TEM beta-lactamase
+3000015	SHV beta-lactamase
+3000020	IMP beta-lactamase
+3000021	VIM beta-lactamase
+3000036	tetracycline inactivation enzyme
+3000043	VEB beta-lactamase
+3000056	PER beta-lactamase
+3000057	NDM beta-lactamase
+3000058	MIR beta-lactamase
+3000059	KPC beta-lactamase
+3000066	GES beta-lactamase
+3000067	FOX beta-lactamase
+3000068	DHA beta-lactamase
+3000069	CMY beta-lactamase
+3000073	ACC beta-lactamase
+3000083	MOX beta-lactamase
+3000091	CARB beta-lactamase
+3000114	no longer needed
+3000126	APH(3')
+3000127	APH(3'')
+3000320	macrolide esterase
+3000322	AAC(3)
+3000333	macrolide phosphotransferase (MPH)
+3000345	AAC(6')
+3002384	BEL beta-lactamase
+3002601	ANT(3'');antibiotic inactivation
+3002994	ROB beta-lactamase
+3002998	CblA beta-lactamase
+3003000	CfxA beta-lactamase
+3004192	CepA beta-lactamase
+3004275	ANT(3'')
+3004824	LAP beta-lactamase
+3007419	aminoglycoside bifunctional resistance protein
+3007696	OXA-1-like beta-lactamase
+3007697	OXA-10-like beta-lactamase
+3007704	OXA-2-like beta-lactamase
+3007721	OXA-48-like beta-lactamase
+3007723	OXA-5-like beta-lactamase
+3007735	OXA-9-like beta-lactamase
+K02405	RNA polymerase sigma factor FliA
+K00100	bdhAB; butanol dehydrogenase [EC:1.1.1.-]
+K00544	BHMT; betaine-homocysteine S-methyltransferase [EC:2.1.1.5]
+K07089	K07089; uncharacterized protein
+K08167	"smvA, qacA, lfrA; MFS transporter, DHA2 family, multidrug resistance protein"
+K11741	sugE; quaternary ammonium compound-resistance protein SugE
+K11811	arsH; arsenical resistance protein ArsH
+K19784	"chrR, NQR; chromate reductase, NAD(P)H dehydrogenase (quinone)"
+K21154	pssM; exopolysaccharide glucosyl ketal-pyruvate-transferase [EC:2.5.1.98]
+K21461	"icaD; poly-beta-1,6-N-acetyl-D-glucosamine synthesis protein"
+K25902	pssA; acidic exopolysaccharide biosynthesis protein PssA
+K25904	pssE; exopolysaccharide biosynthesis glucuronosyltransferase PssE
+K25906	pssS; exopolysaccharide biosynthesis glucosyltransferase PssS [EC:2.4.1.-]
+K01577	oxalyl-CoA decarboxylase [EC:4.1.1.8]
+K07749	formyl-CoA transferase [EC:2.8.3.16]
+AbcA_1	"abcA; anaerobic benzene carboxylase, subunit A (clade 1)"
+AbcA_2	"abcA; anaerobic benzene carboxylase, subunit A (clade 2)"
+AlkB	"alkB; alkane 1-monooxygenase (alkane hydroxylase), membrane-bound non-heme diiron"
+AlmA_GroupI	"almA; flavin-binding long-chain alkane monooxygenase, group I"
+AlmA_GroupIII	"almA; flavin-binding long-chain alkane monooxygenase, group III"
+AssA	"assA; alkylsuccinate synthase, alpha subunit (anaerobic alkane activation via fumarate addition)"
+BssA	"bssA; benzylsuccinate synthase, alpha subunit (anaerobic toluene activation)"
+CYP153	CYP153; alkane-oxidizing cytochrome P450 (alkane hydroxylase)
+CmdA	cmdA; molybdopterin-family ethylbenzene dehydrogenase-like alpha subunit (p-cymene dehydrogenase)
+DmpO	"dmpO; phenol/toluene 2-monooxygenase (NADH-dependent), oxygenase large subunit"
+EC:1.1.1.312	2-hydroxy-4-carboxymuconate semialdehyde hemiacetal dehydrogenase [EC:1.1.1.312]
+EC:1.1.7.11	4-hydroxybenzoyl-CoA reductase [EC.1.1.7.1]
+EC:1.13.11.1	"catechol 1,2-dioxygenase [EC:1.13.11.1]"
+EC:1.13.11.3	"protocatechuate 3,4-dioxygenase [EC:1.13.11.3]"
+EC:1.14.13.2	4-hydroxybenzoate 3-monooxygenase [EC:1.14.13.2]
+EC:1.3.1.108	caffeoyl-CoA reductase [EC:1.3.1.108]
+EC:3.1.1.24	3-oxoadipate enol-lactonase [EC:3.1.1.24]
+EC:3.7.1.4	phloretin hydrolase [EC:3.7.1.4]
+EC:4.1.1.44	4-carboxymuconolactone decarboxylase [EC:4.1.1.44]
+EC:5.3.3.4	muconolactone Delta-isomerase [EC:5.3.3.4]
+EC:5.5.1.1	muconate cycloisomerase [EC:5.5.1.1]
+EC:5.5.1.2	"3-carboxy-cis,cis-muconate cycloisomerase [EC:5.5.1.2]"
+EC:5.5.1.6	chalcone isomerase [EC:5.5.1.6]
+EC:6.2.1.25	benzoate---CoA ligase [EC:6.2.1.25]
+EC:6.2.1.27	4-hydroxybenzoate---CoA ligase [EC:6.2.1.27]
+EC:6.2.1.34	trans-feruloyl-CoA synthase [EC:6.2.1.34]
+EbdA	"ebdA; ethylbenzene dehydrogenase, alpha subunit (molybdopterin family)"
+K01031	"pcaI; 3-oxoadipate CoA-transferase, alpha subunit [EC:2.8.3.6]"
+K17051	"serB, clrB; selenate/chlorate reductase subunit beta [EC:1.97.1.9 1.97.1.1]"
+K17052	"serC, clrC; selenate/chlorate reductase subunit gamma [EC:1.97.1.9 1.97.1.1]"
+K26176	flr; flavone/flavonol reductase
+K26177	chi; chalcone isomerase
+K26178	fcr; flavanone/flavanol-cleaving reductase
+K27540	E2.3.1.315; succinyl-CoA:cyclohexane-1-carboxylate CoA transferase [EC:2.3.1.315]
+K27874	srdA; selenate reductase (quinol) subunit A [EC:1.97.1.14]
+K27875	srdB; selenate reductase (quinol) subunit B [EC:1.97.1.14]
+K27876	srdC; selenate reductase (quinol) subunit C [EC:1.97.1.14]
+LadA_alpha	"ladA; long-chain alkane monooxygenase LadA, alpha-type"
+LadA_beta	"ladA; long-chain alkane monooxygenase LadA, beta-type"
+LadB	ladB; long-chain alkane monooxygenase LadB
+MAH_alpha	"benzene/toluene/naphthalene (monoaromatic hydrocarbon) dioxygenase, alpha subunit"
+MAH_beta	"benzene/toluene/naphthalene (monoaromatic hydrocarbon) dioxygenase, beta subunit"
+NdoB	"ndoB/nahAc; naphthalene 1,2-dioxygenase, alpha (large) subunit"
+NdoC	"ndoC/nahAd; naphthalene 1,2-dioxygenase, beta (small) subunit"
+NmsA	"nmsA; naphthylmethylsuccinate synthase, alpha subunit (anaerobic 2-methylnaphthalene activation)"
+PrmA	"prmA; propane 2-monooxygenase, hydroxylase large subunit"
+PrmC	"prmC; propane 2-monooxygenase, hydroxylase small subunit"
+TmoA_BmoA	"tmoA/bmoA; toluene/benzene monooxygenase, hydroxylase alpha subunit"
+TmoB_BmoB	"tmoB/bmoB; toluene/benzene monooxygenase, subunit B"
+TmoE	"tmoE; toluene monooxygenase system, hydroxylase beta subunit (protein E)"
+TomA1	"tomA1; phenol/toluene 2-monooxygenase (NADH-dependent), component A1"
+TomA3	"tomA3; phenol/toluene 2-monooxygenase (NADH-dependent), component A3 (oxygenase alpha)"
+TomA4	"tomA4; phenol/toluene 2-monooxygenase (NADH-dependent), component A4"
+non_NdoB_type	"aromatic ring-hydroxylating dioxygenase alpha subunit, non-NdoB type (similar to benzene/toluene/naphthalene dioxygenase alpha)"
+pBmoA	"pBmoA; particulate (membrane-bound) butane/alkane monooxygenase, subunit A"
+pBmoB	"pBmoB; particulate (membrane-bound) butane/alkane monooxygenase, subunit B"
+pBmoC	"pBmoC; particulate (membrane-bound) butane/alkane monooxygenase, subunit C"
+sBmoX	"sBmoX; soluble butane/alkane monooxygenase, hydroxylase alpha subunit"
+sBmoY	"sBmoY; soluble butane/alkane monooxygenase, hydroxylase beta subunit"
+sBmoZ	"sBmoZ; soluble butane/alkane monooxygenase, hydroxylase gamma subunit"
+K22349	mnxG; manganese oxidase [EC:1.16.3.3]
+EC:1.1.1.41	isocitrate dehydrogenase (NAD+) [EC:1.1.1.41]
+EC:1.1.1.42	isocitrate dehydrogenase (NADP+) [EC:1.1.1.42]
+EC:1.2.7.3	2-oxoglutarate synthase [EC:1.2.7.3]
+EC:1.3.1.6	fumarate reductase (NADH) [EC:1.3.1.6]
+EC:2.3.3.8	ATP citrate synthase [EC:2.3.3.8]
+EC:4.1.3.34	citryl-CoA lyase [EC:4.1.3.34]
+EC:4.2.1.3	aconitate hydratase [EC:4.2.1.3]
+K00600	"glyA, SHMT; glycine hydroxymethyltransferase [EC:2.1.2.1]"
+K01752	"E4.3.1.17, sdaA, sdaB, tdcG; L-serine dehydratase [EC:4.3.1.17]"
+K10670	grdA; glycine/sarcosine/betaine reductase complex component A [EC:1.21.4.2 1.21.4.3 1.21.4.4]
+K00122	FDH; formate dehydrogenase [EC:1.17.1.9]
+K00126	fdsD; formate dehydrogenase subunit delta [EC:1.17.1.9]
+K00127	"fdoI, fdsG; formate dehydrogenase subunit gamma"
+K08348	"fdnG; formate dehydrogenase-N, alpha subunit [EC:1.17.5.3]"
+K08349	"fdnH; formate dehydrogenase-N, beta subunit"
+K08350	"fdnI; formate dehydrogenase-N, gamma subunit"
+K22338	"hylA; formate dehydrogenase (NAD+, ferredoxin) subunit A [EC:1.17.1.11]"
+K22339	"hylB; formate dehydrogenase (NAD+, ferredoxin) subunit B [EC:1.17.1.11]"
+K22340	"hylC; formate dehydrogenase (NAD+, ferredoxin) subunit C [EC:1.17.1.11]"
+K22341	"fdhF2; formate dehydrogenase (NAD+, ferredoxin) subunit [EC:1.17.1.11]"
+K22515	fdwB; formate dehydrogenase beta subunit [EC:1.17.1.9]
+K01428	ureC; urease subunit alpha [EC:3.5.1.5]
+K01429	ureB; urease subunit beta [EC:3.5.1.5]
+K01430	ureA; urease subunit gamma [EC:3.5.1.5]
+K01533	copB; P-type Cu2+ transporter [EC:7.2.2.9]
+K01534	zntA; Zn2+/Cd2+-exporting ATPase [EC:7.2.2.12 7.2.2.21]
+K03692	E2.4.1.213; glucosylglycerol-phosphate synthase [EC:2.4.1.213]
+K05978	stpA; glucosylglycerol 3-phosphatase [EC:3.1.3.69]
+K07026	E3.1.3.70; mannosyl-3-phosphoglycerate phosphatase [EC:3.1.3.70]
+K07798	"cusB, silB; membrane fusion protein, copper/silver efflux system"
+K11327	"nrsB; membrane fusion protein, cation efflux system"
+K11331	nrsC; cation efflux system protein involved in nickel and cobalt tolerance [EC:3.2.1.17]
+K15727	"czcB, cusB, cnrB; membrane fusion protein, heavy metal efflux system"
+K17686	"copA, ctpA, ATP7; P-type Cu+ transporter [EC:7.2.2.8]"
+K18818	mgs; mannosylglycerate synthase [EC:2.4.1.269]
+K19270	hxpA; mannitol-1-/sugar-/sorbitol-6-phosphatase [EC:3.1.3.22 3.1.3.23 3.1.3.50]
+K23254	silP; P-type Ag+ transporter [EC:7.2.2.15]
+EC:1.1.1.-	oxidoreductase acting on CH-OH group with NAD(P)+ as acceptor (unspecified) [EC:1.1.1.-]
+EC:1.1.1.298	3-hydroxypropionate dehydrogenase (NADP+) [EC:1.1.1.298]
+EC:1.1.1.35	3-hydroxyacyl-CoA dehydrogenase [EC:1.1.1.35]
+EC:1.1.1.37	"(S)-malate dehydrogenase (NAD+, oxaloacetate-forming) [EC:1.1.1.37]"
+EC:1.2.1.12	glyceraldehyde-3-phosphate dehydrogenase (phosphorylating) [EC:1.2.1.12]
+EC:1.2.1.13	glyceraldehyde-3-phosphate dehydrogenase (NADP+) (phosphorylating) [EC:1.2.1.13]
+EC:1.2.1.59	glyceraldehyde-3-phosphate dehydrogenase (NAD(P)+) (phosphorylating) [EC:1.2.1.59]
+EC:1.2.1.75	malonyl-CoA reductase (malonate semialdehyde-forming) [EC:1.2.1.75]
+EC:1.2.1.76	succinate-semialdehyde dehydrogenase (acylating) [EC:1.2.1.76]
+EC:1.2.7.1	pyruvate synthase (ferredoxin) [EC:1.2.7.1]
+EC:1.2.7.4	anaerobic carbon monoxide dehydrogenase [EC:1.2.7.4]
+EC:1.3.1.84	acrylyl-CoA reductase (NADPH) [EC:1.3.1.84]
+EC:1.3.5.1	succinate dehydrogenase [EC:1.3.5.1]
+EC:1.3.5.4	fumarate reductase (quinol) [EC:1.3.5.4]
+EC:1.5.1.20	methylenetetrahydrofolate reductase [NAD(P)H] [EC:1.5.1.20]
+EC:1.5.1.5	methylenetetrahydrofolate dehydrogenase (NADP+) [EC:1.5.1.5]
+EC:1.7.2.2	nitrite reductase (cytochrome; ammonia-forming) [EC:1.7.2.2]
+EC:1.7.2.7	hydrazine synthase [EC:1.7.2.7]
+EC:1.7.2.8	hydrazine dehydrogenase [EC:1.7.2.8]
+EC:2.1.1.245	5-methyltetrahydrosarcinapterin---corrinoid/iron-sulfur protein Co-methyltransferase [EC:2.1.1.245]
+EC:2.1.1.258	5-methyltetrahydrofolate---corrinoid/iron-sulfur protein Co-methyltransferase [EC:2.1.1.258]
+EC:2.2.1.1	transketolase [EC:2.2.1.1]
+EC:2.3.1.169	CO-methylating acetyl-CoA synthase [EC:2.3.1.169]
+EC:2.3.1.9	acetyl-CoA C-acetyltransferase [EC:2.3.1.9]
+EC:2.7.1.19	phosphoribulokinase [EC:2.7.1.19]
+EC:2.7.2.3	phosphoglycerate kinase [EC:2.7.2.3]
+EC:2.7.9.2	"pyruvate, water dikinase [EC:2.7.9.2]"
+EC:3.1.3.11	fructose-bisphosphatase [EC:3.1.3.11]
+EC:3.1.3.37	sedoheptulose-bisphosphatase [EC:3.1.3.37]
+EC:3.5.4.9	methenyltetrahydrofolate cyclohydrolase [EC:3.5.4.9]
+EC:4.1.1.31	phosphoenolpyruvate carboxylase [EC:4.1.1.31]
+EC:4.1.1.39	ribulose-bisphosphate carboxylase [EC:4.1.1.39]
+EC:4.1.2.13	fructose-bisphosphate aldolase [EC:4.1.2.13]
+EC:4.2.1.116	3-hydroxypropionyl-CoA dehydratase [EC:4.2.1.116]
+EC:4.2.1.120	4-hydroxybutanoyl-CoA dehydratase [EC:4.2.1.120]
+EC:4.2.1.17	enoyl-CoA hydratase [EC:4.2.1.17]
+EC:4.2.1.2	fumarate hydratase [EC:4.2.1.2]
+EC:5.1.99.1	methylmalonyl-CoA epimerase [EC:5.1.99.1]
+EC:5.3.1.6	ribose-5-phosphate isomerase [EC:5.3.1.6]
+EC:5.3.3.3	vinylacetyl-CoA Delta-isomerase [EC:5.3.3.3]
+EC:5.4.99.2	methylmalonyl-CoA mutase [EC:5.4.99.2]
+EC:6.2.1.36	3-hydroxypropionyl-CoA synthase [EC:6.2.1.36]
+EC:6.2.1.40	4-hydroxybutyrate---CoA ligase (AMP-forming) [EC:6.2.1.40]
+EC:6.2.1.5	succinate---CoA ligase (ADP-forming) [EC:6.2.1.5]
+EC:6.3.4.3	formate---tetrahydrofolate ligase [EC:6.3.4.3]
+EC:6.4.1.2	acetyl-CoA carboxylase [EC:6.4.1.2]
+EC:6.4.1.3	propionyl-CoA carboxylase [EC:6.4.1.3]
+K00386	sorB; sulfite dehydrogenase (cytochrome) subunit B [EC:1.8.2.1]
+K05301	sorA; sulfite dehydrogenase (cytochrome) subunit A [EC:1.8.2.1]
+K17229	fccB; sulfide dehydrogenase [flavocytochrome c] flavoprotein chain [EC:1.8.2.3]
+K17230	fccA; cytochrome subunit of sulfide dehydrogenase
+K21307	soeA; sulfite dehydrogenase (quinone) subunit SoeA [EC:1.8.5.6]
+K21308	soeB; sulfite dehydrogenase (quinone) subunit SoeB
+K21309	soeC; sulfite dehydrogenase (quinone) subunit SoeC
+dsrAo	"dsrA; dissimilatory sulfite reductase alpha subunit, oxidative (reverse rDsrA) type (DRAM2 HMM)"
+dsrBo	"dsrB; dissimilatory sulfite reductase beta subunit, oxidative (reverse rDsrB) type (DRAM2 HMM)"
+EC:1.12.98.2	"5,10-methenyltetrahydromethanopterin hydrogenase [EC:1.12.98.2]"
+EC:1.5.98.1	methylenetetrahydromethanopterin dehydrogenase [EC:1.5.98.1]
+EC:1.5.98.2	"5,10-methylenetetrahydromethanopterin reductase [EC:1.5.98.2]"
+EC:1.7.2.1	nitrite reductase (NO-forming) [EC:1.7.2.1]
+EC:1.7.2.4	nitrous-oxide reductase [EC:1.7.2.4]
+EC:1.7.2.5	nitric oxide reductase (cytochrome c) [EC:1.7.2.5]
+EC:1.9.6.1	nitrate reductase (cytochrome) [EC:1.9.6.1]
+EC:2.3.1.101	formylmethanofuran---tetrahydromethanopterin N-formyltransferase [EC:2.3.1.101]
+EC:3.5.4.27	methenyltetrahydromethanopterin cyclohydrolase [EC:3.5.4.27]
+FeFe_groupA	"[FeFe]-hydrogenase, group A (prototypical and electron-bifurcating; H2 production/uptake) (DRAM2 HMM)"
+FeFe_groupB	"[FeFe]-hydrogenase, group B (ancestral type; putatively fermentative H2 evolution) (DRAM2 HMM)"
+FeFe_groupC	"[FeFe]-hydrogenase, group C (putative sensory, with PAS domain) (DRAM2 HMM)"
+FeFe_groupE	"[FeFe]-hydrogenase, group E (DRAM2 HMM)"
+FeFe_groupF	"[FeFe]-hydrogenase, group F (DRAM2 HMM)"
+K00102	"LDHD, dld; D-lactate dehydrogenase (cytochrome) [EC:1.1.2.4]"
+K00129	ALDH3; aldehyde dehydrogenase (NAD(P)+) [EC:1.2.1.5]
+K00138	aldB; aldehyde dehydrogenase [EC:1.2.1.-]
+K00149	ALDH9A1; aldehyde dehydrogenase family 9 member A1 [EC:1.2.1.47 1.2.1.3]
+K00156	poxB; pyruvate dehydrogenase (quinone) [EC:1.2.5.1]
+K00248	"ACADS, bcd; butyryl-CoA dehydrogenase [EC:1.3.8.1]"
+K00932	tdcD; propionate kinase [EC:2.7.2.15]
+K01034	atoD; acetate CoA/acetoacetate CoA-transferase alpha subunit [EC:2.8.3.8 2.8.3.9]
+K01035	atoA; acetate CoA/acetoacetate CoA-transferase beta subunit [EC:2.8.3.8 2.8.3.9]
+K01604	mmdA; methylmalonyl-CoA decarboxylase subunit alpha [EC:7.2.4.3]
+K01621	"xfp, xpk; xylulose-5-phosphate/fructose-6-phosphate phosphoketolase [EC:4.1.2.9 4.1.2.22]"
+K01699	pduC; propanediol dehydratase large subunit [EC:4.2.1.28]
+K01908	"ACSS3, prpE; propionyl-CoA synthetase [EC:6.2.1.17]"
+K08353	phsB; thiosulfate reductase electron transport protein
+K08354	phsC; thiosulfate reductase cytochrome b subunit
+K08358	ttrB; tetrathionate reductase subunit B
+K08359	ttrC; tetrathionate reductase subunit C
+K11264	"scpB, mmcD; methylmalonyl-CoA decarboxylase [EC:4.1.1.-]"
+K13919	pduD; propanediol dehydratase medium subunit [EC:4.2.1.28]
+K13920	pduE; propanediol dehydratase small subunit [EC:4.2.1.28]
+K13922	pduP; propionaldehyde dehydrogenase [EC:1.2.1.87]
+K13923	pduL; phosphate propanoyltransferase [EC:2.3.1.222]
+K17219	sreA; sulfur reductase molybdopterin subunit
+K18426	ECHDC1; ethylmalonyl-CoA/methylmalonyl-CoA decarboxylase [EC:4.1.1.94 4.1.1.-]
+K19709	ydiF; acetate CoA-transferase [EC:2.8.3.8]
+K20143	acrC; acrylyl-CoA reductase (NADH) [EC:1.3.1.95]
+K20509	"madB, oadB, gcdB, mmdB; carboxybiotin decarboxylase [EC:7.2.4.1]"
+K20626	lcdA; lactoyl-CoA dehydratase subunit alpha [EC:4.2.1.54]
+K20627	lcdB; lactoyl-CoA dehydratase subunit beta [EC:4.2.1.54]
+K22214	scpC; propionyl-CoA:succinyl-CoA transferase [EC:2.8.3.27]
+K23351	"gcdC, mmdC; glutaconyl-CoA/methylmalonyl-CoA decarboxylase subunit gamma"
+K29125	"lldD, lctD; L-lactate dehydrogenase (quinone) [EC:1.1.5.15]"
+NiFe_group1	"[NiFe]-hydrogenase, group 1 (membrane-bound, respiratory H2 uptake) (DRAM2 HMM)"
+NiFe_group2	"[NiFe]-hydrogenase, group 2 (cytosolic H2 uptake and H2-sensing) (DRAM2 HMM)"
+NiFe_group3	"[NiFe]-hydrogenase, group 3 (bidirectional cytosolic; F420-, NAD(P)- or heterodisulfide-coupled) (DRAM2 HMM)"
+NiFe_group4	"[NiFe]-hydrogenase, group 4 (membrane-bound energy-converting, H2-evolving) (DRAM2 HMM)"
+PF00223	PsaA_PsaB; photosystem I P700 chlorophyll a apoprotein A1/A2 (PsaA/PsaB)
+dsrAr	"dsrA; dissimilatory sulfite reductase alpha subunit, reductive bacterial type [EC:1.8.1.22] (DRAM2 HMM)"
+dsrAr_arch	"dsrA; dissimilatory sulfite reductase alpha subunit, reductive archaeal type [EC:1.8.1.22]  (DRAM2 HMM)"
+dsrBr	"dsrB; dissimilatory sulfite reductase beta subunit, reductive bacterial type [EC:1.8.1.22] (DRAM2 HMM)"
+dsrBr_arch	"dsrB; dissimilatory sulfite reductase beta subunit, reductive archaeal type [EC:1.8.1.22] (DRAM2 HMM)"
+K00702	E2.4.1.20; cellobiose phosphorylase [EC:2.4.1.20]
+K00846	KHK; ketohexokinase [EC:2.7.1.3]
+K00884	NAGK; N-acetylglucosamine kinase [EC:2.7.1.59]
+K01192	"E3.2.1.25, MANBA, manB; beta-mannosidase [EC:3.2.1.25]"
+K01194	"TREH, treA, treF; alpha,alpha-trehalase [EC:3.2.1.28]"
+K01226	treC; trehalose-6-phosphate hydrolase [EC:3.2.1.93]
+K01229	LCT; lactase-phlorizin hydrolase [EC:3.2.1.108 3.2.1.62]
+K01804	araA; L-arabinose isomerase [EC:5.3.1.4]
+K01813	rhaA; L-rhamnose isomerase [EC:5.3.1.14]
+K13873	araA; L-arabinose 1-dehydrogenase [EC:1.1.1.376]
+K15920	"XYL4; xylan 1,4-beta-xylosidase [EC:3.2.1.37]"
+K18337	LRA1; L-rhamnose 1-dehydrogenase [EC:1.1.1.378 1.1.1.377 1.1.1.173]
+K19660	araDH; L-arabinose 1-dehydrogenase [NAD(P)+] [EC:1.1.1.376]
+K22248	"TP; alpha,alpha-trehalose phosphorylase (configuration-retaining) [EC:2.4.1.231]"
+K22934	"E3.2.1.28; alpha,alpha-trehalase [EC:3.2.1.28]"
+K27475	khk; ketohexokinase [EC:2.7.1.3]
+HgcA	hgcA; corrinoid protein required for mercury methylation (methylmercury formation)
+K00221	E4.99.1.2; alkylmercury lyase [EC:4.99.1.2]
+K00432	"gpx, btuE, bsaA; glutathione peroxidase [EC:1.11.1.9]"
+K00520	merA; mercuric reductase [EC:1.16.1.1]
+K03386	"PRDX2_4, ahpC; peroxiredoxin 2/4 [EC:1.11.1.24]"
+K05910	npr; NADH peroxidase [EC:1.11.1.1]
+K07755	AS3MT; arsenite methyltransferase [EC:2.1.1.137]
+K08355	aoxA; arsenite oxidase small subunit [EC:1.20.2.1 1.20.9.1]
+K08356	aoxB; arsenite oxidase large subunit [EC:1.20.2.1 1.20.9.1]
+K23995	xoxF; lanthanide-dependent methanol dehydrogenase [EC:1.1.2.10]
+K28467	arrB; arsenate reductase (donor) iron-sulfur subunit ArrB
+A01	A01; pepsin family (aspartic peptidases)
+C01	C01; papain family (cysteine peptidases)
+K00274	"MAO, aofH; monoamine oxidase [EC:1.4.3.4]"
+K00279	CKX; cytokinin dehydrogenase [EC:1.5.99.12]
+K00421	lccA; laccase [EC:1.10.3.2]
+K00466	iaaM; tryptophan 2-monooxygenase [EC:1.13.12.3]
+K00505	TYR; tyrosinase [EC:1.14.18.1]
+K01077	"ALP, phoA, phoB; alkaline phosphatase [EC:3.1.3.1]"
+K01130	"atsA, aslA; arylsulfatase [EC:3.1.6.1]"
+K01188	E3.2.1.21; beta-glucosidase [EC:3.2.1.21]
+K01198	"xynB; xylan 1,4-beta-xylosidase [EC:3.2.1.37]"
+K01207	nagZ; beta-N-acetylhexosaminidase [EC:3.2.1.52]
+K01225	"CBH1; cellulose 1,4-beta-cellobiosidase [EC:3.2.1.91]"
+K01255	"CARP, pepA; leucyl aminopeptidase [EC:3.4.11.1]"
+K01426	"E3.5.1.4, amiE; amidase [EC:3.5.1.4]"
+K01455	fmdA; formamidase [EC:3.5.1.49]
+K01501	E3.5.5.1; nitrilase [EC:3.5.5.1]
+K01505	E3.5.99.7; 1-aminocyclopropane-1-carboxylate deaminase [EC:3.5.99.7]
+K01593	"DDC, TDC; aromatic-L-amino-acid/L-tryptophan decarboxylase [EC:4.1.1.28 4.1.1.105]"
+K03119	tauD; taurine dioxygenase [EC:1.14.11.17]
+K03382	atzB; hydroxydechloroatrazine ethylaminohydrolase [EC:3.5.4.43]
+K04091	"ssuD, msuD; alkanesulfonate monooxygenase [EC:1.14.14.5 1.14.14.34]"
+K04103	ipdC; indolepyruvate decarboxylase [EC:4.1.1.74]
+K05349	bglX; beta-glucosidase [EC:3.2.1.21]
+K05350	bglB; beta-glucosidase [EC:3.2.1.21]
+K05394	atzA; atrazine chlorohydrolase [EC:3.8.1.8]
+K06137	pqqC; pyrroloquinoline-quinone synthase [EC:1.3.3.11]
+K06912	"tfdA; 2,4-dichlorophenoxyacetate dioxygenase [EC:1.14.11.83]"
+K08710	atzC; N-isopropylammelide isopropylaminohydrolase [EC:3.5.4.42]
+K10760	IPT; adenylate dimethylallyltransferase (cytokinin synthase) [EC:2.5.1.27 2.5.1.112]
+K19668	"CBH2, cbhA; cellulose 1,4-beta-cellobiosidase [EC:3.2.1.91]"
+K20992	pytH; pyrethroid hydrolase [EC:3.1.1.88]
+K21116	CYP112A; cytochrome P450 family 112 subfamily A
+K21117	CYP114; cytochrome P450 family 114
+K21118	CYP117A; cytochrome P450 family 117 subfamily A
+K21801	iaaH; indoleacetamide hydrolase [EC:3.5.1.-]
+K22268	"xylA; xylan 1,4-beta-xylosidase [EC:3.2.1.37]"
+K22871	tzs; adenylate dimethylallyltransferase [EC:2.5.1.27]
+K28939	"lap, lpqL; leucyl aminopeptidase [EC:3.4.11.1]"
+M09	M09; microbial collagenase family (metallopeptidases; e.g. Clostridium/Vibrio collagenases)
+M10	M10; matrix metallopeptidase / serralysin family (metallopeptidases)
+M12	M12; astacin/adamalysin family (metallopeptidases)
+S01	S01; chymotrypsin family (serine peptidases)
+S08	S08; subtilisin family (serine peptidases)
+CE19	Family created after Ndeh and coworkers [PMID=28329766] demonstrated the pectin methylesterase activity of BT1017 protein from Bacteroides thetaiotaomicron VPI-5482
+CE20	Created after (Murakami et al., Nat.Commun., 2021) [PMID= 34193873] who demonstrated the acetylestarerase activity on xyloglucan of XacXaeA protein in Xanthomonas citri pv. citri str. 306
+GH174	Created after (Liu et al., 2023) [DOI:10.1016/j.carbpol.2023.120591] who demonstrated the endo-1,3-fucanase activity of four homologuous proteins from Rubritalea marina, Spartobacteria bacterium, Wenyingzhuangia fucanilytica and Wenyingzhuangia sp. OF219.
+GH176	Created after Wang et al. 2022 [PMID=35627012] who demonstrated the isoamylase activity of the TGAM_1568 protein in Thermococcus gammatolerans EJ3.
+GH177	Created after Ishikura et al. 2003 [PMID=14614069] who demonstrated the sialidase activity of the SiaHI protein in Tannerella forsythia 92A2. All members of this family possess a N-terminal NAD+ domain.
+GH179	Created after Strazzulli et al. (2020) [PMID=31595646] who demonstrated the b-N-acetylglucosaminidase activity of the GH109_Pool2 protein from an uncultured archaeon in a metagenomic sample. Initially wrongly assigned to GH109 due to the shared N-terminal NAD+ domain.
+GH180	Reclassified as GH39 due to high similarity but missing proton donor (E in WNEP)
+GH181	Created after Shuoker et al. (2023) [PMID= 37005422] who demonstrated the exo-a-sialidase activity of the Amuc_1547 protein from Akkermansia muciniphila and solved its 3D structure.
+GH182	Created according to Al-Jourani et al. (2023) [PMID=37076525] who demonstrated the b-D-galactofuranosidase activity of the BACFIN_04787 protein from Bacteroides finegoldii DSM 17565.
+GH183	Created after Al-Jourani et al., 2023 [PMID=37076525] who demonstrated the a-1,5-D-arabinofuranosidase activity of several family members including from Mycobacterium tuberculosis.
+GH184	Created after Moroz et al., 2023 [PMID=37428847] who demonstrated the muramidase activity of several proteins including in Thermothielavioides terrestris NRRL 8126.
+GH187	Created after Shen et al. [PMID=37940306] who demonstrated the endo-a-1,3-L-fucanase activity of the Fun187A protein in Wenyingzhuangia aestuarii OF219, as well as its homolog in Algibacter sp. L3A6
+PL43	Family created after Wang et al. (2022) [PMID:36005536] who demonstrated the glucuronic lyase activity on Kj-fucoidan of FdlA from Flavobacteriaceae bacterium SA-0082.
+PL44	Family created after Zhou et al. [PMID=39174099] who demonstrated the poly-mannuronate preferred alginate lyase activity of Aly44A from Bacillus sp. FJAT-50079.
+Bac_rhodopsin	Bacteriorhodopsin
+K00184	dmsB; dimethyl sulfoxide reductase iron-sulfur subunit
+K00185	dmsC; Dimethyl sulfoxide reductase membrane subunit
+K04641	bop; Bacteriorhodopsin
+K07306	dmsA; anaerobic dimethyl sulfoxide reductase subunit A [EC.1.8.5.3]
+K07307	dmsB; anaerobic dimethyl sulfoxide reductase subunit B
+K07308	dmsC; anaerobic dimethyl sulfoxide reductase subunit C
+K08940	pscA; photosystem P840 reaction center large subunit
+K13040	"ttrS; two-component system, LuxR family, sensor histidine kinase TtrS [EC:2.7.13.3]"
+K13041	"ttrR; two-component system, LuxR family, response regulator TtrR"
+K16293	psrB; polysulfide reductase chain B
+K16294	psrC; polysulfide reductase chain C
+K16952	sor; sulfur oxygenase/reductase [EC:1.13.11.55]
+K16953	dddL; dimethylpropiothetin dethiomethylase [EC:4.4.1.3]
+K16964	ddhA; dimethylsulfide dehydrogenase subunit alpha [EC:1.8.2.4]
+K16967	dmoA; dimethyl-sulfide monooxygenase [EC:1.14.13.131]
+K17486	dmdA; dimethylsulfoniopropionate demethylase [EC:2.1.1.269]
+K18277	trimethylamine monooxygenase [EC:1.14.13.148]
+K20034	3-(methylthio)propionyl---CoA ligase [EC:6.2.1.44]
+K20035	3-(methylsulfanyl)propanoyl-CoA dehydrogenase [EC:1.3.99.41]
+K20036	dmdD; (methylthio)acryloyl-CoA hydratase [EC:4.2.1.155]
+K28067	dddP; dimethylpropiothetin dethiomethylase
+K28068	dddW; dimethylpropiothetin dethiomethylase
+K28069	dddY; dimethylpropiothetin dethiomethylase
+K28072	dddX;  DMSP (dimethylsulfoniopropionate) lyase
+K28073	dddD; DMSP lyase (dimethylsulfoniopropionate lyase)
+K28385	hdrA; heterodisulfide reductase-like enzyme system (type I) subunit A (EC:1.8.4.17)
+K28386	hdrB; heterodisulfide reductase-like enzyme system (type I) subunit B
+K28387	hdrC; heterodisulfide reductase-like enzyme system (type I) subunit C [EC:1.8.4.17]
+NXR_clade1	nitrite oxidoreductase (NXR) (DRAMdb HMM clade 1)
+NXR_clade2	nitrite oxidoreductase (NXR) (DRAMdb HMM clade 2)
+NXR_clade3	nitrite oxidoreductase (NXR) (DRAMdb HMM clade 3)
+NXR_clade4	nitrite oxidoreductase (NXR) (DRAMdb HMM clade 4)
+NXR_clade5	nitrite oxidoreductase (NXR) (DRAMdb HMM clade 5)
+NXR_clade6	nitrite oxidoreductase (NXR) (DRAMdb HMM clade 6)
+NXR_clade7	nitrite oxidoreductase (NXR) (DRAMdb HMM clade 7)
+PsaA_PsaB	Photosystem I PsaA/PsaB superfamily
+k00018	hprA; glycerate dehydrogenase [EC:1.1.1.29]
+k00093	methanol dehydrogenase [EC:1.1.1.244]
+k00830	alanine-glyoxylate transaminase / serine-glyoxylate transaminase / serine-pyruvate transaminase [EC:2.6.1.44 2.6.1.45 2.6.1.51]
+narG_clade1	nitrate reductase alpha chain (DRAMdb HMM clade 1)
+narG_clade2	nitrate reductase alpha chain (DRAMdb HMM clade 2)
+narG_clade3	nitrate reductase alpha chain (DRAMdb HMM clade 3)
+narG_clade4	nitrate reductase alpha chain (DRAMdb HMM clade 4)
+narG_clade5	nitrate reductase alpha chain (DRAMdb HMM clade 5)
+narG_clade6	nitrate reductase alpha chain (DRAMdb HMM clade 6)
+narG_clade7	nitrate reductase alpha chain (DRAMdb HMM clade 7)
+narG_clade8	nitrate reductase alpha chain (DRAMdb HMM clade 8)
