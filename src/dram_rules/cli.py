@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+from collections.abc import Iterable
 from pathlib import Path
 
 import click
@@ -40,26 +41,32 @@ def split_commas(ctx, param, value: str | None) -> list[Path]:
     return [Path(p) for p in value.split(",") if p] if value else []
 
 
-def split_choices(*choices: str):
-    """Click callback: a comma-separated list of `choices` ("" or "none" is an
-    empty list), or None when the option is not given."""
+def split_choices(*choices: str, every: Iterable[str]):
+    """Click callback: a comma-separated list of `choices`, where "all" is
+    each of `every` and "" or "none" is an empty list, repeats removed; or None
+    when the option is not given."""
 
     def callback(ctx, param, value: str | None) -> list[str] | None:
         if value is None:
             return None
-        choice = click.Choice([*choices, "none"])
+        choice = click.Choice([*choices, "all", "none"])
         values = [choice.convert(v, param, ctx) for v in value.split(",") if v]
-        return [v for v in values if v != "none"]
+        expanded = (n for v in values for n in (every if v == "all" else [v]))
+        return list(dict.fromkeys(n for n in expanded if n != "none"))
 
     return callback
+
+
+def check_unique(names: list[str], place: str) -> None:
+    """Two sheets with one of `names` would share `place`: an error."""
+    if shared := sorted({n for n in names if names.count(n) > 1}):
+        raise click.UsageError(f"Sheets would share {place}: {shared}")
 
 
 def sheet_folders(step_dir: Path, named) -> list[tuple[Path, Path]]:
     """`[(step_dir / name, sheet path)]` for each `(name, sheet path)`; two
     sheets sharing a folder are an error."""
-    names = [name for name, _ in named]
-    if shared := sorted({n for n in names if names.count(n) > 1}):
-        raise click.UsageError(f"Sheets would share a folder in {step_dir}: {shared}")
+    check_unique([name for name, _ in named], f"a folder in {step_dir}")
     return [(step_dir / name, path) for name, path in named]
 
 
@@ -132,11 +139,12 @@ def compile_sheets(
 )
 @click.option(
     "--ecos",
-    callback=split_choices(*ECOSYSTEMS, *VISUALIZE_ONLY_ECOS),
-    help='Built-in ecosystem sheets, comma separated; none or "" for none. '
-    "Visualize uses default (gut) and summarize all of them when omitted; "
-    "legacy and default are visualize-only. Summarize derives each sheet's "
-    "ecosystem_summary worksheet from it.",
+    callback=split_choices(*ECOSYSTEMS, *VISUALIZE_ONLY_ECOS, every=ECOSYSTEMS),
+    help=f"Ecosystem Sheets ({', '.join(ECOSYSTEMS)}), comma separated; all for "
+    'every one, none or "" for none. Visualize uses default (gut) and '
+    "summarize all when omitted; summarize skips legacy and default "
+    "(visualize-only) with a warning. Summarize derives each sheet's ecosystem_summary "
+    "worksheet from it.",
 )
 @click.option(
     "--visualize", "--viz", "-v", is_flag=True, help="Run the visualize refinement"
@@ -182,9 +190,10 @@ def compile_sheets(
 @click.option(
     "--topics",
     default="default",
-    callback=split_choices(*TOPICS, "default"),
-    help='Built-in topic Summarize Sheets, comma separated; none or "" for none. '
-    "default is all four.",
+    callback=split_choices(*TOPICS, "default", every=TOPICS),
+    help=f"Built-in topic Summarize Sheets ({', '.join(TOPICS)}), comma separated; "
+    'all for every one, none or "" for none. default (the default) is also '
+    "every one.",
 )
 @click.option(
     "--sum_custom",
@@ -299,9 +308,11 @@ def main(
         topics = list(TOPICS) if "default" in topics else topics
         sum_ecos = list(ECOSYSTEMS) if ecos is None else ecos
         if visualize_only := [e for e in sum_ecos if e in VISUALIZE_ONLY_ECOS]:
-            raise click.UsageError(
-                f"--ecos {visualize_only}: visualize only, not summarize"
-            )
+            logger.warning("Summarize skips visualize-only --ecos %s", visualize_only)
+            sum_ecos = [e for e in sum_ecos if e not in VISUALIZE_ONLY_ECOS]
+        check_unique(
+            [p.stem for p in viz_custom], "a worksheet in custom_derived_summary"
+        )
         collections = {
             "topic_summary": [
                 SUMMARIZE_SHEETS_DIR / f for t, f in TOPICS.items() if t in topics

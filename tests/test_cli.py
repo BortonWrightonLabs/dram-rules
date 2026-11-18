@@ -6,7 +6,7 @@ import polars as pl
 import pytest
 from click.testing import CliRunner
 
-from dram_rules.cli import TRAITS_SHEET, main
+from dram_rules.cli import ECOSYSTEMS, TRAITS_SHEET, main
 
 ANNOTATIONS = """\
 query_id\tinput_fasta\tkegg_id\tfegenie_id\theme_regulatory_motif_count
@@ -300,6 +300,11 @@ def test_ecos_choose_built_in_sheets(tmp_path):
     assert sorted(p.name for p in out.iterdir()) == ["ag", "default", "gut"]
     assert same_tables(out / "default", out / "gut")
     assert not same_tables(out / "ag", out / "gut")
+
+
+def test_ecos_all_is_every_ecosystem_sheet_once(tmp_path):
+    out = invoke_ok(tmp_path, "--ecos", "all,gut", empty_common=False)
+    assert sorted(p.name for p in out.iterdir()) == sorted(ECOSYSTEMS)
 
 
 def test_no_ecos_is_default_which_is_gut(tmp_path):
