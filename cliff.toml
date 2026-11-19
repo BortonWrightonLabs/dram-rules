@@ -70,7 +70,7 @@ commit_preprocessors = [
 commit_parsers = [
     { message = "^feat", group = "Features" },
     { message = "^fix", group = "Bug Fixes" },
-    # Older commits only; the PR title check doesn't allow it
+    # Changes to the built-in rule sheets
     { message = "^rules", group = "Rules" },
     { message = "^doc", group = "Documentation" },
     { message = "^perf", group = "Performance" },

@@ -73,6 +73,7 @@ pre-commit run --all-files
 
 PRs into `main` are squash merged, so the PR title is the commit title, and the `pr-title` check requires a [Conventional Commit](https://www.conventionalcommits.org/) one. The changelog is built from these commits by [git-cliff](https://git-cliff.org) (2.14.1+, `cliff.toml`):
 
+- `rules:` is for changes to the built-in rule sheets (`src/dram_rules/data/`), such as `rules: update antibiotic rules for gut`. They get their own Rules section.
 - `style:` is for formatting only and stays out of the changelog. A formatting commit with another type can be listed in `.git-blame-ignore-revs`, which git-cliff and `git blame` both skip.
 - `fix(internal):` is a fix users can't see (code, not rule results or the CLI). It goes under an Internal subheading. If a change could alter outputs, make it a plain `fix:`, and split mixed changes into separate PRs.
 - A fix for a bug that hasn't been released yet ends its message with a `Fixes: <sha>` trailer naming the commit that introduced it. The changelog leaves it out when that commit is in the same release, since users never saw the bug.
