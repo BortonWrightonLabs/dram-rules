@@ -31,12 +31,12 @@ jobs:
       pull-requests: write  # pytest-coverage-comment
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0  # diff-cover compares against origin/main
       - name: Set up Python
         # This is the version of the action for setting up Python, not the Python version.
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
           cache: 'pip'
