@@ -8,7 +8,7 @@ import pytest
 from click.testing import CliRunner
 
 from dram_rules import make_summarize
-from dram_rules.cli import COMMON_RULES, main
+from dram_rules.cli import main
 from dram_rules.hits import Hits
 
 # bin1 has two mcrA genes and a cyc2 gene; bin2 has one mcrA gene.
@@ -87,15 +87,15 @@ def counts(df: pl.DataFrame, label_col: str = "gene_id") -> dict:
 def summarize(tmp_path: Path, *sheets: str, trna: str | None = None) -> pl.DataFrame:
     """The `summarize` table of one Summary Collection of `sheets` (TSV text)."""
     common = write(tmp_path, "common.tsv", "name\talias\trule\n")
-    compiled = [
-        make_summarize.load_summarize_sheet(
+    compiled = {
+        f"s{i}": make_summarize.load_summarize_sheet(
             Path(write(tmp_path, f"s{i}.tsv", text)), Path(common), ()
         )
         for i, text in enumerate(sheets)
-    ]
+    }
     hits = Hits.load(
         Path(write(tmp_path, "anno.tsv", ANNOTATIONS)),
-        compiled,
+        list(compiled.values()),
         trna=Path(write(tmp_path, "trna.tsv", trna)) if trna else None,
     )
     return make_summarize.summarize({"c": compiled}, hits)["c"]
@@ -109,17 +109,25 @@ def test_custom_sheet_gene_counts(tmp_path):
     }
 
 
-def test_workbook_has_a_sorted_worksheet_per_group(tmp_path):
-    sheet = write(tmp_path, "a.tsv", SHEET)
-    out = run(tmp_path, *CUSTOM_ONLY, "--sum_custom", sheet)
+def test_workbook_has_a_sorted_worksheet_per_sheet(tmp_path):
+    # K99999's module sorts first, but its Group last.
+    a = write(tmp_path, "a.tsv", SHEET.replace("\tNone\tOther", "\tAnything\tOther"))
+    b = write(tmp_path, "b.tsv", "gene_id\ttopic_ecosystem\nK00399\tOther\n")
+    out = run(tmp_path, *CUSTOM_ONLY, "--sum_custom", f"{a},{b}")
     book = pl.read_excel(out / "custom_summary.xlsx", sheet_id=0)
-    assert list(book) == ["Energy", "Other"]
-    energy = book["Energy"]
-    # Only the summary columns: no `notes`, and the Group is the worksheet.
-    assert energy.columns == ["gene_id", "gene_description", "module", "bin1", "bin2"]
-    # Sorted by module (distill's order: header, subheader, module, label).
-    assert energy["gene_id"].to_list() == ["Cyc2_repCluster1", "K00399"]
-    assert energy.row(1) == ("K00399", "mcrA", "Methanogenesis", 2, 1)
+    assert list(book) == ["a", "b"]
+    # Only the summary columns, coarse to fine: no `notes`.
+    assert book["a"].columns == [
+        "gene_id", "gene_description", "topic_ecosystem", "module", "bin1", "bin2"
+    ]  # fmt: skip
+    # Sorted by Group, then distill's order: header, subheader, module, label.
+    assert book["a"]["gene_id"].to_list() == ["Cyc2_repCluster1", "K00399", "K99999"]
+    assert book["b"]["topic_ecosystem"].to_list() == ["Other"]
+    df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
+    assert df.columns == [*book["a"].columns[:4], "sheet", "bin1", "bin2"]
+    # The TSV keeps the sheets' row order.
+    assert df["gene_id"].to_list() == ["K00399", "Cyc2_repCluster1", "K99999", "K00399"]
+    assert df["sheet"].to_list() == ["a", "a", "a", "b"]
 
 
 def test_sheets_with_different_label_columns_use_name(tmp_path):
@@ -210,20 +218,9 @@ def worksheets(path: Path) -> set[str]:
     return set(pl.read_excel(path, sheet_id=0))
 
 
-def groups(*keys: str) -> set[str]:
-    """The Groups (topic_ecosystem values) of the built-in sheets `keys`."""
-    sheets = [
-        make_summarize.load_summarize_sheet(
-            make_summarize.SUMMARIZE_SHEETS_DIR / BUILT_IN[key], COMMON_RULES, ()
-        )
-        for key in keys
-    ]
-    return {g for s in sheets for g in s.df[s.group_col].drop_nulls()}
-
-
 def test_topics_and_ecos_write_their_own_collections(tmp_path, ecosystems):
     out = run(tmp_path, "--sum", "--topics", "energy,env", "--ecos", "gut")
-    assert worksheets(out / "topic_summary.xlsx") == groups("energy", "env")
+    assert worksheets(out / "topic_summary.xlsx") == {"energy", "env"}
     assert worksheets(out / "ecosystem_summary.xlsx") == {"gut"}
     df = pl.read_csv(out / "ecosystem_summary.tsv", separator="\t")
     assert counts(df)["K00399"] == {"bin1": 2, "bin2": 1}
@@ -236,8 +233,7 @@ def test_defaults_are_all_topics_and_ecosystems(tmp_path, ecosystems):
     from dram_rules.cli import ECOSYSTEMS
 
     out = run(tmp_path, "--sum")
-    topics = groups("assim", "cell", "energy", "env")
-    assert worksheets(out / "topic_summary.xlsx") == topics
+    assert worksheets(out / "topic_summary.xlsx") == set(BUILT_IN)
     assert worksheets(out / "ecosystem_summary.xlsx") == set(ECOSYSTEMS)
 
 
@@ -245,7 +241,7 @@ def test_all_is_every_topic_and_ecosystem_sheet(tmp_path, ecosystems):
     from dram_rules.cli import ECOSYSTEMS
 
     out = run(tmp_path, "--sum", "--topics", "all,energy", "--ecos", "all,gut")
-    assert worksheets(out / "topic_summary.xlsx") == groups(*BUILT_IN)
+    assert worksheets(out / "topic_summary.xlsx") == set(BUILT_IN)
     assert worksheets(out / "ecosystem_summary.xlsx") == set(ECOSYSTEMS)
 
 
@@ -278,14 +274,31 @@ def test_summarize_skips_default_rather_than_reading_it_as_gut(tmp_path, caplog)
     assert "default" in warning.getMessage()
 
 
-def test_viz_custom_sheets_sharing_a_name_are_an_error(tmp_path):
+@pytest.mark.parametrize(
+    "option, collection",
+    [("--viz_custom", "custom_derived_summary"), ("--sum_custom", "custom_summary")],
+)
+def test_custom_sheets_sharing_a_name_are_an_error(tmp_path, option, collection):
     for folder in ("a", "b"):
         (tmp_path / folder).mkdir()
         write(tmp_path, f"{folder}/x.tsv", "name\tgroup\trule\nMcr\tG\tK00399\n")
     sheets = f"{tmp_path / 'a/x.tsv'},{tmp_path / 'b/x.tsv'}"
-    result = invoke(tmp_path, *CUSTOM_ONLY, "--viz_custom", sheets)
+    result = invoke(tmp_path, *CUSTOM_ONLY, option, sheets)
     assert result.exit_code != 0
-    assert "share a worksheet in custom_derived_summary: ['x']" in result.output
+    assert f"{collection}: Sheetname 'x', with case ignored" in result.output
+    assert not (tmp_path / "out").exists()
+
+
+@pytest.mark.parametrize(
+    "option, collection",
+    [("--viz_custom", "custom_derived_summary"), ("--sum_custom", "custom_summary")],
+)
+def test_custom_sheet_names_excel_rejects_are_an_error(tmp_path, option, collection):
+    sheet = write(tmp_path, f"{'x' * 32}.tsv", "name\tgroup\trule\nMcr\tG\tK00399\n")
+    result = invoke(tmp_path, *CUSTOM_ONLY, option, sheet)
+    assert result.exit_code != 0
+    assert f"{collection}: Excel worksheet name" in result.output
+    assert "must be <= 31 chars" in result.output
     assert not (tmp_path / "out").exists()
 
 
@@ -325,7 +338,7 @@ def test_column_overrides_read_custom_sheets_not_built_in(tmp_path, ecosystems):
     )  # fmt: skip
     df = pl.read_csv(out / "custom_summary.tsv", separator="\t")
     assert counts(df, "my_label") == {"Mcr": {"bin1": 2, "bin2": 1}}
-    assert list(pl.read_excel(out / "custom_summary.xlsx", sheet_id=0)) == ["Energy"]
+    assert df["topic_ecosystem"].to_list() == ["Energy"]
     # The built-in sheet still uses the lookup (name, group).
     eco = pl.read_csv(out / "ecosystem_summary.tsv", separator="\t")
     assert counts(eco)["K00399"] == {"bin1": 2, "bin2": 1}

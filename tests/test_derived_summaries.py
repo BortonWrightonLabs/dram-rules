@@ -181,7 +181,7 @@ def test_not_strict_warns_once(tmp_path, tables, caplog):
         [df] = make_summarize.derive_collection({"a": compiled}, {}, strict=False)
     assert len(caplog.records) == 1
     assert "2 Gene IDs" in caplog.text
-    assert df["topic_ecosystem"].to_list() == ["a", "a"]
+    assert df["sheet"].to_list() == ["a", "a"]
 
 
 @pytest.fixture
@@ -208,11 +208,14 @@ def test_ecosystem_summary_has_a_worksheet_per_sheet(tmp_path, ecosystems):
     df = pl.read_csv(out / "summarize/ecosystem_summary.tsv", separator="\t")
     assert df.columns == [
         *make_summarize.DERIVED_COLUMNS,
-        "topic_ecosystem",
+        "sheet",
         "bin1",
         "bin2",
     ]
-    gut = df.filter(topic_ecosystem="gut")
+    # The derived columns follow every Collection's order.
+    derived = make_summarize.DERIVED_COLUMNS[1:]
+    assert derived == [c for c in make_summarize.COLUMN_ORDER if c in derived]
+    gut = df.filter(sheet="gut")
     counts = {r["gene_id"]: (r["bin1"], r["bin2"]) for r in gut.iter_rows(named=True)}
     assert counts == {
         "K00399": (2, 1),
@@ -253,7 +256,7 @@ def test_viz_custom_sheets_get_a_custom_derived_summary(tmp_path, ecosystems):
     ]
     df = pl.read_csv(out / "summarize/custom_derived_summary.tsv", separator="\t")
     # Not strict: K77777 has no description, and the run still succeeds.
-    assert df.select("gene_id", "gene_description", "topic_ecosystem").rows() == [
+    assert df.select("gene_id", "gene_description", "sheet").rows() == [
         ("K00399", "mcrA", "mine"),
         ("K77777", None, "mine"),
     ]
