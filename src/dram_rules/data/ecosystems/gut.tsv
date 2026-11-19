@@ -80,11 +80,11 @@ Macrolide efflux	@Macrolide-efflux		Host Interaction	Antibiotic Resistance
 Macrolide inactivation	@Macrolide-inactivation		Host Interaction	Antibiotic Resistance
 Macrolide alteration	@Macrolide-alteration		Host Interaction	Antibiotic Resistance
 Beta-lactam inactivation	@Beta-lactam-inactivation		Host Interaction	Antibiotic Resistance
-Sulfoamide target-replacement	@Sulfoamide-target-replacement		Host Interaction	Antibiotic Resistance
+Sulfonamide target-replacement	@Sulfonamide-target-replacement		Host Interaction	Antibiotic Resistance
 Aminoglycoside inactivation	@Aminoglycoside-inactivation		Host Interaction	Antibiotic Resistance
 Aminoglycoside alteration	@Aminoglycoside-alteration		Host Interaction	Antibiotic Resistance
-Aminoglycosde efflux	@Aminoglycosde-efflux		Host Interaction	Antibiotic Resistance
-Multidrug efflux	@MultidrugEfflux		Host Interaction	Antibiotic Resistance
+Aminoglycoside efflux	@Aminoglycoside-efflux		Host Interaction	Antibiotic Resistance
+Multi drug efflux	@Multi-drug-efflux		Host Interaction	Antibiotic Resistance
 Azo prodrug reduction	K01118		Host Interaction	Drug metabolism	Prodrug activation: azoreductase (K01118) reduces azo-bond prodrugs (sulfasalazine, balsalazide) to release active 5-aminosalicylic acid (5-ASA) in the colon. Primary enzymatic mechanism by which IBD prodrugs are activated by gut microbiota. Presence indicates capacity to convert prodrugs to their active forms, with implications for inter-individual variation in drug response.
 5-Fluorouracil reduction	K17722 & K17723		Host Interaction	Drug metabolism	Chemotherapy inactivation: co-occurrence of cytosine deaminase (K17722) and uracil phosphoribosyltransferase (K17723) encodes the 5-fluorouracil (5-FU) inactivation pathway. Gut microbes expressing these enzymes can degrade 5-FU to inactive catabolites, potentially reducing drug efficacy. Relevant to colorectal cancer chemotherapy outcomes where microbiome composition affects 5-FU bioavailability.
 Nitroreduction potential	K10678 | K10679		Host Interaction	Drug metabolism	Nitro drug reduction: nitroreductase type I (K10678) or type II (K10679) reduces nitro groups in prodrugs such as metronidazole, nitrofurantoin, and tinidazole. Reductive activation converts these prodrugs to toxic intermediates that damage DNA. Paradoxically, acquired resistance in Helicobacter pylori and Bacteroides involves loss or mutation of these reductases — flagging presence indicates susceptibility to nitro-drug activation.

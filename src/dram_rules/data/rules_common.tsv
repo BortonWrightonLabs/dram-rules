@@ -365,15 +365,16 @@
 	EctoineTransport	at_least(2, [K02028, K02029, K02030])
 	SugarDerivedTransport	at_least(2, [K10227, K10228, K10229, K10230]) | at_least(2, [K02783, K02781, K02782]) | K02798 | at_least(2, [K10109, K10110, K10111]) | K17314
 
-	Tetracycline-inactivation	3000036
-	Tetracycline-efflux	0010002 | 0010001
-	Tetracycline-protection	0000002
-	Macrolide-efflux	0010002
-	Macrolide-inactivation	3000320 | 3000333
-	Macrolide-alteration	3000560
-	Beta-lactam-inactivation	3000059|3000056|3000069|3000066|3000020|3000057|3000021|3007721|3002998|3004192|3003000|3000068|3000067|3000058|3000043|3000073|3002384|3000014|3004824|3000083|3007696|3007697|3007704|3002994|3000015|3000091|3007723|3007735
-	Sulfoamide-target-replacement	3000410 | 3000412 | 3000413 | 3004361
-	Aminoglycoside-inactivation	3007419 | 3000114 | 3000322 | 3000345 | 3004275 | 3000126 | 3000127 | 3002601
-	Aminoglycoside-alteration	3004271 | 3004272
-	Aminoglycosde-efflux	3000491 | 3003841
-	MultidrugEfflux	3003038 | 3003032 | 3000386 | 3000384 | 3000503 | 3000773 | 3000788 | 3000797 | 3000815
+	Tetracycline-inactivation	K18221 | `tetracycline inactivation enzyme`
+	Tetracycline-efflux	[3000183  |  3000182  |  3000181  |  3000179  |  3000178  |  3000177  |  3000175  |  3000174  |  3000173  |  3000168  |  3000167  |   3000166  |  3000165  |  3007838  |  3007494  |  3007493  |  3007492  |  3004441  |  3005006  |  3003196  |  3000573  |  3000572  |  3000569  |  3000567  |  3000566  |  3000565  |  3000478  |  3000476  |  3000561  |  3002893  |  3002892]  |  [3003981 & 3003980]  |  [3004036 & 3004035]  |  [3004033 & 3004032] 
+	Tetracycline-protection	3000195  | 3007124 | 3000194 | 3000193 | 3000192 | 3000191 | 3007123 | 3007122 | 3007121 | 3007120 | 3007119 | 3000190 | 3000186 | 3004576 | 3000556 | 3000197 | 3000196 
+	Beta-lactam-inactivation	`KPC beta-lactamase` | `PER beta-lactamase` | `CMY beta-lactamase` | `GES beta-lactamase` | `IMP beta-lactamase` | `NDM beta-lactamase` | `VIM beta-lactamase` | `OXA-48-like beta-lactamase` | `CblA beta-lactamase` | `CepA beta-lactamase` | `CfxA beta-lactamase` | `DHA beta-lactamase` | `FOX beta-lactamase` | `MIR beta-lactamase` | `VEB beta-lactamase` | `ACC beta-lactamase` | `BEL beta-lactamase` | `TEM beta-lactamase` | `LAP beta-lactamase` | `MOX beta-lactamase` | `OXA-1-like beta-lactamase` | `OXA-10-like beta-lactamase` | `OXA-2-like beta-lactamase` | `ROB beta-lactamase` | `SHV beta-lactamase` | `CARB beta-lactamase` | `OXA-5-like beta-lactamase` | `OXA-9-like beta-lactamase` | `CTX-M beta-lactamase` | `OXY beta-lactamase` | `EC beta-lactamase` | 3004290 | 3000621 | 3008823
+	Multi-drug-efflux	[3003034 & 3003033 & 3003039]  |  [3003034 & 3003033 & 3000379]  |  [3000377 & 3000378 & 3000379]  |  3000384  |  [3000499 & 3000502 & 3000237]  |  [3000783 & 3000784 & 3000785]  |  [3000795 & 3000796 & 3000237]  |  [3000800 & 3000801 & 3000802]  |  3000815 | `major facilitator superfamily (MFS) antibiotic efflux pump` | `resistance-nodulation-cell division (RND) antibiotic efflux pump`| `small multidrug resistance (SMR) antibiotic efflux pump`
+	Aminoglycoside-inactivation	`aminoglycoside bifunctional resistance protein` | `APH(3')` | `APH(3'')` | `APH(2'')` | `APH(6)` | `APH(9)` | `APH(7'')` | `APH(4)` | `AAC(3)` | `AAC(6')` | `ANT(3'')` | `ANT(9)` | 3002601
+	Aminoglycoside-alteration	`16S rRNA methyltransferase (G1405)`|  `16S rRNA methyltransferase (A1408)`
+	Aminoglycoside-efflux	3000491  |  3003841
+	Sulfonamide-target-replacement	3000410  |  3000412  |  3000413  |  3004361
+	Macrolide-efflux	3003107  |  3005089  |  3000614  |  3007044  |  3007047  |  3007049
+	Macrolide-inactivation	3000361  |  3002826  |  3000363  |  3004608  |  3007459  |  3000316  |  3000318  |  3000319  |  3003741  |  3003071  |  3003742  |  3004539  |  3003991  |  3004544  |  3004541  |  3003072  |  3003767  |  3004542  |  3004543  |  3003839
+	Macrolide-alteration	3001265  |  3000598  |  3004592  |  3000599  |  3000600  |  3000604  |  3000605  |  3000392  |  3000601  |  3000602  |  3004606  |  3000603  |  3003106  |  3003205  |  3003971  |  3004595  |  3004596  |  3003908  |  3004094  |  3004626  |  3007032  |  3007033  |  3007041  |  3009647  |  3007654  |  3000347  |  3000375  |  3000250  |  3000495  |  3000326  |  3000498  |  3000522  |  3002823  |  3004643  |  3000592  |  3004652  |  3001303  |  3000593  |  3000594  |  3001304  |  3000595  |  3001305  |  3002824  |  3001306  |  3000596  |  3002825  |  3004605
+	Macrolide-protection	3000251  |  3002818  |  3002819  |  3003109  |  3005087  |  3007042  |  3005088
