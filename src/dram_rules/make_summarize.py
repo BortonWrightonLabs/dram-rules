@@ -1,7 +1,6 @@
 """The summarize refinement: Gene Counts per genome for Summarize Sheets, written as
-Summary Collections (one workbook, plus a TSV). Hand-written sheets have a
-worksheet per Group; Derived Summarize Sheets, built from rule sheets and the
-Description Tables (ADR 0004), a worksheet per source sheet.
+Summary Collections (one workbook with a worksheet per sheet, plus a TSV). Derived
+Summarize Sheets are built from rule sheets and the Description Tables (ADR 0004).
 
 Ported from DRAM2's `bin/distill.py` (ADR 0002: dram-rules is standalone)."""
 
@@ -24,14 +23,28 @@ from dram_rules.rule_parser.rules import (
 
 logger = logging.getLogger("dram.rules")
 
-# Sheet columns a Summary Collection keeps, after the label and before the Gene Counts.
+# Sheet columns a hand-written Summary Collection keeps, besides the label and Group.
 SUMMARY_COLUMNS = ["gene_description", "module", "header", "subheader"]
-# A Collection's Group column (the worksheet names); distill's name for it.
+# A hand-written Collection's Group column; distill's name for it.
 GROUP_COLUMN = "topic_ecosystem"
-SORT_COLUMNS = ["header", "subheader", "module"]  # then the label, as distill sorts
+# Every Collection's columns after the label, those present in this order, coarse
+# to fine: a topic sheet's Group holds its modules, a rule sheet's module its Groups.
+COLUMN_ORDER = [
+    "gene_description",
+    "rule",
+    GROUP_COLUMN,
+    "module",
+    "group",
+    "header",
+    "subheader",
+]
+# A Collection table's worksheet names: the sheet each row comes from.
+SHEET_COLUMN = "sheet"
+# Hand-written worksheets' sort; then the label, as distill sorts.
+SORT_COLUMNS = [GROUP_COLUMN, "header", "subheader", "module"]
 
-# A Derived Summarize Sheet's columns before the Gene Counts; `module` and
-# `group` come from the rule sheet's module and Group columns.
+# A Derived Summarize Sheet's columns before the Gene Counts, in COLUMN_ORDER;
+# `module` and `group` come from the rule sheet's module and Group columns.
 DERIVED_COLUMNS = ["gene_id", "gene_description", "rule", "module", "group"]
 # Joins a derived row's several rules, modules, Groups or descriptions; rule
 # names contain commas.
@@ -194,13 +207,13 @@ def derive_collection(
     sheets: dict[str, CompiledRules], descriptions: dict[str, str], strict: bool
 ) -> list[pl.DataFrame]:
     """The Derived Summarize Sheet of each rule sheet in `sheets` (by
-    worksheet name), its name in GROUP_COLUMN. A Gene ID or family without
+    worksheet name), its name in SHEET_COLUMN. A Gene ID or family without
     a description raises a RuleError listing them all by sheet when `strict`,
     and is otherwise left undescribed with one warning."""
     frames, missing = [], {}
     for name, compiled in sheets.items():
         df, lacking = derive_sheet(compiled, descriptions)
-        frames.append(df.with_columns(pl.lit(name).alias(GROUP_COLUMN)))
+        frames.append(df.with_columns(pl.lit(name).alias(SHEET_COLUMN)))
         if lacking:
             missing[name] = lacking
     if missing and strict:
@@ -236,7 +249,7 @@ def count_derived(frames: list[pl.DataFrame], hits: Hits) -> pl.DataFrame | None
     )
     return df.select(
         *DERIVED_COLUMNS,
-        GROUP_COLUMN,
+        SHEET_COLUMN,
         *(
             pl.col(g).fill_null(0) if g in counts.columns else pl.lit(0).alias(g)
             for g in hits.genomes
@@ -244,9 +257,12 @@ def count_derived(frames: list[pl.DataFrame], hits: Hits) -> pl.DataFrame | None
     )
 
 
-def summarize_sheet(compiled: CompiledRules, hits: Hits) -> pl.DataFrame | None:
-    """One row per rule, in sheet order: the label, the Group (as GROUP_COLUMN),
-    the SUMMARY_COLUMNS the sheet has, then one Gene Count column per genome.
+def summarize_sheet(
+    compiled: CompiledRules, hits: Hits, name: str
+) -> pl.DataFrame | None:
+    """One row per rule, in sheet order: the label, the Group (as GROUP_COLUMN)
+    and the SUMMARY_COLUMNS the sheet has in COLUMN_ORDER, `name` (as
+    SHEET_COLUMN), then one Gene Count column per genome.
     Rules left out by `include_when` are absent; None if no rule is left."""
     label, group = compiled.label_col, compiled.group_col
     dfs = hits.evaluate(compiled, "gene")
@@ -255,26 +271,34 @@ def summarize_sheet(compiled: CompiledRules, hits: Hits) -> pl.DataFrame | None:
     counts = pl.concat(dfs.values()).pivot(
         on="genome", index=label, values="gene_count"
     )
+    kept = {
+        GROUP_COLUMN: pl.col(group),
+        **{c: pl.col(c) for c in SUMMARY_COLUMNS if c in compiled.df.columns},
+    }
     return (
         compiled.df.drop_nulls(label)
         .select(
             label,
-            pl.col(group).alias(GROUP_COLUMN),
-            *(c for c in SUMMARY_COLUMNS if c in compiled.df.columns),
+            *(kept[c].alias(c) for c in COLUMN_ORDER if c in kept),
+            pl.lit(name).alias(SHEET_COLUMN),
         )
         .join(counts, on=label, how="inner", maintain_order="left")
     )
 
 
 def summarize(
-    collections: dict[str, list[CompiledRules]], hits: Hits
+    collections: dict[str, dict[str, CompiledRules]], hits: Hits
 ) -> dict[str, pl.DataFrame | None]:
     """Each Summary Collection's table: the `summarize_sheet` rows of its
-    sheets, one sheet after another. The label column keeps the sheets' name,
+    sheets (by worksheet name), one sheet after another. The label column keeps the sheets' name,
     or is `name` when they disagree. None when no rule is left."""
     tables = {}
     for name, sheets in collections.items():
-        frames = [df for c in sheets if (df := summarize_sheet(c, hits)) is not None]
+        frames = [
+            df
+            for n, c in sheets.items()
+            if (df := summarize_sheet(c, hits, n)) is not None
+        ]
         if len({df.columns[0] for df in frames}) > 1:
             frames = [df.rename({df.columns[0]: "name"}) for df in frames]
         tables[name] = pl.concat(frames, how="diagonal_relaxed") if frames else None
@@ -285,7 +309,7 @@ def write_collection(
     df: pl.DataFrame | None, name: str, out_dir: Path, sort: bool = True
 ) -> None:
     """Write a Summary Collection's table as `<name>.xlsx`, a worksheet per
-    GROUP_COLUMN value (sorted as distill sorts unless not `sort`), and
+    SHEET_COLUMN value (sorted by SORT_COLUMNS and the label unless not `sort`), and
     `<name>.tsv`. Nothing is written for None."""
     if df is None:
         return
@@ -294,8 +318,8 @@ def write_collection(
     df.write_csv(out_dir / f"{name}.tsv", separator="\t")
     order = [c for c in SORT_COLUMNS if c in df.columns] + [label] if sort else []
     with Workbook(out_dir / f"{name}.xlsx") as wb:
-        for (group,), frame in df.group_by(GROUP_COLUMN, maintain_order=True):
-            (frame.sort(order) if order else frame).drop(GROUP_COLUMN).write_excel(
-                workbook=wb, worksheet=group, autofit=True
+        for (sheet,), frame in df.group_by(SHEET_COLUMN, maintain_order=True):
+            (frame.sort(order) if order else frame).drop(SHEET_COLUMN).write_excel(
+                workbook=wb, worksheet=sheet, autofit=True
             )
     logger.info(f"Saved {out_dir / name}.xlsx and .tsv")

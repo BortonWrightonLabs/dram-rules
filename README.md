@@ -196,11 +196,11 @@ A Summarize Sheet is a rule sheet whose results are Gene Counts: for each genome
 
 | gene_id | gene_description | module | header | subheader | topic_ecosystem |
 |---|---|---|---|---|---|
-| The label, and the rule when there is no `rule` column | Optional | Optional | Optional | Optional | The Group: one worksheet each |
+| The label, and the rule when there is no `rule` column | Optional | Optional | Optional | Optional | The Group |
 
 Any rule sheet works as a Summarize Sheet, with its columns found as for any [rule sheet](#rules-file). Coverage settings in `rule_options` are an error, since coverage is only reported per genome. A rule name repeated within one sheet is an error in any sheet.
 
-The sheets of one hand-written Summary Collection (topic or custom) are written together as `<collection>.xlsx`, one worksheet per Group sorted by header, subheader, module and label, and `<collection>.tsv`. Each worksheet's columns are the label, then `gene_description`, `module`, `header` and `subheader` when present, then one Gene Count column per genome. The `.tsv` has the same columns plus the Group, as `topic_ecosystem`, and keeps the sheets' row order. Other sheet columns (`notes`, `rule`, `alias`, ...) are dropped. If the sheets of one Collection use different label columns, the Collection labels its rows with `name`.
+The sheets of one hand-written Summary Collection (topic or custom) are written together as `<collection>.xlsx`, one worksheet per sheet sorted by Group, header, subheader, module and label, and `<collection>.tsv`. A worksheet is named after its sheet: the `--topics` name (`assim`, `cell`, `energy`, `env`) or the custom file's name without its extension. So with `--sum`, the names of the `--sum_custom` files, and of the `--viz_custom` files, must make valid Excel worksheet names: at most 31 characters, none of `[]:*?/\`, and unique regardless of case. The run checks them before doing anything else. Each worksheet's columns are the label, `gene_description`, the Group (as `topic_ecosystem`, whatever the sheet calls it), `module`, `header` and `subheader`, those the sheet has, then one Gene Count column per genome. Every Summary Collection, derived ones included, orders its columns this way: the label, `gene_description`, `rule`, `topic_ecosystem`, `module`, `group`, `header`, `subheader`, then the Gene Counts. The `.tsv` has the same columns plus the worksheet name, as `sheet`, and keeps the sheets' row order. Other sheet columns (`notes`, `rule`, `alias`, ...) are dropped. If the sheets of one Collection use different label columns, the Collection labels its rows with `name`.
 
 #### Derived Summarize Sheets
 
@@ -210,7 +210,7 @@ Ecosystem summaries have no hand-written sheet. Each run derives them from the v
 |---|---|---|---|---|---|
 | As written in the sheet | See below | Every rule using it, joined with ` \| ` | Their modules | Their Groups | One column per genome: its genes annotated with the Gene ID |
 
-The `.tsv` also has the sheet's name, as `topic_ecosystem`.
+The `.tsv` also has the worksheet name, as `sheet`.
 
 Descriptions come from the Description Tables. In order, each winning over the ones before: `dbcan.fam-activities.tsv` (an unedited dbCAN release, by CAZy family), the built-in topic Summarize Sheets (`gene_id` and `gene_description`; a `|`-joined `gene_id` describes each of its Gene IDs, and the first sheet wins where they disagree), and `gene_descriptions.tsv` (hand curated). The two tables are in `src/dram_rules/data/definitions/`. A Gene ID is looked up whole, regardless of case. A CAZy Family;EC Gene ID such as `GH18;EC:3.2.1.14` is described from the sheet instead, as `<module>; <group>; <name>` of each rule using it, but its family must be in a table. `--descriptions` adds your own tables, with `gene_id` and `description` columns; they win over the built-in ones.
 

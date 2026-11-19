@@ -4,9 +4,12 @@ from __future__ import annotations
 
 import logging
 from collections.abc import Iterable
+from io import BytesIO
 from pathlib import Path
 
 import click
+from xlsxwriter import Workbook
+from xlsxwriter.exceptions import DuplicateWorksheetName, InvalidWorksheetName
 
 from dram_rules import make_summarize
 from dram_rules.definitions import BACKUP_FASTA_COLUMNS, DEFAULT_FASTA_COLUMN
@@ -61,6 +64,18 @@ def check_unique(names: list[str], place: str) -> None:
     """Two sheets with one of `names` would share `place`: an error."""
     if shared := sorted({n for n in names if names.count(n) > 1}):
         raise click.UsageError(f"Sheets would share {place}: {shared}")
+
+
+def check_worksheets(names: list[str], collection: str) -> None:
+    """`names` that can't all be worksheets of one workbook (too long, a
+    character Excel forbids, or shared regardless of case): an error naming
+    `collection`. xlsxwriter checks them, so its rules aren't copied here."""
+    try:
+        with Workbook(BytesIO()) as wb:
+            for name in names:
+                wb.add_worksheet(name)
+    except (DuplicateWorksheetName, InvalidWorksheetName) as e:
+        raise click.UsageError(f"{collection}: {e}") from e
 
 
 def sheet_folders(step_dir: Path, named) -> list[tuple[Path, Path]]:
@@ -310,17 +325,17 @@ def main(
         if visualize_only := [e for e in sum_ecos if e in VISUALIZE_ONLY_ECOS]:
             logger.warning("Summarize skips visualize-only --ecos %s", visualize_only)
             sum_ecos = [e for e in sum_ecos if e not in VISUALIZE_ONLY_ECOS]
-        check_unique(
-            [p.stem for p in viz_custom], "a worksheet in custom_derived_summary"
-        )
+        check_worksheets([p.stem for p in viz_custom], "custom_derived_summary")
+        check_worksheets([p.stem for p in sum_custom], "custom_summary")
+        # Each Collection's sheets by worksheet name.
         collections = {
-            "topic_summary": [
-                SUMMARIZE_SHEETS_DIR / f for t, f in TOPICS.items() if t in topics
-            ],
-            "custom_summary": sum_custom,
+            "topic_summary": {
+                t: SUMMARIZE_SHEETS_DIR / f for t, f in TOPICS.items() if t in topics
+            },
+            "custom_summary": {p.stem: p for p in sum_custom},
         }
         sheets = compile_sheets(
-            dict.fromkeys(p for paths in collections.values() for p in paths),
+            dict.fromkeys(p for named in collections.values() for p in named.values()),
             load_summarize_sheet,
             common_rules_tsv,
             function_files,
@@ -372,7 +387,10 @@ def main(
         if mapping:
             logger.info("Summarize ignores --mapping for now")
         summaries = make_summarize.summarize(
-            {name: [sheets[p] for p in paths] for name, paths in collections.items()},
+            {
+                name: {n: sheets[p] for n, p in named.items()}
+                for name, named in collections.items()
+            },
             hits,
         )
         derived_summaries = {
